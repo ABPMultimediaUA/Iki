@@ -1,2 +1,2 @@
-# Puzzleath
-[ABP16] Juego de puzzles y sigilo que hace uso de la perspectiva.
+# IKI
+[ABP16] Juego de sigilo y accion basado en los primeros Metal Gear
