@@ -1,0 +1,5 @@
+Personajes:
+	-Protagonista
+	-Enfermera
+	-Drone
+	-Vigilante

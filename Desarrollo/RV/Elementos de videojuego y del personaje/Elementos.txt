@@ -1,0 +1,12 @@
+Elementos entorno:
+	-Lata aceite
+	-Puerta
+	-Palanca accionadora
+	-Prensa hidráulica
+	-Cinta transportadora
+	Torreta
+
+
+Elementos personaje:
+	- Arma
+	- Tarjeta
