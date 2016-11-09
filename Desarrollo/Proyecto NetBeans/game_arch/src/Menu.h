@@ -5,44 +5,34 @@
  */
 
 /* 
- * File:   State.h
+ * File:   Menu.h
  * Author: Juan
  *
- * Created on 9 de noviembre de 2016, 19:16
+ * Created on 9 de noviembre de 2016, 21:15
  */
 
-#ifndef STATE_H
-#define STATE_H
+#ifndef MENU_H
+#define MENU_H
 
 #include <cstdlib>
 #include <iostream>
 using namespace std;
 
-#include "Singleton.h"
-#include "Menu.h"
-
-class State {
+class Menu {
 public:
-    State();
-    State(const State& orig);
-    virtual ~State();
-
-    //Singleton
-    static State* Instance();
+    Menu();
+    Menu(const Menu& orig);
+    virtual ~Menu();
     
     //Update & Render
     int update();
     void render();
     
 private:
-    //Singleton
-    static State* pinstance;
-    
     //Local variables
-    int istate;
-    Menu* menu;
+    int posX, posY;
 
 };
 
-#endif /* STATE_H */
+#endif /* MENU_H */
 
