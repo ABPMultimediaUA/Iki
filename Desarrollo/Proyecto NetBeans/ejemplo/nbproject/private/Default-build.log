@@ -1,0 +1,10 @@
+g++ -IC:\irrlicht-1.8.4/include -I/usr/X11R6/include  -O3 -ffast-math main.cpp -o ./ejemplo -LC:\irrlicht-1.8.4/lib/Linux -lIrrlicht -L/usr/X11R6/lib -lGL -lXxf86vm -lXext -lX11 -lXcursor
+/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lIrrlicht
+/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lGL
+/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lXxf86vm
+/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lXext
+/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lX11
+/usr/lib/gcc/x86_64-pc-cygwin/5.4.0/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lXcursor
+collect2: error: ld returned 1 exit status
+Makefile:51: recipe for target 'all_linux' failed
+make: *** [all_linux] Error 1

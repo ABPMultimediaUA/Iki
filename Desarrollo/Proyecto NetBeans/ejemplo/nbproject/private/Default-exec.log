@@ -1,0 +1,19 @@
+called: C:\cygwin64\bin\g++.exe
+	C:\Users\Juan\Documents\GitHub\Iki\Desarrollo\Proyecto NetBeans\ejemplo
+	C:\cygwin64\bin\g++.exe
+	-IC:\irrlicht-1.8.4/include
+	-I/usr/X11R6/include
+	-O3
+	-ffast-math
+	main.cpp
+	-o
+	./ejemplo
+	-LC:\irrlicht-1.8.4/lib/Linux
+	-lIrrlicht
+	-L/usr/X11R6/lib
+	-lGL
+	-lXxf86vm
+	-lXext
+	-lX11
+	-lXcursor
+
