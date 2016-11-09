@@ -15,6 +15,9 @@
 State* State::pinstance = 0;
 
 State::State() {
+    istate = 1;
+    
+    menu = new Menu();
 }
 
 State::State(const State& orig) {
@@ -37,32 +40,46 @@ State* State::Instance(){
 
 //Update
 int State::update(){
-    std::cin >> input;
-    
-    switch(input){
+        
+    switch(istate){
         case 0:
-            std::cout << "Closing" << std::endl;
-            break;
+            cout << "Closing" << endl;
+            return 0;
         case 1:
-            std::cout << "State changed to : " << input << std::endl;
+            istate = menu->update();
             break;
         case 2:
-            std::cout << "State changed to : " << input << std::endl;
+            //istate = ingame->update();
             break;
         case 3:
-            std::cout << "State changed to : " << input << std::endl;
+            //istate = cinematic->update();
             break;
         default:
-            std::cout << "Could not change state : " << input << std::endl;
+            cout << "Could not change state : " << istate << endl;
             break;
-            
     }
     
-    
-    return input;
+    return istate;
 }
 
 //Render
 void State::render(){
     
+    switch(istate){
+        /*case 0:
+            std::cout << "Closing" << std::endl;
+            return 0;*/
+        case 1:
+            //menu->render();
+            break;
+        case 2:
+            //ingame->render();
+            break;
+        case 3:
+            //cinematic->render();
+            break;
+        default:
+            //
+            break;
+    }  
 }
