@@ -7,13 +7,13 @@ Target := 01.HelloWorld
 # List of source files, separated by spaces
 Sources := main.cpp
 # Path to Irrlicht directory, should contain include/ and lib/
-IrrlichtHome := ../..
+IrrlichtHome := C:\irrlicht-1.8.4
 # Path for the executable. Note that Irrlicht.dll should usually also be there for win32 systems
-BinPath = ../../bin/$(SYSTEM)
+BinPath = C:\irrlicht-1.8.4/bin/Win32-gcc
 
 # general compiler settings (might need to be set when compiling the lib, too)
 # preprocessor flags, e.g. defines and include paths
-USERCPPFLAGS = 
+USERCPPFLAGS =
 # compiler flags such as optimization flags
 USERCXXFLAGS = -O3 -ffast-math
 #USERCXXFLAGS = -g -Wall
@@ -29,7 +29,7 @@ CXXFLAGS = $(USERCXXFLAGS)
 LDFLAGS = $(USERLDFLAGS)
 
 #default target is Linux
-all: all_linux
+all: all_win32
 
 # target specific settings
 all_linux all_win32 static_win32: LDFLAGS += -L$(IrrlichtHome)/lib/$(SYSTEM) -lIrrlicht
