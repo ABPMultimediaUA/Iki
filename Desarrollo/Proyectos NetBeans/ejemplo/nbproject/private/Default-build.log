@@ -1,0 +1,4 @@
+g++ -I<Especificar directorio de instalacion de Irrlicht>/include -I/usr/X11R6/include  -O3 -ffast-math main.cpp -o ./ejemplo -L<Especificar directorio de instalacion de Irrlicht>/lib/Linux -lIrrlicht -L/usr/X11R6/lib -lGL -lXxf86vm -lXext -lX11 -lXcursor
+/bin/sh: Especificar: No such file or directory
+Makefile:51: recipe for target 'all_linux' failed
+make: *** [all_linux] Error 1

@@ -8,7 +8,7 @@ Sources := main.cpp
 # Lista de ficheros de recursos, separados por espacios
 Resources := 
 # Ruta del directorio donde tenemos Irrlicht instalado (donde estan los directorios lib e include)
-IrrlichtHome := C:\irrlicht-1.8.4
+IrrlichtHome := C:\irrlicht-1.8.4#<Especificar directorio de instalacion de Irrlicht>
 # Ruta del ejecutable generado
 BinPath = .
 
@@ -30,7 +30,7 @@ CXXFLAGS = $(USERCXXFLAGS)
 LDFLAGS = $(USERLDFLAGS)
 
 # Linux es el target por defecto 
-all: all_linux
+all: all_win32
 
 # opciones especificas de cada target
 all_linux all_macos all_win32 static_win32: LDFLAGS += -L$(IrrlichtHome)/lib/$(SYSTEM) -lIrrlicht
