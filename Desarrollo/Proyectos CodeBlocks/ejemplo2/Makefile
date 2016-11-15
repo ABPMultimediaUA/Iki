@@ -1,39 +1,82 @@
-# Makefile for Irrlicht Examples
-# It's usually sufficient to change just the target name and source file list
-# and be sure that CXX is set to a valid compiler
-Target = 19.MouseAndJoystick
-Sources = main.cpp
+# Plantilla de Makefile para Irrlicht
+# Solo es necesario cambiar target, lista de fuentes, recursos y directorio de instalacion de Irrlicht
 
-# general compiler settings
-CPPFLAGS = -I../../include -I/usr/X11R6/include
-#CXXFLAGS = -O3 -ffast-math
-CXXFLAGS = -g -Wall
+# Nombre del ejecutable que va a ser generado
+Target := ejemplo
+# Lista de ficheros fuente, separados por espacios
+Sources := main.cpp
+# Lista de ficheros de recursos, separados por espacios
+Resources :=
+# Ruta del directorio donde tenemos Irrlicht instalado (donde estan los directorios lib e include)
+IrrlichtHome := C:\irrlicht-1.8.4
+# Ruta del ejecutable generado
+BinPath = .
+#C:\Users\mateobernal\Documents\GitHub\Puzzleath\Desarrollo\Proyectos CodeBlocks\ejemplo2\bin\win32
 
-#default target is Linux
-all: all_linux
+# opciones generales de compilacion (might need to be set when compiling the lib, too)
+# flash de preprocesamiento (defines y directorios de includes)
+USERCPPFLAGS =
+# flags de optimizacion
+USERCXXFLAGS = -O3 -ffast-math
+#USERCXXFLAGS = -g -Wall
+# flags de enlazado (librerias y rutas de librerias)
+USERLDFLAGS =
+
+####
+# No es necesario hacer cambios a partir de aqui
+####
+
+CPPFLAGS = -I$(IrrlichtHome)/include -I/usr/X11R6/include $(USERCPPFLAGS)
+CXXFLAGS = $(USERCXXFLAGS)
+LDFLAGS = $(USERLDFLAGS)
+
+# Linux es el target por defecto
+all: all_win32
+
+# opciones especificas de cada target
+all_linux all_macos all_win32 static_win32: LDFLAGS += -L$(IrrlichtHome)/lib/$(SYSTEM) -lIrrlicht
+all_linux: LDFLAGS += -L/usr/X11R6/lib$(LIBSELECT) -lGL -lXxf86vm -lXext -lX11 -lXcursor
+all_linux clean_linux: SYSTEM=Linux
+all_macos: LDFLAGS += -Xlinker -no_pie -framework OpenGL -framework Cocoa -framework Carbon -framework IOKit
+#all_macos: CPPFLAGS += -arch i386 -stdlib=libstdc++
+all_macos clean_macos: SYSTEM=MacOSX
+all_win32 clean_win32 static_win32: SYSTEM=Win32-gcc
+all_win32 clean_win32 static_win32: SUF=.exe
+static_win32: CPPFLAGS += -D_IRR_STATIC_LIB_
+all_win32: LDFLAGS += -lopengl32 -lm
+static_win32: LDFLAGS += -lgdi32 -lwinspool -lcomdlg32 -lole32 -loleaut32 -luuid -lodbc32 -lodbccp32 -lopengl32
+# nombre del binario
+DESTPATH = $(BinPath)/$(Target)$(SUF)
+
+all_linux compile_macos all_win32 static_win32:
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(Sources) -o $(DESTPATH) $(LDFLAGS)
+
+all_macos: compile_macos
+	mkdir -p $(BinPath)/${Target}.app
+	mkdir -p $(BinPath)/${Target}.app/Contents
+	mkdir -p $(BinPath)/${Target}.app/Contents/Resources
+	mkdir -p $(BinPath)/${Target}.app/Contents/MacOS
+ifdef Resources
+	cp $(Resources) $(BinPath)/${Target}.app/Contents/Resources
+endif
+	mv $(DESTPATH) $(BinPath)/${Target}.app/Contents/MacOS
+
+# clean: clean_linux clean_macos clean_win32
+clean: clean_win32
+
+clean_linux clean_win32:
+	@$(RM) $(DESTPATH)
+
+clean_macos:
+	@$(RM) -Rf $(BinPath)/${Target}.app
+
+.PHONY: all all_win32 static_win32 clean clean_linux clean_win32
 
 ifeq ($(HOSTTYPE), x86_64)
 LIBSELECT=64
 endif
 
-# target specific settings
-all_linux: LDFLAGS = -L/usr/X11R6/lib$(LIBSELECT) -L../../lib/Linux -lIrrlicht -lGL -lXxf86vm -lXext -lX11 -lXcursor
-all_linux clean_linux: SYSTEM=Linux
-all_win32: LDFLAGS = -L../../lib/Win32-gcc -lIrrlicht -lopengl32 -lm
-all_win32: CPPFLAGS += -D__GNUWIN32__ -D_WIN32 -DWIN32 -D_WINDOWS -D_MBCS -D_USRDLL
-all_win32 clean_win32: SYSTEM=Win32-gcc
-all_win32 clean_win32: SUF=.exe
-# name of the binary - only valid for targets which set SYSTEM
-DESTPATH = ../../bin/$(SYSTEM)/$(Target)$(SUF)
+ifeq ($(HOSTTYPE), sun4)
+LDFLAGS += -lrt
+endif
 
-all_linux all_win32:
-	$(warning Building...)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(Sources) -o $(DESTPATH) $(LDFLAGS)
-
-clean: clean_linux clean_win32
-	$(warning Cleaning...)
-
-clean_linux clean_win32:
-	@$(RM) $(DESTPATH)
-
-.PHONY: all all_win32 clean clean_linux clean_win32
