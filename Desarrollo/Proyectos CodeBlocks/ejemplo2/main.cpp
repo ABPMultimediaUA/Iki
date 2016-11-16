@@ -24,52 +24,52 @@ we'll store the latest state of the mouse and the first joystick, updating them 
 class MyEventReceiver : public IEventReceiver
 {
 public:
-	// We'll create a struct to record info on the mouse state
-	struct SMouseState
-	{
-		core::position2di Position;
-		bool LeftButtonDown;
-		SMouseState() : LeftButtonDown(false) { }
-	} MouseState;
+    // We'll create a struct to record info on the mouse state
+    struct SMouseState
+    {
+        core::position2di Position;
+        bool LeftButtonDown;
+        SMouseState() : LeftButtonDown(false) { }
+    } MouseState;
 
-	// This is the one method that we have to implement
-	virtual bool OnEvent(const SEvent& event)
-	{
-		// Remember the mouse state
-		if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
-		{
-			switch(event.MouseInput.Event)
-			{
-			case EMIE_LMOUSE_PRESSED_DOWN:
-				MouseState.LeftButtonDown = true;
-				break;
+    // This is the one method that we have to implement
+    virtual bool OnEvent(const SEvent& event)
+    {
+        // Remember the mouse state
+        if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
+        {
+            switch(event.MouseInput.Event)
+            {
+            case EMIE_LMOUSE_PRESSED_DOWN:
+                MouseState.LeftButtonDown = true;
+                break;
 
-			case EMIE_LMOUSE_LEFT_UP:
-				MouseState.LeftButtonDown = false;
-				break;
+            case EMIE_LMOUSE_LEFT_UP:
+                MouseState.LeftButtonDown = false;
+                break;
 
-			case EMIE_MOUSE_MOVED:
-				MouseState.Position.X = event.MouseInput.X;
-				MouseState.Position.Y = event.MouseInput.Y;
-				break;
+            case EMIE_MOUSE_MOVED:
+                MouseState.Position.X = event.MouseInput.X;
+                MouseState.Position.Y = event.MouseInput.Y;
+                break;
 
-			default:
-				// We won't use the wheel
-				break;
-			}
-		}
+            default:
+                // We won't use the wheel
+                break;
+            }
+        }
 
-	}
+    }
 
-	const SMouseState & GetMouseState(void) const
-	{
-		return MouseState;
-	}
+    const SMouseState & GetMouseState(void) const
+    {
+        return MouseState;
+    }
 
 
-	MyEventReceiver()
-	{
-	}
+    MyEventReceiver()
+    {
+    }
 
 };
 
@@ -83,25 +83,58 @@ different possibilities to move and animate scene nodes.
 class Enemigo
 {
 public:
-	// We'll create a struct to NPCs
-	struct Enemy
-	{
-		core::position2di Position;
-		char estado;
+    // We'll create a struct to NPCs
+    struct SEnemy
+    {
+        core::position2di Position;
+        char estado;
 
-	} enemigoStruct;
-    void patrullar(){
+    } enemy;
+    void inicialiazar()
+    {
 
-}
-void sospechar(){
-}
-void atacar(){
-}
-    void maquinaEstados(){
-        switch (enemigoStruct.estado){
-            case 'p': patrullar(); break;
-            case 's': sospechar(); break;
-            case 'a': atacar();    break;
+    }
+    void patrullar()
+    {
+
+    }
+    void sospechar()
+    {
+    }
+    void atacar()
+    {
+    }
+    void maquinaEstados()
+    {
+        switch (enemy.estado)
+        {
+        case 'p':
+            patrullar();
+            /*if(condicion de la transicion 1-2){
+            //acciones de la transicion 1-2
+            //...
+            estado = "estado2";
+            }
+            */
+            break;
+        case 's':
+            sospechar();
+            /*
+            if(condicion de la transicion2-1){
+                //acciones de la transicion2-1
+                //...
+                this.estado = "estado1";
+            }else if(condicion de la transicion2-fin) {
+                //acciones de la transicion2-1
+                //...
+                estado = null;
+                this.onEnterFrame = null;
+            }
+            */
+            break;
+        case 'a':
+            atacar();
+            break;
 
         }
     }
@@ -110,97 +143,102 @@ void atacar(){
 
 int main()
 {
-	// ask user for driver
-	video::E_DRIVER_TYPE driverType=driverChoiceConsole();
-	if (driverType==video::EDT_COUNT)
-		return 1;
+    // ask user for driver
+    video::E_DRIVER_TYPE driverType=driverChoiceConsole();
+    if (driverType==video::EDT_COUNT)
+        return 1;
 
-	// create device
-	MyEventReceiver receiver;
+    // create device
+    MyEventReceiver receiver;
 
-	IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
+    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
 
-	if (device == 0)
-		return 1; // could not create selected driver.
+    if (device == 0)
+        return 1; // could not create selected driver.
 
     video::IVideoDriver* driver = device->getVideoDriver();
-	scene::ISceneManager* smgr = device->getSceneManager();
-	scene::IMeshSceneNode *cubeNode = smgr->addCubeSceneNode(10);
-	scene::IMeshSceneNode *cubeNode2 = smgr->addCubeSceneNode(10);
+    scene::ISceneManager* smgr = device->getSceneManager();
+    scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(10);
+    scene::IMeshSceneNode *enemigo = smgr->addCubeSceneNode(10);
 
-    if(cubeNode) {
-          cubeNode->setMaterialFlag(video::EMF_LIGHTING, false);
-          cubeNode->setPosition(core::vector3df(5,15,5));
+    if(prota)
+    {
+        prota->setMaterialFlag(video::EMF_LIGHTING, false);
+        prota->setPosition(core::vector3df(5,15,5));
     }
-    if(cubeNode2){
-        cubeNode2->setMaterialFlag(video::EMF_LIGHTING, false);
-        cubeNode2->setPosition(core::vector3df(35,15,35));
+    if(enemigo)
+    {
+        enemigo->setMaterialFlag(video::EMF_LIGHTING, false);
+        enemigo->setPosition(core::vector3df(35,15,35));
     }
 
-	scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,0),core::vector3df(0,0,0));
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,0),core::vector3df(0,0,0));
 
-	//we'll use framerate independent movement.
-	u32 then = device->getTimer()->getTime();
-	const f32 MOVEMENT_SPEED = 25.f;
-	const f32 MOVEMENT_SPEED_ENEMY = 15.f;
+    //we'll use framerate independent movement.
+    u32 then = device->getTimer()->getTime();
+    const f32 MOVEMENT_SPEED = 25.f;
+    const f32 MOVEMENT_SPEED_ENEMY = 15.f;
 
-	//cambio de color de mallas
-	smgr->getMeshManipulator()->setVertexColors(cubeNode2->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    //cambio de color de mallas
+    smgr->getMeshManipulator()->setVertexColors(enemigo->getMesh(),irr::video::SColor(255, 255, 0, 0));
 
-	while(device->run())
-	{
-		// Work out a frame delta time.
-		const u32 now = device->getTimer()->getTime();
-		const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
-		then = now;
+    while(device->run())
+    {
+        // Work out a frame delta time.
+        const u32 now = device->getTimer()->getTime();
+        const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
+        then = now;
 
 
-		core::vector3df nodePosition = cubeNode->getPosition();
-		core::vector3df nodePosition2 = cubeNode2->getPosition();
-		core::vector3df direccionProta (nodePosition-nodePosition2);
+        core::vector3df nodePosition = prota->getPosition();
+        core::vector3df nodePosition2 = enemigo->getPosition();
+        core::vector3df direccionProta (nodePosition-nodePosition2);
 
 
         // Create a ray through the mouse cursor.
-        if(receiver.GetMouseState().LeftButtonDown){
+        if(receiver.GetMouseState().LeftButtonDown)
+        {
             core::line3df ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-            receiver.GetMouseState().Position, camera);
+                                    receiver.GetMouseState().Position, camera);
 
             // And intersect the ray with a plane around the node facing towards the camera.
             core::plane3df plane(nodePosition, core::vector3df(0, -1, 0));
             core::vector3df mousePosition;
 
-        if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition)){
-            // We now have a mouse position in 3d space; move towards it.
-            core::vector3df toMousePosition(mousePosition - nodePosition);
-            const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+            if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
+            {
+                // We now have a mouse position in 3d space; move towards it.
+                core::vector3df toMousePosition(mousePosition - nodePosition);
+                const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
-            if(toMousePosition.getLength() <= availableMovement)
-                nodePosition = mousePosition; // Jump to the final position
-            else
-                nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
+                if(toMousePosition.getLength() <= availableMovement)
+                    nodePosition = mousePosition; // Jump to the final position
+                else
+                    nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
+            }
+
+        }
+        if(enemigo)
+        {
+            const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
+            nodePosition2 += direccionProta.normalize()*availableMovement;
         }
 
-        }
-        if(cubeNode2){
-        const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
-        nodePosition2 += direccionProta.normalize()*availableMovement;
-        }
-
-		cubeNode->setPosition(nodePosition);
-		cubeNode2->setPosition(nodePosition2);
+        prota->setPosition(nodePosition);
+        enemigo->setPosition(nodePosition2);
 
 
-		driver->beginScene(true, true, video::SColor(255,113,113,133));
-		smgr->drawAll(); // draw the 3d scene
-		driver->endScene();
-	}
+        driver->beginScene(true, true, video::SColor(255,113,113,133));
+        smgr->drawAll(); // draw the 3d scene
+        driver->endScene();
+    }
 
-	/*
-	In the end, delete the Irrlicht device.
-	*/
-	device->drop();
+    /*
+    In the end, delete the Irrlicht device.
+    */
+    device->drop();
 
-	return 0;
+    return 0;
 }
 
 /*
