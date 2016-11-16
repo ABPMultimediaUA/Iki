@@ -19,8 +19,7 @@ devices.
 using namespace irr;
 
 /*
-Just as we did in example 04.Movement, we'll store the latest state of the
-mouse and the first joystick, updating them as we receive events.
+we'll store the latest state of the mouse and the first joystick, updating them as we receive events.
 */
 class MyEventReceiver : public IEventReceiver
 {
@@ -81,6 +80,34 @@ just create an irr::IrrlichtDevice and the scene node we want to move. We also
 create some other additional scene nodes, to show that there are also some
 different possibilities to move and animate scene nodes.
 */
+class Enemigo
+{
+public:
+	// We'll create a struct to NPCs
+	struct Enemy
+	{
+		core::position2di Position;
+		char estado;
+
+	} enemigoStruct;
+    void patrullar(){
+
+}
+void sospechar(){
+}
+void atacar(){
+}
+    void maquinaEstados(){
+        switch (enemigoStruct.estado){
+            case 'p': patrullar(); break;
+            case 's': sospechar(); break;
+            case 'a': atacar();    break;
+
+        }
+    }
+
+};
+
 int main()
 {
 	// ask user for driver
@@ -91,8 +118,7 @@ int main()
 	// create device
 	MyEventReceiver receiver;
 
-	IrrlichtDevice* device = createDevice(driverType,
-			core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
+	IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
 
 	if (device == 0)
 		return 1; // could not create selected driver.
@@ -100,16 +126,26 @@ int main()
     video::IVideoDriver* driver = device->getVideoDriver();
 	scene::ISceneManager* smgr = device->getSceneManager();
 	scene::IMeshSceneNode *cubeNode = smgr->addCubeSceneNode(10);
+	scene::IMeshSceneNode *cubeNode2 = smgr->addCubeSceneNode(10);
+
     if(cubeNode) {
           cubeNode->setMaterialFlag(video::EMF_LIGHTING, false);
           cubeNode->setPosition(core::vector3df(5,15,5));
     }
+    if(cubeNode2){
+        cubeNode2->setMaterialFlag(video::EMF_LIGHTING, false);
+        cubeNode2->setPosition(core::vector3df(35,15,35));
+    }
 
-	scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+	scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,0),core::vector3df(0,0,0));
 
-	// As in example 04, we'll use framerate independent movement.
+	//we'll use framerate independent movement.
 	u32 then = device->getTimer()->getTime();
 	const f32 MOVEMENT_SPEED = 25.f;
+	const f32 MOVEMENT_SPEED_ENEMY = 15.f;
+
+	//cambio de color de mallas
+	smgr->getMeshManipulator()->setVertexColors(cubeNode2->getMesh(),irr::video::SColor(255, 255, 0, 0));
 
 	while(device->run())
 	{
@@ -120,31 +156,38 @@ int main()
 
 
 		core::vector3df nodePosition = cubeNode->getPosition();
+		core::vector3df nodePosition2 = cubeNode2->getPosition();
+		core::vector3df direccionProta (nodePosition-nodePosition2);
 
 
-			// Create a ray through the mouse cursor.
-			if(receiver.GetMouseState().LeftButtonDown){
-			core::line3df ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-				receiver.GetMouseState().Position, camera);
+        // Create a ray through the mouse cursor.
+        if(receiver.GetMouseState().LeftButtonDown){
+            core::line3df ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+            receiver.GetMouseState().Position, camera);
 
-			// And intersect the ray with a plane around the node facing towards the camera.
-			core::plane3df plane(nodePosition, core::vector3df(0, -1, 0));
-			core::vector3df mousePosition;
+            // And intersect the ray with a plane around the node facing towards the camera.
+            core::plane3df plane(nodePosition, core::vector3df(0, -1, 0));
+            core::vector3df mousePosition;
 
-			if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
-			{
-				// We now have a mouse position in 3d space; move towards it.
-				core::vector3df toMousePosition(mousePosition - nodePosition);
-				const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+        if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition)){
+            // We now have a mouse position in 3d space; move towards it.
+            core::vector3df toMousePosition(mousePosition - nodePosition);
+            const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
-				if(toMousePosition.getLength() <= availableMovement)
-					nodePosition = mousePosition; // Jump to the final position
-				else
-					nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
-			}
+            if(toMousePosition.getLength() <= availableMovement)
+                nodePosition = mousePosition; // Jump to the final position
+            else
+                nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
+        }
 
-			}
+        }
+        if(cubeNode2){
+        const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
+        nodePosition2 += direccionProta.normalize()*availableMovement;
+        }
+
 		cubeNode->setPosition(nodePosition);
+		cubeNode2->setPosition(nodePosition2);
 
 
 		driver->beginScene(true, true, video::SColor(255,113,113,133));
