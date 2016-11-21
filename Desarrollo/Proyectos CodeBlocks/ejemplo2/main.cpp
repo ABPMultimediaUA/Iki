@@ -18,6 +18,11 @@ devices.
 
 using namespace irr;
 
+using namespace core; //namespace fundamentales;
+using namespace scene; //namespace de escena;
+using namespace video; //namespace de vídeo;
+using namespace io; //namespace io;
+using namespace gui; //namespace gui;
 /*
 we'll store the latest state of the mouse and the first joystick, updating them as we receive events.
 */
@@ -84,59 +89,107 @@ class Enemigo
 {
 public:
     // We'll create a struct to NPCs
+    enum estados {patrulla, sospechar, ataca, nsnc};
     struct SEnemy
     {
-        core::position2di Position;
-        char estado;
+        core::vector3df posicion;
+        estados estado;
+        float sospecha;
+        core::vector3df puntoInteres;
 
     } enemy;
+
     void inicialiazar()
     {
-
+        enemy.posicion=core::vector3df(35,0,35);
+        enemy.estado=patrulla;
+        enemy.sospecha=0.0;
+        enemy.puntoInteres=vector3df(0,0,0);
+    }
+    char getEstado()
+    {
+        return enemy.estado;
+    }
+    core::vector3df getPosicion()
+    {
+        return enemy.posicion;
+    }
+    core::vector3df getPunto()
+    {
+        return enemy.puntoInteres;
+    }
+    void setPosicion(core::vector3df este)
+    {
+        enemy.posicion=este;
+    }
+    void setPunto(core::vector3df este)
+    {
+        enemy.puntoInteres=este;
+    }
+    float getSospecha(){
+        return enemy.sospecha;
     }
     void patrullar()
     {
 
     }
-    void sospechar()
+    void sospecha(core::vector3df posicionProta)
     {
+
     }
-    void atacar()
+    void atacar(core::vector3df posicionProta)
     {
+
     }
-    void maquinaEstados()
+    int maquinaEstados(core::vector3df posicionProta)
     {
         switch (enemy.estado)
         {
-        case 'p':
-            patrullar();
-            /*if(condicion de la transicion 1-2){
-            //acciones de la transicion 1-2
-            //...
-            estado = "estado2";
+        case patrulla:
+            //patrullar();
+            if(enemy.posicion.getDistanceFrom(posicionProta)<30){
+                enemy.sospecha++;
             }
-            */
+            if(enemy.sospecha>=100.0)
+            {
+                //acciones de la transicion 1-2
+                //...
+                enemy.estado =sospechar;
+            }
             break;
-        case 's':
-            sospechar();
-            /*
-            if(condicion de la transicion2-1){
+        case sospechar:
+            //sospechar(posicionProta);
+           if(enemy.posicion.getDistanceFrom(enemy.puntoInteres)==0){
+                if(enemy.posicion.getDistanceFrom(posicionProta)<40){
+                    enemy.sospecha++;
+                }
+                else if(enemy.posicion.getDistanceFrom(posicionProta)>30){
+                    enemy.sospecha--;
+                }
+           }
+            if(enemy.sospecha<50.0)
+            {
                 //acciones de la transicion2-1
                 //...
-                this.estado = "estado1";
-            }else if(condicion de la transicion2-fin) {
-                //acciones de la transicion2-1
-                //...
-                estado = null;
-                this.onEnterFrame = null;
+                enemy.estado = patrulla;
+                enemy.sospecha=0.0;
             }
-            */
+            else if(enemy.sospecha>=200.0)
+            {
+                //acciones de la transicion2-3
+                //...
+                enemy.estado =ataca;
+            }
             break;
-        case 'a':
-            atacar();
+        case ataca:
+            //atacar(posicionProta);
+            break;
+        default:
+            enemy.estado=nsnc;
             break;
 
         }
+        return enemy.estado;
     }
 
 };
@@ -151,28 +204,45 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
+    Enemigo enemigo1;
+
+
+    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
+    IGUIEnvironment* guienv = device->getGUIEnvironment(); //Cargamos la GUI
+
+    device->setWindowCaption(L"IKI-113! - Irrlicht Engine Demo" );
+    //guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",rect<s32>(10,10,10,10), true );
+
+    int estado;
+    enum direccion {arriba, derecha, abajo, izquierda};
+    direccion palla;
+    palla=arriba;
 
     if (device == 0)
         return 1; // could not create selected driver.
 
     video::IVideoDriver* driver = device->getVideoDriver();
     scene::ISceneManager* smgr = device->getSceneManager();
-    scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(10);
-    scene::IMeshSceneNode *enemigo = smgr->addCubeSceneNode(10);
+    scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
+    scene::IMeshSceneNode *enemigo = smgr->addCubeSceneNode(5);
+
+
 
     if(prota)
     {
         prota->setMaterialFlag(video::EMF_LIGHTING, false);
-        prota->setPosition(core::vector3df(5,15,5));
+        prota->setPosition(core::vector3df(0,0,0));
     }
     if(enemigo)
     {
+        enemigo1.inicialiazar();
         enemigo->setMaterialFlag(video::EMF_LIGHTING, false);
-        enemigo->setPosition(core::vector3df(35,15,35));
+        enemigo->setPosition(enemigo1.getPosicion());
     }
+    core::vector3df posicionInicial (35,0,35);
+    //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,0),core::vector3df(0,0,0));
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,50,0),core::vector3df(0,0,0));
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();
@@ -184,15 +254,18 @@ int main()
 
     while(device->run())
     {
+
+
         // Work out a frame delta time.
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
 
 
-        core::vector3df nodePosition = prota->getPosition();
-        core::vector3df nodePosition2 = enemigo->getPosition();
-        core::vector3df direccionProta (nodePosition-nodePosition2);
+        core::vector3df cuboProta = prota->getPosition();
+        core::vector3df cuboEnemigo = enemigo->getPosition();
+        core::vector3df direccionProta (cuboProta-cuboEnemigo);
+
 
 
         // Create a ray through the mouse cursor.
@@ -202,30 +275,105 @@ int main()
                                     receiver.GetMouseState().Position, camera);
 
             // And intersect the ray with a plane around the node facing towards the camera.
-            core::plane3df plane(nodePosition, core::vector3df(0, -1, 0));
+            core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
             core::vector3df mousePosition;
 
             if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
             {
                 // We now have a mouse position in 3d space; move towards it.
-                core::vector3df toMousePosition(mousePosition - nodePosition);
+                core::vector3df toMousePosition(mousePosition - cuboProta);
                 const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
                 if(toMousePosition.getLength() <= availableMovement)
-                    nodePosition = mousePosition; // Jump to the final position
+                    cuboProta = mousePosition; // Jump to the final position
                 else
-                    nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
+                    cuboProta += toMousePosition.normalize() * availableMovement; // Move towards it
             }
-
         }
         if(enemigo)
         {
             const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
-            nodePosition2 += direccionProta.normalize()*availableMovement;
+            estado = enemigo1.maquinaEstados(cuboProta);
+            printf("estado %d\n",estado);
+
+            if(estado==0)
+            {
+                printf("sospecha: %f \n",enemigo1.getSospecha());
+                //printf("distancia: %f \n",cuboEnemigo.getDistanceFrom(posicionInicial));
+                //printf("direccion: %d \n",palla);
+                switch(palla)
+                {
+                case arriba:
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
+                    {
+                        cuboEnemigo.X-=availableMovement;
+                        //printf("x: %f \n",cuboEnemigo.X);
+                        //printf("y: %f \n",cuboEnemigo.Y);
+                        //printf("z: %f \n",cuboEnemigo.Z);
+                    }
+                    else
+                    {
+                        palla=derecha;
+                        posicionInicial=cuboEnemigo;
+                    }
+                    break;
+                case derecha:
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
+                    {
+                        cuboEnemigo.Z+=availableMovement;
+                    }
+                    else
+                    {
+                        palla=abajo;
+                        posicionInicial=cuboEnemigo;
+                    }
+                    break;
+                case abajo:
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
+                    {
+                        cuboEnemigo.X+=availableMovement;
+                    }
+                    else
+                    {
+                        palla=izquierda;
+                        posicionInicial=cuboEnemigo;
+                    }
+                    break;
+                case izquierda:
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
+                    {
+                        cuboEnemigo.Z-=availableMovement;
+                    }
+                    else
+                    {
+                        palla=arriba;
+                        posicionInicial=cuboEnemigo;
+                    }
+                    break;
+                }
+                enemigo1.setPosicion(cuboEnemigo);
+            }
+            else if(estado==1)
+            {
+                if(cuboEnemigo.getDistanceFrom(enemigo1.getPunto())!=0)
+                {
+                    cuboEnemigo += ((enemigo1.getPunto())- (cuboEnemigo)).normalize()*availableMovement;
+                    enemigo1.setPosicion(cuboEnemigo);
+                }
+                if(cuboEnemigo.getDistanceFrom(enemigo1.getPunto())<=0.1){
+                    cuboEnemigo=enemigo1.getPunto();
+                    enemigo1.setPosicion(cuboEnemigo);
+                }
+            }
+            else if(estado==2)
+            {
+                cuboEnemigo += direccionProta.normalize()*availableMovement;
+                enemigo1.setPosicion(cuboEnemigo);
+            }
         }
 
-        prota->setPosition(nodePosition);
-        enemigo->setPosition(nodePosition2);
+        prota->setPosition(cuboProta);
+        enemigo->setPosition(cuboEnemigo);
 
 
         driver->beginScene(true, true, video::SColor(255,113,113,133));
