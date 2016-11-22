@@ -3,12 +3,23 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="Irrlicht Example 19 MouseAndJoystick" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="../ejemplo2" />
 		<Option pch_mode="0" />
+		<Option default_target="Windows" />
 		<Option compiler="gcc" />
+		<MakeCommands>
+			<Build command="$make -f $makefile" />
+			<CompileFile command="$make -f $makefile $file" />
+			<Clean command="$make -f $makefile clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="$make -q -f $makefile " />
+			<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+		</MakeCommands>
 		<Build>
 			<Target title="Windows">
 				<Option platforms="Windows;" />
-				<Option output="../../bin/Win32-gcc/MouseAndJoystick" prefix_auto="0" extension_auto="1" />
+				<Option output="ejemplo" prefix_auto="0" extension_auto="1" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectResourceIncludeDirsRelation="1" />
@@ -18,6 +29,14 @@
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
 				</Linker>
+				<MakeCommands>
+					<Build command="$make -f $makefile " />
+					<CompileFile command="$make -f $makefile $$file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile " />
+					<SilentBuild command="$make -f $makefile  &gt; $(CMD_NULL)" />
+				</MakeCommands>
 			</Target>
 			<Target title="Linux">
 				<Option platforms="Unix;" />
@@ -46,6 +65,7 @@
 		<Linker>
 			<Add library="Irrlicht" />
 		</Linker>
+		<Unit filename="Makefile" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
