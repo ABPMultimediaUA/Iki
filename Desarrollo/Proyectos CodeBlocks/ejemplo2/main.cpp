@@ -8,6 +8,7 @@ devices.
 */
 
 #ifdef _MSC_VER
+
 // We'll define this to stop MSVC complaining about sprintf().
 #define _CRT_SECURE_NO_WARNINGS
 #pragma comment(lib, "Irrlicht.lib")
@@ -28,8 +29,18 @@ we'll store the latest state of the mouse and the first joystick, updating them 
 */
 class MyEventReceiver : public IEventReceiver
 {
+private:
+    bool KeyDown[KEY_KEY_CODES_COUNT];
 public:
-    // We'll create a struct to record info on the mouse state
+
+    MyEventReceiver()
+    {
+        for(int i=0; i<KEY_KEY_CODES_COUNT; i++)
+        {
+            KeyDown[i] = false;
+        }
+    }
+
     struct SMouseState
     {
         core::position2di Position;
@@ -63,18 +74,27 @@ public:
                 break;
             }
         }
+        else if (event.EventType == irr::EET_KEY_INPUT_EVENT)
+        {
+            KeyDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
+        }
 
     }
 
+    virtual bool isKeyDown(EKEY_CODE keyCode) const
+    {
+        return KeyDown[keyCode];
+    }
+
+    virtual bool isKeyUp(EKEY_CODE keyCode) const
+    {
+        return !KeyDown[keyCode];
+    }
     const SMouseState & GetMouseState(void) const
     {
         return MouseState;
     }
 
-
-    MyEventReceiver()
-    {
-    }
 
 };
 
@@ -126,7 +146,8 @@ public:
     {
         enemy.puntoInteres=este;
     }
-    float getSospecha(){
+    float getSospecha()
+    {
         return enemy.sospecha;
     }
     void patrullar()
@@ -147,7 +168,8 @@ public:
         {
         case patrulla:
             //patrullar();
-            if(enemy.posicion.getDistanceFrom(posicionProta)<30){
+            if(enemy.posicion.getDistanceFrom(posicionProta)<30)
+            {
                 enemy.sospecha++;
             }
             if(enemy.sospecha>=100.0)
@@ -159,14 +181,17 @@ public:
             break;
         case sospechar:
             //sospechar(posicionProta);
-           if(enemy.posicion.getDistanceFrom(enemy.puntoInteres)==0){
-                if(enemy.posicion.getDistanceFrom(posicionProta)<40){
+            if(enemy.posicion.getDistanceFrom(enemy.puntoInteres)==0)
+            {
+                if(enemy.posicion.getDistanceFrom(posicionProta)<40)
+                {
                     enemy.sospecha++;
                 }
-                else if(enemy.posicion.getDistanceFrom(posicionProta)>30){
+                else if(enemy.posicion.getDistanceFrom(posicionProta)>30)
+                {
                     enemy.sospecha--;
                 }
-           }
+            }
             if(enemy.sospecha<50.0)
             {
                 //acciones de la transicion2-1
@@ -226,6 +251,11 @@ int main()
     scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
     scene::IMeshSceneNode *enemigo = smgr->addCubeSceneNode(5);
 
+    //IBillboardSceneNode *node1 = scenedriver->addBillboardSceneNode ( 0, core::dimension2d< f32 >(100.0f, 100.0f) );
+    //node1->setMaterialFlag(EMF_LIGHTING, false);
+
+    //node1->setMaterialTexture( 0, videodriver->getTexture("texturas/opengl.png") );
+    //node1->setMaterialType( video::EMT_SOLID );
 
 
     if(prota)
@@ -242,12 +272,14 @@ int main()
     core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,50,0),core::vector3df(0,0,0));
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();
     const f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
+    core::line3df ray;
+    core::vector3df mousePosition;
 
     //cambio de color de mallas
     smgr->getMeshManipulator()->setVertexColors(enemigo->getMesh(),irr::video::SColor(255, 255, 0, 0));
@@ -261,55 +293,82 @@ int main()
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
 
+        core::vector3df cameraPos = camera->getPosition();
+        core::vector3df cameraTar = camera->getTarget();
 
         core::vector3df cuboProta = prota->getPosition();
         core::vector3df cuboEnemigo = enemigo->getPosition();
         core::vector3df direccionProta (cuboProta-cuboEnemigo);
 
+        core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
 
+        core::vector3df direccionProta2 (cuboProta-cameraPos);
 
-        // Create a ray through the mouse cursor.
+        const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+
+        if(receiver.isKeyDown(KEY_ESCAPE))
+        {
+            device->closeDevice();
+            return 0;
+        }
+        else if(receiver.isKeyDown(KEY_RIGHT))
+        {
+            cameraPos.X+=0.1;
+            cameraTar.X+=0.1;
+        }
+        else if (receiver.isKeyDown(KEY_LEFT))
+        {
+            cameraPos.X-=0.1;
+            cameraTar.X-=0.1;
+        }
+        else if(receiver.isKeyDown(KEY_UP))
+        {
+            cameraPos.Z+=0.1;
+            cameraTar.Z+=0.1;
+        }
+        else if (receiver.isKeyDown(KEY_DOWN))
+        {
+            cameraPos.Z-=0.1;
+            cameraTar.Z-=0.1;
+        }
         if(receiver.GetMouseState().LeftButtonDown)
         {
-            core::line3df ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                                    receiver.GetMouseState().Position, camera);
+            ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                      receiver.GetMouseState().Position, camera);
 
-            // And intersect the ray with a plane around the node facing towards the camera.
-            core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
-            core::vector3df mousePosition;
+        }
+        if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
+        {
+            // We now have a mouse position in 3d space; move towards it.
+            core::vector3df toMousePosition(mousePosition - cuboProta);
+            const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
-            if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
-            {
-                // We now have a mouse position in 3d space; move towards it.
-                core::vector3df toMousePosition(mousePosition - cuboProta);
-                const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+            if(toMousePosition.getLength() <= availableMovement)
+                cuboProta = mousePosition; // Jump to the final position
+            else{
+                cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
+                //Para que la camara siga al prota
+                //cameraPos += toMousePosition.normalize() *availableMovement;
+                //cameraTar += toMousePosition.normalize() *availableMovement;
 
-                if(toMousePosition.getLength() <= availableMovement)
-                    cuboProta = mousePosition; // Jump to the final position
-                else
-                    cuboProta += toMousePosition.normalize() * availableMovement; // Move towards it
             }
         }
+
+
+
         if(enemigo)
         {
             const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
             estado = enemigo1.maquinaEstados(cuboProta);
-            printf("estado %d\n",estado);
 
             if(estado==0)
             {
-                printf("sospecha: %f \n",enemigo1.getSospecha());
-                //printf("distancia: %f \n",cuboEnemigo.getDistanceFrom(posicionInicial));
-                //printf("direccion: %d \n",palla);
                 switch(palla)
                 {
                 case arriba:
                     if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
                     {
                         cuboEnemigo.X-=availableMovement;
-                        //printf("x: %f \n",cuboEnemigo.X);
-                        //printf("y: %f \n",cuboEnemigo.Y);
-                        //printf("z: %f \n",cuboEnemigo.Z);
                     }
                     else
                     {
@@ -360,7 +419,8 @@ int main()
                     cuboEnemigo += ((enemigo1.getPunto())- (cuboEnemigo)).normalize()*availableMovement;
                     enemigo1.setPosicion(cuboEnemigo);
                 }
-                if(cuboEnemigo.getDistanceFrom(enemigo1.getPunto())<=0.1){
+                if(cuboEnemigo.getDistanceFrom(enemigo1.getPunto())<=0.1)
+                {
                     cuboEnemigo=enemigo1.getPunto();
                     enemigo1.setPosicion(cuboEnemigo);
                 }
@@ -374,7 +434,8 @@ int main()
 
         prota->setPosition(cuboProta);
         enemigo->setPosition(cuboEnemigo);
-
+        camera->setPosition(cameraPos);
+        camera->setTarget(cameraTar);
 
         driver->beginScene(true, true, video::SColor(255,113,113,133));
         smgr->drawAll(); // draw the 3d scene
