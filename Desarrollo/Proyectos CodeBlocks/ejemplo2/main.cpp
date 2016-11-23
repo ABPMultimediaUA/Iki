@@ -16,6 +16,7 @@ devices.
 
 #include <irrlicht.h>
 #include "driverChoice.h"
+#include "Enemigo.h"
 
 using namespace irr;
 
@@ -105,7 +106,7 @@ just create an irr::IrrlichtDevice and the scene node we want to move. We also
 create some other additional scene nodes, to show that there are also some
 different possibilities to move and animate scene nodes.
 */
-class Enemigo
+/*class Enemigo
 {
 public:
     // We'll create a struct to NPCs
@@ -217,7 +218,7 @@ public:
         return enemy.estado;
     }
 
-};
+};*/
 
 int main()
 {
@@ -265,7 +266,7 @@ int main()
     }
     if(enemigo)
     {
-        enemigo1.inicialiazar();
+        enemigo1.inicialiazar(0);
         enemigo->setMaterialFlag(video::EMF_LIGHTING, false);
         enemigo->setPosition(enemigo1.getPosicion());
     }
@@ -361,7 +362,7 @@ int main()
             const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
             estado = enemigo1.maquinaEstados(cuboProta);
 
-            if(estado==0)
+            if(estado == 0)
             {
                 switch(palla)
                 {
@@ -390,7 +391,7 @@ int main()
                 case abajo:
                     if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
                     {
-                        cuboEnemigo.X+=availableMovement;
+                        cuboEnemigo.X += availableMovement;
                     }
                     else
                     {
@@ -401,12 +402,12 @@ int main()
                 case izquierda:
                     if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
                     {
-                        cuboEnemigo.Z-=availableMovement;
+                        cuboEnemigo.Z -= availableMovement;
                     }
                     else
                     {
                         palla=arriba;
-                        posicionInicial=cuboEnemigo;
+                        posicionInicial = cuboEnemigo;
                     }
                     break;
                 }
