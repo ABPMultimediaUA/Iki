@@ -59,13 +59,12 @@
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-g" />
-			<Add directory="C:/Box2D" />
-			<Add directory="C:/irrlicht-1.8.4/include" />
+			<Add directory="../irrlicht-1.8.4/include" />
 		</Compiler>
 		<Linker>
 			<Add library="Irrlicht" />
 			<Add library="libbox2d.a" />
-			<Add directory="C:/irrlicht-1.8.4/lib/Win32-gcc" />
+			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../box2d/bin/Debug" />
 		</Linker>
 		<Unit filename="Makefile" />
