@@ -16,7 +16,7 @@ devices.
 
 #include <irrlicht.h>
 #include "driverChoice.h"
-#include "Enemigo.h"
+#include "Headers/enemigo.h"
 
 using namespace irr;
 
@@ -106,119 +106,6 @@ just create an irr::IrrlichtDevice and the scene node we want to move. We also
 create some other additional scene nodes, to show that there are also some
 different possibilities to move and animate scene nodes.
 */
-/*class Enemigo
-{
-public:
-    // We'll create a struct to NPCs
-    enum estados {patrulla, sospechar, ataca, nsnc};
-    struct SEnemy
-    {
-        core::vector3df posicion;
-        estados estado;
-        float sospecha;
-        core::vector3df puntoInteres;
-
-    } enemy;
-
-    void inicialiazar()
-    {
-        enemy.posicion=core::vector3df(35,0,35);
-        enemy.estado=patrulla;
-        enemy.sospecha=0.0;
-        enemy.puntoInteres=vector3df(0,0,0);
-    }
-    char getEstado()
-    {
-        return enemy.estado;
-    }
-    core::vector3df getPosicion()
-    {
-        return enemy.posicion;
-    }
-    core::vector3df getPunto()
-    {
-        return enemy.puntoInteres;
-    }
-    void setPosicion(core::vector3df este)
-    {
-        enemy.posicion=este;
-    }
-    void setPunto(core::vector3df este)
-    {
-        enemy.puntoInteres=este;
-    }
-    float getSospecha()
-    {
-        return enemy.sospecha;
-    }
-    void patrullar()
-    {
-
-    }
-    void sospecha(core::vector3df posicionProta)
-    {
-
-    }
-    void atacar(core::vector3df posicionProta)
-    {
-
-    }
-    int maquinaEstados(core::vector3df posicionProta)
-    {
-        switch (enemy.estado)
-        {
-        case patrulla:
-            //patrullar();
-            if(enemy.posicion.getDistanceFrom(posicionProta)<30)
-            {
-                enemy.sospecha++;
-            }
-            if(enemy.sospecha>=100.0)
-            {
-                //acciones de la transicion 1-2
-                //...
-                enemy.estado =sospechar;
-            }
-            break;
-        case sospechar:
-            //sospechar(posicionProta);
-            if(enemy.posicion.getDistanceFrom(enemy.puntoInteres)==0)
-            {
-                if(enemy.posicion.getDistanceFrom(posicionProta)<40)
-                {
-                    enemy.sospecha++;
-                }
-                else if(enemy.posicion.getDistanceFrom(posicionProta)>30)
-                {
-                    enemy.sospecha--;
-                }
-            }
-            if(enemy.sospecha<50.0)
-            {
-                //acciones de la transicion2-1
-                //...
-                enemy.estado = patrulla;
-                enemy.sospecha=0.0;
-            }
-            else if(enemy.sospecha>=200.0)
-            {
-                //acciones de la transicion2-3
-                //...
-                enemy.estado =ataca;
-            }
-            break;
-        case ataca:
-            //atacar(posicionProta);
-            break;
-        default:
-            enemy.estado=nsnc;
-            break;
-
-        }
-        return enemy.estado;
-    }
-
-};*/
 
 int main()
 {
@@ -230,7 +117,7 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    Enemigo enemigo1;
+    enemigo enemigo1;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -250,7 +137,7 @@ int main()
     video::IVideoDriver* driver = device->getVideoDriver();
     scene::ISceneManager* smgr = device->getSceneManager();
     scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
-    scene::IMeshSceneNode *enemigo = smgr->addCubeSceneNode(5);
+    scene::IMeshSceneNode *enemy = smgr->addCubeSceneNode(5);
 
     //IBillboardSceneNode *node1 = scenedriver->addBillboardSceneNode ( 0, core::dimension2d< f32 >(100.0f, 100.0f) );
     //node1->setMaterialFlag(EMF_LIGHTING, false);
@@ -264,11 +151,11 @@ int main()
         prota->setMaterialFlag(video::EMF_LIGHTING, false);
         prota->setPosition(core::vector3df(0,0,0));
     }
-    if(enemigo)
+    if(enemy)
     {
         enemigo1.inicialiazar(0);
-        enemigo->setMaterialFlag(video::EMF_LIGHTING, false);
-        enemigo->setPosition(enemigo1.getPosicion());
+        enemy->setMaterialFlag(video::EMF_LIGHTING, false);
+        enemy->setPosition(enemigo1.getPosicion());
     }
     core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
@@ -283,7 +170,7 @@ int main()
     core::vector3df mousePosition;
 
     //cambio de color de mallas
-    smgr->getMeshManipulator()->setVertexColors(enemigo->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemy->getMesh(),irr::video::SColor(255, 255, 0, 0));
 
     while(device->run())
     {
@@ -298,7 +185,7 @@ int main()
         core::vector3df cameraTar = camera->getTarget();
 
         core::vector3df cuboProta = prota->getPosition();
-        core::vector3df cuboEnemigo = enemigo->getPosition();
+        core::vector3df cuboEnemigo = enemy->getPosition();
         core::vector3df direccionProta (cuboProta-cuboEnemigo);
 
         core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
@@ -357,7 +244,7 @@ int main()
 
 
 
-        if(enemigo)
+        if(enemy)
         {
             const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
             estado = enemigo1.maquinaEstados(cuboProta);
@@ -434,7 +321,7 @@ int main()
         }
 
         prota->setPosition(cuboProta);
-        enemigo->setPosition(cuboEnemigo);
+        enemy->setPosition(cuboEnemigo);
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 

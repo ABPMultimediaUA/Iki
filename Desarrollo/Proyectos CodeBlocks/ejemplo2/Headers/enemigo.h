@@ -4,11 +4,19 @@
 #include <irrlicht.h>
 #include "driverChoice.h"
 
+using namespace irr;
 
-class Enemigo
+using namespace core; //namespace fundamentales;
+using namespace scene; //namespace de escena;
+using namespace video; //namespace de vídeo;
+using namespace io; //namespace io;
+using namespace gui; //namespace gui;
+
+
+class enemigo
 {
     public:
-        void inicialiazar();
+        void inicialiazar(int);
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
@@ -16,8 +24,11 @@ class Enemigo
         void setPunto(core::vector3df este);
         float getSospecha();
         void patrullar();
-        void sospecha(core::vector3df posicionProta);
+        void sospechar(core::vector3df posicionProta);
         void atacar(core::vector3df posicionProta);
+        int maquinaEstados(core::vector3df posicionProta);
+
+
 
     protected:
 
@@ -28,7 +39,9 @@ class Enemigo
         float sospecha;
         core::vector3df posicion;
         core::vector3df puntoInteres;
+        //scene::IMeshSceneNode *modelo;
 
 };
 
 #endif // ENEMIGO_H
+
