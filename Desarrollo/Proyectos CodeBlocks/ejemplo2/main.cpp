@@ -209,11 +209,11 @@ int main()
 
         /// COLISIONES ///
         if(prota->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
-            std::cout<< "si" <<std::endl;
+            //std::cout<< "si" <<std::endl;
             protaColliding = true;
         }
         else{
-            std::cout<< "no" <<std::endl;
+            //std::cout<< "no" <<std::endl;
             protaColliding = false;
         }
 
@@ -259,17 +259,43 @@ int main()
             core::vector3df toMousePosition(mousePosition - cuboProta);
             const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
-            if(toMousePosition.getLength() <= availableMovement)
+            int protaX = mousePosition.X;
+            int protaZ = mousePosition.Z;
+
+
+            if (!protaColliding){
+            /// SI NO COLISIONA SE MOVERA EN LINEA RECTA HASTA QUE COLISIONE
+
+                if(toMousePosition.getLength() <= availableMovement){
                     cuboProta = mousePosition; // Jump to the final position
-            else{
+                }else{
                     cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
                     //Para que la camara siga al prota
                     //cameraPos += toMousePosition.normalize() *availableMovement;
                     //cameraTar += toMousePosition.normalize() *availableMovement;
 
-            }
-        }
+                }
+            }else{
+            /// COLISIONA Y PRIORIZA UNA DIRECCION
 
+                core::vector3df redireccion;
+                int pX =1, pZ = 1;
+
+                if (protaX < 0){ protaX*=-1; pX = -1; }
+                if (protaZ < 0){ protaZ*=-1; pZ = -1; }
+
+                if (protaX > protaZ)
+                    redireccion.set(0,0,pZ);
+                else
+                    redireccion.set(pX,0,0);
+
+                cuboProta += redireccion * availableMovement;
+
+            }
+
+        //std::cout<< "Prota X = " << protaX << "__ Prota Z = " << protaZ <<std::endl;
+
+        }
 
 
         if(enemy)
