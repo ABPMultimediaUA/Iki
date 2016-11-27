@@ -34,6 +34,16 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Compiler>
+			<Add directory="../irrlicht-1.8.4/include" />
+			<Add directory="../libBox2D" />
+		</Compiler>
+		<Linker>
+			<Add library="Irrlicht" />
+			<Add library="libbox2d.a" />
+			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
+			<Add directory="../box2d/bin/Debug" />
+		</Linker>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

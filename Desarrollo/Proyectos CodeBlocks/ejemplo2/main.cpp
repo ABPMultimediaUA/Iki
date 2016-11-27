@@ -15,11 +15,12 @@ devices.
 #endif
 
 #include <irrlicht.h>
+#include <Box2D.h>
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 
-#include <../libBox2D/Box2D.h>
-#include <../libBox2D/Common/b2Math.h>
+//#include <../libBox2D/Box2D.h>
+//#include <../libBox2D/Common/b2Math.h>
 
 using namespace irr;
 
@@ -142,12 +143,23 @@ int main()
     scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
     scene::IMeshSceneNode *enemy = smgr->addCubeSceneNode(5);
 
+    /// MUROS////////////
+    scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(10);
+        muro1->setMaterialFlag(video::EMF_LIGHTING, false);
+        muro1->setPosition(core::vector3df(0,0,0));
+        muro1->setPosition(core::vector3df(10,0,0));
+        smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
+
+
+    /// ////////////////
+
     //IBillboardSceneNode *node1 = scenedriver->addBillboardSceneNode ( 0, core::dimension2d< f32 >(100.0f, 100.0f) );
     //node1->setMaterialFlag(EMF_LIGHTING, false);
 
     //node1->setMaterialTexture( 0, videodriver->getTexture("texturas/opengl.png") );
     //node1->setMaterialType( video::EMT_SOLID );
 
+    bool protaColliding = false;
 
     if(prota)
     {
@@ -178,7 +190,6 @@ int main()
     while(device->run())
     {
 
-
         // Work out a frame delta time.
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
@@ -194,6 +205,20 @@ int main()
         core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
 
         core::vector3df direccionProta2 (cuboProta-cameraPos);
+
+
+        /// COLISIONES ///
+        if(prota->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
+            std::cout<< "si" <<std::endl;
+            protaColliding = true;
+        }
+        else{
+            std::cout<< "no" <<std::endl;
+            protaColliding = false;
+        }
+
+
+        /// ////////////////////
 
         const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
@@ -235,12 +260,12 @@ int main()
             const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
             if(toMousePosition.getLength() <= availableMovement)
-                cuboProta = mousePosition; // Jump to the final position
+                    cuboProta = mousePosition; // Jump to the final position
             else{
-                cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
-                //Para que la camara siga al prota
-                //cameraPos += toMousePosition.normalize() *availableMovement;
-                //cameraTar += toMousePosition.normalize() *availableMovement;
+                    cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
+                    //Para que la camara siga al prota
+                    //cameraPos += toMousePosition.normalize() *availableMovement;
+                    //cameraTar += toMousePosition.normalize() *availableMovement;
 
             }
         }

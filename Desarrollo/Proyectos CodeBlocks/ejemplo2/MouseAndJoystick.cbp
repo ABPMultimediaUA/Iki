@@ -62,6 +62,8 @@
 		<Compiler>
 			<Add option="-g" />
 			<Add directory="../irrlicht-1.8.4/include" />
+			<Add directory="../libBox2D" />
+			<Add directory="../libBox2D/Box2D/Common" />
 		</Compiler>
 		<Linker>
 			<Add library="Irrlicht" />
