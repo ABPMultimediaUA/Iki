@@ -18,6 +18,9 @@ devices.
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 
+#include <../libBox2D/Box2D.h>
+#include <../libBox2D/Common/b2Math.h>
+
 using namespace irr;
 
 using namespace core; //namespace fundamentales;
