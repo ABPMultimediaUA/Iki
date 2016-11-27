@@ -16,8 +16,23 @@ devices.
 
 #include <irrlicht.h>
 #include "driverChoice.h"
+#include <stdio.h>
+#include <irrKlang.h>
+#include <iostream>
+#include <time.h>
+#include <windows.h>
 
+
+using namespace irrklang;
+using namespace std;
 using namespace irr;
+
+#if defined(WIN32)
+#include <conio.h>
+#else
+#include "conio.h"
+#endif
+
 
 /*
 Just as we did in example 04.Movement, we'll store the latest state of the
@@ -98,6 +113,31 @@ different possibilities to move and animate scene nodes.
 */
 int main()
 {
+
+    ISoundEngine* engine = createIrrKlangDevice();
+
+
+	if (!engine)
+		return 0; // error starting up the engine
+
+	printf("Driver: %s\n",engine->getDriverName());
+	printf("Volume: %f\n",engine->getSoundVolume());
+
+	ISoundSource* pasos1 = engine->addSoundSourceFromFile("pasosnormales.wav");
+	ISoundSource* pasos2 = engine->addSoundSourceFromFile("pasossigilosos.wav");
+	vec3df posicion(0,0,0);
+	ISound* s1;
+
+
+	bool pasosP = false;
+	bool pasos2P = false;
+
+	if (pasos1 == 0 || pasos2 == 0)
+        	fprintf(stderr,"Can't load sounds!");
+
+    pasos1->setDefaultVolume(2.0f);
+    pasos2->setDefaultVolume(1.0f);
+
 	// ask user for driver
 	video::E_DRIVER_TYPE driverType=driverChoiceConsole();
 	if (driverType==video::EDT_COUNT)
@@ -124,7 +164,7 @@ int main()
 
 	// As in example 04, we'll use framerate independent movement.
 	u32 then = device->getTimer()->getTime();
-	const f32 MOVEMENT_SPEED = 25.f;
+	f32 MOVEMENT_SPEED;
 
         core::line3df ray;
         core::vector3df mousePosition;
@@ -136,11 +176,22 @@ int main()
 		const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
 		then = now;
 
+		if(receiver.isKeyDown(KEY_LSHIFT))
+            MOVEMENT_SPEED = 15.f;
+        else
+            MOVEMENT_SPEED = 25.f;
+
+
+		f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+
+
+
 
         core::vector3df cameraPos = camera->getPosition();
         core::vector3df cameraTar = camera->getTarget();
 		core::vector3df nodePosition = cubeNode->getPosition();
 		core::plane3df plane(nodePosition, core::vector3df(0, -1, 0));
+
 
 
         if(receiver.isKeyDown(KEY_ESCAPE)) {
@@ -173,12 +224,37 @@ int main()
 			{
 				// We now have a mouse position in 3d space; move towards it.
 				core::vector3df toMousePosition(mousePosition - nodePosition);
-				const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
-				 if(toMousePosition.getLength() <= availableMovement)
+				 if(toMousePosition.getLength() <= availableMovement){
 					nodePosition = mousePosition; // Jump to the final position
-				else
+					if(pasosP==true || pasos2P==true){
+                        s1->stop();
+                        pasosP = false;
+                        pasos2P = false;
+					}
+
+				 }
+				else{
 					nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
+					if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
+                        if(engine->isCurrentlyPlaying(pasos2))
+                            s1->stop();
+
+                            s1 = engine->play3D(pasos1,posicion,true,false,true);
+
+                        pasosP = true;
+                        pasos2P = false;
+
+                    }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
+                        if(engine->isCurrentlyPlaying(pasos1))
+                            s1->stop();
+
+                            s1 = engine->play3D(pasos2,posicion,true,false,true);
+                        pasos2P = true;
+                        pasosP = false;
+
+                    }
+                }
 			}
 
 
@@ -202,6 +278,7 @@ int main()
 	In the end, delete the Irrlicht device.
 	*/
 	device->drop();
+	engine->drop();
 
 	return 0;
 }

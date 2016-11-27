@@ -123,7 +123,7 @@ int main()
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
     IGUIEnvironment* guienv = device->getGUIEnvironment(); //Cargamos la GUI
 
-    device->setWindowCaption(L"IKI-113! - Irrlicht Engine Demo" );
+    device->setWindowCaption(L"IKI" );
     //guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",rect<s32>(10,10,10,10), true );
 
     int estado;
