@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Irrlicht Example 19 MouseAndJoystick" />
+		<Option title="MouseAndJoystick" />
 		<Option execution_dir="../ejemplo2" />
 		<Option pch_mode="0" />
 		<Option default_target="Windows" />
@@ -24,6 +24,7 @@
 				<Option projectResourceIncludeDirsRelation="1" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -45,6 +46,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add option="-D_IRR_STATIC_LIB_" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -68,7 +70,11 @@
 			<Add directory="../box2d/bin/Debug" />
 		</Linker>
 		<Unit filename="Makefile" />
+		<Unit filename="include/Enemigo.h" />
+		<Unit filename="include/Game.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Enemigo.cpp" />
+		<Unit filename="src/Game.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

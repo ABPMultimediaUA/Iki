@@ -16,7 +16,7 @@ devices.
 
 #include <irrlicht.h>
 #include "driverChoice.h"
-#include "Headers/enemigo.h"
+#include "include/Enemigo.h"
 
 using namespace irr;
 
@@ -117,7 +117,7 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    enemigo enemigo1;
+    Enemigo enemigo1;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);

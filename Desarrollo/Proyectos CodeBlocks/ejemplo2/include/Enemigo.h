@@ -13,7 +13,7 @@ using namespace io; //namespace io;
 using namespace gui; //namespace gui;
 
 
-class enemigo
+class Enemigo
 {
     public:
         void inicialiazar(int);
