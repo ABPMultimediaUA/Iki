@@ -121,7 +121,7 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    Enemigo enemigo1;
+    Enemigo *enemigo1 = new Enemigo;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -130,18 +130,12 @@ int main()
     device->setWindowCaption(L"IKI" );
     //guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",rect<s32>(10,10,10,10), true );
 
-    int estado;
-    enum direccion {arriba, derecha, abajo, izquierda};
-    direccion palla;
-    palla=arriba;
-
     if (device == 0)
         return 1; // could not create selected driver.
 
     video::IVideoDriver* driver = device->getVideoDriver();
     scene::ISceneManager* smgr = device->getSceneManager();
     scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
-    scene::IMeshSceneNode *enemy = smgr->addCubeSceneNode(5);
 
     /// MUROS////////////
     scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(10);
@@ -166,11 +160,9 @@ int main()
         prota->setMaterialFlag(video::EMF_LIGHTING, false);
         prota->setPosition(core::vector3df(0,0,0));
     }
-    if(enemy)
+    if(enemigo1)
     {
-        enemigo1.inicialiazar(0);
-        enemy->setMaterialFlag(video::EMF_LIGHTING, false);
-        enemy->setPosition(enemigo1.getPosicion());
+        enemigo1->inicialiazar(0, smgr);
     }
     core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
@@ -185,7 +177,7 @@ int main()
     core::vector3df mousePosition;
 
     //cambio de color de mallas
-    smgr->getMeshManipulator()->setVertexColors(enemy->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigo1->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
 
     while(device->run())
     {
@@ -199,8 +191,8 @@ int main()
         core::vector3df cameraTar = camera->getTarget();
 
         core::vector3df cuboProta = prota->getPosition();
-        core::vector3df cuboEnemigo = enemy->getPosition();
-        core::vector3df direccionProta (cuboProta-cuboEnemigo);
+        //core::vector3df cuboEnemigo = enemy->getPosition();
+        core::vector3df direccionProta (cuboProta-enemigo1->getCuboEnemigo());
 
         core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
 
@@ -297,85 +289,10 @@ int main()
 
         }
 
-
-        if(enemy)
-        {
-            const f32 availableMovement = MOVEMENT_SPEED_ENEMY * frameDeltaTime;
-            estado = enemigo1.maquinaEstados(cuboProta);
-
-            if(estado == 0)
-            {
-                switch(palla)
-                {
-                case arriba:
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
-                    {
-                        cuboEnemigo.X-=availableMovement;
-                    }
-                    else
-                    {
-                        palla=derecha;
-                        posicionInicial=cuboEnemigo;
-                    }
-                    break;
-                case derecha:
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
-                    {
-                        cuboEnemigo.Z+=availableMovement;
-                    }
-                    else
-                    {
-                        palla=abajo;
-                        posicionInicial=cuboEnemigo;
-                    }
-                    break;
-                case abajo:
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
-                    {
-                        cuboEnemigo.X += availableMovement;
-                    }
-                    else
-                    {
-                        palla=izquierda;
-                        posicionInicial=cuboEnemigo;
-                    }
-                    break;
-                case izquierda:
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial)<=20)
-                    {
-                        cuboEnemigo.Z -= availableMovement;
-                    }
-                    else
-                    {
-                        palla=arriba;
-                        posicionInicial = cuboEnemigo;
-                    }
-                    break;
-                }
-                enemigo1.setPosicion(cuboEnemigo);
-            }
-            else if(estado==1)
-            {
-                if(cuboEnemigo.getDistanceFrom(enemigo1.getPunto())!=0)
-                {
-                    cuboEnemigo += ((enemigo1.getPunto())- (cuboEnemigo)).normalize()*availableMovement;
-                    enemigo1.setPosicion(cuboEnemigo);
-                }
-                if(cuboEnemigo.getDistanceFrom(enemigo1.getPunto())<=0.1)
-                {
-                    cuboEnemigo=enemigo1.getPunto();
-                    enemigo1.setPosicion(cuboEnemigo);
-                }
-            }
-            else if(estado==2)
-            {
-                cuboEnemigo += direccionProta.normalize()*availableMovement;
-                enemigo1.setPosicion(cuboEnemigo);
-            }
-        }
+        enemigo1->update(direccionProta, cuboProta, frameDeltaTime);
 
         prota->setPosition(cuboProta);
-        enemy->setPosition(cuboEnemigo);
+        enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 

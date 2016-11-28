@@ -1,14 +1,18 @@
 #include "../include/Enemigo.h"
 
 
-    void Enemigo::inicialiazar(int t)
+    void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr)
     {
         estado = 0;
+        direccion = 0;
         tipo = t;
         sospecha = 0.0;
         posicion = core::vector3df(35,0,35); //Meter en interfaz
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
-        //modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
+        modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
+        modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
+        modelo->setPosition(posicion); //Meter en el interfaz
+        cuboEnemigo = modelo->getPosition();
     }
 
     int Enemigo::getEstado()
@@ -39,6 +43,14 @@
     float Enemigo::getSospecha()
     {
         return sospecha;
+    }
+
+    scene::IMeshSceneNode* Enemigo::getModelo(){
+        return modelo;
+    }
+
+    core::vector3df Enemigo::getCuboEnemigo(){
+        return cuboEnemigo;
     }
 
     void Enemigo::patrullar()
@@ -110,3 +122,84 @@
         }
         return estado;
     }
+
+    void Enemigo::update(core::vector3df direccionProta, core::vector3df cuboProta, f32 frameDeltaTime)
+    {
+        if(modelo)
+        {
+            const f32 availableMovement = 15.f * frameDeltaTime;
+            maquinaEstados(cuboProta);
+
+            if(estado == 0)
+            {
+
+                switch(direccion)
+                {
+                case 0: //Movimiento hacia arriba
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
+                    {
+                        cuboEnemigo.X -= availableMovement;
+                    }
+                    else
+                    {
+                        direccion = 1;
+                        posicionInicial = cuboEnemigo;
+                    }
+                    break;
+                case 1: //Movimiento hacia la derecha
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
+                    {
+                        cuboEnemigo.Z += availableMovement;
+                    }
+                    else
+                    {
+                        direccion = 2;
+                        posicionInicial = cuboEnemigo;
+                    }
+                    break;
+                case 2:
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
+                    {
+                        cuboEnemigo.X += availableMovement;
+                    }
+                    else
+                    {
+                        direccion = 3;
+                        posicionInicial = cuboEnemigo;
+                    }
+                    break;
+                case 3:
+                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
+                    {
+                        cuboEnemigo.Z -= availableMovement;
+                    }
+                    else
+                    {
+                        direccion = 0;
+                        posicionInicial = cuboEnemigo;
+                    }
+                    break;
+                }
+                posicion = cuboEnemigo;
+            }
+            else if(estado == 1)
+            {
+                if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0)
+                {
+                    cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * availableMovement;
+                    posicion = cuboEnemigo;
+                }
+                if(cuboEnemigo.getDistanceFrom(puntoInteres) <= 0.1)
+                {
+                    cuboEnemigo = puntoInteres;
+                    posicion = cuboEnemigo;
+                }
+            }
+            else if(estado == 2)
+            {
+                cuboEnemigo += direccionProta.normalize() * availableMovement;
+                posicion = cuboEnemigo;
+            }
+        }
+    }
+
