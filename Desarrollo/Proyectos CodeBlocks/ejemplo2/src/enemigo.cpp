@@ -1,7 +1,7 @@
-#include "../Headers/enemigo.h"
+#include "../include/Enemigo.h"
 
 
-    void enemigo::inicialiazar(int t)
+    void Enemigo::inicialiazar(int t)
     {
         estado = 0;
         tipo = t;
@@ -11,52 +11,52 @@
         //modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
     }
 
-    int enemigo::getEstado()
+    int Enemigo::getEstado()
     {
         return estado;
     }
 
-    core::vector3df enemigo::getPosicion() //Meter en interfaz
+    core::vector3df Enemigo::getPosicion() //Meter en interfaz
     {
         return posicion;
     }
 
-    core::vector3df enemigo::getPunto() //Meter en interfaz
+    core::vector3df Enemigo::getPunto() //Meter en interfaz
     {
         return puntoInteres;
     }
 
-    void enemigo::setPosicion(core::vector3df este) //Meter en interfaz
+    void Enemigo::setPosicion(core::vector3df este) //Meter en interfaz
     {
         posicion = este;
     }
 
-    void enemigo::setPunto(core::vector3df este) //Meter en interfaz
+    void Enemigo::setPunto(core::vector3df este) //Meter en interfaz
     {
         puntoInteres = este;
     }
 
-    float enemigo::getSospecha()
+    float Enemigo::getSospecha()
     {
         return sospecha;
     }
 
-    void enemigo::patrullar()
+    void Enemigo::patrullar()
     {
 
     }
-    void enemigo::sospechar(core::vector3df posicionProta)
+    void Enemigo::sospechar(core::vector3df posicionProta)
     {
 
     }
-    void enemigo::atacar(core::vector3df posicionProta)
+    void Enemigo::atacar(core::vector3df posicionProta)
     {
 
     }
 
     //Funcionamiento maquina de estados
 
-    int enemigo::maquinaEstados(core::vector3df posicionProta)
+    int Enemigo::maquinaEstados(core::vector3df posicionProta)
     {
         switch (estado)
         {

@@ -15,8 +15,12 @@ devices.
 #endif
 
 #include <irrlicht.h>
+#include <Box2D.h>
 #include "driverChoice.h"
-#include "Headers/enemigo.h"
+#include "include/Enemigo.h"
+
+//#include <../libBox2D/Box2D.h>
+//#include <../libBox2D/Common/b2Math.h>
 
 using namespace irr;
 
@@ -117,13 +121,13 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    enemigo enemigo1;
+    Enemigo enemigo1;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
     IGUIEnvironment* guienv = device->getGUIEnvironment(); //Cargamos la GUI
 
-    device->setWindowCaption(L"IKI-113! - Irrlicht Engine Demo" );
+    device->setWindowCaption(L"IKI" );
     //guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",rect<s32>(10,10,10,10), true );
 
     int estado;
@@ -139,12 +143,23 @@ int main()
     scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
     scene::IMeshSceneNode *enemy = smgr->addCubeSceneNode(5);
 
+    /// MUROS////////////
+    scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(10);
+        muro1->setMaterialFlag(video::EMF_LIGHTING, false);
+        muro1->setPosition(core::vector3df(0,0,0));
+        muro1->setPosition(core::vector3df(10,0,0));
+        smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
+
+
+    /// ////////////////
+
     //IBillboardSceneNode *node1 = scenedriver->addBillboardSceneNode ( 0, core::dimension2d< f32 >(100.0f, 100.0f) );
     //node1->setMaterialFlag(EMF_LIGHTING, false);
 
     //node1->setMaterialTexture( 0, videodriver->getTexture("texturas/opengl.png") );
     //node1->setMaterialType( video::EMT_SOLID );
 
+    bool protaColliding = false;
 
     if(prota)
     {
@@ -175,7 +190,6 @@ int main()
     while(device->run())
     {
 
-
         // Work out a frame delta time.
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
@@ -191,6 +205,20 @@ int main()
         core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
 
         core::vector3df direccionProta2 (cuboProta-cameraPos);
+
+
+        /// COLISIONES ///
+        if(prota->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
+            //std::cout<< "si" <<std::endl;
+            protaColliding = true;
+        }
+        else{
+            //std::cout<< "no" <<std::endl;
+            protaColliding = false;
+        }
+
+
+        /// ////////////////////
 
         const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
@@ -231,17 +259,43 @@ int main()
             core::vector3df toMousePosition(mousePosition - cuboProta);
             const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
-            if(toMousePosition.getLength() <= availableMovement)
-                cuboProta = mousePosition; // Jump to the final position
-            else{
-                cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
-                //Para que la camara siga al prota
-                //cameraPos += toMousePosition.normalize() *availableMovement;
-                //cameraTar += toMousePosition.normalize() *availableMovement;
+            int protaX = mousePosition.X;
+            int protaZ = mousePosition.Z;
+
+
+            if (!protaColliding){
+            /// SI NO COLISIONA SE MOVERA EN LINEA RECTA HASTA QUE COLISIONE
+
+                if(toMousePosition.getLength() <= availableMovement){
+                    cuboProta = mousePosition; // Jump to the final position
+                }else{
+                    cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
+                    //Para que la camara siga al prota
+                    //cameraPos += toMousePosition.normalize() *availableMovement;
+                    //cameraTar += toMousePosition.normalize() *availableMovement;
+
+                }
+            }else{
+            /// COLISIONA Y PRIORIZA UNA DIRECCION
+
+                core::vector3df redireccion;
+                int pX =1, pZ = 1;
+
+                if (protaX < 0){ protaX*=-1; pX = -1; }
+                if (protaZ < 0){ protaZ*=-1; pZ = -1; }
+
+                if (protaX > protaZ)
+                    redireccion.set(0,0,pZ);
+                else
+                    redireccion.set(pX,0,0);
+
+                cuboProta += redireccion * availableMovement;
 
             }
-        }
 
+        //std::cout<< "Prota X = " << protaX << "__ Prota Z = " << protaZ <<std::endl;
+
+        }
 
 
         if(enemy)
