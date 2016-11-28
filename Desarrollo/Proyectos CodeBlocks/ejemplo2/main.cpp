@@ -15,14 +15,18 @@ devices.
 #endif
 
 #include <irrlicht.h>
+#include <irrKlang.h>
 #include <Box2D.h>
 #include "driverChoice.h"
 #include "include/Enemigo.h"
+#include "include/Player.h"
+#include "irrKlang/conio.h"
 
 //#include <../libBox2D/Box2D.h>
 //#include <../libBox2D/Common/b2Math.h>
 
 using namespace irr;
+using namespace irrklang;
 
 using namespace core; //namespace fundamentales;
 using namespace scene; //namespace de escena;
@@ -49,8 +53,8 @@ public:
     struct SMouseState
     {
         core::position2di Position;
-        bool LeftButtonDown;
-        SMouseState() : LeftButtonDown(false) { }
+        bool RightButtonDown;
+        SMouseState() : RightButtonDown(false) { }
     } MouseState;
 
     // This is the one method that we have to implement
@@ -61,12 +65,12 @@ public:
         {
             switch(event.MouseInput.Event)
             {
-            case EMIE_LMOUSE_PRESSED_DOWN:
-                MouseState.LeftButtonDown = true;
+            case EMIE_RMOUSE_PRESSED_DOWN:
+                MouseState.RightButtonDown = true;
                 break;
 
-            case EMIE_LMOUSE_LEFT_UP:
-                MouseState.LeftButtonDown = false;
+            case EMIE_RMOUSE_LEFT_UP:
+                MouseState.RightButtonDown = false;
                 break;
 
             case EMIE_MOUSE_MOVED:
@@ -113,6 +117,34 @@ different possibilities to move and animate scene nodes.
 
 int main()
 {
+        ISoundEngine* engine = createIrrKlangDevice();
+
+
+	if (!engine)
+		return 0; // error starting up the engine
+
+	/*printf("Driver: %s\n",engine->getDriverName());
+	printf("Volume: %f\n",engine->getSoundVolume());*/
+
+	ISoundSource* pasos1 = engine->addSoundSourceFromFile("sonidos/pasosnormales.wav");
+	ISoundSource* pasos2 = engine->addSoundSourceFromFile("sonidos/pasossigilosos.wav");
+	ISoundSource* alarma = engine->addSoundSourceFromFile("sonidos/alarma_sintetizada2.wav");
+	vec3df posicion(0,0,0);
+	ISound* s1;
+	ISound* s2;
+
+
+	bool pasosP = false;
+	bool pasos2P = false;
+	bool cambiao = false;
+
+	if (pasos1 == 0 || pasos2 == 0)
+        	fprintf(stderr,"Can't load sounds!");
+
+    pasos1->setDefaultVolume(2.0f);
+    pasos2->setDefaultVolume(1.0f);
+
+
     // ask user for driver
     video::E_DRIVER_TYPE driverType=driverChoiceConsole();
     if (driverType==video::EDT_COUNT)
@@ -122,6 +154,8 @@ int main()
     MyEventReceiver receiver;
 
     Enemigo *enemigo1 = new Enemigo;
+    Enemigo *enemigo2 = new Enemigo;
+    Player  *prota    = new Player;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -135,13 +169,12 @@ int main()
 
     video::IVideoDriver* driver = device->getVideoDriver();
     scene::ISceneManager* smgr = device->getSceneManager();
-    scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
+    //scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
 
     /// MUROS////////////
     scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(10);
         muro1->setMaterialFlag(video::EMF_LIGHTING, false);
         muro1->setPosition(core::vector3df(0,0,0));
-        muro1->setPosition(core::vector3df(10,0,0));
         smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
 
 
@@ -157,30 +190,39 @@ int main()
 
     if(prota)
     {
-        prota->setMaterialFlag(video::EMF_LIGHTING, false);
-        prota->setPosition(core::vector3df(0,0,0));
+        prota->inicializar(smgr);
+        /*prota->setMaterialFlag(video::EMF_LIGHTING, false);
+        prota->setPosition(core::vector3df(0,0,0));*/
     }
     if(enemigo1)
-    {
         enemigo1->inicialiazar(0, smgr);
-    }
-    core::vector3df posicionInicial (35,0,35);
+    if(enemigo2)
+        enemigo2->inicialiazar(1, smgr);
+
+    //core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
 
     scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();
-    const f32 MOVEMENT_SPEED = 25.f;
+    f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
-    core::line3df ray;
-    core::vector3df mousePosition;
+    core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
+    core::vector3df mousePosition = core::vector3df(40,0,0);
+    core::line3df ray(mousePosition, prota->getCuboProta());
 
     //cambio de color de mallas
     smgr->getMeshManipulator()->setVertexColors(enemigo1->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
 
     while(device->run())
     {
+        if(receiver.isKeyDown(KEY_LSHIFT))
+            MOVEMENT_SPEED = 15.f;
+        else
+            MOVEMENT_SPEED = 25.f;
+
 
         // Work out a frame delta time.
         const u32 now = device->getTimer()->getTime();
@@ -190,17 +232,17 @@ int main()
         core::vector3df cameraPos = camera->getPosition();
         core::vector3df cameraTar = camera->getTarget();
 
-        core::vector3df cuboProta = prota->getPosition();
+        //core::vector3df cuboProta = prota->getPosition();
         //core::vector3df cuboEnemigo = enemy->getPosition();
-        core::vector3df direccionProta (cuboProta-enemigo1->getCuboEnemigo());
+        core::vector3df direccionProta (prota->getCuboProta() - enemigo1->getCuboEnemigo());
 
-        core::plane3df plane(cuboProta, core::vector3df(0, -1, 0));
 
-        core::vector3df direccionProta2 (cuboProta-cameraPos);
+
+        //core::vector3df direccionProta2 (cuboProta-cameraPos);
 
 
         /// COLISIONES ///
-        if(prota->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
+        if(prota->getModelo()->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
             //std::cout<< "si" <<std::endl;
             protaColliding = true;
         }
@@ -239,7 +281,19 @@ int main()
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
-        if(receiver.GetMouseState().LeftButtonDown)
+        if(enemigo2->getEstado() == 2){
+            if(cambiao == false){
+                smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
+                s2 = engine->play3D(alarma,posicion,false,false,true);
+                cambiao = true;
+            }
+            else if(s2->isFinished()){
+                enemigo2->getModelo()->setPosition(core::vector3df(-1000,0,0));
+            }
+        }
+
+
+        if(receiver.GetMouseState().RightButtonDown)
         {
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
@@ -248,7 +302,7 @@ int main()
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
             // We now have a mouse position in 3d space; move towards it.
-            core::vector3df toMousePosition(mousePosition - cuboProta);
+            core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
             const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
 
             int protaX = mousePosition.X;
@@ -258,10 +312,36 @@ int main()
             if (!protaColliding){
             /// SI NO COLISIONA SE MOVERA EN LINEA RECTA HASTA QUE COLISIONE
 
+
                 if(toMousePosition.getLength() <= availableMovement){
-                    cuboProta = mousePosition; // Jump to the final position
+                    prota->setCuboProta(mousePosition);
+                    if(pasosP==true || pasos2P==true){
+                        s1->stop();
+                        pasosP = false;
+                        pasos2P = false;
+					}
+                    //cuboProta = mousePosition; // Jump to the final position
                 }else{
-                    cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
+                    prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
+                    if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
+                        if(engine->isCurrentlyPlaying(pasos2))
+                            s1->stop();
+
+                            s1 = engine->play3D(pasos1,posicion,true,false,true);
+
+                        pasosP = true;
+                        pasos2P = false;
+
+                    }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
+                        if(engine->isCurrentlyPlaying(pasos1))
+                            s1->stop();
+
+                            s1 = engine->play3D(pasos2,posicion,true,false,true);
+                        pasos2P = true;
+                        pasosP = false;
+
+                    }
+                    //cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
                     //Para que la camara siga al prota
                     //cameraPos += toMousePosition.normalize() *availableMovement;
                     //cameraTar += toMousePosition.normalize() *availableMovement;
@@ -281,7 +361,8 @@ int main()
                 else
                     redireccion.set(pX,0,0);
 
-                cuboProta += redireccion * availableMovement;
+                prota->setCuboProta(prota->getCuboProta() + redireccion * availableMovement);
+                //cuboProta += redireccion * availableMovement;
 
             }
 
@@ -289,10 +370,13 @@ int main()
 
         }
 
-        enemigo1->update(direccionProta, cuboProta, frameDeltaTime);
+        enemigo1->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
 
-        prota->setPosition(cuboProta);
+        prota->getModelo()->setPosition(prota->getCuboProta());
         enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
+        if(cambiao == false)
+            enemigo2->getModelo()->setPosition(enemigo2->getCuboEnemigo());
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 
@@ -305,6 +389,7 @@ int main()
     In the end, delete the Irrlicht device.
     */
     device->drop();
+    engine->drop();
 
     return 0;
 }

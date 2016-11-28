@@ -7,7 +7,10 @@
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
-        posicion = core::vector3df(35,0,35); //Meter en interfaz
+        if(t == 0)
+            posicion = core::vector3df(35,0,35); //Meter en interfaz
+        else
+            posicion = core::vector3df(-35,0,35);
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
         modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
@@ -83,6 +86,7 @@
                 //acciones de la transicion 1-2
                 //...
                 estado = 1;
+                puntoInteres = posicionProta;
             }
             break;
         case 1:
@@ -197,8 +201,13 @@
             }
             else if(estado == 2)
             {
-                cuboEnemigo += direccionProta.normalize() * availableMovement;
-                posicion = cuboEnemigo;
+                if(tipo == 0){
+                    cuboEnemigo += direccionProta.normalize() * availableMovement;
+                    posicion = cuboEnemigo;
+                }
+                else if(tipo == 1){
+                    posicion = cuboEnemigo;
+                }
             }
         }
     }

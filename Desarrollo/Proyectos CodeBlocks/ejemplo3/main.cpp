@@ -157,7 +157,7 @@ int main()
 	scene::IMeshSceneNode *cubeNode = smgr->addCubeSceneNode(10);
     if(cubeNode) {
           cubeNode->setMaterialFlag(video::EMF_LIGHTING, false);
-          cubeNode->setPosition(core::vector3df(0,0,0));
+          cubeNode->setPosition(core::vector3df(50,0,0));
     }
 
 	scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
