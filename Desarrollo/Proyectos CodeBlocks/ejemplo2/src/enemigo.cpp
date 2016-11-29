@@ -1,16 +1,13 @@
 #include "../include/Enemigo.h"
 
 
-    void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr)
+    void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr,core::vector3df p)
     {
         estado = 0;
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
-        if(t == 0)
-            posicion = core::vector3df(35,0,35); //Meter en interfaz
-        else
-            posicion = core::vector3df(-35,0,35);
+        posicion = p; //Meter en interfaz
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
         modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
