@@ -16,14 +16,12 @@ devices.
 
 #include <irrlicht.h>
 #include <irrKlang.h>
-#include <Box2D.h>
+#include <Box2D/Box2D.h>
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 #include "include/Player.h"
 #include "irrKlang/conio.h"
 
-//#include <../libBox2D/Box2D.h>
-//#include <../libBox2D/Common/b2Math.h>
 
 using namespace irr;
 using namespace irrklang;
@@ -117,7 +115,14 @@ different possibilities to move and animate scene nodes.
 
 int main()
 {
-        ISoundEngine* engine = createIrrKlangDevice();
+    /// BOX 2D
+
+    b2Vec2 gravity(0.0f, -10.0f);
+    b2World world(gravity);
+
+    /// IRR KLANG
+
+    ISoundEngine* engine = createIrrKlangDevice();
 
 
 	if (!engine)
