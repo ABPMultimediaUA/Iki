@@ -64,19 +64,24 @@
 			<Add directory="../irrlicht-1.8.4/include" />
 			<Add directory="../libBox2D" />
 			<Add directory="../libBox2D/Box2D/Common" />
+			<Add directory="../irrKlang-1.5.0/include" />
 		</Compiler>
 		<Linker>
 			<Add library="Irrlicht" />
 			<Add library="libbox2d.a" />
+			<Add library="libirrKlang.a" />
 			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../box2d/bin/Debug" />
+			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>
 		<Unit filename="Makefile" />
 		<Unit filename="include/Enemigo.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/Player.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Enemigo.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/enemigo.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
