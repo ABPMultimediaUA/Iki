@@ -142,6 +142,7 @@ int main()
 	bool pasosP = false;
 	bool pasos2P = false;
 	bool cambiao = false;
+    bool protaColliding = false;
 
 	if (pasos1 == 0 || pasos2 == 0)
         	fprintf(stderr,"Can't load sounds!");
@@ -191,9 +192,9 @@ int main()
        suelo->setRotation(core::vector3df(0,0,0));
        suelo->setMaterialFlag(EMF_LIGHTING, false);
        suelo->setMaterialTexture( 0, driver->getTexture("texturas/suelo.png") );
+       //suelo->getMaterial(0).getTextureMatrix(0).setTextureTranslate(1,1);
+       //suelo->getMaterial(0).getTextureMatrix(0).setTextureScale(1,1);
     }
-
-    bool protaColliding = false;
 
     if(prota)
     {
@@ -202,9 +203,9 @@ int main()
         prota->setPosition(core::vector3df(0,0,0));*/
     }
     if(enemigo1)
-        enemigo1->inicialiazar(0, smgr);
+        enemigo1->inicialiazar(0, smgr, core::vector3df(35,0,35));
     if(enemigo2)
-        enemigo2->inicialiazar(1, smgr);
+        enemigo2->inicialiazar(1, smgr, core::vector3df(-35,0,35));
 
     //core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
