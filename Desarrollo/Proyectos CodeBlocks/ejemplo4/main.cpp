@@ -197,8 +197,10 @@ int main()
     u32 then = device->getTimer()->getTime();
     const f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
-    core::line3df ray;
-    core::vector3df mousePosition, prevMousePosition;
+    core::vector3df mousePosition(50,0,0);
+    core::line3df ray(mousePosition, prota->getAbsolutePosition());
+    core::vector3df prevMousePosition;
+    core::vector3df toMousePosition;
 
     //cambio de color de mallas
     smgr->getMeshManipulator()->setVertexColors(enemy->getMesh(),irr::video::SColor(255, 255, 0, 0));
@@ -225,7 +227,7 @@ int main()
 
 
         /// COLISIONES ///
-        if(prota->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())||
+       /* if(prota->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())||
            prota->getTransformedBoundingBox().intersectsWithBox(muro2->getTransformedBoundingBox())||
            prota->getTransformedBoundingBox().intersectsWithBox(muro3->getTransformedBoundingBox())){
             //std::cout<< "si" <<std::endl;
@@ -234,6 +236,13 @@ int main()
         else{
             //std::cout<< "no" <<std::endl;
             protaColliding = false;
+        }*/
+
+        if(prota->getTransformedBoundingBox().getVolume().X == muro1->getTransformedBoundingBox().getVolume().X)||
+           prota->getTransformedBoundingBox().intersectsWithBox(muro2->getTransformedBoundingBox())||
+           prota->getTransformedBoundingBox().intersectsWithBox(muro3->getTransformedBoundingBox())){
+            //std::cout<< "si" <<std::endl;
+            protaColliding = true;
         }
 
 
@@ -274,6 +283,11 @@ int main()
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
+            if(protaColliding){
+                cuboProta += core::vector3df(1,0,0);
+                mousePosition = cuboProta;
+                ray.setLine(mousePosition, prota->getAbsolutePosition());
+            }
 
             // We now have a mouse position in 3d space; move towards it.
             core::vector3df toMousePosition(mousePosition - cuboProta);
@@ -281,16 +295,20 @@ int main()
 
             //int protaZ, protaX, pX, pZ;
 
-            if (mousePosition != prevMousePosition){
+            /*if (mousePosition != prevMousePosition){
                 protaX = mousePosition.X-cuboProta.X;
                 protaZ = mousePosition.Z-cuboProta.Z;
 
-                std::cout<< "Prota X = " << protaX << " Prota Z = " << protaZ <<std::endl;
-            }
+               */
+            //}
 
-            if (!protaColliding){
+            //if (!protaColliding){
             /// SI NO COLISIONA SE MOVERA EN LINEA RECTA HASTA QUE COLISIONE
 
+               // toMousePosition.set(mousePosition - cuboProta);
+                std::cout<< "Prota X = " << toMousePosition.X << " Prota Z = " << toMousePosition.Z <<std::endl;
+                std::cout<< "mouseposition X = " << mousePosition.X << " mouseposition Z = " << mousePosition.Z<<std::endl;
+                std::cout<< "mouseposition X = " << cuboProta.X << " mouseposition Z = " << cuboProta.Z<<std::endl;
                 if(toMousePosition.getLength() <= availableMovement){
                     cuboProta = mousePosition; // Jump to the final position
                 }else{
@@ -299,11 +317,14 @@ int main()
                     //cameraPos += toMousePosition.normalize() *availableMovement;
                     //cameraTar += toMousePosition.normalize() *availableMovement;
 
-                }
-            }else{
+               }
+           // }else{
             /// COLISIONA Y PRIORIZA UNA DIRECCION
+           //     cuboProta -= core::vector3df(20,0,0);
 
-                int protaX2 = protaX, protaZ2 = protaZ;
+                //toMousePosition.set(0,0,0);
+           //     mousePosition = cuboProta;
+                /*int protaX2 = protaX, protaZ2 = protaZ;
 
                 if (protaX < 0){protaX2=-1; pX=-1;} else {pX=1;}
                 if (protaZ < 0){protaZ2=-1; pZ=-1;} else {pZ=1;}
@@ -314,10 +335,10 @@ int main()
                     redireccion.set(pX,0,0);
                 }
 
-                cuboProta += redireccion * availableMovement;
+                cuboProta += redireccion * availableMovement;*/
 
-            }
-        prevMousePosition = mousePosition;
+           // }
+       // prevMousePosition = mousePosition;
         }
 
 
