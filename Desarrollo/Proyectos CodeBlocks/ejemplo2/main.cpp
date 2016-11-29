@@ -178,19 +178,21 @@ int main()
         smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
 
 
-    /// ////////////////
+    IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(300.f, -5.f, 300.f));
+     scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
 
-    //IBillboardSceneNode *node1 = scenedriver->addBillboardSceneNode ( 0, core::dimension2d< f32 >(100.0f, 100.0f) );
-    //node1->setMaterialFlag(EMF_LIGHTING, false);
-
-    //node1->setMaterialTexture( 0, videodriver->getTexture("texturas/opengl.png") );
-    //node1->setMaterialType( video::EMT_SOLID );
+    if(suelo){
+       suelo->setPosition(core::vector3df(0.0f, 0.0f, 0.0f));
+       suelo->setRotation(core::vector3df(0,0,0));
+       suelo->setMaterialFlag(EMF_LIGHTING, false);
+       suelo->setMaterialTexture( 0, driver->getTexture("texturas/suelo.png") );
+    }
 
     bool protaColliding = false;
 
     if(prota)
     {
-        prota->inicializar(smgr);
+        prota->inicializar(smgr,driver);
         /*prota->setMaterialFlag(video::EMF_LIGHTING, false);
         prota->setPosition(core::vector3df(0,0,0));*/
     }
