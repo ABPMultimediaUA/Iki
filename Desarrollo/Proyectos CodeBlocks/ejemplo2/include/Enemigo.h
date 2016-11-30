@@ -16,7 +16,7 @@ using namespace gui; //namespace gui;
 class Enemigo
 {
     public:
-        void inicialiazar(int, scene::ISceneManager*);
+        void inicialiazar(int, scene::ISceneManager*, core::vector3df p);
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
