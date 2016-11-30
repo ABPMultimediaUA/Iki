@@ -53,15 +53,12 @@
         return cuboEnemigo;
     }
 
-    void Enemigo::patrullar()
-    {
 
-    }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
 
     }
-    void Enemigo::atacar(core::vector3df posicionProta)
+    void Enemigo::curar(Enemigo aliado)
     {
 
     }
@@ -72,8 +69,7 @@
     {
         switch (estado)
         {
-        case 0:
-            //patrullar();
+        case 0://PATRULLAR
             if(posicion.getDistanceFrom(posicionProta)<30)
             {
                 sospecha++;
@@ -86,8 +82,19 @@
                 puntoInteres = posicionProta;
             }
             break;
-        case 1:
-            //sospechar(posicionProta);
+        case 1: //VIGILAR
+            break;
+        case 2: //COMBATE/ALARMA/DECISION MEDICO
+            break;
+        case 3: //PEDIR AYUDA
+            break;
+        case 4: //HUIR
+            break;
+        case 5: //PERSEGUIR
+            break;
+        case 6: //ATACAR
+            break;
+        case 7: //INSPECCIONAR
             if(posicion.getDistanceFrom(puntoInteres) == 0)
             {
                 if(posicion.getDistanceFrom(posicionProta) < 40)
@@ -113,9 +120,9 @@
                 estado = 2;
             }
             break;
-        case 2:
-            //atacar(posicionProta);
+        case 8: //PROTEGER
             break;
+
         default:
             estado = 3;
             break;
@@ -131,7 +138,7 @@
             const f32 availableMovement = 15.f * frameDeltaTime;
             maquinaEstados(cuboProta);
 
-            if(estado == 0)
+            if(estado == 0) //PATRULLAR
             {
 
                 switch(direccion)
@@ -183,8 +190,29 @@
                 }
                 posicion = cuboEnemigo;
             }
-            else if(estado == 1)
+            else if(estado == 1) //VIGILAR
             {
+
+            }
+            else if(estado == 2) //COMBATE/ALARMA/DECISION MEDICO
+            {
+                if(tipo == 0){
+                    cuboEnemigo += direccionProta.normalize() * availableMovement;
+                    posicion = cuboEnemigo;
+                }
+                else if(tipo == 1){
+                    posicion = cuboEnemigo;
+                }
+                else if(tipo == 2){
+                   //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
+                   //si no hay huir, cuando haya huido volver a patrullar
+                }
+            }
+            else if (estado == 3){}//PEDIR AYUDA
+            else if (estado == 4){}//HUIR
+            else if (estado == 5){}//PERSEGUIR
+            else if (estado == 6){}//ATACAR
+            else if (estado == 7){ //INSPECCIONAR
                 if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0)
                 {
                     cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * availableMovement;
@@ -196,16 +224,8 @@
                     posicion = cuboEnemigo;
                 }
             }
-            else if(estado == 2)
-            {
-                if(tipo == 0){
-                    cuboEnemigo += direccionProta.normalize() * availableMovement;
-                    posicion = cuboEnemigo;
-                }
-                else if(tipo == 1){
-                    posicion = cuboEnemigo;
-                }
-            }
+            else if (estado == 8){}//PROTEGER
+            else if (estado == 9){}//MUERTO
         }
     }
 

@@ -25,9 +25,8 @@ class Enemigo
         float getSospecha();
         scene::IMeshSceneNode* getModelo();
         core::vector3df getCuboEnemigo();
-        void patrullar();
         void sospechar(core::vector3df posicionProta);
-        void atacar(core::vector3df posicionProta);
+        void curar(Enemigo aliado);
         int maquinaEstados(core::vector3df posicionProta);
         void update(core::vector3df, core::vector3df, f32);
 
@@ -35,8 +34,8 @@ class Enemigo
 
     private:
 
-        int estado; //0-> patrulla, 1-> sospechar, 2-> atacar, 3-> nsnc
-        int direccion; //0-> arriba, 1-> derecha, 2-> abajo, 3-> izquierda
+        int estado; //0-> patrullar 1-> vigilar 2-> combate 3-> pedir ayuda 4-> huir 5-> perseguir 6-> atacar 7->inspeccionar 8->sospechar 9->muerto
+        int direccion; //0-> arriba 1-> derecha 2-> abajo 3-> izquierda
         int tipo; //0-> guardia, 1-> dron, 2-> medico
         float sospecha;
         core::vector3df posicion;
