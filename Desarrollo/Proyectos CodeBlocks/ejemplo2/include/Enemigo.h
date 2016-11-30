@@ -31,6 +31,8 @@ class Enemigo
         int maquinaEstados(core::vector3df posicionProta);
         void update(core::vector3df, core::vector3df, f32);
 
+        f32 avMovement;
+
     protected:
 
     private:
