@@ -159,9 +159,15 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    Enemigo *enemigo1 = new Enemigo;
-    Enemigo *enemigo2 = new Enemigo;
-    Player  *prota    = new Player;
+
+    Enemigo  *enemigos[3];
+    for(int i=0;i<3;i++){
+        enemigos[i]= new Enemigo;
+    }
+    //Enemigo *enemigo1 = new Enemigo;
+    //Enemigo *enemigo2 = new Enemigo;
+    //Enemigo *enemigo3 = new Enemigo;
+    Player  *prota  = new Player;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -202,13 +208,15 @@ int main()
         /*prota->setMaterialFlag(video::EMF_LIGHTING, false);
         prota->setPosition(core::vector3df(0,0,0));*/
     }
-    if(enemigo1)
-        enemigo1->inicialiazar(0, smgr, core::vector3df(35,0,35));
-    if(enemigo2)
-        enemigo2->inicialiazar(1, smgr, core::vector3df(-35,0,35));
+    if(enemigos[0])
+        enemigos[0]->inicialiazar(0, smgr, core::vector3df(35,0,35));
+    if(enemigos[1])
+        enemigos[1]->inicialiazar(1, smgr, core::vector3df(-35,0,35));
+    if(enemigos[2])
+        enemigos[2]->inicialiazar(2,smgr,core::vector3df(-35,0,-35));
 
     //core::vector3df posicionInicial (35,0,35);
-    //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
+    //enemigos[0].setPunto((prota->getPosition())-(enemigo->getPosition()));
 
     scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
 
@@ -221,8 +229,8 @@ int main()
     core::line3df ray(mousePosition, prota->getCuboProta());
 
     //cambio de color de mallas
-    smgr->getMeshManipulator()->setVertexColors(enemigo1->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
-    smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
 
     while(device->run())
     {
@@ -242,7 +250,7 @@ int main()
 
         //core::vector3df cuboProta = prota->getPosition();
         //core::vector3df cuboEnemigo = enemy->getPosition();
-        core::vector3df direccionProta (prota->getCuboProta() - enemigo1->getCuboEnemigo());
+        core::vector3df direccionProta (prota->getCuboProta() - enemigos[0]->getCuboEnemigo());
 
 
 
@@ -289,14 +297,14 @@ int main()
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
-        if(enemigo2->getEstado() == 2){
+        if(enemigos[1]->getEstado() == 2){
             if(cambiao == false){
-                smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
+                smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
                 s2 = engine->play3D(alarma,posicion,false,false,true);
                 cambiao = true;
             }
             else if(s2->isFinished()){
-                enemigo2->getModelo()->setPosition(core::vector3df(-1000,0,0));
+                enemigos[1]->getModelo()->setPosition(core::vector3df(-1000,0,0));
             }
         }
 
@@ -378,13 +386,15 @@ int main()
 
         }
 
-        enemigo1->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        enemigos[0]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        enemigos[1]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        enemigos[2]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
 
         prota->getModelo()->setPosition(prota->getCuboProta());
-        enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
+        enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
         if(cambiao == false)
-            enemigo2->getModelo()->setPosition(enemigo2->getCuboEnemigo());
+            enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
+        enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 
