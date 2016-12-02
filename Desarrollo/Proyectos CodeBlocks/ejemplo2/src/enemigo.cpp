@@ -13,6 +13,8 @@
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
         modelo->setPosition(posicion); //Meter en el interfaz
         cuboEnemigo = modelo->getPosition();
+
+        avMovement = 0.0;
     }
 
     int Enemigo::getEstado()
@@ -55,13 +57,54 @@
 
     void Enemigo::patrullar()
     {
+    switch(direccion)
+        {
+            case 0: //Movimiento hacia arriba
+                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
+                    cuboEnemigo.X -= avMovement;
+                }else{
+                    direccion = 1;
+                    posicionInicial = cuboEnemigo;
+                }
+                break;
+
+            case 1: //Movimiento hacia la derecha
+                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
+                    cuboEnemigo.Z += avMovement;
+                }else{
+                    direccion = 2;
+                    posicionInicial = cuboEnemigo;
+                }
+                break;
+
+            case 2:
+                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
+                    cuboEnemigo.X += avMovement;
+                }else{
+                    direccion = 3;
+                    posicionInicial = cuboEnemigo;
+                }
+                break;
+
+            case 3:
+                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
+                    cuboEnemigo.Z -= avMovement;
+                }else{
+                    direccion = 0;
+                    posicionInicial = cuboEnemigo;
+                }
+                break;
+        }
+        posicion = cuboEnemigo;
+    }
+    void Enemigo::inspeccionar(){
 
     }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
 
     }
-    void Enemigo::atacar(core::vector3df posicionProta)
+    void Enemigo::curar(Enemigo aliado)
     {
 
     }
@@ -73,49 +116,69 @@
         switch (estado)
         {
         case 0:
-            //patrullar();
-            if(posicion.getDistanceFrom(posicionProta)<30)
-            {
-                sospecha++;
-            }
-            if(sospecha >= 100.0)
-            {
-                //acciones de la transicion 1-2
-                //...
+            patrullar();
+            if(posicion.getDistanceFrom(posicionProta)<30){
                 estado = 1;
-                puntoInteres = posicionProta;
             }
             break;
+
         case 1:
             //sospechar(posicionProta);
-            if(posicion.getDistanceFrom(puntoInteres) == 0)
+            /// ESCANEAR / SOSPECHAR ///
+
+            if(posicion.getDistanceFrom(posicionProta) < 30)//El player ha entrado en el rango de sensores
             {
-                if(posicion.getDistanceFrom(posicionProta) < 40)
-                {
-                    sospecha++;
-                }
-                else if(posicion.getDistanceFrom(posicionProta) > 30)
-                {
-                    sospecha--;
-                }
-            }
-            if(sospecha < 50.0)
-            {
-                //acciones de la transicion2-1
-                //...
+                /// AQUI AUMENTARA PROGRESIVAMENTE LA SOSPECHA
+                std::cout << "aumentando sospecha" << std::endl;
+
+
+            }else{//El player ha salido del rango
+                /// AQUI SE CAMBIA A UN ESTADO DEPENDIENDO DEL NIVEL DE SOSPECHA
+                std::cout << "escaneo terminado // interrumpido" << std::endl;
                 estado = 0;
-                sospecha = 0.0;
             }
-            else if(sospecha >= 200.0)
-            {
-                //acciones de la transicion2-3
-                //...
-                estado = 2;
-            }
+        case 2: //VIGILAR
             break;
-        case 2:
-            //atacar(posicionProta);
+        case 3: //COMBATE/ALARMA/DECISION MEDICO
             break;
+        case 4: //PEDIR AYUDA
+            break;
+        case 5: //HUIR
+            break;
+        case 6: //PERSEGUIR
+            break;
+        case 7: //ATACAR
+            break;
+        case 8: //INSPECCIONAR
+            if(posicion.getDistanceFrom(puntoInteres) == 0)
+                    {
+                        if(posicion.getDistanceFrom(posicionProta) < 40)
+                        {
+                            sospecha++;
+                        }
+                        else if(posicion.getDistanceFrom(posicionProta) > 30)
+                        {
+                            sospecha--;
+                        }
+                    }
+                    if(sospecha < 50.0)
+                    {
+                        //acciones de la transicion2-1
+                        //...
+                        estado = 0;
+                        sospecha = 0.0;
+                    }
+                    else if(sospecha >= 200.0)
+                    {
+                        //acciones de la transicion2-3
+                        //...
+                        estado = 2;
+                    }
+                    break;
+            break;
+        case 9: //PROTEGER
+            break;
+
         default:
             estado = 3;
             break;
@@ -128,63 +191,34 @@
     {
         if(modelo)
         {
-            const f32 availableMovement = 15.f * frameDeltaTime;
+            avMovement = 15.f * frameDeltaTime;
             maquinaEstados(cuboProta);
 
-            if(estado == 0)
+            /*
+            else if(estado == 1) //VIGILAR
             {
 
-                switch(direccion)
-                {
-                case 0: //Movimiento hacia arriba
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
-                    {
-                        cuboEnemigo.X -= availableMovement;
-                    }
-                    else
-                    {
-                        direccion = 1;
-                        posicionInicial = cuboEnemigo;
-                    }
-                    break;
-                case 1: //Movimiento hacia la derecha
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
-                    {
-                        cuboEnemigo.Z += availableMovement;
-                    }
-                    else
-                    {
-                        direccion = 2;
-                        posicionInicial = cuboEnemigo;
-                    }
-                    break;
-                case 2:
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
-                    {
-                        cuboEnemigo.X += availableMovement;
-                    }
-                    else
-                    {
-                        direccion = 3;
-                        posicionInicial = cuboEnemigo;
-                    }
-                    break;
-                case 3:
-                    if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20)
-                    {
-                        cuboEnemigo.Z -= availableMovement;
-                    }
-                    else
-                    {
-                        direccion = 0;
-                        posicionInicial = cuboEnemigo;
-                    }
-                    break;
-                }
-                posicion = cuboEnemigo;
             }
-            else if(estado == 1)
+            else if(estado == 2) //COMBATE/ALARMA/DECISION MEDICO
+
             {
+                if(tipo == 0){
+                    cuboEnemigo += direccionProta.normalize() * availableMovement;
+                    posicion = cuboEnemigo;
+                }
+                else if(tipo == 1){
+                    posicion = cuboEnemigo;
+                }
+                else if(tipo == 2){
+                   //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
+                   //si no hay huir, cuando haya huido volver a patrullar
+                }
+            }
+            else if (estado == 3){}//PEDIR AYUDA
+            else if (estado == 4){}//HUIR
+            else if (estado == 5){}//PERSEGUIR
+            else if (estado == 6){}//ATACAR
+            else if (estado == 7){ //INSPECCIONAR
                 if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0)
                 {
                     cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * availableMovement;
@@ -196,16 +230,10 @@
                     posicion = cuboEnemigo;
                 }
             }
-            else if(estado == 2)
-            {
-                if(tipo == 0){
-                    cuboEnemigo += direccionProta.normalize() * availableMovement;
-                    posicion = cuboEnemigo;
-                }
-                else if(tipo == 1){
-                    posicion = cuboEnemigo;
-                }
-            }
+
+            else if (estado == 8){}//PROTEGER
+            else if (estado == 9){}//MUERTO
+                */
         }
     }
 

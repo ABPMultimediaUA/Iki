@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480437450 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1480521825 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -4016,11 +4016,11 @@
 1480095551 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\Enemigo.cpp
 	"../include/Enemigo.h"
 
-1480348464 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1480544803 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 
-1480436124 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1480544814 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480243881 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
@@ -4481,7 +4481,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1480439017 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1480703701 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -5744,7 +5744,7 @@
 	"irrTypes.h"
 	"IrrlichtDevice.h"
 
-1480439979 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1480704265 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 
@@ -5765,7 +5765,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1480440027 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1480508997 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480437247 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
@@ -5880,7 +5880,7 @@
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\box2d.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\box2d.h
 	<Box2D/Common/b2Settings.h>
 	<Box2D/Common/b2Draw.h>
 	<Box2D/Common/b2Timer.h>
@@ -5910,83 +5910,83 @@
 	<Box2D/Dynamics/Joints/b2WeldJoint.h>
 	<Box2D/Dynamics/Joints/b2WheelJoint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2settings.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2settings.h
 	<stddef.h>
 	<assert.h>
 	<float.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2draw.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2draw.h
 	<Box2D/Common/b2Math.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2math.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2math.h
 	<Box2D/Common/b2Settings.h>
 	<math.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2timer.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2timer.h
 	<Box2D/Common/b2Settings.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2circleshape.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2circleshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2shape.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2shape.h
 	<Box2D/Common/b2BlockAllocator.h>
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Collision.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2blockallocator.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2blockallocator.h
 	<Box2D/Common/b2Settings.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2collision.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2collision.h
 	<Box2D/Common/b2Math.h>
 	<limits.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2edgeshape.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2edgeshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2chainshape.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2chainshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2polygonshape.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2polygonshape.h
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2broadphase.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2broadphase.h
 	<Box2D/Common/b2Settings.h>
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Collision/b2DynamicTree.h>
 	<algorithm>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2dynamictree.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2dynamictree.h
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Common/b2GrowableStack.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2growablestack.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2growablestack.h
 	<Box2D/Common/b2Settings.h>
 	<string.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2distance.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2distance.h
 	<Box2D/Common/b2Math.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2timeofimpact.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2timeofimpact.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Distance.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2body.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2body.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/Shapes/b2Shape.h>
 	<memory>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2fixture.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2fixture.h
 	<Box2D/Dynamics/b2Body.h>
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Collision/Shapes/b2Shape.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2worldcallbacks.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2worldcallbacks.h
 	<Box2D/Common/b2Settings.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2timestep.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2timestep.h
 	<Box2D/Common/b2Math.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2world.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2world.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Common/b2BlockAllocator.h>
 	<Box2D/Common/b2StackAllocator.h>
@@ -5994,52 +5994,52 @@
 	<Box2D/Dynamics/b2WorldCallbacks.h>
 	<Box2D/Dynamics/b2TimeStep.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2stackallocator.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2stackallocator.h
 	<Box2D/Common/b2Settings.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2contactmanager.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2contactmanager.h
 	<Box2D/Collision/b2BroadPhase.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\contacts\b2contact.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\contacts\b2contact.h
 	<Box2D/Common/b2Math.h>
 	<Box2D/Collision/b2Collision.h>
 	<Box2D/Collision/Shapes/b2Shape.h>
 	<Box2D/Dynamics/b2Fixture.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2distancejoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2distancejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2joint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2joint.h
 	<Box2D/Common/b2Math.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2frictionjoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2frictionjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2gearjoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2gearjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2motorjoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2motorjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2mousejoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2mousejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2prismaticjoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2prismaticjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2pulleyjoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2pulleyjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2revolutejoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2revolutejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2ropejoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2ropejoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2weldjoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2weldjoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1466361216 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
+1480521832 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
 1480431917 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\irrklang\conio.h
