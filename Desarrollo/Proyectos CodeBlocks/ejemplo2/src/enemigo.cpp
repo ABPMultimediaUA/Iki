@@ -57,7 +57,7 @@
 
     void Enemigo::patrullar()
     {
-        switch(direccion)
+    switch(direccion)
         {
             case 0: //Movimiento hacia arriba
                 if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
@@ -97,7 +97,9 @@
         }
         posicion = cuboEnemigo;
     }
+    void Enemigo::inspeccionar(){
 
+    }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
 
@@ -135,21 +137,46 @@
                 std::cout << "escaneo terminado // interrumpido" << std::endl;
                 estado = 0;
             }
-        case 1: //VIGILAR
+        case 2: //VIGILAR
             break;
-        case 2: //COMBATE/ALARMA/DECISION MEDICO
+        case 3: //COMBATE/ALARMA/DECISION MEDICO
             break;
-        case 3: //PEDIR AYUDA
+        case 4: //PEDIR AYUDA
             break;
-        case 4: //HUIR
+        case 5: //HUIR
             break;
-        case 5: //PERSEGUIR
+        case 6: //PERSEGUIR
             break;
-        case 6: //ATACAR
+        case 7: //ATACAR
             break;
-        case 7: //INSPECCIONAR
+        case 8: //INSPECCIONAR
+            if(posicion.getDistanceFrom(puntoInteres) == 0)
+                    {
+                        if(posicion.getDistanceFrom(posicionProta) < 40)
+                        {
+                            sospecha++;
+                        }
+                        else if(posicion.getDistanceFrom(posicionProta) > 30)
+                        {
+                            sospecha--;
+                        }
+                    }
+                    if(sospecha < 50.0)
+                    {
+                        //acciones de la transicion2-1
+                        //...
+                        estado = 0;
+                        sospecha = 0.0;
+                    }
+                    else if(sospecha >= 200.0)
+                    {
+                        //acciones de la transicion2-3
+                        //...
+                        estado = 2;
+                    }
+                    break;
             break;
-        case 8: //PROTEGER
+        case 9: //PROTEGER
             break;
 
         default:

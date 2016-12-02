@@ -29,6 +29,8 @@ class Enemigo
         void curar(Enemigo aliado);
         int maquinaEstados(core::vector3df posicionProta);
         void update(core::vector3df, core::vector3df, f32);
+        void inspeccionar();
+        void patrullar();
 
         f32 avMovement;
 
