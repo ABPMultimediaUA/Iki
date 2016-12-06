@@ -27,7 +27,7 @@ class Enemigo
         core::vector3df getCuboEnemigo();
         void sospechar(core::vector3df posicionProta);
         void curar(Enemigo aliado);
-        int maquinaEstados(core::vector3df posicionProta);
+        int maquinaEstados();
         void update(core::vector3df, core::vector3df, f32);
         void inspeccionar();
         void patrullar();
@@ -41,6 +41,7 @@ class Enemigo
         int estado; //0-> patrullar 1-> vigilar 2-> combate 3-> pedir ayuda 4-> huir 5-> perseguir 6-> atacar 7->inspeccionar 8->sospechar 9->muerto
         int direccion; //0-> arriba 1-> derecha 2-> abajo 3-> izquierda
         int tipo; //0-> guardia, 1-> dron, 2-> medico
+        float distanciaPlayer;
         float sospecha;
         core::vector3df posicion;
         core::vector3df posicionInicial;

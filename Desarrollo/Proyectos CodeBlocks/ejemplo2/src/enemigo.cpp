@@ -111,31 +111,37 @@
 
     //Funcionamiento maquina de estados
 
-    int Enemigo::maquinaEstados(core::vector3df posicionProta)
+    int Enemigo::maquinaEstados()
     {
         switch (estado)
         {
         case 0:
             patrullar();
-            if(posicion.getDistanceFrom(posicionProta)<30){
+            if(distanciaPlayer<30){
                 estado = 1;
             }
             break;
 
         case 1:
-            //sospechar(posicionProta);
             /// ESCANEAR / SOSPECHAR ///
+            //DISTANCIA PLAYER (CERCA,MEDIA,LEJOS)
 
-            if(posicion.getDistanceFrom(posicionProta) < 30)//El player ha entrado en el rango de sensores
+            //VELOCIDAD PLAYER (0,1,2)  //////SI LA VELOCIDAD ES 0 EL RUIDO ES 0
+                                        //////SI LA VELOCIDAD ES 1 o 2, EL RUIDO DEPENDE DE LA DISTANCIA (SIEMPRE)
+                                                                        //RUIDO PLAYER (BAJO,MEDIO,ALTO)
+
+            //NIVEL DE SOSPECHA (BAJO,MEDIO,ALTO) o velocidad de subida
+
+            if(distanciaPlayer < 30)//El player ha entrado en el rango de sensores
             {
                 /// AQUI AUMENTARA PROGRESIVAMENTE LA SOSPECHA
                 std::cout << "aumentando sospecha" << std::endl;
-
 
             }else{//El player ha salido del rango
                 /// AQUI SE CAMBIA A UN ESTADO DEPENDIENDO DEL NIVEL DE SOSPECHA
                 std::cout << "escaneo terminado // interrumpido" << std::endl;
                 estado = 0;
+
             }
         case 2: //VIGILAR
             break;
@@ -152,11 +158,11 @@
         case 8: //INSPECCIONAR
             if(posicion.getDistanceFrom(puntoInteres) == 0)
                     {
-                        if(posicion.getDistanceFrom(posicionProta) < 40)
+                        if(distanciaPlayer < 40)
                         {
                             sospecha++;
                         }
-                        else if(posicion.getDistanceFrom(posicionProta) > 30)
+                        else if(distanciaPlayer > 30)
                         {
                             sospecha--;
                         }
@@ -192,7 +198,9 @@
         if(modelo)
         {
             avMovement = 15.f * frameDeltaTime;
-            maquinaEstados(cuboProta);
+            distanciaPlayer = posicion.getDistanceFrom(cuboProta);
+
+            maquinaEstados();
 
             /*
             else if(estado == 1) //VIGILAR
