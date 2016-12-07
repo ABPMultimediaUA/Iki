@@ -237,6 +237,8 @@ int main()
     core::vector3df mousePosition = core::vector3df(40,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
     int lastFPS = -1;
+    u32 myClock;
+    int frame = 0;
 
     //cambio de color de mallas
     smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
@@ -254,6 +256,16 @@ int main()
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
+
+        //MAS O MENOS LA OPERACION DE ABAJO HARIA 60 ITERACIONES POR SEGUNDO
+        //DENTRO DEL IF HABRIA QUE HACER EL UPDATE
+        myClock = now % 16;
+        if (myClock == 0){
+            std::cout << "Frame Numero : " << frame << std::endl;
+            frame++;
+            if (frame == 60)
+                frame = 0;
+        }
 
        // const f32 fps = (f32)(now) / 1000.f;
 
@@ -429,6 +441,7 @@ int main()
             device->setWindowCaption(tmp.c_str());
             lastFPS = fps;
         }
+
     }
 
     /*
