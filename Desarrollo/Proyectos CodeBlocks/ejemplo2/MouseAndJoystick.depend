@@ -4481,7 +4481,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1481124646 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1481129990 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -5744,7 +5744,7 @@
 	"irrTypes.h"
 	"IrrlichtDevice.h"
 
-1481125015 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1481127966 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 
@@ -5765,7 +5765,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1481111880 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1481129122 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480705780 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp

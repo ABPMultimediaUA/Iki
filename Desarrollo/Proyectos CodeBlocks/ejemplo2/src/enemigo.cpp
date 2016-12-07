@@ -13,8 +13,9 @@
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
         modelo->setPosition(posicion); //Meter en el interfaz
         cuboEnemigo = modelo->getPosition();
-
+        tiempoVigilando = 0.0;
         avMovement = 0.0;
+
     }
 
     int Enemigo::getEstado()
@@ -98,21 +99,19 @@
         posicion = cuboEnemigo;
     }
     void Enemigo::inspeccionar(){
-          if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0)
-                {
+          if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0){
                     cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * avMovement;
                     posicion = cuboEnemigo;
                 }
-                if(cuboEnemigo.getDistanceFrom(puntoInteres) <= 0.1)
-                {
+                if(cuboEnemigo.getDistanceFrom(puntoInteres) <= 0.1){
                     cuboEnemigo = puntoInteres;
                     posicion = cuboEnemigo;
                 }
     }
     void Enemigo::vigilar(){
-        modelo->setRotation(vector3df(30,0,0));
-        modelo->setRotation(vector3df(-60,0,0));
-        modelo->setRotation(vector3df(30,0,0));
+        modelo->setRotation(vector3df(0,30,0));
+        modelo->setRotation(vector3df(0,-60,0));
+        modelo->setRotation(vector3df(0,30,0));
     }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
@@ -149,14 +148,15 @@
             if(distanciaPlayer < 30)//El player ha entrado en el rango de sensores
             {
                 /// AQUI AUMENTARA PROGRESIVAMENTE LA SOSPECHA
-                std::cout << "aumentando sospecha" << std::endl;
+                //std::cout << "aumentando sospecha" << std::endl;
 
             }else{//El player ha salido del rango
                 /// AQUI SE CAMBIA A UN ESTADO DEPENDIENDO DEL NIVEL DE SOSPECHA
-                std::cout << "escaneo terminado // interrumpido" << std::endl;
+                //std::cout << "escaneo terminado // interrumpido" << std::endl;
                 estado = 0;
 
             }
+            break;
         case 2: //VIGILAR
             vigilar();
             break;

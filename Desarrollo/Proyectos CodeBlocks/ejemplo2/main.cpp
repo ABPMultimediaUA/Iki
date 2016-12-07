@@ -236,6 +236,7 @@ int main()
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition = core::vector3df(40,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
+    int lastFPS = -1;
 
     //cambio de color de mallas
     smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
@@ -253,6 +254,10 @@ int main()
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
+
+       // const f32 fps = (f32)(now) / 1000.f;
+
+       // std::cout << fps << std::endl;
 
         core::vector3df cameraPos = camera->getPosition();
         core::vector3df cameraTar = camera->getTarget();
@@ -410,6 +415,20 @@ int main()
         driver->beginScene(true, true, video::SColor(255,113,113,133));
         smgr->drawAll(); // draw the 3d scene
         driver->endScene();
+
+
+        int fps = driver->getFPS();
+
+        if (lastFPS != fps)
+        {
+            core::stringw tmp(L"Movement Example - Irrlicht Engine [");
+            tmp += driver->getName();
+            tmp += L"] fps: ";
+            tmp += fps;
+
+            device->setWindowCaption(tmp.c_str());
+            lastFPS = fps;
+        }
     }
 
     /*

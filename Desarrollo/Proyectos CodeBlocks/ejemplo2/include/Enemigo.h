@@ -4,6 +4,7 @@
 #include <irrlicht.h>
 #include "driverChoice.h"
 
+
 using namespace irr;
 
 using namespace core; //namespace fundamentales;
@@ -33,7 +34,6 @@ class Enemigo
         void patrullar();
         void vigilar();
 
-        f32 avMovement;
 
     protected:
 
@@ -44,12 +44,14 @@ class Enemigo
         int tipo; //0-> guardia, 1-> dron, 2-> medico
         float distanciaPlayer;
         float sospecha;
+        float tiempoVigilando;
         core::vector3df posicion;
         core::vector3df posicionInicial;
         core::vector3df puntoInteres;
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboEnemigo;
         core::vector3df direccionHaciaProta;
+        f32 avMovement;
 
 };
 
