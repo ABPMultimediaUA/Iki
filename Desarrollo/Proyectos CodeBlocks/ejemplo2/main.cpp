@@ -189,6 +189,16 @@ int main()
         muro1->setPosition(core::vector3df(0,0,0));
         smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
 
+    scene::IMeshSceneNode *muro2 = smgr->addCubeSceneNode(10);
+        muro2->setMaterialFlag(video::EMF_LIGHTING, false);
+        muro2->setPosition(core::vector3df(50,0,0));
+        smgr->getMeshManipulator()->setVertexColors(muro2->getMesh(),irr::video::SColor(0, 0, 0, 0));
+
+    scene::IMeshSceneNode *muro3 = smgr->addCubeSceneNode(10);
+        muro3->setMaterialFlag(video::EMF_LIGHTING, false);
+        muro3->setPosition(core::vector3df(0,0,50));
+        smgr->getMeshManipulator()->setVertexColors(muro3->getMesh(),irr::video::SColor(0, 0, 0, 0));
+
 
     IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(300.f, -5.f, 300.f));
      scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
@@ -215,9 +225,8 @@ int main()
     if(enemigos[2])
         enemigos[2]->inicialiazar(2,smgr,core::vector3df(-35,0,-35));
 
-    //core::vector3df posicionInicial (35,0,35);
-    //enemigos[0].setPunto((prota->getPosition())-(enemigo->getPosition()));
 
+    //la camara se echa 40 hacia atras y 90 hacia arriba y apunta al 0,0,0
     scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
 
     //we'll use framerate independent movement.

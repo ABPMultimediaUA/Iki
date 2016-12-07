@@ -31,6 +31,7 @@ class Enemigo
         void update(core::vector3df, core::vector3df, f32);
         void inspeccionar();
         void patrullar();
+        void vigilar();
 
         f32 avMovement;
 
@@ -48,6 +49,7 @@ class Enemigo
         core::vector3df puntoInteres;
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboEnemigo;
+        core::vector3df direccionHaciaProta;
 
 };
 

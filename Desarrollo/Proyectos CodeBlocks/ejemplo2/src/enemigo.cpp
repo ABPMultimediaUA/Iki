@@ -98,7 +98,21 @@
         posicion = cuboEnemigo;
     }
     void Enemigo::inspeccionar(){
-
+          if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0)
+                {
+                    cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * avMovement;
+                    posicion = cuboEnemigo;
+                }
+                if(cuboEnemigo.getDistanceFrom(puntoInteres) <= 0.1)
+                {
+                    cuboEnemigo = puntoInteres;
+                    posicion = cuboEnemigo;
+                }
+    }
+    void Enemigo::vigilar(){
+        modelo->setRotation(vector3df(30,0,0));
+        modelo->setRotation(vector3df(-60,0,0));
+        modelo->setRotation(vector3df(30,0,0));
     }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
@@ -144,14 +158,29 @@
 
             }
         case 2: //VIGILAR
+            vigilar();
             break;
         case 3: //COMBATE/ALARMA/DECISION MEDICO
+                if(tipo == 0){
+                    //si el prota esta a rango ataca
+                    //sino persigue
+                }
+                else if(tipo == 1){
+                    //mantiene poscion y suena
+                    posicion = cuboEnemigo;
+                }
+                else if(tipo == 2){
+                   //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
+                   //si no hay huir, cuando haya huido volver a patrullar
+                }
             break;
         case 4: //PEDIR AYUDA
             break;
         case 5: //HUIR
             break;
         case 6: //PERSEGUIR
+            //cuboEnemigo += direccionProta.normalize() * availableMovement;
+            //posicion = cuboEnemigo;
             break;
         case 7: //ATACAR
             break;
@@ -199,7 +228,7 @@
         {
             avMovement = 15.f * frameDeltaTime;
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
-
+            direccionHaciaProta=direccionProta;
             maquinaEstados();
 
             /*
@@ -221,27 +250,7 @@
                    //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
                    //si no hay huir, cuando haya huido volver a patrullar
                 }
-            }
-            else if (estado == 3){}//PEDIR AYUDA
-            else if (estado == 4){}//HUIR
-            else if (estado == 5){}//PERSEGUIR
-            else if (estado == 6){}//ATACAR
-            else if (estado == 7){ //INSPECCIONAR
-                if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0)
-                {
-                    cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * availableMovement;
-                    posicion = cuboEnemigo;
-                }
-                if(cuboEnemigo.getDistanceFrom(puntoInteres) <= 0.1)
-                {
-                    cuboEnemigo = puntoInteres;
-                    posicion = cuboEnemigo;
-                }
-            }
-
-            else if (estado == 8){}//PROTEGER
-            else if (estado == 9){}//MUERTO
-                */
+            }*/
         }
     }
 
