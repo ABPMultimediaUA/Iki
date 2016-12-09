@@ -1,400 +1,320 @@
-/** Example 019 Mouse and Joystick
-
-This tutorial builds on example 04.Movement which showed how to
-handle keyboard events in Irrlicht.  Here we'll handle mouse events
-and joystick events, if you have a joystick connected and a device
-that supports joysticks.  These are currently Windows, Linux and SDL
-devices.
-*/
-
-#ifdef _MSC_VER
-
-// We'll define this to stop MSVC complaining about sprintf().
-#define _CRT_SECURE_NO_WARNINGS
-#pragma comment(lib, "Irrlicht.lib")
-#endif
-
 #include <irrlicht.h>
-#include <irrKlang.h>
-#include <Box2D.h>
-#include "driverChoice.h"
-#include "include/Enemigo.h"
-#include "include/Player.h"
-#include "irrKlang/conio.h"
+#include <Box2D/Box2D.h>
+#include <Box2D/Common/b2Math.h>
+#include <GL/gl.h>
 
-//#include <../libBox2D/Box2D.h>
-//#include <../libBox2D/Common/b2Math.h>
 
 using namespace irr;
-using namespace irrklang;
+using namespace core;
+using namespace scene;
+using namespace video;
+using namespace io;
+using namespace gui;
 
-using namespace core; //namespace fundamentales;
-using namespace scene; //namespace de escena;
-using namespace video; //namespace de vídeo;
-using namespace io; //namespace io;
-using namespace gui; //namespace gui;
-/*
-we'll store the latest state of the mouse and the first joystick, updating them as we receive events.
-*/
-class MyEventReceiver : public IEventReceiver
+// draw2DImage source from Lonesome Ducky
+void draw2DImage(irr::video::IVideoDriver *driver, irr::video::ITexture* texture,
+    irr::core::rect<irr::s32> sourceRect, irr::core::position2d<irr::s32> position,
+    irr::core::position2d<irr::s32> rotationPoint, irr::f32 rotation, irr::core::vector2df scale,
+    bool useAlphaChannel, irr::video::SColor color)
 {
-private:
-    bool KeyDown[KEY_KEY_CODES_COUNT];
-public:
 
-    MyEventReceiver()
-    {
-        for(int i=0; i<KEY_KEY_CODES_COUNT; i++)
+   irr::video::SMaterial material;
+
+   // Store and clear the projection matrix
+   irr::core::matrix4 oldProjMat = driver->getTransform(irr::video::ETS_PROJECTION);
+   driver->setTransform(irr::video::ETS_PROJECTION,irr::core::matrix4());
+
+   // Store and clear the view matrix
+   irr::core::matrix4 oldViewMat = driver->getTransform(irr::video::ETS_VIEW);
+   driver->setTransform(irr::video::ETS_VIEW,irr::core::matrix4());
+
+   // Find the positions of corners
+   irr::core::vector2df corner[4];
+
+   corner[0] = irr::core::vector2df(position.X,position.Y);
+   corner[1] = irr::core::vector2df(position.X+sourceRect.getWidth()*scale.X,position.Y);
+   corner[2] = irr::core::vector2df(position.X,position.Y+sourceRect.getHeight()*scale.Y);
+   corner[3] = irr::core::vector2df(position.X+sourceRect.getWidth()*scale.X,position.Y+sourceRect.getHeight()*scale.Y);
+
+   // Rotate corners
+   if (rotation != 0.0f)
+      for (int x = 0; x < 4; x++)
+         corner[x].rotateBy(rotation,irr::core::vector2df(rotationPoint.X, rotationPoint.Y));
+
+
+   // Find the uv coordinates of the sourceRect
+   irr::core::vector2df uvCorner[4];
+   uvCorner[0] = irr::core::vector2df(sourceRect.UpperLeftCorner.X,sourceRect.UpperLeftCorner.Y);
+   uvCorner[1] = irr::core::vector2df(sourceRect.LowerRightCorner.X,sourceRect.UpperLeftCorner.Y);
+   uvCorner[2] = irr::core::vector2df(sourceRect.UpperLeftCorner.X,sourceRect.LowerRightCorner.Y);
+   uvCorner[3] = irr::core::vector2df(sourceRect.LowerRightCorner.X,sourceRect.LowerRightCorner.Y);
+   for (int x = 0; x < 4; x++) {
+      float uvX = uvCorner[x].X/(float)texture->getSize().Width;
+      float uvY = uvCorner[x].Y/(float)texture->getSize().Height;
+      uvCorner[x] = irr::core::vector2df(uvX,uvY);
+   }
+
+   // Vertices for the image
+   irr::video::S3DVertex vertices[4];
+   irr::u16 indices[6] = { 0, 1, 2, 3 ,2 ,1 };
+
+   // Convert pixels to world coordinates
+   float screenWidth = driver->getScreenSize().Width;
+   float screenHeight = driver->getScreenSize().Height;
+   for (int x = 0; x < 4; x++) {
+      float screenPosX = ((corner[x].X/screenWidth)-0.5f)*2.0f;
+      float screenPosY = ((corner[x].Y/screenHeight)-0.5f)*-2.0f;
+      vertices[x].Pos = irr::core::vector3df(screenPosX,screenPosY,1);
+      vertices[x].TCoords = uvCorner[x];
+      vertices[x].Color = color;
+   }
+   material.Lighting = false;
+   material.ZWriteEnable = false;
+   material.TextureLayer[0].Texture = texture;
+   //material.
+   //material.TextureLayer[0].TextureWrapU = irr::video::ETC_CLAMP;
+   //material.TextureLayer[0].TextureWrapV = irr::video::ETC_CLAMP;
+
+   if (useAlphaChannel)
+      material.MaterialType = irr::video::EMT_TRANSPARENT_ALPHA_CHANNEL;
+   else
+      material.MaterialType = irr::video::EMT_SOLID;
+
+   driver->setMaterial(material);
+   driver->drawIndexedTriangleList(&vertices[0],4,&indices[0],2);
+
+
+   // Restore projection and view matrices
+   driver->setTransform(irr::video::ETS_PROJECTION,oldProjMat);
+   driver->setTransform(irr::video::ETS_VIEW,oldViewMat);
+
+}
+
+
+class bwBody
+{
+    public:
+        bwBody(const b2PolygonShape& bShape, b2Body* const bBody, IrrlichtDevice* const bDevice)
         {
-            KeyDown[i] = false;
+            shape = bShape;
+            body = bBody;
+            device = bDevice;
         }
-    }
 
-    struct SMouseState
-    {
-        core::position2di Position;
-        bool RightButtonDown;
-        SMouseState() : RightButtonDown(false) { }
-    } MouseState;
-
-    // This is the one method that we have to implement
-    virtual bool OnEvent(const SEvent& event)
-    {
-        // Remember the mouse state
-        if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
+        void update()
         {
-            switch(event.MouseInput.Event)
+            b2Vec2 position = body->GetPosition();
+            float32 angle = body->GetAngle();
+
+            draw2DImage(device->getVideoDriver(), device->getVideoDriver()->getTexture("crate.jpg"),
+                rect<irr::s32>(0,0,120,120), position2d<s32>(position.x-10,position.y-10),
+                position2d<s32>(position.x,position.y), angle*RADTODEG, vector2df(0.18,0.18),
+                false, SColor(255,255,255,255));
+
+            /*device->getVideoDriver()->draw2DLine(position2d<s32>(position.x,position.y),
+                position2d<s32>(position.x-10,position.y-10), SColor(255, 0, 255, 0));*/
+
+            const b2Mat22 mat(angle,0,0,0);
+            for(int i=0; i < shape.GetVertexCount(); i++)
             {
-            case EMIE_RMOUSE_PRESSED_DOWN:
-                MouseState.RightButtonDown = true;
-                break;
+                //const b2Vec2 vec = body->GetWorldPoint(shape.GetVertex(i));
+                const b2Vec2 vec = body->GetWorldPoint(b2Mul(mat,shape.GetVertex(i)));
 
-            case EMIE_RMOUSE_LEFT_UP:
-                MouseState.RightButtonDown = false;
-                break;
 
-            case EMIE_MOUSE_MOVED:
-                MouseState.Position.X = event.MouseInput.X;
-                MouseState.Position.Y = event.MouseInput.Y;
-                break;
+                // This wireframe drawing is incorrect - Cobra
+                /*device->getVideoDriver()->draw2DLine(position2d<s32>(vec.x,vec.y),
+                    (i+1 != shape.GetVertexCount()) ?
+                    position2d<s32>(body->GetWorldPoint(b2Mul(mat,shape.GetVertex(i+1))).x, body->GetWorldPoint(b2Mul(mat,shape.GetVertex(i+1))).y):
+                    position2d<s32>(body->GetWorldPoint(b2Mul(mat,shape.GetVertex(0))).x,body->GetWorldPoint(b2Mul(mat,shape.GetVertex(0))).y),
+                    SColor(255, 255, 255, 255));*/
 
-            default:
-                // We won't use the wheel
-                break;
+                /*device->getVideoDriver()->draw2DVertexPrimitiveList(const void *vertices, u32 vertexCount,
+                    const void *indexList, u32 primCount,
+                    E_VERTEX_TYPE vType=EVT_STANDARD, scene::E_PRIMITIVE_TYPE pType=scene::EPT_TRIANGLES, E_INDEX_TYPE iType=EIT_16BIT)*/
             }
         }
-        else if (event.EventType == irr::EET_KEY_INPUT_EVENT)
-        {
-            KeyDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
-        }
 
-    }
-
-    virtual bool isKeyDown(EKEY_CODE keyCode) const
-    {
-        return KeyDown[keyCode];
-    }
-
-    virtual bool isKeyUp(EKEY_CODE keyCode) const
-    {
-        return !KeyDown[keyCode];
-    }
-    const SMouseState & GetMouseState(void) const
-    {
-        return MouseState;
-    }
-
-
+    private:
+        b2PolygonShape shape;
+        b2Body* body;
+        IrrlichtDevice* device;
 };
 
-/*
-The event receiver for keeping the pressed keys is ready, the actual responses
-will be made inside the render loop, right before drawing the scene. So lets
-just create an irr::IrrlichtDevice and the scene node we want to move. We also
-create some other additional scene nodes, to show that there are also some
-different possibilities to move and animate scene nodes.
-*/
+irr::core::array<bwBody*> bodies;
+
+
+void createRigidBox(b2World& world, const vector2d<s32>& pos, IrrlichtDevice* const device)
+{
+    // Define the dynamic body. We set its position and call the body factory.
+   b2BodyDef bodyDef;
+   bodyDef.type = b2_dynamicBody;
+   bodyDef.position.Set(pos.X, pos.Y);
+   b2Body* body = world.CreateBody(&bodyDef);
+
+   // Define another box shape for our dynamic body.
+   b2PolygonShape dynamicBox;
+   dynamicBox.SetAsBox(10.0f, 10.0f);
+
+   // Define the dynamic body fixture.
+   b2FixtureDef fixtureDef;
+   fixtureDef.shape = &dynamicBox;
+
+   // Set the box density to be non-zero, so it will be dynamic.
+   fixtureDef.density = 1.0f;
+
+   // Override the default friction.
+   fixtureDef.friction = 0.3f;
+
+   // Add the shape to the body.
+   body->CreateFixture(&fixtureDef);
+
+   bwBody* bww = new bwBody(dynamicBox, body, device);
+
+   bodies.push_back(bww);
+}
+
+IrrlichtDevice *device = 0;
+
+b2Vec2 gravity(0.0f, 10.0f);
+bool doSleep = true;
+b2World world(gravity);
+
+class MyEventReceiver : public IEventReceiver
+{
+public:
+   virtual bool OnEvent(const SEvent& event)
+   {
+      // Remember the mouse state
+      if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
+      {
+         switch(event.MouseInput.Event)
+         {
+         case EMIE_LMOUSE_LEFT_UP:
+         {
+            createRigidBox(world, vector2d<s32>(event.MouseInput.X, event.MouseInput.Y), device);
+         }
+            break;
+
+         default:
+            break;
+         }
+      }
+   }
+
+
+   MyEventReceiver()
+   {
+   }
+};
+
 
 int main()
 {
-        ISoundEngine* engine = createIrrKlangDevice();
-
-
-	if (!engine)
-		return 0; // error starting up the engine
-
-	/*printf("Driver: %s\n",engine->getDriverName());
-	printf("Volume: %f\n",engine->getSoundVolume());*/
-
-	ISoundSource* pasos1 = engine->addSoundSourceFromFile("sonidos/pasosnormales.wav");
-	ISoundSource* pasos2 = engine->addSoundSourceFromFile("sonidos/pasossigilosos.wav");
-	ISoundSource* alarma = engine->addSoundSourceFromFile("sonidos/alarma_sintetizada2.wav");
-	vec3df posicion(0,0,0);
-	ISound* s1;
-	ISound* s2;
-
-
-	bool pasosP = false;
-	bool pasos2P = false;
-	bool cambiao = false;
-
-	if (pasos1 == 0 || pasos2 == 0)
-        	fprintf(stderr,"Can't load sounds!");
-
-    pasos1->setDefaultVolume(2.0f);
-    pasos2->setDefaultVolume(1.0f);
-
-
-    // ask user for driver
-    video::E_DRIVER_TYPE driverType=driverChoiceConsole();
-    if (driverType==video::EDT_COUNT)
-        return 1;
-
-    // create device
     MyEventReceiver receiver;
+   device = createDevice( video::EDT_SOFTWARE, dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
 
-    Enemigo *enemigo1 = new Enemigo;
-    Enemigo *enemigo2 = new Enemigo;
-    Player  *prota    = new Player;
-
-
-    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
-    IGUIEnvironment* guienv = device->getGUIEnvironment(); //Cargamos la GUI
-
-    device->setWindowCaption(L"IKI" );
-    //guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",rect<s32>(10,10,10,10), true );
-
-    if (device == 0)
-        return 1; // could not create selected driver.
-
-    video::IVideoDriver* driver = device->getVideoDriver();
-    scene::ISceneManager* smgr = device->getSceneManager();
-    //scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
-
-    /// MUROS////////////
-    scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(10);
-        muro1->setMaterialFlag(video::EMF_LIGHTING, false);
-        muro1->setPosition(core::vector3df(0,0,0));
-        smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
+   if (!device)
+      return 1;
 
 
-    IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(300.f, -5.f, 300.f));
-     scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
+   device->setWindowCaption(L"Irrlicht/Box2D Sample");
 
-    if(suelo){
-       suelo->setPosition(core::vector3df(0.0f, 0.0f, 0.0f));
-       suelo->setRotation(core::vector3df(0,0,0));
-       suelo->setMaterialFlag(EMF_LIGHTING, false);
-       suelo->setMaterialTexture( 0, driver->getTexture("texturas/suelo.png") );
-    }
 
-    bool protaColliding = false;
+   IVideoDriver* driver = device->getVideoDriver();
+   ISceneManager* smgr = device->getSceneManager();
+   IGUIEnvironment* guienv = device->getGUIEnvironment();
+   ITimer* timer = device->getTimer();
 
-    if(prota)
+
+   guienv->addStaticText(L"Box2D integrated with Irrlicht",
+      rect<s32>(10,10,130,22), true);
+
+
+   smgr->addCameraSceneNode(0, vector3df(0,30,-40), vector3df(0,5,0));
+
+   /////////////////
+   // Box2D Stuff //
+   /////////////////
+
+   // Define the ground body.
+   b2BodyDef groundBodyDef;
+   groundBodyDef.position.Set(290.0f, 250.0f);
+
+   // Call the body factory which allocates memory for the ground body
+   // from a pool and creates the ground box shape (also from a pool).
+   // The body is also added to the world.
+   b2Body* groundBody = world.CreateBody(&groundBodyDef);
+
+   // Define the ground box shape.
+   b2PolygonShape groundBox;
+
+   // The extents are the half-widths of the box.
+   groundBox.SetAsBox(290.0f, 10.0f);
+
+   // Add the ground fixture to the ground body.
+   groundBody->CreateFixture(&groundBox, 0.0f);
+
+   bwBody* bww = new bwBody(groundBox, groundBody, device);
+
+   for(int i=0; i < 11; i++)
+   {
+        for(int j=0; j < 8; j++)
+        {
+            createRigidBox(world,vector2d<s32>(110+(i*45), 230-(j*20)), device);
+        }
+   }
+
+
+   // Prepare for simulation. Typically we use a time step of 1/60 of a
+   // second (60Hz) and 10 iterations. This provides a high quality simulation
+   // in most game scenarios.
+   float32 timeStep = 1.0f / 250.0f;
+   int32 velocityIterations = 6;
+   int32 positionIterations = 2;
+
+
+    f32 TimeStamp = timer->getTime();
+   f32 DeltaTime = timer->getTime() - TimeStamp;
+
+
+
+   while(device->run())
+   {
+      driver->beginScene(true, true, SColor(255,100,101,140));
+
+      DeltaTime = timer->getTime() - TimeStamp;
+        TimeStamp = timer->getTime();
+
+      // Instruct the world to perform a single step of simulation.
+      // It is generally best to keep the time step and iterations fixed.
+      world.Step(DeltaTime*timeStep, velocityIterations, positionIterations);
+
+      // Clear applied body forces. We didn't apply any forces, but you
+      // should know about this function.
+      world.ClearForces();
+
+      for(int i=0; i < bodies.size(); i++)
+      {
+          bodies[i]->update();
+      }
+
+      bww->update();
+
+      smgr->drawAll();
+      guienv->drawAll();
+
+      driver->endScene();
+   }
+
+   for(int i=0; i < bodies.size(); i++)
     {
-        prota->inicializar(smgr,driver);
-        /*prota->setMaterialFlag(video::EMF_LIGHTING, false);
-        prota->setPosition(core::vector3df(0,0,0));*/
+        delete bodies[i];
     }
-    if(enemigo1)
-        enemigo1->inicialiazar(0, smgr);
-    if(enemigo2)
-        enemigo2->inicialiazar(1, smgr);
+    bodies.clear();
 
-    //core::vector3df posicionInicial (35,0,35);
-    //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
+   delete bww;
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+   device->drop();
 
-    //we'll use framerate independent movement.
-    u32 then = device->getTimer()->getTime();
-    f32 MOVEMENT_SPEED = 25.f;
-    const f32 MOVEMENT_SPEED_ENEMY = 15.f;
-    core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
-    core::vector3df mousePosition = core::vector3df(40,0,0);
-    core::line3df ray(mousePosition, prota->getCuboProta());
-
-    //cambio de color de mallas
-    smgr->getMeshManipulator()->setVertexColors(enemigo1->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
-    smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
-
-    while(device->run())
-    {
-        if(receiver.isKeyDown(KEY_LSHIFT))
-            MOVEMENT_SPEED = 15.f;
-        else
-            MOVEMENT_SPEED = 25.f;
-
-
-        // Work out a frame delta time.
-        const u32 now = device->getTimer()->getTime();
-        const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
-        then = now;
-
-        core::vector3df cameraPos = camera->getPosition();
-        core::vector3df cameraTar = camera->getTarget();
-
-        //core::vector3df cuboProta = prota->getPosition();
-        //core::vector3df cuboEnemigo = enemy->getPosition();
-        core::vector3df direccionProta (prota->getCuboProta() - enemigo1->getCuboEnemigo());
-
-
-
-        //core::vector3df direccionProta2 (cuboProta-cameraPos);
-
-
-        /// COLISIONES ///
-        if(prota->getModelo()->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
-            //std::cout<< "si" <<std::endl;
-            protaColliding = true;
-        }
-        else{
-            //std::cout<< "no" <<std::endl;
-            protaColliding = false;
-        }
-
-
-        /// ////////////////////
-
-        const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
-
-        if(receiver.isKeyDown(KEY_ESCAPE))
-        {
-            device->closeDevice();
-            return 0;
-        }
-        else if(receiver.isKeyDown(KEY_RIGHT))
-        {
-            cameraPos.X+=0.1;
-            cameraTar.X+=0.1;
-        }
-        else if (receiver.isKeyDown(KEY_LEFT))
-        {
-            cameraPos.X-=0.1;
-            cameraTar.X-=0.1;
-        }
-        else if(receiver.isKeyDown(KEY_UP))
-        {
-            cameraPos.Z+=0.1;
-            cameraTar.Z+=0.1;
-        }
-        else if (receiver.isKeyDown(KEY_DOWN))
-        {
-            cameraPos.Z-=0.1;
-            cameraTar.Z-=0.1;
-        }
-        if(enemigo2->getEstado() == 2){
-            if(cambiao == false){
-                smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
-                s2 = engine->play3D(alarma,posicion,false,false,true);
-                cambiao = true;
-            }
-            else if(s2->isFinished()){
-                enemigo2->getModelo()->setPosition(core::vector3df(-1000,0,0));
-            }
-        }
-
-
-        if(receiver.GetMouseState().RightButtonDown)
-        {
-            ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                      receiver.GetMouseState().Position, camera);
-
-        }
-        if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
-        {
-            // We now have a mouse position in 3d space; move towards it.
-            core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
-            const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
-
-            int protaX = mousePosition.X;
-            int protaZ = mousePosition.Z;
-
-
-            if (!protaColliding){
-            /// SI NO COLISIONA SE MOVERA EN LINEA RECTA HASTA QUE COLISIONE
-
-
-                if(toMousePosition.getLength() <= availableMovement){
-                    prota->setCuboProta(mousePosition);
-                    if(pasosP==true || pasos2P==true){
-                        s1->stop();
-                        pasosP = false;
-                        pasos2P = false;
-					}
-                    //cuboProta = mousePosition; // Jump to the final position
-                }else{
-                    prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
-                    if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
-                        if(engine->isCurrentlyPlaying(pasos2))
-                            s1->stop();
-
-                            s1 = engine->play3D(pasos1,posicion,true,false,true);
-
-                        pasosP = true;
-                        pasos2P = false;
-
-                    }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
-                        if(engine->isCurrentlyPlaying(pasos1))
-                            s1->stop();
-
-                            s1 = engine->play3D(pasos2,posicion,true,false,true);
-                        pasos2P = true;
-                        pasosP = false;
-
-                    }
-                    //cuboProta += toMousePosition.normalize() * availableMovement; // Move towards i
-                    //Para que la camara siga al prota
-                    //cameraPos += toMousePosition.normalize() *availableMovement;
-                    //cameraTar += toMousePosition.normalize() *availableMovement;
-
-                }
-            }else{
-            /// COLISIONA Y PRIORIZA UNA DIRECCION
-
-                core::vector3df redireccion;
-                int pX =1, pZ = 1;
-
-                if (protaX < 0){ protaX*=-1; pX = -1; }
-                if (protaZ < 0){ protaZ*=-1; pZ = -1; }
-
-                if (protaX > protaZ)
-                    redireccion.set(0,0,pZ);
-                else
-                    redireccion.set(pX,0,0);
-
-                prota->setCuboProta(prota->getCuboProta() + redireccion * availableMovement);
-                //cuboProta += redireccion * availableMovement;
-
-            }
-
-        //std::cout<< "Prota X = " << protaX << "__ Prota Z = " << protaZ <<std::endl;
-
-        }
-
-        enemigo1->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-
-        prota->getModelo()->setPosition(prota->getCuboProta());
-        enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
-        if(cambiao == false)
-            enemigo2->getModelo()->setPosition(enemigo2->getCuboEnemigo());
-        camera->setPosition(cameraPos);
-        camera->setTarget(cameraTar);
-
-        driver->beginScene(true, true, video::SColor(255,113,113,133));
-        smgr->drawAll(); // draw the 3d scene
-        driver->endScene();
-    }
-
-    /*
-    In the end, delete the Irrlicht device.
-    */
-    device->drop();
-    engine->drop();
-
-    return 0;
+   return 0;
 }
-
-/*
-**/
