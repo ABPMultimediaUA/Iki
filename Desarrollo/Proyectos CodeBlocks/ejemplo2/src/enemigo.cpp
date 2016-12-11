@@ -1,6 +1,7 @@
 #include "../include/Enemigo.h"
 
 
+
     void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr,core::vector3df p)
     {
         estado = 0;

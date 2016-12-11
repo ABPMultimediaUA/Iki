@@ -20,6 +20,7 @@ devices.
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 #include "include/Player.h"
+#include "include/Time.h"
 #include "irrKlang/conio.h"
 
 
@@ -168,6 +169,7 @@ int main()
     //Enemigo *enemigo2 = new Enemigo;
     //Enemigo *enemigo3 = new Enemigo;
     Player  *prota  = new Player;
+    Time tiempo;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -231,6 +233,7 @@ int main()
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();
+    tiempo.set(device);
     f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
@@ -256,6 +259,7 @@ int main()
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
+        tiempo.update();
 
         //MAS O MENOS LA OPERACION DE ABAJO HARIA 60 ITERACIONES POR SEGUNDO
         //DENTRO DEL IF HABRIA QUE HACER EL UPDATE

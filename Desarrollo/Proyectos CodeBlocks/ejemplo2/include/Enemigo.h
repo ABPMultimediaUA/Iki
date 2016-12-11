@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include "driverChoice.h"
+#include "../include/Time.h"
 
 
 using namespace irr;
@@ -52,6 +53,7 @@ class Enemigo
         core::vector3df cuboEnemigo;
         core::vector3df direccionHaciaProta;
         f32 avMovement;
+        Time tiempo;
 
 };
 
