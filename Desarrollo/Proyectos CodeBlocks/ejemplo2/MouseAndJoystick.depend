@@ -4481,7 +4481,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1481496843 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1481498652 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -5745,7 +5745,7 @@
 	"irrTypes.h"
 	"IrrlichtDevice.h"
 
-1481497324 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1481502316 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -5767,7 +5767,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1481497303 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1481502550 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480705780 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
@@ -6219,9 +6219,9 @@
 1480705776 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1481496886 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp
-	"C:\Users\mateobernal\Documents\GitHub\Iki\Desarrollo\Proyectos CodeBlocks\ejemplo2\include\Time.h"
+1481502030 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp
+	"..\include\Time.h"
 
-1481496874 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
+1481502008 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
 	<irrlicht.h>
 

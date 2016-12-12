@@ -265,7 +265,7 @@ int main()
         //DENTRO DEL IF HABRIA QUE HACER EL UPDATE
         myClock = now % 16;
         if (myClock == 0){
-            std::cout << "Frame Numero : " << frame << std::endl;
+            //std::cout << "Frame Numero : " << frame << std::endl;
             frame++;
             if (frame == 60)
                 frame = 0;
@@ -416,9 +416,9 @@ int main()
 
         }
 
-        enemigos[0]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigos[1]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigos[2]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        enemigos[0]->update(direccionProta, prota->getCuboProta(), tiempo);
+        enemigos[1]->update(direccionProta, prota->getCuboProta(), tiempo);
+        enemigos[2]->update(direccionProta, prota->getCuboProta(), tiempo);
 
         prota->getModelo()->setPosition(prota->getCuboProta());
         enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());

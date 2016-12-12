@@ -110,9 +110,16 @@
                 }
     }
     void Enemigo::vigilar(){
+        //devuelve tiempo en s
+        time=tiempo.getTime();
+        printf("tiempo: %0.2f \n",time);
         modelo->setRotation(vector3df(0,30,0));
+        /*diferencia=(ahora-tiempo.getMomento());
+        if(diferencia<3.f)
+        if(diferencia>= 3.f && diferencia<= 6.f)
         modelo->setRotation(vector3df(0,-60,0));
-        modelo->setRotation(vector3df(0,30,0));
+        if(diferencia>6.f)
+        modelo->setRotation(vector3df(0,30,0));*/
     }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
@@ -132,7 +139,7 @@
         case 0:
             patrullar();
             if(distanciaPlayer<30){
-                estado = 1;
+                estado = 2;
             }
             break;
 
@@ -223,11 +230,12 @@
         return estado;
     }
 
-    void Enemigo::update(core::vector3df direccionProta, core::vector3df cuboProta, f32 frameDeltaTime)
+    void Enemigo::update(core::vector3df direccionProta, core::vector3df cuboProta, Time temps)
     {
+        tiempo=temps;
         if(modelo)
         {
-            avMovement = 15.f * frameDeltaTime;
+            avMovement = 15.f * tiempo.getTimeFactor();
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
             direccionHaciaProta=direccionProta;
             maquinaEstados();
