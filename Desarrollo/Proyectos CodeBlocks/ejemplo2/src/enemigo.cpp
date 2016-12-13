@@ -2,9 +2,11 @@
 
 
 
-    void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr,core::vector3df p)
+    void Enemigo::inicialiazar(int ID, int t, scene::ISceneManager* smgr,core::vector3df p)
     {
+        id=ID;
         estado = 0;
+        vida=100;
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
@@ -16,7 +18,9 @@
         cuboEnemigo = modelo->getPosition();
         tiempoVigilando = 0.0;
         avMovement = 0.0;
-
+        primeraVez=true;
+        time=0.0;
+        mensajePendiente=false;
     }
 
     int Enemigo::getEstado()
@@ -37,6 +41,10 @@
     void Enemigo::setPosicion(core::vector3df este) //Meter en interfaz
     {
         posicion = este;
+    }
+    void Enemigo::setEstado(int este)
+    {
+        estado=este;
     }
 
     void Enemigo::setPunto(core::vector3df este) //Meter en interfaz
@@ -112,14 +120,18 @@
     void Enemigo::vigilar(){
         //devuelve tiempo en s
         time=tiempo.getTime();
-        printf("tiempo: %0.2f \n",time);
-        modelo->setRotation(vector3df(0,30,0));
-        /*diferencia=(ahora-tiempo.getMomento());
-        if(diferencia<3.f)
-        if(diferencia>= 3.f && diferencia<= 6.f)
-        modelo->setRotation(vector3df(0,-60,0));
-        if(diferencia>6.f)
-        modelo->setRotation(vector3df(0,30,0));*/
+        tiempoVigilando=(time-reloj);
+        //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
+        if(tiempoVigilando < 3.0){
+            modelo->setRotation(vector3df(0,30,0));
+        }
+        else if(tiempoVigilando>= 3.0 && tiempoVigilando<= 6.0){
+            modelo->setRotation(vector3df(0,-30,0));
+        }
+        else if(tiempoVigilando>6.0){
+            modelo->setRotation(vector3df(0,0,0));
+        }
+
     }
     void Enemigo::sospechar(core::vector3df posicionProta)
     {
@@ -127,6 +139,17 @@
     }
     void Enemigo::curar(Enemigo aliado)
     {
+
+    }
+    void Enemigo::perseguir(){
+        cuboEnemigo += direccionHaciaProta.normalize() * avMovement;
+        posicion = cuboEnemigo;
+    }
+    void Enemigo::pedirAyuda(){
+        cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
+        posicion = cuboEnemigo;
+    }
+    void Enemigo::proteger(){
 
     }
 
@@ -166,7 +189,17 @@
             }
             break;
         case 2: //VIGILAR
+            if(primeraVez){
+            reloj=tiempo.setMomento();
+            primeraVez=false;
+            }
+            if (tiempoVigilando < 8.0){
             vigilar();
+            }
+            else{
+                primeraVez=true;
+                estado=0;
+            }
             break;
         case 3: //COMBATE/ALARMA/DECISION MEDICO
                 if(tipo == 0){
@@ -183,43 +216,49 @@
                 }
             break;
         case 4: //PEDIR AYUDA
+            pedirAyuda();
+            //fabs es para valor absoluto
+            if( fabs(posicion.X - posicionAliado.X) < 5 && fabs(posicion.Z - posicionAliado.Z) < 5){
+                mensajePendiente=true;
+                mensajeEstado=6;
+            }
+            //cuando lo encuentra, lo cura si es necesario y lo protege
             break;
         case 5: //HUIR
             break;
         case 6: //PERSEGUIR
-            //cuboEnemigo += direccionProta.normalize() * availableMovement;
-            //posicion = cuboEnemigo;
+            perseguir();
+            //si esta a rango ataca
+            //si lo pierde de vista, vuelve a la patrulla
             break;
         case 7: //ATACAR
             break;
         case 8: //INSPECCIONAR
+            inspeccionar();
             if(posicion.getDistanceFrom(puntoInteres) == 0)
-                    {
-                        if(distanciaPlayer < 40)
-                        {
-                            sospecha++;
-                        }
-                        else if(distanciaPlayer > 30)
-                        {
-                            sospecha--;
-                        }
-                    }
-                    if(sospecha < 50.0)
-                    {
-                        //acciones de la transicion2-1
-                        //...
-                        estado = 0;
-                        sospecha = 0.0;
-                    }
-                    else if(sospecha >= 200.0)
-                    {
-                        //acciones de la transicion2-3
-                        //...
-                        estado = 2;
-                    }
-                    break;
+            {
+                if(distanciaPlayer < 40)
+                {
+                    sospecha++;
+                }
+                else if(distanciaPlayer > 30)
+                {
+                    sospecha--;
+                }
+            }
+            if(sospecha < 50.0)
+            {
+                estado = 0;
+                sospecha = 0.0;
+            }
+            else if(sospecha >= 200.0)
+            {
+                estado = 2;
+            }
+
             break;
         case 9: //PROTEGER
+            proteger();
             break;
 
         default:
@@ -230,36 +269,27 @@
         return estado;
     }
 
-    void Enemigo::update(core::vector3df direccionProta, core::vector3df cuboProta, Time temps)
+    void Enemigo::update(core::vector3df direccionProta, core::vector3df cuboProta, Time temps, Enemigo *aliados[3])
     {
-        tiempo=temps;
+        tiempo = temps;
+
+        if(tipo==2){
+        //habria que comprobar el tipo de aliado y si es guardia guardarnos las posiciones, en este caso sabemos que es el 0
+        posicionAliado=aliados[0]->getPosicion();
+        direccionHaciaAliado= (posicionAliado-posicion);
+        }
+
         if(modelo)
         {
             avMovement = 15.f * tiempo.getTimeFactor();
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
             direccionHaciaProta=direccionProta;
             maquinaEstados();
-
-            /*
-            else if(estado == 1) //VIGILAR
-            {
-
-            }
-            else if(estado == 2) //COMBATE/ALARMA/DECISION MEDICO
-
-            {
-                if(tipo == 0){
-                    cuboEnemigo += direccionProta.normalize() * availableMovement;
-                    posicion = cuboEnemigo;
-                }
-                else if(tipo == 1){
-                    posicion = cuboEnemigo;
-                }
-                else if(tipo == 2){
-                   //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
-                   //si no hay huir, cuando haya huido volver a patrullar
-                }
-            }*/
+        }
+        if(mensajePendiente){
+            //aqui pues deberiamos tener un destinario, de momento solo tenemos mensaje entre la medio y el guardia y por eso es asi
+            aliados[0]->setEstado(mensajeEstado);
+            mensajePendiente=false;
         }
     }
 

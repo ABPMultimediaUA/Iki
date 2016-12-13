@@ -12,16 +12,16 @@ class Time  {
    void set(IrrlichtDevice *device);
    void reset();
    void update();
-   void setMomento();
-   u32 getTime();
+   float setMomento();
+   float getTime();
    f32 getTimeFactor();
-   u32 getMomento();
+   float getMomento();
 
  protected:
 
  private:
-   u32 momento;
-   u32 tiempo;
+   float momento;
+   float tiempo;
    u32 m_Time;
    u32 m_DeltaTime;
    irr::f32 m_TimeFactor;

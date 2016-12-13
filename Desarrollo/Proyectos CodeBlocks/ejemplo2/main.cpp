@@ -221,11 +221,11 @@ int main()
         prota->setPosition(core::vector3df(0,0,0));*/
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0, smgr, core::vector3df(35,0,35));
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(35,0,35));
     if(enemigos[1])
-        enemigos[1]->inicialiazar(1, smgr, core::vector3df(-35,0,35));
+        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(-35,0,35));
     if(enemigos[2])
-        enemigos[2]->inicialiazar(2,smgr,core::vector3df(-35,0,-35));
+        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(-35,0,-35));
 
 
     //la camara se echa 40 hacia atras y 90 hacia arriba y apunta al 0,0,0
@@ -286,6 +286,7 @@ int main()
 
         //core::vector3df direccionProta2 (cuboProta-cameraPos);
 
+        if(prota->estaMuerto()){
 
         /// COLISIONES ///
         if(prota->getModelo()->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
@@ -416,14 +417,28 @@ int main()
 
         }
 
-        enemigos[0]->update(direccionProta, prota->getCuboProta(), tiempo);
-        enemigos[1]->update(direccionProta, prota->getCuboProta(), tiempo);
-        enemigos[2]->update(direccionProta, prota->getCuboProta(), tiempo);
 
-        prota->getModelo()->setPosition(prota->getCuboProta());
+
+
+        if(prota->getVida()>0)
+            prota->getModelo()->setPosition(prota->getCuboProta());
+        else
+            prota->matar();
+
+        }
+
+          //Guardia
+        enemigos[0]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        //Alarma
+        enemigos[1]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        //Medico
+        enemigos[2]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+
         enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
+        //Si la alarma no ha sonado
         if(cambiao == false)
             enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
+
         enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);

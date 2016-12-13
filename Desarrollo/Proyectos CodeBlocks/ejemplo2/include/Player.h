@@ -15,12 +15,17 @@ class Player
         void setCuboProta(core::vector3df);
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
+        float getVida();
+        void matar();
+        bool estaMuerto();
 
     protected:
 
     private:
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboProta;
+        float vida;
+        bool muerto;
 
 };
 
