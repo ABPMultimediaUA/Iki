@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480704730 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1481502047 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -7,6 +7,10 @@
 	"include/Enemigo.h"
 	"include/Player.h"
 	"irrKlang/conio.h"
+	"include/FuzzyModule.h"
+	"include/FuzzySet.h"
+	"include/FuzzyModule.h"
+	"include/FuzzyVariable.h"
 
 1352128454 c:\irrlicht-1.8.4\include\irrlicht.h
 	"IrrCompileConfig.h"
@@ -4016,11 +4020,11 @@
 1480095551 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\Enemigo.cpp
 	"../include/Enemigo.h"
 
-1481044584 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1481132004 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 
-1480544814 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1481132004 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480243881 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
@@ -6216,4 +6220,29 @@
 
 1480705776 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481502166 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzymodule.h
+	<map>
+	<vector>
+	<string>
+	"FuzzyVariable.h"
+
+1481502704 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzyvariable.h
+
+1481499258 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzyset.h
+
+1481499410 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzymodule.cpp
+	"FuzzyModule.h"
+
+1481499410 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzyset.cpp
+	"FuzzySet.h"
+
+1481502512 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzyset_triangle.cpp
+	"FuzzySet_Triangle.h"
+
+1481499258 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzyset_triangle.h
+	<FuzzySet.h>
+
+1481502047 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzyvariable.cpp
+	"FuzzyVariable.h"
 
