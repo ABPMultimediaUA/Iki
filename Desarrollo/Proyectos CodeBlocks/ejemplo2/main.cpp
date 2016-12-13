@@ -23,6 +23,14 @@ devices.
 #include "include/Time.h"
 #include "irrKlang/conio.h"
 
+/**
+#include "include/FuzzyModule.h"
+#include "include/FuzzySet.h"
+#include "include/FuzzyModule.h"
+#include "include/FuzzyVariable.h"
+*/
+
+
 
 using namespace irr;
 using namespace irrklang;
@@ -116,6 +124,14 @@ different possibilities to move and animate scene nodes.
 
 int main()
 {
+    /// FUZZY LOGIC TEST
+
+//    FuzzyModule fm;
+//    FuzzyVariable& DistToTarget = fm.CreateFLV("DistToTarget");
+
+//    FzSet Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",
+//                                                        0,25,150);
+
     /// BOX 2D
 
     b2Vec2 gravity(0.0f, -10.0f);
