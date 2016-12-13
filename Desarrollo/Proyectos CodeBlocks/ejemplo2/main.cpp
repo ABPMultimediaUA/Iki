@@ -20,6 +20,7 @@ devices.
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 #include "include/Player.h"
+#include "include/Time.h"
 #include "irrKlang/conio.h"
 
 /**
@@ -184,6 +185,7 @@ int main()
     //Enemigo *enemigo2 = new Enemigo;
     //Enemigo *enemigo3 = new Enemigo;
     Player  *prota  = new Player;
+    Time tiempo;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -247,6 +249,7 @@ int main()
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();
+    tiempo.set(device);
     f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
@@ -272,12 +275,13 @@ int main()
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
+        tiempo.update();
 
         //MAS O MENOS LA OPERACION DE ABAJO HARIA 60 ITERACIONES POR SEGUNDO
         //DENTRO DEL IF HABRIA QUE HACER EL UPDATE
         myClock = now % 16;
         if (myClock == 0){
-            std::cout << "Frame Numero : " << frame << std::endl;
+            //std::cout << "Frame Numero : " << frame << std::endl;
             frame++;
             if (frame == 60)
                 frame = 0;
@@ -428,9 +432,9 @@ int main()
 
         }
 
-        enemigos[0]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigos[1]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigos[2]->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        enemigos[0]->update(direccionProta, prota->getCuboProta(), tiempo);
+        enemigos[1]->update(direccionProta, prota->getCuboProta(), tiempo);
+        enemigos[2]->update(direccionProta, prota->getCuboProta(), tiempo);
 
         prota->getModelo()->setPosition(prota->getCuboProta());
         enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());

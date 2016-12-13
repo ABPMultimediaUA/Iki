@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include "driverChoice.h"
+#include "../include/Time.h"
 
 
 using namespace irr;
@@ -29,7 +30,7 @@ class Enemigo
         void sospechar(core::vector3df posicionProta);
         void curar(Enemigo aliado);
         int maquinaEstados();
-        void update(core::vector3df, core::vector3df, f32);
+        void update(core::vector3df, core::vector3df, Time);
         void inspeccionar();
         void patrullar();
         void vigilar();
@@ -52,6 +53,8 @@ class Enemigo
         core::vector3df cuboEnemigo;
         core::vector3df direccionHaciaProta;
         f32 avMovement;
+        Time tiempo;
+        float time;
 
 };
 
