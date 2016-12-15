@@ -421,6 +421,9 @@ int main()
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
 
+        float angulo = atan2((mousePosition.Z-prota->getModelo()->getPosition().Z) ,(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+        prota->getModelo()->setRotation(core::vector3df(0,angulo,0));
+
            // prota->getModelo()->setRotation(core::vector3df(0,atan2(receiver.GetMouseState().Position.Y-prota->getModelo()->getPosition().Z, receiver.GetMouseState().Position.X-prota->getModelo()->getPosition().X) * 180.f / irr::core::PI,0));
 
         }
@@ -498,7 +501,10 @@ int main()
         enemigo1->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
         enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
         prota->getModelo()->setPosition(prota->getCuboProta());
-        prota->getModelo()->setRotation(core::vector3df(0,atan2(receiver.GetMouseState().Position.Y-prota->getModelo()->getPosition().Z, receiver.GetMouseState().Position.X-prota->getModelo()->getPosition().X) * 180.f / irr::core::PI,0));
+        //prota->getModelo()->setRotation(core::vector3df(0,atan((mousePosition.Z-prota->getModelo()->getPosition().Z) / -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI,0));
+
+        std::cout << atan((mousePosition.Z-prota->getModelo()->getPosition().Z) / -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI << std::endl;
+
         enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
         if(cambiao == false)
             enemigo2->getModelo()->setPosition(enemigo2->getCuboEnemigo());
