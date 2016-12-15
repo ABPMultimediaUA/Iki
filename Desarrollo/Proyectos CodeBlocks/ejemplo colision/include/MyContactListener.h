@@ -1,4 +1,4 @@
-#ifndef MYCONTACTLISTENER_H
+/*#ifndef MYCONTACTLISTENER_H
 #define MYCONTACTLISTENER_H
 #include <Box2D/Box2D.h>
 
@@ -16,3 +16,4 @@ class MyContactListener : public b2ContactListener
 };
 
 #endif // MYCONTACTLISTENER_H
+*/

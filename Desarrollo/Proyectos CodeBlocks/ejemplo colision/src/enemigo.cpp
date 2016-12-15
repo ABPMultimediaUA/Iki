@@ -1,9 +1,9 @@
-#include "../include/Enemigo.h"
+#include "Enemigo.h"
 #include <Box2D/Box2D.h>
 
 
 
-    void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr,core::vector3df p)
+    void Enemigo::inicialiazar(int t, scene::ISceneManager* smgr, core::vector3df p)
     {
         tam= 5;
         estado = 0;
@@ -12,19 +12,21 @@
         sospecha = 0.0;
         posicion = p; //Meter en interfaz
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
+
         modelo = smgr->addCubeSceneNode(tam); //Meter en interfaz
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
         modelo->setPosition(posicion); //Meter en el interfaz
+
         cuboEnemigo = modelo->getPosition();
 
         b2BodyDef bodyDef;
         bodyDef.type= b2_dynamicBody;
-
-        b2Body *body= world->CreateBody(&bodyDef);
+        bodyDef.position.Set(posicion.X , posicion.Z);
+        iworld= World::Instance();
+        body= iworld->getWorld()->CreateBody(&bodyDef);
 
         b2PolygonShape bodyShape;
         bodyShape.SetAsBox(tam/2, tam/2);
-
         body->CreateFixture(&bodyShape, 1.0f);
 
         b2FixtureDef fixtureDef;

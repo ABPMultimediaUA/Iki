@@ -5,16 +5,22 @@
 
 class World
 {
+    static World* pinstance;
+
     public:
         static World* Instance();
+        void Step(float DeltaTime);
         void Update();
         void Render();
-        World();
         virtual ~World();
+        b2World* getWorld();
 
     protected:
+        World();
 
     private:
+        b2World* world;
+        b2Vec2 gravity;
 };
 
 #endif // WORLD_H

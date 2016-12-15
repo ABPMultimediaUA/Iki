@@ -123,7 +123,8 @@ int main()
 {
 
     ///BOX2D
-    class World* world;
+    //class World* world; no se por que puse class
+    World* world;
     world = World::Instance();
 
 
@@ -189,9 +190,9 @@ int main()
         muro1->setMaterialFlag(video::EMF_LIGHTING, false);
         muro1->setPosition(core::vector3df(0,0,0));
         smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
-        b2BodyDef bodyMur;
+/*      b2BodyDef bodyMur;
         bodyMur.type= b2_staticBody;
-/*
+
         bodyMur *body= world->CreateBody(&bodyMur);
 
         b2PolygonShape bodyShape2;
@@ -220,9 +221,9 @@ int main()
         prota->setPosition(core::vector3df(0,0,0));*/
     }
     if(enemigo1)
-        enemigo1->inicialiazar(0, smgr, core::vector3df(35,0,35));
+        enemigo1->inicialiazar(0, smgr, core::vector3df(35,0,0));
     if(enemigo2)
-        enemigo2->inicialiazar(1, smgr, core::vector3df(-35,0,35));
+        enemigo2->inicialiazar(1, smgr, core::vector3df(-35,0,0));
 
     //core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
@@ -240,6 +241,17 @@ int main()
     //cambio de color de mallas
     smgr->getMeshManipulator()->setVertexColors(enemigo1->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
     smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
+
+
+
+
+    ///BOX2D
+        ITimer* timer = device->getTimer();
+        f32 TimeStamp = timer->getTime();
+        f32 DeltaTime = timer->getTime() - TimeStamp;
+
+
+
 
     while(device->run())
     {
@@ -377,8 +389,22 @@ int main()
         camera->setTarget(cameraTar);
 
         ///BOX2D
-        world->Step(DeltaTime*timeStep, 6, 6);
+        DeltaTime = timer->getTime() - TimeStamp;
+        TimeStamp = timer->getTime();
+
+        world->Step(DeltaTime);
+        world->getWorld()->ClearForces();
+/*
+        float32 timeStep = 1/20.0;      //the length of time passed to simulate (seconds)
+        int32 velocityIterations = 8;   //how strongly to correct velocity
+        int32 positionIterations = 3;   //how strongly to correct position
+
+        world->Step( timeStep, velocityIterations, positionIterations);
+
+        //world->Step(DeltaTime*timeStep, 6, 6);
         world->ClearForces();
+*/
+
 
         driver->beginScene(true, true, video::SColor(255,113,113,133));
         guienv->drawAll();  ///BOX2D

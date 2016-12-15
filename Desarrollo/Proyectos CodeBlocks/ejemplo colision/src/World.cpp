@@ -2,14 +2,19 @@
 #include <Box2D/Box2D.h>
 #include <MyContactListener.h>
 
+#define VELITER 10              //NUMERO DE ITERACION POR TICK PARA CALCULAR LA VELOCIDAD
+#define POSITER 10              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
+#define TIMESTEP 1.0f / 250.0f     //TIEMPO DE REFRESCO
 
-World* World::pinstance= 0;
+World* World::pinstance = nullptr;
 
 World::World()
 {
-    b2Vec2 gravity(0.0f, -10.0f);
-    b2World *world= new b2World(gravity);
-    MyContactListener colision;
+    gravity.x = 0.0f;
+    gravity.y = -10.0f;
+    world= new b2World(gravity);
+    World::pinstance = this;
+
 /*ITimer* timer = device->getTimer();
     float32 timeStep = 1.0f / 250.0f;
     f32 TimeStamp = timer->getTime();
@@ -23,9 +28,13 @@ World::~World()
     //dtor
 }
 
+void World::Step(float DeltaTime){
+    world->Step(DeltaTime*TIMESTEP, VELITER, POSITER);
+}
+
 World* World::Instance(){
-    if(pinstance == 0){
-        pinstance= new World();
+    if(pinstance == nullptr){
+        World();
     }
     return pinstance;
 }
@@ -36,4 +45,8 @@ void World::Update(){
 
 void World::Render(){
 
+}
+
+b2World* World::getWorld(){
+    return world;
 }

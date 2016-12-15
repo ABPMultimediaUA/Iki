@@ -1,4 +1,4 @@
-#include "MyContactListener.h"
+/*#include "MyContactListener.h"
 #include <Box2D/Box2D.h>
 
 MyContactListener::MyContactListener()
@@ -10,7 +10,7 @@ MyContactListener::~MyContactListener()
 {
     //dtor
 }
-/*
+
 void MyContactListener::BeginContact(b2Contact* contact) {
 //check if fixture A was a ball
     void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();

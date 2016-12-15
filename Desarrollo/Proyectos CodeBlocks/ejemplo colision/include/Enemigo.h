@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include "driverChoice.h"
+#include <World.h>
 
 
 using namespace irr;
@@ -46,6 +47,7 @@ class Enemigo
         core::vector3df puntoInteres;
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboEnemigo;
+        class World* iworld;
         b2Body *body;
 
 };
