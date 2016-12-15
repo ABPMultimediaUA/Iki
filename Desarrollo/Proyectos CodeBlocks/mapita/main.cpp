@@ -421,7 +421,7 @@ int main()
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
 
-        float angulo = atan2((mousePosition.Z-prota->getModelo()->getPosition().Z) ,(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+        float angulo = atan((mousePosition.Z-prota->getModelo()->getPosition().Z) / -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
         prota->getModelo()->setRotation(core::vector3df(0,angulo,0));
 
            // prota->getModelo()->setRotation(core::vector3df(0,atan2(receiver.GetMouseState().Position.Y-prota->getModelo()->getPosition().Z, receiver.GetMouseState().Position.X-prota->getModelo()->getPosition().X) * 180.f / irr::core::PI,0));

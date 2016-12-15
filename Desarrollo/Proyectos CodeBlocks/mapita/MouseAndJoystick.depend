@@ -7512,3 +7512,22 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
+1481814311 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\mapita\src\enemigo.cpp
+	"../include/Enemigo.h"
+
+1481814310 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\mapita\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+
+1481814311 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\mapita\src\game.cpp
+	"Game.h"
+
+1481814310 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\mapita\include\game.h
+
+1481814311 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\mapita\src\player.cpp
+	"Player.h"
+
+1481814310 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\mapita\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+
