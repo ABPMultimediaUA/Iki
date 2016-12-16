@@ -1,6 +1,5 @@
 #ifndef WORLD_H
 #define WORLD_H
-#include "Singleton.h"
 #include <Box2D/Box2D.h>
 
 class World

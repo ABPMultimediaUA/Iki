@@ -4,6 +4,8 @@
 #include <irrlicht.h>
 #include "driverChoice.h"
 #include <World.h>
+#include <Box2D/Box2D.h>
+
 
 
 using namespace irr;

@@ -1,6 +1,7 @@
 #ifndef SUELO_H
 #define SUELO_H
 #include <Box2D/Box2D.h>
+#include <World.h>
 
 class Suelo
 {

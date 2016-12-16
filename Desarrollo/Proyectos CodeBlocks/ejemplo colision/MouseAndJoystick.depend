@@ -7235,10 +7235,11 @@
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
-1481828986 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\enemigo.h
+1481847816 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
+	<Box2D/Box2D.h>
 
 1481020912 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\game.cpp
 	"Game.h"
@@ -7249,10 +7250,11 @@
 	"Player.h"
 	<Box2D/Box2D.h>
 
-1481828439 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\player.h
+1481847809 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
+	<Box2D/Box2D.h>
 
 1481828902 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\main.cpp
 	<irrlicht.h>
@@ -7538,8 +7540,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1481828380 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\world.h
-	"Singleton.h"
+1481847420 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\world.h
 	<Box2D/Box2D.h>
 
 1481828404 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\singleton.h

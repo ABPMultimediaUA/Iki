@@ -13,14 +13,6 @@ World::World()
     gravity.x = 0.0f;
     gravity.y = -10.0f;
     world= new b2World(gravity);
-    World::pinstance = this;
-
-/*ITimer* timer = device->getTimer();
-    float32 timeStep = 1.0f / 250.0f;
-    f32 TimeStamp = timer->getTime();
-    f32 DeltaTime = timer->getTime() - TimeStamp;
-*/
-
 }
 
 World::~World()
@@ -34,7 +26,7 @@ void World::Step(float DeltaTime){
 
 World* World::Instance(){
     if(pinstance == nullptr){
-        World();
+        pinstance = new World();
     }
     return pinstance;
 }
