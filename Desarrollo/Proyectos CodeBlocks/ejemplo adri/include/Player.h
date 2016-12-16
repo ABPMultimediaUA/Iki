@@ -14,9 +14,11 @@ class Player
         Player();
         virtual ~Player();
         void inicializar(scene::ISceneManager*,video::IVideoDriver* driver);
+        void setPosition(core::vector3df vec);
         void setCuboProta(core::vector3df);
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
+        b2Body* getBody();
 
     protected:
 

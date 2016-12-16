@@ -40,6 +40,7 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     fixtureDef.restitution  = 0.9f;
     fixtureDef.density  = 10.f;
     body->CreateFixture(&fixtureDef);
+    body.postion.Set
 }
 
 core::vector3df Player::getCuboProta(){

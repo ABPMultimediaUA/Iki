@@ -3,7 +3,7 @@
 
 Suelo::Suelo()
 {
-    b2BodyDef limitesBodyDef;
+   /* b2BodyDef limitesBodyDef;
     limitesBodyDef.position.Set(0.0f, 0.0f);
 
     iworld= World::Instance();
@@ -14,7 +14,7 @@ Suelo::Suelo()
     fixtureDef.shape= &limitesShape;
 
     limitesShape.Set(b2Vec2(0.0f, 0.0f), b2Vec2(300.0f, 0.0f));
-    limitesBody->CreateFixture(&fixtureDef);
+    limitesBody->CreateFixture(&fixtureDef);*/
 }
 
 Suelo::~Suelo()

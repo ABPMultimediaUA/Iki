@@ -20,11 +20,11 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
    // modelo->setMaterialType( video::EMT_SOLID );
-    modelo->setPosition(core::vector3df(40,0,0));
+    modelo->setPosition(core::vector3df(0,0,0));
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(40, 0);
+    bodyDef.position.Set(0, 0);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 
@@ -44,6 +44,14 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
 
 core::vector3df Player::getCuboProta(){
     return cuboProta;
+}
+
+void Player::setPosition(core::vector3df vec){
+    modelo->setPosition(core::vector3df(vec.X, vec.Z, 0));
+}
+
+b2Body* Player::getBody(){
+    return body;
 }
 
 void Player::setCuboProta(core::vector3df cb){

@@ -43,6 +43,12 @@ int main(){
     //std::cout << "1\n";
 
     ///PLAYER
+    Enemigo *enemi= new Enemigo;
+    if(enemi){
+        enemi->inicializar(smgr,driver);
+
+    }
+
     Player *prota= new Player;
     if(prota){
         prota->inicializar(smgr,driver);
@@ -64,6 +70,8 @@ int main(){
         //std::cout << "static constructor\n";
         world->Step(DeltaTime);
         world->getWorld()->ClearForces();
+
+        prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
         //std::cout << "nigg\n";
         smgr->drawAll();
         guienv->drawAll();

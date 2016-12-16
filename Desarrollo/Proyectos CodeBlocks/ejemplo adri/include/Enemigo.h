@@ -15,8 +15,10 @@ class Enemigo
         virtual ~Enemigo();
         void inicializar(scene::ISceneManager*,video::IVideoDriver* driver);
         void setCuboEnemigo(core::vector3df);
+        void setPosition(core::vector3df vec);
         core::vector3df getCuboEnemigo();
         scene::IMeshSceneNode* getModelo();
+        b2Body* getBody();
 
     protected:
 
