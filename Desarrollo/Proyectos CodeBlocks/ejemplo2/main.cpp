@@ -137,6 +137,11 @@ int main()
     Fuzzy logic;
     //logic.fm.vars[0].triangularSet.dom = 10;
     //std::cout << logic.fm.vars[0].triangularSet.dom;
+    /*
+        std::cout << logic.CalculateDOM(75, logic.fm.vars[2], 0)<< "   ";
+        std::cout << logic.CalculateDOM(75, logic.fm.vars[2], 1)<< "   ";
+        std::cout << logic.CalculateDOM(75, logic.fm.vars[2], 2)<< "   " << std::endl;
+    */
 
     /// BOX 2D
 
@@ -276,7 +281,6 @@ int main()
             MOVEMENT_SPEED = 15.f;
         else
             MOVEMENT_SPEED = 25.f;
-
 
         // Work out a frame delta time.
         const u32 now = device->getTimer()->getTime();

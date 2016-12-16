@@ -19,8 +19,8 @@ Fuzzy::Fuzzy()
 
     //FLV INTERES
     const FuzzySet interesBajo  = { 0, 0, 0,  0, 25, 50 };
-    const FuzzySet interesMedio = { 0, 0, 1, 25, 50, 90 };
-    const FuzzySet interesAlto  = { 0, 0, 2, 50, 90, 100};
+    const FuzzySet interesMedio = { 0, 0, 1, 25, 50, 75 };
+    const FuzzySet interesAlto  = { 0, 0, 2, 50, 75, 100};
     FuzzyVar interesVar = { interesBajo, interesMedio, interesAlto, interesBajo.left, interesAlto.right };
 
     /// Fuzzy Rules
@@ -96,7 +96,7 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
                 double grad = 1.0 / dLeft;
                 return grad * (val - (dPeak - dLeft));
             }
-            else if ( (val > dPeak) && (val < (dPeak - dRight)) )
+            else if ( (val > dPeak) && (val < (dPeak + dRight)) )
             {
                 double grad = 1.0 / -dRight;
                 return grad * (val - dPeak) + 1.0;
