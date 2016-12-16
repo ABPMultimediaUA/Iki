@@ -74,10 +74,12 @@
 		</Linker>
 		<Unit filename="Makefile" />
 		<Unit filename="include/Enemigo.h" />
+		<Unit filename="include/Fuzzy.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Time.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Fuzzy.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Time.cpp" />

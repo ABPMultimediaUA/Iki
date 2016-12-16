@@ -30,6 +30,8 @@ devices.
 #include "include/FuzzyVariable.h"
 */
 
+#include "include/Fuzzy.h"
+
 
 
 using namespace irr;
@@ -131,6 +133,9 @@ int main()
 
 //    FzSet Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",
 //                                                        0,25,150);
+
+    Fuzzy logic;
+//    std::cout << logic.sospechaMedia.dom;
 
     /// BOX 2D
 
@@ -277,6 +282,7 @@ int main()
         then = now;
         tiempo.update();
 
+        /// TIME
         //MAS O MENOS LA OPERACION DE ABAJO HARIA 60 ITERACIONES POR SEGUNDO
         //DENTRO DEL IF HABRIA QUE HACER EL UPDATE
         myClock = now % 16;

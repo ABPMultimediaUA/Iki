@@ -1,12 +1,18 @@
 # depslib dependency file v1.0
-1480704730 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1481903771 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
 	"driverChoice.h"
 	"include/Enemigo.h"
 	"include/Player.h"
+	"include/Time.h"
 	"irrKlang/conio.h"
+	"include/FuzzyModule.h"
+	"include/FuzzySet.h"
+	"include/FuzzyModule.h"
+	"include/FuzzyVariable.h"
+	"include/Fuzzy.h"
 
 1352128454 c:\irrlicht-1.8.4\include\irrlicht.h
 	"IrrCompileConfig.h"
@@ -4016,11 +4022,12 @@
 1480095551 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\Enemigo.cpp
 	"../include/Enemigo.h"
 
-1481044584 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1481892879 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
+	"../include/Time.h"
 
-1480544814 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1481892879 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480243881 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
@@ -5778,10 +5785,10 @@
 1481653862 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
 	"Player.h"
 
-1480431917 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
+1481892879 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
 	"Player.h"
 
-1480431917 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\player.h
+1481892879 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 
@@ -6224,4 +6231,15 @@
 
 1481642905 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
 	<irrlicht.h>
+
+1481892879 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
+	<irrlicht.h>
+
+1481903997 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
+
+1481903850 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
+	"Fuzzy.h"
+
+1481892879 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp
+	"..\include\Time.h"
 
