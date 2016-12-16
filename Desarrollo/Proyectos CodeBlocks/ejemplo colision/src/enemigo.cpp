@@ -20,7 +20,7 @@
         cuboEnemigo = modelo->getPosition();
 
         b2BodyDef bodyDef;
-        bodyDef.type= b2_dynamicBody;
+        bodyDef.type= b2_staticbody;
         bodyDef.position.Set(posicion.X , posicion.Z);
         iworld= World::Instance();
         body= iworld->getWorld()->CreateBody(&bodyDef);

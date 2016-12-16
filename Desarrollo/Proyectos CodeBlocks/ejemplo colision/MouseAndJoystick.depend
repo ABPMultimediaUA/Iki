@@ -7246,17 +7246,18 @@
 
 1481020911 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\game.h
 
-1481828308 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\player.cpp
+1481892434 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
+	<iostream>
 
-1481847809 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\player.h
+1481891961 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
 	<Box2D/Box2D.h>
 
-1481828902 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\main.cpp
+1481891953 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -7265,6 +7266,7 @@
 	"driverChoice.h"
 	"include/Enemigo.h"
 	"include/Player.h"
+	"include/Muros.h"
 	"irrKlang/conio.h"
 	"include/World.h"
 
@@ -7549,13 +7551,15 @@
 	"Singleton.h"
 	<Box2D/Box2D.h>
 
-1481650354 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\suelo.cpp
+1481848744 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\suelo.cpp
 	"Suelo.h"
-
-1481828448 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\suelo.h
 	<Box2D/Box2D.h>
 
-1481828081 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\world.cpp
+1481847787 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\suelo.h
+	<Box2D/Box2D.h>
+	<World.h>
+
+1481884599 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\world.cpp
 	"World.h"
 	<Box2D/Box2D.h>
 	<MyContactListener.h>
@@ -7564,5 +7568,13 @@
 	<Box2D/Box2D.h>
 
 1481830048 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\mycontactlistener.cpp
+	<Box2D/Box2D.h>
+
+1481887496 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\include\muros.h
+	<irrlicht.h>
+	<World.h>
+
+1481891715 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo colision\src\muros.cpp
+	"Muros.h"
 	<Box2D/Box2D.h>
 

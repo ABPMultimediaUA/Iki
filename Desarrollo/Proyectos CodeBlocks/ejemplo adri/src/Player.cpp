@@ -47,12 +47,22 @@ core::vector3df Player::getCuboProta(){
 }
 
 void Player::setPosition(core::vector3df vec){
-    modelo->setPosition(core::vector3df(vec.X, vec.Z, 0));
+    modelo->setPosition(core::vector3df(vec.X, 0, vec.Z));
 }
 
 b2Body* Player::getBody(){
     return body;
 }
+
+void Player::setPosicionBody(float ang){
+    body->SetTransform(b2Vec2(cuboProta.X, cuboProta.Z), ang);
+    std::cout << "cubo X: "<<cuboProta.Z<<" \n";
+    std::cout << "cubo Z: "<<cuboProta.Z<<" \n";
+    std::cout << "body X: "<<body->GetPosition().x  <<" \n";
+    std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
+    std::cout << "-------------- \n";
+}
+
 
 void Player::setCuboProta(core::vector3df cb){
     cuboProta = cb;

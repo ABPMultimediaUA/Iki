@@ -22,6 +22,7 @@ devices.
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 #include "include/Player.h"
+#include "include/Muros.h"
 #include "irrKlang/conio.h"
 #include "include/World.h"
 
@@ -170,6 +171,7 @@ int main()
     Enemigo *enemigo1 = new Enemigo;
     Enemigo *enemigo2 = new Enemigo;
     Player  *prota    = new Player;
+    Muros *muros = new Muros;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1280, 720), 16, false, false, false, &receiver);
@@ -186,11 +188,11 @@ int main()
     //scene::IMeshSceneNode *prota = smgr->addCubeSceneNode(5);
 
     /// MUROS////////////
-    scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(30);
+    /*  scene::IMeshSceneNode *muro1 = smgr->addCubeSceneNode(30);
         muro1->setMaterialFlag(video::EMF_LIGHTING, false);
         muro1->setPosition(core::vector3df(0,0,0));
         smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
-/*      b2BodyDef bodyMur;
+    b2BodyDef bodyMur;
         bodyMur.type= b2_staticBody;
 
         bodyMur *body= world->CreateBody(&bodyMur);
@@ -219,6 +221,9 @@ int main()
         prota->inicializar(smgr,driver);
         /*prota->setMaterialFlag(video::EMF_LIGHTING, false);
         prota->setPosition(core::vector3df(0,0,0));*/
+    }
+    if(muros){
+        muros->inicializar(smgr, driver);
     }
     if(enemigo1)
         enemigo1->inicialiazar(0, smgr, core::vector3df(35,0,0));
@@ -286,7 +291,7 @@ int main()
 
         if(receiver.isKeyDown(KEY_ESCAPE))
         {
-            device->closeDevice();
+            device->closeDevice();b2_dynamicBody
             return 0;
         }
         else if(receiver.isKeyDown(KEY_RIGHT))
@@ -382,6 +387,10 @@ int main()
         enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
 
         prota->getModelo()->setPosition(prota->getCuboProta());
+        //importante para cambiar posicion de body
+        prota->setPosicionBody(0);
+
+
         enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
         if(cambiao == false)
             enemigo2->getModelo()->setPosition(enemigo2->getCuboEnemigo());

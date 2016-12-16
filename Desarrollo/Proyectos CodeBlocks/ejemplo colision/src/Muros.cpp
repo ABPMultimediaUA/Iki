@@ -1,32 +1,30 @@
-#include "Enemigo.h"
+#include "Muros.h"
 #include <Box2D/Box2D.h>
 
-
-
-Enemigo::Enemigo()
+Muros::Muros()
 {
     //ctor
 }
 
-Enemigo::~Enemigo()
+Muros::~Muros()
 {
     //dtor
 }
 
-void Enemigo::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 10;
+void Muros::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
+    tam= 5;
 
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
     modelo->setMaterialType( video::EMT_SOLID );
-    modelo->setPosition(core::vector3df(0,0,100));
+    modelo->setPosition(core::vector3df(0,0,20));
 
-    cuboEnemigo = modelo->getPosition();
+    cuboMuros = modelo->getPosition();
 
     b2BodyDef bodyDef;
-    bodyDef.type= b2_staticBody	;
-    bodyDef.position.Set(0, 100);
+    bodyDef.type= b2_dynamicBody;
+    bodyDef.position.Set(0, 20);
     iworld= World::Instance();
     body2= iworld->getWorld()->CreateBody(&bodyDef);
 
@@ -42,22 +40,23 @@ void Enemigo::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver
     body2->CreateFixture(&fixtureDef);*/
 }
 
-core::vector3df Enemigo::getCuboEnemigo(){
-    return cuboEnemigo;
+core::vector3df Muros::getCuboMuros(){
+    return cuboMuros;
 }
 
-void Enemigo::setPosition(core::vector3df vec){
+void Muros::setPosition(core::vector3df vec){
     modelo->setPosition(core::vector3df(vec.X, 0, vec.Z));
 }
 
-b2Body* Enemigo::getBody(){
+b2Body* Muros::getBody(){
     return body2;
 }
 
-void Enemigo::setCuboEnemigo(core::vector3df cb){
-    cuboEnemigo = cb;
+void Muros::setCuboMuros(core::vector3df cb){
+    cuboMuros = cb;
 }
 
-scene::IMeshSceneNode* Enemigo::getModelo(){
+scene::IMeshSceneNode* Muros::getModelo(){
     return modelo;
 }
+
