@@ -12,13 +12,13 @@ class Fuzzy
     private:
         // FUZZY SET
         typedef struct{
-            double dom;   //Degree of Membership
-            double rep;   //Representative Value
+            float dom;   //Degree of Membership
+            float rep;   //Representative Value
 
-            int    type;  //0=Left Shoulder, 1=Triangle, 2=Right Shoulder
-            double left;
-            double peak;
-            double right;
+            int   type;  //0=Left Shoulder, 1=Triangle, 2=Right Shoulder
+            float left;
+            float peak;
+            float right;
         }FuzzySet;
 
         // FUZZY VARIABLE
@@ -28,8 +28,8 @@ class Fuzzy
             FuzzySet triangularSet;
             FuzzySet rightSet;
 
-            double minRange;
-            double maxRange;
+            float minRange;
+            float maxRange;
         }FuzzyVar;
 
         // FUZZY RULE
@@ -50,6 +50,9 @@ class Fuzzy
     /// DECLARATE ALL THE ITEMS
     public:
         FuzzyModule fm;
+
+        float CalculateDOM(float val, FuzzyVar var, int fzSetType)const;
+        bool is_equal(float d1, float d2);
 
 };
 

@@ -46,5 +46,91 @@ Fuzzy::~Fuzzy()
     //dtor
 }
 
+// Calculamos el Degree of Dominance de un FuzzySet de una FuzzyVar
+float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
 
+    float dLeft, dPeak, dRight;
 
+    switch (fzSetType)
+    {
+        case 0: // FuzzySet Left Shoulder
+
+            dLeft  = var.leftSet.left;
+            dPeak  = var.leftSet.peak;
+            dRight = var.leftSet.right;
+
+            if ( ((dRight == 0.0) && (dPeak == val)) ||
+                 ((dLeft == 0.0)  && (dPeak == val)) )
+            {
+                return 1.0;
+            }
+            else if ( (val >= dPeak) && (val < (dPeak + dRight)) )
+            {
+                double grad = 1.0 / -dRight;
+                return grad * (val - dPeak) + 1.0;
+            }
+            else if ( (val < dPeak) && (val >= dPeak-dLeft) )
+            {
+              return 1.0;
+            }
+            else
+            {
+                return 0.0;
+            }
+        break;
+
+        case 1: // FuzzySet Triangular
+
+            dLeft  = var.triangularSet.left;
+            dPeak  = var.triangularSet.peak;
+            dRight = var.triangularSet.right;
+
+            if ( ((dRight == 0.0) && (dPeak == val)) ||
+                 ((dLeft == 0.0)  && (dPeak == val)) )
+            {
+                return 1.0;
+            }
+
+            if ( (val <= dPeak) && (val >= (dPeak - dLeft)) )
+            {
+                double grad = 1.0 / dLeft;
+                return grad * (val - (dPeak - dLeft));
+            }
+            else if ( (val > dPeak) && (val < (dPeak - dRight)) )
+            {
+                double grad = 1.0 / -dRight;
+                return grad * (val - dPeak) + 1.0;
+            }
+            else
+            {
+                return 0.0;
+            }
+        break;
+
+        case 2: // FuzzySet Right Shoulder
+
+            dLeft  = var.rightSet.left;
+            dPeak  = var.rightSet.peak;
+            dRight = var.rightSet.right;
+
+            if ( ((dRight == 0.0) && (dPeak == val)) ||
+                 ((dLeft == 0.0)  && (dPeak == val)) )
+            {
+                return 1.0;
+            }
+            else if ( (val <= dPeak) && (val > (dPeak - dLeft)) )
+            {
+                double grad = 1.0 / dLeft;
+                return grad * (val - (dPeak - dLeft));
+            }
+            else if ( (val > dPeak) && (val <= dPeak+dRight) )
+            {
+                return 1.0;
+            }
+            else
+            {
+                return 0;
+            }
+        break;
+    }
+}

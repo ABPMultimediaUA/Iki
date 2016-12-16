@@ -135,7 +135,8 @@ int main()
 //                                                        0,25,150);
 
     Fuzzy logic;
-    //std::cout << logic.sospechaMedia.dom;
+    //logic.fm.vars[0].triangularSet.dom = 10;
+    //std::cout << logic.fm.vars[0].triangularSet.dom;
 
     /// BOX 2D
 
@@ -270,6 +271,7 @@ int main()
 
     while(device->run())
     {
+
         if(receiver.isKeyDown(KEY_LSHIFT))
             MOVEMENT_SPEED = 15.f;
         else
