@@ -8,30 +8,31 @@ class Fuzzy
         Fuzzy();
         virtual ~Fuzzy();
 
-    public:
-        /// FUZZY SET
+    /// STRUCTS
+    private:
+        // FUZZY SET
         typedef struct{
             double dom;   //Degree of Membership
             double rep;   //Representative Value
 
-            int    type;  // 0=Triangle,1=Left Shoulder, 2=Right Shoulder
+            int    type;  //0=Left Shoulder, 1=Triangle, 2=Right Shoulder
             double left;
-            double right;
             double peak;
+            double right;
         }FuzzySet;
 
-        /// FUZZY VARIABLE
+        // FUZZY VARIABLE
         // Formada por Fuzzy Sets
         typedef struct{
             FuzzySet leftSet;
-            FuzzySet rightSet;
             FuzzySet triangularSet;
+            FuzzySet rightSet;
 
             double minRange;
             double maxRange;
         }FuzzyVar;
 
-        /// FUZZY RULE
+        // FUZZY RULE
         // Contiene antecedentes y consecuentes (Fuzzy Var)
         typedef struct{
             FuzzyVar antecedent1;
@@ -39,16 +40,17 @@ class Fuzzy
             FuzzyVar consequent;
         }FuzzyRule;
 
-        /// FUZZY MODULE
+        // FUZZY MODULE
         // Contiene las reglas, y las variables
         typedef struct{
             FuzzyRule rules[9];  //FuzzyRule rules[numRules];
             FuzzyVar  vars[3];   //FuzzyVar  vars[numVars];
         }FuzzyModule;            //(int numRules, int numVars);
 
-    /// CREATE ALL THE ITEMS
+    /// DECLARATE ALL THE ITEMS
     public:
-        FuzzySet sospechaMedia;
+        FuzzyModule fm;
+
 };
 
 #endif // FUZZY_H

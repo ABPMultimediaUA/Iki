@@ -135,7 +135,7 @@ int main()
 //                                                        0,25,150);
 
     Fuzzy logic;
-//    std::cout << logic.sospechaMedia.dom;
+    //std::cout << logic.sospechaMedia.dom;
 
     /// BOX 2D
 
@@ -469,7 +469,6 @@ int main()
         smgr->drawAll(); // draw the 3d scene
         driver->endScene();
 
-
         int fps = driver->getFPS();
 
         if (lastFPS != fps)
@@ -482,7 +481,6 @@ int main()
             device->setWindowCaption(tmp.c_str());
             lastFPS = fps;
         }
-
     }
 
     /*
