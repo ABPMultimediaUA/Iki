@@ -43,11 +43,11 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
 }
 
 core::vector3df Player::getCuboProta(){
-    return cuboProta;
+    return modelo->getPosition();
 }
 
 void Player::setPosition(core::vector3df vec){
-    modelo->setPosition(core::vector3df(vec.X, 0, vec.Z));
+    modelo->setPosition(vec);
 }
 
 b2Body* Player::getBody(){
@@ -65,11 +65,16 @@ void Player::setPosicionBody(float ang){
 
 void Player::moverBody(core::vector3df vec){
     //body->ApplyLinearImpulse(b2Vec2(0, 5.0), b2Vec2(vec.X, vec.Z), true);
-    movx= vec.X - body->GetPosition().x;
-    movy= vec.Z - body->GetPosition().y;
+    movx = vec.X;
+    movy = vec.Z;
+    double modulo = sqrt((movx*movx) + (movy*movy));
+    if(modulo != 0){
+        movx = (movx / modulo) * MOV_SPEED;
+        movy = (movy / modulo) * MOV_SPEED;
+    }
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
-    body->ApplyForce(b2Vec2(movx, movy), b2Vec2(movx, movy), true);
+    //body->ApplyForce(b2Vec2(movx, movy), b2Vec2(movx, movy), true);
     std::cout << "body X: "<<body->GetPosition().x  <<" \n";
     std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
 

@@ -23,6 +23,7 @@ class Enemigo
     protected:
 
     private:
+        scene::IMesh *mura1;
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboEnemigo;
         b2Body *body2;

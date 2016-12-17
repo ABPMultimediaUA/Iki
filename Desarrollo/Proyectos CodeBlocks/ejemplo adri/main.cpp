@@ -146,25 +146,21 @@ int main(){
         {
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
-                      std::cout << "Posicion X: "<<mousePosition.X <<" \n";
-             std::cout << "Posicion Z: "<<mousePosition.Z <<" \n";
-             prota->moverBody(mousePosition);
-
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
             // We now have a mouse position in 3d space; move towards it.
             core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
+            if(toMousePosition.getLength() <= 1)
+                prota->moverBody(vector3df(0,0,0));
+            else
+                prota->moverBody(toMousePosition);
         }
-
-        //Dibujar contenido
-        guienv->addStaticText(L"Hola mundo", rect<s32>(10, 10, 260, 22));
-
 
         //importante para cambiar posicion de body
 //prota->moverBody(mousePosition);
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
-        enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
+        //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
         //prota->setPosicionBody(0);
 
 
