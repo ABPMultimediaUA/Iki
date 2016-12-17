@@ -52,7 +52,6 @@ class Fuzzy
         FuzzyModule fm;
 
         float CalculateDOM(float val, FuzzyVar var, int fzSetType)const;
-        bool is_equal(float d1, float d2);
 
 };
 

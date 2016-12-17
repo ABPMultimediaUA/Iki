@@ -38,6 +38,8 @@ Fuzzy::Fuzzy()
 
     /// Fuzzy Modules
     fm.vars[0]=distanciaVar; fm.vars[1]=sospechaVar; fm.vars[2]=interesVar;
+    fm.rules[0]=r1; fm.rules[1]=r2; fm.rules[2]=r3; fm.rules[3]=r4; fm.rules[4]=r5;
+    fm.rules[5]=r4; fm.rules[6]=r7; fm.rules[7]=r8; fm.rules[8]=r9;
 
 }
 
@@ -46,7 +48,7 @@ Fuzzy::~Fuzzy()
     //dtor
 }
 
-// Calculamos el Degree of Dominance de un FuzzySet de una FuzzyVar
+// Calculamos el Degree of Membership de un FuzzySet de una FuzzyVar
 float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
 
     float dLeft, dPeak, dRight;
@@ -59,20 +61,23 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
             dPeak  = var.leftSet.peak;
             dRight = var.leftSet.right;
 
-            if ( ((dRight == 0.0) && (dPeak == val)) ||
-                 ((dLeft == 0.0)  && (dPeak == val)) )
+            if ( val <= dPeak )
+            //if ( ((dRight == 0.0) && (dPeak == val)) ||
+            //     ((dLeft == 0.0)  && (dPeak == val)) )
             {
                 return 1.0;
             }
-            else if ( (val >= dPeak) && (val < (dPeak + dRight)) )
+            else if ( val > dPeak && val < dRight)
+            //else if ( (val >= dPeak) && (val < (dPeak + dRight)) )
             {
+                /// ARREGLAR ESTO
                 double grad = 1.0 / -dRight;
                 return grad * (val - dPeak) + 1.0;
             }
-            else if ( (val < dPeak) && (val >= dPeak-dLeft) )
-            {
-              return 1.0;
-            }
+            //else if ( (val < dPeak) && (val >= dPeak-dLeft) )
+            //{
+            //  return 1.0;
+            //}
             else
             {
                 return 0.0;
@@ -85,19 +90,23 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
             dPeak  = var.triangularSet.peak;
             dRight = var.triangularSet.right;
 
-            if ( ((dRight == 0.0) && (dPeak == val)) ||
-                 ((dLeft == 0.0)  && (dPeak == val)) )
+            if ( val == dPeak )
+            //if ( ((dRight == 0.0) && (dPeak == val)) ||
+            //     ((dLeft == 0.0)  && (dPeak == val)) )
             {
                 return 1.0;
             }
 
-            if ( (val <= dPeak) && (val >= (dPeak - dLeft)) )
+            if ( val < dPeak && val > dLeft )
+            //if ( (val <= dPeak) && (val >= (dPeak - dLeft)) )
             {
                 double grad = 1.0 / dLeft;
                 return grad * (val - (dPeak - dLeft));
             }
-            else if ( (val > dPeak) && (val < (dPeak + dRight)) )
+            else if ( val > dPeak && val < dRight )
+            //else if ( (val > dPeak) && (val < (dPeak + dRight)) )
             {
+                /// ARREGLAR ESTO
                 double grad = 1.0 / -dRight;
                 return grad * (val - dPeak) + 1.0;
             }
@@ -113,20 +122,23 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
             dPeak  = var.rightSet.peak;
             dRight = var.rightSet.right;
 
-            if ( ((dRight == 0.0) && (dPeak == val)) ||
-                 ((dLeft == 0.0)  && (dPeak == val)) )
+            if ( val >= dPeak )
+            //if ( ((dRight == 0.0) && (dPeak == val)) ||
+            //     ((dLeft == 0.0)  && (dPeak == val)) )
             {
                 return 1.0;
             }
-            else if ( (val <= dPeak) && (val > (dPeak - dLeft)) )
+            else if ( val < dPeak && val > dLeft )
+            //else if ( (val <= dPeak) && (val > (dPeak - dLeft)) )
             {
+                /// ARREGLAR ESTO
                 double grad = 1.0 / dLeft;
                 return grad * (val - (dPeak - dLeft));
             }
-            else if ( (val > dPeak) && (val <= dPeak+dRight) )
-            {
-                return 1.0;
-            }
+            //else if ( (val > dPeak) && (val <= dPeak+dRight) )
+            //{
+            //    return 1.0;
+            //}
             else
             {
                 return 0;
