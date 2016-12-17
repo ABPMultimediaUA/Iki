@@ -7,7 +7,7 @@
 
 #define SCREENWIDTH 1280
 #define SCREENHEIGHT 720
-#define frameDeltaTime 1.0f / 250.0f
+
 
 using namespace irr;    //Espacio de nombres principal
 using namespace core;   //Proposito general
@@ -15,7 +15,6 @@ using namespace scene;  //Escena 3D
 using namespace video;  //Driver y rendering
 using namespace io;     //Ficheros
 using namespace gui;    //Interfaz de usuario
-
 class MyEventReceiver : public IEventReceiver
 {
 private:
@@ -88,8 +87,10 @@ public:
 };
 
 
-int main(){
 
+
+int main(){
+    MyEventReceiver receiver;
 
     ///BOX2D
     //class World* world; no se por que puse class
@@ -97,7 +98,7 @@ int main(){
     world = World::Instance();
 
     //Objeto principal que nos permite interactuar con el motor
-    IrrlichtDevice *device= createDevice(video::EDT_SOFTWARE, dimension2d<u32>(SCREENWIDTH, SCREENHEIGHT), 16, false, false, false, 0);
+    IrrlichtDevice *device= createDevice(video::EDT_SOFTWARE, dimension2d<u32>(SCREENWIDTH, SCREENHEIGHT), 16, false, false, false, &receiver);
 
     ITimer* timer = device->getTimer();
     f32 TimeStamp = timer->getTime();
@@ -128,37 +129,43 @@ int main(){
         prota->inicializar(smgr,driver);
 
     }
-    f32 MOVEMENT_SPEED = 25.f;
-    core::vector3df mousePosition = core::vector3df(40,0,0);
+    ///raton
+    core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
+    core::vector3df mousePosition= core::vector3df(0,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
-    MyEventReceiver receiver;
 
-    smgr->addCameraSceneNode(0, vector3df(0, 30, -40), vector3df(0, 5, 0)); //Camara
+
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
 
     //Ciclo del juego
     while(device->run()){
-        driver->beginScene(true, true, SColor(255, 100, 101, 140));
-        if(receiver.isKeyDown(KEY_LSHIFT))
-            MOVEMENT_SPEED = 15.f;
-        else
-            MOVEMENT_SPEED = 25.f;
+       driver->beginScene(true, true, SColor(255, 100, 101, 140));
 
-        const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
-        core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
+        ///raton
+        if(receiver.GetMouseState().RightButtonDown)
+        {
+            ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                      receiver.GetMouseState().Position, camera);
+                      std::cout << "Posicion X: "<<mousePosition.X <<" \n";
+             std::cout << "Posicion Z: "<<mousePosition.Z <<" \n";
+             prota->moverBody(mousePosition);
 
-        int protaX = mousePosition.X;
-        int protaZ = mousePosition.Z;
-
-        prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
-
+        }
+        if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
+        {
+            // We now have a mouse position in 3d space; move towards it.
+            core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
+        }
 
         //Dibujar contenido
         guienv->addStaticText(L"Hola mundo", rect<s32>(10, 10, 260, 22));
 
-        prota->getModelo()->setPosition(prota->getCuboProta());
+
         //importante para cambiar posicion de body
+//prota->moverBody(mousePosition);
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
-        prota->setPosicionBody(0);
+        enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
+        //prota->setPosicionBody(0);
 
 
         DeltaTime = timer->getTime() - TimeStamp;

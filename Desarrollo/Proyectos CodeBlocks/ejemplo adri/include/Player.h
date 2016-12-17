@@ -17,6 +17,7 @@ class Player
         void setPosition(core::vector3df vec);
         void setCuboProta(core::vector3df);
         void setPosicionBody(float ang);
+        void moverBody(core::vector3df vec);
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
@@ -28,6 +29,7 @@ class Player
         core::vector3df cuboProta;
         b2Body *body;
         int tam;
+        float movx, movy;
 
         class World* iworld;
 

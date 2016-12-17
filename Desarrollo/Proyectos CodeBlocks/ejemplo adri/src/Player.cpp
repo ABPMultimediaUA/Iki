@@ -14,7 +14,7 @@ Player::~Player()
 }
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 10;
+    tam= 5;
 
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
@@ -36,9 +36,9 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 10.5f;
+    fixtureDef.friction = 0.5f;
     fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
+    fixtureDef.density  = 1.f;
     body->CreateFixture(&fixtureDef);
 }
 
@@ -55,14 +55,32 @@ b2Body* Player::getBody(){
 }
 
 void Player::setPosicionBody(float ang){
-    body->SetTransform(b2Vec2(cuboProta.X, cuboProta.Z), ang);
-    std::cout << "cubo X: "<<cuboProta.Z<<" \n";
+    //body->SetTransform(b2Vec2(cuboProta.X, cuboProta.Z), ang);
+    /*std::cout << "cubo X: "<<cuboProta.Z<<" \n";
     std::cout << "cubo Z: "<<cuboProta.Z<<" \n";
     std::cout << "body X: "<<body->GetPosition().x  <<" \n";
     std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
-    std::cout << "-------------- \n";
+    std::cout << "-------------- \n";*/
 }
 
+void Player::moverBody(core::vector3df vec){
+    //body->ApplyLinearImpulse(b2Vec2(0, 5.0), b2Vec2(vec.X, vec.Z), true);
+    movx= vec.X - body->GetPosition().x;
+    movy= vec.Z - body->GetPosition().y;
+
+    body->SetLinearVelocity(b2Vec2(movx, movy));
+    body->ApplyForce(b2Vec2(movx, movy), b2Vec2(movx, movy), true);
+    std::cout << "body X: "<<body->GetPosition().x  <<" \n";
+    std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
+
+    //body->ApplyLinearImpulse(b2Vec2(0.1, 0.1), body->GetPosition());
+    /*if(vec.X != body->GetPosition().x){
+       //body->ApplyForce( b2Vec2(force,0), body->GetWorldCenter() );
+    }
+    if(vec.Y != body->GetPosition().y){
+        //body->SetLinearVelocity(b2Vec2(0.0, 15.0));
+    }*/
+}
 
 void Player::setCuboProta(core::vector3df cb){
     cuboProta = cb;

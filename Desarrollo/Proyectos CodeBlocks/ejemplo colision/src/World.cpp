@@ -11,7 +11,7 @@ World* World::pinstance = nullptr;
 World::World()
 {
     gravity.x = 0.0f;
-    gravity.y = 0.0f;
+    gravity.y = 10.0f;
     world= new b2World(gravity);
 }
 

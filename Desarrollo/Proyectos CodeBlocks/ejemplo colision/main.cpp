@@ -240,7 +240,7 @@ int main()
     f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
-    core::vector3df mousePosition = core::vector3df(40,0,0);
+    core::vector3df mousePosition = core::vector3df(0,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
 
     //cambio de color de mallas
@@ -291,7 +291,7 @@ int main()
 
         if(receiver.isKeyDown(KEY_ESCAPE))
         {
-            device->closeDevice();b2_dynamicBody
+            device->closeDevice();
             return 0;
         }
         else if(receiver.isKeyDown(KEY_RIGHT))
@@ -346,7 +346,9 @@ int main()
 
 
                 if(toMousePosition.getLength() <= availableMovement){
-                    prota->setCuboProta(mousePosition);
+                    ///mov
+                    //prota->setPosicionBody(mousePosition, 0);
+                    //prota->setCuboProta(mousePosition);
                     if(pasosP==true || pasos2P==true){
                         s1->stop();
                         pasosP = false;
@@ -354,7 +356,9 @@ int main()
 					}
                     //cuboProta = mousePosition; // Jump to the final position
                 }else{
-                    prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
+                    ///mov
+                    //prota->setPosicionBody(mousePosition, 0);
+                    //prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
                     if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos2))
                             s1->stop();
@@ -385,10 +389,16 @@ int main()
 
         enemigo1->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
         enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        ///mov3
+        prota->moverBody(mousePosition);
+        prota->setPosicionModelo(b2Vec2(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y));
 
-        prota->getModelo()->setPosition(prota->getCuboProta());
+
+        //prota->setPosicionBody(0);
+        //prota->setPosicionModelo(prota->getBody()->GetPosition());
+        //prota->getModelo()->setPosition(prota->getCuboProta());
         //importante para cambiar posicion de body
-        prota->setPosicionBody(0);
+
 
 
         enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
