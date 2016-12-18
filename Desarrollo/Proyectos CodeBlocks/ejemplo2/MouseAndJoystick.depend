@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1481980851 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1482062100 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -4022,12 +4022,12 @@
 1480095551 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\Enemigo.cpp
 	"../include/Enemigo.h"
 
-1481892879 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1481996765 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
 
-1481892879 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1481996765 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
 1480243881 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
@@ -5785,10 +5785,10 @@
 1481653862 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
 	"Player.h"
 
-1481892879 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
+1481996765 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
 	"Player.h"
 
-1481892879 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\player.h
+1481996765 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 
@@ -6232,14 +6232,15 @@
 1481642905 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
 	<irrlicht.h>
 
-1481892879 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
+1481996765 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
 	<irrlicht.h>
 
-1481973427 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
+1482062165 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
 
-1481982004 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
+1482062017 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
 	"Fuzzy.h"
+	"iostream"
 
-1481892879 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp
+1481996765 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp
 	"..\include\Time.h"
 

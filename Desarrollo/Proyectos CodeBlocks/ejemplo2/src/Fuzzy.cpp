@@ -6,23 +6,23 @@ Fuzzy::Fuzzy()
 
     /// Fuzzy Logic Variables
     //FLV DISTANCIA
-    const FuzzySet distanciaCorta = { 0, 0, 0,  0, 20, 50 };
-    const FuzzySet distanciaMedia = { 0, 0, 1, 20, 50, 80 };
-    const FuzzySet distanciaLarga = { 0, 0, 2, 50, 80, 120};
+    FuzzySet distanciaCorta = { 0, 1, 0,  0, 20, 50 };
+    FuzzySet distanciaMedia = { 0, 1, 1, 20, 50, 80 };
+    FuzzySet distanciaLarga = { 0, 1, 2, 50, 80, 120};
     FuzzyVar distanciaVar = { distanciaCorta, distanciaMedia, distanciaLarga, distanciaCorta.left, distanciaLarga.right };
 
     //FLV SOSPECHA
-    const FuzzySet sospechaBaja  = { 0, 0, 0,  0, 20, 40 };
-    const FuzzySet sospechaMedia = { 0, 0, 1, 20, 40, 70 };
-    const FuzzySet sospechaAlta  = { 0, 0, 2, 40, 70, 100};
+    FuzzySet sospechaBaja  = { 0, 1, 0,  0, 20, 40 };
+    FuzzySet sospechaMedia = { 0, 1, 1, 20, 40, 70 };
+    FuzzySet sospechaAlta  = { 0, 1, 2, 40, 70, 100};
     FuzzyVar sospechaVar = { sospechaBaja, sospechaMedia, sospechaAlta, sospechaBaja.left, sospechaAlta.right };
 
     //FLV INTERES
-    const FuzzySet interesBajo  = { 0, 0, 0,  0, 25, 50 };
-    const FuzzySet interesMedio = { 0, 0, 1, 25, 50, 75 };
-    const FuzzySet interesAlto  = { 0, 0, 2, 50, 75, 100};
+    FuzzySet interesBajo  = { 0, 0, 0,  0, 25, 50 };
+    FuzzySet interesMedio = { 0, 0, 1, 25, 50, 75 };
+    FuzzySet interesAlto  = { 0, 0, 2, 50, 75, 100};
     FuzzyVar interesVar = { interesBajo, interesMedio, interesAlto, interesBajo.left, interesAlto.right };
-
+/*
     /// Fuzzy Rules
     const FuzzyRule r1 = { distanciaCorta , sospechaBaja , interesMedio };
     const FuzzyRule r2 = { distanciaCorta , sospechaMedia, interesAlto  };
@@ -35,11 +35,13 @@ Fuzzy::Fuzzy()
     const FuzzyRule r7 = { distanciaLarga , sospechaBaja , interesBajo  };
     const FuzzyRule r8 = { distanciaLarga , sospechaMedia, interesBajo  };
     const FuzzyRule r9 = { distanciaLarga , sospechaAlta , interesMedio };
-
+*/
     /// Fuzzy Modules
     fm.vars[0]=distanciaVar; fm.vars[1]=sospechaVar; fm.vars[2]=interesVar;
+/*
     fm.rules[0]=r1; fm.rules[1]=r2; fm.rules[2]=r3; fm.rules[3]=r4; fm.rules[4]=r5;
     fm.rules[5]=r4; fm.rules[6]=r7; fm.rules[7]=r8; fm.rules[8]=r9;
+*/
 
 }
 
@@ -146,3 +148,27 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const{
         break;
     }
 }
+
+// Se calculan todos los DOM de un valor para una FuzzyVariable
+void Fuzzy::Fuzzify(float val, FuzzyVar &var){
+    var.leftSet.dom       = CalculateDOM(val, var, 0);
+    var.triangularSet.dom = CalculateDOM(val, var, 1);
+    var.rightSet.dom      = CalculateDOM(val, var, 2);
+}
+
+// Calcula el Representative Value de cada FuzzySet del Consequent ( interes )
+void Fuzzy::CalculateRule(FuzzyRule rule){
+    if (rule.antecedent1.dom > rule.antecedent2.dom){
+        rule.consequent.rep = rule.antecedent2.dom;
+    }else{
+        rule.consequent.rep = rule.antecedent1.dom;
+    }
+}
+
+// Calcula Fuzzy Associative Matrix
+void Fuzzy::CalculateFAM(){
+    for (int i=0; i<9; i++)
+        CalculateRule(fm.rules[i]);
+}
+
+

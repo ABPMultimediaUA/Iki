@@ -33,11 +33,11 @@ class Fuzzy
         }FuzzyVar;
 
         // FUZZY RULE
-        // Contiene antecedentes y consecuentes (Fuzzy Var)
+        // Contiene antecedentes y consecuentes
         typedef struct{
-            FuzzyVar antecedent1;
-            FuzzyVar antecedent2;
-            FuzzyVar consequent;
+            FuzzySet antecedent1;
+            FuzzySet antecedent2;
+            FuzzySet consequent;
         }FuzzyRule;
 
         // FUZZY MODULE
@@ -52,6 +52,9 @@ class Fuzzy
         FuzzyModule fm;
 
         float CalculateDOM(float val, FuzzyVar var, int fzSetType)const;
+        void  Fuzzify(float val, FuzzyVar &var);
+        void  CalculateRule(FuzzyRule rule);
+        void  CalculateFAM();
 
 };
 
