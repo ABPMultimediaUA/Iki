@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1482062100 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1482089180 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -6235,9 +6235,9 @@
 1481996765 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
 	<irrlicht.h>
 
-1482062165 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
+1482088010 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
 
-1482062017 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
+1482088726 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
 	"Fuzzy.h"
 	"iostream"
 

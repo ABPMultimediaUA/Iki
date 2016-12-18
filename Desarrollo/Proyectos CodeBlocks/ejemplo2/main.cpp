@@ -135,42 +135,24 @@ int main()
 //                                                        0,25,150);
 
     Fuzzy logic;
-    //logic.fm.vars[0].triangularSet.dom = 10;
-    //std::cout << logic.fm.vars[0].triangularSet.dom;
-    /*
-        std::cout << logic.CalculateDOM(75, logic.fm.vars[2], 0)<< "   ";
-        std::cout << logic.CalculateDOM(75, logic.fm.vars[2], 1)<< "   ";
-        std::cout << logic.CalculateDOM(75, logic.fm.vars[2], 2)<< "   " << std::endl;
-    */
-/*
-        logic.Fuzzify( 55 ,logic.fm.vars[0]);
 
-        logic.fm.vars[0].rightSet.dom = 55;
+/*
+        logic.Fuzzify(75, logic.fm.vars[0]);// Distancia 55
+        logic.Fuzzify(80, logic.fm.vars[1]);// Sospecha  80
 
         std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
         std::cout << logic.fm.vars[0].triangularSet.dom << "   " ;
         std::cout << logic.fm.vars[0].rightSet.dom << "   " << std::endl;
 
-       // std::cout << logic.CalculateDOM(55, logic.fm.vars[0], 0)<< "   " ;
-       // std::cout << logic.CalculateDOM(55, logic.fm.vars[0], 1)<< "   " ;
-       // std::cout << logic.CalculateDOM(55, logic.fm.vars[0], 2)<< "   " << std::endl;
-
-        logic.Fuzzify( 80 ,logic.fm.vars[1]);
-
         std::cout << logic.fm.vars[1].leftSet.dom << "   " ;
         std::cout << logic.fm.vars[1].triangularSet.dom << "   " ;
         std::cout << logic.fm.vars[1].rightSet.dom << "   " << std::endl;
-*/
-/*
-        logic.fm.vars[0].rightSet.dom = 0.5;
-        logic.fm.vars[0].triangularSet.dom = 0.5;
 
-        logic.fm.vars[1].rightSet.dom = 0.65;
-        logic.fm.vars[1].triangularSet.dom = 0.35;
+        logic.InitializeRules();
 
-        logic.CalculateFAM();
+       // std::cout << logic.fm.rules[] << std::endl;
 
-        logic.Fuzzify(55, logic.fm.vars[0]);
+
 
         //std::cout << logic.fm.vars[2].leftSet.rep << "   " ;
         //std::cout << logic.fm.vars[2].triangularSet.rep << "   " ;
@@ -310,6 +292,33 @@ int main()
 
     while(device->run())
     {
+
+    /// LOGICA DIFUSA
+        logic.Fuzzify(55, logic.fm.vars[0]);// Distancia 55
+        logic.Fuzzify(76, logic.fm.vars[1]);// Sospecha  80
+        std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[0].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[0].rightSet.dom << "   " << std::endl;
+        std::cout << logic.fm.vars[1].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[1].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[1].rightSet.dom << "   " << std::endl;
+
+        logic.InitializeRules();
+/*
+        logic.CalculateFAM();
+        std::cout << logic.fm.rules[0].consequent << "  ";
+        std::cout << logic.fm.rules[1].consequent << "  ";
+        std::cout << logic.fm.rules[2].consequent << "  ";
+        std::cout << logic.fm.rules[3].consequent << "  ";
+        std::cout << logic.fm.rules[4].consequent << "  ";
+        std::cout << logic.fm.rules[5].consequent << "  ";
+        std::cout << logic.fm.rules[6].consequent << "  ";
+        std::cout << logic.fm.rules[7].consequent << "  ";
+        std::cout << logic.fm.rules[8].consequent << "  ";
+        std::cout << "   " << std::endl;
+*/
+
+   /// ////////////////
         if(receiver.isKeyDown(KEY_LSHIFT))
             MOVEMENT_SPEED = 15.f;
         else

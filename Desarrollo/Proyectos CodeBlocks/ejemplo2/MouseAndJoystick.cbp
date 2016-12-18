@@ -60,6 +60,7 @@
 			<Add alias="All" targets="Windows;Linux;" />
 		</VirtualTargets>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-g" />
 			<Add directory="../irrlicht-1.8.4/include" />
 			<Add directory="../irrKlang-1.5.0/include" />

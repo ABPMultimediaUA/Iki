@@ -37,7 +37,7 @@ class Fuzzy
         typedef struct{
             FuzzySet antecedent1;
             FuzzySet antecedent2;
-            FuzzySet consequent;
+            float    consequent;
         }FuzzyRule;
 
         // FUZZY MODULE
@@ -50,11 +50,15 @@ class Fuzzy
     /// DECLARATE ALL THE ITEMS
     public:
         FuzzyModule fm;
+        FuzzyVar fzvarDistancia, fzvarSospecha, fzvarInteres;
+        FuzzyRule r1, r2, r3, r4, r5, r6, r7, r8, r9;
 
         float CalculateDOM(float val, FuzzyVar var, int fzSetType)const;
         void  Fuzzify(float val, FuzzyVar &var);
-        void  CalculateRule(FuzzyRule rule);
+        void  InitializeRules();
+        float CalculateRule(FuzzyRule rule);
         void  CalculateFAM();
+        float Defuzzify();
 
 };
 
