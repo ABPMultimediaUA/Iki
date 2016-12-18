@@ -21,6 +21,7 @@
         primeraVez=true;
         time=0.0;
         mensajePendiente=false;
+        muerto=false;
     }
 
     int Enemigo::getEstado()
@@ -152,6 +153,13 @@
     void Enemigo::proteger(){
 
     }
+    void Enemigo::matar(){
+        modelo->remove();
+        muerto=true;
+    }
+    float Enemigo::getVida(){
+        return vida;
+    }
 
     //Funcionamiento maquina de estados
 
@@ -161,9 +169,11 @@
         {
         case 0:
             patrullar();
+            //Si el player se acerca sospecha
             if(distanciaPlayer<30){
                 estado = 2;
             }
+            //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
 
         case 1:

@@ -29,6 +29,9 @@ core::vector3df Player::getCuboProta(){
 void Player::setCuboProta(core::vector3df cb){
     cuboProta = cb;
 }
+void Player::setRotationProta(float cb){
+    modelo->setRotation(core::vector3df(0,cb,0));
+}
 
 scene::IMeshSceneNode* Player::getModelo(){
     return modelo;

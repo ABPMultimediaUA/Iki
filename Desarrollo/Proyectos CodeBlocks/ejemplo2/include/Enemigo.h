@@ -38,6 +38,8 @@ class Enemigo
         void perseguir();
         void pedirAyuda();
         void proteger();
+        void matar();
+        float getVida();
 
 
 
@@ -69,6 +71,7 @@ class Enemigo
         bool mensajePendiente;
         int mensajeEstado;
         Enemigo *compis[3];
+        bool muerto;
 
 };
 

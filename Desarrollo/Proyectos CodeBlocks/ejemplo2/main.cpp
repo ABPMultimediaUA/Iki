@@ -372,6 +372,32 @@ int main()
         {
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
+ /*LOOKING WHERE YOU ARE GOING
+                    //primer punto es mouseposition
+                    printf("MousePosition: %f %f %f \n",mousePosition.X,mousePosition.Y,mousePosition.Z);
+
+                    core::vector3df segundoPunto(prota->getCuboProta().X,mousePosition.Y,mousePosition.Z);
+                    printf("Segundo punto: %f %f %f \n",segundoPunto.X,segundoPunto.Y,segundoPunto.Z);
+
+                    core::vector3df primerVector(mousePosition - prota->getCuboProta());
+                    core::vector3df segundoVector(segundoPunto - prota->getCuboProta());
+                    //acos(a);
+                    //sqrt(a);
+                    //fabs(a);
+                    float escalar=(primerVector.X * segundoVector.X + primerVector.Y * segundoVector.Y + primerVector.Y * segundoVector.Y);
+                    float vectorial=(sqrt(pow(primerVector.X,2)+pow(primerVector.Y,2)+pow(primerVector.Z,2)))*(sqrt(pow(segundoVector.X,2)+pow(segundoVector.Y,2)+pow(segundoVector.Z,2)));
+                    float angulo=acos(escalar/fabs(vectorial));
+
+                    //float angulo=atan2(-mousePosition.X,mousePosition.Z);
+                    printf("resultado %f \n",angulo);
+                    prota->setRotationProta(angulo);
+                    */
+                    /*core::vector3df primerVector(mousePosition - prota->getCuboProta());
+                    float angulo=atan2(-primerVector.X, primerVector.Z)* 180 / PI;
+                    prota->setRotationProta(angulo+prota->getModelo()->getRotation().Y);
+                    printf("resultado %f \n",angulo);*/
+
+
 
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
@@ -382,6 +408,10 @@ int main()
 
             int protaX = mousePosition.X;
             int protaZ = mousePosition.Z;
+
+            if(toMousePosition.getLength() == 0){
+                //no se hace naaa
+            }
 
 
             if (!protaColliding){
@@ -398,6 +428,9 @@ int main()
                     //cuboProta = mousePosition; // Jump to the final position
                 }else{
                     prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
+                    float angulo=fabs(atan2(-toMousePosition.X, toMousePosition.Z)* 180 / PI);
+                    prota->setRotationProta(angulo);
+                    printf("resultado %f \n",angulo);
                     if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos2))
                             s1->stop();
@@ -410,7 +443,6 @@ int main()
                     }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos1))
                             s1->stop();
-
                             s1 = engine->play3D(pasos2,posicion,true,false,true);
                         pasos2P = true;
                         pasosP = false;
