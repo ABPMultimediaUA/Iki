@@ -149,9 +149,9 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const
 // Se calculan todos los DOM de un valor para una FuzzyVariable
 void Fuzzy::Fuzzify(float val, FuzzyVar &var)
 {
-    var.leftSet.dom       = CalculateDOM(val, var, 0);
-    var.triangularSet.dom = CalculateDOM(val, var, 1);
-    var.rightSet.dom      = CalculateDOM(val, var, 2);
+    var.leftSet.dom       = 100 * CalculateDOM(val, var, 0);
+    var.triangularSet.dom = 100 * CalculateDOM(val, var, 1);
+    var.rightSet.dom      = 100 * CalculateDOM(val, var, 2);
 }
 
 // Inicializamos las reglas
@@ -176,17 +176,24 @@ void Fuzzy::InitializeRules()
 // Calcula el Representative Value de cada FuzzySet del Consequent ( interes )
 float Fuzzy::CalculateRule(FuzzyRule rule)
 {
-    if (rule.antecedent1.dom > rule.antecedent2.dom)
+    if (rule.antecedent1.dom > 0.0 && rule.antecedent2.dom > 0.0 )
     {
-        return rule.antecedent2.dom;
+        if (rule.antecedent1.dom > rule.antecedent2.dom)
+        {
+            return rule.antecedent2.dom;
+        }
+        else if (rule.antecedent1.dom < rule.antecedent2.dom)
+        {
+            return rule.antecedent1.dom;
+        }
+        else if (rule.antecedent1.dom == rule.antecedent2.dom)
+        {
+            return rule.antecedent1.dom;
+        }
     }
-    else if (rule.antecedent1.dom < rule.antecedent2.dom)
+    else
     {
-        return rule.antecedent1.dom;
-    }
-    else if (rule.antecedent1.dom = rule.antecedent2.dom)
-    {
-        return rule.antecedent1.dom;
+        return 0.0;
     }
 }
 

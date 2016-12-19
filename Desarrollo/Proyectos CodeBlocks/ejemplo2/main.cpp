@@ -294,8 +294,10 @@ int main()
     {
 
     /// LOGICA DIFUSA
-        logic.Fuzzify(55, logic.fm.vars[0]);// Distancia 55
-        logic.Fuzzify(76, logic.fm.vars[1]);// Sospecha  80
+/*
+        logic.Fuzzify(13, logic.fm.vars[0]);// Distancia 55
+        logic.Fuzzify(63, logic.fm.vars[1]);// Sospecha  80
+
         std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
         std::cout << logic.fm.vars[0].triangularSet.dom << "   " ;
         std::cout << logic.fm.vars[0].rightSet.dom << "   " << std::endl;
@@ -304,7 +306,7 @@ int main()
         std::cout << logic.fm.vars[1].rightSet.dom << "   " << std::endl;
 
         logic.InitializeRules();
-/*
+
         logic.CalculateFAM();
         std::cout << logic.fm.rules[0].consequent << "  ";
         std::cout << logic.fm.rules[1].consequent << "  ";
@@ -471,7 +473,7 @@ int main()
                     prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
                     float angulo=fabs(atan2(-toMousePosition.X, toMousePosition.Z)* 180 / PI);
                     prota->setRotationProta(angulo);
-                    printf("resultado %f \n",angulo);
+                    // printf("resultado %f \n",angulo);
                     if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos2))
                             s1->stop();
