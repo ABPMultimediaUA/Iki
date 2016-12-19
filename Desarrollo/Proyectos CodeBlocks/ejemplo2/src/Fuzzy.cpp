@@ -170,14 +170,12 @@ void Fuzzy::InitializeRules()
     r9 = { fm.vars[0].rightSet, fm.vars[1].rightSet, 0.0 };
 
     fm.rules[0]=r1; fm.rules[1]=r2; fm.rules[2]=r3; fm.rules[3]=r4; fm.rules[4]=r5;
-    fm.rules[5]=r4; fm.rules[6]=r7; fm.rules[7]=r8; fm.rules[8]=r9;
+    fm.rules[5]=r6; fm.rules[6]=r7; fm.rules[7]=r8; fm.rules[8]=r9;
 }
 
 // Calcula el Representative Value de cada FuzzySet del Consequent ( interes )
 float Fuzzy::CalculateRule(FuzzyRule rule)
 {
-    /// AQUI FALLA ALGO
-            std::cout << rule.antecedent1.dom << "  " << rule.antecedent2.dom << std::endl;
     if (rule.antecedent1.dom > rule.antecedent2.dom)
     {
         return rule.antecedent2.dom;
@@ -197,8 +195,8 @@ float Fuzzy::ORingtheRules(int x, int y, int z)
 {
     float confidence1, confidence2, confidence3;
     confidence1 = fm.rules[x].consequent;
-    confidence2 = fm.rules[x].consequent;
-    confidence3 = fm.rules[x].consequent;
+    confidence2 = fm.rules[y].consequent;
+    confidence3 = fm.rules[z].consequent;
 
     if (confidence1 > confidence2)
     {
@@ -243,9 +241,9 @@ void Fuzzy::CalculateFAM()
         fm.rules[i].consequent = CalculateRule(fm.rules[i]);
     }
     // Compare fired rules
-    //fm.vars[2].leftSet.dom = ORingtheRules(3, 6, 7);
-    //fm.vars[2].triangularSet.dom = ORingtheRules(0, 4, 8);
-    //fm.vars[2].rightSet.dom = ORingtheRules(1, 2, 5);
+    fm.vars[2].leftSet.dom = ORingtheRules(3, 6, 7);
+    fm.vars[2].triangularSet.dom = ORingtheRules(0, 4, 8);
+    fm.vars[2].rightSet.dom = ORingtheRules(1, 2, 5);
 }
 
 // Defuzzificamos la variable interes
