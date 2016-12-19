@@ -57,6 +57,7 @@ class Fuzzy
         void  Fuzzify(float val, FuzzyVar &var);
         void  InitializeRules();
         float CalculateRule(FuzzyRule rule);
+        float ORingtheRules(int x, int y, int z);
         void  CalculateFAM();
         float Defuzzify();
 

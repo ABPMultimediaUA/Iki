@@ -6,21 +6,21 @@ Fuzzy::Fuzzy()
 
     /// Fuzzy Logic Variables
     //FLV DISTANCIA
-    const FuzzySet distanciaCorta = { 0, 1, 0,  0, 20, 50 };
-    const FuzzySet distanciaMedia = { 0, 1, 1, 20, 50, 80 };
-    const FuzzySet distanciaLarga = { 0, 1, 2, 50, 80, 120};
+    const FuzzySet distanciaCorta = { 0,  1, 0,  0, 20, 50 };
+    const FuzzySet distanciaMedia = { 0, 50, 1, 20, 50, 80 };
+    const FuzzySet distanciaLarga = { 0,  1, 2, 50, 80, 120};
     fzvarDistancia = { distanciaCorta, distanciaMedia, distanciaLarga, distanciaCorta.left, distanciaLarga.right };
 
     //FLV SOSPECHA
-    const FuzzySet sospechaBaja  = { 0, 1, 0,  0, 20, 40 };
-    const FuzzySet sospechaMedia = { 0, 1, 1, 20, 40, 70 };
-    const FuzzySet sospechaAlta  = { 0, 1, 2, 40, 70, 100};
+    const FuzzySet sospechaBaja  = { 0,  1, 0,  0, 20, 40 };
+    const FuzzySet sospechaMedia = { 0, 40, 1, 20, 40, 70 };
+    const FuzzySet sospechaAlta  = { 0,  1, 2, 40, 70, 100};
     fzvarSospecha = { sospechaBaja, sospechaMedia, sospechaAlta, sospechaBaja.left, sospechaAlta.right };
 
     //FLV INTERES
-    const FuzzySet interesBajo  = { 0, 0, 0,  0, 25, 50 };
-    const FuzzySet interesMedio = { 0, 0, 1, 25, 50, 75 };
-    const FuzzySet interesAlto  = { 0, 0, 2, 50, 75, 100};
+    const FuzzySet interesBajo  = { 0,  0, 0,  0, 25, 50 };
+    const FuzzySet interesMedio = { 0, 50, 1, 25, 50, 75 };
+    const FuzzySet interesAlto  = { 0,  0, 2, 50, 75, 100};
     fzvarInteres = { interesBajo, interesMedio, interesAlto, interesBajo.left, interesAlto.right };
 
     /// Fuzzy Rules
@@ -176,24 +176,62 @@ void Fuzzy::InitializeRules()
 // Calcula el Representative Value de cada FuzzySet del Consequent ( interes )
 float Fuzzy::CalculateRule(FuzzyRule rule)
 {
-    if (rule.antecedent1.dom > 0.0 && rule.antecedent2.dom > 0.0 )
+    /// AQUI FALLA ALGO
+            std::cout << rule.antecedent1.dom << "  " << rule.antecedent2.dom << std::endl;
+    if (rule.antecedent1.dom > rule.antecedent2.dom)
     {
-        if (rule.antecedent1.dom > rule.antecedent2.dom)
+        return rule.antecedent2.dom;
+    }
+    else if (rule.antecedent1.dom < rule.antecedent2.dom)
+    {
+        return rule.antecedent1.dom;
+    }
+    else if (rule.antecedent1.dom == rule.antecedent2.dom)
+    {
+        return rule.antecedent1.dom;
+    }
+}
+
+// Nos quedamos con el mayor valor para cada FuzzySet del consequent
+float Fuzzy::ORingtheRules(int x, int y, int z)
+{
+    float confidence1, confidence2, confidence3;
+    confidence1 = fm.rules[x].consequent;
+    confidence2 = fm.rules[x].consequent;
+    confidence3 = fm.rules[x].consequent;
+
+    if (confidence1 > confidence2)
+    {
+        if (confidence1 > confidence3)
         {
-            return rule.antecedent2.dom;
+            return confidence1;
         }
-        else if (rule.antecedent1.dom < rule.antecedent2.dom)
+        else
         {
-            return rule.antecedent1.dom;
+            return confidence3;
         }
-        else if (rule.antecedent1.dom == rule.antecedent2.dom)
+    }
+    else if (confidence1 < confidence2)
+    {
+        if (confidence2 > confidence3)
         {
-            return rule.antecedent1.dom;
+            return confidence2;
+        }
+        else
+        {
+            return confidence3;
         }
     }
     else
     {
-        return 0.0;
+        if (confidence2 > confidence3)
+        {
+            return confidence2;
+        }
+        else
+        {
+            return confidence3;
+        }
     }
 }
 
@@ -204,6 +242,10 @@ void Fuzzy::CalculateFAM()
     {
         fm.rules[i].consequent = CalculateRule(fm.rules[i]);
     }
+    // Compare fired rules
+    //fm.vars[2].leftSet.dom = ORingtheRules(3, 6, 7);
+    //fm.vars[2].triangularSet.dom = ORingtheRules(0, 4, 8);
+    //fm.vars[2].rightSet.dom = ORingtheRules(1, 2, 5);
 }
 
 // Defuzzificamos la variable interes

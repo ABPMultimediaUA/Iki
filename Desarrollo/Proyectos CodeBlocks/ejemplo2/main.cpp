@@ -294,8 +294,8 @@ int main()
     {
 
     /// LOGICA DIFUSA
-/*
-        logic.Fuzzify(13, logic.fm.vars[0]);// Distancia 55
+
+        logic.Fuzzify(53, logic.fm.vars[0]);// Distancia 55
         logic.Fuzzify(63, logic.fm.vars[1]);// Sospecha  80
 
         std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
@@ -308,7 +308,7 @@ int main()
         logic.InitializeRules();
 
         logic.CalculateFAM();
-        std::cout << logic.fm.rules[0].consequent << "  ";
+       /* std::cout << logic.fm.rules[0].consequent << "  ";
         std::cout << logic.fm.rules[1].consequent << "  ";
         std::cout << logic.fm.rules[2].consequent << "  ";
         std::cout << logic.fm.rules[3].consequent << "  ";
@@ -318,6 +318,10 @@ int main()
         std::cout << logic.fm.rules[7].consequent << "  ";
         std::cout << logic.fm.rules[8].consequent << "  ";
         std::cout << "   " << std::endl;
+
+        std::cout << logic.fm.vars[2].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[2].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[2].rightSet.dom << "   " << std::endl;
 */
 
    /// ////////////////
