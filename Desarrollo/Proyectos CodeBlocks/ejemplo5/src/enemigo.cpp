@@ -9,7 +9,11 @@
         sospecha = 0.0;
         if(t == 0)
             posicion = core::vector3df(35,0,35); //Meter en interfaz
+<<<<<<< HEAD
+        else
+=======
         else if (t == 1)
+>>>>>>> origin/master
             posicion = core::vector3df(-35,0,35);
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
         modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
