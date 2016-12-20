@@ -309,7 +309,8 @@ int main()
         logic.InitializeRules();
 
         logic.CalculateFAM();
-       /* std::cout << logic.fm.rules[0].consequent << "  ";
+
+        std::cout << logic.fm.rules[0].consequent << "  ";
         std::cout << logic.fm.rules[1].consequent << "  ";
         std::cout << logic.fm.rules[2].consequent << "  ";
         std::cout << logic.fm.rules[3].consequent << "  ";
@@ -320,10 +321,11 @@ int main()
         std::cout << logic.fm.rules[8].consequent << "  ";
         std::cout << "   " << std::endl;
 
+
         std::cout << logic.fm.vars[2].leftSet.dom << "   " ;
         std::cout << logic.fm.vars[2].triangularSet.dom << "   " ;
         std::cout << logic.fm.vars[2].rightSet.dom << "   " << std::endl;
-*/
+
 
    /// ////////////////
         if(receiver.isKeyDown(KEY_LSHIFT))
