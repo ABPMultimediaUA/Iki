@@ -14,7 +14,7 @@ Player::~Player()
 }
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 5;
+    tam= 2;
 
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
@@ -75,8 +75,8 @@ void Player::moverBody(core::vector3df vec){
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
     //body->ApplyForce(b2Vec2(movx, movy), b2Vec2(movx, movy), true);
-    std::cout << "body X: "<<body->GetPosition().x  <<" \n";
-    std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
+    //std::cout << "body X: "<<body->GetPosition().x  <<" \n";
+    //std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
 
     //body->ApplyLinearImpulse(b2Vec2(0.1, 0.1), body->GetPosition());
     /*if(vec.X != body->GetPosition().x){

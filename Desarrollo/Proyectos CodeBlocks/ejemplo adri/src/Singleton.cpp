@@ -1,5 +1,6 @@
 #include "Singleton.h"
 #include <Box2D/Box2D.h>
+#include <iostream>
 
 Singleton* Singleton::pinstance= nullptr;
 

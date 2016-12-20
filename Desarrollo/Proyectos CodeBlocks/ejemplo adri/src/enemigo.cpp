@@ -14,9 +14,8 @@ Enemigo::~Enemigo()
 }
 
 void Enemigo::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 5;
-
-    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(50.f, 10.f, 10.f));
+    tam= 4;
+    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(1.f, 3.f, 1.f));
     modelo = smgr->addMeshSceneNode(mura1);
     smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 0, 0));
     //modelo->setMaterialFlag(video::EMF_LIGHTING, false);

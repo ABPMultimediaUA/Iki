@@ -3,6 +3,7 @@
 #include "include/Enemigo.h"
 #include "include/Player.h"
 #include "include/World.h"
+#include "Muros.h"
 #include <iostream>
 
 #define SCREENWIDTH 1280
@@ -91,6 +92,8 @@ public:
 
 int main(){
     MyEventReceiver receiver;
+    float posx, posy, posz;
+    vector3df posmuro;
 
     ///BOX2D
     //class World* world; no se por que puse class
@@ -129,13 +132,22 @@ int main(){
         prota->inicializar(smgr,driver);
 
     }
+    ///MUROS
+    Muros *muro1= new Muros;
+    if(muro1){
+        posx= 0.f;
+        posy= 0.f;
+        posz= 0.f;
+        posmuro= vector3df(posx, posy, posz);
+        muro1->inicializar(smgr, driver, posmuro);
+    }
     ///raton
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition= core::vector3df(0,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
 
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,30,-20),core::vector3df(0,0,0));
 
     //Ciclo del juego
     while(device->run()){
