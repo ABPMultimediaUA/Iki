@@ -23,10 +23,8 @@ Muros::~Muros()
 
 void Muros::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
 
-b2BodyDef bodyDef;
-bodyDef.type= b2_staticBody;
-iworld= World::Instance();
-b2PolygonShape bodyShape;
+
+
 ///1
     mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 10.f, 50.f));
     muro1 = smgr->addMeshSceneNode(mura1);
@@ -34,38 +32,44 @@ b2PolygonShape bodyShape;
     muro1->setPosition(core::vector3df(0,0,20));
 
 
-
+    b2BodyDef bodyDef;
+    bodyDef.type= b2_staticBody;
     bodyDef.position.Set(0, 20);
-
+    iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 
-
+    b2PolygonShape bodyShape;
     bodyShape.SetAsBox(10/2, 50/2);
     body->CreateFixture(&bodyShape, 1.0f);
 
 
 ///2
 
-    scene::IMesh *mura2 = smgr->getGeometryCreator()->createCubeMesh(vector3df(40.f, 10.f, 10.f));
-    scene::IMeshSceneNode *muro2 = smgr->addMeshSceneNode(mura2);
+    mura2 = smgr->getGeometryCreator()->createCubeMesh(vector3df(40.f, 10.f, 10.f));
+    muro2 = smgr->addMeshSceneNode(mura2);
     smgr->getMeshManipulator()->setVertexColors(muro2->getMesh(),video::SColor(0, 0, 0, 0));
     muro2->setPosition(core::vector3df(40,0,-20));
 
     bodyDef.position.Set(40, -20);
     body2= iworld->getWorld()->CreateBody(&bodyDef);
-    bodyShape.SetAsBox(40/2, 50/2);
-    body2->CreateFixture(&bodyShape, 1.0f);
 
+    bodyShape.SetAsBox(40/2, 10/2);
+    body2->CreateFixture(&bodyShape, 1.0f);
+/*
 ///3
     scene::IMesh *mura3 = smgr->getGeometryCreator()->createCubeMesh(vector3df(80.f, 10.f, 10.f));
     scene::IMeshSceneNode *muro3 = smgr->addMeshSceneNode(mura3);
     smgr->getMeshManipulator()->setVertexColors(muro3->getMesh(),video::SColor(0, 0, 0, 0));
     muro3->setPosition(core::vector3df(25,0,30));
 
-    bodyDef.position.Set(25, 30);
-    body3= iworld->getWorld()->CreateBody(&bodyDef);
-    bodyShape.SetAsBox(80/2, 10/2);
-    body3->CreateFixture(&bodyShape, 1.0f);
+    b2BodyDef bodyDef3;
+    bodyDef3.type= b2_staticBody;
+    bodyDef3.position.Set(25, 30);
+    body3= iworld->getWorld()->CreateBody(&bodyDef3);
+
+    b2PolygonShape bodyShape3;
+    bodyShape3.SetAsBox(80/2, 10/2);
+    body3->CreateFixture(&bodyShape3, 1.0f);
 
 ///4
     scene::IMesh *mura4 = smgr->getGeometryCreator()->createCubeMesh(vector3df(10.f, 10.f, 25.f));
@@ -325,5 +329,5 @@ b2PolygonShape bodyShape;
     body26= iworld->getWorld()->CreateBody(&bodyDef);
     bodyShape.SetAsBox(10/2, 25.f/2);
     body26->CreateFixture(&bodyShape, 1.0f);
-
+*/
 }
