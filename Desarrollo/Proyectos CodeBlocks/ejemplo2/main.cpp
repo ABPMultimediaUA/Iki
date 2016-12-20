@@ -20,7 +20,18 @@ devices.
 #include "driverChoice.h"
 #include "include/Enemigo.h"
 #include "include/Player.h"
+#include "include/Time.h"
 #include "irrKlang/conio.h"
+
+/**
+#include "include/FuzzyModule.h"
+#include "include/FuzzySet.h"
+#include "include/FuzzyModule.h"
+#include "include/FuzzyVariable.h"
+*/
+
+#include "include/Fuzzy.h"
+
 
 
 using namespace irr;
@@ -115,6 +126,39 @@ different possibilities to move and animate scene nodes.
 
 int main()
 {
+    /// FUZZY LOGIC TEST
+
+//    FuzzyModule fm;
+//    FuzzyVariable& DistToTarget = fm.CreateFLV("DistToTarget");
+
+//    FzSet Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",
+//                                                        0,25,150);
+
+    Fuzzy logic;
+
+/*
+        logic.Fuzzify(75, logic.fm.vars[0]);// Distancia 55
+        logic.Fuzzify(80, logic.fm.vars[1]);// Sospecha  80
+
+        std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[0].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[0].rightSet.dom << "   " << std::endl;
+
+        std::cout << logic.fm.vars[1].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[1].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[1].rightSet.dom << "   " << std::endl;
+
+        logic.InitializeRules();
+
+       // std::cout << logic.fm.rules[] << std::endl;
+
+
+
+        //std::cout << logic.fm.vars[2].leftSet.rep << "   " ;
+        //std::cout << logic.fm.vars[2].triangularSet.rep << "   " ;
+        //std::cout << logic.fm.vars[2].rightSet.rep << "   " << std::endl;
+*/
+
     /// BOX 2D
 
     b2Vec2 gravity(0.0f, -10.0f);
@@ -142,6 +186,7 @@ int main()
 	bool pasosP = false;
 	bool pasos2P = false;
 	bool cambiao = false;
+    bool aparcao = false;
     bool protaColliding = false;
 
 	if (pasos1 == 0 || pasos2 == 0)
@@ -159,9 +204,16 @@ int main()
     // create device
     MyEventReceiver receiver;
 
-    Enemigo *enemigo1 = new Enemigo;
-    Enemigo *enemigo2 = new Enemigo;
-    Player  *prota    = new Player;
+
+    Enemigo  *enemigos[5];
+    for(int i=0;i<5;i++){
+        enemigos[i]= new Enemigo;
+    }
+    //Enemigo *enemigo1 = new Enemigo;
+    //Enemigo *enemigo2 = new Enemigo;
+    //Enemigo *enemigo3 = new Enemigo;
+    Player  *prota  = new Player;
+    Time tiempo;
 
 
     IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
@@ -183,6 +235,16 @@ int main()
         muro1->setPosition(core::vector3df(0,0,0));
         smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),irr::video::SColor(0, 0, 0, 0));
 
+    scene::IMeshSceneNode *muro2 = smgr->addCubeSceneNode(10);
+        muro2->setMaterialFlag(video::EMF_LIGHTING, false);
+        muro2->setPosition(core::vector3df(50,0,0));
+        smgr->getMeshManipulator()->setVertexColors(muro2->getMesh(),irr::video::SColor(0, 0, 0, 0));
+
+    scene::IMeshSceneNode *muro3 = smgr->addCubeSceneNode(10);
+        muro3->setMaterialFlag(video::EMF_LIGHTING, false);
+        muro3->setPosition(core::vector3df(0,0,50));
+        smgr->getMeshManipulator()->setVertexColors(muro3->getMesh(),irr::video::SColor(0, 0, 0, 0));
+
 
     IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(300.f, -5.f, 300.f));
      scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
@@ -202,52 +264,112 @@ int main()
         /*prota->setMaterialFlag(video::EMF_LIGHTING, false);
         prota->setPosition(core::vector3df(0,0,0));*/
     }
-    if(enemigo1)
-        enemigo1->inicialiazar(0, smgr, core::vector3df(35,0,35));
-    if(enemigo2)
-        enemigo2->inicialiazar(1, smgr, core::vector3df(-35,0,35));
+    if(enemigos[0])
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(35,0,35));
+    if(enemigos[1])
+        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(-35,0,35));
+    if(enemigos[2])
+        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(-35,0,-35));
 
-    //core::vector3df posicionInicial (35,0,35);
-    //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
 
+    //la camara se echa 40 hacia atras y 90 hacia arriba y apunta al 0,0,0
     scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();
+    tiempo.set(device);
     f32 MOVEMENT_SPEED = 25.f;
     const f32 MOVEMENT_SPEED_ENEMY = 15.f;
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition = core::vector3df(40,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
+    int lastFPS = -1;
+    u32 myClock;
+    int frame = 0;
 
     //cambio de color de mallas
-    smgr->getMeshManipulator()->setVertexColors(enemigo1->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
-    smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
 
     while(device->run())
     {
+
+    /// LOGICA DIFUSA
+
+        logic.Fuzzify(53, logic.fm.vars[0]);// Distancia 55
+        logic.Fuzzify(63, logic.fm.vars[1]);// Sospecha  80
+/*
+        std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[0].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[0].rightSet.dom << "   " << std::endl;
+        std::cout << logic.fm.vars[1].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[1].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[1].rightSet.dom << "   " << std::endl;
+
+        logic.InitializeRules();
+
+        logic.CalculateFAM();
+
+        std::cout << logic.fm.rules[0].consequent << "  ";
+        std::cout << logic.fm.rules[1].consequent << "  ";
+        std::cout << logic.fm.rules[2].consequent << "  ";
+        std::cout << logic.fm.rules[3].consequent << "  ";
+        std::cout << logic.fm.rules[4].consequent << "  ";
+        std::cout << logic.fm.rules[5].consequent << "  ";
+        std::cout << logic.fm.rules[6].consequent << "  ";
+        std::cout << logic.fm.rules[7].consequent << "  ";
+        std::cout << logic.fm.rules[8].consequent << "  ";
+        std::cout << "   " << std::endl;
+
+
+        std::cout << logic.fm.vars[2].leftSet.dom << "   " ;
+        std::cout << logic.fm.vars[2].triangularSet.dom << "   " ;
+        std::cout << logic.fm.vars[2].rightSet.dom << "   " << std::endl;
+
+        float val = logic.Defuzzify();
+
+        std::cout << "  " << val << "  " << std::endl;*/
+
+
+   /// ////////////////
         if(receiver.isKeyDown(KEY_LSHIFT))
             MOVEMENT_SPEED = 15.f;
         else
             MOVEMENT_SPEED = 25.f;
 
-
         // Work out a frame delta time.
         const u32 now = device->getTimer()->getTime();
         const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
         then = now;
+        tiempo.update();
+
+        /// TIME
+        //MAS O MENOS LA OPERACION DE ABAJO HARIA 60 ITERACIONES POR SEGUNDO
+        //DENTRO DEL IF HABRIA QUE HACER EL UPDATE
+        myClock = now % 16;
+        if (myClock == 0){
+            //std::cout << "Frame Numero : " << frame << std::endl;
+            frame++;
+            if (frame == 60)
+                frame = 0;
+        }
+
+       // const f32 fps = (f32)(now) / 1000.f;
+
+       // std::cout << fps << std::endl;
 
         core::vector3df cameraPos = camera->getPosition();
         core::vector3df cameraTar = camera->getTarget();
 
         //core::vector3df cuboProta = prota->getPosition();
         //core::vector3df cuboEnemigo = enemy->getPosition();
-        core::vector3df direccionProta (prota->getCuboProta() - enemigo1->getCuboEnemigo());
+        core::vector3df direccionProta (prota->getCuboProta() - enemigos[0]->getCuboEnemigo());
 
 
 
         //core::vector3df direccionProta2 (cuboProta-cameraPos);
 
+        if(prota->estaMuerto()){
 
         /// COLISIONES ///
         if(prota->getModelo()->getTransformedBoundingBox().intersectsWithBox(muro1->getTransformedBoundingBox())){
@@ -258,7 +380,6 @@ int main()
             //std::cout<< "no" <<std::endl;
             protaColliding = false;
         }
-
 
         /// ////////////////////
 
@@ -289,14 +410,24 @@ int main()
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
-        if(enemigo2->getEstado() == 2){
+        if(enemigos[1]->getEstado() == 3){
             if(cambiao == false){
-                smgr->getMeshManipulator()->setVertexColors(enemigo2->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
+                smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
                 s2 = engine->play3D(alarma,posicion,false,false,true);
                 cambiao = true;
             }
             else if(s2->isFinished()){
-                enemigo2->getModelo()->setPosition(core::vector3df(-1000,0,0));
+                aparcao = true;
+                vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
+                vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
+                enemigos[3]->inicialiazar(4,0,smgr,posicion);
+                enemigos[4]->inicialiazar(5,0,smgr,posicion2);
+                enemigos[3]->setEstado(8);
+                enemigos[4]->setEstado(8);
+                enemigos[1]->setEstado(10);
+                    //eliminar enemigo
+                enemigos[1]->getModelo()->setPosition(core::vector3df(-1000,0,0));
+
             }
         }
 
@@ -305,6 +436,32 @@ int main()
         {
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
+ /*LOOKING WHERE YOU ARE GOING
+                    //primer punto es mouseposition
+                    printf("MousePosition: %f %f %f \n",mousePosition.X,mousePosition.Y,mousePosition.Z);
+
+                    core::vector3df segundoPunto(prota->getCuboProta().X,mousePosition.Y,mousePosition.Z);
+                    printf("Segundo punto: %f %f %f \n",segundoPunto.X,segundoPunto.Y,segundoPunto.Z);
+
+                    core::vector3df primerVector(mousePosition - prota->getCuboProta());
+                    core::vector3df segundoVector(segundoPunto - prota->getCuboProta());
+                    //acos(a);
+                    //sqrt(a);
+                    //fabs(a);
+                    float escalar=(primerVector.X * segundoVector.X + primerVector.Y * segundoVector.Y + primerVector.Y * segundoVector.Y);
+                    float vectorial=(sqrt(pow(primerVector.X,2)+pow(primerVector.Y,2)+pow(primerVector.Z,2)))*(sqrt(pow(segundoVector.X,2)+pow(segundoVector.Y,2)+pow(segundoVector.Z,2)));
+                    float angulo=acos(escalar/fabs(vectorial));
+
+                    //float angulo=atan2(-mousePosition.X,mousePosition.Z);
+                    printf("resultado %f \n",angulo);
+                    prota->setRotationProta(angulo);
+                    */
+                    /*core::vector3df primerVector(mousePosition - prota->getCuboProta());
+                    float angulo=atan2(-primerVector.X, primerVector.Z)* 180 / PI;
+                    prota->setRotationProta(angulo+prota->getModelo()->getRotation().Y);
+                    printf("resultado %f \n",angulo);*/
+
+
 
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
@@ -315,6 +472,10 @@ int main()
 
             int protaX = mousePosition.X;
             int protaZ = mousePosition.Z;
+
+            if(toMousePosition.getLength() == 0){
+                //no se hace naaa
+            }
 
 
             if (!protaColliding){
@@ -331,6 +492,9 @@ int main()
                     //cuboProta = mousePosition; // Jump to the final position
                 }else{
                     prota->setCuboProta(prota->getCuboProta() + toMousePosition.normalize() * availableMovement);
+                    float angulo=fabs(atan2(-toMousePosition.X, toMousePosition.Z)* 180 / PI);
+                    prota->setRotationProta(angulo);
+                    // printf("resultado %f \n",angulo);
                     if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos2))
                             s1->stop();
@@ -343,7 +507,6 @@ int main()
                     }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos1))
                             s1->stop();
-
                             s1 = engine->play3D(pasos2,posicion,true,false,true);
                         pasos2P = true;
                         pasosP = false;
@@ -378,19 +541,53 @@ int main()
 
         }
 
-        enemigo1->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
-        enemigo2->update(direccionProta, prota->getCuboProta(), frameDeltaTime);
+        if(prota->getVida()>0)
+            prota->getModelo()->setPosition(prota->getCuboProta());
+        else
+            prota->matar();
 
-        prota->getModelo()->setPosition(prota->getCuboProta());
-        enemigo1->getModelo()->setPosition(enemigo1->getCuboEnemigo());
+        }
+
+          //Guardia
+        enemigos[0]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        //Alarma
+        enemigos[1]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        //Medico
+        enemigos[2]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        if(aparcao){
+        enemigos[3]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        enemigos[4]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        }
+        enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
+        //Si la alarma no ha sonado
         if(cambiao == false)
-            enemigo2->getModelo()->setPosition(enemigo2->getCuboEnemigo());
+            enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
+        if(aparcao){
+            enemigos[3]->getModelo()->setPosition(enemigos[3]->getCuboEnemigo());
+            enemigos[4]->getModelo()->setPosition(enemigos[4]->getCuboEnemigo());
+        }
+        enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
+
+
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 
         driver->beginScene(true, true, video::SColor(255,113,113,133));
         smgr->drawAll(); // draw the 3d scene
         driver->endScene();
+
+        int fps = driver->getFPS();
+
+        if (lastFPS != fps)
+        {
+            core::stringw tmp(L"Movement Example - Irrlicht Engine [");
+            tmp += driver->getName();
+            tmp += L"] fps: ";
+            tmp += fps;
+
+            device->setWindowCaption(tmp.c_str());
+            lastFPS = fps;
+        }
     }
 
     /*
