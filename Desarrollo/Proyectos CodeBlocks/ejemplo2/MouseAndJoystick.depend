@@ -6244,7 +6244,7 @@
 1482186028 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp
 	"..\include\Time.h"
 
-1482085430 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
+1482235973 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\main.cpp
 	<irrlicht.h>
 	<irrKlang.h>
 	<Box2D/Box2D.h>
@@ -7513,7 +7513,7 @@
 	"irrTypes.h"
 	"IrrlichtDevice.h"
 
-1481999055 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
+1482236264 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -7521,7 +7521,7 @@
 1481818807 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\time.h
 	<irrlicht.h>
 
-1482006918 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\player.h
+1482094208 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 
@@ -7538,20 +7538,21 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1481994736 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
+1482182170 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\fuzzy.h
 
-1482002596 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
+1482236363 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\enemigo.cpp
 	"../include/Enemigo.h"
 
-1481994736 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
+1482182170 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\fuzzy.cpp
 	"Fuzzy.h"
+	"iostream"
 
 1481028637 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\game.cpp
 	"Game.h"
 
 1481028637 d:\iki\desarrollo\proyectos codeblocks\ejemplo2\include\game.h
 
-1482085768 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
+1482094208 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\player.cpp
 	"Player.h"
 
 1481818807 source:d:\iki\desarrollo\proyectos codeblocks\ejemplo2\src\time.cpp

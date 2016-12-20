@@ -186,6 +186,7 @@ int main()
 	bool pasosP = false;
 	bool pasos2P = false;
 	bool cambiao = false;
+    bool aparcao = false;
     bool protaColliding = false;
 
 	if (pasos1 == 0 || pasos2 == 0)
@@ -204,8 +205,8 @@ int main()
     MyEventReceiver receiver;
 
 
-    Enemigo  *enemigos[3];
-    for(int i=0;i<3;i++){
+    Enemigo  *enemigos[5];
+    for(int i=0;i<5;i++){
         enemigos[i]= new Enemigo;
     }
     //Enemigo *enemigo1 = new Enemigo;
@@ -416,7 +417,17 @@ int main()
                 cambiao = true;
             }
             else if(s2->isFinished()){
+                aparcao = true;
+                vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
+                vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
+                enemigos[3]->inicialiazar(4,0,smgr,posicion);
+                enemigos[4]->inicialiazar(5,0,smgr,posicion2);
+                enemigos[3]->setEstado(8);
+                enemigos[4]->setEstado(8);
+                enemigos[1]->setEstado(10);
+                    //eliminar enemigo
                 enemigos[1]->getModelo()->setPosition(core::vector3df(-1000,0,0));
+
             }
         }
 
@@ -543,13 +554,21 @@ int main()
         enemigos[1]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
         //Medico
         enemigos[2]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
-
+        if(aparcao){
+        enemigos[3]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        enemigos[4]->update(direccionProta, prota->getCuboProta(), tiempo, enemigos);
+        }
         enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
         //Si la alarma no ha sonado
         if(cambiao == false)
             enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
-
+        if(aparcao){
+            enemigos[3]->getModelo()->setPosition(enemigos[3]->getCuboEnemigo());
+            enemigos[4]->getModelo()->setPosition(enemigos[4]->getCuboEnemigo());
+        }
         enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
+
+
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 

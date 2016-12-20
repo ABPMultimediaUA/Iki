@@ -39,6 +39,7 @@ class Enemigo
         void pedirAyuda();
         void proteger();
         void matar();
+        void avisarCapsulas();
         float getVida();
 
 
@@ -63,6 +64,7 @@ class Enemigo
         core::vector3df direccionHaciaProta;
         core::vector3df posicionAliado;
         core::vector3df direccionHaciaAliado;
+        core::vector3df posicionProta;
         f32 avMovement;
         Time tiempo;
         float time;

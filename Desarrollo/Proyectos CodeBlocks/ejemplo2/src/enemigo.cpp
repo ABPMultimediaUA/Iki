@@ -157,6 +157,8 @@
         modelo->remove();
         muerto=true;
     }
+    void Enemigo::avisarCapsulas(){
+    }
     float Enemigo::getVida(){
         return vida;
     }
@@ -219,6 +221,8 @@
                 else if(tipo == 1){
                     //mantiene poscion y suena
                     posicion = cuboEnemigo;
+                    puntoInteres=posicionProta;
+                    avisarCapsulas();
                 }
                 else if(tipo == 2){
                    //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
@@ -270,9 +274,10 @@
         case 9: //PROTEGER
             proteger();
             break;
-
+        case 10: //MUERTO
+            break;
         default:
-            estado = 3;
+            estado = 11;
             break;
 
         }
@@ -295,6 +300,7 @@
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
             direccionHaciaProta=direccionProta;
             maquinaEstados();
+            posicionProta=cuboProta;
         }
         if(mensajePendiente){
             //aqui pues deberiamos tener un destinario, de momento solo tenemos mensaje entre la medio y el guardia y por eso es asi
