@@ -162,6 +162,10 @@ int main(){
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
 
+        float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) , -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+        prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
+        prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+
 
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))

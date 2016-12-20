@@ -9981,3 +9981,56 @@
 	"driverChoice.h"
 	<World.h>
 
+1482169440 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+
+1482162744 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1481934321 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1481736230 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\game.cpp
+	"Game.h"
+
+1481736230 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\game.h
+
+1482164291 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1482090286 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1481934321 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+
+1481934321 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\singleton.h
+
+1481934321 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1481934321 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\suelo.h
+	<Box2D/Box2D.h>
+
+1481934321 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482192997 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Player.h"
+	"include/World.h"
+	<iostream>
+
