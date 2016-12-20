@@ -298,7 +298,7 @@ int main()
 
         logic.Fuzzify(53, logic.fm.vars[0]);// Distancia 55
         logic.Fuzzify(63, logic.fm.vars[1]);// Sospecha  80
-
+/*
         std::cout << logic.fm.vars[0].leftSet.dom << "   " ;
         std::cout << logic.fm.vars[0].triangularSet.dom << "   " ;
         std::cout << logic.fm.vars[0].rightSet.dom << "   " << std::endl;
@@ -328,7 +328,7 @@ int main()
 
         float val = logic.Defuzzify();
 
-        std::cout << "  " << val << "  " << std::endl;
+        std::cout << "  " << val << "  " << std::endl;*/
 
 
    /// ////////////////
@@ -410,7 +410,7 @@ int main()
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
-        if(enemigos[1]->getEstado() == 2){
+        if(enemigos[1]->getEstado() == 3){
             if(cambiao == false){
                 smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
                 s2 = engine->play3D(alarma,posicion,false,false,true);

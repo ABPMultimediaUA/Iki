@@ -17,11 +17,13 @@
         modelo->setPosition(posicion); //Meter en el interfaz
         cuboEnemigo = modelo->getPosition();
         tiempoVigilando = 0.0;
+        tiempoEscaneando = 0;
         avMovement = 0.0;
         primeraVez=true;
         time=0.0;
         mensajePendiente=false;
         muerto=false;
+        hayAliado=false;
     }
 
     int Enemigo::getEstado()
@@ -151,7 +153,19 @@
         posicion = cuboEnemigo;
     }
     void Enemigo::proteger(){
-
+        cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
+        posicion = cuboEnemigo;
+    }
+    void Enemigo::escanear(){
+        time=tiempo.getTime();
+        tiempoEscaneando=(time-reloj);
+        //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
+        if(tiempoEscaneando<3.0){
+            if(tiempoEscaneando % 5 == 0){
+                sospecha+=0.1;
+                std::cout << sospecha << std::endl;
+            }
+        }
     }
     void Enemigo::matar(){
         modelo->remove();
@@ -173,13 +187,45 @@
             patrullar();
             //Si el player se acerca sospecha
             if(distanciaPlayer<30){
-                estado = 2;
+                estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
 
         case 1:
             /// ESCANEAR / SOSPECHAR ///
+            if(primeraVez){
+            reloj=tiempo.setMomento();
+            primeraVez=false;
+            }
+            if (tiempoEscaneando < 3.0){
+                escanear();
+            }
+            else if (tiempoEscaneando == 3.0){
+                estado=3;
+            }
+
+            if (distanciaPlayer > 50){// o if (pierdo de vista al player) o
+                primeraVez=true;
+                //
+                logica.Fuzzify(distanciaPlayer, logica.fm.vars[0]);
+                logica.Fuzzify(sospecha, logica.fm.vars[1]);
+                logica.InitializeRules();
+                logica.CalculateFAM();
+                float val = logica.Defuzzify();
+                std::cout << "  " << val << std::endl;
+                if (val <= 37.5)
+                    estado = 0;
+                else if (val <= 67.5){
+                    puntoInteres=posicionProta;
+                    estado=8;
+                }
+                else
+                    estado = 3;
+                //
+
+            }
+
             //DISTANCIA PLAYER (CERCA,MEDIA,LEJOS)
 
             //VELOCIDAD PLAYER (0,1,2)  //////SI LA VELOCIDAD ES 0 EL RUIDO ES 0
@@ -188,7 +234,7 @@
 
             //NIVEL DE SOSPECHA (BAJO,MEDIO,ALTO) o velocidad de subida
 
-            if(distanciaPlayer < 30)//El player ha entrado en el rango de sensores
+           /* if(distanciaPlayer < 30)//El player ha entrado en el rango de sensores
             {
                 /// AQUI AUMENTARA PROGRESIVAMENTE LA SOSPECHA
                 //std::cout << "aumentando sospecha" << std::endl;
@@ -198,7 +244,7 @@
                 //std::cout << "escaneo terminado // interrumpido" << std::endl;
                 estado = 0;
 
-            }
+            }*/
             break;
         case 2: //VIGILAR
             if(primeraVez){
@@ -215,6 +261,7 @@
             break;
         case 3: //COMBATE/ALARMA/DECISION MEDICO
                 if(tipo == 0){
+                    estado=6;
                     //si el prota esta a rango ataca
                     //sino persigue
                 }
@@ -225,6 +272,10 @@
                     avisarCapsulas();
                 }
                 else if(tipo == 2){
+                        if(hayAliado)
+                            estado=4;
+                        else
+                            estado=5;
                    //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
                    //si no hay huir, cuando haya huido volver a patrullar
                 }
@@ -235,6 +286,7 @@
             if( fabs(posicion.X - posicionAliado.X) < 5 && fabs(posicion.Z - posicionAliado.Z) < 5){
                 mensajePendiente=true;
                 mensajeEstado=6;
+                estado=9;
             }
             //cuando lo encuentra, lo cura si es necesario y lo protege
             break;
@@ -242,6 +294,9 @@
             break;
         case 6: //PERSEGUIR
             perseguir();
+            if(distanciaPlayer>60){
+                estado = 0;
+            }
             //si esta a rango ataca
             //si lo pierde de vista, vuelve a la patrulla
             break;
@@ -251,23 +306,7 @@
             inspeccionar();
             if(posicion.getDistanceFrom(puntoInteres) == 0)
             {
-                if(distanciaPlayer < 40)
-                {
-                    sospecha++;
-                }
-                else if(distanciaPlayer > 30)
-                {
-                    sospecha--;
-                }
-            }
-            if(sospecha < 50.0)
-            {
-                estado = 0;
-                sospecha = 0.0;
-            }
-            else if(sospecha >= 200.0)
-            {
-                estado = 2;
+                estado=0;
             }
 
             break;
@@ -292,6 +331,7 @@
         //habria que comprobar el tipo de aliado y si es guardia guardarnos las posiciones, en este caso sabemos que es el 0
         posicionAliado=aliados[0]->getPosicion();
         direccionHaciaAliado= (posicionAliado-posicion);
+        hayAliado=true;
         }
 
         if(modelo)

@@ -4,6 +4,7 @@
 #include <irrlicht.h>
 #include "driverChoice.h"
 #include "../include/Time.h"
+#include "Fuzzy.h"
 
 
 using namespace irr;
@@ -39,6 +40,7 @@ class Enemigo
         void pedirAyuda();
         void proteger();
         void matar();
+        void escanear();
         void avisarCapsulas();
         float getVida();
 
@@ -56,6 +58,7 @@ class Enemigo
         float distanciaPlayer;
         float sospecha;
         float tiempoVigilando;
+        int tiempoEscaneando;
         core::vector3df posicion;
         core::vector3df posicionInicial;
         core::vector3df puntoInteres;
@@ -74,6 +77,9 @@ class Enemigo
         int mensajeEstado;
         Enemigo *compis[3];
         bool muerto;
+        bool hayAliado;
+
+        Fuzzy logica;
 
 };
 
