@@ -18,9 +18,9 @@ Fuzzy::Fuzzy()
     fzvarSospecha = { sospechaBaja, sospechaMedia, sospechaAlta, sospechaBaja.left, sospechaAlta.right };
 
     //FLV INTERES
-    const FuzzySet interesBajo  = { 0,  0, 0,  0, 25, 50 };
-    const FuzzySet interesMedio = { 0, 50, 1, 25, 50, 75 };
-    const FuzzySet interesAlto  = { 0,  0, 2, 50, 75, 100};
+    const FuzzySet interesBajo  = { 0, 12.5, 0,  0, 25, 50 };
+    const FuzzySet interesMedio = { 0,   50, 1, 25, 50, 75 };
+    const FuzzySet interesAlto  = { 0, 87.5, 2, 50, 75, 100};
     fzvarInteres = { interesBajo, interesMedio, interesAlto, interesBajo.left, interesAlto.right };
 
     /// Fuzzy Rules
@@ -249,5 +249,13 @@ void Fuzzy::CalculateFAM()
 // Defuzzificamos la variable interes
 float Fuzzy::Defuzzify()
 {
+    float crisp;
 
+    crisp = (fm.vars[2].leftSet.dom * fm.vars[2].leftSet.rep) +
+    (fm.vars[2].triangularSet.dom * fm.vars[2].triangularSet.rep) +
+    (fm.vars[2].rightSet.dom * fm.vars[2].rightSet.rep);
+
+    crisp = crisp / (fm.vars[2].leftSet.dom + fm.vars[2].triangularSet.dom + fm.vars[2].rightSet.dom);
+
+    return crisp;
 }

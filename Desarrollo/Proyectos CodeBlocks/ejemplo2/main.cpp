@@ -325,6 +325,10 @@ int main()
         std::cout << logic.fm.vars[2].triangularSet.dom << "   " ;
         std::cout << logic.fm.vars[2].rightSet.dom << "   " << std::endl;
 
+        float val = logic.Defuzzify();
+
+        std::cout << "  " << val << "  " << std::endl;
+
 
    /// ////////////////
         if(receiver.isKeyDown(KEY_LSHIFT))
