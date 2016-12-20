@@ -1,6 +1,14 @@
 #include "../include/Enemigo.h"
 
+    Enemigo::Enemigo()
+    {
+            //ctor
+    }
 
+    Enemigo::~Enemigo()
+    {
+
+    }
 
     void Enemigo::inicialiazar(int ID, int t, scene::ISceneManager* smgr,core::vector3df p)
     {
@@ -152,7 +160,7 @@
         cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
         posicion = cuboEnemigo;
     }
-    void Enemigo::proteger(){
+    void Enemigo::proteger(){ //GIRAR ALREDEDOR DEL ALIADO
         cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
         posicion = cuboEnemigo;
     }

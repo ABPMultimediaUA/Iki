@@ -19,6 +19,8 @@ using namespace gui; //namespace gui;
 class Enemigo
 {
     public:
+        Enemigo();
+        virtual ~Enemigo();
         void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p);
         int getEstado();
         core::vector3df getPosicion();
