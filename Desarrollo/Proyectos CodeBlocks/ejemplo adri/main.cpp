@@ -121,12 +121,6 @@ int main(){
     //std::cout << "1\n";
 
     ///PLAYER
-    Enemigo *enemi= new Enemigo;
-    if(enemi){
-        enemi->inicializar(smgr,driver);
-
-    }
-
     Player *prota= new Player;
     if(prota){
         prota->inicializar(smgr,driver);
@@ -135,11 +129,7 @@ int main(){
     ///MUROS
     Muros *muro1= new Muros;
     if(muro1){
-        posx= 0.f;
-        posy= 0.f;
-        posz= 0.f;
-        posmuro= vector3df(posx, posy, posz);
-        muro1->inicializar(smgr, driver, posmuro);
+        muro1->inicializar(smgr, driver);
     }
     ///raton
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
@@ -147,7 +137,7 @@ int main(){
     core::line3df ray(mousePosition, prota->getCuboProta());
 
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,30,-20),core::vector3df(0,0,0));
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,50,-20),core::vector3df(0,0,0));
 
     //Ciclo del juego
     while(device->run()){

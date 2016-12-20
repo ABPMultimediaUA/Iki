@@ -27,7 +27,7 @@ class Enemigo
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboEnemigo;
         b2Body *body2;
-        int tam;
+        float tam;
 
         class World* iworld;
 

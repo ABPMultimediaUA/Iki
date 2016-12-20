@@ -14,13 +14,60 @@ Enemigo::~Enemigo()
 }
 
 void Enemigo::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
+/*
+
+    tam= 5;
+
+    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(50.f, 10.f, 10.f));
+    muro1 = smgr->addMeshSceneNode(mura1);
+    smgr->getMeshManipulator()->setVertexColors(muro1->getMesh(),video::SColor(0, 0, 0, 0));
+    //modelo->setMaterialFlag(video::EMF_LIGHTING, false);
+    //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
+    //modelo->setMaterialType( video::EMT_SOLID );
+    muro1->setPosition(core::vector3df(0,0,20));
+
+
+    b2BodyDef bodyDef;
+    bodyDef.type= b2_staticBody;
+    bodyDef.position.Set(0, 20);
+    iworld= World::Instance();
+    body2= iworld->getWorld()->CreateBody(&bodyDef);
+
+    b2PolygonShape bodyShape;
+    bodyShape.SetAsBox((50/2)+0.5, (10/2)+0.5);
+    body2->CreateFixture(&bodyShape, 1.0f);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &bodyShape;
+    fixtureDef.friction = 10.5f;
+    fixtureDef.restitution  = 0.9f;
+    fixtureDef.density  = 10.f;
+    body2->CreateFixture(&fixtureDef);
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     tam= 4;
     mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(1.f, 3.f, 1.f));
     modelo = smgr->addMeshSceneNode(mura1);
     smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 0, 0));
-    //modelo->setMaterialFlag(video::EMF_LIGHTING, false);
-    //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
-    //modelo->setMaterialType( video::EMT_SOLID );
     modelo->setPosition(core::vector3df(0,0,20));
 
     cuboEnemigo = modelo->getPosition();
