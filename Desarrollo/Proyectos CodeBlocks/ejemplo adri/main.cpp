@@ -95,19 +95,36 @@ int main(){
     float posx, posy, posz;
     vector3df posmuro;
 
-    ///BOX2D
-    //class World* world; no se por que puse class
-    World* world;
-    world = World::Instance();
+    video::E_DRIVER_TYPE driverType=driverChoiceConsole();
+    if (driverType==video::EDT_COUNT)
+        return 1;
 
     //Objeto principal que nos permite interactuar con el motor
-    IrrlichtDevice *device= createDevice(video::EDT_SOFTWARE, dimension2d<u32>(SCREENWIDTH, SCREENHEIGHT), 16, false, false, false, &receiver);
+    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
 
     ITimer* timer = device->getTimer();
     f32 TimeStamp = timer->getTime();
     f32 DeltaTime = timer->getTime() - TimeStamp;
 
+    ISceneManager* smgr= device->getSceneManager();         //Gestion de la escena
+    IVideoDriver* driver= device->getVideoDriver();         //Ciclo del juego
+    IGUIEnvironment* guienv= device->getGUIEnvironment();   //Interfaz de usuario
 
+
+
+    ///CAMARA
+    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 100,-30),core::vector3df(0,0,0));
+
+    vector3df cameraPos = camera->getPosition();
+    vector3df cameraTar = camera->getTarget();
+
+
+
+
+    ///BOX2D
+    //class World* world; no se por que puse class
+    World* world;
+    world = World::Instance();
 
 
     if(!device){
@@ -115,9 +132,7 @@ int main(){
         return 1;
     }
 
-    ISceneManager* smgr= device->getSceneManager();         //Gestion de la escena
-    IVideoDriver* driver= device->getVideoDriver();         //Ciclo del juego
-    IGUIEnvironment* guienv= device->getGUIEnvironment();   //Interfaz de usuario
+
     //std::cout << "1\n";
 
     ///PLAYER
@@ -137,7 +152,6 @@ int main(){
     core::line3df ray(mousePosition, prota->getCuboProta());
 
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,50,-20),core::vector3df(0,0,0));
 
     //Ciclo del juego
     while(device->run()){
@@ -148,6 +162,10 @@ int main(){
         {
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
+            float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
+                        -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+            prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
+            prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
@@ -165,6 +183,35 @@ int main(){
         //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
         //prota->setPosicionBody(0);
 
+        ///CAMARA
+         if(receiver.isKeyDown(KEY_ESCAPE))
+        {
+            device->closeDevice();
+            return 0;
+        }
+        else if(receiver.isKeyDown(KEY_RIGHT))
+        {
+            cameraPos.X+=0.4;
+            cameraTar.X+=0.4;
+        }
+        else if (receiver.isKeyDown(KEY_LEFT))
+        {
+            cameraPos.X-=0.4;
+            cameraTar.X-=0.4;
+        }
+        else if(receiver.isKeyDown(KEY_UP))
+        {
+            cameraPos.Z+=0.4;
+            cameraTar.Z+=0.4;
+        }
+        else if (receiver.isKeyDown(KEY_DOWN))
+        {
+            cameraPos.Z-=0.4;
+            cameraTar.Z-=0.4;
+        }
+
+        camera->setPosition(cameraPos);
+        camera->setTarget(cameraTar);
 
         DeltaTime = timer->getTime() - TimeStamp;
         TimeStamp = timer->getTime();

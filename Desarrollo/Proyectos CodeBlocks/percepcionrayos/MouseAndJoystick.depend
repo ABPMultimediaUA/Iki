@@ -9981,7 +9981,7 @@
 	"driverChoice.h"
 	<World.h>
 
-1482169440 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\enemigo.cpp
+1482275708 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -9999,7 +9999,7 @@
 
 1481736230 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\game.h
 
-1482164291 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\player.cpp
+1482278849 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 

@@ -325,7 +325,7 @@ int main()
     //core::vector3df posicionInicial (35,0,35);
     //enemigo1.setPunto((prota->getPosition())-(enemigo->getPosition()));
 
-    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0,250,-40),core::vector3df(0,0,0));
 
     //we'll use framerate independent movement.
     u32 then = device->getTimer()->getTime();

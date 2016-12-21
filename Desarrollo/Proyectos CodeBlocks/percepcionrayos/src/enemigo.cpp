@@ -59,7 +59,7 @@ void Enemigo::inicializar2(scene::ISceneManager* smgr,video::IVideoDriver* drive
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(0, 70);
+    bodyDef.position.Set(0, 50);
     iworld= World::Instance();
     body2= iworld->getWorld()->CreateBody(&bodyDef);
 

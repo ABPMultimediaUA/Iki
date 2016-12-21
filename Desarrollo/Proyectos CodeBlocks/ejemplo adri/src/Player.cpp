@@ -14,17 +14,17 @@ Player::~Player()
 }
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 2;
+    tam= 8;
 
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
    // modelo->setMaterialType( video::EMT_SOLID );
-    modelo->setPosition(core::vector3df(0,0,0));
+    modelo->setPosition(core::vector3df(0,0,10));
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(0, 0);
+    bodyDef.position.Set(0, 10);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 
