@@ -10159,7 +10159,7 @@
 	<World.h>
 	<iostream>
 
-1482322509 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
+1482329279 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -10196,7 +10196,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482319216 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\fuzzy.cpp
+1482328881 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\fuzzy.cpp
 	"Fuzzy.h"
 	"iostream"
 

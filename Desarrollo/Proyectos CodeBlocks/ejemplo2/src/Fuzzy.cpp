@@ -6,9 +6,9 @@ Fuzzy::Fuzzy()
 
     /// Fuzzy Logic Variables
     //FLV DISTANCIA
-    const FuzzySet distanciaCorta = { 0,  1, 0,  0, 20, 50 };
-    const FuzzySet distanciaMedia = { 0, 50, 1, 20, 50, 80 };
-    const FuzzySet distanciaLarga = { 0,  1, 2, 50, 80, 120};
+    const FuzzySet distanciaCorta = { 0,  1, 0,  0, 10, 20 };
+    const FuzzySet distanciaMedia = { 0, 45, 1, 10, 20, 50 };
+    const FuzzySet distanciaLarga = { 0,  1, 2, 20, 50, 90 };
     fzvarDistancia = { distanciaCorta, distanciaMedia, distanciaLarga, distanciaCorta.left, distanciaLarga.right };
 
     //FLV SOSPECHA
@@ -69,9 +69,10 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const
             else if ( val > dPeak && val < dRight)
             //else if ( (val >= dPeak) && (val < (dPeak + dRight)) )
             {
-                /// ARREGLAR ESTO
-                double grad = 1.0 / -dRight;
-                return grad * (val - dPeak) + 1.0;
+                //double grad = 1.0 / -dRight;
+                //return grad * (val - dPeak) + 1.0;
+                float grad = val / (dPeak + dRight);
+                return 1 - grad;
             }
             //else if ( (val < dPeak) && (val >= dPeak-dLeft) )
             //{
@@ -99,15 +100,18 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const
             if ( val < dPeak && val > dLeft )
             //if ( (val <= dPeak) && (val >= (dPeak - dLeft)) )
             {
-                double grad = 1.0 / dLeft;
-                return grad * (val - (dPeak - dLeft));
+                //double grad = 1.0 / dLeft;
+                //return grad * (val - (dPeak - dLeft));
+                float grad = val / (dPeak + dLeft);
+                return grad;
             }
             else if ( val > dPeak && val < dRight )
             //else if ( (val > dPeak) && (val < (dPeak + dRight)) )
             {
-                /// ARREGLAR ESTO
-                double grad = 1.0 / -dRight;
-                return grad * (val - dPeak) + 1.0;
+                //double grad = 1.0 / -dRight;
+                //return grad * (val - dPeak) + 1.0;
+                float grad = val / (dPeak + dRight);
+                return grad;
             }
             else
             {
@@ -130,9 +134,10 @@ float Fuzzy::CalculateDOM(float val, FuzzyVar var, int fzSetType)const
             else if ( val < dPeak && val > dLeft )
             //else if ( (val <= dPeak) && (val > (dPeak - dLeft)) )
             {
-                /// ARREGLAR ESTO
-                double grad = 1.0 / dLeft;
-                return grad * (val - (dPeak - dLeft));
+                //double grad = 1.0 / dLeft;
+                //return grad * (val - (dPeak - dLeft));
+                float grad = val / (dPeak + dLeft);
+                return 1 - grad;
             }
             //else if ( (val > dPeak) && (val <= dPeak+dRight) )
             //{

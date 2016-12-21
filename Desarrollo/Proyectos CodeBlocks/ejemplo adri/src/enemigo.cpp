@@ -239,16 +239,17 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
             if (tiempoEscaneando < 3.0){
-                if(tiempoEscaneando % 5 == 0){
+                if(tiempoEscaneando*100 % 5 == 0){
                     /// ESTO ESTA MUY RARO
-                    sospecha+=0.1;
+                    if (sospecha < 99)
+                        sospecha+=0.05;
                     std::cout << sospecha << std::endl;
+                }
             }
-            }
-            if (tiempoEscaneando > 3.0){
+            else /*if (tiempoEscaneando > 3.0)*/{
                 estado=3;
             }
-            if (distanciaPlayer > 90){// o if (pierdo de vista al player) o
+            if (distanciaPlayer > 80){// o if (pierdo de vista al player) o
                 primeraVez=true;
                 //
                 logica.Fuzzify(distanciaPlayer, logica.fm.vars[0]);
@@ -262,7 +263,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                     estado = 0;
                    // sospecha=0.0;
                 }
-                else if (val <= 67.5){
+                else if (val <= 45.5){
                    // sospecha=25.0;
                     puntoInteres=posicionProta;
                     estado=8;
@@ -295,7 +296,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
             patrullar();
             //Si el player se acerca sospecha
-            if(distanciaPlayer<90){ // 75
+            if(distanciaPlayer<80){ // 75
                 estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
@@ -363,8 +364,9 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             break;
         case 6: //PERSEGUIR
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 0, 0, 0));
+            sospecha = 0.0;
             perseguir();
-            if(distanciaPlayer>90){
+            if(distanciaPlayer>80){
                 puntoInteres = posicionProta;
                 estado = 8;
             }
@@ -376,7 +378,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         case 8: //INSPECCIONAR
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 0, 0));
             inspeccionar();
-            if (distanciaPlayer<=90){
+            if (distanciaPlayer<=80){
                 estado = 3;
             }
             if(posicion.getDistanceFrom(puntoInteres) == 0)
