@@ -36,7 +36,7 @@ b2PolygonShape bodyShape;
 
     bodyDef.position.Set(60, 0);
     body= iworld->getWorld()->CreateBody(&bodyDef);
-    bodyShape.SetAsBox(40.f/2, 10.f/2);
+    bodyShape.SetAsBox(10.f/2, 40.f/2);
     body->CreateFixture(&bodyShape, 1.0f);
 
 ///2

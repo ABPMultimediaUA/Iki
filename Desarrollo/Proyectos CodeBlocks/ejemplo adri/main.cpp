@@ -95,8 +95,12 @@ int main(){
     float posx, posy, posz;
     vector3df posmuro;
 
+    video::E_DRIVER_TYPE driverType=driverChoiceConsole();
+    if (driverType==video::EDT_COUNT)
+        return 1;
+
     //Objeto principal que nos permite interactuar con el motor
-    IrrlichtDevice *device= createDevice(video::EDT_SOFTWARE, dimension2d<u32>(SCREENWIDTH, SCREENHEIGHT), 16, false, false, false, &receiver);
+    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
 
     ITimer* timer = device->getTimer();
     f32 TimeStamp = timer->getTime();
@@ -109,7 +113,7 @@ int main(){
 
 
     ///CAMARA
-    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 300,-90),core::vector3df(0,0,0));
+    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 100,-30),core::vector3df(0,0,0));
 
     vector3df cameraPos = camera->getPosition();
     vector3df cameraTar = camera->getTarget();

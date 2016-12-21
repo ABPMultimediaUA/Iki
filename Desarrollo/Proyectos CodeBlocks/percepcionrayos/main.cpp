@@ -97,6 +97,7 @@ int main(){
     World* world;
     world = World::Instance();
 
+
     //Objeto principal que nos permite interactuar con el motor
     IrrlichtDevice *device= createDevice(video::EDT_SOFTWARE, dimension2d<u32>(SCREENWIDTH, SCREENHEIGHT), 16, false, false, false, &receiver);
 
@@ -147,6 +148,12 @@ int main(){
     b2RayCastInput input;
     input.maxFraction	=	1.0f;
     b2RayCastOutput	output;
+    float angulo2 = 0;
+    float distancia = 0;
+     scene::IMesh *rayo = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
+     scene::IMeshSceneNode *modelo = smgr->addMeshSceneNode(rayo);
+     smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 0, 0));
+     modelo->setVisible(false);
 
 
 
@@ -196,11 +203,28 @@ int main(){
                // b2Vec2 normal = output.normal;
 
 
-                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),video::SColor(255, 255, 0, 0));
+
+                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
+                angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
+                enemi2->getBody()->SetTransform(enemi2->getBody()->GetPosition(), angulo2);
+                enemi2->getModelo()->setRotation(core::vector3df(0,enemi2->getBody()->GetAngle(),0));
+
+                distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
+
+
+
+                modelo->setVisible(true);
+                modelo->setScale(core::vector3df(distancia/10, 0.5f, 0.5f));
+                modelo->setPosition(core::vector3df((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
+                modelo->setRotation(core::vector3df(0,enemi2->getBody()->GetAngle(),0));
+
+
 
             }
-            else
-                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
+            else{
+                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(0, 0, 0, 0));
+                modelo->setVisible(false);
+            }
 
                 /*if	( b2RayCastCallback.ReportFixture(prota->getBody()->GetFixtureList(), hitPoint, normal, 1.0f) == 0 )	{
                 }*/
