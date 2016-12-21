@@ -415,7 +415,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         {
             avMovement = 15.f * tiempo.getTimeFactor();
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
-            direccionHaciaProta=posicion-cuboProta;
+            direccionHaciaProta=cuboProta-posicion;
             maquinaEstados();
             posicionProta=cuboProta;
         }

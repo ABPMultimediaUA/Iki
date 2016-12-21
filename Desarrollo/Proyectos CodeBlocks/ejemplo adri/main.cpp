@@ -353,9 +353,6 @@ int main(){
         enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());*/
 
 
-
-
-
         //std::cout << "static constructor\n";
         world->Step(DeltaTime);
         world->getWorld()->ClearForces();
