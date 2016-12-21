@@ -6,7 +6,7 @@
 #define POSITER 10              //NUMERO DE ITERACIONES POR TICK PARA CALCULAR LA POSICION
 #define TIMESTEP 1.0f / 250.0f     //TIEMPO DE REFRESCO
 
-World* World::pinstance = nullptr;
+World* World::pinstance = 0;
 
 World::World()
 {
@@ -26,7 +26,7 @@ void World::Step(float DeltaTime){
 
 
 World* World::Instance(){
-    if(pinstance == nullptr){
+    if(pinstance == 0){
         pinstance = new World();
     }
     return pinstance;

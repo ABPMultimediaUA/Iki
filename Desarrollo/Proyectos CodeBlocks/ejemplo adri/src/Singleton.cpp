@@ -2,10 +2,10 @@
 #include <Box2D/Box2D.h>
 #include <iostream>
 
-Singleton* Singleton::pinstance= nullptr;
+Singleton* Singleton::pinstance= 0;
 
 Singleton * Singleton::Instance(){
-    if(pinstance == nullptr){
+    if(pinstance == 0){
         pinstance= new Singleton;
     }
     return pinstance;
