@@ -6,9 +6,9 @@ Fuzzy::Fuzzy()
 
     /// Fuzzy Logic Variables
     //FLV DISTANCIA
-    const FuzzySet distanciaCorta = { 0,  1, 0,  0, 20, 50 };
-    const FuzzySet distanciaMedia = { 0, 50, 1, 20, 50, 80 };
-    const FuzzySet distanciaLarga = { 0,  1, 2, 50, 80, 120};
+    const FuzzySet distanciaCorta = { 0,  1, 0,  0, 20, 45 };
+    const FuzzySet distanciaMedia = { 0, 45, 1, 20, 45, 60 };
+    const FuzzySet distanciaLarga = { 0,  1, 2, 45, 60, 90};
     fzvarDistancia = { distanciaCorta, distanciaMedia, distanciaLarga, distanciaCorta.left, distanciaLarga.right };
 
     //FLV SOSPECHA

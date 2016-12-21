@@ -239,6 +239,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
         if(tiempoEscaneando<3.0){
             if(tiempoEscaneando % 5 == 0){
+                    /// ESTO ESTA MUY RARO
                 sospecha+=0.1;
                 std::cout << sospecha << std::endl;
             }
@@ -263,7 +264,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         case 0:
             patrullar();
             //Si el player se acerca sospecha
-            if(distanciaPlayer<30){
+            if(distanciaPlayer<90){ // 75
                 estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
@@ -272,18 +273,20 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         case 1:
             /// ESCANEAR / SOSPECHAR ///
             if(primeraVez){
-            reloj=tiempo.setMomento();
-            primeraVez=false;
+                reloj=tiempo.setMomento();
+                primeraVez=false;
             }
             if (tiempoEscaneando < 3.0){
                 escanear();
             }
             else if (tiempoEscaneando == 3.0){
+                sospecha=50.0;
                 estado=3;
             }
 
-            if (distanciaPlayer > 50){// o if (pierdo de vista al player) o
+            if (distanciaPlayer > 90){// o if (pierdo de vista al player) o
                 primeraVez=true;
+
                 //
                 logica.Fuzzify(distanciaPlayer, logica.fm.vars[0]);
                 logica.Fuzzify(sospecha, logica.fm.vars[1]);
@@ -291,14 +294,20 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 logica.CalculateFAM();
                 float val = logica.Defuzzify();
                 std::cout << "  " << val << std::endl;
-                if (val <= 37.5)
+
+                if (val <= 37.5){
                     estado = 0;
+                    sospecha=0.0;
+                }
                 else if (val <= 67.5){
+                    sospecha=25.0;
                     puntoInteres=posicionProta;
                     estado=8;
                 }
-                else
+                else{
+                    sospecha = 40.0;
                     estado = 3;
+                }
                 //
 
             }
@@ -371,8 +380,9 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             break;
         case 6: //PERSEGUIR
             perseguir();
-            if(distanciaPlayer>60){
-                estado = 0;
+            if(distanciaPlayer>90){
+                puntoInteres = posicionProta;
+                estado = 8;
             }
             //si esta a rango ataca
             //si lo pierde de vista, vuelve a la patrulla
@@ -381,6 +391,9 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             break;
         case 8: //INSPECCIONAR
             inspeccionar();
+            if (distanciaPlayer<=90){
+                estado = 3;
+            }
             if(posicion.getDistanceFrom(puntoInteres) == 0)
             {
                 estado=0;
