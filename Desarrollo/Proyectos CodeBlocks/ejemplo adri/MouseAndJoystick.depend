@@ -10120,7 +10120,7 @@
 	"Muros.h"
 	<iostream>
 
-1482315998 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
+1482323572 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -10159,7 +10159,7 @@
 	<World.h>
 	<iostream>
 
-1482321643 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
+1482322509 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 

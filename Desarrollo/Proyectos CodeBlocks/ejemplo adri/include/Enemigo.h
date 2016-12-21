@@ -85,6 +85,7 @@ class Enemigo
         bool hayAliado;
 
         Fuzzy logica;
+        scene::ISceneManager* smgr1;
         class World* iworld;
 
 
