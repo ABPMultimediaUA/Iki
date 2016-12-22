@@ -23,7 +23,9 @@
 				<Option compiler="gcc" />
 				<Option projectResourceIncludeDirsRelation="1" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add option="-static" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
@@ -62,11 +64,17 @@
 		<Compiler>
 			<Add option="-std=c++11" />
 			<Add option="-g" />
+			<Add option="-static" />
+			<Add option="-static-libgcc" />
+			<Add option="-static-libstdc++" />
 			<Add directory="../irrlicht-1.8.4/include" />
 			<Add directory="../irrKlang-1.5.0/include" />
 			<Add directory="../Box2D" />
 		</Compiler>
 		<Linker>
+			<Add option="-static" />
+			<Add option="-static-libgcc" />
+			<Add option="-static-libstdc++" />
 			<Add library="Irrlicht" />
 			<Add library="engineBox2D/bin/Debug/libengineBox2D.a" />
 			<Add library="libirrKlang.a" />
