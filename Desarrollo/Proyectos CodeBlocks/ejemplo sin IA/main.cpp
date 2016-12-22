@@ -123,7 +123,7 @@ int main(){
 
 
     ///CAMARA
-    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 100,-30),core::vector3df(0,0,0));
+    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 20,-20),core::vector3df(0,0,0));
 
     vector3df cameraPos = camera->getPosition();
     vector3df cameraTar = camera->getTarget();
@@ -178,9 +178,9 @@ int main(){
         muro1->inicializar(smgr, driver);
     }*/
     ///RATON
-    core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
+    core::plane3df plane(prota->getPosicionProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition= core::vector3df(0,0,0);
-    core::line3df ray(mousePosition, prota->getCuboProta());
+    core::line3df ray(mousePosition, prota->getPosicionProta());
 
     ///SONIDOS
 
@@ -207,7 +207,7 @@ int main(){
 
     ///SUELO
 
-
+/*
     IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(600.f, -5.f, 600.f));
      scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
 
@@ -219,7 +219,7 @@ int main(){
        //suelo->getMaterial(0).getTextureMatrix(0).setTextureTranslate(1,1);
        //suelo->getMaterial(0).getTextureMatrix(0).setTextureScale(1,1);
     }
-
+*/
 	///BOOLEANS
 
 	bool pasosP = false;
@@ -237,21 +237,20 @@ int main(){
 
     while(device->run()){
        driver->beginScene(true, true, SColor(255, 100, 101, 140));
-
         ///raton
         if(receiver.GetMouseState().RightButtonDown)
         {
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                         receiver.GetMouseState().Position, camera);
-            float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
-                        -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+            float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
+                        -(mousePosition.X-prota->getPosicionProta().X)) * 180.f / irr::core::PI;
             prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
-            prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+           prota->setRotarProta(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
             // We now have a mouse position in 3d space; move towards it.
-            core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
+            core::vector3df toMousePosition(mousePosition - prota->getPosicionProta());
             if(toMousePosition.getLength() <= 1){
                 prota->moverBody(vector3df(0,0,0));
                 if(pasosP==true || pasos2P==true){

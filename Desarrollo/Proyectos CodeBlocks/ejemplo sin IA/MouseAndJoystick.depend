@@ -10272,11 +10272,11 @@
 	<World.h>
 	<iostream>
 
-1482262701 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\player.cpp
+1482402934 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
-1482154528 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\player.h
+1482403928 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -10303,7 +10303,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482390463 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\main.cpp
+1482403944 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"

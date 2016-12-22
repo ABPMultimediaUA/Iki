@@ -17,19 +17,22 @@ class Player
         virtual ~Player();
         void inicializar(scene::ISceneManager*,video::IVideoDriver* driver);
         void setPosition(core::vector3df vec);
+        void setRotarProta(core::vector3df vec);
         void setCuboProta(core::vector3df);
         void setPosicionBody(float ang);
         void moverBody(core::vector3df vec);
-        core::vector3df getCuboProta();
-        scene::IMeshSceneNode* getModelo();
+        core::vector3df getPosicionProta();
+        scene::IAnimatedMesh* getModelo();
         b2Body* getBody();
 
     protected:
 
     private:
-        scene::IMeshSceneNode *modelo;
-        core::vector3df cuboProta;
+        scene::IMeshSceneNode *esfera;
+        scene::IAnimatedMeshSceneNode *modelo;
+        core::vector3df cuboProta, escalado1, escalado2;
         b2Body *body;
+        scene::IAnimatedMesh* mesh;
         int tam;
         float movx, movy;
 

@@ -2,6 +2,7 @@
 #include <Box2D/Box2D.h>
 
 
+using namespace irr;
 
 Player::Player()
 {
@@ -14,17 +15,29 @@ Player::~Player()
 }
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 8;
+    tam= 6;
+    escalado1= core::vector3df(0.04f,0.04f,0.04f);
+    escalado2= core::vector3df(1,0.01f,1);
 
-    modelo = smgr->addCubeSceneNode(tam);
-    modelo->setMaterialFlag(video::EMF_LIGHTING, false);
+    esfera= smgr->addCubeSceneNode(6);
+    esfera->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
+    esfera->setScale(escalado2);
+    esfera->setPosition(core::vector3df(0,0,10));
+
+
+    //modelo = smgr->addCubeSceneNode(tam);
+    mesh = smgr->getMesh("media/tank.md2");
+    modelo= smgr->addAnimatedMeshSceneNode(mesh);
+    modelo->setScale(escalado1);
+
+    //modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
    // modelo->setMaterialType( video::EMT_SOLID );
-    modelo->setPosition(core::vector3df(0,0,10));
+    modelo->setPosition(core::vector3df(0,0,-10));
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(0, 10);
+    bodyDef.position.Set(0, -10);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 
@@ -42,12 +55,18 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     body->CreateFixture(&fixtureDef);
 }
 
-core::vector3df Player::getCuboProta(){
+core::vector3df Player::getPosicionProta(){
     return modelo->getPosition();
+}
+
+void Player::setRotarProta(core::vector3df vecu){
+    esfera->setRotation(vecu);
+    modelo->setRotation(vecu);
 }
 
 void Player::setPosition(core::vector3df vec){
     modelo->setPosition(vec);
+    esfera->setPosition(core::vector3df(vec.X, vec.Y, vec.Z));
 }
 
 b2Body* Player::getBody(){
@@ -91,6 +110,6 @@ void Player::setCuboProta(core::vector3df cb){
     cuboProta = cb;
 }
 
-scene::IMeshSceneNode* Player::getModelo(){
-    return modelo;
+irr::scene::IAnimatedMesh* Player::getModelo(){
+    return mesh;
 }
