@@ -2011,7 +2011,7 @@
 	"include/Player.h"
 	"irrKlang/conio.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
 	"IrrCompileConfig.h"
 	"aabbox3d.h"
 	"CDynamicMeshBuffer.h"
@@ -2171,17 +2171,17 @@
 	"vector3d.h"
 	"SIrrCreationParameters.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrcompileconfig.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrcompileconfig.h
 	<stdio.h>
 	<xtl.h>
 	<tchar.h>
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\aabbox3d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\aabbox3d.h
 	"irrMath.h"
 	"plane3d.h"
 	"line3d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrmath.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrmath.h
 	"IrrCompileConfig.h"
 	"irrTypes.h"
 	<math.h>
@@ -2189,7 +2189,7 @@
 	<stdlib.h>
 	<limits.h>
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrtypes.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrtypes.h
 	"IrrCompileConfig.h"
 	<wchar.h>
 	<crtdbg.h>
@@ -2197,28 +2197,28 @@
 	<stdlib.h>
 	<crtdbg.h>
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\plane3d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\plane3d.h
 	"irrMath.h"
 	"vector3d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\vector3d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\vector3d.h
 	"irrMath.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\line3d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\line3d.h
 	"irrTypes.h"
 	"vector3d.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cdynamicmeshbuffer.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cdynamicmeshbuffer.h
 	"IDynamicMeshBuffer.h"
 	"CVertexBuffer.h"
 	"CIndexBuffer.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\idynamicmeshbuffer.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\idynamicmeshbuffer.h
 	"IMeshBuffer.h"
 	"IVertexBuffer.h"
 	"IIndexBuffer.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshbuffer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshbuffer.h
 	"IReferenceCounted.h"
 	"SMaterial.h"
 	"aabbox3d.h"
@@ -2227,10 +2227,10 @@
 	"EHardwareBufferFlags.h"
 	"EPrimitiveTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ireferencecounted.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ireferencecounted.h
 	"irrTypes.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smaterial.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smaterial.h
 	"SColor.h"
 	"matrix4.h"
 	"irrArray.h"
@@ -2239,11 +2239,11 @@
 	"EMaterialFlags.h"
 	"SMaterialLayer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\scolor.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\scolor.h
 	"irrTypes.h"
 	"irrMath.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\matrix4.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\matrix4.h
 	"irrMath.h"
 	"vector3d.h"
 	"vector2d.h"
@@ -2252,23 +2252,23 @@
 	"rect.h"
 	"irrString.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\vector2d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\vector2d.h
 	"irrMath.h"
 	"dimension2d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\dimension2d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\dimension2d.h
 	"irrTypes.h"
 	"irrMath.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\rect.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\rect.h
 	"irrTypes.h"
 	"dimension2d.h"
 	"position2d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\position2d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\position2d.h
 	"vector2d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrstring.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrstring.h
 	"irrTypes.h"
 	"irrAllocator.h"
 	"irrMath.h"
@@ -2276,133 +2276,133 @@
 	<string.h>
 	<stdlib.h>
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrallocator.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrallocator.h
 	"irrTypes.h"
 	<new>
 	<memory.h>
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrarray.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrarray.h
 	"irrTypes.h"
 	"heapsort.h"
 	"irrAllocator.h"
 	"irrMath.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\heapsort.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\heapsort.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ematerialtypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ematerialtypes.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ematerialflags.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ematerialflags.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smateriallayer.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smateriallayer.h
 	"matrix4.h"
 	"irrAllocator.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\s3dvertex.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\s3dvertex.h
 	"vector3d.h"
 	"vector2d.h"
 	"SColor.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\svertexindex.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\svertexindex.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ehardwarebufferflags.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ehardwarebufferflags.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eprimitivetypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eprimitivetypes.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivertexbuffer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivertexbuffer.h
 	"IReferenceCounted.h"
 	"irrArray.h"
 	"S3DVertex.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iindexbuffer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iindexbuffer.h
 	"IReferenceCounted.h"
 	"irrArray.h"
 	"SVertexIndex.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cvertexbuffer.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cvertexbuffer.h
 	"IVertexBuffer.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cindexbuffer.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cindexbuffer.h
 	"IIndexBuffer.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cmeshbuffer.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\cmeshbuffer.h
 	"irrArray.h"
 	"IMeshBuffer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\coreutil.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\coreutil.h
 	"irrString.h"
 	"path.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\path.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\path.h
 	"irrString.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ecullingtypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ecullingtypes.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edebugscenetypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edebugscenetypes.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edriverfeatures.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edriverfeatures.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edrivertypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edrivertypes.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eguialignment.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eguialignment.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eguielementtypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eguielementtypes.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\emeshwriterenums.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\emeshwriterenums.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\emessageboxflags.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\emessageboxflags.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\escenenodeanimatortypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\escenenodeanimatortypes.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\escenenodetypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\escenenodetypes.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eterrainelements.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eterrainelements.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\fast_atof.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\fast_atof.h
 	"irrMath.h"
 	"irrString.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmesh.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmesh.h
 	"aabbox3d.h"
 	"IMesh.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imesh.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imesh.h
 	"IReferenceCounted.h"
 	"SMaterial.h"
 	"EHardwareBufferFlags.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmeshmd2.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmeshmd2.h
 	"IAnimatedMesh.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmeshmd3.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmeshmd3.h
 	"IAnimatedMesh.h"
 	"IQ3Shader.h"
 	"quaternion.h"
 	"irrpack.h"
 	"irrunpack.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iq3shader.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iq3shader.h
 	"irrArray.h"
 	"fast_atof.h"
 	"IFileSystem.h"
 	"IVideoDriver.h"
 	"coreutil.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ifilesystem.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ifilesystem.h
 	"IReferenceCounted.h"
 	"IXMLReader.h"
 	"IFileArchive.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ixmlreader.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ixmlreader.h
 	"IReferenceCounted.h"
 	"irrXML.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrxml.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrxml.h
 	<stdio.h>
 	"IrrCompileConfig.h"
 	<irrXML.h>
@@ -2411,19 +2411,19 @@
 	<irrXML.h>
 	<irrXML.h>
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ifilearchive.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ifilearchive.h
 	"IReadFile.h"
 	"IFileList.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ireadfile.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ireadfile.h
 	"IReferenceCounted.h"
 	"coreutil.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ifilelist.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ifilelist.h
 	"IReferenceCounted.h"
 	"path.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivideodriver.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivideodriver.h
 	"rect.h"
 	"SColor.h"
 	"ITexture.h"
@@ -2439,7 +2439,7 @@
 	"EDriverFeatures.h"
 	"SExposedVideoData.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itexture.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itexture.h
 	"IReferenceCounted.h"
 	"IImage.h"
 	"dimension2d.h"
@@ -2447,37 +2447,37 @@
 	"path.h"
 	"matrix4.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iimage.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iimage.h
 	"IReferenceCounted.h"
 	"position2d.h"
 	"rect.h"
 	"SColor.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\triangle3d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\triangle3d.h
 	"vector3d.h"
 	"line3d.h"
 	"plane3d.h"
 	"aabbox3d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sexposedvideodata.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sexposedvideodata.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\quaternion.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\quaternion.h
 	"irrTypes.h"
 	"irrMath.h"
 	"matrix4.h"
 	"vector3d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrpack.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrpack.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrunpack.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrunpack.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmeshscenenode.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ianimatedmeshscenenode.h
 	"ISceneNode.h"
 	"IBoneSceneNode.h"
 	"IAnimatedMeshMD2.h"
 	"IAnimatedMeshMD3.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenode.h
 	"IAttributeExchangingObject.h"
 	"ESceneNodeTypes.h"
 	"ECullingTypes.h"
@@ -2491,39 +2491,39 @@
 	"irrList.h"
 	"IAttributes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iattributeexchangingobject.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iattributeexchangingobject.h
 	"IReferenceCounted.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimator.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimator.h
 	"IReferenceCounted.h"
 	"vector3d.h"
 	"ESceneNodeAnimatorTypes.h"
 	"IAttributeExchangingObject.h"
 	"IEventReceiver.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ieventreceiver.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ieventreceiver.h
 	"ILogger.h"
 	"Keycodes.h"
 	"irrString.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ilogger.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ilogger.h
 	"IReferenceCounted.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\keycodes.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\keycodes.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itriangleselector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itriangleselector.h
 	"IReferenceCounted.h"
 	"triangle3d.h"
 	"aabbox3d.h"
 	"matrix4.h"
 	"line3d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlist.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlist.h
 	"irrTypes.h"
 	"irrAllocator.h"
 	"irrMath.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iattributes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iattributes.h
 	"IReferenceCounted.h"
 	"SColor.h"
 	"vector3d.h"
@@ -2546,51 +2546,51 @@
 	"EAttributes.h"
 	"path.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\line2d.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\line2d.h
 	"irrTypes.h"
 	"vector2d.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eattributes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eattributes.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ibonescenenode.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ibonescenenode.h
 	"ISceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ibillboardscenenode.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ibillboardscenenode.h
 	"ISceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ibillboardtextscenenode.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ibillboardtextscenenode.h
 	"IBillboardSceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\icamerascenenode.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\icamerascenenode.h
 	"ISceneNode.h"
 	"IEventReceiver.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\icursorcontrol.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\icursorcontrol.h
 	"IReferenceCounted.h"
 	"position2d.h"
 	"rect.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\idummytransformationscenenode.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\idummytransformationscenenode.h
 	"ISceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\igeometrycreator.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\igeometrycreator.h
 	"IReferenceCounted.h"
 	"IMesh.h"
 	"IImage.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\igpuprogrammingservices.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\igpuprogrammingservices.h
 	"EShaderTypes.h"
 	"EMaterialTypes.h"
 	"EPrimitiveTypes.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eshadertypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\eshadertypes.h
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguibutton.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguibutton.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguielement.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguielement.h
 	"IAttributeExchangingObject.h"
 	"irrList.h"
 	"rect.h"
@@ -2600,27 +2600,27 @@
 	"EGUIAlignment.h"
 	"IAttributes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicheckbox.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicheckbox.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicolorselectdialog.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicolorselectdialog.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicombobox.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicombobox.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicontextmenu.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguicontextmenu.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguieditbox.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguieditbox.h
 	"IGUIElement.h"
 	"SColor.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguielementfactory.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguielementfactory.h
 	"IReferenceCounted.h"
 	"EGUIElementTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguienvironment.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguienvironment.h
 	"IReferenceCounted.h"
 	"IGUISkin.h"
 	"rect.h"
@@ -2629,118 +2629,118 @@
 	"IXMLReader.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiskin.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiskin.h
 	"IAttributeExchangingObject.h"
 	"EGUIAlignment.h"
 	"SColor.h"
 	"rect.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguifileopendialog.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguifileopendialog.h
 	"IGUIElement.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguifont.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguifont.h
 	"IReferenceCounted.h"
 	"SColor.h"
 	"rect.h"
 	"irrString.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguifontbitmap.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguifontbitmap.h
 	"IGUIFont.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiimage.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiimage.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiinoutfader.h
-	"IGUIElement.h"
-	"SColor.h"
-
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguilistbox.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiinoutfader.h
 	"IGUIElement.h"
 	"SColor.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguimeshviewer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguilistbox.h
+	"IGUIElement.h"
+	"SColor.h"
+
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguimeshviewer.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiscrollbar.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiscrollbar.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguispinbox.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguispinbox.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguispritebank.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguispritebank.h
 	"IReferenceCounted.h"
 	"irrArray.h"
 	"SColor.h"
 	"rect.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguistatictext.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguistatictext.h
 	"IGUIElement.h"
 	"SColor.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitabcontrol.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitabcontrol.h
 	"IGUIElement.h"
 	"SColor.h"
 	"IGUISkin.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitable.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitable.h
 	"IGUIElement.h"
 	"irrTypes.h"
 	"SColor.h"
 	"IGUISkin.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitoolbar.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitoolbar.h
 	"IGUIElement.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiwindow.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiwindow.h
 	"IGUIElement.h"
 	"EMessageBoxFlags.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitreeview.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguitreeview.h
 	"IGUIElement.h"
 	"IGUIImageList.h"
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiimagelist.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iguiimagelist.h
 	"IGUIElement.h"
 	"rect.h"
 	"irrTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iimageloader.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iimageloader.h
 	"IReferenceCounted.h"
 	"IImage.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iimagewriter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iimagewriter.h
 	"IReferenceCounted.h"
 	"irrString.h"
 	"coreutil.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ilightscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ilightscenenode.h
 	"ISceneNode.h"
 	"SLight.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\slight.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\slight.h
 	"SColor.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imaterialrenderer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imaterialrenderer.h
 	"IReferenceCounted.h"
 	"SMaterial.h"
 	"S3DVertex.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imaterialrendererservices.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imaterialrendererservices.h
 	"SMaterial.h"
 	"S3DVertex.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshcache.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshcache.h
 	"IReferenceCounted.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshloader.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshloader.h
 	"IReferenceCounted.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshmanipulator.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshmanipulator.h
 	"IReferenceCounted.h"
 	"vector3d.h"
 	"aabbox3d.h"
@@ -2749,31 +2749,31 @@
 	"IMeshBuffer.h"
 	"SVertexManipulator.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\svertexmanipulator.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\svertexmanipulator.h
 	"S3DVertex.h"
 	"SColor.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshscenenode.h
 	"ISceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshwriter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imeshwriter.h
 	"IReferenceCounted.h"
 	"EMeshWriterEnums.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\icolladameshwriter.h
+1481274321 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\icolladameshwriter.h
 	"IMeshWriter.h"
 	"ISceneNode.h"
 	"IAnimatedMesh.h"
 	"SMaterial.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imetatriangleselector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\imetatriangleselector.h
 	"ITriangleSelector.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iosoperator.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iosoperator.h
 	"IReferenceCounted.h"
 	"irrString.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlesystemscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlesystemscenenode.h
 	"ISceneNode.h"
 	"IParticleAnimatedMeshSceneNodeEmitter.h"
 	"IParticleBoxEmitter.h"
@@ -2787,60 +2787,60 @@
 	"IParticleRotationAffector.h"
 	"dimension2d.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleanimatedmeshscenenodeemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleanimatedmeshscenenodeemitter.h
 	"IParticleEmitter.h"
 	"IAnimatedMeshSceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleemitter.h
 	"IAttributeExchangingObject.h"
 	"SParticle.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sparticle.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sparticle.h
 	"vector3d.h"
 	"dimension2d.h"
 	"SColor.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleboxemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleboxemitter.h
 	"IParticleEmitter.h"
 	"aabbox3d.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlecylinderemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlecylinderemitter.h
 	"IParticleEmitter.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlemeshemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlemeshemitter.h
 	"IParticleEmitter.h"
 	"IMesh.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleringemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleringemitter.h
 	"IParticleEmitter.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlesphereemitter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlesphereemitter.h
 	"IParticleEmitter.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleattractionaffector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleattractionaffector.h
 	"IParticleAffector.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleaffector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticleaffector.h
 	"IAttributeExchangingObject.h"
 	"SParticle.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlefadeoutaffector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlefadeoutaffector.h
 	"IParticleAffector.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlegravityaffector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlegravityaffector.h
 	"IParticleAffector.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlerotationaffector.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iparticlerotationaffector.h
 	"IParticleAffector.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iq3levelmesh.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iq3levelmesh.h
 	"IAnimatedMesh.h"
 	"IQ3Shader.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irandomizer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irandomizer.h
 	"IReferenceCounted.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlichtdevice.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlichtdevice.h
 	"IReferenceCounted.h"
 	"dimension2d.h"
 	"IVideoDriver.h"
@@ -2852,31 +2852,31 @@
 	"ITimer.h"
 	"IOSOperator.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edevicetypes.h
+1481274320 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\edevicetypes.h
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivideomodelist.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivideomodelist.h
 	"IReferenceCounted.h"
 	"dimension2d.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itimer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itimer.h
 	"IReferenceCounted.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrmap.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrmap.h
 	"irrTypes.h"
 	"irrMath.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenecollisionmanager.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenecollisionmanager.h
 	"IReferenceCounted.h"
 	"vector3d.h"
 	"triangle3d.h"
 	"position2d.h"
 	"line3d.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\isceneloader.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\isceneloader.h
 	"IReferenceCounted.h"
 	"path.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenemanager.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenemanager.h
 	"IReferenceCounted.h"
 	"irrArray.h"
 	"irrString.h"
@@ -2892,106 +2892,106 @@
 	"IGeometryCreator.h"
 	"ISkinnedMesh.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sceneparameters.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sceneparameters.h
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iskinnedmesh.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iskinnedmesh.h
 	"irrArray.h"
 	"IBoneSceneNode.h"
 	"IAnimatedMesh.h"
 	"SSkinMeshBuffer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sskinmeshbuffer.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sskinmeshbuffer.h
 	"IMeshBuffer.h"
 	"S3DVertex.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorcamerafps.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorcamerafps.h
 	"ISceneNodeAnimator.h"
 	"IEventReceiver.h"
 	"irrArray.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorcameramaya.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorcameramaya.h
 	"ISceneNodeAnimator.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorcollisionresponse.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorcollisionresponse.h
 	"ISceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorfactory.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodeanimatorfactory.h
 	"IReferenceCounted.h"
 	"ESceneNodeAnimatorTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodefactory.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iscenenodefactory.h
 	"IReferenceCounted.h"
 	"ESceneNodeTypes.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\isceneuserdataserializer.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\isceneuserdataserializer.h
 	"IReferenceCounted.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ishaderconstantsetcallback.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ishaderconstantsetcallback.h
 	"IReferenceCounted.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ishadowvolumescenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ishadowvolumescenenode.h
 	"ISceneNode.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iterrainscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iterrainscenenode.h
 	"ETerrainElements.h"
 	"ISceneNode.h"
 	"IDynamicMeshBuffer.h"
 	"irrArray.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itextscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\itextscenenode.h
 	"ISceneNode.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivolumelightscenenode.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ivolumelightscenenode.h
 	"ISceneNode.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iwritefile.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\iwritefile.h
 	"IReferenceCounted.h"
 	"path.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ixmlwriter.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ixmlwriter.h
 	"IReferenceCounted.h"
 	"irrArray.h"
 	"irrString.h"
 
-1480345462 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ilightmanager.h
+1481274322 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ilightmanager.h
 	"IReferenceCounted.h"
 	"irrArray.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sanimatedmesh.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sanimatedmesh.h
 	"IAnimatedMesh.h"
 	"IMesh.h"
 	"aabbox3d.h"
 	"irrArray.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sirrcreationparameters.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sirrcreationparameters.h
 	"EDriverTypes.h"
 	"EDeviceTypes.h"
 	"dimension2d.h"
 	"ILogger.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\skeymap.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\skeymap.h
 	"Keycodes.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smesh.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smesh.h
 	"IMesh.h"
 	"IMeshBuffer.h"
 	"aabbox3d.h"
 	"irrArray.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smeshbuffer.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smeshbuffer.h
 	"CMeshBuffer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smeshbufferlightmap.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smeshbufferlightmap.h
 	"CMeshBuffer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smeshbuffertangents.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\smeshbuffertangents.h
 	"CMeshBuffer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ssharedmeshbuffer.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\ssharedmeshbuffer.h
 	"irrArray.h"
 	"IMeshBuffer.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sviewfrustum.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\sviewfrustum.h
 	"plane3d.h"
 	"vector3d.h"
 	"line3d.h"
@@ -2999,7 +2999,7 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
-1480345463 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
+1481274323 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
 	<iostream>
 	<cstdio>
 	"EDriverTypes.h"
@@ -10081,4 +10081,219 @@
 
 1482249367 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\suelo.h
 	<Box2D/Box2D.h>
+
+1482412594 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Player.h"
+	"include/World.h"
+	<iostream>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\box2d.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2MotorJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2settings.h
+	<stddef.h>
+	<assert.h>
+	<float.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2draw.h
+	<Box2D/Common/b2Math.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2math.h
+	<Box2D/Common/b2Settings.h>
+	<math.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2timer.h
+	<Box2D/Common/b2Settings.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2circleshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2blockallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2collision.h
+	<Box2D/Common/b2Math.h>
+	<limits.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2edgeshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2chainshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\shapes\b2polygonshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2broadphase.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<algorithm>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2dynamictree.h
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Common/b2GrowableStack.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2growablestack.h
+	<Box2D/Common/b2Settings.h>
+	<string.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2distance.h
+	<Box2D/Common/b2Math.h>
+
+1481274275 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\collision\b2timeofimpact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Distance.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2body.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<memory>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2fixture.h
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2worldcallbacks.h
+	<Box2D/Common/b2Settings.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2timestep.h
+	<Box2D/Common/b2Math.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2world.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2StackAllocator.h>
+	<Box2D/Dynamics/b2ContactManager.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\common\b2stackallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\b2contactmanager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\contacts\b2contact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<Box2D/Dynamics/b2Fixture.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2distancejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2joint.h
+	<Box2D/Common/b2Math.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2frictionjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2gearjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2motorjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2mousejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2prismaticjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2pulleyjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2revolutejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2ropejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2weldjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1482337932 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1482226063 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482338113 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1482409964 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+
+1482226064 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\game.cpp
+	"Game.h"
+
+1482226063 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\game.h
+
+1482413346 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1482325995 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+
+1482226063 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\singleton.h
+
+1482226064 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1482226063 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\suelo.h
+	<Box2D/Box2D.h>
+
+1482325995 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
 

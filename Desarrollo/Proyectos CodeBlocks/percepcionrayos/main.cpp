@@ -86,16 +86,59 @@ public:
 
 };
 
+static bool escuchando = false;
+
+bool getEstaEscuchando(b2Contact* contact)
+  {
+      b2Fixture* fixtureA = contact->GetFixtureA();
+      b2Fixture* fixtureB = contact->GetFixtureB();
+
+      //make sure only one of the fixtures was a sensor
+      bool sensorA = fixtureA->IsSensor();
+      bool sensorB = fixtureB->IsSensor();
+      if ( ! (sensorA ^ sensorB) )
+          return false;
+
+      /*Enemigo* entityA = static_cast<Enemigo*>( fixtureA->GetBody()->GetUserData() );
+      Enemigo* entityB = static_cast<Enemigo*>( fixtureB->GetBody()->GetUserData() );
+
+      if ( sensorA && fixtureB->GetUserData()) { //fixtureB must be an enemy aircraft
+          enemy = entityB;
+      }
+      else { //fixtureA must be an enemy aircraft
+          enemy = entityA;
+      }*/
+      return true;
+  }
+
+class MyContactListener : public b2ContactListener
+{
+
+   void BeginContact(b2Contact* contact) {
+        if ( getEstaEscuchando(contact) )
+            escuchando = true;
+    }
+
+    void EndContact(b2Contact* contact) {
+        if ( getEstaEscuchando(contact) )
+            escuchando = false;
+    }
+
+
+  };
+
 
 
 
 int main(){
     MyEventReceiver receiver;
+    MyContactListener myContactListenerInstance;
 
     ///BOX2D
     //class World* world; no se por que puse class
     World* world;
     world = World::Instance();
+    world->getWorld()->SetContactListener(&myContactListenerInstance);
 
 
     //Objeto principal que nos permite interactuar con el motor
@@ -156,8 +199,6 @@ int main(){
      modelo->setVisible(false);
 
 
-
-
     //Ciclo del juego
     while(device->run()){
 
@@ -196,15 +237,25 @@ int main(){
         input.p2.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	final	del	rayo
 
         bool    hitmuro     =   enemi->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
-        bool	hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
+        bool    hitprota    =   false;
+
+        if(!escuchando)
+            hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
+        else
+            hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	1);
+
+       // sonido = new b2Contact();
+
+       std::cout<<"escuchando "<<escuchando<<std::endl;
+       std::cout<<"hitmuro "<<hitmuro<<std::endl;
+       std::cout<<"hitprota "<<hitprota<<std::endl;
+
+
             if(hitprota && !hitmuro){
 
-               // b2Vec2 hitPoint = input.p1+output.fraction * (input.p2 - input.p1);
-               // b2Vec2 normal = output.normal;
+                   // b2Vec2 hitPoint = input.p1+output.fraction * (input.p2 - input.p1);
+                   // b2Vec2 normal = output.normal;
 
-
-
-                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
                 angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
                 enemi2->getBody()->SetTransform(enemi2->getBody()->GetPosition(), angulo2);
                 enemi2->getModelo()->setRotation(core::vector3df(0,enemi2->getBody()->GetAngle(),0));
@@ -218,13 +269,25 @@ int main(){
                 modelo->setPosition(core::vector3df((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
                 modelo->setRotation(core::vector3df(0,enemi2->getBody()->GetAngle(),0));
 
+                if(escuchando){
+                       smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
+                }else{
 
+                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
+                }
 
             }
             else{
-                smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(0, 0, 0, 0));
-                modelo->setVisible(false);
+                if(escuchando){
+                    smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(0, 0, 255, 0));
+                    modelo->setVisible(false);
+                }
+                else{
+                    smgr->getMeshManipulator()->setVertexColors(enemi2->getModelo()->getMesh(),irr::video::SColor(0, 0, 0, 0));
+                    modelo->setVisible(false);
+                }
             }
+
 
                 /*if	( b2RayCastCallback.ReportFixture(prota->getBody()->GetFixtureList(), hitPoint, normal, 1.0f) == 0 )	{
                 }*/

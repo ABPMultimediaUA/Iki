@@ -23,6 +23,7 @@ class Player
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
+        //b2Body* getRuido();
 
     protected:
 
@@ -30,6 +31,7 @@ class Player
         scene::IMeshSceneNode *modelo;
         core::vector3df cuboProta;
         b2Body *body;
+        //b2Body *ruido;
         int tam;
         float movx, movy;
 

@@ -6,6 +6,7 @@
 Enemigo::Enemigo()
 {
     //ctor
+    escuchando = false;
 }
 
 Enemigo::~Enemigo()
@@ -46,6 +47,7 @@ void Enemigo::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver
 
 void Enemigo::inicializar2(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 5;
+    escuchando = false;
 
     mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 10.f, 10.f));
     modelo = smgr->addMeshSceneNode(mura1);
@@ -93,4 +95,16 @@ void Enemigo::setCuboEnemigo(core::vector3df cb){
 
 scene::IMeshSceneNode* Enemigo::getModelo(){
     return modelo;
+}
+
+void Enemigo::escuchandoR(){
+    escuchando = true;
+}
+
+void Enemigo::noescuchandoR(){
+    escuchando = false;
+}
+
+bool Enemigo::getEscuchando(){
+    return escuchando;
 }

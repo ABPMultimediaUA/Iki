@@ -20,6 +20,9 @@ class Enemigo
         core::vector3df getCuboEnemigo();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
+        void escuchandoR();
+        void noescuchandoR();
+        bool getEscuchando();
 
     protected:
 
@@ -29,6 +32,7 @@ class Enemigo
         core::vector3df cuboEnemigo;
         b2Body *body2;
         int tam;
+        bool escuchando;
 
         class World* iworld;
 

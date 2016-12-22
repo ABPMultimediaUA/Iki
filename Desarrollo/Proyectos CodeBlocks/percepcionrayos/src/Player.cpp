@@ -30,7 +30,7 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
 
     b2PolygonShape bodyShape;
     bodyShape.SetAsBox(tam/2, tam/2);
-    body->CreateFixture(&bodyShape, 1.0f);
+    //body->CreateFixture(&bodyShape, 1.0f);
 
     cuboProta = modelo->getPosition();
 
@@ -40,6 +40,15 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     fixtureDef.restitution  = 0.0f;
     fixtureDef.density  = 1.f;
     body->CreateFixture(&fixtureDef);
+
+    b2CircleShape circleShape;
+    circleShape.m_radius = 30;
+
+    b2FixtureDef fixtureSensor;
+    fixtureSensor.shape = &circleShape;
+    fixtureSensor.isSensor = true;
+
+    body->CreateFixture(&fixtureSensor);
 }
 
 core::vector3df Player::getCuboProta(){
@@ -54,6 +63,10 @@ b2Body* Player::getBody(){
     return body;
 }
 
+/*b2Body* Player::getRuido(){
+    return ruido;
+}
+*/
 void Player::setPosicionBody(float ang){
     //body->SetTransform(b2Vec2(cuboProta.X, cuboProta.Z), ang);
     /*std::cout << "cubo X: "<<cuboProta.Z<<" \n";
