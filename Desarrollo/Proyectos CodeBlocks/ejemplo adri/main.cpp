@@ -285,23 +285,23 @@ int main(){
         }
         else if(receiver.isKeyDown(KEY_KEY_D))
         {
-            cameraPos.X+=0.4;
-            cameraTar.X+=0.4;
+            cameraPos.X+=0.1;
+            cameraTar.X+=0.1;
         }
         else if (receiver.isKeyDown(KEY_KEY_A))
         {
-            cameraPos.X-=0.4;
-            cameraTar.X-=0.4;
+            cameraPos.X-=0.1;
+            cameraTar.X-=0.1;
         }
         else if(receiver.isKeyDown(KEY_KEY_W))
         {
-            cameraPos.Z+=0.4;
-            cameraTar.Z+=0.4;
+            cameraPos.Z+=0.1;
+            cameraTar.Z+=0.1;
         }
         else if (receiver.isKeyDown(KEY_KEY_S))
         {
-            cameraPos.Z-=0.4;
-            cameraTar.Z-=0.4;
+            cameraPos.Z-=0.1;
+            cameraTar.Z-=0.1;
         }
         /* NO BORRAR
         if(enemigos[1]->getEstado() == 3){
