@@ -202,7 +202,7 @@ b2PolygonShape bodyShape;
 
     bodyDef.position.Set(40, 230);
     body16= iworld->getWorld()->CreateBody(&bodyDef);
-    body16->SetTransform(b2Vec2(40, 230), 180 / 3.14159265 *45);
+    body16->SetTransform(b2Vec2(40, 230), 180 / 3.14159265 * 45);
     bodyShape.SetAsBox(10/2, 250/2);
     body16->CreateFixture(&bodyShape, 1.0f);
 
@@ -215,7 +215,7 @@ b2PolygonShape bodyShape;
 
     bodyDef.position.Set(150, 300);
     body17= iworld->getWorld()->CreateBody(&bodyDef);
-    body17->SetTransform(b2Vec2(150, 300),  180 / 3.14159265 * (315));
+    body17->SetTransform(b2Vec2(150, 300),  180 / 3.14159265 * (-45));
     bodyShape.SetAsBox(10/2, 70/2);
     body17->CreateFixture(&bodyShape, 1.0f);
 
@@ -228,7 +228,7 @@ b2PolygonShape bodyShape;
 
     bodyDef.position.Set(230, 220);
     body18= iworld->getWorld()->CreateBody(&bodyDef);
-    body18->SetTransform(b2Vec2(230, 220),  180 / 3.14159265 * (315));
+    body18->SetTransform(b2Vec2(230, 220),  180 / 3.14159265 * (-45));
     bodyShape.SetAsBox(10/2, 70/2);
     body18->CreateFixture(&bodyShape, 1.0f);
 

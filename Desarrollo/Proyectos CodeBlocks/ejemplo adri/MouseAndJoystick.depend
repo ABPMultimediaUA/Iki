@@ -8796,13 +8796,15 @@
 	<World.h>
 	<iostream>
 
-1482279575 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
+1482494513 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
-1482279575 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
+1482494513 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
+	"../include/Time.h"
+	"../include/Fuzzy.h"
 	<World.h>
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
@@ -9971,7 +9973,7 @@
 
 1481736230 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\game.h
 
-1482280367 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\muros.cpp
+1482501012 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\muros.cpp
 	"Muros.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -9990,7 +9992,7 @@
 	"driverChoice.h"
 	<World.h>
 
-1482279575 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\singleton.cpp
+1482494513 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\singleton.cpp
 	"Singleton.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -10004,17 +10006,20 @@
 1481934321 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\suelo.h
 	<Box2D/Box2D.h>
 
-1481934321 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\world.cpp
+1482494513 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\world.cpp
 	"World.h"
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482280079 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\main.cpp
+1482500096 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
 	"include/Player.h"
 	"include/World.h"
+	"include/Time.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
 	"Muros.h"
 	<iostream>
 
@@ -10232,4 +10237,126 @@
 
 1482383591 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\time.cpp
 	"..\include\Time.h"
+
+1482494513 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\time.h
+	<irrlicht.h>
+
+1482494513 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\fuzzy.h
+
+1482494513 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1482494513 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\time.cpp
+	"..\include\Time.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
+	"ik_irrKlangTypes.h"
+	"ik_vec3d.h"
+	"ik_IRefCounted.h"
+	"ik_IVirtualRefCounted.h"
+	"ik_ESoundOutputDrivers.h"
+	"ik_ESoundEngineOptions.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+	"ik_ISoundEngine.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_IAudioStream.h"
+	"ik_IAudioStreamLoader.h"
+	"ik_ISoundEffectControl.h"
+	"ik_ISoundStopEventReceiver.h"
+	"ik_IFileFactory.h"
+	"ik_IFileReader.h"
+	"ik_ISoundDeviceList.h"
+	"ik_IAudioRecorder.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_irrklangtypes.h
+	<wchar.h>
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_vec3d.h
+	<math.h>
+	"ik_irrKlangTypes.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_irefcounted.h
+	"ik_irrKlangTypes.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ivirtualrefcounted.h
+	"ik_irrKlangTypes.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_esoundoutputdrivers.h
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_esoundengineoptions.h
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_estreammodes.h
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_saudiostreamformat.h
+	"ik_IRefCounted.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundengine.h
+	"ik_IRefCounted.h"
+	"ik_vec3d.h"
+	"ik_ISoundSource.h"
+	"ik_ISound.h"
+	"ik_EStreamModes.h"
+	"ik_IFileFactory.h"
+	"ik_ISoundMixedOutputReceiver.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundsource.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+	"ik_EStreamModes.h"
+	"ik_SAudioStreamFormat.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isound.h
+	"ik_IVirtualRefCounted.h"
+	"ik_ISoundEffectControl.h"
+	"ik_vec3d.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundeffectcontrol.h
+	"ik_IVirtualRefCounted.h"
+	"ik_vec3d.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ifilefactory.h
+	"ik_IRefCounted.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundmixedoutputreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiostreamloader.h
+	"ik_IRefCounted.h"
+	"ik_IFileReader.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ifilereader.h
+	"ik_IRefCounted.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundstopeventreceiver.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isounddevicelist.h
+	"ik_IRefCounted.h"
+
+1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiorecorder.h
+	"ik_IRefCounted.h"
+	"ik_ISoundSource.h"
+
+1481736230 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\irrklang\conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<sys/ioctl.h>
 
