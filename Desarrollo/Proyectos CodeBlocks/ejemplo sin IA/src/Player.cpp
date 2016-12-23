@@ -67,6 +67,27 @@ void Player::setRotarProta(core::vector3df vecu){
     modelo->setRotation(vecu);
 }
 
+bool Player::cogerObjeto(core::vector3df vec, scene::ISceneManager* smgr){
+    bool golpeado = false;
+    if(vec.getLength() <= 8){
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(128, 128, 128, 0));
+        body->SetLinearVelocity(b2Vec2(0, 0));
+        golpeado = true;
+    }else{
+        movx = vec.X;
+        movy = vec.Z;
+        double modulo = sqrt((movx*movx) + (movy*movy));
+        if(modulo != 0){
+            movx = (movx / modulo) * MOV_SPEED;
+            movy = (movy / modulo) * MOV_SPEED;
+        }
+
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 0, 0, 0));
+        body->SetLinearVelocity(b2Vec2(movx, movy));
+    }
+    return golpeado;
+}
+
 void Player::setPosicionBody(float ang){
     //body->SetTransform(b2Vec2(cuboProta.X, cuboProta.Z), ang);
     /*std::cout << "cubo X: "<<cuboProta.Z<<" \n";
