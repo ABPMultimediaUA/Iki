@@ -215,10 +215,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         }
 
     }
-    void Enemigo::sospechar(core::vector3df posicionProta)
-    {
 
-    }
     void Enemigo::curar(Enemigo aliado)
     {
 
@@ -242,7 +239,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 if(tiempoEscaneando*100 % 5 == 0){
                     /// ESTO ESTA MUY RARO
                     if (sospecha < 99)
-                        sospecha+=0.05;
+                        //sospecha+=1*tiempo.getTimeFactor();
+                        sospecha+=0.05*tiempo.getTimeFactor();
                     std::cout << sospecha << std::endl;
                 }
             }
@@ -281,6 +279,9 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         muerto=true;
     }
     void Enemigo::avisarCapsulas(){
+    }
+    void Enemigo::atacar(){
+
     }
     float Enemigo::getVida(){
         return vida;
@@ -370,10 +371,20 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 puntoInteres = posicionProta;
                 estado = 8;
             }
+            if(distanciaPlayer<5){
+                estado=7;
+            }
             //si esta a rango ataca
             //si lo pierde de vista, vuelve a la patrulla
             break;
         case 7: //ATACAR
+            if(distanciaPlayer<5){
+                smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
+                atacar();
+            }
+            else{
+                estado=6;
+            }
             break;
         case 8: //INSPECCIONAR
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 0, 0));

@@ -23,6 +23,9 @@ class Player
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
+        float getVida();
+        void setVida(float);
+        void muerte();
 
     protected:
 
@@ -32,7 +35,8 @@ class Player
         b2Body *body;
         int tam;
         float movx, movy;
-
+        float vida;
+        scene::ISceneManager* smgr1;
         class World* iworld;
 
 

@@ -48,6 +48,7 @@ class Enemigo
         void escanear();
         void avisarCapsulas();
         float getVida();
+        void atacar();
 
     protected:
 

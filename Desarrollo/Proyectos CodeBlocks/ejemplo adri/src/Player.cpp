@@ -15,7 +15,8 @@ Player::~Player()
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 8;
-
+    vida=100;
+    smgr1=smgr;
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
@@ -93,4 +94,13 @@ void Player::setCuboProta(core::vector3df cb){
 
 scene::IMeshSceneNode* Player::getModelo(){
     return modelo;
+}
+float Player::getVida(){
+    return vida;
+}
+void Player::setVida(float v){
+vida=v;
+}
+void Player::muerte(){
+ smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 0, 0));
 }

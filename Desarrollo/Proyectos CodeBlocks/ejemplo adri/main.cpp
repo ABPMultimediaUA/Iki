@@ -211,7 +211,7 @@ int main(){
        //suelo->getMaterial(0).getTextureMatrix(0).setTextureScale(1,1);
     }
 
-	///BOOLEANS
+	///BOOLEANS Y DECLARACIONES RANDOM
 
 	bool pasosP = false;
 	bool pasos2P = false;
@@ -223,6 +223,7 @@ int main(){
     int frame = 0;
     Time tiempo;
     tiempo.set(device);
+    float vidaProta;
 
     ///CICLO DEL JUEGO
 
@@ -324,6 +325,17 @@ int main(){
 
             }
         }*/
+        //ATAQUE ENEMIGO
+        if(enemigos[0]->getEstado() == 7){
+            vidaProta=prota->getVida();
+            vidaProta-=0.1*DeltaTime;
+            prota->setVida(vidaProta);
+            std::cout << "  " << vidaProta << std::endl;
+
+        }
+        if(prota->getVida()<=0){
+            prota->muerte();
+        }
 
         DeltaTime = timer->getTime() - TimeStamp;
         TimeStamp = timer->getTime();
