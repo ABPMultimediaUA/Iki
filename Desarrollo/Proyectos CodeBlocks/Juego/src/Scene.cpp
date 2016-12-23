@@ -3,24 +3,31 @@
 Scene::Scene()
 {
     world = new World;
-    entity_man = new GameEntity;
+    player = new Player;
 }
 
 Scene::~Scene()
 {
-    world = nullptr;
-    entity_man = nullptr;
+    delete world;
+    delete player;
 }
 
-void Scene::inicializar_escena(){
+void Scene::inicializar_escena(IrrlichtDevice* device){
 
-    world->inicializar_mundo();
-    entity_man->inicializar_entidades();
+    smgr = device->getSceneManager();
+    camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+
+    player->inicializar_player(smgr);
+    world->inicializar_mundo(smgr);
 }
 
-void update_escena(){
+void Scene::update_escena(){
 
-    world->update_mundo();
-    entity_man->update_entidades();
+//    world->update_mundo();
+//    player->update_player();
 
+}
+
+void Scene::render(){
+    smgr->drawAll();
 }

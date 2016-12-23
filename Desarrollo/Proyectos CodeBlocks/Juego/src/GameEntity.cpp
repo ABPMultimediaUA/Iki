@@ -1,25 +1,11 @@
 #include "GameEntity.h"
 
-Game::Game()
+GameEntity::GameEntity()
 {
-    //ctor
+
 }
 
-Game::~Game()
+GameEntity::~GameEntity()
 {
-    //dtor
-}
-
-/*
- *
- */
-
-//Update
-int Game::update(){
-
-}
-
-//Render
-void Game::render(){
 
 }

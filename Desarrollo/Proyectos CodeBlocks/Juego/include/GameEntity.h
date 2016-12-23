@@ -1,20 +1,29 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <irrlicht.h>
+#include <Box2D/Box2D.h>
 
-class Game
+using namespace irr;
+
+using namespace core; //namespace fundamentales;
+using namespace scene; //namespace de escena;
+using namespace video; //namespace de vídeo;
+using namespace io; //namespace io;
+using namespace gui; //namespace gui;
+
+
+class GameEntity
 {
     public:
-        Game();
-        virtual ~Game();
-
-        //Update & Render
-        int update();
-        void render();
+        GameEntity();
+        virtual ~GameEntity();
 
     protected:
+        IMeshSceneNode *modelo;
+        int tipo;
+        vector3df posicion;
 
-    private:
 };
 
 #endif // GAME_H

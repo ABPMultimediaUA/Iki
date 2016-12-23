@@ -3,21 +3,27 @@
 
 #include <vector>
 
+#include <irrlicht.h>
+#include <Box2D/Box2D.h>
+
+using namespace irr;
+
+using namespace core; //namespace fundamentales;
+using namespace scene; //namespace de escena;
+using namespace video; //namespace de vídeo;
+using namespace io; //namespace io;
+using namespace gui; //namespace gui;
+
+
 class LevelData
 {
     public:
-        typedef struct{
-            float X;
-            float Y;
-            float Z;
-            int tipo;
-        } TPosicion;
 
         LevelData();
         virtual ~LevelData();
         int getNivel();
         int getNumEnemigos();
-        std::vector<TPosicion> getEnemPosiciones();
+        std::vector<vector3df> getEnemPosiciones();
 
     protected:
 
@@ -26,7 +32,7 @@ class LevelData
         int n_enemigos;
         //float tam_X;
         //float tam_Y;
-        std::vector<TPosicion> pos_enemigos;
+        std::vector<vector3df> pos_enemigos;
 };
 
 #endif // LEVELDATA_H

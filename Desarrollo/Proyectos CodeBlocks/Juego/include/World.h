@@ -10,7 +10,7 @@ class World
     public:
         World();
         virtual ~World();
-        void inicializar_mundo();
+        void inicializar_mundo(ISceneManager*);
         void update_mundo();
 
     protected:

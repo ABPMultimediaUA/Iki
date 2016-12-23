@@ -2,33 +2,19 @@
 
 Player::Player()
 {
-    //ctor
+    tipo = 0;
 }
 
 Player::~Player()
 {
-    //dtor
+
 }
 
-void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
+void Player::inicializar_player(ISceneManager* smgr){
 
     modelo = smgr->addCubeSceneNode(5);
-    modelo->setMaterialFlag(video::EMF_LIGHTING, false);
-    modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
-    modelo->setMaterialType( video::EMT_SOLID );
-    modelo->setPosition(core::vector3df(40,0,0));
-    cuboProta = modelo->getPosition();
+    modelo->setPosition(vector3df(40,0,0));
+    //smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(), SColor(0, 255, 255, 255));
+    posicion = modelo->getPosition();
 
-}
-
-core::vector3df Player::getCuboProta(){
-    return cuboProta;
-}
-
-void Player::setCuboProta(core::vector3df cb){
-    cuboProta = cb;
-}
-
-scene::IMeshSceneNode* Player::getModelo(){
-    return modelo;
 }

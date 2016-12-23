@@ -1,7 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "GameEntity.h"
+#include "Player.h"
 #include "World.h"
 
 class Scene
@@ -9,15 +9,18 @@ class Scene
     public:
         Scene();
         virtual ~Scene();
-        void inicializar_escena();
+        void inicializar_escena(IrrlichtDevice*);
         void update_escena();
+        void render();
+        ICameraSceneNode *camera;
 
     protected:
 
     private:
 
+        ISceneManager *smgr;
         World *world;
-        GameEntity *entity_man;
+        Player *player;
 };
 
 #endif // SCENE_H
