@@ -10249,7 +10249,7 @@
 
 1482383591 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\fuzzy.h
 
-1482154528 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\world.h
+1482469725 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\world.h
 	<Box2D/Box2D.h>
 	<iostream>
 
@@ -10272,11 +10272,11 @@
 	<World.h>
 	<iostream>
 
-1482402934 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\player.cpp
+1482456850 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
-1482403928 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\player.h
+1482456792 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -10298,18 +10298,19 @@
 1482383591 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\time.cpp
 	"..\include\Time.h"
 
-1482392542 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\world.cpp
+1482469733 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\world.cpp
 	"World.h"
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482403944 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\main.cpp
+1482471261 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
 	"include/Player.h"
 	"include/Objeto.h"
 	"include/World.h"
+	"include/Player_Animado.h"
 	"include/Time.h"
 	<irrKlang.h>
 	"irrKlang/conio.h"
@@ -10329,13 +10330,22 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1482390381 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\objeto.cpp
+1482469735 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482390106 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\objeto.h
+1482466932 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\objeto.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
+
+1482456600 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\player_animado.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1482456602 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\player_animado.cpp
+	"Player_Animado.h"
+	<Box2D/Box2D.h>
 

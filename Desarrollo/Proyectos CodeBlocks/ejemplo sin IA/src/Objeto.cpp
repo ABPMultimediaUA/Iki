@@ -2,6 +2,7 @@
 #include <Box2D/Box2D.h>
 #include <iostream>
 
+
 using namespace irr;
 using namespace core;
 using namespace scene;
@@ -50,10 +51,31 @@ void Objeto::inicializar(scene::ISceneManager* smgr,IVideoDriver* driver){
     body->CreateFixture(&fixtureDef);
 }
 
-core::vector3df Objeto::getCuboProta(){
+core::vector3df Objeto::getPosicionObjeto(){
     return modelo->getPosition();
 }
 
+
+bool Objeto::comprobarPunto(b2Vec2 v){
+    bool si= false;
+    si= body->GetFixtureList()->TestPoint(v);
+    return si;
+}
+/*
+bool Objeto::comprobarPunto(b2Vec2 v){
+    bool si= false;
+    b2Fixture *f = body->GetFixtureList();
+    while(f){
+        if(f -> TestPoint(v)){
+            std::cout<<"bingo \n";
+            si= true;
+            return si;
+        }
+        f = f->GetNext();
+    }
+    return si;
+}
+*/
 void Objeto::setPosition(core::vector3df vec){
     modelo->setPosition(vec);
 }
@@ -62,3 +84,10 @@ b2Body* Objeto::getBody(){
     return body;
 }
 
+void Objeto::destroyObj(){
+    iworld->destruye(body);
+}
+
+void Objeto::destroyObj2(){
+    //modelo->remove();
+}

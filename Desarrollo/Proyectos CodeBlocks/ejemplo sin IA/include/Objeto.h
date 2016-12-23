@@ -14,8 +14,12 @@ class Objeto
         void setPosition(core::vector3df vec);
         void setCuboProta(core::vector3df);
         void setPosicionBody(float ang);
+        void destroyObj();
+        void destroyObj2();
+        bool comprobarPunto(b2Vec2 v);
         virtual ~Objeto();
-        core::vector3df getCuboProta();
+        core::vector3df getPosicionObjeto();
+
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
 

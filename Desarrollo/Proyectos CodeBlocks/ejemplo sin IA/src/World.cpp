@@ -39,7 +39,9 @@ void World::Update(){
 void World::Render(){
 
 }
-
+void World::destruye(b2Body *b){
+    world->DestroyBody(b);
+}
 b2World* World::getWorld(){
     return world;
 }

@@ -12,6 +12,7 @@ class World
         void Step(float DeltaTime);
         void Update();
         void Render();
+        void destruye(b2Body *b);
         virtual ~World();
         b2World* getWorld();
 
