@@ -1,8 +1,19 @@
+Se hallan tres carpetas, una con cada entregable.
+- En la Percepcion Sensorial tenemos:
+	- Una carpeta con el proyecto y los fuentes
+	- Una carpeta con todo lo necesario para probar el ejecutable
+	- Un video explicativo
+- En la carpeta de Logica difusa tenemos los ficheros .h y .cpp que corresponden al entregable.
+- Lo mismo para las maquinas de estados.
+
+- A parte se incluye una carpeta perteneciente a la logica difusa y la maquina de estados,
+la cual tiene una estructura similar a la percepcion sensorial. Proyecto, ejecutable y video.
+
+
 Maquinas de estados
 ==================
 Los enemigos utilizan maquinas de estados, aunque no esta realizada independientemente.
 Actualmente se encuentra integrada en la clase del enemigo.
-
 
 Logica difusa
 ==============
@@ -10,16 +21,10 @@ Actualmente toda la logica difusa se encuentra estructurada en una sola clase.
 Está integrada en el ejecutable indicado en el issue.
 La explicación esta definida en el documento de toma de decisión.
 
-_____________________
-*La logica difusa y la maquina de estados se pueden ver en el mismo ejecutable.
-Tambien se adjunta un video explicativo, y un comprimido con el ejecutable.
-
-
 Event manager
 =============
 Desgraciadamente no tenemos un event manager. No asignamos bien las tareas y 
 nadie se ha encargado de esta parte.
-
 
 Percepcion sensorial
 ====================
