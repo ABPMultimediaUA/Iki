@@ -323,7 +323,7 @@ int main(){
         //prota->moverBody(mousePosition);
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
         if(tocado == true){
-            objeto->setPosition(vector3df(500, 0, 500));
+            objeto->setPosition(vector3df(5000, 0, 5000));
         }
         else
         objeto->setPosition(vector3df(objeto->getBody()->GetPosition().x, 0, objeto->getBody()->GetPosition().y));
