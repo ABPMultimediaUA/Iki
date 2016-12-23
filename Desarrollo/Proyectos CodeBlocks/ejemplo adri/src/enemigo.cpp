@@ -152,8 +152,9 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     switch(direccion)
         {
             case 0: //Movimiento hacia arriba
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
+                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 40){
                     cuboEnemigo.X -= avMovement;
+                    cuboEnemigo.Z -= avMovement;
                 }else{
                     direccion = 1;
                     posicionInicial = cuboEnemigo;
@@ -161,14 +162,15 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 break;
 
             case 1: //Movimiento hacia la derecha
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
+                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 40){
                     cuboEnemigo.Z += avMovement;
+                    cuboEnemigo.X += avMovement;
                 }else{
-                    direccion = 2;
+                    direccion = 0;
                     posicionInicial = cuboEnemigo;
                 }
                 break;
-
+/*
             case 2:
                 if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
                     cuboEnemigo.X += avMovement;
@@ -186,6 +188,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                     posicionInicial = cuboEnemigo;
                 }
                 break;
+*/
         }
         posicion = cuboEnemigo;
     }

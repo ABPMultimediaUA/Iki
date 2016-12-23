@@ -10233,3 +10233,98 @@
 1482383591 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\time.cpp
 	"..\include\Time.h"
 
+1482328881 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1482315998 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\fuzzy.h
+
+1482249703 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\game.cpp
+	"Game.h"
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\game.h
+
+1482315998 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\muros.cpp
+	"Muros.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\muros.h
+	<irrlicht.h>
+	<World.h>
+	<iostream>
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482315998 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1482315998 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\singleton.h
+
+1482249703 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\suelo.h
+	<Box2D/Box2D.h>
+
+1482315998 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\time.cpp
+	"..\include\Time.h"
+
+1482315998 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\time.h
+	<irrlicht.h>
+
+1482315998 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482501974 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+
+1482323572 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	"../include/Time.h"
+	"../include/Fuzzy.h"
+	<World.h>
+
+1482502338 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Player.h"
+	"include/World.h"
+	"include/Time.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
+	"Muros.h"
+	<iostream>
+
+1482249703 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\miniprototipo\irrklang\conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<sys/ioctl.h>
+
