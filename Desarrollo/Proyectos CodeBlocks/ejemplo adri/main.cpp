@@ -147,14 +147,14 @@ int main(){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(40,0,-10));
-    /*if(enemigos[1])
-        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(-35,0,35));
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(90,0,110));
+    if(enemigos[1])
+        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(140,0,150));
     if(enemigos[2])
-        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(-35,0,-35));
+        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(140,0,200));
 
     //cambio de color de mallas
-    smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));*/
+    smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
     smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
 
     ///PLAYER
@@ -303,7 +303,7 @@ int main(){
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
-        /* NO BORRAR
+        // NO BORRAR
         if(enemigos[1]->getEstado() == 3){
             if(cambiao == false){
                 smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
@@ -323,7 +323,7 @@ int main(){
                 enemigos[1]->getModelo()->setPosition(core::vector3df(-1000,0,0));
 
             }
-        }*/
+        }
 
         DeltaTime = timer->getTime() - TimeStamp;
         TimeStamp = timer->getTime();
@@ -334,23 +334,23 @@ int main(){
 
         //Guardia
         enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
-        /*//Alarma
+        //Alarma
         enemigos[1]->update(prota->getCuboProta(), tiempo, enemigos);
         //Medico
         enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
         if(aparcao){
         enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
         enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
-        }*/
+        }
         enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
-        /*//Si el dron no se ha convertido en alarma
+        //Si el dron no se ha convertido en alarma
         if(cambiao == false)
             enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
         if(aparcao){
             enemigos[3]->getModelo()->setPosition(enemigos[3]->getCuboEnemigo());
             enemigos[4]->getModelo()->setPosition(enemigos[4]->getCuboEnemigo());
         }
-        enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());*/
+        enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
 
 
         //std::cout << "static constructor\n";
