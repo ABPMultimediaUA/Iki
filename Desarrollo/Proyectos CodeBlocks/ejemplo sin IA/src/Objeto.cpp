@@ -93,7 +93,7 @@ b2Body* Objeto::getBody(){
 }
 
 void Objeto::destroyObj(){
-    iworld->destruye(body);
+    modelo->remove();
 }
 
 void Objeto::destroyObj2(){

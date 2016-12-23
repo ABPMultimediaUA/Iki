@@ -22,6 +22,7 @@ class Player
         void setPosicionBody(float ang);
         void moverBody(core::vector3df vec);
         void setRotarProta(core::vector3df vec);
+        bool cogerObjeto(core::vector3df, scene::ISceneManager*);
         core::vector3df getPosicionProta();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
