@@ -331,7 +331,6 @@ int main(){
             vidaProta=prota->getVida();
             vidaProta-=0.1*DeltaTime;
             prota->setVida(vidaProta);
-            std::cout << "  " << vidaProta << std::endl;
 
         }
         if(prota->getVida()<=0){
