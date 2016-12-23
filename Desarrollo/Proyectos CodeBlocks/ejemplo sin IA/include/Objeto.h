@@ -26,8 +26,8 @@ class Objeto
     protected:
 
     private:
-        scene::IMeshSceneNode *modelo;
-        core::vector3df cuboProta;
+        scene::IMeshSceneNode *modelo,*esfera;
+        core::vector3df cuboProta, escalado;
         b2Body *body;
         int tam;
         float movx, movy;

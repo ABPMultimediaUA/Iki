@@ -25,10 +25,16 @@ void Objeto::inicializar(scene::ISceneManager* smgr,IVideoDriver* driver){
 
     tam= 3;
 
+    escalado= core::vector3df(1,0,1);
+
+    esfera= smgr->addCubeSceneNode(3);
+    esfera->setScale(escalado);
+    esfera->setPosition(core::vector3df(10,0,10));
+
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
-    //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
-   // modelo->setMaterialType( video::EMT_SOLID );
+    modelo->setMaterialTexture( 0, driver->getTexture("texturas/obj.png") );
+    modelo->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
     modelo->setPosition(core::vector3df(10,0,10));
 
     b2BodyDef bodyDef;
@@ -77,7 +83,9 @@ bool Objeto::comprobarPunto(b2Vec2 v){
 }
 */
 void Objeto::setPosition(core::vector3df vec){
+    body->SetTransform(b2Vec2(vec.X, vec.Z), 0);
     modelo->setPosition(vec);
+    esfera->setPosition(core::vector3df(vec.X, vec.Y, vec.Z));
 }
 
 b2Body* Objeto::getBody(){

@@ -10303,7 +10303,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482471261 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\main.cpp
+1482495515 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -10330,12 +10330,12 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1482469735 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\objeto.cpp
+1482495430 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482466932 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\objeto.h
+1482491784 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo sin ia\include\objeto.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>

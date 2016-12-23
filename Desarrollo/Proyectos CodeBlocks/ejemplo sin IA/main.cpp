@@ -190,7 +190,7 @@ int main(){
     }*/
     ///RATON
     core::plane3df plane(prota->getPosicionProta(), core::vector3df(0, -1, 0));
-    core::vector3df mousePosition= core::vector3df(0,0,0);
+    core::vector3df mousePosition= core::vector3df(50,0,50);
     core::line3df ray(mousePosition, prota->getPosicionProta());
     core::vector3df mousePositionScreen= core::vector3df(0, 0, 0);
 
@@ -239,8 +239,9 @@ int main(){
 	bool cambiao = false;
     bool aparcao = false;
     bool hayobj= false;
-    bool centinela= false;
-    bool muerto= false;
+    bool centinela= true;
+    bool parar= false;
+    bool stop= false;
 
     int lastFPS = -1;
     u32 myClock;
@@ -257,6 +258,7 @@ int main(){
         if(receiver.GetMouseState().RightButtonDown)
         {
             centinela= false;
+            parar= false;
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                         receiver.GetMouseState().Position, camera);
             float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
@@ -265,32 +267,33 @@ int main(){
             prota->setRotarProta(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
         ///clic izq
-
-        if(receiver.GetMouseState().LeftButtonDown){
-            centinela= true;
-                ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                        receiver.GetMouseState().Position, camera);
-                float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
-                        -(mousePosition.X-prota->getPosicionProta().X)) * 180.f / irr::core::PI;
-                prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
-                //prota->setRotarProta(core::vector3df(0,prota->getBody()->GetAngle(),0));
+        if(receiver.GetMouseState().LeftButtonDown ){
+                centinela= true;
+            ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                    receiver.GetMouseState().Position, camera);
+            float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
+                    -(mousePosition.X-prota->getPosicionProta().X)) * 180.f / irr::core::PI;
+            prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
+            //prota->setRotarProta(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
 
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
             // We now have a mouse position in 3d space; move towards it.
             core::vector3df toMousePosition(mousePosition - prota->getPosicionProta());
-            if(centinela == true && muerto == false)
+            if(centinela == true)
                 hayobj= objeto->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
 
-               if(toMousePosition.getLength() <= 1){
+            if(centinela == true && hayobj == true){
+                if(toMousePosition.getLength() <= 5){
                 prota->moverBody(vector3df(0,0,0));
                 if(pasosP==true || pasos2P==true){
                         s1->stop();
                         pasosP = false;
                         pasos2P = false;
 					}
-					std::cout<<"sale";
+                centinela == false;
+                stop= true;
                 }
                 else{
                     prota->moverBody(toMousePosition);
@@ -312,15 +315,48 @@ int main(){
                 }
 
             }
+            else if(centinela == false || parar == false){
+                if(toMousePosition.getLength() <= 1){
+                prota->moverBody(vector3df(0,0,0));
+                if(pasosP==true || pasos2P==true){
+                        s1->stop();
+                        pasosP = false;
+                        pasos2P = false;
+					}
+					std::cout<<"para";
+                parar= true;
+                }
+                else{
+                    prota->moverBody(toMousePosition);
+                    if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT)){
+                            if(engine->isCurrentlyPlaying(pasos2))
+                                s1->stop();
+                            s1 = engine->play3D(pasos1,posicion,true,false,true);
+                            pasosP = true;
+                            pasos2P = false;
+
+                    }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
+                            if(engine->isCurrentlyPlaying(pasos1))
+                                s1->stop();
+                            s1 = engine->play3D(pasos2,posicion,true,false,true);
+                            pasos2P = true;
+                            pasosP = false;
+
+                        }
+                }
+            }
+
+            }
 
         //importante para cambiar posicion de body
         //prota->moverBody(mousePosition);
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
 
-        if(muerto == false)
+        if(parar == false)
             objeto->setPosition(vector3df(objeto->getBody()->GetPosition().x, 0, objeto->getBody()->GetPosition().y));
-        else{
-            objeto->destroyObj();
+        else if(stop== true){
+                std::cout<<"entra \n";
+            objeto->setPosition(vector3df(100, 0, 100));
         }
         //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
         //prota->setPosicionBody(0);
