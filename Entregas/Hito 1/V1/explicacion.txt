@@ -1,0 +1,26 @@
+Maquinas de estados
+==================
+Los enemigos utilizan maquinas de estados, aunque no esta realizada independientemente.
+Actualmente se encuentra integrada en la clase del enemigo.
+
+
+Logica difusa
+==============
+Actualmente toda la logica difusa se encuentra estructurada en una sola clase.
+Está integrada en el ejecutable indicado en el issue.
+La explicación esta definida en el documento de toma de decisión.
+
+_____________________
+*La logica difusa y la maquina de estados se pueden ver en el mismo ejecutable.
+
+
+Event manager
+=============
+Desgraciadamente no tenemos un event manager. No asignamos bien las tareas y 
+nadie se ha encargado de esta parte.
+
+
+Percepcion sensorial
+====================
+
+
