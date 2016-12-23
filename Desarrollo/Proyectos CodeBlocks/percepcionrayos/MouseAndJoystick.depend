@@ -10082,7 +10082,7 @@
 1482249367 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\suelo.h
 	<Box2D/Box2D.h>
 
-1482412594 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\main.cpp
+1482485458 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -10252,7 +10252,7 @@
 1481274276 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1482337932 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\enemigo.h
+1482484424 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -10261,12 +10261,12 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1482338113 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\player.h
+1482484455 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
 
-1482409964 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\enemigo.cpp
+1482485535 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -10275,7 +10275,7 @@
 
 1482226063 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\include\game.h
 
-1482413346 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\player.cpp
+1482485420 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\percepcionrayos\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 

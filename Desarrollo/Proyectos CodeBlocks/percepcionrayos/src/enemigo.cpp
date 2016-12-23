@@ -6,7 +6,6 @@
 Enemigo::Enemigo()
 {
     //ctor
-    escuchando = false;
 }
 
 Enemigo::~Enemigo()
@@ -46,8 +45,10 @@ void Enemigo::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver
 }
 
 void Enemigo::inicializar2(scene::ISceneManager* smgr,video::IVideoDriver* driver){
-    tam= 5;
-    escuchando = false;
+    tam= 4;
+    danyado = false;
+    muerto = false;
+    vida = 150;
 
     mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 10.f, 10.f));
     modelo = smgr->addMeshSceneNode(mura1);
@@ -60,7 +61,7 @@ void Enemigo::inicializar2(scene::ISceneManager* smgr,video::IVideoDriver* drive
     //cuboEnemigo = modelo->getPosition();
 
     b2BodyDef bodyDef;
-    bodyDef.type= b2_dynamicBody;
+    bodyDef.type= b2_staticBody;
     bodyDef.position.Set(0, 50);
     iworld= World::Instance();
     body2= iworld->getWorld()->CreateBody(&bodyDef);
@@ -97,7 +98,7 @@ scene::IMeshSceneNode* Enemigo::getModelo(){
     return modelo;
 }
 
-void Enemigo::escuchandoR(){
+/*void Enemigo::escuchandoR(){
     escuchando = true;
 }
 
@@ -107,4 +108,31 @@ void Enemigo::noescuchandoR(){
 
 bool Enemigo::getEscuchando(){
     return escuchando;
+}*/
+
+bool Enemigo::comprobarPunto(b2Vec2 v){
+    bool si = false;
+    si = body2->GetFixtureList()->TestPoint(v);
+    return si;
+}
+
+void Enemigo::quitarVida(){
+    --vida;
+    if(vida <= 0){
+        muerto = true;
+        modelo->setPosition(core::vector3df(1000,0,0));
+        body2->SetTransform(b2Vec2(1000,0),0);
+    }
+}
+
+void Enemigo::setDanyado(bool b){
+    danyado = b;
+}
+
+bool Enemigo::getDanyado(){
+    return danyado;
+}
+
+bool Enemigo::getMuerto(){
+    return muerto;
 }

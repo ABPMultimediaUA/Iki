@@ -23,6 +23,11 @@ class Enemigo
         void escuchandoR();
         void noescuchandoR();
         bool getEscuchando();
+        bool comprobarPunto(b2Vec2);
+        void quitarVida();
+        void setDanyado(bool);
+        bool getDanyado();
+        bool getMuerto();
 
     protected:
 
@@ -32,7 +37,10 @@ class Enemigo
         core::vector3df cuboEnemigo;
         b2Body *body2;
         int tam;
-        bool escuchando;
+        int vida;
+        //bool escuchando;
+        bool danyado;
+        bool muerto;
 
         class World* iworld;
 

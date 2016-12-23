@@ -210,9 +210,9 @@ int main(){
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
 
-        float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) , -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
-        prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
-        prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+            float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) , -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+            prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
+            prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
 
 
         }
@@ -220,10 +220,20 @@ int main(){
         {
             // We now have a mouse position in 3d space; move towards it.
             core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
-            if(toMousePosition.getLength() <= 1)
-                prota->moverBody(vector3df(0,0,0));
-            else
-                prota->moverBody(toMousePosition);
+            if(!enemi2->getMuerto() && enemi2->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z))){
+
+                enemi2->setDanyado(prota->atacar(toMousePosition, smgr));
+                if(enemi2->getDanyado()){
+                    enemi2->quitarVida();
+                }
+            }else{
+                smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
+                if(toMousePosition.getLength() <= 1)
+                    prota->moverBody(vector3df(0,0,0));
+                else
+                    prota->moverBody(toMousePosition);
+            }
+
         }
 
         //importante para cambiar posicion de body
@@ -246,9 +256,9 @@ int main(){
 
        // sonido = new b2Contact();
 
-       std::cout<<"escuchando "<<escuchando<<std::endl;
+       /*std::cout<<"escuchando "<<escuchando<<std::endl;
        std::cout<<"hitmuro "<<hitmuro<<std::endl;
-       std::cout<<"hitprota "<<hitprota<<std::endl;
+       std::cout<<"hitprota "<<hitprota<<std::endl;*/
 
 
             if(hitprota && !hitmuro){

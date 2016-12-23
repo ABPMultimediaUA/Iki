@@ -20,6 +20,7 @@ class Player
         void setCuboProta(core::vector3df);
         void setPosicionBody(float ang);
         void moverBody(core::vector3df vec);
+        bool atacar(core::vector3df, scene::ISceneManager*);
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
