@@ -10328,3 +10328,98 @@
 	"Player.h"
 	<Box2D/Box2D.h>
 
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Player.h"
+	"include/World.h"
+	"include/Time.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
+	"Muros.h"
+	<iostream>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	"../include/Time.h"
+	"../include/Fuzzy.h"
+	<World.h>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\time.h
+	<irrlicht.h>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\fuzzy.h
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\irrklang\conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<sys/ioctl.h>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\muros.h
+	<irrlicht.h>
+	<World.h>
+	<iostream>
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\game.cpp
+	"Game.h"
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\game.h
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\muros.cpp
+	"Muros.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\singleton.h
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1482430409 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\include\suelo.h
+	<Box2D/Box2D.h>
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\time.cpp
+	"..\include\Time.h"
+
+1482430409 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri debugg box2d\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
