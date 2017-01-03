@@ -186,12 +186,20 @@ int main(){
 	ISoundSource* pasos1 = engine->addSoundSourceFromFile("sonidos/pasosnormales.wav");
 	ISoundSource* pasos2 = engine->addSoundSourceFromFile("sonidos/pasossigilosos.wav");
 	ISoundSource* alarma = engine->addSoundSourceFromFile("sonidos/alarma_sintetizada2.wav");
+	ISoundSource* escaneo = engine->addSoundSourceFromFile("sonidos/escaneobueno.wav");
+	ISoundSource* combate = engine->addSoundSourceFromFile("sonidos/protocolo_combate.wav");
+	ISoundSource* investigar = engine->addSoundSourceFromFile("sonidos/investigando.wav");
+	ISoundSource* patrullar = engine->addSoundSourceFromFile("sonidos/area_despejada_fin.wav");
+	ISoundSource* escaneomedico = engine->addSoundSourceFromFile("sonidos/escaneando_medico.wav");
+	ISoundSource* huir = engine->addSoundSourceFromFile("sonidos/intruso_detectado_medico.wav");
+	ISoundSource* defensa = engine->addSoundSourceFromFile("sonidos/protocolo_defensa_medico.wav");
+	ISoundSource* investigarmedico = engine->addSoundSourceFromFile("sonidos/investigando_medico.wav");
+	ISoundSource* patrullarmedico = engine->addSoundSourceFromFile("sonidos/area_despejada_medico.wav");
 	vec3df posicion(0,0,0);
 	ISound* s1;
 	ISound* s2;
+	ISound* s3;
 
-	if (pasos1 == 0 || pasos2 == 0)
-        	fprintf(stderr,"Can't load sounds!");
 
     pasos1->setDefaultVolume(2.0f);
     pasos2->setDefaultVolume(1.0f);
@@ -215,6 +223,15 @@ int main(){
 
 	bool pasosP = false;
 	bool pasos2P = false;
+	bool escaneando = false;
+	bool combatiendo = false;
+	bool investigando = false;
+	bool patrullando = true;
+	bool escaneando2 = false;
+	bool combatiendo2 = false;
+	bool investigando2 = false;
+	bool patrullando2 = true;
+	bool huyendo = false;
 	bool cambiao = false;
     bool aparcao = false;
 
@@ -229,6 +246,9 @@ int main(){
 
     while(device->run()){
        driver->beginScene(true, true, SColor(255, 100, 101, 140));
+
+
+
 
         ///raton
         if(receiver.GetMouseState().RightButtonDown)
@@ -260,7 +280,6 @@ int main(){
                         s1 = engine->play3D(pasos1,posicion,true,false,true);
                         pasosP = true;
                         pasos2P = false;
-
                 }else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT)){
                         if(engine->isCurrentlyPlaying(pasos1))
                             s1->stop();
@@ -326,6 +345,102 @@ int main(){
 
             }
         }*/
+
+        //SONIDOS ENEMIGOS
+        //GUARDIA
+        if(enemigos[0]->getEstado() == 1 && escaneando==false) {
+                escaneando = true;
+                combatiendo = false;
+                investigando = false;
+                patrullando = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s2->stop();
+                s2 = engine->play3D(escaneo,posicion,false,false,true);
+        }
+        else if(enemigos[0]->getEstado() == 3 && combatiendo==false) {
+                escaneando = false;
+                combatiendo = true;
+                investigando = false;
+                patrullando = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s2->stop();
+                s2 = engine->play3D(combate,posicion,false,false,true);
+        }
+        else if(enemigos[0]->getEstado() == 8 && investigando==false) {
+                escaneando = false;
+                combatiendo = false;
+                investigando = true;
+                patrullando = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s2->stop();
+                s2 = engine->play3D(investigar,posicion,false,false,true);
+        }
+        else if(enemigos[0]->getEstado() == 0 && patrullando==false) {
+                escaneando = false;
+                combatiendo = false;
+                investigando = false;
+                patrullando = true;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s2->stop();
+                s2 = engine->play3D(patrullar,posicion,false,false,true);
+        }
+
+        //MEDICO
+        if(enemigos[2]->getEstado() == 1 && escaneando2==false) {
+                escaneando2 = true;
+                combatiendo2 = false;
+                investigando2 = false;
+                patrullando2 = false;
+                huyendo = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s3->stop();
+                s3 = engine->play3D(escaneomedico,posicion,false,false,true);
+        }
+        else if(enemigos[2]->getEstado() == 9 && combatiendo2==false) {
+                escaneando2 = false;
+                combatiendo2 = true;
+                investigando2 = false;
+                patrullando2 = false;
+                huyendo = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s3->stop();
+                s3 = engine->play3D(defensa,posicion,false,false,true);
+        }
+         if(enemigos[2]->getEstado() == 8 && investigando2==false) {
+                escaneando2 = false;
+                combatiendo2 = false;
+                investigando2 = true;
+                patrullando2 = false;
+                huyendo = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s3->stop();
+                s3 = engine->play3D(investigarmedico,posicion,false,false,true);
+        }
+         if(enemigos[2]->getEstado() == 0 && patrullando2==false) {
+                escaneando2 = false;
+                combatiendo2 = false;
+                investigando2 = false;
+                patrullando2 = true;
+                huyendo = false;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s3->stop();
+                s3 = engine->play3D(patrullarmedico,posicion,false,false,true);
+        }
+         if(enemigos[2]->getEstado() == 3 && huyendo==false) {
+                escaneando2 = false;
+                combatiendo2 = false;
+                investigando2 = false;
+                patrullando2 = false;
+                huyendo = true;
+                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                s3->stop();
+                s3 = engine->play3D(huir,posicion,false,false,true);
+        }
+
+
+
+
+
         //ATAQUE ENEMIGO
         if(enemigos[0]->getEstado() == 7){
             vidaProta=prota->getVida();
