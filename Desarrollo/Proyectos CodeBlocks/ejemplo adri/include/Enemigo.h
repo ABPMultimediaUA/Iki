@@ -84,6 +84,7 @@ class Enemigo
         Enemigo *compis[3];
         bool muerto;
         bool hayAliado;
+        float rotacion;
 
         Fuzzy logica;
         scene::ISceneManager* smgr1;
