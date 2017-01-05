@@ -19,6 +19,9 @@ class Muros
         core::vector3df getCuboMuros();
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
+
+        b2Body *body, *body2, *body3, *body4, *body5, *body6, *body7, *body8, *body9, *body10, *body11, *body12, *body13, *body14, *body15,
+        *body16, *body17, *body18, *body19, *body20, *body21, *body22, *body23, *body24, *body25, *body26;
     protected:
 
     private:
@@ -33,8 +36,6 @@ class Muros
         IMeshSceneNode *modelo, *muro1, *muro2, *muro3, *muro4, *muro5, *muro6, *muro7, *muro8, *muro9, *muro10, *muro11, *muro12, *muro13, *muro14, *muro15, *muro16, *muro17, *muro18,
         *muro19, *muro20, *muro21, *muro22, *muro23, *muro24, *muro25, *muro26;
 
-        b2Body *body, *body2, *body3, *body4, *body5, *body6, *body7, *body8, *body9, *body10, *body11, *body12, *body13, *body14, *body15,
-        *body16, *body17, *body18, *body19, *body20, *body21, *body22, *body23, *body24, *body25, *body26;
 
 };
 

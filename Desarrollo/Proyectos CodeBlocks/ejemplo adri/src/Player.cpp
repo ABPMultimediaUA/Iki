@@ -70,8 +70,8 @@ void Player::moverBody(core::vector3df vec){
     movy = vec.Z;
     double modulo = sqrt((movx*movx) + (movy*movy));
     if(modulo != 0){
-        movx = (movx / modulo) * MOV_SPEED;
-        movy = (movy / modulo) * MOV_SPEED;
+        movx = (movx / modulo) * velocidad;
+        movy = (movy / modulo) * velocidad;
     }
 
     body->SetLinearVelocity(b2Vec2(movx, movy));

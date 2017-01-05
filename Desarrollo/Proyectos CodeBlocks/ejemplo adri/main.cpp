@@ -142,8 +142,8 @@ int main(){
     //std::cout << "1\n";
 
     ///ENEMIGOS
-    Enemigo  *enemigos[5];
-    for(int i=0;i<5;i++){
+    Enemigo  *enemigos[6];
+    for(int i=0;i<6;i++){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
@@ -152,6 +152,8 @@ int main(){
         enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(200,0,100));
     if(enemigos[2])
         enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(40,0,200));
+    if(enemigos[5])
+        enemigos[5]->inicialiazar2(smgr);
 
     //cambio de color de mallas
     //smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
@@ -195,10 +197,15 @@ int main(){
 	ISoundSource* defensa = engine->addSoundSourceFromFile("sonidos/protocolo_defensa_medico.wav");
 	ISoundSource* investigarmedico = engine->addSoundSourceFromFile("sonidos/investigando_medico.wav");
 	ISoundSource* patrullarmedico = engine->addSoundSourceFromFile("sonidos/area_despejada_medico.wav");
+	ISoundSource* escaneodron = engine->addSoundSourceFromFile("sonidos/beepveralgo.wav");
+	ISoundSource* investigardron = engine->addSoundSourceFromFile("sonidos/beepinvestigar.wav");
+	ISoundSource* patrullardron = engine->addSoundSourceFromFile("sonidos/beepaliviado.wav");
 	vec3df posicion(0,0,0);
 	ISound* s1;
 	ISound* s2;
 	ISound* s3;
+	ISound* s4;
+	ISound* s5;
 
 
     pasos1->setDefaultVolume(2.0f);
@@ -231,9 +238,23 @@ int main(){
 	bool combatiendo2 = false;
 	bool investigando2 = false;
 	bool patrullando2 = true;
+	bool escaneando3 = false;
+	bool investigando3 = false;
+	bool patrullando3 = true;
 	bool huyendo = false;
 	bool cambiao = false;
     bool aparcao = false;
+
+    //PERCEPCION SENSONRIAL
+
+    b2RayCastInput input;
+    input.maxFraction	=	1.0f;
+    b2RayCastOutput	output;
+    float angulo2 = 0;
+    float distancia = 0;
+    scene::IMesh *rayo = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
+    scene::IMeshSceneNode *modelo = smgr->addMeshSceneNode(rayo);
+    modelo->setVisible(false);
 
     int lastFPS = -1;
     u32 myClock;
@@ -246,8 +267,6 @@ int main(){
 
     while(device->run()){
        driver->beginScene(true, true, SColor(255, 100, 101, 140));
-
-
 
 
         ///raton
@@ -323,14 +342,21 @@ int main(){
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
+
+        if(receiver.isKeyDown(KEY_LSHIFT))
+           prota->velocidad = 4.5f;
+        else
+           prota->velocidad = 10.0f;
+
+
         // ALARMA
         if(enemigos[1]->getEstado() == 3){
             if(cambiao == false){
-                smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
-                s2 = engine->play3D(alarma,posicion,false,false,true);
+                //smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
+                s4 = engine->play3D(alarma,posicion,false,false,true);
                 cambiao = true;
             }
-            else if(s2->isFinished()){
+            else if(s4->isFinished()){
                 aparcao = true;
                 vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
                 vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
@@ -385,6 +411,33 @@ int main(){
                 s2->stop();
                 s2 = engine->play3D(patrullar,posicion,false,false,true);
         }
+        //DRON
+
+        if(enemigos[1]->getEstado() == 1 && escaneando3==false) {
+                escaneando3 = true;
+                investigando3 = false;
+                patrullando3 = false;
+                if(engine->isCurrentlyPlaying(escaneodron) || engine->isCurrentlyPlaying(patrullardron) || engine->isCurrentlyPlaying(investigardron))
+                s5->stop();
+                s5 = engine->play3D(escaneodron,posicion,false,false,true);
+        }
+        else if(enemigos[1]->getEstado() == 8 && investigando3==false) {
+                escaneando3 = false;
+                investigando3 = true;
+                patrullando3 = false;
+                if(engine->isCurrentlyPlaying(escaneodron) || engine->isCurrentlyPlaying(patrullardron) || engine->isCurrentlyPlaying(investigardron))
+                s5->stop();
+                s5 = engine->play3D(investigardron,posicion,false,false,true);
+        }
+        else if(enemigos[1]->getEstado() == 0 && patrullando3==false) {
+                escaneando3 = false;
+                investigando3 = false;
+                patrullando3 = true;
+                if(engine->isCurrentlyPlaying(escaneodron) || engine->isCurrentlyPlaying(patrullardron) || engine->isCurrentlyPlaying(investigardron))
+                s5->stop();
+                s5 = engine->play3D(patrullardron,posicion,false,false,true);
+        }
+
 
         //MEDICO
         if(enemigos[2]->getEstado() == 1 && escaneando2==false) {
@@ -439,8 +492,40 @@ int main(){
         }
 
 
+        input.p1.Set(enemigos[5]->getBody()->GetPosition().x, enemigos[5]->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input.p2.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+        bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
+        bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
 
 
+        distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
+
+
+            if(hitprota && distancia<90 && !hitmuro){
+
+                   // b2Vec2 hitPoint = input.p1+output.fraction * (input.p2 - input.p1);
+                   // b2Vec2 normal = output.normal;
+
+                angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
+                enemigos[5]->getBody()->SetTransform(enemigos[5]->getBody()->GetPosition(), angulo2);
+                enemigos[5]->getModelo()->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
+
+
+
+
+                modelo->setVisible(true);
+                modelo->setScale(core::vector3df(distancia/10, 0.5f, 0.5f));
+                modelo->setPosition(core::vector3df((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
+                modelo->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
+                smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
+
+            }
+            else{
+                smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(0, 0, 0, 0));
+                modelo->setVisible(false);
+
+            }
 
         //ATAQUE ENEMIGO
         if(enemigos[0]->getEstado() == 7){

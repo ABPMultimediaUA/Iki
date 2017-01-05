@@ -5,7 +5,6 @@
 #include "driverChoice.h"
 #include <World.h>
 
-#define MOV_SPEED 10.0f;
 
 
 using namespace irr;
@@ -24,6 +23,7 @@ class Player
         scene::IMeshSceneNode* getModelo();
         b2Body* getBody();
         float getVida();
+        float velocidad;
         void setVida(float);
         void muerte();
 

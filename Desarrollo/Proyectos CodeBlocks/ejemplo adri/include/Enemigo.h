@@ -27,6 +27,7 @@ class Enemigo
         void setCuboEnemigo(core::vector3df);
         b2Body* getBody();
         void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p);
+        void inicialiazar2(scene::ISceneManager*);
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();

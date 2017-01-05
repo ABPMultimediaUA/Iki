@@ -94,6 +94,34 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
 }
 
+void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
+    tam= 4;
+    vida = 150;
+
+    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(8.f, 8.f, 8.f));
+    modelo = smgr->addMeshSceneNode(mura1);
+
+    modelo->setPosition(core::vector3df(180,0,255));
+    modelo->setRotation(core::vector3df(0,-45,0));
+
+    b2BodyDef bodyDef;
+    bodyDef.type= b2_staticBody;
+    bodyDef.position.Set(180, 255);
+    iworld= World::Instance();
+    body2= iworld->getWorld()->CreateBody(&bodyDef);
+
+    b2PolygonShape bodyShape;
+    bodyShape.SetAsBox(tam/2, tam/2);
+    body2->CreateFixture(&bodyShape, 1.0f);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &bodyShape;
+    fixtureDef.friction = 10.5f;
+    fixtureDef.restitution  = 0.9f;
+    fixtureDef.density  = 10.f;
+    body2->CreateFixture(&fixtureDef);
+}
+
 
     /*
     void Enemigo::setPosition(core::vector3df vec){
