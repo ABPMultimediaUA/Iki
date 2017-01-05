@@ -119,6 +119,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     {
         return puntoInteres;
     }
+
     void Enemigo::setPosicion(core::vector3df este) //Meter en interfaz
     {
         posicion = este;
@@ -207,13 +208,13 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         tiempoVigilando=(time-reloj);
         //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
         if(tiempoVigilando < 3.0){
-            modelo->setRotation(vector3df(0,rotacion+30,0));
+            modelo->setRotation(vector3df(0,30,0));
         }
         else if(tiempoVigilando>= 3.0 && tiempoVigilando<= 6.0){
-            modelo->setRotation(vector3df(0,rotacion-30,0));
+            modelo->setRotation(vector3df(0,-30,0));
         }
         else if(tiempoVigilando>6.0){
-            modelo->setRotation(vector3df(0,rotacion,0));
+            modelo->setRotation(vector3df(0,0,0));
         }
 
     }
@@ -225,32 +226,33 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     void Enemigo::perseguir(){
         cuboEnemigo += direccionHaciaProta.normalize() * avMovement;
         posicion = cuboEnemigo;
-
     }
     void Enemigo::pedirAyuda(){
         cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
         posicion = cuboEnemigo;
     }
     void Enemigo::proteger(){ //GIRAR ALREDEDOR DEL ALIADO
-        if(fabs(posicion.X - posicionAliado.X) > 2 && fabs(posicion.Z - posicionAliado.Z) > 2){
-            cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
-            posicion = cuboEnemigo;
-        }
+        cuboEnemigo += direccionHaciaAliado.normalize() * avMovement;
+        posicion = cuboEnemigo;
     }
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
-            if (tiempoEscaneando < 3.0){ //escaneo tres segundos
-                if(sospecha < 99 && distanciaPlayer<80){ //si el personaje se aleja(no lo percibe deberia ser) deja de sumar sospecha
-                    /// ESTO ESTA MUY RARO Y ES MU DURO
+            if (tiempoEscaneando < 3.0){
+                if(tiempoEscaneando*100 % 5 == 0){
+                    /// ESTO ESTA MUY RARO
+                    if (sospecha < 99)
                         //sospecha+=1*tiempo.getTimeFactor();
-                        sospecha+=30*tiempo.getTimeFactor();
+                        sospecha+=0.05*tiempo.getTimeFactor();
                     std::cout << sospecha << std::endl;
                 }
             }
-            else { // Cuando termina de escanear
+            else /*if (tiempoEscaneando > 3.0)*/{
+                estado=3;
+            }
+            if (distanciaPlayer > 80){// o if (pierdo de vista al player) o
                 primeraVez=true;
-                //logica difusa
+                //
                 logica.Fuzzify(distanciaPlayer, logica.fm.vars[0]);
                 logica.Fuzzify(sospecha, logica.fm.vars[1]);
                 logica.InitializeRules();
@@ -267,7 +269,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                     puntoInteres=posicionProta;
                     estado=8;
                 }
-                else {
+                else{
                    // sospecha = 40.0;
                     estado = 3;
                 }
@@ -310,7 +312,6 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
 
             if(primeraVez){
-                sospecha=0;
                 reloj=tiempo.setMomento();
                 primeraVez=false;
             }
@@ -322,14 +323,12 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             if(primeraVez){
             reloj=tiempo.setMomento();
             primeraVez=false;
-            rotacion=modelo->getRotation().Y;
             }
             if (tiempoVigilando < 8.0){
             vigilar();
             }
             else{
                 primeraVez=true;
-                tiempoVigilando=0.0;
                 estado=0;
             }
             break;
@@ -371,7 +370,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 0, 0, 0));
             sospecha = 0.0;
             perseguir();
-            if(distanciaPlayer>120){
+            if(distanciaPlayer>80){
                 puntoInteres = posicionProta;
                 estado = 8;
             }
@@ -391,14 +390,14 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             }
             break;
         case 8: //INSPECCIONAR
-            smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 255, 0));
+            smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 0, 0));
             inspeccionar();
             if (distanciaPlayer<=80){
                 estado = 3;
             }
             if(posicion.getDistanceFrom(puntoInteres) == 0)
             {
-                estado=2;
+                estado=0;
             }
 
             break;

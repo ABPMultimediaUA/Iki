@@ -148,8 +148,8 @@ int main(){
     }
     if(enemigos[0])
         enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(90,0,110));
-    if(enemigos[1])
-        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(200,0,100));
+    //if(enemigos[1])
+    //    enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(140,0,150));
     if(enemigos[2])
         enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(40,0,200));
 
@@ -323,7 +323,8 @@ int main(){
             cameraPos.Z-=0.1;
             cameraTar.Z-=0.1;
         }
-        // ALARMA
+        // NO BORRAR
+        /*
         if(enemigos[1]->getEstado() == 3){
             if(cambiao == false){
                 smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
@@ -334,18 +335,16 @@ int main(){
                 aparcao = true;
                 vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
                 vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
-                enemigos[3]->inicialiazar(0,4,smgr,posicion);
-                enemigos[4]->inicialiazar(0,5,smgr,posicion2);
+                enemigos[3]->inicialiazar(4,0,smgr,posicion);
+                enemigos[4]->inicialiazar(5,0,smgr,posicion2);
                 enemigos[3]->setEstado(8);
-                enemigos[3]->setPunto(enemigos[1]->getPunto());
                 enemigos[4]->setEstado(8);
-                enemigos[4]->setPunto(enemigos[1]->getPunto());
                 enemigos[1]->setEstado(10);
                     //eliminar enemigo
                 enemigos[1]->getModelo()->setPosition(core::vector3df(-1000,0,0));
 
             }
-        }
+        }*/
 
         //SONIDOS ENEMIGOS
         //GUARDIA
@@ -463,22 +462,23 @@ int main(){
         //Guardia
         enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
         //Alarma
+        /*
         enemigos[1]->update(prota->getCuboProta(), tiempo, enemigos);
-        //Medico
+        *///Medico
         enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
-        if(aparcao){
+        /*if(aparcao){
         enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
         enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
-        }
+        }*/
         enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
-
+        /*
         //Si el dron no se ha convertido en alarma
         if(cambiao == false)
             enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
         if(aparcao){
             enemigos[3]->getModelo()->setPosition(enemigos[3]->getCuboEnemigo());
             enemigos[4]->getModelo()->setPosition(enemigos[4]->getCuboEnemigo());
-        }
+        }*/
         enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
 
 
