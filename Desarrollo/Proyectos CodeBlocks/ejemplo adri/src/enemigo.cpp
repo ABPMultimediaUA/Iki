@@ -44,6 +44,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     body2->CreateFixture(&fixtureDef);
 */
         id=ID;
+        tam= 5;
         estado = 0;
         vida=100;
         direccion = 0;
@@ -51,10 +52,10 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         sospecha = 0.0;
         posicion = p; //Meter en interfaz
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
-        modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
+        modelo = smgr->addCubeSceneNode(tam); //Meter en interfaz
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
         modelo->setPosition(posicion); //Meter en el interfaz
-        cuboEnemigo = modelo->getPosition();
+
         tiempoVigilando = 0.0;
         tiempoEscaneando = 0;
         avMovement = 0.0;
@@ -74,13 +75,13 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         cuboEnemigo = modelo->getPosition();*/
 
         b2BodyDef bodyDef;
-        bodyDef.type= b2_staticBody;
-        bodyDef.position.Set(40, -10);
+        bodyDef.type= b2_dynamicBody;
+        bodyDef.position.Set(posicion.X, posicion.Z);
         iworld= World::Instance();
         body2= iworld->getWorld()->CreateBody(&bodyDef);
 
         b2PolygonShape bodyShape;
-        bodyShape.SetAsBox((50/2)+0.5, (10/2)+0.5);
+        bodyShape.SetAsBox(tam/2, tam/2);
         body2->CreateFixture(&bodyShape, 1.0f);
 
         b2FixtureDef fixtureDef;
@@ -89,6 +90,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         fixtureDef.restitution  = 0.9f;
         fixtureDef.density  = 10.f;
         body2->CreateFixture(&fixtureDef);
+
+        cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
 }
 
 
@@ -119,10 +122,42 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     {
         return puntoInteres;
     }
-    void Enemigo::setPosicion(core::vector3df este) //Meter en interfaz
-    {
-        posicion = este;
+
+    //Asi se mueve con BODY
+
+    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
+        body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+        modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
     }
+    /*
+    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
+        if(vec.X == -1000){
+            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
+        else{
+            core::vector3df distancia(vec - prot);
+            if(distancia.getLength() <= 1){
+                movx = 0;
+                movy = 0;
+            }
+            else{
+                movx = vec.X;
+                movy = vec.Z;
+            }
+            double modulo = sqrt((movx*movx) + (movy*movy));
+            if(modulo != 0){
+                movx = (movx / modulo) * MOV_SPEED;
+                movy = (movy / modulo) * MOV_SPEED;
+            }
+
+            body2->SetLinearVelocity(b2Vec2(movx, movy));
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
+
+    }*/
+
+
     void Enemigo::setEstado(int este)
     {
         estado=este;

@@ -7,6 +7,8 @@
 #include "../include/Fuzzy.h"
 #include <World.h>
 
+#define MOV_SPEED 10.0f;
+
 
 using namespace irr;
 
@@ -28,7 +30,7 @@ class Enemigo
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
-        void setPosicion(core::vector3df este);
+        void setPosicion(core::vector3df vec, core::vector3df prot);
         void setPunto(core::vector3df este);
         void setEstado(int este);
         float getSospecha();
@@ -57,6 +59,7 @@ class Enemigo
         scene::IMeshSceneNode *modelo;
         b2Body *body2;
         float tam;
+        float movx, movy;
         int id;
         int estado; //0-> patrullar 1-> vigilar 2-> combate 3-> pedir ayuda 4-> huir 5-> perseguir 6-> atacar 7->inspeccionar 8->sospechar 9->muerto
         int direccion; //0-> arriba 1-> derecha 2-> abajo 3-> izquierda

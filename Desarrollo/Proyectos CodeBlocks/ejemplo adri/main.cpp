@@ -342,7 +342,7 @@ int main(){
                 enemigos[4]->setPunto(enemigos[1]->getPunto());
                 enemigos[1]->setEstado(10);
                     //eliminar enemigo
-                enemigos[1]->getModelo()->setPosition(core::vector3df(-1000,0,0));
+                enemigos[1]->setPosicion(core::vector3df(-1000,0,0), prota->getCuboProta());
 
             }
         }
@@ -470,16 +470,16 @@ int main(){
         enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
         enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
         }
-        enemigos[0]->getModelo()->setPosition(enemigos[0]->getCuboEnemigo());
+        enemigos[0]->setPosicion(enemigos[0]->getCuboEnemigo(), prota->getCuboProta());
 
         //Si el dron no se ha convertido en alarma
         if(cambiao == false)
-            enemigos[1]->getModelo()->setPosition(enemigos[1]->getCuboEnemigo());
+            enemigos[1]->setPosicion(enemigos[1]->getCuboEnemigo(), prota->getCuboProta());
         if(aparcao){
-            enemigos[3]->getModelo()->setPosition(enemigos[3]->getCuboEnemigo());
-            enemigos[4]->getModelo()->setPosition(enemigos[4]->getCuboEnemigo());
+            enemigos[3]->setPosicion(enemigos[3]->getCuboEnemigo(), prota->getCuboProta());
+            enemigos[4]->setPosicion(enemigos[4]->getCuboEnemigo(), prota->getCuboProta());
         }
-        enemigos[2]->getModelo()->setPosition(enemigos[2]->getCuboEnemigo());
+        enemigos[2]->setPosicion(enemigos[2]->getCuboEnemigo(), prota->getCuboProta());
 
 
         //std::cout << "static constructor\n";
