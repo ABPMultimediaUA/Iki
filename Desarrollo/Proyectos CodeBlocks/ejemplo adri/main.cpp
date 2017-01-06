@@ -215,12 +215,18 @@ int main(){
 	ISoundSource* escaneodron = engine->addSoundSourceFromFile("sonidos/beepveralgo.wav");
 	ISoundSource* investigardron = engine->addSoundSourceFromFile("sonidos/beepinvestigar.wav");
 	ISoundSource* patrullardron = engine->addSoundSourceFromFile("sonidos/beepaliviado.wav");
+	ISoundSource* lasertorreta = engine->addSoundSourceFromFile("sonidos/lasertorreta.wav");
+	ISoundSource* aviso = engine->addSoundSourceFromFile("sonidos/beepvigilar.wav");
 	vec3df posicion(0,0,0);
 	ISound* s1;
 	ISound* s2;
 	ISound* s3;
 	ISound* s4;
 	ISound* s5;
+	ISound* s6;
+	ISound* s7;
+	ISound* s8;
+	ISound* s9;
 
 
     pasos1->setDefaultVolume(2.0f);
@@ -249,6 +255,14 @@ int main(){
 	bool combatiendo = false;
 	bool investigando = false;
 	bool patrullando = true;
+	bool escaneandog2 = false;
+	bool combatiendog2 = false;
+	bool investigandog2 = false;
+	bool patrullandog2 = true;
+	bool escaneandog3 = false;
+	bool combatiendog3 = false;
+	bool investigandog3 = false;
+	bool patrullandog3 = true;
 	bool escaneando2 = false;
 	bool combatiendo2 = false;
 	bool investigando2 = false;
@@ -263,6 +277,8 @@ int main(){
     bool centinela= false;
     bool tocado= false;
     bool stop= true;
+    bool kiko= false;
+    bool kiko2= false;
 
     //PERCEPCION SENSONRIAL
 
@@ -413,6 +429,7 @@ int main(){
                 enemigos[4]->setEstado(8);
                 enemigos[4]->setPunto(enemigos[1]->getPunto());
                 enemigos[1]->setEstado(10);
+                kiko = true;
                     //eliminar enemigo
                 enemigos[1]->setPosicion(core::vector3df(-1000,0,0), prota->getCuboProta());
 
@@ -457,6 +474,84 @@ int main(){
                 s2->stop();
                 s2 = engine->play3D(patrullar,posicion,false,false,true);
         }
+        //GUARDIAS DEL DRON LUL
+        if(kiko){
+            if(enemigos[3]->getEstado() == 1 && escaneandog2==false) {
+                escaneandog2 = true;
+                combatiendog2 = false;
+                investigandog2 = false;
+                patrullandog2 = false;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s6->stop();
+                s6 = engine->play3D(escaneo,posicion,false,false,true);
+        }
+        else if(enemigos[3]->getEstado() == 3 && combatiendog2==false) {
+                escaneandog2 = false;
+                combatiendog2 = true;
+                investigandog2 = false;
+                patrullandog2 = false;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s6->stop();
+                s6 = engine->play3D(combate,posicion,false,false,true);
+        }
+        else if(enemigos[3]->getEstado() == 8 && investigandog2==false) {
+                escaneandog2 = false;
+                combatiendog2 = false;
+                investigandog2 = true;
+                patrullandog2 = false;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s6->stop();
+                s6 = engine->play3D(investigar,posicion,false,false,true);
+        }
+        else if(enemigos[3]->getEstado() == 0 && patrullandog2==false) {
+                escaneandog2 = false;
+                combatiendog2 = false;
+                investigandog2 = false;
+                patrullandog2 = true;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s6->stop();
+                s6 = engine->play3D(patrullar,posicion,false,false,true);
+        }
+        if(enemigos[4]->getEstado() == 1 && escaneandog3==false) {
+                escaneandog3 = true;
+                combatiendog3 = false;
+                investigandog3 = false;
+                patrullandog3 = false;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
+                s7 = engine->play3D(escaneo,posicion,false,false,true);
+        }
+        else if(enemigos[4]->getEstado() == 3 && combatiendog3==false) {
+                escaneandog3 = false;
+                combatiendog3 = true;
+                investigandog3 = false;
+                patrullandog3 = false;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
+                s7 = engine->play3D(combate,posicion,false,false,true);
+        }
+        else if(enemigos[4]->getEstado() == 8 && investigandog3==false) {
+                escaneandog3 = false;
+                combatiendog3 = false;
+                investigandog3 = true;
+                patrullandog3 = false;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                // s7->stop();
+                s7 = engine->play3D(investigar,posicion,false,false,true);
+        }
+        else if(enemigos[4]->getEstado() == 0 && patrullandog3==false) {
+                escaneandog3 = false;
+                combatiendog3 = false;
+                investigandog3 = false;
+                patrullandog3 = true;
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
+                s7 = engine->play3D(patrullar,posicion,false,false,true);
+        }
+
+        }
+
+
         //DRON
 
         if(enemigos[1]->getEstado() == 1 && escaneando3==false) {
@@ -557,6 +652,15 @@ int main(){
                 enemigos[5]->getBody()->SetTransform(enemigos[5]->getBody()->GetPosition(), angulo2);
                 enemigos[5]->getModelo()->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
 
+                if(!kiko2){
+                    s9 = engine->play3D(aviso,posicion,false,false,true);
+                    kiko2 = true;
+                }
+                if(s9->isFinished()){
+
+
+                if(engine->isCurrentlyPlaying(lasertorreta)==false)
+                        s8 = engine->play3D(lasertorreta,posicion,true,false,true);
 
 
 
@@ -564,12 +668,24 @@ int main(){
                 modelo->setScale(core::vector3df(distancia/10, 0.5f, 0.5f));
                 modelo->setPosition(core::vector3df((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
                 modelo->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
-                smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
+                smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(255, 255, 255, 255));
+
+                vidaProta=prota->getVida();
+                vidaProta-=0.1*DeltaTime;
+                prota->setVida(vidaProta);
+
+                }
 
             }
             else{
+
+                if(engine->isCurrentlyPlaying(lasertorreta))
+                s8->stop();
+
                 smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(0, 0, 0, 0));
                 modelo->setVisible(false);
+
+                kiko2 = false;
 
             }
 
