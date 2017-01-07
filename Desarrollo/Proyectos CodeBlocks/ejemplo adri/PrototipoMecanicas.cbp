@@ -80,6 +80,8 @@
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Muros.h" />
 		<Unit filename="include/Objeto.h" />
+		<Unit filename="include/PatrolPoint.h" />
+		<Unit filename="include/PatrolRoute.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Singleton.h" />
 		<Unit filename="include/Suelo.h" />
@@ -90,6 +92,8 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Muros.cpp" />
 		<Unit filename="src/Objeto.cpp" />
+		<Unit filename="src/PatrolPoint.cpp" />
+		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Singleton.cpp" />
 		<Unit filename="src/Suelo.cpp" />
