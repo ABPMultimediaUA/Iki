@@ -6,7 +6,7 @@
 class PatrolRoute
 {
     public:
-        PatrolRoute(PatrolPoint* p);
+        PatrolRoute();
         virtual ~PatrolRoute();
 
         void setInicial(PatrolPoint* p);
@@ -23,7 +23,7 @@ class PatrolRoute
     private:
         bool ocupada;
 
-        class PatrolPoint* puntoObjetivo;
+        //class PatrolPoint* puntoObjetivo;
         class PatrolPoint* inicial;
         class PatrolPoint* final;
 

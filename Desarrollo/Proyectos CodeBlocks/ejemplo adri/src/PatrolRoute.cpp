@@ -1,11 +1,11 @@
 #include "PatrolRoute.h"
 
-PatrolRoute::PatrolRoute(PatrolPoint* p)
+PatrolRoute::PatrolRoute()
 {
     //ctor
     ocupada = false;
-    inicial = p;
-    final = inicial->getPrev();
+    inicial = nullptr;
+    final   = nullptr;
 
 }
 

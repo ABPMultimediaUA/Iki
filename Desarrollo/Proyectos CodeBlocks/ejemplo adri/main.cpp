@@ -10,6 +10,8 @@
 #include "Muros.h"
 #include <iostream>
 
+#include "include/PatrolRoute.h"
+
 #define SCREENWIDTH 1280
 #define SCREENHEIGHT 720
 
@@ -146,6 +148,22 @@ int main(){
         //std::cout << "no existe\n";
         return 1;
     }
+
+    ///PATRULLAS
+    PatrolPoint *pp01, *pp02, *pp03, *pp04;
+    pp01 = new PatrolPoint(irr::core::vector3df(0, 0,50));
+    pp02 = new PatrolPoint(irr::core::vector3df(50,0,50));
+    pp03 = new PatrolPoint(irr::core::vector3df(50, 0,0));
+    pp04 = new PatrolPoint(irr::core::vector3df(0, 0, 0));
+
+    pp01->setNext(pp02); pp02->setNext(pp03); pp03->setNext(pp04); pp04->setNext(pp01);
+    pp01->setPrev(pp04); pp04->setPrev(pp03); pp03->setPrev(pp02); pp02->setPrev(pp01);
+
+    PatrolRoute pr01;
+    pr01.setInicial(pp01); pr01.setFinal(pp01->getPrev());
+
+
+
 
 
     //std::cout << "1\n";
