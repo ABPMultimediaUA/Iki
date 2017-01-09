@@ -161,10 +161,10 @@ int main(){
 
 //
     PatrolPoint *pp11, *pp12, *pp13, *pp14;
-    pp11 = new PatrolPoint(irr::core::vector3df(-40,0,75));
-    pp12 = new PatrolPoint(irr::core::vector3df(-40,0,130));
+    pp11 = new PatrolPoint(irr::core::vector3df(0,0,75));
+    pp12 = new PatrolPoint(irr::core::vector3df(0,0,130));
     pp13 = new PatrolPoint(irr::core::vector3df( 40,0,130));
-    pp14 = new PatrolPoint(irr::core::vector3df( 40,0,75));
+    pp14 = new PatrolPoint(irr::core::vector3df( 30,0,140));
 
     pp11->setNext(pp12); pp12->setNext(pp13); pp13->setNext(pp14); pp14->setNext(pp11);
     pp11->setPrev(pp14); pp14->setPrev(pp13); pp13->setPrev(pp12); pp12->setPrev(pp11);
@@ -181,7 +181,7 @@ int main(){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(40,0,75),pr02);
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(30,0,140),pr02);
     if(enemigos[1])
         enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(200,0,100),pr01);
     if(enemigos[2])
@@ -432,23 +432,23 @@ int main(){
         }
         else if(receiver.isKeyDown(KEY_KEY_D))
         {
-            cameraPos.X+=0.1;
-            cameraTar.X+=0.1;
+            cameraPos.X+=0.3*DeltaTime;
+            cameraTar.X+=0.3*DeltaTime;
         }
         else if (receiver.isKeyDown(KEY_KEY_A))
         {
-            cameraPos.X-=0.1;
-            cameraTar.X-=0.1;
+            cameraPos.X-=0.3*DeltaTime;
+            cameraTar.X-=0.3*DeltaTime;
         }
         else if(receiver.isKeyDown(KEY_KEY_W))
         {
-            cameraPos.Z+=0.1;
-            cameraTar.Z+=0.1;
+            cameraPos.Z+=0.3*DeltaTime;
+            cameraTar.Z+=0.3*DeltaTime;
         }
         else if (receiver.isKeyDown(KEY_KEY_S))
         {
-            cameraPos.Z-=0.1;
-            cameraTar.Z-=0.1;
+            cameraPos.Z-=0.3*DeltaTime;
+            cameraTar.Z-=0.3*DeltaTime;
         }
 
         if(receiver.isKeyDown(KEY_LSHIFT))
