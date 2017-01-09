@@ -63,6 +63,7 @@ class Enemigo
         bool getMuerto();
         void setMuro(Muros* murito, Player *prota);
         bool getMuro();
+        bool getCreado();
         class Muros* morito;
 
     protected:
@@ -103,6 +104,7 @@ class Enemigo
         bool hayAliado;
         float rotacion;
         bool danyado;
+        bool creado= false;
         Player *player;
 
         b2RayCastInput input;

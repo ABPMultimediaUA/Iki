@@ -361,6 +361,9 @@ int main(){
     Time tiempo;
     tiempo.set(device);
     float vidaProta;
+    int n;
+    float objvida= 0.0f;
+    bool vez= true;
 
     ///CICLO DEL JUEGO
 
@@ -399,19 +402,25 @@ int main(){
             hayobj= objeto->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
 
             //Ataque de prota
-            if(!enemigos[0]->getMuerto() && enemigos[0]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z))){
-                enemigos[0]->setDanyado(prota->atacar(toMousePosition, smgr));
-                if(enemigos[0]->getDanyado()){
-                    enemigos[0]->quitarVida();
-                }
+            for(n= 0; n <= 5; n++){
+                if(enemigos[n]->getCreado()){
 
-            }else{
-                smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
-                if(toMousePosition.getLength() <= 1)
-                    prota->moverBody(vector3df(0,0,0));
-                else
-                    prota->moverBody(toMousePosition);
+                    if(!enemigos[n]->getMuerto() && enemigos[n]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z))){
+                        enemigos[n]->setDanyado(prota->atacar(toMousePosition, smgr));
+                        if(enemigos[n]->getDanyado()){
+                            enemigos[n]->quitarVida();
+                        }
+                    }
+                    else{
+                        smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
+                        if(toMousePosition.getLength() <= 1)
+                            prota->moverBody(vector3df(0,0,0));
+                        else
+                            prota->moverBody(toMousePosition);
+                    }
+                }
             }
+
             /////
 
             if(hayobj && centinela == true){
@@ -451,8 +460,16 @@ int main(){
         //importante para cambiar posicion de body
         //prota->moverBody(mousePosition);
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
-        if(tocado == true)
+        if(tocado == true){
+            if(vez){
+                objvida= prota->getVida() + 50.0f;
+                std::cout <<"vida: "<<objvida<<" \n";
+                prota->setVida(objvida);
+                vez= false;
+            }
             objeto->setPosition(vector3df(5000, 0, 5000));
+
+        }
         else
         objeto->setPosition(vector3df(objeto->getBody()->GetPosition().x, 0, objeto->getBody()->GetPosition().y));
         //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));

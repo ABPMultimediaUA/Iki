@@ -155,6 +155,7 @@ scene::IMeshSceneNode* Player::getEsfera(){
 float Player::getVida(){
     return vida;
 }
+
 void Player::setVida(float v){
 vida=v;
 }

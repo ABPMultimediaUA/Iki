@@ -54,6 +54,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
+        creado= true;
         posicion = p; //Meter en interfaz
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
         modelo = smgr->addCubeSceneNode(tam); //Meter en interfaz
@@ -146,6 +147,10 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     int Enemigo::getEstado()
     {
         return estado;
+    }
+
+    bool Enemigo::getCreado(){
+        return creado;
     }
 
     core::vector3df Enemigo::getPosicion() //Meter en interfaz
