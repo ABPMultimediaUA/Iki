@@ -174,7 +174,7 @@ int main(){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(90,0,110));
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(-30,0,80));
     if(enemigos[1])
         enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(200,0,100));
     if(enemigos[2])
@@ -351,6 +351,21 @@ int main(){
             // We now have a mouse position in 3d space; move towards it.
             core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
             hayobj= objeto->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
+
+            //Ataque de prota
+            if(!enemigos[0]->getMuerto() && enemigos[0]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z))){
+                enemigos[0]->setDanyado(prota->atacar(toMousePosition, smgr));
+                if(enemigos[0]->getDanyado()){
+                    enemigos[0]->quitarVida();
+                }
+            }else{
+                smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
+                if(toMousePosition.getLength() <= 1)
+                    prota->moverBody(vector3df(0,0,0));
+                else
+                    prota->moverBody(toMousePosition);
+            }
+            /////
 
             if(hayobj && centinela == true){
                tocado= prota->cogerObjeto(toMousePosition, smgr);

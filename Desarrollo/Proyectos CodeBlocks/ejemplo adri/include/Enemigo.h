@@ -52,6 +52,11 @@ class Enemigo
         void avisarCapsulas();
         float getVida();
         void atacar();
+        bool comprobarPunto(b2Vec2);
+        void quitarVida();
+        void setDanyado(bool);
+        bool getDanyado();
+        bool getMuerto();
 
     protected:
 
@@ -89,6 +94,7 @@ class Enemigo
         bool muerto;
         bool hayAliado;
         float rotacion;
+        bool danyado;
 
         Fuzzy logica;
         scene::ISceneManager* smgr1;

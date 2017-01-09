@@ -2524,11 +2524,11 @@
 1482154527 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1483702057 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\player.cpp
+1483929193 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
-1483702071 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\player.h
+1483927623 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -2565,7 +2565,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1483702090 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\main.cpp
+1483929684 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -2577,8 +2577,9 @@
 	"irrKlang/conio.h"
 	"Muros.h"
 	<iostream>
+	"include/PatrolRoute.h"
 
-1483699763 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
+1483926940 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -2695,7 +2696,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1483699763 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
+1483930637 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -4091,4 +4092,16 @@
 
 1483831602 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\patrolroute.h
 	"PatrolPoint.h"
+
+1483924785 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\patrolroute.h
+	"PatrolPoint.h"
+
+1483924785 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\patrolpoint.h
+	<irrlicht.h>
+
+1483924785 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\patrolpoint.cpp
+	"PatrolPoint.h"
+
+1483924785 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\patrolroute.cpp
+	"PatrolRoute.h"
 

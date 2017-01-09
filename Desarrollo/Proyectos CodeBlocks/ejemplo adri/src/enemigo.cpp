@@ -46,7 +46,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         id=ID;
         tam= 5;
         estado = 0;
-        vida=100;
+        vida=1;
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
@@ -154,8 +154,14 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     //Asi se mueve con BODY
 
     void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
-        body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
-        modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        if(muerto){
+            body2->SetTransform(b2Vec2(-1000, -1000), 0);
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
+        else{
+            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
     }
     /*
     void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
@@ -254,6 +260,36 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         }
         posicion = cuboEnemigo;
     }
+
+    bool Enemigo::comprobarPunto(b2Vec2 v){
+        bool si = false;
+        si = body2->GetFixtureList()->TestPoint(v);
+
+        return si;
+    }
+
+    void Enemigo::quitarVida(){
+        --vida;
+std::cout << vida;
+        if(vida <= 0){
+            muerto = true;
+            modelo->setPosition(core::vector3df(1000,0,0));
+            body2->SetTransform(b2Vec2(1000,0),0);
+        }
+    }
+
+    void Enemigo::setDanyado(bool b){
+        danyado = b;
+    }
+
+    bool Enemigo::getDanyado(){
+        return danyado;
+    }
+
+    bool Enemigo::getMuerto(){
+        return muerto;
+    }
+
     void Enemigo::inspeccionar(){
           if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0){
                     cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * avMovement;

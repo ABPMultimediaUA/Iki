@@ -97,6 +97,27 @@ bool Player::cogerObjeto(core::vector3df vec, scene::ISceneManager* smgr){
     return golpeado;
 }
 
+bool Player::atacar(core::vector3df vec, scene::ISceneManager* smgr){
+    bool golpeado = false;
+    if(vec.getLength() <= 10){
+        smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(128, 128, 128, 0));
+        body->SetLinearVelocity(b2Vec2(0, 0));
+        golpeado = true;
+    }else{
+        movx = vec.X;
+        movy = vec.Z;
+        double modulo = sqrt((movx*movx) + (movy*movy));
+        if(modulo != 0){
+            movx = (movx / modulo) * MOV_SPEED;
+            movy = (movy / modulo) * MOV_SPEED;
+        }
+
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 0, 0, 0));
+        body->SetLinearVelocity(b2Vec2(movx, movy));
+    }
+    return golpeado;
+}
+
 void Player::moverBody(core::vector3df vec){
     //body->ApplyLinearImpulse(b2Vec2(0, 5.0), b2Vec2(vec.X, vec.Z), true);
     movx = vec.X;
