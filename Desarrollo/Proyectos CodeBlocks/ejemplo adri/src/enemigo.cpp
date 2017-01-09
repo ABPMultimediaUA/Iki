@@ -13,7 +13,10 @@ Enemigo::~Enemigo()
     //dtor
 }
 
-void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vector3df p){
+void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vector3df p, PatrolRoute pr){
+
+    pRuta = pr.getInicial();
+
 /*
     tam= 5;
 
@@ -92,6 +95,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         body2->CreateFixture(&fixtureDef);
 
         cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
+        posicionInicial = pRuta->getPunto() - cuboEnemigo;
 }
 
 void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
@@ -217,27 +221,16 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     void Enemigo::patrullar()
     {
-    switch(direccion)
-        {
-            case 0: //Movimiento hacia arriba
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 40){
-                    cuboEnemigo.X -= avMovement;
-                    cuboEnemigo.Z -= avMovement;
-                }else{
-                    direccion = 1;
-                    posicionInicial = cuboEnemigo;
-                }
-                break;
-
-            case 1: //Movimiento hacia la derecha
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 40){
-                    cuboEnemigo.Z += avMovement;
-                    cuboEnemigo.X += avMovement;
-                }else{
-                    direccion = 0;
-                    posicionInicial = cuboEnemigo;
-                }
-                break;
+            if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) > 5.f){
+                cuboEnemigo += posicionInicial.normalize()*avMovement;
+                std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
+                std::cout << "Punto (X,Z): " << posicionInicial.X << "," << posicionInicial.Z << std::endl;
+            }
+            else{
+                std::cout << "2";
+                pRuta = pRuta->getNext();
+                posicionInicial = pRuta->getPunto() - cuboEnemigo;
+            }
 /*
             case 2:
                 if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
@@ -257,7 +250,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 }
                 break;
 */
-        }
+
         posicion = cuboEnemigo;
     }
 
@@ -270,7 +263,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     void Enemigo::quitarVida(){
         --vida;
-std::cout << vida;
+        //std::cout << vida;
         if(vida <= 0){
             muerto = true;
             modelo->setPosition(core::vector3df(1000,0,0));
@@ -344,7 +337,7 @@ std::cout << vida;
                     /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
                         sospecha+=30*tiempo.getTimeFactor();
-                    std::cout << sospecha << std::endl;
+                    //std::cout << sospecha << std::endl;
                 }
             }
             else { // Cuando termina de escanear

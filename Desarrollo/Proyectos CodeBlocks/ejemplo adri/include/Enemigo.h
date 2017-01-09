@@ -7,6 +7,8 @@
 #include "../include/Fuzzy.h"
 #include <World.h>
 
+#include "../include/PatrolRoute.h"
+
 #define MOV_SPEED 10.0f;
 
 
@@ -26,7 +28,7 @@ class Enemigo
         virtual ~Enemigo();
         void setCuboEnemigo(core::vector3df);
         b2Body* getBody();
-        void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p);
+        void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p, PatrolRoute pr);
         void inicialiazar2(scene::ISceneManager*);
         int getEstado();
         core::vector3df getPosicion();
@@ -76,6 +78,7 @@ class Enemigo
         float tiempoVigilando;
         int tiempoEscaneando;
         core::vector3df posicion;
+
         core::vector3df posicionInicial;
         core::vector3df puntoInteres;
         core::vector3df cuboEnemigo;
@@ -96,6 +99,7 @@ class Enemigo
         float rotacion;
         bool danyado;
 
+        PatrolPoint* pRuta;
         Fuzzy logica;
         scene::ISceneManager* smgr1;
         class World* iworld;
