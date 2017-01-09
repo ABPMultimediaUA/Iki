@@ -47,6 +47,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     body2->CreateFixture(&fixtureDef);
 */
         id=ID;
+        input.maxFraction	=	1.0f;
         tam= 5;
         estado = 0;
         vida=1;
@@ -96,6 +97,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
         cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
         posicionInicial = pRuta->getPunto() - cuboEnemigo;
+        sospecha=0;
+
 }
 
 void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
@@ -332,13 +335,11 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
-            if (tiempoEscaneando < 3.0){ //escaneo tres segundos
-                if(sospecha < 99 && distanciaPlayer<80){ //si el personaje se aleja(no lo percibe deberia ser) deja de sumar sospecha
+            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
                     /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
                         sospecha+=30*tiempo.getTimeFactor();
                     //std::cout << sospecha << std::endl;
-                }
             }
             else { // Cuando termina de escanear
                 primeraVez=true;
@@ -350,17 +351,14 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 float val = logica.Defuzzify();
                 std::cout << "  " << val << std::endl;
 
-                if (val <= 37.5){
+                if (val <= 25.0){
                     estado = 0;
-                   // sospecha=0.0;
                 }
-                else if (val <= 45.5){
-                   // sospecha=25.0;
+                else if (val <= 55){
                     puntoInteres=posicionProta;
                     estado=8;
                 }
                 else {
-                   // sospecha = 40.0;
                     estado = 3;
                 }
                 //
@@ -391,7 +389,9 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             patrullar();
             //Si el player se acerca sospecha
             if(distanciaPlayer<80){ // 75
-                estado = 1;
+
+                    if (!getMuro())
+                        estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
@@ -402,7 +402,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
 
             if(primeraVez){
-                sospecha=0;
+                //sospecha=0;
                 reloj=tiempo.setMomento();
                 primeraVez=false;
             }
@@ -486,7 +486,8 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 255, 0));
             inspeccionar();
             if (distanciaPlayer<=80){
-                estado = 3;
+                if (!getMuro())
+                    estado = 3;
             }
             if(posicion.getDistanceFrom(puntoInteres) == 0)
             {
@@ -531,4 +532,43 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             aliados[0]->setEstado(mensajeEstado);
             mensajePendiente=false;
         }
+    }
+
+    void Enemigo::setMuro(Muros* murito, Player *prota){
+        player= prota;
+        morito = murito;
+    }
+
+    bool Enemigo::getMuro(){
+        input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+        if (morito->body->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body2->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body3->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body4->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body5->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body6->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body7->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body8->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body9->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body10->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body11->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body12->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body13->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body14->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body15->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body16->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body17->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body18->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body19->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body20->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body21->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body22->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body23->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body24->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body25->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body26->GetFixtureList()->RayCast(&output,	input,	0))return true;
+
+       return false;
     }

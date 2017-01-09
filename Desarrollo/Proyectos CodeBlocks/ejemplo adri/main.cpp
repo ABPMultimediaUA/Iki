@@ -1,13 +1,9 @@
 #include <irrlicht.h>
 #include <Box2D/Box2D.h>
 #include "include/Enemigo.h"
-#include "include/Player.h"
 #include "include/Objeto.h"
-#include "include/World.h"
-#include "include/Time.h"
 #include <irrKlang.h>
 #include "irrKlang/conio.h"
-#include "Muros.h"
 #include <iostream>
 
 #include "include/PatrolRoute.h"
@@ -208,6 +204,11 @@ int main(){
     if(muro1){
         muro1->inicializar(smgr, driver);
     }
+       for(int i=0;i<6;i++){
+        enemigos[i]->setMuro(muro1, prota);
+    }
+
+
     ///OBJETO
     Objeto *objeto= new Objeto;
     if(objeto){

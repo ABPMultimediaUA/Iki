@@ -5,7 +5,9 @@
 #include "driverChoice.h"
 #include "../include/Time.h"
 #include "../include/Fuzzy.h"
+#include "../include/Muros.h"
 #include <World.h>
+#include <Player.h>
 
 #include "../include/PatrolRoute.h"
 
@@ -59,6 +61,9 @@ class Enemigo
         void setDanyado(bool);
         bool getDanyado();
         bool getMuerto();
+        void setMuro(Muros* murito, Player *prota);
+        bool getMuro();
+        class Muros* morito;
 
     protected:
 
@@ -98,6 +103,10 @@ class Enemigo
         bool hayAliado;
         float rotacion;
         bool danyado;
+        Player *player;
+
+        b2RayCastInput input;
+        b2RayCastOutput	output;
 
         PatrolPoint* pRuta;
         Fuzzy logica;
