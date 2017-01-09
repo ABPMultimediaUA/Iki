@@ -253,6 +253,8 @@ int main(){
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition= core::vector3df(0,0,0);
     core::line3df ray(mousePosition, prota->getCuboProta());
+    core::line3df ray2(mousePosition, prota->getCuboProta());
+    core::line3df ray3(mousePosition, prota->getCuboProta());
 
     ///SONIDOS
 
@@ -281,6 +283,7 @@ int main(){
 	ISoundSource* patrullardron = engine->addSoundSourceFromFile("sonidos/beepaliviado.wav");
 	ISoundSource* lasertorreta = engine->addSoundSourceFromFile("sonidos/lasertorreta.wav");
 	ISoundSource* aviso = engine->addSoundSourceFromFile("sonidos/beepvigilar.wav");
+	ISoundSource* rayopara = engine->addSoundSourceFromFile("sonidos/rayoprota.wav");
 	vec3df posicion(0,0,0);
 	ISound* s1;
 	ISound* s2;
@@ -291,6 +294,7 @@ int main(){
 	ISound* s7;
 	ISound* s8;
 	ISound* s9;
+	ISound* s10;
 
 
     pasos1->setDefaultVolume(2.0f);
@@ -313,6 +317,12 @@ int main(){
 
 	///BOOLEANS Y DECLARACIONES RANDOM
 
+    bool congelado1 = false;
+    bool congelado2 = false;
+    bool congelado3 = false;
+    bool congelado4 = false;
+    bool congelado5 = false;
+    bool congelado6 = false;
 	bool pasosP = false;
 	bool pasos2P = false;
 	bool escaneando = false;
@@ -343,6 +353,7 @@ int main(){
     bool stop= true;
     bool kiko= false;
     bool kiko2= false;
+    bool rayolaser = false;
 
     //PERCEPCION SENSONRIAL
 
@@ -354,6 +365,14 @@ int main(){
     scene::IMesh *rayo = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
     scene::IMeshSceneNode *modelo = smgr->addMeshSceneNode(rayo);
     modelo->setVisible(false);
+
+    //RAYO PARALIZADOR
+
+    float angulo3 = 0;
+    float distancia3 = 0;
+    scene::IMesh *rayo2 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
+    scene::IMeshSceneNode *modelo2 = smgr->addMeshSceneNode(rayo2);
+    modelo2->setVisible(false);
 
     int lastFPS = -1;
     u32 myClock;
@@ -508,6 +527,70 @@ int main(){
            prota->velocidad = 10.0f;
 
 
+           //// RAYO LASER paralizador
+
+        if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser){
+           rayolaser = true;
+           b2RayCastInput input2;
+           input2.maxFraction	=	1.0f;
+           b2RayCastOutput	output2;
+
+           ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                    receiver.GetMouseState().Position, camera);
+
+           plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
+
+
+        input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input2.p2.Set(mousePosition.X, mousePosition.Z);	//	Punto	final	del	rayo
+
+        //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
+        //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
+
+
+        distancia3 = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
+        angulo3 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
+
+        if(enemigos[0]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+            congelado1 = true;
+        else if(enemigos[1]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+            congelado2 = true;
+        else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+            congelado3 = true;
+
+        if(kiko){
+
+         if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+            congelado4 = true;
+        else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+            congelado5 = true;
+        }
+
+
+
+         s10 = engine->play3D(rayopara,posicion,false,false,true);
+
+                modelo2->setVisible(true);
+                modelo2->setScale(core::vector3df(distancia3/10, 0.5f, 0.5f));
+                modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
+                modelo2->setRotation(core::vector3df(0,angulo3,0));
+
+
+
+        }
+
+        if(rayolaser == true && s10->isFinished()){
+            rayolaser = false;
+            congelado1 = false;
+            congelado2 = false;
+            congelado3 = false;
+            congelado4 = false;
+            congelado5 = false;
+            congelado6 = false;
+        }
+
+
+
         // ALARMA
         if(enemigos[1]->getEstado() == 3){
             if(cambiao == false){
@@ -535,6 +618,7 @@ int main(){
 
         //SONIDOS ENEMIGOS
         //GUARDIA
+
         if(enemigos[0]->getEstado() == 1 && escaneando==false) {
                 escaneando = true;
                 combatiendo = false;
@@ -571,7 +655,9 @@ int main(){
                 //s2->stop();
                 s2 = engine->play3D(patrullar,posicion,false,false,true);
         }
+
         //GUARDIAS DEL DRON LUL
+
         if(kiko){
             if(enemigos[3]->getEstado() == 1 && escaneandog2==false) {
                 escaneandog2 = true;
@@ -684,8 +770,8 @@ int main(){
                 investigando2 = false;
                 patrullando2 = false;
                 huyendo = false;
-                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                //s3->stop();
+                if(engine->isCurrentlyPlaying(investigarmedico) || engine->isCurrentlyPlaying(patrullarmedico) || engine->isCurrentlyPlaying(huir)|| engine->isCurrentlyPlaying(defensa) || engine->isCurrentlyPlaying(escaneomedico))
+                s3->stop();
                 s3 = engine->play3D(escaneomedico,posicion,false,false,true);
         }
         else if(enemigos[2]->getEstado() == 9 && combatiendo2==false) {
@@ -694,8 +780,8 @@ int main(){
                 investigando2 = false;
                 patrullando2 = false;
                 huyendo = false;
-                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                //s3->stop();
+                if(engine->isCurrentlyPlaying(investigarmedico) || engine->isCurrentlyPlaying(patrullarmedico) || engine->isCurrentlyPlaying(huir)|| engine->isCurrentlyPlaying(defensa) || engine->isCurrentlyPlaying(escaneomedico))
+                s3->stop();
                 s3 = engine->play3D(defensa,posicion,false,false,true);
         }
          if(enemigos[2]->getEstado() == 8 && investigando2==false) {
@@ -704,8 +790,8 @@ int main(){
                 investigando2 = true;
                 patrullando2 = false;
                 huyendo = false;
-                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                //s3->stop();
+                if(engine->isCurrentlyPlaying(investigarmedico) || engine->isCurrentlyPlaying(patrullarmedico) || engine->isCurrentlyPlaying(huir)|| engine->isCurrentlyPlaying(defensa) || engine->isCurrentlyPlaying(escaneomedico))
+                s3->stop();
                 s3 = engine->play3D(investigarmedico,posicion,false,false,true);
         }
          if(enemigos[2]->getEstado() == 0 && patrullando2==false) {
@@ -714,8 +800,8 @@ int main(){
                 investigando2 = false;
                 patrullando2 = true;
                 huyendo = false;
-                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                //s3->stop();
+                if(engine->isCurrentlyPlaying(investigarmedico) || engine->isCurrentlyPlaying(patrullarmedico) || engine->isCurrentlyPlaying(huir)|| engine->isCurrentlyPlaying(defensa) || engine->isCurrentlyPlaying(escaneomedico))
+                s3->stop();
                 s3 = engine->play3D(patrullarmedico,posicion,false,false,true);
         }
          if(enemigos[2]->getEstado() == 3 && huyendo==false) {
@@ -724,10 +810,13 @@ int main(){
                 investigando2 = false;
                 patrullando2 = false;
                 huyendo = true;
-                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                //s3->stop();
+                if(engine->isCurrentlyPlaying(investigarmedico) || engine->isCurrentlyPlaying(patrullarmedico) || engine->isCurrentlyPlaying(huir)|| engine->isCurrentlyPlaying(defensa) || engine->isCurrentlyPlaying(escaneomedico))
+                s3->stop();
                 s3 = engine->play3D(huir,posicion,false,false,true);
         }
+
+
+        //// TORRETA
 
 
         input.p1.Set(enemigos[5]->getBody()->GetPosition().x, enemigos[5]->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
@@ -738,14 +827,14 @@ int main(){
 
 
         distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
+        angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
 
 
-            if(hitprota && distancia<90 && !hitmuro){
+            if(hitprota && distancia<90 && !hitmuro && angulo2>-150 && angulo2<40){
 
                    // b2Vec2 hitPoint = input.p1+output.fraction * (input.p2 - input.p1);
                    // b2Vec2 normal = output.normal;
 
-                angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
                 enemigos[5]->getBody()->SetTransform(enemigos[5]->getBody()->GetPosition(), angulo2);
                 enemigos[5]->getModelo()->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
 
@@ -805,13 +894,18 @@ int main(){
         camera->setTarget(cameraTar);
 
         //Guardia
+        if(!congelado1)
         enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
         //Alarma
+         if(!congelado2)
         enemigos[1]->update(prota->getCuboProta(), tiempo, enemigos);
         //Medico
+         if(!congelado3)
         enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
         if(aparcao){
+                 if(!congelado4)
         enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
+                 if(!congelado5)
         enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
         }
         enemigos[0]->setPosicion(enemigos[0]->getCuboEnemigo(), prota->getCuboProta());

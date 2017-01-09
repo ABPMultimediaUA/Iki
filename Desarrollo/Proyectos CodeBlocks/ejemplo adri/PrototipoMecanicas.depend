@@ -1,16 +1,13 @@
 # depslib dependency file v1.0
-1483722378 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\main.cpp
+1483990515 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
-	"include/Player.h"
 	"include/Objeto.h"
-	"include/World.h"
-	"include/Time.h"
 	<irrKlang.h>
 	"irrKlang/conio.h"
-	"Muros.h"
 	<iostream>
+	"include/PatrolRoute.h"
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
 	"IrrCompileConfig.h"
@@ -1162,12 +1159,15 @@
 1481736228 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1483640841 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
+1483985977 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
 	"../include/Fuzzy.h"
+	"../include/Muros.h"
 	<World.h>
+	<Player.h>
+	"../include/PatrolRoute.h"
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
 	<iostream>
@@ -1185,7 +1185,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1483722378 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\player.h
+1483984585 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -1305,7 +1305,7 @@
 	<World.h>
 	<iostream>
 
-1483642842 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
+1483985977 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -1323,7 +1323,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1483722378 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\player.cpp
+1483985977 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -5475,4 +5475,16 @@
 	"World.h"
 	<Box2D/Box2D.h>
 	<iostream>
+
+1483984585 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\patrolroute.h
+	"PatrolPoint.h"
+
+1483984585 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\include\patrolpoint.h
+	<irrlicht.h>
+
+1483984585 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\patrolpoint.cpp
+	"PatrolPoint.h"
+
+1483984585 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\patrolroute.cpp
+	"PatrolRoute.h"
 
