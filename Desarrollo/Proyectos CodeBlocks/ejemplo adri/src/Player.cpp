@@ -15,24 +15,24 @@ Player::~Player()
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 8;
-    vida=100;
+    vida=200;
     smgr1=smgr;
     escalado= core::vector3df(1,0,1);
 
     esfera= smgr->addCubeSceneNode(8);
     esfera->setMaterialFlag(video::EMF_LIGHTING, false);
     esfera->setScale(escalado);
-    esfera->setPosition(core::vector3df(0,0,10));
+    esfera->setPosition(core::vector3df(45,0,0));
 
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
     modelo->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
-    modelo->setPosition(core::vector3df(0,0,10));
+    modelo->setPosition(core::vector3df(45,0,0));
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(0, 10);
+    bodyDef.position.Set(45, 0);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 

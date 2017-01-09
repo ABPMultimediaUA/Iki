@@ -146,12 +146,34 @@ int main(){
     }
 
     ///PATRULLAS
-//
+
+    ///3-> Enemigos[3] Guardia2
+    PatrolPoint *pp05, *pp06;
+    pp05 = new PatrolPoint(irr::core::vector3df(180,0,120));
+    pp06 = new PatrolPoint(irr::core::vector3df(100,0,120));
+
+    pp05->setNext(pp06); pp06->setNext(pp05);
+    pp05->setPrev(pp06); pp06->setPrev(pp05);
+
+    PatrolRoute pr03;
+    pr03.setInicial(pp05); pr03.setFinal(pp05->getPrev());
+
+    ///4 Enemigos[4] Guardia3
+    PatrolPoint *pp15, *pp16;
+    pp15 = new PatrolPoint(irr::core::vector3df(70,0,250));
+    pp16 = new PatrolPoint(irr::core::vector3df(-10,0,150));
+
+    pp15->setNext(pp16); pp16->setNext(pp15);
+    pp15->setPrev(pp16); pp16->setPrev(pp15);
+
+    PatrolRoute pr04;
+    pr04.setInicial(pp15); pr04.setFinal(pp15->getPrev());
+    ///1-> Enemigos[2] Medico
     PatrolPoint *pp01, *pp02, *pp03, *pp04;
-    pp01 = new PatrolPoint(irr::core::vector3df(0, 0,0));
-    pp02 = new PatrolPoint(irr::core::vector3df(0,0,100));
-    pp03 = new PatrolPoint(irr::core::vector3df(100, 0,100));
-    pp04 = new PatrolPoint(irr::core::vector3df(100, 0, 0));
+    pp01 = new PatrolPoint(irr::core::vector3df(-20, 0,50));
+    pp02 = new PatrolPoint(irr::core::vector3df(-20,0,115));
+    pp03 = new PatrolPoint(irr::core::vector3df(45, 0,115));
+    pp04 = new PatrolPoint(irr::core::vector3df(45, 0, 50));
 
     pp01->setNext(pp02); pp02->setNext(pp03); pp03->setNext(pp04); pp04->setNext(pp01);
     pp01->setPrev(pp04); pp04->setPrev(pp03); pp03->setPrev(pp02); pp02->setPrev(pp01);
@@ -159,18 +181,30 @@ int main(){
     PatrolRoute pr01;
     pr01.setInicial(pp01); pr01.setFinal(pp01->getPrev());
 
-//
+    ///2-> Enemigos[1] Dron
     PatrolPoint *pp11, *pp12, *pp13, *pp14;
-    pp11 = new PatrolPoint(irr::core::vector3df(0,0,75));
-    pp12 = new PatrolPoint(irr::core::vector3df(0,0,130));
-    pp13 = new PatrolPoint(irr::core::vector3df( 40,0,130));
-    pp14 = new PatrolPoint(irr::core::vector3df( 30,0,140));
+    pp11 = new PatrolPoint(irr::core::vector3df(275,0,130));
+    pp12 = new PatrolPoint(irr::core::vector3df(265,0,25));
+    pp13 = new PatrolPoint(irr::core::vector3df(180,0,55));
+    pp14 = new PatrolPoint(irr::core::vector3df(265,0,25));
 
     pp11->setNext(pp12); pp12->setNext(pp13); pp13->setNext(pp14); pp14->setNext(pp11);
     pp11->setPrev(pp14); pp14->setPrev(pp13); pp13->setPrev(pp12); pp12->setPrev(pp11);
 
     PatrolRoute pr02;
     pr02.setInicial(pp11); pr02.setFinal(pp11->getPrev());
+   ///5 -> Enemigo[0] Guardia
+    PatrolPoint *pp09, *pp10;
+    pp09 = new PatrolPoint(irr::core::vector3df(-25,0,30));
+    pp10 = new PatrolPoint(irr::core::vector3df(-25,0,-80));
+
+    pp09->setNext(pp10); pp10->setNext(pp09);
+    pp09->setPrev(pp10); pp10->setPrev(pp09);
+
+    PatrolRoute pr05;
+    pr05.setInicial(pp09); pr05.setFinal(pp10->getPrev());
+
+
 
 
     //std::cout << "1\n";
@@ -181,11 +215,11 @@ int main(){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(30,0,140),pr02);
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(-20,0,20),pr05);
     if(enemigos[1])
-        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(200,0,100),pr01);
+        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(265,0,25),pr02);
     if(enemigos[2])
-        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(40,0,200),pr01);
+        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(-20,0,115),pr01);
     if(enemigos[5])
         enemigos[5]->inicialiazar2(smgr);
 
@@ -468,8 +502,8 @@ int main(){
                 aparcao = true;
                 vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
                 vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
-                enemigos[3]->inicialiazar(0,4,smgr,posicion,pr01);
-                enemigos[4]->inicialiazar(0,5,smgr,posicion2,pr01);
+                enemigos[3]->inicialiazar(0,4,smgr,posicion,pr03);
+                enemigos[4]->inicialiazar(0,5,smgr,posicion2,pr04);
                 enemigos[3]->setEstado(8);
                 enemigos[3]->setPunto(enemigos[1]->getPunto());
                 enemigos[4]->setEstado(8);

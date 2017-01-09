@@ -112,6 +112,7 @@ class Enemigo
         Fuzzy logica;
         scene::ISceneManager* smgr1;
         class World* iworld;
+        Enemigo *aliado;
 
 
 

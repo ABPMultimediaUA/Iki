@@ -226,11 +226,10 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     {
             if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) > 5.f){
                 cuboEnemigo += posicionInicial.normalize()*avMovement;
-                std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
-                std::cout << "Punto (X,Z): " << posicionInicial.X << "," << posicionInicial.Z << std::endl;
+                //std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
+                //std::cout << "Punto (X,Z): " << posicionInicial.X << "," << posicionInicial.Z << std::endl;
             }
             else{
-                std::cout << "2";
                 pRuta = pRuta->getNext();
                 posicionInicial = pRuta->getPunto() - cuboEnemigo;
             }
@@ -382,6 +381,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     int Enemigo::maquinaEstados()
     {
+        if(muerto==false){
         switch (estado)
         {
         case 0:
@@ -423,6 +423,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 primeraVez=true;
                 tiempoVigilando=0.0;
                 estado=0;
+                posicionInicial = pRuta->getPunto() - cuboEnemigo;
             }
             break;
         case 3: //COMBATE/ALARMA/DECISION MEDICO
@@ -496,6 +497,10 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
             break;
         case 9: //PROTEGER
+            if(aliado->getEstado()==0){
+                estado=0;
+                posicionInicial = pRuta->getPunto() - cuboEnemigo;
+            }
             proteger();
             break;
         case 10: //MUERTO
@@ -505,6 +510,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             break;
 
         }
+    }
         return estado;
     }
 
@@ -531,6 +537,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             //aqui pues deberiamos tener un destinario, de momento solo tenemos mensaje entre la medio y el guardia y por eso es asi
             aliados[0]->setEstado(mensajeEstado);
             mensajePendiente=false;
+            aliado=aliados[0];
         }
     }
 
