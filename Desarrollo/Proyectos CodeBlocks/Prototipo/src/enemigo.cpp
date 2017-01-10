@@ -100,8 +100,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
         posicionInicial = pRuta->getPunto() - cuboEnemigo;
         angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
-        sospecha=0;
-        modelo->setRotation(vector3df(0,rotacion+angulo,0));
+        modelo->setRotation(vector3df(0,angulo,0));
         rotacion=modelo->getRotation().Y;
 
 }
@@ -179,33 +178,6 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
         }
     }
-    /*
-    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
-        if(vec.X == -1000){
-            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
-            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-        else{
-            core::vector3df distancia(vec - prot);
-            if(distancia.getLength() <= 1){
-                movx = 0;
-                movy = 0;
-            }
-            else{
-                movx = vec.X;
-                movy = vec.Z;
-            }
-            double modulo = sqrt((movx*movx) + (movy*movy));
-            if(modulo != 0){
-                movx = (movx / modulo) * MOV_SPEED;
-                movy = (movy / modulo) * MOV_SPEED;
-            }
-
-            body2->SetLinearVelocity(b2Vec2(movx, movy));
-            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-
-    }*/
 
 
     void Enemigo::setEstado(int este)
@@ -247,7 +219,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
                 modelo->setRotation(vector3df(0,rotacion+angulo,0));
                 rotacion=modelo->getRotation().Y;
-                 std::cout << "Rotacion: " << rotacion  << std::endl;
+                std::cout << "Rotacion: " << rotacion  << std::endl;
                 std::cout << "Angulo: " << angulo  << std::endl;
             }
         posicion = cuboEnemigo;
