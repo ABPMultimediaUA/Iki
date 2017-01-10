@@ -215,7 +215,7 @@ int main(){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(-20,0,20),pr05);
+        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(-25,0,-80),pr05);
     if(enemigos[1])
         enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(265,0,25),pr02);
     if(enemigos[2])

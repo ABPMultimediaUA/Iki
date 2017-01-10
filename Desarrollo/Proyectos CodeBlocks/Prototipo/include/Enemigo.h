@@ -44,7 +44,7 @@ class Enemigo
         void sospechar(core::vector3df posicionProta);
         void curar(Enemigo aliado);
         int maquinaEstados();
-        void update(core::vector3df, Time, Enemigo *aliados[3]);
+        void update(core::vector3df, Time, Enemigo *aliados[5]);
         void inspeccionar();
         void patrullar();
         void vigilar();
@@ -64,6 +64,7 @@ class Enemigo
         void setMuro(Muros* murito, Player *prota);
         bool getMuro();
         bool getCreado();
+        bool seeWhereIgo();
         class Muros* morito;
 
     protected:
@@ -103,8 +104,10 @@ class Enemigo
         bool muerto;
         bool hayAliado;
         float rotacion;
+        float angulo;
         bool danyado;
         bool creado= false;
+        bool devolver=false;
         Player *player;
 
         b2RayCastInput input;

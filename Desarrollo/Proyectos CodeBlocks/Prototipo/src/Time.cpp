@@ -17,9 +17,9 @@ f32 Time::getTimeFactor()
 }
 float Time::setMomento()
 {
-        printf("entraaaa");
+        //printf("entraaaa");
         momento = m_device->getTimer()->getTime() / 1000.f;
-        printf("momento: %0.2f \n", momento);
+        //printf("momento: %0.2f \n", momento);
         return momento;
 }
 float Time::getMomento()

@@ -60,6 +60,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         modelo = smgr->addCubeSceneNode(tam); //Meter en interfaz
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
         modelo->setPosition(posicion); //Meter en el interfaz
+        modelo->setRotation(vector3df(0,0,0));
 
         tiempoVigilando = 0.0;
         tiempoEscaneando = 0;
@@ -98,7 +99,10 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
         cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
         posicionInicial = pRuta->getPunto() - cuboEnemigo;
+        angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
         sospecha=0;
+        modelo->setRotation(vector3df(0,rotacion+angulo,0));
+        rotacion=modelo->getRotation().Y;
 
 }
 
@@ -229,36 +233,25 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     void Enemigo::patrullar()
     {
+        if(id == 0){
             if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) > 5.f){
+                //rotar el body tambien
                 cuboEnemigo += posicionInicial.normalize()*avMovement;
                 //std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
                 //std::cout << "Punto (X,Z): " << posicionInicial.X << "," << posicionInicial.Z << std::endl;
+
             }
             else{
                 pRuta = pRuta->getNext();
                 posicionInicial = pRuta->getPunto() - cuboEnemigo;
+                angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
+                modelo->setRotation(vector3df(0,rotacion+angulo,0));
+                rotacion=modelo->getRotation().Y;
+                 std::cout << "Rotacion: " << rotacion  << std::endl;
+                std::cout << "Angulo: " << angulo  << std::endl;
             }
-/*
-            case 2:
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
-                    cuboEnemigo.X += avMovement;
-                }else{
-                    direccion = 3;
-                    posicionInicial = cuboEnemigo;
-                }
-                break;
-
-            case 3:
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
-                    cuboEnemigo.Z -= avMovement;
-                }else{
-                    direccion = 0;
-                    posicionInicial = cuboEnemigo;
-                }
-                break;
-*/
-
         posicion = cuboEnemigo;
+        }
     }
 
     bool Enemigo::comprobarPunto(b2Vec2 v){
@@ -336,10 +329,39 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             posicion = cuboEnemigo;
         }
     }
+    bool Enemigo::seeWhereIgo(){
+        devolver=false;
+        /*if()//mira a la izquierda
+        {
+            if(player->getPosicionProta().X > posicion.X){
+                devolver=true;
+            }
+        }
+        if()//mira a la dercha
+        {
+            if(player->getPosicionProta().X < posicion.X){
+                devolver=true;
+            }
+        }*/
+        if(rotacion==0)//mira hacia arriba
+        {
+            if(player->getPosicionProta().Z < posicion.Z){
+                devolver=true;
+            }
+        }
+        if(rotacion==90)//mira hacia abajo
+        {
+            if(player->getPosicionProta().Z > posicion.Z){
+                devolver=true;
+            }
+        }
+        return devolver;
+    }
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
-            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
+            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
+            //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
                     /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
                         sospecha+=30*tiempo.getTimeFactor();
@@ -395,7 +417,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             //Si el player se acerca sospecha
             if(distanciaPlayer<80){ // 75
 
-                    if (!getMuro())
+                    if (!getMuro()&& seeWhereIgo())
                         estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
@@ -519,7 +541,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         return estado;
     }
 
-    void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[3])
+    void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[5])
     {
         tiempo = temps;
 
