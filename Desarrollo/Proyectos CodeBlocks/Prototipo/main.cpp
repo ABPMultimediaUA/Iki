@@ -128,6 +128,7 @@ int main(){
     IGUIEnvironment* guienv= device->getGUIEnvironment();   //Interfaz de usuario
 
 
+
     ///CAMARA
     ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 100,-30),core::vector3df(0,0,0));
 
@@ -300,6 +301,8 @@ int main(){
     pasos1->setDefaultVolume(2.0f);
     pasos2->setDefaultVolume(1.0f);
 
+
+
     ///SUELO
 
 
@@ -314,6 +317,13 @@ int main(){
        //suelo->getMaterial(0).getTextureMatrix(0).setTextureTranslate(1,1);
        //suelo->getMaterial(0).getTextureMatrix(0).setTextureScale(1,1);
     }
+
+    ///VIDA PROTA
+    ITexture *image;
+    image = driver->getTexture("texturas/tuerca.png");
+    driver->makeColorKeyTexture(image, position2d<s32>(0,0));
+    driver->getMaterial2D().TextureLayer[0].BilinearFilter=true;
+    driver->getMaterial2D().AntiAliasing=EAAM_FULL_BASIC;
 
 	///BOOLEANS Y DECLARACIONES RANDOM
 
@@ -388,6 +398,7 @@ int main(){
 
     while(device->run()){
        driver->beginScene(true, true, SColor(255, 100, 101, 140));
+
 
 
         ///raton
@@ -476,8 +487,23 @@ int main(){
             }
         }
 
-        //importante para cambiar posicion de body
-        //prota->moverBody(mousePosition);
+        ///VIDA PROTA
+
+
+        if(prota->getVida() >= 200){
+        driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        }
+        else if(prota->getVida() >= 100){
+            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        }
+        else if(prota->getVida() > 0){
+           driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        }
+
+
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
         if(tocado == true){
             if(vez){
