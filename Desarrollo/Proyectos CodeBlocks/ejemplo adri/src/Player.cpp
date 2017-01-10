@@ -15,17 +15,24 @@ Player::~Player()
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 8;
-    vida=100;
+    vida=200;
     smgr1=smgr;
+    escalado= core::vector3df(1,0,1);
+
+    esfera= smgr->addCubeSceneNode(8);
+    esfera->setMaterialFlag(video::EMF_LIGHTING, false);
+    esfera->setScale(escalado);
+    esfera->setPosition(core::vector3df(45,0,0));
+
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
-    //modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
-   // modelo->setMaterialType( video::EMT_SOLID );
-    modelo->setPosition(core::vector3df(0,0,10));
+    modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
+    modelo->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
+    modelo->setPosition(core::vector3df(45,0,0));
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(0, 10);
+    bodyDef.position.Set(45, 0);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 
@@ -43,12 +50,17 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     body->CreateFixture(&fixtureDef);
 }
 
+core::vector3df Player::getPosicionProta(){
+    return modelo->getPosition();
+}
+
 core::vector3df Player::getCuboProta(){
     return modelo->getPosition();
 }
 
 void Player::setPosition(core::vector3df vec){
     modelo->setPosition(vec);
+    esfera->setPosition(core::vector3df(vec.X, vec.Y, vec.Z));
 }
 
 b2Body* Player::getBody(){
@@ -64,14 +76,56 @@ void Player::setPosicionBody(float ang){
     std::cout << "-------------- \n";*/
 }
 
+bool Player::cogerObjeto(core::vector3df vec, scene::ISceneManager* smgr){
+    bool golpeado = false;
+    if(vec.getLength() <= 8){
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(128, 128, 128, 0));
+        body->SetLinearVelocity(b2Vec2(0, 0));
+        golpeado = true;
+    }else{
+        movx = vec.X;
+        movy = vec.Z;
+        double modulo = sqrt((movx*movx) + (movy*movy));
+        if(modulo != 0){
+            movx = (movx / modulo) * velocidad;
+            movy = (movy / modulo) * velocidad;
+        }
+
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 0, 0, 0));
+        body->SetLinearVelocity(b2Vec2(movx, movy));
+    }
+    return golpeado;
+}
+
+bool Player::atacar(core::vector3df vec, scene::ISceneManager* smgr){
+    bool golpeado = false;
+    if(vec.getLength() <= 10){
+        smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(128, 128, 128, 0));
+        body->SetLinearVelocity(b2Vec2(0, 0));
+        golpeado = true;
+    }else{
+        movx = vec.X;
+        movy = vec.Z;
+        double modulo = sqrt((movx*movx) + (movy*movy));
+        if(modulo != 0){
+            movx = (movx / modulo) * MOV_SPEED;
+            movy = (movy / modulo) * MOV_SPEED;
+        }
+
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 0, 0, 0));
+        body->SetLinearVelocity(b2Vec2(movx, movy));
+    }
+    return golpeado;
+}
+
 void Player::moverBody(core::vector3df vec){
     //body->ApplyLinearImpulse(b2Vec2(0, 5.0), b2Vec2(vec.X, vec.Z), true);
     movx = vec.X;
     movy = vec.Z;
     double modulo = sqrt((movx*movx) + (movy*movy));
     if(modulo != 0){
-        movx = (movx / modulo) * MOV_SPEED;
-        movy = (movy / modulo) * MOV_SPEED;
+        movx = (movx / modulo) * velocidad;
+        movy = (movy / modulo) * velocidad;
     }
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
@@ -95,9 +149,13 @@ void Player::setCuboProta(core::vector3df cb){
 scene::IMeshSceneNode* Player::getModelo(){
     return modelo;
 }
+scene::IMeshSceneNode* Player::getEsfera(){
+    return esfera;
+}
 float Player::getVida(){
     return vida;
 }
+
 void Player::setVida(float v){
 vida=v;
 }

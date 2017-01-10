@@ -5,7 +5,13 @@
 #include "driverChoice.h"
 #include "../include/Time.h"
 #include "../include/Fuzzy.h"
+#include "../include/Muros.h"
 #include <World.h>
+#include <Player.h>
+
+#include "../include/PatrolRoute.h"
+
+#define MOV_SPEED 10.0f;
 
 
 using namespace irr;
@@ -24,11 +30,12 @@ class Enemigo
         virtual ~Enemigo();
         void setCuboEnemigo(core::vector3df);
         b2Body* getBody();
-        void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p);
+        void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p, PatrolRoute pr);
+        void inicialiazar2(scene::ISceneManager*);
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
-        void setPosicion(core::vector3df este);
+        void setPosicion(core::vector3df vec, core::vector3df prot);
         void setPunto(core::vector3df este);
         void setEstado(int este);
         float getSospecha();
@@ -49,6 +56,15 @@ class Enemigo
         void avisarCapsulas();
         float getVida();
         void atacar();
+        bool comprobarPunto(b2Vec2);
+        void quitarVida();
+        void setDanyado(bool);
+        bool getDanyado();
+        bool getMuerto();
+        void setMuro(Muros* murito, Player *prota);
+        bool getMuro();
+        bool getCreado();
+        class Muros* morito;
 
     protected:
 
@@ -57,6 +73,7 @@ class Enemigo
         scene::IMeshSceneNode *modelo;
         b2Body *body2;
         float tam;
+        float movx, movy;
         int id;
         int estado; //0-> patrullar 1-> vigilar 2-> combate 3-> pedir ayuda 4-> huir 5-> perseguir 6-> atacar 7->inspeccionar 8->sospechar 9->muerto
         int direccion; //0-> arriba 1-> derecha 2-> abajo 3-> izquierda
@@ -67,6 +84,7 @@ class Enemigo
         float tiempoVigilando;
         int tiempoEscaneando;
         core::vector3df posicion;
+
         core::vector3df posicionInicial;
         core::vector3df puntoInteres;
         core::vector3df cuboEnemigo;
@@ -85,10 +103,18 @@ class Enemigo
         bool muerto;
         bool hayAliado;
         float rotacion;
+        bool danyado;
+        bool creado= false;
+        Player *player;
 
+        b2RayCastInput input;
+        b2RayCastOutput	output;
+
+        PatrolPoint* pRuta;
         Fuzzy logica;
         scene::ISceneManager* smgr1;
         class World* iworld;
+        Enemigo *aliado;
 
 
 

@@ -13,7 +13,10 @@ Enemigo::~Enemigo()
     //dtor
 }
 
-void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vector3df p){
+void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vector3df p, PatrolRoute pr){
+
+    pRuta = pr.getInicial();
+
 /*
     tam= 5;
 
@@ -44,17 +47,20 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     body2->CreateFixture(&fixtureDef);
 */
         id=ID;
+        input.maxFraction	=	1.0f;
+        tam= 5;
         estado = 0;
-        vida=100;
+        vida=1;
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
+        creado= true;
         posicion = p; //Meter en interfaz
         puntoInteres = core::vector3df(0,0,0); //Meter en interfaz
-        modelo = smgr->addCubeSceneNode(5); //Meter en interfaz
+        modelo = smgr->addCubeSceneNode(tam); //Meter en interfaz
         modelo->setMaterialFlag(video::EMF_LIGHTING, false); //Meter en el interfaz
         modelo->setPosition(posicion); //Meter en el interfaz
-        cuboEnemigo = modelo->getPosition();
+
         tiempoVigilando = 0.0;
         tiempoEscaneando = 0;
         avMovement = 0.0;
@@ -74,13 +80,13 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         cuboEnemigo = modelo->getPosition();*/
 
         b2BodyDef bodyDef;
-        bodyDef.type= b2_staticBody;
-        bodyDef.position.Set(40, -10);
+        bodyDef.type= b2_dynamicBody;
+        bodyDef.position.Set(posicion.X, posicion.Z);
         iworld= World::Instance();
         body2= iworld->getWorld()->CreateBody(&bodyDef);
 
         b2PolygonShape bodyShape;
-        bodyShape.SetAsBox((50/2)+0.5, (10/2)+0.5);
+        bodyShape.SetAsBox(tam/2, tam/2);
         body2->CreateFixture(&bodyShape, 1.0f);
 
         b2FixtureDef fixtureDef;
@@ -89,6 +95,39 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         fixtureDef.restitution  = 0.9f;
         fixtureDef.density  = 10.f;
         body2->CreateFixture(&fixtureDef);
+
+        cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
+        posicionInicial = pRuta->getPunto() - cuboEnemigo;
+        sospecha=0;
+
+}
+
+void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
+    tam= 4;
+    vida = 150;
+
+    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(8.f, 8.f, 8.f));
+    modelo = smgr->addMeshSceneNode(mura1);
+
+    modelo->setPosition(core::vector3df(180,0,255));
+    modelo->setRotation(core::vector3df(0,-45,0));
+
+    b2BodyDef bodyDef;
+    bodyDef.type= b2_staticBody;
+    bodyDef.position.Set(180, 255);
+    iworld= World::Instance();
+    body2= iworld->getWorld()->CreateBody(&bodyDef);
+
+    b2PolygonShape bodyShape;
+    bodyShape.SetAsBox(tam/2, tam/2);
+    body2->CreateFixture(&bodyShape, 1.0f);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &bodyShape;
+    fixtureDef.friction = 10.5f;
+    fixtureDef.restitution  = 0.9f;
+    fixtureDef.density  = 10.f;
+    body2->CreateFixture(&fixtureDef);
 }
 
 
@@ -110,6 +149,10 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         return estado;
     }
 
+    bool Enemigo::getCreado(){
+        return creado;
+    }
+
     core::vector3df Enemigo::getPosicion() //Meter en interfaz
     {
         return posicion;
@@ -119,10 +162,48 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     {
         return puntoInteres;
     }
-    void Enemigo::setPosicion(core::vector3df este) //Meter en interfaz
-    {
-        posicion = este;
+
+    //Asi se mueve con BODY
+
+    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
+        if(muerto){
+            body2->SetTransform(b2Vec2(-1000, -1000), 0);
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
+        else{
+            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
     }
+    /*
+    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
+        if(vec.X == -1000){
+            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
+        else{
+            core::vector3df distancia(vec - prot);
+            if(distancia.getLength() <= 1){
+                movx = 0;
+                movy = 0;
+            }
+            else{
+                movx = vec.X;
+                movy = vec.Z;
+            }
+            double modulo = sqrt((movx*movx) + (movy*movy));
+            if(modulo != 0){
+                movx = (movx / modulo) * MOV_SPEED;
+                movy = (movy / modulo) * MOV_SPEED;
+            }
+
+            body2->SetLinearVelocity(b2Vec2(movx, movy));
+            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        }
+
+    }*/
+
+
     void Enemigo::setEstado(int este)
     {
         estado=este;
@@ -148,27 +229,15 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
     void Enemigo::patrullar()
     {
-    switch(direccion)
-        {
-            case 0: //Movimiento hacia arriba
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 40){
-                    cuboEnemigo.X -= avMovement;
-                    cuboEnemigo.Z -= avMovement;
-                }else{
-                    direccion = 1;
-                    posicionInicial = cuboEnemigo;
-                }
-                break;
-
-            case 1: //Movimiento hacia la derecha
-                if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 40){
-                    cuboEnemigo.Z += avMovement;
-                    cuboEnemigo.X += avMovement;
-                }else{
-                    direccion = 0;
-                    posicionInicial = cuboEnemigo;
-                }
-                break;
+            if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) > 5.f){
+                cuboEnemigo += posicionInicial.normalize()*avMovement;
+                //std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
+                //std::cout << "Punto (X,Z): " << posicionInicial.X << "," << posicionInicial.Z << std::endl;
+            }
+            else{
+                pRuta = pRuta->getNext();
+                posicionInicial = pRuta->getPunto() - cuboEnemigo;
+            }
 /*
             case 2:
                 if(cuboEnemigo.getDistanceFrom(posicionInicial) <= 20){
@@ -188,9 +257,39 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 }
                 break;
 */
-        }
+
         posicion = cuboEnemigo;
     }
+
+    bool Enemigo::comprobarPunto(b2Vec2 v){
+        bool si = false;
+        si = body2->GetFixtureList()->TestPoint(v);
+
+        return si;
+    }
+
+    void Enemigo::quitarVida(){
+        --vida;
+        //std::cout << vida;
+        if(vida <= 0){
+            muerto = true;
+            modelo->setPosition(core::vector3df(1000,0,0));
+            body2->SetTransform(b2Vec2(1000,0),0);
+        }
+    }
+
+    void Enemigo::setDanyado(bool b){
+        danyado = b;
+    }
+
+    bool Enemigo::getDanyado(){
+        return danyado;
+    }
+
+    bool Enemigo::getMuerto(){
+        return muerto;
+    }
+
     void Enemigo::inspeccionar(){
           if(cuboEnemigo.getDistanceFrom(puntoInteres) != 0){
                     cuboEnemigo += ((puntoInteres) - (cuboEnemigo)).normalize() * avMovement;
@@ -240,13 +339,11 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
-            if (tiempoEscaneando < 3.0){ //escaneo tres segundos
-                if(sospecha < 99 && distanciaPlayer<80){ //si el personaje se aleja(no lo percibe deberia ser) deja de sumar sospecha
+            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
                     /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
                         sospecha+=30*tiempo.getTimeFactor();
-                    std::cout << sospecha << std::endl;
-                }
+                    //std::cout << sospecha << std::endl;
             }
             else { // Cuando termina de escanear
                 primeraVez=true;
@@ -258,17 +355,14 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 float val = logica.Defuzzify();
                 std::cout << "  " << val << std::endl;
 
-                if (val <= 37.5){
+                if (val <= 25.0){
                     estado = 0;
-                   // sospecha=0.0;
                 }
-                else if (val <= 45.5){
-                   // sospecha=25.0;
+                else if (val <= 55){
                     puntoInteres=posicionProta;
                     estado=8;
                 }
                 else {
-                   // sospecha = 40.0;
                     estado = 3;
                 }
                 //
@@ -292,6 +386,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
     int Enemigo::maquinaEstados()
     {
+        if(muerto==false){
         switch (estado)
         {
         case 0:
@@ -299,7 +394,9 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             patrullar();
             //Si el player se acerca sospecha
             if(distanciaPlayer<80){ // 75
-                estado = 1;
+
+                    if (!getMuro())
+                        estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
@@ -310,7 +407,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
 
             if(primeraVez){
-                sospecha=0;
+                //sospecha=0;
                 reloj=tiempo.setMomento();
                 primeraVez=false;
             }
@@ -331,6 +428,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
                 primeraVez=true;
                 tiempoVigilando=0.0;
                 estado=0;
+                posicionInicial = pRuta->getPunto() - cuboEnemigo;
             }
             break;
         case 3: //COMBATE/ALARMA/DECISION MEDICO
@@ -394,7 +492,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 255, 0));
             inspeccionar();
             if (distanciaPlayer<=80){
-                estado = 3;
+                if (!getMuro())
+                    estado = 3;
             }
             if(posicion.getDistanceFrom(puntoInteres) == 0)
             {
@@ -403,6 +502,10 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
             break;
         case 9: //PROTEGER
+            if(aliado->getEstado()==0){
+                estado=0;
+                posicionInicial = pRuta->getPunto() - cuboEnemigo;
+            }
             proteger();
             break;
         case 10: //MUERTO
@@ -412,6 +515,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             break;
 
         }
+    }
         return estado;
     }
 
@@ -438,5 +542,45 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
             //aqui pues deberiamos tener un destinario, de momento solo tenemos mensaje entre la medio y el guardia y por eso es asi
             aliados[0]->setEstado(mensajeEstado);
             mensajePendiente=false;
+            aliado=aliados[0];
         }
+    }
+
+    void Enemigo::setMuro(Muros* murito, Player *prota){
+        player= prota;
+        morito = murito;
+    }
+
+    bool Enemigo::getMuro(){
+        input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+        if (morito->body->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body2->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body3->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body4->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body5->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body6->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body7->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body8->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body9->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body10->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body11->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body12->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body13->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body14->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body15->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body16->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body17->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body18->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body19->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body20->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body21->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body22->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body23->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body24->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body25->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->body26->GetFixtureList()->RayCast(&output,	input,	0))return true;
+
+       return false;
     }
