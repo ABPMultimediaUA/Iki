@@ -44,7 +44,7 @@ class Enemigo
         void sospechar(core::vector3df posicionProta);
         void curar(Enemigo aliado);
         int maquinaEstados();
-        void update(core::vector3df, Time, Enemigo *aliados[5]);
+        void update(core::vector3df, Time, Enemigo *aliados[7]);
         void inspeccionar();
         void patrullar();
         void vigilar();

@@ -205,24 +205,37 @@ int main(){
     PatrolRoute pr05;
     pr05.setInicial(pp09); pr05.setFinal(pp10->getPrev());
 
+    ///5 -> Enemigo[6] GuardiaNuevo
+    PatrolPoint *pp07, *pp08;
+    pp07 = new PatrolPoint(irr::core::vector3df(120,0,100));
+    pp08 = new PatrolPoint(irr::core::vector3df(120,0,170));
+
+    pp07->setNext(pp08); pp08->setNext(pp07);
+    pp07->setPrev(pp08); pp08->setPrev(pp07);
+
+    PatrolRoute pr06;
+    pr06.setInicial(pp07); pr06.setFinal(pp07->getPrev());
+
 
 
 
     //std::cout << "1\n";
 
     ///ENEMIGOS
-    Enemigo  *enemigos[6];
-    for(int i=0;i<6;i++){
+    Enemigo  *enemigos[7];
+    for(int i=0;i<7;i++){
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr, core::vector3df(-25,0,-80),pr05);
+        enemigos[0]->inicialiazar(0,0, smgr,vector3df(-25,0,-80),pr05);
     if(enemigos[1])
-        enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(265,0,25),pr02);
+        enemigos[1]->inicialiazar(1,1, smgr,vector3df(120,0,170),pr06);
     if(enemigos[2])
-        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(45,0,50),pr01);
+        enemigos[2]->inicialiazar(2,2,smgr,vector3df(45,0,50),pr01);
     if(enemigos[5])
         enemigos[5]->inicialiazar2(smgr);
+    if(enemigos[6])
+        enemigos[6]->inicialiazar(0,6,smgr,vector3df(265,0,25),pr02);
 
     //cambio de color de mallas
     //smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(0, 255, 255, 0));
@@ -239,7 +252,7 @@ int main(){
     if(muro1){
         muro1->inicializar(smgr, driver);
     }
-       for(int i=0;i<6;i++){
+       for(int i=0;i<7;i++){
         enemigos[i]->setMuro(muro1, prota);
     }
 
@@ -456,7 +469,7 @@ int main(){
             }
 
             //Ataque de prota
-            for(n= 0; n <= 5; n++){
+            for(n= 0; n <= 6; n++){
                 if(enemigos[n]->getCreado()){
 
                     if(!enemigos[n]->getMuerto() && enemigos[n]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z))){
@@ -677,8 +690,8 @@ int main(){
                 enemigos[3]->inicialiazar(0,4,smgr,posicion,pr03);
                 enemigos[4]->inicialiazar(0,5,smgr,posicion2,pr04);
                 enemigos[3]->setEstado(8);
-                enemigos[3]->setPunto(enemigos[1]->getPunto());
                 enemigos[4]->setEstado(8);
+                enemigos[3]->setPunto(enemigos[1]->getPunto());
                 enemigos[4]->setPunto(enemigos[1]->getPunto());
                 enemigos[1]->setEstado(10);
                 kiko = true;
@@ -964,7 +977,7 @@ int main(){
 
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
-
+        ///UPDATES ENEMIGO
         //Guardia
         if(!congelado1)
         enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
@@ -980,6 +993,8 @@ int main(){
                  if(!congelado5)
         enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
         }
+        enemigos[6]->update(prota->getCuboProta(), tiempo, enemigos);
+        ///SET POSITION ENEMIGOS
         enemigos[0]->setPosicion(enemigos[0]->getCuboEnemigo(), prota->getCuboProta());
 
         //Si el dron no se ha convertido en alarma
@@ -990,6 +1005,7 @@ int main(){
             enemigos[4]->setPosicion(enemigos[4]->getCuboEnemigo(), prota->getCuboProta());
         }
         enemigos[2]->setPosicion(enemigos[2]->getCuboEnemigo(), prota->getCuboProta());
+        enemigos[6]->setPosicion(enemigos[6]->getCuboEnemigo(), prota->getCuboProta());
 
 
         //std::cout << "static constructor\n";

@@ -16,7 +16,6 @@ Enemigo::~Enemigo()
 void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vector3df p, PatrolRoute pr){
 
         pRuta = pr.getInicial();
-
         id=ID;
         input.maxFraction	=	1.0f;
         tam= 5;
@@ -66,8 +65,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
         modelo->setRotation(vector3df(0,angulo,0));
         rotacion=modelo->getRotation().Y;
-        std::cout << "Primera Rotacion: " << rotacion  << std::endl;
-        std::cout << "Primer Angulo: " << angulo  << std::endl;
+        //std::cout << "Primera Rotacion: " << rotacion  << std::endl;
+        //std::cout << "Primer Angulo: " << angulo  << std::endl;
 
 
 }
@@ -502,7 +501,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         return estado;
     }
 
-    void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[5])
+    void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[7])
     {
         tiempo = temps;
         direccionHuir = (aliados[5]->getPosicion()-posicion);
@@ -517,7 +516,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 }
                 else{
                     hayAliado = false;
-                    posicionAliado=aliados[4]->getPosicion();
+                    posicionAliado=aliados[5]->getPosicion();
                 }
 
                 if(mensajePendiente){

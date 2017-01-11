@@ -45,9 +45,9 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 0.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 1.f;
+    fixtureDef.friction = 100.f;
+    fixtureDef.restitution  = 0.f;
+    fixtureDef.density  = 100.f;
     body->CreateFixture(&fixtureDef);
 }
 
