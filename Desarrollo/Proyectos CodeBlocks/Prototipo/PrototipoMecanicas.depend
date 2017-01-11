@@ -7096,7 +7096,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484126272 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
+1484145969 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -7130,7 +7130,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\player.h
+1484143659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -7141,7 +7141,7 @@
 1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\patrolpoint.h
 	<irrlicht.h>
 
-1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\objeto.h
+1484143659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\objeto.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -7173,7 +7173,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
+1484143659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -7184,7 +7184,7 @@
 1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1484142928 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\player.cpp
+1484145320 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -7210,7 +7210,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484143041 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
+1484145814 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 

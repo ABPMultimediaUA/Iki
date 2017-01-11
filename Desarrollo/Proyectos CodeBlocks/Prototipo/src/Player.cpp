@@ -28,7 +28,7 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     modelo->setMaterialTexture( 0, driver->getTexture("texturas/metal.png") );
-    modelo->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
+    //modelo->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
     modelo->setPosition(core::vector3df(45,0,0));
 
     b2BodyDef bodyDef;
@@ -80,7 +80,7 @@ void Player::setPosicionBody(float ang){
 bool Player::cogerObjeto(core::vector3df vec, scene::ISceneManager* smgr){
     bool golpeado = false;
     if(vec.getLength() <= 8){
-        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(128, 128, 128, 0));
+        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 128, 128, 0));
         body->SetLinearVelocity(b2Vec2(0, 0));
         golpeado = true;
     }else{
@@ -101,7 +101,7 @@ bool Player::cogerObjeto(core::vector3df vec, scene::ISceneManager* smgr){
 bool Player::atacar(core::vector3df vec, scene::ISceneManager* smgr){
     bool golpeado = false;
     if(vec.getLength() <= 10){
-        smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(128, 128, 128, 0));
+        //smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 128, 128, 0));
         body->SetLinearVelocity(b2Vec2(0, 0));
         golpeado = true;
     }else{
@@ -113,7 +113,7 @@ bool Player::atacar(core::vector3df vec, scene::ISceneManager* smgr){
             movy = (movy / modulo) * MOV_SPEED;
         }
 
-        smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 0, 0, 0));
+       // smgr->getMeshManipulator()->setVertexColors(esfera->getMesh(),video::SColor(0, 0, 0, 0));
         body->SetLinearVelocity(b2Vec2(movx, movy));
     }
     return golpeado;

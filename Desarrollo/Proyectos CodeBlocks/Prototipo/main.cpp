@@ -466,7 +466,7 @@ int main(){
                         }
                     }
                     else{
-                        smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
+                        //smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
                         if(toMousePosition.getLength() <= 1)
                             prota->moverBody(vector3df(0,0,0));
                         else
@@ -771,8 +771,8 @@ int main(){
                 combatiendog3 = false;
                 investigandog3 = false;
                 patrullandog3 = false;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(escaneo,posicion,false,false,true);
         }
         else if(enemigos[4]->getEstado() == 3 && combatiendog3==false) {
@@ -780,8 +780,8 @@ int main(){
                 combatiendog3 = true;
                 investigandog3 = false;
                 patrullandog3 = false;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(combate,posicion,false,false,true);
         }
         else if(enemigos[4]->getEstado() == 8 && investigandog3==false) {
@@ -789,8 +789,8 @@ int main(){
                 combatiendog3 = false;
                 investigandog3 = true;
                 patrullandog3 = false;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(investigar,posicion,false,false,true);
         }
         else if(enemigos[4]->getEstado() == 0 && patrullandog3==false) {
@@ -798,8 +798,8 @@ int main(){
                 combatiendog3 = false;
                 investigandog3 = false;
                 patrullandog3 = true;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(patrullar,posicion,false,false,true);
         }
 

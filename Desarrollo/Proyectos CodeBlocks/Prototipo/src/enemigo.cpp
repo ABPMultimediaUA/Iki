@@ -205,7 +205,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     void Enemigo::patrullar()
     {
-        if(id == 0){
+        if(id == 1){
             if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) > 5.f){
                 //rotar el body tambien
                 cuboEnemigo += posicionInicial.normalize()*avMovement;
@@ -332,8 +332,8 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
-            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
-            //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
+            //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
+            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
                     /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
                         sospecha+=30*tiempo.getTimeFactor();
@@ -389,7 +389,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             //Si el player se acerca sospecha
             if(distanciaPlayer<80){ // 75
 
-                    if (!getMuro()&& seeWhereIgo())
+                    if (!getMuro())//&& seeWhereIgo())
                         estado = 1;
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
