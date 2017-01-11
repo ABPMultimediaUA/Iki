@@ -7096,7 +7096,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484145969 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
+1484148101 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -7173,7 +7173,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484143659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
+1484146464 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -7210,7 +7210,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484145814 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
+1484147153 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 

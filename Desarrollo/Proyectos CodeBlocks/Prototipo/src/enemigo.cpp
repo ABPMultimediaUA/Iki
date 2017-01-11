@@ -334,9 +334,11 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         tiempoEscaneando=(time-reloj);
             //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
             if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
-                    /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
-                        sospecha+=30*tiempo.getTimeFactor();
+                        if (player->velocidad == 4.5f )
+                            sospecha+=10*tiempo.getTimeFactor();
+                        else
+                            sospecha+=30*tiempo.getTimeFactor();
                     //std::cout << sospecha << std::endl;
             }
             else { // Cuando termina de escanear
