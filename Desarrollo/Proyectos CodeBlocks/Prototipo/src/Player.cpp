@@ -124,8 +124,8 @@ void Player::moverBody(core::vector3df vec){
     movy = vec.Z;
     double modulo = sqrt((movx*movx) + (movy*movy));
     if(modulo != 0){
-        movx = (movx / modulo) * velocidad;
-        movy = (movy / modulo) * velocidad;
+        movx = (movx / modulo) * velocidad * 0.70;
+        movy = (movy / modulo) * velocidad * 0.70;
     }
 
     body->SetLinearVelocity(b2Vec2(movx, movy));

@@ -7096,3 +7096,121 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
+1484126272 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Objeto.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
+	<iostream>
+	"include/PatrolRoute.h"
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	"../include/Time.h"
+	"../include/Fuzzy.h"
+	"../include/Muros.h"
+	<World.h>
+	<Player.h>
+	"../include/PatrolRoute.h"
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\time.h
+	<irrlicht.h>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\fuzzy.h
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\muros.h
+	<irrlicht.h>
+	<World.h>
+	<iostream>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\patrolroute.h
+	"PatrolPoint.h"
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\patrolpoint.h
+	<irrlicht.h>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\objeto.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\irrklang\conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<sys/ioctl.h>
+
+1484126273 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1484126273 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\game.cpp
+	"Game.h"
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\game.h
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\muros.cpp
+	"Muros.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
+	"Objeto.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\patrolpoint.cpp
+	"PatrolPoint.h"
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\patrolroute.cpp
+	"PatrolRoute.h"
+
+1484142928 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\singleton.h
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1484126271 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\include\suelo.h
+	<Box2D/Box2D.h>
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\time.cpp
+	"..\include\Time.h"
+
+1484126274 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484143041 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+

@@ -287,7 +287,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     }
     void Enemigo::perseguir(){
-        cuboEnemigo += direccionHaciaProta.normalize() * avMovement;
+        cuboEnemigo += direccionHaciaProta.normalize() * avMovement * 2.0;
         posicion = cuboEnemigo;
 
     }
