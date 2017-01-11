@@ -402,7 +402,7 @@ int main(){
     Time tiempo;
     tiempo.set(device);
     float vidaProta;
-    int n;
+    int n, balamenos= 0;
     float objvida= 0.0f;
     int objlaser= 0;
     bool vez= false, vez2= false;
@@ -589,61 +589,62 @@ int main(){
            prota->velocidad = 10.0f;
 
 
-           //// RAYO LASER paralizador
+        //// RAYO LASER paralizador
+        if(prota->getLaser() > 0){
+            if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser){
+                balamenos= prota->getLaser() - 1;
+                prota->setLaser(balamenos);
+                rayolaser = true;
+                rayolaser1 = true;
+                b2RayCastInput input2;
+                input2.maxFraction	=	1.0f;
+                b2RayCastOutput	output2;
 
-        if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser){
-           rayolaser = true;
-           rayolaser1 = true;
-           b2RayCastInput input2;
-           input2.maxFraction	=	1.0f;
-           b2RayCastOutput	output2;
+                ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                receiver.GetMouseState().Position, camera);
 
-           ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                    receiver.GetMouseState().Position, camera);
+                plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
 
-           plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
+                toMousePosition = mousePosition - prota->getCuboProta();
 
-        toMousePosition = mousePosition - prota->getCuboProta();
+                input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+                float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
+                input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*50), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*50));
 
-        input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
-        float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
-        input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*50), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*50));
-
-        //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
-        //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
-
-
-        distancia3 = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
-        angulo3 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
-
-        if(enemigos[0]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-            congelado1 = true;
-        else if(enemigos[1]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-            congelado2 = true;
-        else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-            congelado3 = true;
-
-        if(kiko){
-
-         if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-            congelado4 = true;
-        else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-            congelado5 = true;
-        }
+                //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
+                //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
 
 
+                distancia3 = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
+                angulo3 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
 
-         s10 = engine->play3D(rayopara,posicion,false,false,true);
-         s11 = engine->play3D(hack,posicion,false,false,true);
+                if(enemigos[0]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    congelado1 = true;
+                else if(enemigos[1]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    congelado2 = true;
+                else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    congelado3 = true;
+
+                if(kiko){
+
+                if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    congelado4 = true;
+                else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    congelado5 = true;
+                }
+
+
+
+                s10 = engine->play3D(rayopara,posicion,false,false,true);
+                s11 = engine->play3D(hack,posicion,false,false,true);
 
                 modelo2->setVisible(true);
                 modelo2->setScale(core::vector3df(distancia3/10, 0.5f, 0.5f));
                 modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
                 modelo2->setRotation(core::vector3df(0,angulo3,0));
-
-
-
+            }
         }
+
 
         if(rayolaser == true && s10->isFinished()){
             rayolaser = false;
