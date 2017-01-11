@@ -10,7 +10,7 @@ class Objeto
 {
     public:
         Objeto();
-        void inicializar(scene::ISceneManager*,video::IVideoDriver* driver);
+        void inicializar(scene::ISceneManager*, video::IVideoDriver* driver, core::vector3df p);
         void setPosition(core::vector3df vec);
         void setCuboProta(core::vector3df);
         void setPosicionBody(float ang);

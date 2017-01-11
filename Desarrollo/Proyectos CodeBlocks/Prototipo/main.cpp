@@ -245,14 +245,23 @@ int main(){
 
 
     ///OBJETO
-    Objeto *objeto= new Objeto;
-    if(objeto){
-        objeto->inicializar(smgr,driver);
-
+    Objeto *objetos[2];
+    for(int m= 0; m < 2; m++){
+        objetos[m]= new Objeto;
     }
+
+    if(objetos[0]){
+        objetos[0]->inicializar(smgr, driver, core::vector3df(-27,0,0));
+    }
+    if(objetos[1]){
+        objetos[1]->inicializar(smgr, driver, core::vector3df(-28,0,50));
+    }
+
     ///RATON
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition= core::vector3df(0,0,0);
+    vector3df toMousePositionObj;
+    vector3df toMousePosition;
     core::line3df ray(mousePosition, prota->getCuboProta());
     core::line3df ray2(mousePosition, prota->getCuboProta());
     core::line3df ray3(mousePosition, prota->getCuboProta());
@@ -359,7 +368,7 @@ int main(){
 	bool huyendo = false;
 	bool cambiao = false;
     bool aparcao = false;
-    bool hayobj= false;
+    bool hayobj= false, hayobj2= false;
     bool centinela= false;
     bool tocado= false;
     bool stop= true;
@@ -395,10 +404,10 @@ int main(){
     float vidaProta;
     int n;
     float objvida= 0.0f;
-    bool vez= true;
+    int objlaser= 0;
+    bool vez= false, vez2= false;
 
     ///CICLO DEL JUEGO
-
     while(device->run()){
        driver->beginScene(true, true, SColor(255, 100, 101, 140));
 
@@ -431,8 +440,20 @@ int main(){
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
             // We now have a mouse position in 3d space; move towards it.
-            core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
-            hayobj= objeto->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
+            toMousePosition = mousePosition - prota->getCuboProta();
+            hayobj= objetos[0]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
+            hayobj2= objetos[1]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
+            if(hayobj){
+                vez= true;
+                toMousePosition = mousePosition - prota->getCuboProta();
+            }else if(hayobj2){
+                vez2= true;
+                toMousePosition = mousePosition - prota->getCuboProta();
+                //centinela = false;
+            }else if(centinela){
+                toMousePosition = vector3df(0,0,0);
+                //centinela = false;
+            }
 
             //Ataque de prota
             for(n= 0; n <= 5; n++){
@@ -456,10 +477,11 @@ int main(){
 
             /////
 
-            if(hayobj && centinela == true){
-               tocado= prota->cogerObjeto(toMousePosition, smgr);
+            if(hayobj || hayobj2){
+               tocado = prota->cogerObjeto(toMousePosition, smgr);
+               centinela = false;
             }
-            else if(centinela == false){
+            else{
                 if(toMousePosition.getLength() <= 1){
                     prota->moverBody(vector3df(0,0,0));
                     if(pasosP==true || pasos2P==true){
@@ -486,6 +508,7 @@ int main(){
                             pasosP = false;
 
                         }
+                    stop= true;
                 }
             }
         }
@@ -514,12 +537,22 @@ int main(){
                 std::cout <<"vida: "<<objvida<<" \n";
                 prota->setVida(objvida);
                 vez= false;
+                objetos[0]->setPosition(vector3df(5000, 0, 5000));
             }
-            objeto->setPosition(vector3df(5000, 0, 5000));
+            else if(vez2){
+                objlaser= prota->getLaser() + 5;
+                std::cout <<"balas: "<<objlaser<<" \n";
+                prota->setLaser(objlaser);
+                vez2= false;
+                objetos[1]->setPosition(vector3df(5000, 0, 5000));
+            }
 
+            tocado = false;
         }
-        else
-        objeto->setPosition(vector3df(objeto->getBody()->GetPosition().x, 0, objeto->getBody()->GetPosition().y));
+        else{
+            objetos[0]->setPosition(vector3df(objetos[0]->getBody()->GetPosition().x, 0, objetos[0]->getBody()->GetPosition().y));
+            objetos[1]->setPosition(vector3df(objetos[1]->getBody()->GetPosition().x, 0, objetos[1]->getBody()->GetPosition().y));
+        }
         //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
         //prota->setPosicionBody(0);
 
@@ -570,9 +603,11 @@ int main(){
 
            plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
 
+        toMousePosition = mousePosition - prota->getCuboProta();
 
         input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
-        input2.p2.Set(mousePosition.X, mousePosition.Z);	//	Punto	final	del	rayo
+        float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
+        input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*50), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*50));
 
         //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
         //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
