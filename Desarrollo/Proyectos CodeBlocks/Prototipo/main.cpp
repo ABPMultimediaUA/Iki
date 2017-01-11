@@ -217,7 +217,7 @@ int main(){
     pr06.setInicial(pp07); pr06.setFinal(pp07->getPrev());
 
 
-
+    int danio = 0;
 
     //std::cout << "1\n";
 
@@ -264,10 +264,10 @@ int main(){
     }
 
     if(objetos[0]){
-        objetos[0]->inicializar(smgr, driver, core::vector3df(-27,0,0));
+        objetos[0]->inicializar(smgr, driver, core::vector3df(120,0,60));
     }
     if(objetos[1]){
-        objetos[1]->inicializar(smgr, driver, core::vector3df(-28,0,50));
+        objetos[1]->inicializar(smgr, driver, core::vector3df(40,0,185));
     }
 
     ///RATON
@@ -440,8 +440,12 @@ int main(){
             prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
         ///clic izq
+
+        if(!receiver.GetMouseState().LeftButtonDown)
+            danio = 0;
         if(receiver.GetMouseState().LeftButtonDown && stop== true){
             centinela= true;
+            danio++;
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                     receiver.GetMouseState().Position, camera);
             float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
@@ -449,6 +453,7 @@ int main(){
             prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
             //prota->setRotarProta(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
+
 
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
@@ -469,7 +474,9 @@ int main(){
             }
 
             //Ataque de prota
+            if (danio == 1)
             for(n= 0; n <= 6; n++){
+
                 if(enemigos[n]->getCreado()){
 
                     if(!enemigos[n]->getMuerto() && enemigos[n]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z))){
