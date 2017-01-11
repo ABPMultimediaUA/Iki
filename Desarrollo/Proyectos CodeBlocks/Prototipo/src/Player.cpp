@@ -16,6 +16,7 @@ Player::~Player()
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 8;
     vida=200;
+    balas= 1;
     smgr1=smgr;
     escalado= core::vector3df(1,0,1);
 
@@ -154,6 +155,14 @@ scene::IMeshSceneNode* Player::getEsfera(){
 }
 float Player::getVida(){
     return vida;
+}
+
+int Player::getLaser(){
+    return balas;
+}
+
+void Player::setLaser(int l){
+    balas = l;
 }
 
 void Player::setVida(float v){

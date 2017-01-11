@@ -28,9 +28,11 @@ class Player
         scene::IMeshSceneNode* getModelo();
         scene::IMeshSceneNode* getEsfera();
         b2Body* getBody();
+        int getLaser();
         float getVida();
         float velocidad;
-        void setVida(float);
+        void setVida(float v);
+        void setLaser(int l);
         void muerte();
 
     protected:
@@ -39,7 +41,7 @@ class Player
         scene::IMeshSceneNode *modelo, *esfera;
         core::vector3df cuboProta, escalado;
         b2Body *body;
-        int tam;
+        int tam, balas;
         float movx, movy;
         float vida;
         scene::ISceneManager* smgr1;
