@@ -21,7 +21,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         input.maxFraction	=	1.0f;
         tam= 5;
         estado = 0;
-        vida=180;
+        vida=3;
         direccion = 0;
         tipo = t;
         sospecha = 0.0;
