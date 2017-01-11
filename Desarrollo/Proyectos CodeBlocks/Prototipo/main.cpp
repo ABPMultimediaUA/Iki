@@ -260,6 +260,8 @@ int main(){
     ///RATON
     core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
     core::vector3df mousePosition= core::vector3df(0,0,0);
+    vector3df toMousePositionObj;
+    vector3df toMousePosition;
     core::line3df ray(mousePosition, prota->getCuboProta());
     core::line3df ray2(mousePosition, prota->getCuboProta());
     core::line3df ray3(mousePosition, prota->getCuboProta());
@@ -406,7 +408,6 @@ int main(){
     bool vez= false, vez2= false;
 
     ///CICLO DEL JUEGO
-
     while(device->run()){
        driver->beginScene(true, true, SColor(255, 100, 101, 140));
 
@@ -439,15 +440,20 @@ int main(){
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
             // We now have a mouse position in 3d space; move towards it.
-            core::vector3df toMousePosition(mousePosition - prota->getCuboProta());
-
+            toMousePosition = mousePosition - prota->getCuboProta();
             hayobj= objetos[0]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
-            if(hayobj)
-                vez= true;
-
             hayobj2= objetos[1]->comprobarPunto(b2Vec2(mousePosition.X, mousePosition.Z));
-            if(hayobj2)
+            if(hayobj){
+                vez= true;
+                toMousePosition = mousePosition - prota->getCuboProta();
+            }else if(hayobj2){
                 vez2= true;
+                toMousePosition = mousePosition - prota->getCuboProta();
+                //centinela = false;
+            }else if(centinela){
+                toMousePosition = vector3df(0,0,0);
+                //centinela = false;
+            }
 
             //Ataque de prota
             for(n= 0; n <= 5; n++){
@@ -460,7 +466,7 @@ int main(){
                         }
                     }
                     else{
-                        smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
+                        //smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(0, 0, 0, 0));
                         if(toMousePosition.getLength() <= 1)
                             prota->moverBody(vector3df(0,0,0));
                         else
@@ -471,11 +477,11 @@ int main(){
 
             /////
 
-            if(hayobj || hayobj2 && centinela == true){
-               tocado= prota->cogerObjeto(toMousePosition, smgr);
-               centinela= false;
+            if(hayobj || hayobj2){
+               tocado = prota->cogerObjeto(toMousePosition, smgr);
+               centinela = false;
             }
-            else if(centinela == false){
+            else{
                 if(toMousePosition.getLength() <= 1){
                     prota->moverBody(vector3df(0,0,0));
                     if(pasosP==true || pasos2P==true){
@@ -597,9 +603,11 @@ int main(){
 
            plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
 
+        toMousePosition = mousePosition - prota->getCuboProta();
 
         input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
-        input2.p2.Set(mousePosition.X, mousePosition.Z);	//	Punto	final	del	rayo
+        float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
+        input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*50), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*50));
 
         //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
         //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
@@ -763,8 +771,8 @@ int main(){
                 combatiendog3 = false;
                 investigandog3 = false;
                 patrullandog3 = false;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(escaneo,posicion,false,false,true);
         }
         else if(enemigos[4]->getEstado() == 3 && combatiendog3==false) {
@@ -772,8 +780,8 @@ int main(){
                 combatiendog3 = true;
                 investigandog3 = false;
                 patrullandog3 = false;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(combate,posicion,false,false,true);
         }
         else if(enemigos[4]->getEstado() == 8 && investigandog3==false) {
@@ -781,8 +789,8 @@ int main(){
                 combatiendog3 = false;
                 investigandog3 = true;
                 patrullandog3 = false;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(investigar,posicion,false,false,true);
         }
         else if(enemigos[4]->getEstado() == 0 && patrullandog3==false) {
@@ -790,8 +798,8 @@ int main(){
                 combatiendog3 = false;
                 investigandog3 = false;
                 patrullandog3 = true;
-                if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
-                s7->stop();
+                //if(engine->isCurrentlyPlaying(combate) || engine->isCurrentlyPlaying(patrullar) || engine->isCurrentlyPlaying(investigar) || engine->isCurrentlyPlaying(escaneo))
+                //s7->stop();
                 s7 = engine->play3D(patrullar,posicion,false,false,true);
         }
 

@@ -211,6 +211,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     {
        // if(id==2){
             if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) >0.1){
+
                 //rotar el body tambien
                 cuboEnemigo += posicionInicial.normalize()*avMovement;
                 //std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
@@ -296,7 +297,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     }
     void Enemigo::perseguir(){
-        cuboEnemigo += direccionHaciaProta.normalize() * avMovement;
+        cuboEnemigo += direccionHaciaProta.normalize() * avMovement * 2.0;
         posicion = cuboEnemigo;
 
     }
@@ -345,8 +346,8 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
-            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
-            //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
+            //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
+            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
                     /// ESTO ESTA MUY RARO Y ES MU DURO
                         //sospecha+=1*tiempo.getTimeFactor();
                         sospecha+=30*tiempo.getTimeFactor();
@@ -404,9 +405,14 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                     estado=1;
             }
             //Si el player se acerca sospecha
+
             else if(distanciaPlayer>=15 && distanciaPlayer<80){ // 75
                 if (!getMuro()&& seeWhereIgo())
                     estado = 1;
+          /*  if(distanciaPlayer<80){ // 75
+
+                    if (!getMuro())//&& seeWhereIgo())
+                        estado = 1;*/
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
