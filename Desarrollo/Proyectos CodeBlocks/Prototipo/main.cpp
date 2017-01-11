@@ -206,7 +206,7 @@ int main(){
     pr05.setInicial(pp09); pr05.setFinal(pp10->getPrev());
 
 
-
+    bool danio = false;
 
     //std::cout << "1\n";
 
@@ -251,10 +251,10 @@ int main(){
     }
 
     if(objetos[0]){
-        objetos[0]->inicializar(smgr, driver, core::vector3df(-27,0,0));
+        objetos[0]->inicializar(smgr, driver, core::vector3df(120,0,60));
     }
     if(objetos[1]){
-        objetos[1]->inicializar(smgr, driver, core::vector3df(-28,0,50));
+        objetos[1]->inicializar(smgr, driver, core::vector3df(40,0,185));
     }
 
     ///RATON
@@ -429,6 +429,7 @@ int main(){
         ///clic izq
         if(receiver.GetMouseState().LeftButtonDown && stop== true){
             centinela= true;
+            danio = true;
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                     receiver.GetMouseState().Position, camera);
             float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
@@ -456,6 +457,7 @@ int main(){
             }
 
             //Ataque de prota
+            if (danio)
             for(n= 0; n <= 5; n++){
                 if(enemigos[n]->getCreado()){
 
@@ -474,6 +476,7 @@ int main(){
                     }
                 }
             }
+            danio = false;
 
             /////
 
