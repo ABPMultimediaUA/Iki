@@ -66,6 +66,7 @@ class Enemigo
         bool getCreado();
         bool seeWhereIgo();
         class Muros* morito;
+        void huir();
 
     protected:
 
@@ -92,6 +93,7 @@ class Enemigo
         core::vector3df direccionHaciaProta;
         core::vector3df posicionAliado;
         core::vector3df direccionHaciaAliado;
+        core::vector3df direccionHuir;
         core::vector3df posicionProta;
         f32 avMovement;
         Time tiempo;
