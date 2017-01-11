@@ -171,10 +171,10 @@ int main(){
     pr04.setInicial(pp15); pr04.setFinal(pp15->getPrev());
     ///1-> Enemigos[2] Medico
     PatrolPoint *pp01, *pp02, *pp03, *pp04;
-    pp01 = new PatrolPoint(irr::core::vector3df(-20, 0,50));
+    pp01 = new PatrolPoint(irr::core::vector3df(-20,0,50));
     pp02 = new PatrolPoint(irr::core::vector3df(-20,0,115));
-    pp03 = new PatrolPoint(irr::core::vector3df(45, 0,115));
-    pp04 = new PatrolPoint(irr::core::vector3df(45, 0, 50));
+    pp03 = new PatrolPoint(irr::core::vector3df(45,0,115));
+    pp04 = new PatrolPoint(irr::core::vector3df(45,0, 50));
 
     pp01->setNext(pp02); pp02->setNext(pp03); pp03->setNext(pp04); pp04->setNext(pp01);
     pp01->setPrev(pp04); pp04->setPrev(pp03); pp03->setPrev(pp02); pp02->setPrev(pp01);
@@ -185,9 +185,9 @@ int main(){
     ///2-> Enemigos[1] Dron
     PatrolPoint *pp11, *pp12, *pp13, *pp14;
     pp11 = new PatrolPoint(irr::core::vector3df(275,0,130));
-    pp12 = new PatrolPoint(irr::core::vector3df(265,0,25));
-    pp13 = new PatrolPoint(irr::core::vector3df(180,0,55));
-    pp14 = new PatrolPoint(irr::core::vector3df(265,0,25));
+    pp12 = new PatrolPoint(irr::core::vector3df(265,0,30));
+    pp13 = new PatrolPoint(irr::core::vector3df(190,0,55));
+    pp14 = new PatrolPoint(irr::core::vector3df(265,0,30));
 
     pp11->setNext(pp12); pp12->setNext(pp13); pp13->setNext(pp14); pp14->setNext(pp11);
     pp11->setPrev(pp14); pp14->setPrev(pp13); pp13->setPrev(pp12); pp12->setPrev(pp11);
@@ -220,7 +220,7 @@ int main(){
     if(enemigos[1])
         enemigos[1]->inicialiazar(1,1, smgr, core::vector3df(265,0,25),pr02);
     if(enemigos[2])
-        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(-20,0,115),pr01);
+        enemigos[2]->inicialiazar(2,2,smgr,core::vector3df(45,0,50),pr01);
     if(enemigos[5])
         enemigos[5]->inicialiazar2(smgr);
 
