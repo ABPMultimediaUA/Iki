@@ -67,6 +67,9 @@ class Enemigo
         bool seeWhereIgo();
         class Muros* morito;
         void huir();
+        int getTipo();
+        int getID();
+        int i=0;
 
     protected:
 

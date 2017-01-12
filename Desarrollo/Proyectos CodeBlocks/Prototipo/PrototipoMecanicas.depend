@@ -5488,7 +5488,7 @@
 1483984585 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\ejemplo adri\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1484034606 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
+1484205947 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -6648,7 +6648,7 @@
 1481028636 d:\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1484034121 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\enemigo.h
+1484197269 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -6679,7 +6679,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484006779 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\player.h
+1484178851 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -6690,7 +6690,7 @@
 1484006779 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\patrolpoint.h
 	<irrlicht.h>
 
-1484006782 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\objeto.h
+1484178851 d:\iki\desarrollo\proyectos codeblocks\prototipo\include\objeto.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -6819,7 +6819,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484006782 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
+1484178851 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -6830,7 +6830,7 @@
 1484006779 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1484006779 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\player.cpp
+1484178851 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -6856,7 +6856,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484039424 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
+1484206280 source:d:\iki\desarrollo\proyectos codeblocks\prototipo\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 

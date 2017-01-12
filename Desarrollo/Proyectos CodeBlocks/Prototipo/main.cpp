@@ -182,7 +182,7 @@ int main(){
     PatrolRoute pr01;
     pr01.setInicial(pp01); pr01.setFinal(pp01->getPrev());
 
-    ///2-> Enemigos[1] Dron
+    ///2-> Enemigos[6] GuardiaNuevo
     PatrolPoint *pp11, *pp12, *pp13, *pp14;
     pp11 = new PatrolPoint(irr::core::vector3df(275,0,130));
     pp12 = new PatrolPoint(irr::core::vector3df(265,0,30));
@@ -205,7 +205,7 @@ int main(){
     PatrolRoute pr05;
     pr05.setInicial(pp09); pr05.setFinal(pp10->getPrev());
 
-    ///5 -> Enemigo[6] GuardiaNuevo
+    ///5 -> Enemigo[1] Dron
     PatrolPoint *pp07, *pp08;
     pp07 = new PatrolPoint(irr::core::vector3df(120,0,100));
     pp08 = new PatrolPoint(irr::core::vector3df(120,0,170));
@@ -473,7 +473,7 @@ int main(){
                 //centinela = false;
             }
 
-            //Ataque de prota
+            /// ATAQUE PROTA
             if (danio == 1)
             for(n= 0; n <= 6; n++){
 
@@ -537,9 +537,9 @@ int main(){
 
 
         if(prota->getVida() >= 200){
-        driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-        driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-        driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
         }
         else if(prota->getVida() >= 100){
             driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
@@ -708,7 +708,7 @@ int main(){
             }
         }
 
-        //SONIDOS ENEMIGOS
+        ///SONIDOS ENEMIGOS
         //GUARDIA
 
         if(enemigos[0]->getEstado() == 1 && escaneando==false) {
