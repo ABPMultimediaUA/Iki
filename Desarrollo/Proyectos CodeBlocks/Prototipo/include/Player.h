@@ -34,6 +34,7 @@ class Player
         void setVida(float v);
         void setLaser(int l);
         void muerte();
+        void setNoMuerto();
 
     protected:
 

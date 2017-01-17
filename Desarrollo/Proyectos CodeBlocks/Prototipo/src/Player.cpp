@@ -160,7 +160,9 @@ float Player::getVida(){
 int Player::getLaser(){
     return balas;
 }
+void Player::setNoMuerto(){
 
+}
 void Player::setLaser(int l){
     balas = l;
 }
