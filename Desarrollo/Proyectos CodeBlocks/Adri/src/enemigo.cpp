@@ -213,6 +213,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     }
 
     void Enemigo::quitarVida(){
+        if(vida>0)
         --vida;
         //std::cout << vida;
         if(vida <= 0){

@@ -117,7 +117,7 @@ int main(){
         return 1;
 
     //Objeto principal que nos permite interactuar con el motor
-    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
+    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1360, 768), 16, false, false, false, &receiver);
     device->setWindowCaption(L"IKI" );
     ITimer* timer = device->getTimer();
     f32 TimeStamp = timer->getTime();
@@ -444,8 +444,8 @@ int main(){
         if(!receiver.GetMouseState().LeftButtonDown)
             danio = 0;
         if(receiver.GetMouseState().LeftButtonDown && stop== true){
-            centinela= true;
             danio++;
+            centinela= true;
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                     receiver.GetMouseState().Position, camera);
             float angulo = atan2f((mousePosition.Z - prota->getPosicionProta().Z) ,
@@ -556,6 +556,8 @@ int main(){
                 objvida= prota->getVida() + 50.0f;
                 std::cout <<"vida: "<<objvida<<" \n";
                 prota->setVida(objvida);
+                prota->setNoMuerto();
+                smgr->getMeshManipulator()->setVertexColors(prota->getModelo()->getMesh(),video::SColor(255,255,255, 255));
                 vez= false;
                 objetos[0]->setPosition(vector3df(5000, 0, 5000));
             }
@@ -949,8 +951,11 @@ int main(){
                 smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(255, 255, 255, 255));
 
                 vidaProta=prota->getVida();
-                vidaProta-=0.1*DeltaTime;
-                prota->setVida(vidaProta);
+
+                if(vidaProta >=0){
+                    vidaProta-=0.1*DeltaTime;
+                    prota->setVida(vidaProta);
+                }
 
                 }
 
@@ -970,8 +975,12 @@ int main(){
         //ATAQUE ENEMIGO
         if(enemigos[0]->getEstado() == 7){
             vidaProta=prota->getVida();
-            vidaProta-=0.1*DeltaTime;
-            prota->setVida(vidaProta);
+
+            if(vidaProta >= 0){
+               vidaProta-=0.1*DeltaTime;
+               prota->setVida(vidaProta);
+            }
+
 
         }
         if(prota->getVida()<=0){
