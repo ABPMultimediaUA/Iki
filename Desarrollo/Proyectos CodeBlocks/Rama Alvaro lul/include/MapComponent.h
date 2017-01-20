@@ -22,6 +22,8 @@ class MapComponent
     private:
         scene::IAnimatedMesh *mesh;
         scene::IAnimatedMeshSceneNode *modelo;
+        class World* iworld;
+        b2Body *body;
 
 
 

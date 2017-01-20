@@ -44,7 +44,7 @@ class Enemigo
         void sospechar(core::vector3df posicionProta);
         void curar(Enemigo aliado);
         int maquinaEstados();
-        void update(core::vector3df, Time, Enemigo *aliados[5]);
+        void update(core::vector3df, Time, Enemigo *aliados[7]);
         void inspeccionar();
         void patrullar();
         void vigilar();
@@ -66,6 +66,10 @@ class Enemigo
         bool getCreado();
         bool seeWhereIgo();
         class Muros* morito;
+        void huir();
+        int getTipo();
+        int getID();
+        int i=0;
 
     protected:
 
@@ -92,6 +96,7 @@ class Enemigo
         core::vector3df direccionHaciaProta;
         core::vector3df posicionAliado;
         core::vector3df direccionHaciaAliado;
+        core::vector3df direccionHuir;
         core::vector3df posicionProta;
         f32 avMovement;
         Time tiempo;

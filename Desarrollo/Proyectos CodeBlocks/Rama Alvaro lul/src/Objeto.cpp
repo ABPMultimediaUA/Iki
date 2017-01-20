@@ -21,7 +21,7 @@ Objeto::~Objeto()
 }
 
 
-void Objeto::inicializar(scene::ISceneManager* smgr,IVideoDriver* driver){
+void Objeto::inicializar(scene::ISceneManager* smgr, IVideoDriver* driver, core::vector3df p){
 
     tam= 3;
 
@@ -29,17 +29,17 @@ void Objeto::inicializar(scene::ISceneManager* smgr,IVideoDriver* driver){
 
     esfera= smgr->addCubeSceneNode(3);
     esfera->setScale(escalado);
-    esfera->setPosition(core::vector3df(-300,0,100));
+    esfera->setPosition(p);
 
     modelo = smgr->addCubeSceneNode(tam);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     modelo->setMaterialTexture( 0, driver->getTexture("texturas/obj.png") );
     modelo->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR);
-    modelo->setPosition(core::vector3df(-30,0,100));
+    modelo->setPosition(p);
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(-30, 100);
+    bodyDef.position.Set(p.X, p.Z);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
 
@@ -51,9 +51,9 @@ void Objeto::inicializar(scene::ISceneManager* smgr,IVideoDriver* driver){
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 0.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 1.f;
+    fixtureDef.friction = 100.f;
+    fixtureDef.restitution  = 0.f;
+    fixtureDef.density  = 100.f;
     body->CreateFixture(&fixtureDef);
 }
 

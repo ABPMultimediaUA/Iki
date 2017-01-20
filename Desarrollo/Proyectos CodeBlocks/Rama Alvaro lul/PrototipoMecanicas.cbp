@@ -105,7 +105,9 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Fuzzy.cpp" />
 		<Unit filename="src/Game.cpp" />
-		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Map.cpp">
+			<Option target="Windows" />
+		</Unit>
 		<Unit filename="src/MapComponent.cpp">
 			<Option target="Windows" />
 		</Unit>
@@ -119,6 +121,18 @@
 		<Unit filename="src/Time.cpp" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/enemigo.cpp" />
+		<Unit filename="src/fuzzytests/FuzzyModule.cpp">
+			<Option target="Windows" />
+		</Unit>
+		<Unit filename="src/fuzzytests/FuzzySet.cpp">
+			<Option target="Windows" />
+		</Unit>
+		<Unit filename="src/fuzzytests/FuzzySet_Triangle.cpp">
+			<Option target="Windows" />
+		</Unit>
+		<Unit filename="src/fuzzytests/FuzzyVariable.cpp">
+			<Option target="Windows" />
+		</Unit>
 		<Unit filename="src/tinystr.cpp">
 			<Option target="Windows" />
 		</Unit>
