@@ -2585,7 +2585,7 @@
 	<Player.h>
 	"../include/PatrolRoute.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
 	"ik_irrKlangTypes.h"
 	"ik_vec3d.h"
 	"ik_IRefCounted.h"
@@ -2607,29 +2607,29 @@
 	"ik_IAudioRecorder.h"
 	"ik_ISoundMixedOutputReceiver.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_irrklangtypes.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_irrklangtypes.h
 	<wchar.h>
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_vec3d.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_vec3d.h
 	<math.h>
 	"ik_irrKlangTypes.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_irefcounted.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_irefcounted.h
 	"ik_irrKlangTypes.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ivirtualrefcounted.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ivirtualrefcounted.h
 	"ik_irrKlangTypes.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_esoundoutputdrivers.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_esoundoutputdrivers.h
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_esoundengineoptions.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_esoundengineoptions.h
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_estreammodes.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_estreammodes.h
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_saudiostreamformat.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_saudiostreamformat.h
 	"ik_IRefCounted.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundengine.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundengine.h
 	"ik_IRefCounted.h"
 	"ik_vec3d.h"
 	"ik_ISoundSource.h"
@@ -2638,47 +2638,47 @@
 	"ik_IFileFactory.h"
 	"ik_ISoundMixedOutputReceiver.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundsource.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundsource.h
 	"ik_IVirtualRefCounted.h"
 	"ik_vec3d.h"
 	"ik_EStreamModes.h"
 	"ik_SAudioStreamFormat.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isound.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isound.h
 	"ik_IVirtualRefCounted.h"
 	"ik_ISoundEffectControl.h"
 	"ik_vec3d.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundeffectcontrol.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundeffectcontrol.h
 	"ik_IVirtualRefCounted.h"
 	"ik_vec3d.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ifilefactory.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ifilefactory.h
 	"ik_IRefCounted.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundmixedoutputreceiver.h
-	"ik_IRefCounted.h"
-	"ik_SAudioStreamFormat.h"
-
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiostream.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundmixedoutputreceiver.h
 	"ik_IRefCounted.h"
 	"ik_SAudioStreamFormat.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiostreamloader.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiostream.h
+	"ik_IRefCounted.h"
+	"ik_SAudioStreamFormat.h"
+
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiostreamloader.h
 	"ik_IRefCounted.h"
 	"ik_IFileReader.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ifilereader.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_ifilereader.h
 	"ik_IRefCounted.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundstopeventreceiver.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isoundstopeventreceiver.h
 	"ik_IRefCounted.h"
 	"ik_SAudioStreamFormat.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isounddevicelist.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_isounddevicelist.h
 	"ik_IRefCounted.h"
 
-1482154535 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiorecorder.h
+1483981840 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\ik_iaudiorecorder.h
 	"ik_IRefCounted.h"
 	"ik_ISoundSource.h"
 
@@ -8647,4 +8647,118 @@
 1484215040 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\prototipo\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
+
+1485173059 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Objeto.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
+	<iostream>
+	"include/PatrolRoute.h"
+
+1484424362 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	"../include/Time.h"
+	"../include/Fuzzy.h"
+	"../include/Muros.h"
+	<World.h>
+	<Player.h>
+	"../include/PatrolRoute.h"
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\time.h
+	<irrlicht.h>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\fuzzy.h
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\muros.h
+	<irrlicht.h>
+	<World.h>
+	<iostream>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1485173059 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\patrolroute.h
+	"PatrolPoint.h"
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\patrolpoint.h
+	<irrlicht.h>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\objeto.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\irrklang\conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<sys/ioctl.h>
+
+1485173059 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\game.cpp
+	"Game.h"
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\game.h
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\muros.cpp
+	"Muros.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\objeto.cpp
+	"Objeto.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\patrolpoint.cpp
+	"PatrolPoint.h"
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\patrolroute.cpp
+	"PatrolRoute.h"
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\singleton.h
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1484146779 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\include\suelo.h
+	<Box2D/Box2D.h>
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\time.cpp
+	"..\include\Time.h"
+
+1484146780 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\adri\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
 

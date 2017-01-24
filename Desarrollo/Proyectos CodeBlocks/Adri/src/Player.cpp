@@ -32,7 +32,7 @@ void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver)
     modelo->setPosition(core::vector3df(45,0,0));
 
     b2BodyDef bodyDef;
-    bodyDef.type= b2_dynamicBody;
+    bodyDef.type= b2_kinematicBody;
     bodyDef.position.Set(45, 0);
     iworld= World::Instance();
     body= iworld->getWorld()->CreateBody(&bodyDef);
