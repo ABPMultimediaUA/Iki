@@ -17,7 +17,7 @@ class MapComponent
 
 
     public:
-        MapComponent(core::vector3df, core::vector3df, scene::ISceneManager*);
+        MapComponent(float, core::vector3df, scene::ISceneManager*, int);
 
     private:
         scene::IAnimatedMesh *mesh;

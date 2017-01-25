@@ -26,6 +26,7 @@ private:
 	int _height;
 	int _tileHeigth;
 	irr::core::array<MapComponent*> * walls;
+	irr::core::array<MapComponent*> * puertas;
 
 
 

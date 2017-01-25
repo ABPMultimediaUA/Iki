@@ -6,7 +6,10 @@
 
 
 
-MapComponent::MapComponent(core::vector3df a, core::vector3df b, scene::ISceneManager* smgr){
+MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smgr, int i){
+
+
+    if (i==1){
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_staticBody;
@@ -19,11 +22,19 @@ MapComponent::MapComponent(core::vector3df a, core::vector3df b, scene::ISceneMa
     body->CreateFixture(&bodyShape, 1.0f);
 
 
-mesh = smgr->getMesh("cubito.obj");
+    mesh = smgr->getMesh("cubito.obj");
 //smgr->getParameters()->setAttribute(irr::scene::COLLADA_CREATE_SCENE_INSTANCES, true);
-modelo = smgr->addAnimatedMeshSceneNode(mesh);
-modelo->setPosition(b);
-//modelo->setScale(a);
+
+    }
+    else if(i==2){
+
+            mesh = smgr->getMesh("puertita.obj");
+            //smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 128, 128, 0));
 
 
+    }
+
+    modelo = smgr->addAnimatedMeshSceneNode(mesh);
+    modelo->setPosition(b);
+    modelo->setRotation(core::vector3df(0, a, 0));
 }

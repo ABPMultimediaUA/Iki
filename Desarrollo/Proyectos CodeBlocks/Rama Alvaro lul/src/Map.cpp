@@ -8,6 +8,7 @@ Map::Map()
 {
 
 walls = new array<MapComponent*>();
+puertas = new array<MapComponent*>();
 
 }
 
@@ -27,11 +28,13 @@ void Map::loadMap(scene::ISceneManager* smgr){
 	mapElement->QueryIntAttribute("tilewidth", &_tileWidth);
 	mapElement->QueryIntAttribute("tileheight", &_tileHeigth);
 
+
 	//Pasamos a leer los ObjectGroups
 	objectGroup = mapElement->FirstChildElement("objectgroup");
 
 	float x;
 	float z;
+	float r;
 	while (objectGroup) {
 
 		//Paredes
@@ -43,7 +46,8 @@ void Map::loadMap(scene::ISceneManager* smgr){
 				while (object) {
 					object->QueryFloatAttribute("x", &x);
 					object->QueryFloatAttribute("y", &z);
-					walls->push_back(new MapComponent(core::vector3df(_width, 1, _height), core::vector3df(x, 0, z), smgr));
+					object->QueryFloatAttribute("rotation", &r);
+					walls->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 1));
 					object = object->NextSiblingElement("object");
 				}
 
@@ -51,6 +55,25 @@ void Map::loadMap(scene::ISceneManager* smgr){
 
 			}
 		}
+
+		else if (objectGroup->Attribute("name", "Puertas")) {
+			if (objectGroup->FirstChildElement("object")) {
+				object = objectGroup->FirstChildElement("object");
+
+
+				while (object) {
+					object->QueryFloatAttribute("x", &x);
+					object->QueryFloatAttribute("y", &z);
+					object->QueryFloatAttribute("rotation", &r);
+					puertas->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 2));
+					object = object->NextSiblingElement("object");
+				}
+
+
+
+			}
+		}
+
 
 
 

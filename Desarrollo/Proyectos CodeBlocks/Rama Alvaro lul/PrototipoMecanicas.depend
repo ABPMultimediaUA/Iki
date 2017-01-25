@@ -8730,3 +8730,203 @@
 1484927608 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\prototipo\src\mapcomponent.cpp
 	"Map.h"
 
+1485342885 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	"include/Objeto.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
+	<iostream>
+	"include/Map.h"
+	"include/PatrolRoute.h"
+
+1484768930 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+	<irrlicht.h>
+	"driverChoice.h"
+	"../include/Time.h"
+	"../include/Fuzzy.h"
+	"../include/Muros.h"
+	<World.h>
+	<Player.h>
+	"../include/PatrolRoute.h"
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\time.h
+	<irrlicht.h>
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\fuzzy.h
+
+1484927616 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\muros.h
+	<irrlicht.h>
+	<World.h>
+	<iostream>
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484768930 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\patrolroute.h
+	"PatrolPoint.h"
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\patrolpoint.h
+	<irrlicht.h>
+
+1484768930 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\objeto.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\irrklang\conio.h
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<termios.h>
+	<unistd.h>
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<sys/ioctl.h>
+
+1485194825 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+	<stdio.h>
+	"tinyxml2.h"
+	"MapComponent.h"
+
+1484581329 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stddef.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<stdint.h>
+	<android/log.h>
+	<assert.h>
+
+1485194825 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1484768930 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+	"Enemigo.h"
+	<Box2D/Box2D.h>
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1484926992 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\fuzzytests\fuzzymodule.cpp
+
+1484926996 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\fuzzytests\fuzzyset.cpp
+
+1484927005 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\fuzzytests\fuzzyset_triangle.cpp
+
+1484927008 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\fuzzytests\fuzzyvariable.cpp
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\game.cpp
+	"Game.h"
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\game.h
+
+1485196362 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
+	"Map.h"
+
+1485196451 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
+	"Map.h"
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp
+	"Muros.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484768930 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\objeto.cpp
+	"Objeto.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\patrolpoint.cpp
+	"PatrolPoint.h"
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\patrolroute.cpp
+	"PatrolRoute.h"
+
+1485195990 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\singleton.h
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\suelo.h
+	<Box2D/Box2D.h>
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\time.cpp
+	"..\include\Time.h"
+
+1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinystr.cpp
+	"tinystr.h"
+
+1484581330 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinystr.h
+	<assert.h>
+	<string.h>
+
+1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1484581330 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxml2.cpp
+	"tinyxml2.h"
+	<new>
+	<stddef.h>
+	<stdarg.h>
+	<cstddef>
+	<cstdarg>
+
+1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxmlerror.cpp
+	"tinyxml.h"
+
+1484581329 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
+

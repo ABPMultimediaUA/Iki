@@ -131,7 +131,7 @@ int main(){
 
 
     ///CAMARA
-    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(0, 40,-20),core::vector3df(0,0,0));
+    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(40, 40,180),core::vector3df(40,0,200));
 
     vector3df cameraPos = camera->getPosition();
     vector3df cameraTar = camera->getTarget();
@@ -174,10 +174,10 @@ int main(){
     }
 
     if(objetos[0]){
-        objetos[0]->inicializar(smgr, driver, core::vector3df(120,0,60));
+        objetos[0]->inicializar(smgr, driver, core::vector3df(300,0,300));
     }
     if(objetos[1]){
-        objetos[1]->inicializar(smgr, driver, core::vector3df(40,0,185));
+        objetos[1]->inicializar(smgr, driver, core::vector3df(300,0,300));
     }
 
     ///RATON
