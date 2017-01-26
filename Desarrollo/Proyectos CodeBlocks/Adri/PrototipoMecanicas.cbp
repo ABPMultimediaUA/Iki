@@ -79,6 +79,7 @@
 		<Unit filename="include/Fuzzy.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Muros.h" />
+		<Unit filename="include/MyContactListener.h" />
 		<Unit filename="include/Objeto.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
@@ -91,6 +92,7 @@
 		<Unit filename="src/Fuzzy.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Muros.cpp" />
+		<Unit filename="src/MyContactListener.cpp" />
 		<Unit filename="src/Objeto.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />

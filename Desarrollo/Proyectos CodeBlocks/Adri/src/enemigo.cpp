@@ -60,6 +60,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         fixtureDef.density  = 10.f;
         body2->CreateFixture(&fixtureDef);
 
+        body2->SetUserData((void*)5);
+
         cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
         posicionInicial = pRuta->getPunto() - cuboEnemigo;
         angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
