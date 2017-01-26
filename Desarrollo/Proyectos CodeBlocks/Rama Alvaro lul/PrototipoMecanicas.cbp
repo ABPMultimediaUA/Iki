@@ -93,12 +93,6 @@
 		<Unit filename="include/Suelo.h" />
 		<Unit filename="include/Time.h" />
 		<Unit filename="include/World.h" />
-		<Unit filename="include/tinystr.h">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="include/tinyxml.h">
-			<Option target="Windows" />
-		</Unit>
 		<Unit filename="include/tinyxml2.h">
 			<Option target="Windows" />
 		</Unit>
@@ -133,19 +127,7 @@
 		<Unit filename="src/fuzzytests/FuzzyVariable.cpp">
 			<Option target="Windows" />
 		</Unit>
-		<Unit filename="src/tinystr.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/tinyxml.cpp">
-			<Option target="Windows" />
-		</Unit>
 		<Unit filename="src/tinyxml2.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/tinyxmlerror.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/tinyxmlparser.cpp">
 			<Option target="Windows" />
 		</Unit>
 		<Extensions>

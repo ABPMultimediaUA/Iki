@@ -1,9 +1,6 @@
 #include "Map.h"
 
 
-
-
-
 Map::Map()
 {
 
@@ -18,7 +15,7 @@ void Map::loadMap(scene::ISceneManager* smgr){
 
 	docFile = new XMLDocument; //Se crea el objeto del documento
 
-	docFile->LoadFile("BosquePrueba.tmx"); //Se carga el archivo xml
+	docFile->LoadFile("Mapas/Mapa.tmx"); //Se carga el archivo xml
 
 	mapElement = docFile->FirstChildElement("map"); //Se enlaza el elemento mapa
 
@@ -44,8 +41,8 @@ void Map::loadMap(scene::ISceneManager* smgr){
 
 
 				while (object) {
-					object->QueryFloatAttribute("x", &x);
-					object->QueryFloatAttribute("y", &z);
+					object->QueryFloatAttribute("x", &z);
+					object->QueryFloatAttribute("y", &x);
 					object->QueryFloatAttribute("rotation", &r);
 					walls->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 1));
 					object = object->NextSiblingElement("object");
@@ -62,8 +59,8 @@ void Map::loadMap(scene::ISceneManager* smgr){
 
 
 				while (object) {
-					object->QueryFloatAttribute("x", &x);
-					object->QueryFloatAttribute("y", &z);
+					object->QueryFloatAttribute("x", &z);
+					object->QueryFloatAttribute("y", &x);
 					object->QueryFloatAttribute("rotation", &r);
 					puertas->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 2));
 					object = object->NextSiblingElement("object");

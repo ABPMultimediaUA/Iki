@@ -131,7 +131,7 @@ int main(){
 
 
     ///CAMARA
-    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(40, 40,180),core::vector3df(40,0,200));
+    ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(190, 40, 40),core::vector3df(170,0,40));
 
     vector3df cameraPos = camera->getPosition();
     vector3df cameraTar = camera->getTarget();
@@ -471,23 +471,23 @@ int main(){
         }
         else if(receiver.isKeyDown(KEY_KEY_D))
         {
-            cameraPos.X+=0.3*DeltaTime;
-            cameraTar.X+=0.3*DeltaTime;
+            cameraPos.Z+=0.3*DeltaTime;
+            cameraTar.Z+=0.3*DeltaTime;
         }
         else if (receiver.isKeyDown(KEY_KEY_A))
+        {
+            cameraPos.Z-=0.3*DeltaTime;
+            cameraTar.Z-=0.3*DeltaTime;
+        }
+        else if(receiver.isKeyDown(KEY_KEY_W))
         {
             cameraPos.X-=0.3*DeltaTime;
             cameraTar.X-=0.3*DeltaTime;
         }
-        else if(receiver.isKeyDown(KEY_KEY_W))
-        {
-            cameraPos.Z+=0.3*DeltaTime;
-            cameraTar.Z+=0.3*DeltaTime;
-        }
         else if (receiver.isKeyDown(KEY_KEY_S))
         {
-            cameraPos.Z-=0.3*DeltaTime;
-            cameraTar.Z-=0.3*DeltaTime;
+            cameraPos.X+=0.3*DeltaTime;
+            cameraTar.X+=0.3*DeltaTime;
         }
 
         if(receiver.isKeyDown(KEY_LSHIFT))

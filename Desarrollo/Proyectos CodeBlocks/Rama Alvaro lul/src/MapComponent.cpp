@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smgr, int i){
 
 
@@ -22,13 +18,13 @@ MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smg
     body->CreateFixture(&bodyShape, 1.0f);
 
 
-    mesh = smgr->getMesh("cubito.obj");
+    mesh = smgr->getMesh("Modelos/cubito.obj");
 //smgr->getParameters()->setAttribute(irr::scene::COLLADA_CREATE_SCENE_INSTANCES, true);
 
     }
     else if(i==2){
 
-            mesh = smgr->getMesh("puertita.obj");
+            mesh = smgr->getMesh("Modelos/puertita.obj");
             //smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 128, 128, 0));
 
 
