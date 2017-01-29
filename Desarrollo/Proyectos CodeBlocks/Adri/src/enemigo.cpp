@@ -275,8 +275,8 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         movy = vec.Z;
         double modulo = sqrt((movx*movx) + (movy*movy));
         if(modulo != 0){
-            movx = (movx / modulo) * velocidad * 0.70;
-            movy = (movy / modulo) * velocidad * 0.70;
+            movx = (movx - body2->GetPosition().x) * 0.15;
+            movy = (movy - body2->GetPosition().y) * 0.15;
 
         }
 
@@ -486,14 +486,15 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 puntoInteres = posicionProta;
                 estado = 8;
             }
-            if(distanciaPlayer<6){
+            if(distanciaPlayer<10){
                 estado=7;
             }
             //si esta a rango ataca
             //si lo pierde de vista, vuelve a la patrulla
             break;
         case 7: //ATACAR
-            if(distanciaPlayer<5){
+             std::cout << "ataca \n";
+            if(distanciaPlayer<10){
                 smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
                 atacar();
             }
