@@ -2,7 +2,6 @@
 #include <Box2D/Box2D.h>
 
 
-
 Enemigo::Enemigo()
 {
     //ctor
@@ -40,6 +39,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         mensajePendiente=false;
         muerto=false;
         hayAliado=false;
+        velocidad= 6.0f;
 
         smgr1 = smgr;
 
@@ -144,13 +144,15 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     //Asi se mueve con BODY
 
-    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
+    void Enemigo::setPosicion(core::vector3df vec){
         if(muerto){
             body2->SetTransform(b2Vec2(-1000, -1000), 0);
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
         }
         else{
-            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+            if(estado != 6){
+                body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+            }
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
         }
     }
@@ -267,6 +269,23 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     {
 
     }
+
+    void Enemigo::moverBody2(core::vector3df vec){
+        movx = vec.X;
+        movy = vec.Z;
+        double modulo = sqrt((movx*movx) + (movy*movy));
+        if(modulo != 0){
+            movx = (movx / modulo) * velocidad * 0.70;
+            movy = (movy / modulo) * velocidad * 0.70;
+
+        }
+
+        body2->SetLinearVelocity(b2Vec2(movx, movy));
+        cuboEnemigo= vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
+        posicion = cuboEnemigo;
+    }
+
+
     void Enemigo::perseguir(){
         cuboEnemigo += direccionHaciaProta.normalize() * avMovement * 2.0;
         posicion = cuboEnemigo;
@@ -366,7 +385,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     //Funcionamiento maquina de estados
 
-    int Enemigo::maquinaEstados()
+    int Enemigo::maquinaEstados(core::vector3df posprota)
     {
         if(muerto==false){
         switch (estado)
@@ -462,12 +481,12 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         case 6: //PERSEGUIR
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 0, 0, 0));
             sospecha = 0.0;
-            perseguir();
+            moverBody2(posprota);
             if(distanciaPlayer>120){
                 puntoInteres = posicionProta;
                 estado = 8;
             }
-            if(distanciaPlayer<5){
+            if(distanciaPlayer<6){
                 estado=7;
             }
             //si esta a rango ataca
@@ -570,7 +589,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             avMovement = 15.f * tiempo.getTimeFactor();
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
             direccionHaciaProta=cuboProta-posicion;
-            maquinaEstados();
+            maquinaEstados(cuboProta);
             posicionProta=cuboProta;
 
         }

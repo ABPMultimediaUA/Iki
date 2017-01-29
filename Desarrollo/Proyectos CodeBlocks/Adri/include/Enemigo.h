@@ -35,7 +35,8 @@ class Enemigo
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
-        void setPosicion(core::vector3df vec, core::vector3df prot);
+        void moverBody2(core::vector3df vec);
+        void setPosicion(core::vector3df vec);
         void setPunto(core::vector3df este);
         void setEstado(int este);
         float getSospecha();
@@ -43,7 +44,7 @@ class Enemigo
         core::vector3df getCuboEnemigo();
         void sospechar(core::vector3df posicionProta);
         void curar(Enemigo aliado);
-        int maquinaEstados();
+        int maquinaEstados(core::vector3df posprota);
         void update(core::vector3df, Time, Enemigo *aliados[7]);
         void inspeccionar();
         void patrullar();
@@ -74,6 +75,7 @@ class Enemigo
     protected:
 
     private:
+        float velocidad;
         scene::IMesh *mura1;
         scene::IMeshSceneNode *modelo;
         b2Body *body2;
