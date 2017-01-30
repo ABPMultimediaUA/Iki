@@ -694,6 +694,7 @@ int main(){
             }
             else if(s4->isFinished()){
                 aparcao = true;
+                kiko = true;
                 vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
                 vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
                 enemigos[3]->inicialiazar(0,4,smgr,posicion,pr03);
@@ -703,9 +704,9 @@ int main(){
                 enemigos[3]->setPunto(enemigos[1]->getPunto());
                 enemigos[4]->setPunto(enemigos[1]->getPunto());
                 enemigos[1]->setEstado(10);
-                kiko = true;
-                    //eliminar enemigo
-                enemigos[1]->setPosicion(core::vector3df(-1000,0,0), prota->getCuboProta());
+
+                //eliminar enemigo
+                enemigos[1]->matar();
 
             }
         }
@@ -1005,23 +1006,23 @@ int main(){
         enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
         if(aparcao){
                  if(!congelado4)
-        enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
+                    enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
                  if(!congelado5)
-        enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
+                    enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
         }
         enemigos[6]->update(prota->getCuboProta(), tiempo, enemigos);
-        ///SET POSITION ENEMIGOS
-        enemigos[0]->setPosicion(enemigos[0]->getCuboEnemigo(), prota->getCuboProta());
 
+        ///SET POSITION ENEMIGOS
+        enemigos[0]->setPosicion();
         //Si el dron no se ha convertido en alarma
         if(cambiao == false)
-            enemigos[1]->setPosicion(enemigos[1]->getCuboEnemigo(), prota->getCuboProta());
+            enemigos[1]->setPosicion();
         if(aparcao){
-            enemigos[3]->setPosicion(enemigos[3]->getCuboEnemigo(), prota->getCuboProta());
-            enemigos[4]->setPosicion(enemigos[4]->getCuboEnemigo(), prota->getCuboProta());
+            enemigos[3]->setPosicion();
+            enemigos[4]->setPosicion();
         }
-        enemigos[2]->setPosicion(enemigos[2]->getCuboEnemigo(), prota->getCuboProta());
-        enemigos[6]->setPosicion(enemigos[6]->getCuboEnemigo(), prota->getCuboProta());
+        enemigos[2]->setPosicion();
+        enemigos[6]->setPosicion();
 
 
         //std::cout << "static constructor\n";

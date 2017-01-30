@@ -142,15 +142,10 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     //Asi se mueve con BODY
 
-    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
-        if(muerto){
-            body2->SetTransform(b2Vec2(-1000, -1000), 0);
+    void Enemigo::setPosicion(){
+            body2->SetTransform(b2Vec2(cuboEnemigo.X, cuboEnemigo.Z), 0);
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-        else{
-            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
-            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
+
     }
 
 
@@ -350,6 +345,9 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     }
     void Enemigo::matar(){
         //modelo->remove();
+        body2->SetTransform(b2Vec2(-1000, -1000), 0);
+        modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+        cuboEnemigo=modelo->getPosition();
         muerto=true;
         estado=10;
     }

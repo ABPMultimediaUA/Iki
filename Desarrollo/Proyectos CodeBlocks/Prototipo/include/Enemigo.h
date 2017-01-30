@@ -35,7 +35,7 @@ class Enemigo
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
-        void setPosicion(core::vector3df vec, core::vector3df prot);
+        void setPosicion();
         void setPunto(core::vector3df este);
         void setEstado(int este);
         float getSospecha();
