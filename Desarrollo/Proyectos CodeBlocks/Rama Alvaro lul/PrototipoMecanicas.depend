@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1485469392 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1486161474 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
-	"include/Objeto.h"
 	<irrKlang.h>
 	"irrKlang/conio.h"
 	<iostream>
@@ -1317,7 +1316,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1485194825 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+1486141048 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
 	<stdio.h>
 	"tinyxml2.h"
 	"MapComponent.h"
@@ -1338,12 +1337,12 @@
 	<android/log.h>
 	<assert.h>
 
-1485194825 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+1486151331 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
 
-1484768930 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+1486076677 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -1364,10 +1363,10 @@
 
 1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\game.h
 
-1485469547 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
+1486141051 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
 	"Map.h"
 
-1485466569 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
+1486161043 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
 	"Map.h"
 
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp
@@ -1375,7 +1374,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484768930 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\objeto.cpp
+1486150768 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -1386,7 +1385,7 @@
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1485469714 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
+1486151538 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 

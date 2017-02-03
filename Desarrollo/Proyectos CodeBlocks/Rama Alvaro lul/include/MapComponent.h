@@ -16,14 +16,23 @@ class MapComponent
 {
 
 
-    public:
-        MapComponent(float, core::vector3df, scene::ISceneManager*, int);
+public:
+    void getlul();
+    MapComponent(float, core::vector3df, scene::ISceneManager*, int);
+    scene::IAnimatedMeshSceneNode *modelo;
+    void setPosition(core::vector3df vec);
+    void setPosicionBody(float ang);
+    void destroyObj();
+    void Activar();
+    void Desactivar();
+    bool comprobarPunto(b2Vec2 v);
+    core::vector3df getPosicionObjeto();
+     b2Body *body;
 
-    private:
-        scene::IAnimatedMesh *mesh;
-        scene::IAnimatedMeshSceneNode *modelo;
-        class World* iworld;
-        b2Body *body;
+private:
+    scene::IAnimatedMesh *mesh;
+    class World* iworld;
+
 
 
 

@@ -5,28 +5,33 @@
 
 
 using namespace tinyxml2;
+using namespace std;
 
 class Map
 {
 public:
 
-	Map();
-	void loadMap(scene::ISceneManager*);
-	void update();
-	void render(float interpolation);
+    Map();
+    void loadMap(scene::ISceneManager*);
+    void update();
+    void render(float interpolation);
+    vector<MapComponent*> * muros;
+    vector<MapComponent*> * puertas;
+    vector<MapComponent*> * objetos;
+    vector<MapComponent*> * palancas;
+
+
 
 private:
 
-	tinyxml2::XMLDocument* docFile;
-	tinyxml2::XMLElement* mapElement;
-	tinyxml2::XMLElement* objectGroup;
-	tinyxml2::XMLElement* object;
-	int _width;
-	int _tileWidth;
-	int _height;
-	int _tileHeigth;
-	irr::core::array<MapComponent*> * walls;
-	irr::core::array<MapComponent*> * puertas;
+    tinyxml2::XMLDocument* docFile;
+    tinyxml2::XMLElement* mapElement;
+    tinyxml2::XMLElement* objectGroup;
+    tinyxml2::XMLElement* object;
+    int _width;
+    int _tileWidth;
+    int _height;
+    int _tileHeigth;
 
 
 

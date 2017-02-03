@@ -85,7 +85,6 @@
 			<Option target="Windows" />
 		</Unit>
 		<Unit filename="include/Muros.h" />
-		<Unit filename="include/Objeto.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
 		<Unit filename="include/Player.h" />
@@ -106,7 +105,6 @@
 			<Option target="Windows" />
 		</Unit>
 		<Unit filename="src/Muros.cpp" />
-		<Unit filename="src/Objeto.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/Player.cpp" />
