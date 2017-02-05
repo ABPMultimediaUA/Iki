@@ -1,7 +1,6 @@
 #include "Map.h"
 
 
-
 MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smgr, int i)
 {
 
@@ -87,7 +86,28 @@ MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smg
 
 
     }
-    body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265 * a);
+
+    else if(i==5)
+    {
+
+        mesh = smgr->getMesh("Modelos/apisonadora.obj");
+        modelo = smgr->addAnimatedMeshSceneNode(mesh);
+        smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 0, 0));
+
+        b2BodyDef bodyDef;
+        bodyDef.type= b2_kinematicBody;
+        iworld= World::Instance();
+        b2PolygonShape bodyShape;
+
+        bodyDef.position.Set(b.X, b.Z);
+        body= iworld->getWorld()->CreateBody(&bodyDef);
+        bodyShape.SetAsBox(3.f/2, 1.f/2);
+        body->CreateFixture(&bodyShape, 1.0f);
+
+
+
+    }
+    body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265358979323846 * a);
     modelo = smgr->addAnimatedMeshSceneNode(mesh);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     modelo->setPosition(b);
@@ -109,12 +129,11 @@ bool MapComponent::comprobarPunto(b2Vec2 v)
     return si;
 }
 
-/*void MapComponent::setPosition(core::vector3df vec)
-{
-    body->SetTransform(b2Vec2(vec.X, vec.Z), 0);
+void MapComponent::setPosition(core::vector3df vec){
+
     modelo->setPosition(vec);
 
-}*/
+}
 
 void MapComponent::Desactivar()
 {

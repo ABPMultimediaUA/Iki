@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2451">
- <tileset firstgid="1" name="BosquePrueba" tilewidth="2" tileheight="2" tilecount="0" columns="588">
-  <image source="BosquePrueba.png" width="1177" height="1172"/>
- </tileset>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2457">
  <objectgroup color="#000000" name="Pared">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
@@ -631,5 +628,9 @@
   <object id="2435" x="68.8182" y="122.273" width="2" height="2"/>
   <object id="2436" x="23.9091" y="99.5455" width="2" height="2"/>
   <object id="2437" x="80.6364" y="78.2727" width="2" height="2"/>
+ </objectgroup>
+ <objectgroup color="#ffff00" name="Apisonadora">
+  <object id="2451" x="80" y="100.733" width="2" height="2"/>
+  <object id="2452" x="80" y="96.5341" width="2" height="2"/>
  </objectgroup>
 </map>

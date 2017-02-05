@@ -8,6 +8,7 @@ Map::Map()
     puertas = new vector<MapComponent*>();
     palancas = new vector<MapComponent*>();
     objetos = new vector<MapComponent*>();
+    apisonadoras = new vector<MapComponent*>();
 
 }
 
@@ -115,6 +116,27 @@ void Map::loadMap(scene::ISceneManager* smgr)
                     object->QueryFloatAttribute("y", &x);
                     object->QueryFloatAttribute("rotation", &r);
                     objetos->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 4));
+                    object = object->NextSiblingElement("object");
+                }
+
+
+
+            }
+        }
+
+        else if (objectGroup->Attribute("name", "Apisonadora"))
+        {
+            if (objectGroup->FirstChildElement("object"))
+            {
+                object = objectGroup->FirstChildElement("object");
+
+
+                while (object)
+                {
+                    object->QueryFloatAttribute("x", &z);
+                    object->QueryFloatAttribute("y", &x);
+                    object->QueryFloatAttribute("rotation", &r);
+                    apisonadoras->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 5));
                     object = object->NextSiblingElement("object");
                 }
 

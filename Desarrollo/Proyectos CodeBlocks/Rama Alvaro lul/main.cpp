@@ -212,6 +212,7 @@ int main()
     ISoundSource* hack = engine->addSoundSourceFromFile("sonidos/elhack.wav");
     ISoundSource* palancaon = engine->addSoundSourceFromFile("sonidos/palancaon.wav");
     ISoundSource* palancaoff = engine->addSoundSourceFromFile("sonidos/palancaoff.wav");
+    ISoundSource* aceite = engine->addSoundSourceFromFile("sonidos/agua.wav");
     vec3df posicion(0,0,0);
     ISound* s1;
     ISound* s2;
@@ -225,11 +226,10 @@ int main()
     ISound* s10;
     ISound* s11;
     ISound* s12;
-
+    ISound* s13;
 
     pasos1->setDefaultVolume(2.0f);
     pasos2->setDefaultVolume(1.0f);
-
 
 
     ///SUELO
@@ -392,31 +392,72 @@ int main()
         }
 
 
+        if(prota->getLaser() > 0){
+            if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser){
+                balamenos= prota->getLaser() - 1;
+                prota->setLaser(balamenos);
+                rayolaser = true;
+                rayolaser1 = true;
+                b2RayCastInput input2;
+                input2.maxFraction	=	1.0f;
+                b2RayCastOutput	output2;
 
-        ///VIDA PROTA
+                ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                receiver.GetMouseState().Position, camera);
+
+                plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
+
+                toMousePosition = mousePosition - prota->getCuboProta();
+
+                input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+                float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
+                input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*30), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*30));
+
+                //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
+                //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
 
 
-        if(prota->getVida() >= 200)
-        {
-            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-            driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-            driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+                distancia3 = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
+                angulo3 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
+
+
+                s10 = engine->play3D(rayopara,posicion,false,false,true);
+                s11 = engine->play3D(hack,posicion,false,false,true);
+
+                modelo2->setVisible(true);
+                modelo2->setScale(core::vector3df(distancia3/10, 0.5f, 0.5f));
+                modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
+                modelo2->setRotation(core::vector3df(0,angulo3,0));
+            }
         }
-        else if(prota->getVida() >= 100)
-        {
-            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-            driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+
+
+        if(rayolaser == true && s10->isFinished()){
+            rayolaser = false;
+            congelado1 = false;
+            congelado2 = false;
+            congelado3 = false;
+            congelado4 = false;
+            congelado5 = false;
+            congelado6 = false;
         }
-        else if(prota->getVida() > 0)
-        {
-            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+
+        if(rayolaser1 == true && s11->isFinished()){
+            rayolaser1 = false;
+            modelo2->setVisible(false);
         }
+
 
 
         prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
 
+        ///VIDA PROTA
 
-//MECANISMOS DEL MAPA Y TAL
+
+
+
+        //MECANISMOS DEL MAPA Y TAL
+
         if((sqrt(pow(Mapa->objetos->at(0)->body->GetPosition().y-prota->getBody()->GetPosition().y, 2) + pow(Mapa->objetos->at(0)->body->GetPosition().x-prota->getBody()->GetPosition().x, 2)))/10 < 0.3)
             hayobj = true;
         if((sqrt(pow(Mapa->objetos->at(1)->body->GetPosition().y-prota->getBody()->GetPosition().y, 2) + pow(Mapa->objetos->at(1)->body->GetPosition().x-prota->getBody()->GetPosition().x, 2)))/10 < 0.3)
@@ -451,11 +492,11 @@ int main()
         {
             if(vez3 == false)
             {
-                objlaser= prota->getLaser() + 5;
-                std::cout <<"balas: "<<objlaser<<" \n";
-                prota->setLaser(objlaser);
+
+                s12 = engine->play3D(aceite,posicion,false,false,true);
                 Mapa->objetos->at(3)->Desactivar();
                 vez3 = true;
+
             }
 
         }
@@ -486,7 +527,7 @@ int main()
             if(cerrada && engine->isCurrentlyPlaying(palancaoff) == false)
             {
                 Mapa->puertas->at(1)->Desactivar();
-                smgr->getMeshManipulator()->setVertexColors(Mapa->palancas->at(0)->modelo->getMesh(),video::SColor(0, 0, 255, 0));
+                smgr->getMeshManipulatdor()->setVertexColors(Mapa->palancas->at(0)->modelo->getMesh(),video::SColor(0, 0, 255, 0));
                 s12 = engine->play3D(palancaon,posicion,false,false,true);
                 cerrada = false;
             }
@@ -501,9 +542,22 @@ int main()
 
 
 
+        //APASIONADORA
+            if((sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10 < 0.5){
+                Mapa->apisonadoras->at(0)->body->SetLinearVelocity(b2Vec2(2, 0));
+                Mapa->apisonadoras->at(1)->body->SetLinearVelocity(b2Vec2(-2, 0));
+            }
+
+            if((sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10 > 1.0){
+                Mapa->apisonadoras->at(0)->body->SetLinearVelocity(b2Vec2(-2, 0));
+                Mapa->apisonadoras->at(1)->body->SetLinearVelocity(b2Vec2(2, 0));
+            }
 
 
+        Mapa->apisonadoras->at(0)->setPosition(vector3df(Mapa->apisonadoras->at(0)->body->GetPosition().x, 0, Mapa->apisonadoras->at(0)->body->GetPosition().y));
+        Mapa->apisonadoras->at(1)->setPosition(vector3df(Mapa->apisonadoras->at(1)->body->GetPosition().x, 0, Mapa->apisonadoras->at(1)->body->GetPosition().y));
 
+        std::cout <<(sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10<<" \n";
         //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
         //prota->setPosicionBody(0);
 
@@ -535,11 +589,11 @@ int main()
         }
 
         if(receiver.isKeyDown(KEY_LSHIFT))
-            prota->velocidad = 4.5f;
+            prota->velocidad = 2.5f;
+        else if(engine->isCurrentlyPlaying(aceite) == true)
+            prota->velocidad = 10.f;
         else
-            prota->velocidad = 10.0f;
-
-
+            prota->velocidad = 5.5f;
 
 
 
@@ -557,6 +611,23 @@ int main()
         //std::cout << "nigg\n";
         smgr->drawAll();
         guienv->drawAll();
+
+        if(prota->getVida() >= 200)
+        {
+            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        }
+        else if(prota->getVida() >= 100)
+        {
+            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+            driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        }
+        else if(prota->getVida() > 0)
+        {
+            driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
+        }
+
         driver->endScene();
         //std::cout << "yep\n";
     }

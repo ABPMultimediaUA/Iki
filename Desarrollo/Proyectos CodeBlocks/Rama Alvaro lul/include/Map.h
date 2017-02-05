@@ -19,6 +19,7 @@ public:
     vector<MapComponent*> * puertas;
     vector<MapComponent*> * objetos;
     vector<MapComponent*> * palancas;
+    vector<MapComponent*> * apisonadoras;
 
 
 
