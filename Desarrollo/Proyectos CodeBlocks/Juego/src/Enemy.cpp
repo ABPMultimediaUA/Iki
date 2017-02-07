@@ -11,7 +11,7 @@ Enemy::~Enemy()
 
 }
 
-void Enemy::inicializar_enemigo(int t, ISceneManager* smgr, vector3df p)
+/*void Enemy::inicializar_enemigo(int t, ISceneManager* smgr, vector3df p)
 {
         estado = 0;
         tipo = t;
@@ -19,6 +19,6 @@ void Enemy::inicializar_enemigo(int t, ISceneManager* smgr, vector3df p)
         modelo = smgr->addCubeSceneNode(5);
         modelo->setPosition(posicion);
         smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),irr::video::SColor(0, 0, 255, 0));
-}
+}*/
 
 

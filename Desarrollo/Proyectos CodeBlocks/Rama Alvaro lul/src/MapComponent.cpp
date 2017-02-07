@@ -105,13 +105,22 @@ MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smg
         body->CreateFixture(&bodyShape, 1.0f);
 
 
+    }
+
+    else if(i==6)
+    {
+
+    pp = new PatrolPoint(b);
 
     }
+
+    if(i!=6){
     body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265358979323846 * a);
     modelo = smgr->addAnimatedMeshSceneNode(mesh);
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     modelo->setPosition(b);
     modelo->setRotation(core::vector3df(0, a, 0));
+    }
 
 
 }

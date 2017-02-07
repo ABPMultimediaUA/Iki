@@ -7,11 +7,13 @@
 
 class World
 {
+
     public:
         World();
         virtual ~World();
-        void inicializar_mundo(ISceneManager*);
+        void inicializar_mundo();
         void update_mundo();
+
 
     protected:
 

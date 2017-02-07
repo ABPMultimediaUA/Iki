@@ -142,17 +142,11 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     //Asi se mueve con BODY
 
-    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
-        if(muerto){
-            body2->SetTransform(b2Vec2(-1000, -1000), 0);
+    void Enemigo::setPosicion(){
+            body2->SetTransform(b2Vec2(cuboEnemigo.X, cuboEnemigo.Z), 0);
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-        else{
-            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
-            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-    }
 
+    }
 
     void Enemigo::setEstado(int este)
     {
@@ -574,7 +568,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         }
     }
 
-    void Enemigo::setMuro(Muros* murito, Player *prota){
+    void Enemigo::setMuro(Map* murito, Player *prota){
         player= prota;
         morito = murito;
     }
@@ -583,32 +577,12 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
         input.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
 
-        if (morito->body->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body2->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body3->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body4->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body5->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body6->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body7->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body8->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body9->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body10->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body11->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body12->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body13->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body14->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body15->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body16->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body17->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body18->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body19->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body20->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body21->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body22->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body23->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body24->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body25->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body26->GetFixtureList()->RayCast(&output,	input,	0))return true;
+
+            for (int i = 0; i < morito->muros->size(); i++) {
+                if (morito->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
+                return true;
+
+	}
 
        return false;
     }

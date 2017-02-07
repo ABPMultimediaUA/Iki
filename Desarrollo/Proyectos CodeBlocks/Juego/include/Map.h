@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include <Box2D/Box2D.h>
+#include "MeshSceneNode.h"
 
 using namespace irr;
 
@@ -18,14 +19,15 @@ class Map
     public:
         Map();
         virtual ~Map();
-        void inicializar_mapa(ISceneManager*);
+        void inicializar_mapa();
 
     protected:
 
     private:
 
-        IMesh *mesh;
-        IMeshSceneNode *suelo;
+        MeshSceneNode *suelo;
+        /*IMesh *mesh;
+        IMeshSceneNode *suelo;*/
 
 };
 
