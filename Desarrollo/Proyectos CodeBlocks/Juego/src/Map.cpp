@@ -10,11 +10,12 @@ Map::~Map()
 
 }
 
-void Map::inicializar_mapa(ISceneManager* smgr){
+void Map::inicializar_mapa(){
 
-    mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(150.f, -5.f, 150.f));
-    suelo = smgr->addMeshSceneNode(mesh);
+    Structs::TMedida med = {150,-5,150};
+    Structs::TPosicion pos = {0,0,0};
+    Structs::TColor col = {0,255,255,255};
 
-    suelo->setPosition(core::vector3df(0.0f, 0.0f, 0.0f));
-    smgr->getMeshManipulator()->setVertexColors(suelo->getMesh(),irr::video::SColor(0, 0, 0, 0));
+    suelo = new MeshSceneNode(med, pos, col);
+
 }
