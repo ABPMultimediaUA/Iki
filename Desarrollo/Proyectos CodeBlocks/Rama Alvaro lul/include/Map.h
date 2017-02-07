@@ -4,6 +4,7 @@
 #include "MapComponent.h"
 
 
+
 using namespace tinyxml2;
 using namespace std;
 
@@ -20,6 +21,7 @@ public:
     vector<MapComponent*> * objetos;
     vector<MapComponent*> * palancas;
     vector<MapComponent*> * apisonadoras;
+    vector<MapComponent*> * patrullas;
 
 
 

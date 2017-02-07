@@ -1,7 +1,7 @@
 #include <irrlicht.h>
 #include "driverChoice.h"
 #include <World.h>
-
+#include "PatrolRoute.h"
 
 
 using namespace irr;
@@ -28,6 +28,7 @@ public:
     bool comprobarPunto(b2Vec2 v);
     core::vector3df getPosicionObjeto();
      b2Body *body;
+     PatrolPoint *pp;
 
 private:
     scene::IAnimatedMesh *mesh;

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1486312224 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1486466195 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -1159,7 +1159,7 @@
 1481736228 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1484768930 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+1486427947 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -1167,6 +1167,7 @@
 	"../include/Muros.h"
 	<World.h>
 	<Player.h>
+	"../include/Map.h"
 	"../include/PatrolRoute.h"
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
@@ -1316,7 +1317,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1486311021 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
 	<stdio.h>
 	"tinyxml2.h"
 	"MapComponent.h"
@@ -1337,12 +1338,13 @@
 	<android/log.h>
 	<assert.h>
 
-1486309983 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
+	"PatrolRoute.h"
 
-1486076677 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+1486428259 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -1363,10 +1365,10 @@
 
 1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\game.h
 
-1486311021 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
+1486465799 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
 	"Map.h"
 
-1486312504 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
+1486466094 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
 	"Map.h"
 
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp

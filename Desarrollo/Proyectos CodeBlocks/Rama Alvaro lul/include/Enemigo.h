@@ -8,6 +8,7 @@
 #include "../include/Muros.h"
 #include <World.h>
 #include <Player.h>
+#include "../include/Map.h"
 
 #include "../include/PatrolRoute.h"
 
@@ -35,7 +36,7 @@ class Enemigo
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
-        void setPosicion(core::vector3df vec, core::vector3df prot);
+        void setPosicion();
         void setPunto(core::vector3df este);
         void setEstado(int este);
         float getSospecha();
@@ -61,11 +62,11 @@ class Enemigo
         void setDanyado(bool);
         bool getDanyado();
         bool getMuerto();
-        void setMuro(Muros* murito, Player *prota);
+        void setMuro(Map* murito, Player *prota);
         bool getMuro();
         bool getCreado();
         bool seeWhereIgo();
-        class Muros* morito;
+        class Map* morito;
         void huir();
         int getTipo();
         int getID();

@@ -9,6 +9,7 @@ Map::Map()
     palancas = new vector<MapComponent*>();
     objetos = new vector<MapComponent*>();
     apisonadoras = new vector<MapComponent*>();
+    patrullas = new vector<MapComponent*>();
 
 }
 
@@ -137,6 +138,27 @@ void Map::loadMap(scene::ISceneManager* smgr)
                     object->QueryFloatAttribute("y", &x);
                     object->QueryFloatAttribute("rotation", &r);
                     apisonadoras->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 5));
+                    object = object->NextSiblingElement("object");
+                }
+
+
+
+            }
+        }
+
+        else if (objectGroup->Attribute("name", "Patrol"))
+        {
+            if (objectGroup->FirstChildElement("object"))
+            {
+                object = objectGroup->FirstChildElement("object");
+
+
+                while (object)
+                {
+                    object->QueryFloatAttribute("x", &z);
+                    object->QueryFloatAttribute("y", &x);
+                    object->QueryFloatAttribute("rotation", &r);
+                    patrullas->push_back(new MapComponent(r, core::vector3df(x, 0, z), smgr, 6));
                     object = object->NextSiblingElement("object");
                 }
 
