@@ -15,7 +15,7 @@ MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smg
 
         bodyDef.position.Set(b.X, b.Z);
         body= iworld->getWorld()->CreateBody(&bodyDef);
-        bodyShape.SetAsBox(1.f/2, 1.f/2);
+        bodyShape.SetAsBox(2.f/2, 2.f/2);
         body->CreateFixture(&bodyShape, 1.0f);
 
 
@@ -39,7 +39,7 @@ MapComponent::MapComponent(float a, core::vector3df b, scene::ISceneManager* smg
 
         bodyDef.position.Set(b.X, b.Z);
         body= iworld->getWorld()->CreateBody(&bodyDef);
-        bodyShape.SetAsBox(1.f/2, 4.f/2);
+        bodyShape.SetAsBox(2.f/2, 6.f/2);
         body->CreateFixture(&bodyShape, 1.0f);
 
 

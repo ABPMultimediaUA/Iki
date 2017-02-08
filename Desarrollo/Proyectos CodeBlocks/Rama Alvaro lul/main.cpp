@@ -160,16 +160,12 @@ int main()
 
 ///PATRULLAS
 
-    ///3-> Enemigos[3] Guardia2
-    PatrolPoint *pp05, *pp06;
-    pp05 = new PatrolPoint(irr::core::vector3df(180,0,120));
-    pp06 = new PatrolPoint(irr::core::vector3df(100,0,120));
-
-    pp05->setNext(pp06); pp06->setNext(pp05);
-    pp05->setPrev(pp06); pp06->setPrev(pp05);
+    //typedef Mapa->patrullas hola;
+    Mapa->patrullas->at(0)->pp->setNext(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setNext(Mapa->patrullas->at(0)->pp);
+    Mapa->patrullas->at(0)->pp->setPrev(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setPrev(Mapa->patrullas->at(0)->pp);
 
     PatrolRoute pr03;
-    pr03.setInicial(pp05); pr03.setFinal(pp05->getPrev());
+    pr03.setInicial(Mapa->patrullas->at(0)->pp); pr03.setFinal(Mapa->patrullas->at(0)->pp->getPrev());
 
     ///4 Enemigos[4] Guardia3
     PatrolPoint *pp15, *pp16;
@@ -182,51 +178,38 @@ int main()
     PatrolRoute pr04;
     pr04.setInicial(pp15); pr04.setFinal(pp15->getPrev());
     ///1-> Enemigos[2] Medico
-    PatrolPoint *pp01, *pp02, *pp03, *pp04;
-    pp01 = new PatrolPoint(irr::core::vector3df(-20,0,50));
-    pp02 = new PatrolPoint(irr::core::vector3df(-20,0,115));
-    pp03 = new PatrolPoint(irr::core::vector3df(45,0,115));
-    pp04 = new PatrolPoint(irr::core::vector3df(45,0, 50));
 
-    pp01->setNext(pp02); pp02->setNext(pp03); pp03->setNext(pp04); pp04->setNext(pp01);
-    pp01->setPrev(pp04); pp04->setPrev(pp03); pp03->setPrev(pp02); pp02->setPrev(pp01);
+    Mapa->patrullas->at(2)->pp->setNext(Mapa->patrullas->at(3)->pp); Mapa->patrullas->at(3)->pp->setNext(Mapa->patrullas->at(4)->pp);
+    Mapa->patrullas->at(4)->pp->setNext(Mapa->patrullas->at(5)->pp); Mapa->patrullas->at(5)->pp->setNext(Mapa->patrullas->at(2)->pp);
+    Mapa->patrullas->at(3)->pp->setPrev(Mapa->patrullas->at(2)->pp); Mapa->patrullas->at(4)->pp->setPrev(Mapa->patrullas->at(3)->pp);
+    Mapa->patrullas->at(5)->pp->setPrev(Mapa->patrullas->at(4)->pp); Mapa->patrullas->at(2)->pp->setPrev(Mapa->patrullas->at(5)->pp);
 
     PatrolRoute pr01;
-    pr01.setInicial(pp01); pr01.setFinal(pp01->getPrev());
+    pr01.setInicial(Mapa->patrullas->at(2)->pp); pr01.setFinal(Mapa->patrullas->at(2)->pp->getPrev());
 
     ///2-> Enemigos[6] GuardiaNuevo
-    PatrolPoint *pp11, *pp12, *pp13, *pp14;
-    pp11 = new PatrolPoint(irr::core::vector3df(275,0,130));
-    pp12 = new PatrolPoint(irr::core::vector3df(265,0,30));
-    pp13 = new PatrolPoint(irr::core::vector3df(190,0,55));
-    pp14 = new PatrolPoint(irr::core::vector3df(265,0,30));
 
-    pp11->setNext(pp12); pp12->setNext(pp13); pp13->setNext(pp14); pp14->setNext(pp11);
-    pp11->setPrev(pp14); pp14->setPrev(pp13); pp13->setPrev(pp12); pp12->setPrev(pp11);
-
+    Mapa->patrullas->at(8)->pp->setNext(Mapa->patrullas->at(9)->pp); Mapa->patrullas->at(9)->pp->setNext(Mapa->patrullas->at(10)->pp);
+    Mapa->patrullas->at(10)->pp->setNext(Mapa->patrullas->at(11)->pp); Mapa->patrullas->at(11)->pp->setNext(Mapa->patrullas->at(8)->pp);
+    Mapa->patrullas->at(8)->pp->setPrev(Mapa->patrullas->at(11)->pp); Mapa->patrullas->at(11)->pp->setPrev(Mapa->patrullas->at(10)->pp);
+    Mapa->patrullas->at(10)->pp->setPrev(Mapa->patrullas->at(9)->pp); Mapa->patrullas->at(9)->pp->setPrev(Mapa->patrullas->at(8)->pp);
     PatrolRoute pr02;
-    pr02.setInicial(pp11); pr02.setFinal(pp11->getPrev());
+    pr02.setInicial(Mapa->patrullas->at(8)->pp); pr02.setFinal(Mapa->patrullas->at(8)->pp->getPrev());
    ///5 -> Enemigo[0] Guardia
-    PatrolPoint *pp09, *pp10;
-    pp09 = new PatrolPoint(irr::core::vector3df(-25,0,30));
-    pp10 = new PatrolPoint(irr::core::vector3df(-25,0,-80));
-
-    pp09->setNext(pp10); pp10->setNext(pp09);
-    pp09->setPrev(pp10); pp10->setPrev(pp09);
+    Mapa->patrullas->at(0)->pp->setNext(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setNext(Mapa->patrullas->at(0)->pp);
+    Mapa->patrullas->at(0)->pp->setPrev(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setPrev(Mapa->patrullas->at(0)->pp);
 
     PatrolRoute pr05;
-    pr05.setInicial(pp09); pr05.setFinal(pp10->getPrev());
+    pr05.setInicial(Mapa->patrullas->at(0)->pp); pr03.setFinal(Mapa->patrullas->at(0)->pp->getPrev());
 
     ///5 -> Enemigo[1] Dron
-    PatrolPoint *pp07, *pp08;
-    pp07 = new PatrolPoint(irr::core::vector3df(120,0,100));
-    pp08 = new PatrolPoint(irr::core::vector3df(120,0,170));
 
-    pp07->setNext(pp08); pp08->setNext(pp07);
-    pp07->setPrev(pp08); pp08->setPrev(pp07);
+    Mapa->patrullas->at(6)->pp->setNext(Mapa->patrullas->at(7)->pp); Mapa->patrullas->at(7)->pp->setNext(Mapa->patrullas->at(6)->pp);
 
     PatrolRoute pr06;
-    pr06.setInicial(pp07); pr06.setFinal(pp07->getPrev());
+    pr06.setInicial(Mapa->patrullas->at(6)->pp); pr06.setFinal(Mapa->patrullas->at(6)->pp->getPrev());
+
+
 
 
     int danio = 0;
@@ -239,15 +222,15 @@ int main()
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr,vector3df(-25,0,-80),pr05);
+        enemigos[0]->inicialiazar(0,0, smgr,vector3df(Mapa->patrullas->at(0)->pp->getPunto()),pr05);
     if(enemigos[1])
-        enemigos[1]->inicialiazar(1,1, smgr,vector3df(120,0,170),pr06);
+        enemigos[1]->inicialiazar(1,1, smgr,vector3df(Mapa->patrullas->at(6)->pp->getPunto()),pr06);
     if(enemigos[2])
-        enemigos[2]->inicialiazar(2,2,smgr,vector3df(45,0,50),pr01);
+        enemigos[2]->inicialiazar(2,2,smgr,vector3df(Mapa->patrullas->at(2)->pp->getPunto()),pr01);
     if(enemigos[5])
         enemigos[5]->inicialiazar2(smgr);
     if(enemigos[6])
-        enemigos[6]->inicialiazar(0,6,smgr,vector3df(265,0,25),pr02);
+        enemigos[6]->inicialiazar(0,6,smgr,vector3df(Mapa->patrullas->at(8)->pp->getPunto()),pr02);
 
 
     smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
@@ -405,7 +388,7 @@ int main()
 
     float angulo3 = 0;
     float distancia3 = 0;
-    scene::IMesh *rayo2 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
+    scene::IMesh *rayo2 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 0.5f, 0.5f));
     scene::IMeshSceneNode *modelo2 = smgr->addMeshSceneNode(rayo2);
     modelo2->setVisible(false);
 
@@ -768,7 +751,7 @@ int main()
         enemigos[2]->setPosicion();
         enemigos[6]->setPosicion();
 
-        //std::cout << "static constructor\n";
+        //std::cout << enemigos[0]->angulo<<"\n";
         world->Step(DeltaTime);
         world->getWorld()->ClearForces();
 
