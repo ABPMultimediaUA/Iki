@@ -24,7 +24,7 @@ using namespace irrklang;
 /*
 we'll store the latest state of the mouse and the first joystick, updating them as we receive events.
 */
-class MyEventReceiver : public IEventReceiver
+/*class MyEventReceiver : public IEventReceiver
 {
 private:
     bool KeyDown[KEY_KEY_CODES_COUNT];
@@ -40,7 +40,7 @@ public:
 
     struct SMouseState
     {
-        core::position2di Position;
+        position2di Position;
         bool RightButtonDown;
         SMouseState() : RightButtonDown(false) { }
     } MouseState;
@@ -93,7 +93,7 @@ public:
     }
 
 
-};
+};*/
 
 /*
 The event receiver for keeping the pressed keys is ready, the actual responses
@@ -107,29 +107,29 @@ int main()
 {
 
     // ask user for driver
-    video::E_DRIVER_TYPE driverType=driverChoiceConsole();
+    /*video::E_DRIVER_TYPE driverType=driverChoiceConsole();
     if (driverType==video::EDT_COUNT)
-        return 1;
+        return 1;*/
 
     // create device
-    MyEventReceiver receiver;
+    //MyEventReceiver receiver;
 
-    IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
-    IGUIEnvironment* guienv = device->getGUIEnvironment(); //Cargamos la GUI
+    //IrrlichtDevice* device = createDevice(driverType,core::dimension2d<u32>(1080, 720), 16, false, false, false, &receiver);
+    //IGUIEnvironment* guienv = device->getGUIEnvironment(); //Cargamos la GUI
 
-    device->setWindowCaption(L"IKI" );
+    //device->setWindowCaption(L"IKI" );
     //guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",rect<s32>(10,10,10,10), true );
 
-    if (device == 0)
-        return 1; // could not create selected driver.
+    //if (device == 0)
+    //    return 1; // could not create selected driver.
 
-    video::IVideoDriver* driver = device->getVideoDriver();
+    //video::IVideoDriver* driver = device->getVideoDriver();
     //scene::ISceneManager* smgr = device->getSceneManager();
 
     //INICIALIZAR ESCENA
 
-    class Scene escena;
-    escena.inicializar_escena(device);
+    Scene* escena = new Scene();
+    escena->inicializar_escena();/*
 
     while(device->run())
     {
@@ -172,7 +172,7 @@ int main()
 
     device->drop();
 
-    return 0;
+    return 0;*/
 }
 
 /*

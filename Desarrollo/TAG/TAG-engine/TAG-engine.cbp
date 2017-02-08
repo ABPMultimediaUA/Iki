@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TAG-engine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TAG-engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TAG-engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="include/glm" />
+			<Add directory="include/GL" />
+			<Add directory="include/SDL" />
+		</Compiler>
+		<Linker>
+			<Add library="lib/glew32.lib" />
+			<Add library="lib/glew32s.lib" />
+			<Add library="lib/SDL2.lib" />
+			<Add library="lib/SDL2main.lib" />
+			<Add library="lib/SDL2test.lib" />
+		</Linker>
+		<Unit filename="include/TCamara.h" />
+		<Unit filename="include/TColor.h" />
+		<Unit filename="include/TEntidad.h" />
+		<Unit filename="include/TFichero.h" />
+		<Unit filename="include/TLuz.h" />
+		<Unit filename="include/TMalla.h" />
+		<Unit filename="include/TMatriz4x4.h" />
+		<Unit filename="include/TNodo.h" />
+		<Unit filename="include/TRecurso.h" />
+		<Unit filename="include/TRecursoMalla.h" />
+		<Unit filename="include/TTransform.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/TCamara.cpp" />
+		<Unit filename="src/TColor.cpp" />
+		<Unit filename="src/TEntidad.cpp" />
+		<Unit filename="src/TFichero.cpp" />
+		<Unit filename="src/TLuz.cpp" />
+		<Unit filename="src/TMalla.cpp" />
+		<Unit filename="src/TMatriz4x4.cpp" />
+		<Unit filename="src/TNodo.cpp" />
+		<Unit filename="src/TRecurso.cpp" />
+		<Unit filename="src/TRecursoMalla.cpp" />
+		<Unit filename="src/TTransform.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
