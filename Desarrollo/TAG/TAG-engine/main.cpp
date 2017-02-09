@@ -38,7 +38,7 @@ int main()
     TTransform* transform4= new TTransform();
     TTransform* transform5= new TTransform();
 
-    noditoEsc->setEntidad(transform0);
+    //noditoEsc->setEntidad(transformEsc);
     nodito0->setEntidad(transform0);
     nodito1->setEntidad(transform1);
     nodito2->setEntidad(transform2);
@@ -103,7 +103,7 @@ int main()
     nodito3->addHijo(nodito11);
 //////
 
-    nodito1->draw();
+    noditoEsc->draw();
 
 
     return 0;
