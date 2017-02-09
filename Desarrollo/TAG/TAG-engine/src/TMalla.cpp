@@ -4,7 +4,7 @@
 
 TMalla::TMalla()
 {
-    //ctor
+    malla= nullptr;
 }
 
 TMalla::~TMalla()
@@ -12,7 +12,7 @@ TMalla::~TMalla()
     //dtor
 }
 
-void TMalla::cargarMalla(TFichero)
+void TMalla::cargarMalla(TFichero fich)
 {
 
 }

@@ -1,6 +1,9 @@
 #ifndef TCAMARA_H
 #define TCAMARA_H
 
+#include <iostream>
+#include <vector>
+
 #include <TEntidad.h>
 
 
@@ -21,6 +24,7 @@ class TCamara : public TEntidad
     private:
         bool esPerspectiva;
         float cercano, lejano;
+        std::vector<float> vec, vec2;
 };
 
 #endif // TCAMARA_H

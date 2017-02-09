@@ -2,10 +2,12 @@
 #define TTRANSFORM_H
 
 #include <glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <TEntidad.h>
 
 
 using namespace glm;
+using namespace std;
 
 class TTransform : public TEntidad
 {
@@ -14,10 +16,10 @@ class TTransform : public TEntidad
         virtual ~TTransform();
 
         void identidad();
-        void cargar(mat4 matriz);
+        void cargar(mat4 mat);
         void trasponer();
         void trasladar(float x, float y, float z);
-        void rotar(float ang, float x, float y, float z);
+        void rotar(float orient, float x, float y, float z);
 
         void beginDraw();
         void endDraw();

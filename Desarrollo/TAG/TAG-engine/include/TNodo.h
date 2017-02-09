@@ -25,7 +25,7 @@ class TNodo
     private:
         //ponerlos en el constructor
         TEntidad *entidad;
-        std::vector<TNodo*> hijos;
+        vector<TNodo*> hijos;
         TNodo *padre;
 };
 

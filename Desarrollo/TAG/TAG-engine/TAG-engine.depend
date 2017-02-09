@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1486490630 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1486660009 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	<iostream>
 	"TNodo.h"
 	"TTransform.h"
@@ -10,29 +10,31 @@
 1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
 	"TEntidad.h"
 
-1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
+1486655244 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
+1486660522 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
 	<iostream>
 	"TMalla.h"
 
-1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+1486658427 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
 	<TEntidad.h>
 	"TFichero.h"
 	"TRecursoMalla.h"
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
+1486660658 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
 	<iostream>
 	"TNodo.h"
 
-1486576471 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
+1486656038 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
 	"TEntidad.h"
 	<vector>
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
+1486660045 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
 
-1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
+1486661359 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
+	<iostream>
+	<vector>
 	<TEntidad.h>
 
 1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcolor.cpp
@@ -40,10 +42,10 @@
 
 1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcolor.h
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
+1486660460 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
 	"TLuz.h"
 
-1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
+1486658689 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
 	<TEntidad.h>
 	"TColor.h"
 
@@ -67,12 +69,13 @@
 1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
+1486655198 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
 	<iostream>
 	"TTransform.h"
 
-1486651763 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
+1486655088 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
 	<glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
 	<TEntidad.h>
 
 1486489223 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\glm.hpp
@@ -517,4 +520,24 @@
 	"../simd/integer.h"
 
 1486489222 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\integer.h
+
+1486489223 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1486489223 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1486489223 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.inl
+	<limits>
+
+1486489223 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
 

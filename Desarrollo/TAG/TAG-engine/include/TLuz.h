@@ -11,7 +11,7 @@ class TLuz : public TEntidad
         TLuz();
         virtual ~TLuz();
 
-        void setIntensidad(TColor);
+        void setIntensidad(TColor col);
         TColor getIntensidad();
 
         void beginDraw();

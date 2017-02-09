@@ -8,6 +8,7 @@ class TEntidad
         TEntidad();
         virtual ~TEntidad();
 
+        //virtual pura
         virtual void beginDraw() = 0;
         virtual void endDraw() = 0;
 

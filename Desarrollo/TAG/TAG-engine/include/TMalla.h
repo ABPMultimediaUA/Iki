@@ -11,7 +11,7 @@ class TMalla : public TEntidad
         TMalla();
         virtual ~TMalla();
 
-        void cargarMalla(TFichero);
+        void cargarMalla(TFichero fich);
 
         void beginDraw();
         void endDraw();
