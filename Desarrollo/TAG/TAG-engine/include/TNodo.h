@@ -23,6 +23,7 @@ class TNodo
     protected:
 
     private:
+        //ponerlos en el constructor
         TEntidad *entidad;
         std::vector<TNodo*> hijos;
         TNodo *padre;

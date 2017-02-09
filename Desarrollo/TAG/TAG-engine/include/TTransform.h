@@ -1,9 +1,11 @@
 #ifndef TTRANSFORM_H
 #define TTRANSFORM_H
 
+#include <glm.hpp>
 #include <TEntidad.h>
-#include "TMatriz4x4.h"
 
+
+using namespace glm;
 
 class TTransform : public TEntidad
 {
@@ -12,7 +14,7 @@ class TTransform : public TEntidad
         virtual ~TTransform();
 
         void identidad();
-        void cargar(TMatriz4x4);
+        void cargar(mat4 matriz);
         void trasponer();
         void trasladar(float x, float y, float z);
         void rotar(float ang, float x, float y, float z);
@@ -23,7 +25,7 @@ class TTransform : public TEntidad
     protected:
 
     private:
-        TMatriz4x4 matriz;
+        mat4 matriz;
 };
 
 #endif // TTRANSFORM_H

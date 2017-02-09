@@ -17,7 +17,7 @@ void TTransform::identidad()
 
 }
 
-void TTransform::cargar(TMatriz4x4)
+void TTransform::cargar(mat4 mat)
 {
 
 }
@@ -29,6 +29,7 @@ void TTransform::trasponer()
 
 void TTransform::trasladar(float x, float y, float z)
 {
+//matriz. funcion de trasladar en este caso
 
 }
 
