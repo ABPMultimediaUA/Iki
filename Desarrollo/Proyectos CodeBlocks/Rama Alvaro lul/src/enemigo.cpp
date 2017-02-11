@@ -71,22 +71,22 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
 }
 
-void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
-    tam= 2;
+void Enemigo::inicialiazar2(scene::ISceneManager* smgr, core::vector3df p){
+    tam= 3;
     vida = 150;
     tipo=4;
     id=3;
 
-    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(8.f, 8.f, 8.f));
+    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(4.f, 2.f, 4.f));
     modelo = smgr->addMeshSceneNode(mura1);
 
-    modelo->setPosition(core::vector3df(180,0,255));
+    modelo->setPosition(p);
     modelo->setRotation(core::vector3df(0,-45,0));
     posicion=modelo->getPosition();
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_staticBody;
-    bodyDef.position.Set(180, 255);
+    bodyDef.position.Set(p.X, p.Z);
     iworld= World::Instance();
     body2= iworld->getWorld()->CreateBody(&bodyDef);
 
@@ -143,8 +143,11 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     //Asi se mueve con BODY
 
     void Enemigo::setPosicion(){
-            body2->SetTransform(b2Vec2(cuboEnemigo.X, cuboEnemigo.Z), 0);
+
+            body2->SetTransform(b2Vec2(cuboEnemigo.X, cuboEnemigo.Z), angulo);
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+            modelo->setRotation(core::vector3df(0,body2->GetAngle(),0));
+
 
     }
 
@@ -187,11 +190,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 pRuta = pRuta->getNext();
                 posicionInicial = pRuta->getPunto() - cuboEnemigo;
                 angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
-                if(rotacion+angulo>360){
-                    rotacion=rotacion-360;
-                }
-                modelo->setRotation(vector3df(0,rotacion+angulo,0));
-                rotacion=modelo->getRotation().Y;
+
                 //std::cout << "Angulo: " << angulo  << std::endl;
                 //std::cout << "Rotacion: " << rotacion  << std::endl;
             }
@@ -212,8 +211,6 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         //std::cout << vida;
         if(vida <= 0){
             matar();
-            modelo->setPosition(core::vector3df(1000,0,0));
-            body2->SetTransform(b2Vec2(1000,0),0);
         }
     }
 
@@ -244,13 +241,13 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         tiempoVigilando=(time-reloj);
         //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
         if(tiempoVigilando < 3.0){
-            modelo->setRotation(vector3df(0,rotacion+30,0));
+            angulo = angulo + 30;
         }
         else if(tiempoVigilando>= 3.0 && tiempoVigilando<= 6.0){
-            modelo->setRotation(vector3df(0,rotacion-30,0));
+            angulo = angulo - 60;
         }
         else if(tiempoVigilando>6.0){
-            modelo->setRotation(vector3df(0,rotacion,0));
+            angulo = angulo + 30;
         }
         posicion = cuboEnemigo;
     }
@@ -262,6 +259,9 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     void Enemigo::perseguir(){
         cuboEnemigo += direccionHaciaProta.normalize() * avMovement * 2.0;
         posicion = cuboEnemigo;
+        angulo = atan2f((direccionHaciaProta.Z) ,
+                                  -(direccionHaciaProta.X)) * 180.f / irr::core::PI;
+
 
     }
     void Enemigo::pedirAyuda(){
@@ -343,7 +343,9 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             posicion = cuboEnemigo;
     }
     void Enemigo::matar(){
-        //modelo->remove();
+        std::cout << " yiii "  << std::endl;
+        modelo->setVisible(false);
+        body2->SetActive(false);
         muerto=true;
         estado=10;
     }
@@ -399,7 +401,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             if(primeraVez){
             reloj=tiempo.setMomento();
             primeraVez=false;
-            rotacion=modelo->getRotation().Y;
+
             }
             if (tiempoVigilando < 8.0){
             vigilar();
@@ -457,14 +459,14 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 puntoInteres = posicionProta;
                 estado = 8;
             }
-            if(distanciaPlayer<2){
+            if(distanciaPlayer<3){
                 estado=7;
             }
             //si esta a rango ataca
             //si lo pierde de vista, vuelve a la patrulla
             break;
         case 7: //ATACAR
-            if(distanciaPlayer<2){
+            if(distanciaPlayer<3){
                 smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
                 atacar();
             }
