@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1486834661 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1486916458 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -1159,7 +1159,7 @@
 1481736228 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1486740372 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+1486940161 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -1196,16 +1196,38 @@
 	"driverChoice.h"
 	<World.h>
 
+1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+	<stdio.h>
+	"tinyxml2.h"
+	"MapComponent.h"
+
+1484581329 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stddef.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<stdint.h>
+	<android/log.h>
+	<assert.h>
+
+1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+	"PatrolRoute.h"
+
 1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\patrolroute.h
 	"PatrolPoint.h"
 
 1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\patrolpoint.h
 	<irrlicht.h>
-
-1484768930 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\objeto.h
-	<irrlicht.h>
-	"driverChoice.h"
-	<World.h>
 
 1481736234 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
 	"ik_irrKlangTypes.h"
@@ -1317,37 +1339,6 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
-	<stdio.h>
-	"tinyxml2.h"
-	"MapComponent.h"
-
-1484581329 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinyxml2.h
-	<ctype.h>
-	<limits.h>
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<stddef.h>
-	<cctype>
-	<climits>
-	<cstdio>
-	<cstdlib>
-	<cstring>
-	<stdint.h>
-	<android/log.h>
-	<assert.h>
-
-1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
-	<irrlicht.h>
-	"driverChoice.h"
-	<World.h>
-	"PatrolRoute.h"
-
-1486834822 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
-	"Enemigo.h"
-	<Box2D/Box2D.h>
-
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\fuzzy.cpp
 	"Fuzzy.h"
 	"iostream"
@@ -1373,11 +1364,6 @@
 
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp
 	"Muros.h"
-	<Box2D/Box2D.h>
-	<iostream>
-
-1486150768 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\objeto.cpp
-	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
 
@@ -1408,30 +1394,6 @@
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\time.cpp
 	"..\include\Time.h"
 
-1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinystr.cpp
-	"tinystr.h"
-
-1484581330 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinystr.h
-	<assert.h>
-	<string.h>
-
-1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxml.cpp
-	<ctype.h>
-	<sstream>
-	<iostream>
-	"tinyxml.h"
-
-1484581330 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\tinyxml.h
-	<ctype.h>
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<assert.h>
-	<string>
-	<iostream>
-	<sstream>
-	"tinystr.h"
-
 1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxml2.cpp
 	"tinyxml2.h"
 	<new>
@@ -1439,15 +1401,6 @@
 	<stdarg.h>
 	<cstddef>
 	<cstdarg>
-
-1484581330 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxmlerror.cpp
-	"tinyxml.h"
-
-1484581329 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\tinyxmlparser.cpp
-	<ctype.h>
-	<stddef.h>
-	"tinyxml.h"
-	<windows.h>
 
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\world.cpp
 	"World.h"

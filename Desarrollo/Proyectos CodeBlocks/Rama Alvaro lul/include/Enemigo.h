@@ -63,7 +63,7 @@ class Enemigo
         bool getDanyado();
         bool getMuerto();
         void setMuro(Map* murito, Player *prota);
-        bool getMuro();
+        bool noteveo();
         bool getCreado();
         bool seeWhereIgo();
         class Map* morito;
@@ -73,6 +73,7 @@ class Enemigo
         int i=0;
         float distanciaPlayer;
         float angulo;
+        float angulo7;
 
     protected:
 
@@ -112,8 +113,13 @@ class Enemigo
         bool hayAliado;
         float rotacion;
         bool danyado;
+        bool lul;
+        bool lul2;
+        bool lul3;
         bool creado= false;
+        bool fabrica= true;
         bool devolver=false;
+        PatrolRoute ruta;
         Player *player;
 
         b2RayCastInput input;

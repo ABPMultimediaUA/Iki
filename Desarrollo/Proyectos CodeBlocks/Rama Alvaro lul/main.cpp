@@ -406,6 +406,9 @@ int main()
     b2RayCastInput input;
     input.maxFraction	=	1.0f;
     b2RayCastOutput	output;
+    b2RayCastInput input2;
+    input2.maxFraction	=	1.0f;
+    b2RayCastOutput	output2;
     float angulo2 = 0;
     float distancia = 0;
     scene::IMesh *rayo = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
@@ -718,11 +721,19 @@ int main()
             {
                 if(sqrt(pow(enemigos[n]->getBody()->GetPosition().y-prota->getBody()->GetPosition().y, 2) + pow(enemigos[n]->getBody()->GetPosition().x-prota->getBody()->GetPosition().x, 2))/10 < 0.4)
                 {
+                    input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+                    input2.p2.Set(enemigos[n]->getBody()->GetPosition().x, enemigos[n]->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+
+                    float angulo4 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
+
 
 
                     if(!enemigos[n]->getMuerto() && receiver.GetMouseState().LeftButtonDown && engine->isCurrentlyPlaying(golpe) == false)
                     {
-                        if(((angulo+180 < enemigos[n]->angulo +20) && (angulo+180 > enemigos[n]->angulo -20)) || ((angulo-180 < enemigos[n]->angulo +20) && (angulo-180 > enemigos[n]->angulo -20))){
+
+
+                        if(angulo < angulo4 + 30 && angulo > angulo4 - 30){
 
 
                         s14 = engine->play3D(golpe,posicion,false,false,true);
@@ -740,7 +751,7 @@ int main()
         input.p1.Set(enemigos[5]->getBody()->GetPosition().x, enemigos[5]->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
         input.p2.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	final	del	rayo
 
-        bool    hitmuro     =   enemigos[5]->getMuro();
+        bool    hitmuro     =   enemigos[5]->noteveo();
         bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
 
 
@@ -748,8 +759,8 @@ int main()
         angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
 
 
-            if(hitprota && distancia<30 && !hitmuro && angulo2>-150 && angulo2<40){
-
+            if(hitprota && distancia<30 && !hitmuro){
+                    //  && angulo2>-150 && angulo2<40
                    // b2Vec2 hitPoint = input.p1+output.fraction * (input.p2 - input.p1);
                    // b2Vec2 normal = output.normal;
 
@@ -906,6 +917,7 @@ int main()
         }
         enemigos[2]->setPosicion();
         enemigos[6]->setPosicion();
+
 
         //std::cout << enemigos[0]->angulo<<"\n";
         world->Step(DeltaTime);
