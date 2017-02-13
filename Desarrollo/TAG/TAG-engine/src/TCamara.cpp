@@ -28,7 +28,7 @@ void TCamara::setParalela(float x, float y)
 }
 void TCamara::beginDraw()
 {
-//    cout << "Apilamos camara" << endl;
+    std::cout << "camara draw()" <<std::endl;
 }
 void TCamara::endDraw()
 {
