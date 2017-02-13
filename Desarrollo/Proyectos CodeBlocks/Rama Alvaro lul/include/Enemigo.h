@@ -32,7 +32,7 @@ class Enemigo
         void setCuboEnemigo(core::vector3df);
         b2Body* getBody();
         void inicialiazar(int,int, scene::ISceneManager*, core::vector3df p, PatrolRoute pr);
-        void inicialiazar2(scene::ISceneManager*);
+        void inicialiazar2(scene::ISceneManager*, core::vector3df p);
         int getEstado();
         core::vector3df getPosicion();
         core::vector3df getPunto();
@@ -63,7 +63,7 @@ class Enemigo
         bool getDanyado();
         bool getMuerto();
         void setMuro(Map* murito, Player *prota);
-        bool getMuro();
+        bool noteveo();
         bool getCreado();
         bool seeWhereIgo();
         class Map* morito;
@@ -71,6 +71,9 @@ class Enemigo
         int getTipo();
         int getID();
         int i=0;
+        float distanciaPlayer;
+        float angulo;
+        float angulo7;
 
     protected:
 
@@ -85,7 +88,6 @@ class Enemigo
         int direccion; //0-> arriba 1-> derecha 2-> abajo 3-> izquierda
         int tipo; //0-> guardia, 1-> dron, 2-> medico
         float vida;
-        float distanciaPlayer;
         float sospecha;
         float tiempoVigilando;
         int tiempoEscaneando;
@@ -110,10 +112,14 @@ class Enemigo
         bool muerto;
         bool hayAliado;
         float rotacion;
-        float angulo;
         bool danyado;
+        bool lul;
+        bool lul2;
+        bool lul3;
         bool creado= false;
+        bool fabrica= true;
         bool devolver=false;
+        PatrolRoute ruta;
         Player *player;
 
         b2RayCastInput input;
