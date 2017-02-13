@@ -1,6 +1,7 @@
 #ifndef TNODO_H
 #define TNODO_H
 
+#include <iostream>
 #include "TEntidad.h"
 #include <vector>
 

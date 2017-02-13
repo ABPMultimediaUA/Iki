@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "TNodo.h"
 
 TNodo::TNodo()

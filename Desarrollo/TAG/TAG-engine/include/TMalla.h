@@ -1,6 +1,7 @@
 #ifndef TMALLA_H
 #define TMALLA_H
 
+#include <iostream>
 #include <TEntidad.h>
 #include "TFichero.h"
 #include "TRecursoMalla.h"

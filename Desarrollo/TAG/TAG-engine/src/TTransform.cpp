@@ -4,7 +4,7 @@
 
 TTransform::TTransform()
 {
-    matriz= mat4(1.f);
+
 }
 
 TTransform::~TTransform()
@@ -14,16 +14,18 @@ TTransform::~TTransform()
 
 void TTransform::identidad()
 {
-
+     matriz= mat4(1.f);
 }
 
 void TTransform::cargar(mat4 mat)
 {
+    matriz= mat;
     //no estoy seguro de esta comprobacion
+    /*
     if(mat != mat4(1.f))
     {
         matriz= mat;
-    }
+    }*/
 }
 
 void TTransform::trasponer()
@@ -33,7 +35,7 @@ void TTransform::trasponer()
 
 void TTransform::trasladar(float x, float y, float z)
 {
-    matriz= translate(mat4(1.f), vec3(x, y, z));
+    matriz= translate(matriz, vec3(x, y, z));
 }
 
 void TTransform::rotar(float orient, float x, float y, float z)

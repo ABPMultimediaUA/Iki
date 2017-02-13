@@ -12,24 +12,24 @@
 
 1486655244 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
 
-1486660522 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
-	<iostream>
+1486984823 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
 	"TMalla.h"
 
-1486658427 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+1486984792 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+	<iostream>
 	<TEntidad.h>
 	"TFichero.h"
 	"TRecursoMalla.h"
 
-1486660658 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
-	<iostream>
+1486985439 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
 	"TNodo.h"
 
-1486656038 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
+1486985440 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
+	<iostream>
 	"TEntidad.h"
 	<vector>
 
-1486660045 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
+1486984749 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
 
 1486661359 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
@@ -42,10 +42,11 @@
 
 1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcolor.h
 
-1486660460 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
+1486984724 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
 	"TLuz.h"
 
-1486658689 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
+1486984771 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
+	<iostream>
 	<TEntidad.h>
 	"TColor.h"
 
@@ -73,7 +74,7 @@
 	<iostream>
 	"TTransform.h"
 
-1486655088 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
+1486987098 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<TEntidad.h>

@@ -1,6 +1,7 @@
 #ifndef TLUZ_H
 #define TLUZ_H
 
+#include <iostream>
 #include <TEntidad.h>
 #include "TColor.h"
 
