@@ -1454,7 +1454,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1486390781 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1486651615 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -2614,7 +2614,7 @@
 1482527709 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1485853501 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+1486488803 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -2622,6 +2622,7 @@
 	"../include/Muros.h"
 	<World.h>
 	<Player.h>
+	"../include/Map.h"
 	"../include/PatrolRoute.h"
 
 1482527773 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
@@ -2766,7 +2767,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1486390781 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+1486488803 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
 	<stdio.h>
 	"tinyxml2.h"
 	"MapComponent.h"
@@ -2787,12 +2788,13 @@
 	<android/log.h>
 	<assert.h>
 
-1486390781 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+1486488803 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
+	"PatrolRoute.h"
 
-1485853502 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+1486488804 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -2813,10 +2815,10 @@
 
 1485853501 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\game.h
 
-1486390781 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
+1486488803 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
 	"Map.h"
 
-1486390781 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
+1486488803 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
 	"Map.h"
 
 1485853502 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp

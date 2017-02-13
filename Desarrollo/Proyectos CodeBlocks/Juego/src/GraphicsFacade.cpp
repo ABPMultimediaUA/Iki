@@ -62,7 +62,6 @@ bool GraphicsFacade::interseccionRayPlano(Structs::TPosicion &mousePosition){
         mousePosition.X = mousePosition2.X;
         mousePosition.Y = mousePosition2.Y;
         mousePosition.Z = mousePosition2.Z;
-        std::cout<<"MousePosition: "<<mousePosition.X<<std::endl;
         return true;
     }
     else

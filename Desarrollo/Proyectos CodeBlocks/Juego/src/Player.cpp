@@ -58,26 +58,22 @@ void Player::update(Camera* camara, Structs::TPosicion mousePosition){
             //stop= false;
 
             GraphicsFacade::getInstance().cambiarRay(camara);
-            float angulo = atan2f((mousePosition.Z-modelo->getNode()->getPosition().Z) ,
-                                  -(mousePosition.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
+
 
             //ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
             //          receiver.GetMouseState().Position, camera);
             //float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
             //                      -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
-            body->SetTransform(body->GetPosition(), angulo);
-            modelo->setRotation(body->GetAngle());
+
             //modelo->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
             //prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
 
         if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
         {
-            std::cout<<"MousePosition holi: "<<mousePosition.X<<std::endl;
             toMousePosition.X = mousePosition.X - posicion.X;
             toMousePosition.Y = mousePosition.Y - posicion.Y;
             toMousePosition.Z = mousePosition.Z - posicion.Z;
-            std::cout<<"toMousePosition holi: "<<toMousePosition.X<<std::endl;
 
             if(GraphicsFacade::getInstance().calcularDistancia(toMousePosition) <= 1)
             {
@@ -95,6 +91,14 @@ void Player::update(Camera* camara, Structs::TPosicion mousePosition){
             else
             {
                 moverBody(toMousePosition);
+
+                posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+                modelo->setPosition(posicion);
+
+                float angulo = atan2f((mousePosition.Z-modelo->getNode()->getPosition().Z) ,
+                                  -(mousePosition.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
+                body->SetTransform(body->GetPosition(), angulo);
+                modelo->setRotation(body->GetAngle());
                 /*if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT))
                 {
                     if(engine->isCurrentlyPlaying(pasos2))
@@ -115,6 +119,4 @@ void Player::update(Camera* camara, Structs::TPosicion mousePosition){
                 //stop= true;
             }
         }
-        posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-        modelo->setPosition(posicion);
 }
