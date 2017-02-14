@@ -659,7 +659,7 @@ bool Enemigo::noteveo()
             return true;
 
     }
-    if((angulo <= -135 && angulo7 >= 135) || (angulo >= 135 && angulo7 <= -135))
+    /*if((angulo <= -135 && angulo7 >= 135) || (angulo >= 135 && angulo7 <= -135))
     {
         return false;
 
@@ -671,7 +671,8 @@ bool Enemigo::noteveo()
         else
             return true;
 
-    }
+    }*/
+    return false;
 
 
 

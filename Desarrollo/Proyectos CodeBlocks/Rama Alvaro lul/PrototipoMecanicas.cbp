@@ -69,7 +69,7 @@
 		</Compiler>
 		<Linker>
 			<Add library="Irrlicht" />
-			<Add library="engineBox2D\bin\Debug\libengineBox2D.a" />
+			<Add library="engineBox2D/bin/Debug/libengineBox2D.a" />
 			<Add library="libirrKlang.a" />
 			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
@@ -91,6 +91,9 @@
 		<Unit filename="include/Singleton.h" />
 		<Unit filename="include/Suelo.h" />
 		<Unit filename="include/Time.h" />
+		<Unit filename="include/Trigger.h" />
+		<Unit filename="include/TriggerRegion.h" />
+		<Unit filename="include/TriggerSystem.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h">
 			<Option target="Windows" />
