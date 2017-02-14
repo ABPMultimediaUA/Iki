@@ -12,6 +12,7 @@ class GraphicsFacade
 {
     friend class SceneNode;
     friend class MeshSceneNode;
+    friend class AnimatedMesh;
     friend class Camera;
 
     public:
@@ -27,6 +28,7 @@ class GraphicsFacade
         void drop();
 
         void setWindowCaption();
+        void iniciarRay(Structs::TPosicion rayPos);
         void cambiarRay(Camera* camara);
         bool interseccionRayPlano(Structs::TPosicion &mousePosition);
         float calcularDistancia(Structs::TPosicion position);

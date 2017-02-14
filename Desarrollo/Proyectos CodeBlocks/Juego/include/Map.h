@@ -1,24 +1,23 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include <irrlicht.h>
-#include <Box2D/Box2D.h>
+#pragma once
+#include <stdio.h>
+#include "tinyxml2.h"
+#include "MapComponent.h"
+
+#include "Structs.h"
 #include "MeshSceneNode.h"
 
-using namespace irr;
-
-using namespace core; //namespace fundamentales;
-using namespace scene; //namespace de escena;
-using namespace video; //namespace de vídeo;
-using namespace io; //namespace io;
-using namespace gui; //namespace gui;
-
+using namespace tinyxml2;
+using namespace std;
 
 class Map
 {
     public:
         Map();
         virtual ~Map();
+        void crearComponente(int tipo);
         void inicializar_mapa();
 
     protected:
@@ -26,8 +25,22 @@ class Map
     private:
 
         MeshSceneNode *suelo;
-        /*IMesh *mesh;
-        IMeshSceneNode *suelo;*/
+
+        vector<MapComponent*> * muros;
+        vector<MapComponent*> * puertas;
+        vector<MapComponent*> * objetos;
+        vector<MapComponent*> * palancas;
+        vector<MapComponent*> * apisonadoras;
+        //vector<MapComponent*> * patrullas;
+
+        tinyxml2::XMLDocument* docFile;
+        tinyxml2::XMLElement* mapElement;
+        tinyxml2::XMLElement* objectGroup;
+        tinyxml2::XMLElement* object;
+        int _width;
+        int _tileWidth;
+        int _height;
+        int _tileHeigth;
 
 };
 

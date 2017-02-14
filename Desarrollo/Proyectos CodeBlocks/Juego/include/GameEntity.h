@@ -13,6 +13,7 @@ class GameEntity
     public:
         GameEntity();
         ~GameEntity();
+        Structs::TPosicion getPosition() { return posicion; }
 
     protected:
         SceneNode *modelo;

@@ -14,20 +14,20 @@ Player::~Player()
 
 void Player::inicializar_player(){
 
-    Structs::TPosicion posicionInicial = {0,0,0};
+    Structs::TPosicion posicionInicial = {170,0,50};
     Structs::TColor color = {0,0,0,0};
-    modelo = GraphicsFacade::getInstance().createCubeSceneNode(5, posicionInicial);
+    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);
     posicion = modelo->getPosition();
 
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(0, 0);
+    bodyDef.position.Set(170, 50);
     body = PhisicsWorld::getInstance().getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;
-    bodyShape.SetAsBox(5/2, 5/2);
+    bodyShape.SetAsBox(2/2, 2/2);
     body->CreateFixture(&bodyShape, 1.0f);
 
     b2FixtureDef fixtureDef;
