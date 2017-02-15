@@ -2,7 +2,7 @@
 #define EDGE
 
 #include <irrlicht.h>
-#include <enemigo.h>
+
 
 class Edge
 {
@@ -10,6 +10,7 @@ class Edge
         Edge(int desde, int hacia):from(desde),to(hacia),cost(1.0){}
         Edge(int desde, int hacia, float coste):from(desde),to(hacia),cost(coste){}
         Edge(float coste):from(-1.0),to(-1.0),cost(coste){}
+        Edge(){}
         virtual ~Edge(){}
 
         int From()const;
@@ -20,6 +21,7 @@ class Edge
 
         float Cost()const;
         void setCost(float newCost);
+
 
     protected:
         //un edge conecta dos nodos, from y to siempre positivos

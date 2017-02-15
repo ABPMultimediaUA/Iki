@@ -7,6 +7,7 @@
 #include <SparseGraph.h>
 #include <Edge.h>
 #include <PriorityQueue.h>
+#include <stdio.h>
 
 //template< class graph_type, class heuristic>
 class Algoritmo
@@ -17,7 +18,7 @@ class Algoritmo
         const SparseGraph& Grafo;
         //indexed into by node. Contiene el coste "real" acumulativo hasta el nodo
         std::vector<double> costReal;
-         //Contiene el coste de anyadir costReal [n] a el costre heuristico de n al nodo objetivo
+         //Contiene el coste de anyadir costReal[n] a el coste heuristico de n al nodo objetivo
         std::vector<double> Fcost;
         std::vector<const Edge*> PathMasCorto;
         std::vector<const Edge*> BuscarFrontera;

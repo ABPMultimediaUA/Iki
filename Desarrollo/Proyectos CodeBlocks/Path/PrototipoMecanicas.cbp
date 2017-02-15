@@ -88,9 +88,7 @@
 			<Option target="Windows" />
 		</Unit>
 		<Unit filename="include/Muros.h" />
-		<Unit filename="include/NavGraph.h" />
 		<Unit filename="include/Nodo.h" />
-		<Unit filename="include/Objeto.h" />
 		<Unit filename="include/PathFinding.h" />
 		<Unit filename="include/PathPlanner.h" />
 		<Unit filename="include/PatrolPoint.h" />
@@ -118,9 +116,7 @@
 			<Option target="Windows" />
 		</Unit>
 		<Unit filename="src/Muros.cpp" />
-		<Unit filename="src/NavGraph.cpp" />
 		<Unit filename="src/Nodo.cpp" />
-		<Unit filename="src/Objeto.cpp" />
 		<Unit filename="src/PathFinding.cpp" />
 		<Unit filename="src/PathPlanner.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />

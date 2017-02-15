@@ -11,7 +11,7 @@ PathPlanner::~PathPlanner()
     //dtor
 }
 
-bool PathPlanner::crearPath(irr::core::vector3df destino, list<vector3df>& path){
+bool PathPlanner::crearPath(irr::core::vector3df destino, std::list<vector3df>& path){
     posicionDestino=destino;
     //Comprobamos si el bot puede moverse directamente al objetivo con
     //un metodo que tomo como comienxo la posicion dedestino y un radio de

@@ -18,7 +18,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         pRuta = pr.getInicial();
         id=ID;
         input.maxFraction	=	1.0f;
-        tam= 5;
+        tam= 2;
         estado = 0;
         vida=3;
         direccion = 0;
@@ -72,7 +72,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 }
 
 void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
-    tam= 4;
+    tam= 2;
     vida = 150;
     tipo=4;
     id=3;
@@ -142,17 +142,11 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     //Asi se mueve con BODY
 
-    void Enemigo::setPosicion(core::vector3df vec, core::vector3df prot){
-        if(muerto){
-            body2->SetTransform(b2Vec2(-1000, -1000), 0);
+    void Enemigo::setPosicion(){
+            body2->SetTransform(b2Vec2(cuboEnemigo.X, cuboEnemigo.Z), 0);
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-        else{
-            body2->SetTransform(b2Vec2(vec.X, vec.Z), 0);
-            modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
-        }
-    }
 
+    }
 
     void Enemigo::setEstado(int este)
     {
@@ -284,7 +278,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         }
         posicion = cuboEnemigo;
     }
-    bool Enemigo::seeWhereIgo(){
+    /*bool Enemigo::seeWhereIgo(){
         devolver=false;
         if(angulo==0)//mira a la izquierda
         {
@@ -311,12 +305,12 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             }
         }
         return devolver;
-    }
+    }*/
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
             //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
-            if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()){
+            if(tiempoEscaneando < 3.0 && sospecha < 25 && distanciaPlayer<28 && !getMuro()){
                         //sospecha+=1*tiempo.getTimeFactor();
                         if (player->velocidad == 4.5f )
                             sospecha+=10*tiempo.getTimeFactor();
@@ -373,18 +367,16 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
             patrullar();
             //Si el player se acerca mucho aunque este en sigilo
-            if (distanciaPlayer < 15){
+            if (distanciaPlayer < 4){
                     estado=1;
             }
             //Si el player se acerca sospecha
 
-            else if(distanciaPlayer>=15 && distanciaPlayer<80){ // 75
-                if (!getMuro()&& seeWhereIgo())
+            else if(distanciaPlayer>=4 && distanciaPlayer<28){
+                //std::cout << seeWhereIgo() <<"\n";
+                if (!getMuro())
                     estado = 1;
-          /*  if(distanciaPlayer<80){ // 75
 
-                    if (!getMuro())//&& seeWhereIgo())
-                        estado = 1;*/
             }
             //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
@@ -461,18 +453,18 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 0, 0, 0));
             sospecha = 0.0;
             perseguir();
-            if(distanciaPlayer>120){
+            if(distanciaPlayer>40){
                 puntoInteres = posicionProta;
                 estado = 8;
             }
-            if(distanciaPlayer<5){
+            if(distanciaPlayer<2){
                 estado=7;
             }
             //si esta a rango ataca
             //si lo pierde de vista, vuelve a la patrulla
             break;
         case 7: //ATACAR
-            if(distanciaPlayer<5){
+            if(distanciaPlayer<2){
                 smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
                 atacar();
             }
@@ -483,7 +475,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         case 8: //INSPECCIONAR
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 255, 255, 0));
             inspeccionar();
-            if (distanciaPlayer<=80){
+            if (distanciaPlayer<=28){
                 if (!getMuro())
                     estado = 3;
             }
@@ -565,7 +557,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 }
             }
 
-            avMovement = 15.f * tiempo.getTimeFactor();
+            avMovement = 9.5f * tiempo.getTimeFactor();
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
             direccionHaciaProta=cuboProta-posicion;
             maquinaEstados();
@@ -574,7 +566,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         }
     }
 
-    void Enemigo::setMuro(Muros* murito, Player *prota){
+    void Enemigo::setMuro(Map* murito, Player *prota){
         player= prota;
         morito = murito;
     }
@@ -583,32 +575,16 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
         input.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
 
-        if (morito->body->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body2->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body3->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body4->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body5->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body6->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body7->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body8->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body9->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body10->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body11->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body12->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body13->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body14->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body15->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body16->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body17->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body18->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body19->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body20->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body21->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body22->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body23->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body24->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body25->GetFixtureList()->RayCast(&output,	input,	0))return true;
-        if (morito->body26->GetFixtureList()->RayCast(&output,	input,	0))return true;
+        if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output,	input,	0))
+            return true;
+        else if (morito->puertas->at(1)->body->GetFixtureList()->RayCast(&output,	input,	0))
+            return true;
+
+            for (int i = 0; i < morito->muros->size(); i++) {
+                if (morito->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
+                    return true;
+
+	}
 
        return false;
     }

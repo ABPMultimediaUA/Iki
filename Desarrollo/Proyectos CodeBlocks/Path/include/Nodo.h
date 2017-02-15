@@ -16,6 +16,7 @@ class Nodo
         virtual ~Nodo(){}
         int Index()const;
         void setIndex(int NewIndex);
+        float calcularCoste(Nodo b);
         irr::core::vector3df posicion;
 
     protected:

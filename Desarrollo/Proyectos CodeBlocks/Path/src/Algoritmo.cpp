@@ -11,36 +11,31 @@ Se vuelve al paso 3 y se repite hasta que el punto 4 sea verdadero o que la list
 
 }*/
 
-/*Here is how the PathFinder demo program creates an instance of the A* search using the Euclidean heuristic:
-//create a couple of typedefs so the code will sit comfortably on the page
-typedef SparseGraph<NavGraphNode<>, GraphEdge> NavGraph;
-typedef Graph_SearchAStar<NavGraph, Heuristic_Euclid> AStarSearch;
-//create an instance of the A* search using the Euclidean heuristic
-AStarSearch AStar(*m_pGraph, m_iSourceCell, m_iTargetCell);*/
 void Algoritmo::Search()
 {
 //create an indexed priority queue of nodes. The queue will give priority
 //to nodes with low F costs. (F=G+H)
     IndexedPriorityQLow<double> pq(Fcost, Grafo.numNodes());
+    //std::cout<<"Numero de Nodos"<<Grafo.numNodes()<<std::endl;
 //put the source node on the queue
     pq.insert(desde);
 //while the queue is not empty
     while(!pq.empty())
     {
-//get lowest cost node from the queue
-        int SiguienteNodoCercano = pq.Pop();
+//get lowest cost node from the queue SIGUIENTENODOMASCERCANO
+        int snc = pq.Pop();
 //move this node from the frontier to the spanning tree
-        PathMasCorto[SiguienteNodoCercano] = BuscarFrontera[SiguienteNodoCercano];
+        PathMasCorto[snc] = BuscarFrontera[snc];
 //if the target has been found exit
-        if (SiguienteNodoCercano == hasta) return;
+        if (snc == hasta) return;
 //now to test all the edges attached to this node
-        SparseGraph::ConstEdgeIterator ConstEdgeItr(Grafo, SiguienteNodoCercano);
+        SparseGraph::ConstEdgeIterator ConstEdgeItr(Grafo, snc);
         for (const Edge* pE=ConstEdgeItr.begin();!ConstEdgeItr.end();pE=ConstEdgeItr.next())
         {
 //calculate the heuristic cost from this node to the target (H)
             double HCost = Heuristic_Euclid::Calculate(Grafo, hasta, pE->To());
 //calculate the "real" cost to this node from the source (G)
-            double GCost = costReal[SiguienteNodoCercano] + pE->Cost();
+            double GCost = costReal[snc] + pE->Cost();
 //if the node has not been added to the frontier, add it and update
 //the G and F costs
             if (BuscarFrontera[pE->To()] == NULL)

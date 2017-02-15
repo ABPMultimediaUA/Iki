@@ -1,9 +1,9 @@
 #ifndef SPARSEGRAPH
 #define SPARSEGRAPH
 
+#define NDEBUG
+
 #include <irrlicht.h>
-#include <Nodo.h>
-#include <Edge.h>
 #include <list>
 #include <cstdlib>
 #include <iostream>
@@ -12,7 +12,9 @@
 #include <string>
 //#include <iomanip>
 
-
+#include "Nodo.h"
+#include "Edge.h"
+#include <assert.h>
 
 //template<class node_type, class edge_type>
 class SparseGraph
@@ -27,7 +29,7 @@ class SparseGraph
         typedef std::vector<EdgeList> EdgeListVector;
 
         //constructor
-        SparseGraph(bool diagraph):nextNodeIndex(0),bDiagraph(diagraph){}
+        SparseGraph(bool diagraph):nextNodeIndex(0),bDiagraph(diagraph),menorDistancia(5000),indice(-1){}
 
         //Metodos con const y sin el?
         const Nodo& getNode(int idx)const;
@@ -47,6 +49,7 @@ class SparseGraph
         bool isEmpty()const;
         bool isNodePresent(int idx)const;//devuelve true su el nodo que nos dan esta presente en el grafo
         bool isEdgePresent(int from, int to)const;
+        int nodeMoreClose(irr::core::vector3df p);
         //-------------------------- SetEdgeCost ---------------------------------
         //
         //  Sets the cost of a specific edge
@@ -86,6 +89,8 @@ class SparseGraph
         //iterates through all the edges in the graph and removes any that point
         //to an invalidated node
         void  CullInvalidEdges();
+        float menorDistancia;
+        int indice;
 
     public:
                   ///ITERADORES

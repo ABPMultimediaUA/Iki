@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1485469392 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1486582528 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
-	"include/Objeto.h"
 	<irrKlang.h>
 	"irrKlang/conio.h"
 	<iostream>
@@ -1160,7 +1159,7 @@
 1481736228 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1484768930 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+1486581579 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -1168,6 +1167,7 @@
 	"../include/Muros.h"
 	<World.h>
 	<Player.h>
+	"../include/Map.h"
 	"../include/PatrolRoute.h"
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
@@ -1317,7 +1317,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1485194825 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
 	<stdio.h>
 	"tinyxml2.h"
 	"MapComponent.h"
@@ -1338,12 +1338,13 @@
 	<android/log.h>
 	<assert.h>
 
-1485194825 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+1486466112 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
+	"PatrolRoute.h"
 
-1484768930 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+1486582567 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
@@ -1364,10 +1365,10 @@
 
 1484068817 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\game.h
 
-1485469547 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
+1486457180 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
 	"Map.h"
 
-1485466569 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
+1486578131 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
 	"Map.h"
 
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp
@@ -1375,7 +1376,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1484768930 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\objeto.cpp
+1486150768 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\objeto.cpp
 	"Objeto.h"
 	<Box2D/Box2D.h>
 	<iostream>
@@ -1386,7 +1387,7 @@
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1485469714 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
+1486151538 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -1453,16 +1454,57 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1485788384 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\main.cpp
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzy.cpp
+	"Fuzzy.h"
+	"iostream"
+
+1485788383 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\fuzzy.h
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzymodule.cpp
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzyset.cpp
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzyset_triangle.cpp
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzyvariable.cpp
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\game.cpp
+	"Game.h"
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\game.h
+
+1487136853 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\map.cpp
+	"Map.h"
+
+1487096475 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\map.h
+	<stdio.h>
+	"tinyxml2.h"
+	"MapComponent.h"
+	"Nodo.h"
+	"Edge.h"
+	"SparseGraph.h"
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stddef.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<stdint.h>
+	<android/log.h>
+	<assert.h>
+
+1486480048 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\mapcomponent.h
 	<irrlicht.h>
-	<Box2D/Box2D.h>
-	"include/Enemigo.h"
-	"include/Objeto.h"
-	<irrKlang.h>
-	"irrKlang/conio.h"
-	<iostream>
-	"include/Map.h"
-	"include/PatrolRoute.h"
+	"driverChoice.h"
+	<World.h>
+	"PatrolRoute.h"
 
 1484134854 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
 	"IrrCompileConfig.h"
@@ -2452,6 +2494,17 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
+1484134854 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
+	<iostream>
+	<cstdio>
+	"EDriverTypes.h"
+	"irrTypes.h"
+	"IrrlichtDevice.h"
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\world.h
+	<Box2D/Box2D.h>
+	<iostream>
+
 1484134732 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\box2d.h
 	<Box2D/Common/b2Settings.h>
 	<Box2D/Common/b2Draw.h>
@@ -2614,7 +2667,84 @@
 1484134733 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1485788383 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\enemigo.h
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\patrolroute.h
+	"PatrolPoint.h"
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\patrolpoint.h
+	<irrlicht.h>
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\muros.cpp
+	"Muros.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\muros.h
+	<irrlicht.h>
+	<World.h>
+	<iostream>
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\patrolpoint.cpp
+	"PatrolPoint.h"
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\patrolroute.cpp
+	"PatrolRoute.h"
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\player.cpp
+	"Player.h"
+	<Box2D/Box2D.h>
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\player.h
+	<irrlicht.h>
+	"driverChoice.h"
+	<World.h>
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\singleton.cpp
+	"Singleton.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\singleton.h
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\suelo.cpp
+	"Suelo.h"
+	<Box2D/Box2D.h>
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\suelo.h
+	<Box2D/Box2D.h>
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\time.cpp
+	"..\include\Time.h"
+
+1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\time.h
+	<irrlicht.h>
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\tinyxml2.cpp
+	"tinyxml2.h"
+	<new>
+	<stddef.h>
+	<stdarg.h>
+	<cstddef>
+	<cstdarg>
+
+1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\world.cpp
+	"World.h"
+	<Box2D/Box2D.h>
+	<iostream>
+
+1487182026 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\main.cpp
+	<irrlicht.h>
+	<Box2D/Box2D.h>
+	"include/Enemigo.h"
+	<irrKlang.h>
+	"irrKlang/conio.h"
+	<iostream>
+	"include/Map.h"
+	"include/PatrolRoute.h"
+	"PathFinding.h"
+	"SparseGraph.h"
+	"Nodo.h"
+
+1486662545 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -2622,44 +2752,8 @@
 	"../include/Muros.h"
 	<World.h>
 	<Player.h>
+	"../include/Map.h"
 	"../include/PatrolRoute.h"
-
-1484134854 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\driverchoice.h
-	<iostream>
-	<cstdio>
-	"EDriverTypes.h"
-	"irrTypes.h"
-	"IrrlichtDevice.h"
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\time.h
-	<irrlicht.h>
-
-1485788383 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\fuzzy.h
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\muros.h
-	<irrlicht.h>
-	<World.h>
-	<iostream>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\world.h
-	<Box2D/Box2D.h>
-	<iostream>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\player.h
-	<irrlicht.h>
-	"driverChoice.h"
-	<World.h>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\patrolroute.h
-	"PatrolPoint.h"
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\patrolpoint.h
-	<irrlicht.h>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\objeto.h
-	<irrlicht.h>
-	"driverChoice.h"
-	<World.h>
 
 1484134756 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
 	"ik_irrKlangTypes.h"
@@ -2771,187 +2865,97 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\map.h
-	<stdio.h>
-	"tinyxml2.h"
-	"MapComponent.h"
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\tinyxml2.h
-	<ctype.h>
-	<limits.h>
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<stddef.h>
-	<cctype>
-	<climits>
-	<cstdio>
-	<cstdlib>
-	<cstring>
-	<stdint.h>
-	<android/log.h>
-	<assert.h>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\mapcomponent.h
-	<irrlicht.h>
-	"driverChoice.h"
-	<World.h>
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\enemigo.cpp
+1486650930 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzy.cpp
-	"Fuzzy.h"
-	"iostream"
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzymodule.cpp
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzyset.cpp
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzyset_triangle.cpp
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\fuzzytests\fuzzyvariable.cpp
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\game.cpp
-	"Game.h"
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\game.h
-
-1485865275 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\map.cpp
+1486650930 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\mapcomponent.cpp
 	"Map.h"
 
-1485859218 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\mapcomponent.cpp
-	"Map.h"
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\muros.cpp
-	"Muros.h"
-	<Box2D/Box2D.h>
-	<iostream>
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\objeto.cpp
-	"Objeto.h"
-	<Box2D/Box2D.h>
-	<iostream>
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\patrolpoint.cpp
-	"PatrolPoint.h"
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\patrolroute.cpp
-	"PatrolRoute.h"
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\player.cpp
-	"Player.h"
-	<Box2D/Box2D.h>
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\singleton.cpp
-	"Singleton.h"
-	<Box2D/Box2D.h>
-	<iostream>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\singleton.h
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\suelo.cpp
-	"Suelo.h"
-	<Box2D/Box2D.h>
-
-1485788384 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\suelo.h
-	<Box2D/Box2D.h>
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\time.cpp
-	"..\include\Time.h"
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\tinyxml2.cpp
-	"tinyxml2.h"
-	<new>
-	<stddef.h>
-	<stdarg.h>
-	<cstddef>
-	<cstdarg>
-
-1485788385 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\world.cpp
-	"World.h"
-	<Box2D/Box2D.h>
-	<iostream>
-
-1485860447 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\edge.cpp
-	"Edge.h"
-
-1486047590 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\edge.h
-	<irrlicht.h>
-	<enemigo.h>
-
-1485788379 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\heuristic_euclid.cpp
-	"Heuristic_Euclid.h"
-
-1485866727 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\heuristic_euclid.h
-	<irrlicht.h>
-	<SparseGraph.h>
-	<Nodo.h>
-
-1485788379 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\navgraph.cpp
-	"NavGraph.h"
-
-1485861736 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\navgraph.h
-	<irrlicht.h>
-	<enemigo.h>
-
-1485788379 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\pathfinding.cpp
-	"PathFinding.h"
-
-1486051387 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\pathfinding.h
-	<irrlicht.h>
-	<enemigo.h>
-	<NavGraph.h>
-	<vector>
-	<fstream>
-	<string>
-	<list>
-
-1485788379 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\pathplanner.cpp
-	"PathPlanner.h"
-
-1485788379 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\pathplanner.h
-	<irrlicht.h>
-	<enemigo.h>
-	<NavGraph.h>
-
-1486337004 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\sparsegraph.cpp
-	"SparseGraph.h"
-
-1486336517 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\sparsegraph.h
-	<irrlicht.h>
-	<Nodo.h>
-	<Edge.h>
-	<list>
-	<cstdlib>
-	<iostream>
-	<vector>
-	<cassert>
-	<string>
-
-1486047579 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\nodo.h
+1486988683 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\nodo.h
 	<irrlicht.h>
 	<list>
 	<cstdlib>
 	<iostream>
 
-1486315042 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\algoritmo.cpp
+1487091290 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\algoritmo.cpp
 	"Algoritmo.h"
 
-1486057435 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\algoritmo.h
+1487081982 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\algoritmo.h
 	<irrlicht.h>
 	<enemigo.h>
 	<Heuristic_Euclid.h>
 	<SparseGraph.h>
 	<Edge.h>
 	<PriorityQueue.h>
+	<stdio.h>
 
-1485869277 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\nodo.cpp
+1486480097 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\heuristic_euclid.h
+	<irrlicht.h>
+	<SparseGraph.h>
+	<Nodo.h>
+
+1487087179 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\sparsegraph.h
+	<irrlicht.h>
+	<list>
+	<cstdlib>
+	<iostream>
+	<vector>
+	<cassert>
+	<string>
 	"Nodo.h"
+	"Edge.h"
+	<assert.h>
 
-1063810534 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\priorityqueue.h
+1487096835 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\edge.h
+	<irrlicht.h>
+
+1486480098 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\priorityqueue.h
 	<ostream>
 	<vector>
 	<cassert>
+
+1486988510 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\edge.cpp
+	"Edge.h"
+	<list>
+	<cstdlib>
+	<iostream>
+
+1486480099 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\heuristic_euclid.cpp
+	"Heuristic_Euclid.h"
+
+1486480099 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\navgraph.cpp
+	"NavGraph.h"
+
+1486480098 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\navgraph.h
+	<irrlicht.h>
+	<enemigo.h>
+
+1486988740 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\nodo.cpp
+	"Nodo.h"
+
+1487089934 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\pathfinding.cpp
+	"PathFinding.h"
+
+1487087554 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\pathfinding.h
+	<irrlicht.h>
+	<vector>
+	<fstream>
+	<string>
+	<list>
+	"Player.h"
+	"SparseGraph.h"
+	"Map.h"
+	"Algoritmo.h"
+
+1486654719 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\pathplanner.cpp
+	"PathPlanner.h"
+
+1486888133 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\include\pathplanner.h
+	<irrlicht.h>
+	<enemigo.h>
+	<NavGraph.h>
+
+1487136853 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\path\src\sparsegraph.cpp
+	"SparseGraph.h"
 

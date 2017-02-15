@@ -1,4 +1,7 @@
 #include "Edge.h"
+#include <list>
+#include <cstdlib>
+#include <iostream>
 
 float Edge::Cost() const{
     return cost;

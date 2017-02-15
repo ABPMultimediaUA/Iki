@@ -1,5 +1,6 @@
 #include "SparseGraph.h"
 
+
 const Nodo& SparseGraph::getNode(int idx)const{
     //Nos aseguramos que el indice esta dentro del vector nodos
     assert((idx < (int)nodos.size()) &&(idx >=0));
@@ -35,15 +36,16 @@ Edge& SparseGraph::getEdge(int from, int to){
 int SparseGraph::getNextNodeIndex() const{
     return nextNodeIndex;
 }
-
+//  Given a node this method first checks to see if the node has been added
+//  previously but is now innactive. If it is, it is reactivated.
+//
+//  If the node has not been added previously, it is checked to make sure its
+//  index matches the next node index before being added to the graph
 int SparseGraph::addNode(Nodo node){
   if (node.Index() < (int)nodos.size())
   {
-    //make sure the client is not trying to add a node with the same ID as
-    //a currently active node
-    assert (nodos[node.Index()].Index() == -1 &&
-      "<SparseGraph::AddNode>: Attempting to add a node with a duplicate ID");
-
+    //Nos aseguramos que no se esta intentando anyadir un nodo con un index que tiene ahora mismo otro nodo
+    assert (nodos[node.Index()].Index() == -1 && "<SparseGraph::AddNode>: Attempting to add a node with a duplicate ID");
     nodos[node.Index()] = node;
 
     return nextNodeIndex;
@@ -51,10 +53,11 @@ int SparseGraph::addNode(Nodo node){
 
   else
   {
-    //make sure the new node has been indexed correctly
+    //Nos aseguramos que el nodo se ha indexado correctamente
     assert (node.Index() == nextNodeIndex && "<SparseGraph::AddNode>:invalid index");
-
+    //std::cout<<" anyade el nodo al grafo"<<std::endl;
     nodos.push_back(node);
+
     aristas.push_back(EdgeList());
 
     return nextNodeIndex++;
@@ -103,17 +106,15 @@ void SparseGraph::addEdge(Edge edge){
     //first make sure the from and to nodes exist within the graph
   assert( (edge.From() < nextNodeIndex) && (edge.To() < nextNodeIndex) &&
           "<SparseGraph::AddEdge>: invalid node index");
-
   //make sure both nodes are active before adding the edge
-  if ( (nodos[edge.To()].Index() != -1) &&
-       (nodos[edge.From()].Index() != -1))
+
+  if ( (nodos[edge.To()].Index() != -1) && (nodos[edge.From()].Index() != -1))
   {
     //add the edge, first making sure it is unique
     if (UniqueEdge(edge.From(), edge.To()))
     {
       aristas[edge.From()].push_back(edge);
     }
-
     //if the graph is undirected we must add another connection in the opposite
     //direction
     if (!bDiagraph)
@@ -155,6 +156,7 @@ void SparseGraph::removeEdge(int from,int to){
 }
 
 int SparseGraph::numNodes()const{
+    //std::cout<<"CuantosNodos"<<nodos.size()<<std::endl;
     return nodos.size();
 }
 int SparseGraph::numActiveNodes()const{
@@ -215,6 +217,7 @@ bool SparseGraph::UniqueEdge(int from, int to)const
        curEdge != aristas[from].end();
        ++curEdge)
   {
+      //std::cout<<curEdge->From()<<"UniqueEdge: "<<curEdge->To()<<std::endl;
     if (curEdge->To() == to)
     {
       return false;
@@ -237,21 +240,33 @@ void SparseGraph::CullInvalidEdges()
   }
 }
 void SparseGraph::setEdgeCost(int from, int to, double NewCost)
-        {
-          //make sure the nodes given are valid
-          assert( (from < (int)nodos.size()) && (to < (int)nodos.size()) &&
-                "<SparseGraph::SetEdgeCost>: invalid index");
+{
+  //make sure the nodes given are valid
+  assert( (from < (int)nodos.size()) && (to < (int)nodos.size()) &&
+        "<SparseGraph::SetEdgeCost>: invalid index");
 
-          //visit each neighbour and erase any edges leading to this node
-          for (EdgeList::iterator curEdge = aristas[from].begin(); curEdge != aristas[from].end();++curEdge)
-          {
-            if (curEdge->To() == to)
-            {
-              curEdge->setCost(NewCost);
-              break;
-            }
-          }
+  //visit each neighbour and erase any edges leading to this node
+  for (EdgeList::iterator curEdge = aristas[from].begin(); curEdge != aristas[from].end();++curEdge)
+  {
+    if (curEdge->To() == to)
+    {
+      curEdge->setCost(NewCost);
+      break;
+    }
+  }
+}
+int SparseGraph::nodeMoreClose(irr::core::vector3df p){
+    for(int i=0;i<nodos.size();i++){
+        //std::cout<<"Posicion partida: "<<p.X<<","<<p.Z<<std::endl;
+        //std::cout<<"Entraa: "<<nodos[i].posicion.getDistanceFrom(p)<<std::endl;
+        if(nodos[i].posicion.getDistanceFrom(p)< menorDistancia){
+            menorDistancia=nodos[i].posicion.getDistanceFrom(p);
+            indice=nodos[i].Index();
         }
+    }
+    menorDistancia=5000;
+    return indice;
+}
 
 ///SAVES Y LOADS
 //-------------------------------- Save ---------------------------------------
