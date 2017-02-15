@@ -1,6 +1,7 @@
 #ifndef TLUZ_H
 #define TLUZ_H
 
+#include <iostream>
 #include <TEntidad.h>
 #include "TColor.h"
 
@@ -11,7 +12,7 @@ class TLuz : public TEntidad
         TLuz();
         virtual ~TLuz();
 
-        void setIntensidad(TColor);
+        void setIntensidad(TColor col);
         TColor getIntensidad();
 
         void beginDraw();

@@ -1,6 +1,7 @@
 #ifndef TNODO_H
 #define TNODO_H
 
+#include <iostream>
 #include "TEntidad.h"
 #include <vector>
 
@@ -23,8 +24,9 @@ class TNodo
     protected:
 
     private:
+        //ponerlos en el constructor
         TEntidad *entidad;
-        std::vector<TNodo*> hijos;
+        vector<TNodo*> hijos;
         TNodo *padre;
 };
 

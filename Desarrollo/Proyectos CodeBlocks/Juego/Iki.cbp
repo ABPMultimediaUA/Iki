@@ -73,12 +73,14 @@
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>
 		<Unit filename="Makefile" />
+		<Unit filename="include/AnimatedMesh.h" />
 		<Unit filename="include/Camera.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/GameEntity.h" />
 		<Unit filename="include/GraphicsFacade.h" />
 		<Unit filename="include/LevelData.h" />
 		<Unit filename="include/Map.h" />
+		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/MeshSceneNode.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PhisicsWorld.h" />
@@ -87,13 +89,16 @@
 		<Unit filename="include/SceneNode.h" />
 		<Unit filename="include/Structs.h" />
 		<Unit filename="include/World.h" />
+		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AnimatedMesh.cpp" />
 		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/GameEntity.cpp" />
 		<Unit filename="src/GraphicsFacade.cpp" />
 		<Unit filename="src/LevelData.cpp" />
 		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/MapComponent.cpp" />
 		<Unit filename="src/MeshSceneNode.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
 		<Unit filename="src/PhisicsWorld.cpp" />
@@ -102,6 +107,7 @@
 		<Unit filename="src/SceneNode.cpp" />
 		<Unit filename="src/Structs.cpp" />
 		<Unit filename="src/World.cpp" />
+		<Unit filename="src/tinyxml2.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

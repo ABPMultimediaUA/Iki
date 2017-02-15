@@ -49,6 +49,10 @@ void GraphicsFacade::drop(){
 
 }*/
 
+void GraphicsFacade::iniciarRay(Structs::TPosicion rayPos){
+    ray = line3df(vector3df(rayPos.X,rayPos.Y,rayPos.Z), vector3df(rayPos.X,rayPos.Y,rayPos.Z));
+}
+
 void GraphicsFacade::cambiarRay(Camera* camara){
     ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());
@@ -56,13 +60,12 @@ void GraphicsFacade::cambiarRay(Camera* camara){
 
 bool GraphicsFacade::interseccionRayPlano(Structs::TPosicion &mousePosition){
 
-    vector3df mousePosition2(0,0,0);
+    vector3df mousePosition2(170,0,50);
 
     if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition2)){
         mousePosition.X = mousePosition2.X;
         mousePosition.Y = mousePosition2.Y;
         mousePosition.Z = mousePosition2.Z;
-        std::cout<<"MousePosition: "<<mousePosition.X<<std::endl;
         return true;
     }
     else

@@ -1,10 +1,9 @@
-#include <iostream>
-
 #include "TNodo.h"
 
 TNodo::TNodo()
 {
-    //ctor
+    entidad= nullptr;
+    padre= nullptr;
 }
 
 TNodo::~TNodo()
@@ -50,11 +49,18 @@ TNodo *TNodo::getPadre()
 
 void TNodo::draw()
 {
-    entidad->beginDraw();
+    if(entidad != nullptr)
+    {
+        entidad->beginDraw();
+    }
+
     for(int i=0; i < hijos.size(); i++)
     {
-        //std::cout<<i<<std::endl;
+        std::cout<<i<<std::endl;
         hijos[i]->draw();
     }
-    entidad->endDraw();
+    if(entidad != nullptr)
+    {
+        entidad->endDraw();
+    }
 }

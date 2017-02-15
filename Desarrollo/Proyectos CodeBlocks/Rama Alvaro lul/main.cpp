@@ -161,53 +161,74 @@ int main()
 ///PATRULLAS
 
     //typedef Mapa->patrullas hola;
-    Mapa->patrullas->at(0)->pp->setNext(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setNext(Mapa->patrullas->at(0)->pp);
-    Mapa->patrullas->at(0)->pp->setPrev(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setPrev(Mapa->patrullas->at(0)->pp);
+    Mapa->patrullas->at(0)->pp->setNext(Mapa->patrullas->at(1)->pp);
+    Mapa->patrullas->at(1)->pp->setNext(Mapa->patrullas->at(0)->pp);
+    Mapa->patrullas->at(0)->pp->setPrev(Mapa->patrullas->at(1)->pp);
+    Mapa->patrullas->at(1)->pp->setPrev(Mapa->patrullas->at(0)->pp);
 
     PatrolRoute pr03;
-    pr03.setInicial(Mapa->patrullas->at(0)->pp); pr03.setFinal(Mapa->patrullas->at(0)->pp->getPrev());
+    pr03.setInicial(Mapa->patrullas->at(0)->pp);
+    pr03.setFinal(Mapa->patrullas->at(0)->pp->getPrev());
 
     ///4 Enemigos[4] Guardia3
     PatrolPoint *pp15, *pp16;
     pp15 = new PatrolPoint(irr::core::vector3df(70,0,250));
     pp16 = new PatrolPoint(irr::core::vector3df(-10,0,150));
 
-    pp15->setNext(pp16); pp16->setNext(pp15);
-    pp15->setPrev(pp16); pp16->setPrev(pp15);
+    pp15->setNext(pp16);
+    pp16->setNext(pp15);
+    pp15->setPrev(pp16);
+    pp16->setPrev(pp15);
 
     PatrolRoute pr04;
-    pr04.setInicial(pp15); pr04.setFinal(pp15->getPrev());
+    pr04.setInicial(pp15);
+    pr04.setFinal(pp15->getPrev());
     ///1-> Enemigos[2] Medico
 
-    Mapa->patrullas->at(2)->pp->setNext(Mapa->patrullas->at(3)->pp); Mapa->patrullas->at(3)->pp->setNext(Mapa->patrullas->at(4)->pp);
-    Mapa->patrullas->at(4)->pp->setNext(Mapa->patrullas->at(5)->pp); Mapa->patrullas->at(5)->pp->setNext(Mapa->patrullas->at(2)->pp);
-    Mapa->patrullas->at(3)->pp->setPrev(Mapa->patrullas->at(2)->pp); Mapa->patrullas->at(4)->pp->setPrev(Mapa->patrullas->at(3)->pp);
-    Mapa->patrullas->at(5)->pp->setPrev(Mapa->patrullas->at(4)->pp); Mapa->patrullas->at(2)->pp->setPrev(Mapa->patrullas->at(5)->pp);
+    Mapa->patrullas->at(2)->pp->setNext(Mapa->patrullas->at(3)->pp);
+    Mapa->patrullas->at(3)->pp->setNext(Mapa->patrullas->at(4)->pp);
+    Mapa->patrullas->at(4)->pp->setNext(Mapa->patrullas->at(5)->pp);
+    Mapa->patrullas->at(5)->pp->setNext(Mapa->patrullas->at(2)->pp);
+    Mapa->patrullas->at(3)->pp->setPrev(Mapa->patrullas->at(2)->pp);
+    Mapa->patrullas->at(4)->pp->setPrev(Mapa->patrullas->at(3)->pp);
+    Mapa->patrullas->at(5)->pp->setPrev(Mapa->patrullas->at(4)->pp);
+    Mapa->patrullas->at(2)->pp->setPrev(Mapa->patrullas->at(5)->pp);
 
     PatrolRoute pr01;
-    pr01.setInicial(Mapa->patrullas->at(2)->pp); pr01.setFinal(Mapa->patrullas->at(2)->pp->getPrev());
+    pr01.setInicial(Mapa->patrullas->at(2)->pp);
+    pr01.setFinal(Mapa->patrullas->at(2)->pp->getPrev());
 
     ///2-> Enemigos[6] GuardiaNuevo
 
-    Mapa->patrullas->at(8)->pp->setNext(Mapa->patrullas->at(9)->pp); Mapa->patrullas->at(9)->pp->setNext(Mapa->patrullas->at(10)->pp);
-    Mapa->patrullas->at(10)->pp->setNext(Mapa->patrullas->at(11)->pp); Mapa->patrullas->at(11)->pp->setNext(Mapa->patrullas->at(8)->pp);
-    Mapa->patrullas->at(8)->pp->setPrev(Mapa->patrullas->at(11)->pp); Mapa->patrullas->at(11)->pp->setPrev(Mapa->patrullas->at(10)->pp);
-    Mapa->patrullas->at(10)->pp->setPrev(Mapa->patrullas->at(9)->pp); Mapa->patrullas->at(9)->pp->setPrev(Mapa->patrullas->at(8)->pp);
+    Mapa->patrullas->at(8)->pp->setNext(Mapa->patrullas->at(9)->pp);
+    Mapa->patrullas->at(9)->pp->setNext(Mapa->patrullas->at(10)->pp);
+    Mapa->patrullas->at(10)->pp->setNext(Mapa->patrullas->at(11)->pp);
+    Mapa->patrullas->at(11)->pp->setNext(Mapa->patrullas->at(8)->pp);
+    Mapa->patrullas->at(8)->pp->setPrev(Mapa->patrullas->at(11)->pp);
+    Mapa->patrullas->at(11)->pp->setPrev(Mapa->patrullas->at(10)->pp);
+    Mapa->patrullas->at(10)->pp->setPrev(Mapa->patrullas->at(9)->pp);
+    Mapa->patrullas->at(9)->pp->setPrev(Mapa->patrullas->at(8)->pp);
     PatrolRoute pr02;
-    pr02.setInicial(Mapa->patrullas->at(8)->pp); pr02.setFinal(Mapa->patrullas->at(8)->pp->getPrev());
-   ///5 -> Enemigo[0] Guardia
-    Mapa->patrullas->at(0)->pp->setNext(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setNext(Mapa->patrullas->at(0)->pp);
-    Mapa->patrullas->at(0)->pp->setPrev(Mapa->patrullas->at(1)->pp); Mapa->patrullas->at(1)->pp->setPrev(Mapa->patrullas->at(0)->pp);
+    pr02.setInicial(Mapa->patrullas->at(8)->pp);
+    pr02.setFinal(Mapa->patrullas->at(8)->pp->getPrev());
+    ///5 -> Enemigo[0] Guardia
+    Mapa->patrullas->at(0)->pp->setNext(Mapa->patrullas->at(1)->pp);
+    Mapa->patrullas->at(1)->pp->setNext(Mapa->patrullas->at(0)->pp);
+    Mapa->patrullas->at(0)->pp->setPrev(Mapa->patrullas->at(1)->pp);
+    Mapa->patrullas->at(1)->pp->setPrev(Mapa->patrullas->at(0)->pp);
 
     PatrolRoute pr05;
-    pr05.setInicial(Mapa->patrullas->at(0)->pp); pr03.setFinal(Mapa->patrullas->at(0)->pp->getPrev());
+    pr05.setInicial(Mapa->patrullas->at(0)->pp);
+    pr03.setFinal(Mapa->patrullas->at(0)->pp->getPrev());
 
     ///5 -> Enemigo[1] Dron
 
-    Mapa->patrullas->at(6)->pp->setNext(Mapa->patrullas->at(7)->pp); Mapa->patrullas->at(7)->pp->setNext(Mapa->patrullas->at(6)->pp);
+    Mapa->patrullas->at(6)->pp->setNext(Mapa->patrullas->at(7)->pp);
+    Mapa->patrullas->at(7)->pp->setNext(Mapa->patrullas->at(6)->pp);
 
     PatrolRoute pr06;
-    pr06.setInicial(Mapa->patrullas->at(6)->pp); pr06.setFinal(Mapa->patrullas->at(6)->pp->getPrev());
+    pr06.setInicial(Mapa->patrullas->at(6)->pp);
+    pr06.setFinal(Mapa->patrullas->at(6)->pp->getPrev());
 
 
 
@@ -218,7 +239,8 @@ int main()
 
     ///ENEMIGOS
     Enemigo  *enemigos[7];
-    for(int i=0;i<7;i++){
+    for(int i=0; i<7; i++)
+    {
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
@@ -228,7 +250,7 @@ int main()
     if(enemigos[2])
         enemigos[2]->inicialiazar(2,2,smgr,vector3df(Mapa->patrullas->at(2)->pp->getPunto()),pr01);
     if(enemigos[5])
-        enemigos[5]->inicialiazar2(smgr);
+        enemigos[5]->inicialiazar2(smgr, vector3df(Mapa->patrullas->at(12)->pp->getPunto()));
     if(enemigos[6])
         enemigos[6]->inicialiazar(0,6,smgr,vector3df(Mapa->patrullas->at(8)->pp->getPunto()),pr02);
 
@@ -244,7 +266,8 @@ int main()
 
     }
 
-    for(int i=0;i<7;i++){
+    for(int i=0; i<7; i++)
+    {
         enemigos[i]->setMuro(Mapa, prota);
     }
 
@@ -254,6 +277,7 @@ int main()
     vector3df toMousePositionObj;
     vector3df toMousePosition;
     core::line3df ray(mousePosition, prota->getCuboProta());
+    core::line3df ray11(mousePosition, prota->getCuboProta());
     core::line3df ray2(mousePosition, prota->getCuboProta());
     core::line3df ray3(mousePosition, prota->getCuboProta());
 
@@ -289,6 +313,7 @@ int main()
     ISoundSource* palancaon = engine->addSoundSourceFromFile("sonidos/palancaon.wav");
     ISoundSource* palancaoff = engine->addSoundSourceFromFile("sonidos/palancaoff.wav");
     ISoundSource* aceite = engine->addSoundSourceFromFile("sonidos/agua.wav");
+    ISoundSource* golpe = engine->addSoundSourceFromFile("sonidos/metal1.wav");
     vec3df posicion(0,0,0);
     ISound* s1;
     ISound* s2;
@@ -303,6 +328,7 @@ int main()
     ISound* s11;
     ISound* s12;
     ISound* s13;
+    ISound* s14;
 
     pasos1->setDefaultVolume(2.0f);
     pasos2->setDefaultVolume(1.0f);
@@ -363,7 +389,7 @@ int main()
     bool huyendo = false;
     bool cambiao = false;
     bool aparcao = false;
-    bool hayobj= false, vez= false, vez2 = false, vez3 = false;
+    bool hayobj= false, hayobj2 = false, vez= false, vez2 = false, vez3 = false;
     bool centinela= false;
     bool tocado= false;
     bool stop= true;
@@ -372,12 +398,17 @@ int main()
     bool rayolaser = false;
     bool rayolaser1 = false;
     bool cerrada = true;
+    bool unatarjeta = false;
+
 
     //PERCEPCION SENSONRIAL
 
     b2RayCastInput input;
     input.maxFraction	=	1.0f;
     b2RayCastOutput	output;
+    b2RayCastInput input2;
+    input2.maxFraction	=	1.0f;
+    b2RayCastOutput	output2;
     float angulo2 = 0;
     float distancia = 0;
     scene::IMesh *rayo = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
@@ -398,6 +429,7 @@ int main()
     Time tiempo;
     tiempo.set(device);
     float vidaProta;
+    float angulo;
     int n, balamenos= 0;
     float objvida= 0.0f;
     int objlaser= 0;
@@ -408,7 +440,6 @@ int main()
         driver->beginScene(true, true, SColor(255, 100, 101, 140));
 
 
-
         ///raton
         if(receiver.GetMouseState().RightButtonDown)
         {
@@ -416,15 +447,12 @@ int main()
 
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                       receiver.GetMouseState().Position, camera);
-            float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
+            angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
                                   -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
             prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
             prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
             prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
         }
-        ///clic izq
-
-
 
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
@@ -468,8 +496,10 @@ int main()
         }
 
 
-        if(prota->getLaser() > 0){
-            if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser){
+        if(prota->getLaser() > 0)
+        {
+            if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser)
+            {
                 balamenos= prota->getLaser() - 1;
                 prota->setLaser(balamenos);
                 rayolaser = true;
@@ -479,7 +509,7 @@ int main()
                 b2RayCastOutput	output2;
 
                 ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                receiver.GetMouseState().Position, camera);
+                           receiver.GetMouseState().Position, camera);
 
                 plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
 
@@ -504,12 +534,13 @@ int main()
                 else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
                     congelado3 = true;
 
-                if(kiko){
+                if(kiko)
+                {
 
-                if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado4 = true;
-                else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado5 = true;
+                    if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                        congelado4 = true;
+                    else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                        congelado5 = true;
                 }
 
 
@@ -524,7 +555,8 @@ int main()
         }
 
 
-        if(rayolaser == true && s10->isFinished()){
+        if(rayolaser == true && s10->isFinished())
+        {
             rayolaser = false;
             congelado1 = false;
             congelado2 = false;
@@ -534,19 +566,23 @@ int main()
             congelado6 = false;
         }
 
-        if(rayolaser1 == true && s11->isFinished()){
+        if(rayolaser1 == true && s11->isFinished())
+        {
             rayolaser1 = false;
             modelo2->setVisible(false);
         }
 
 
-        if(enemigos[1]->getEstado() == 3){
-            if(cambiao == false){
+        if(enemigos[1]->getEstado() == 3)
+        {
+            if(cambiao == false)
+            {
                 //smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
                 s4 = engine->play3D(alarma,posicion,false,false,true);
                 cambiao = true;
             }
-            else if(s4->isFinished()){
+            else if(s4->isFinished())
+            {
                 aparcao = true;
                 kiko = true;
                 vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
@@ -659,24 +695,153 @@ int main()
 
 
 
-        //APASIONADORA
-            if((sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10 < 0.5){
-                Mapa->apisonadoras->at(0)->body->SetLinearVelocity(b2Vec2(2, 0));
-                Mapa->apisonadoras->at(1)->body->SetLinearVelocity(b2Vec2(-2, 0));
-            }
+        //PRENSA/APISONADORA (COMO SE LLAME LUL)
+        if((sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10 < 0.5)
+        {
+            Mapa->apisonadoras->at(0)->body->SetLinearVelocity(b2Vec2(2, 0));
+            Mapa->apisonadoras->at(1)->body->SetLinearVelocity(b2Vec2(-2, 0));
+        }
 
-            if((sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10 > 1.0){
-                Mapa->apisonadoras->at(0)->body->SetLinearVelocity(b2Vec2(-2, 0));
-                Mapa->apisonadoras->at(1)->body->SetLinearVelocity(b2Vec2(2, 0));
-            }
+        if((sqrt(pow(Mapa->apisonadoras->at(0)->body->GetPosition().y-Mapa->apisonadoras->at(1)->body->GetPosition().y, 2) + pow(Mapa->apisonadoras->at(0)->body->GetPosition().x-Mapa->apisonadoras->at(1)->body->GetPosition().x, 2)))/10 > 1.0)
+        {
+            Mapa->apisonadoras->at(0)->body->SetLinearVelocity(b2Vec2(-2, 0));
+            Mapa->apisonadoras->at(1)->body->SetLinearVelocity(b2Vec2(2, 0));
+        }
 
 
         Mapa->apisonadoras->at(0)->setPosition(vector3df(Mapa->apisonadoras->at(0)->body->GetPosition().x, 0, Mapa->apisonadoras->at(0)->body->GetPosition().y));
         Mapa->apisonadoras->at(1)->setPosition(vector3df(Mapa->apisonadoras->at(1)->body->GetPosition().x, 0, Mapa->apisonadoras->at(1)->body->GetPosition().y));
 
 
-        //enemi->setPosition(vector3df(enemi->getBody()->GetPosition().x, 0, enemi->getBody()->GetPosition().y));
-        //prota->setPosicionBody(0);
+        //ATAQUE PROTA
+
+        for(n= 0; n <= 6; n++)
+        {
+            if(enemigos[n]->getCreado())
+            {
+                if(sqrt(pow(enemigos[n]->getBody()->GetPosition().y-prota->getBody()->GetPosition().y, 2) + pow(enemigos[n]->getBody()->GetPosition().x-prota->getBody()->GetPosition().x, 2))/10 < 0.4)
+                {
+                    input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+                    input2.p2.Set(enemigos[n]->getBody()->GetPosition().x, enemigos[n]->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+
+                    float angulo4 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
+
+
+
+                    if(!enemigos[n]->getMuerto() && receiver.GetMouseState().LeftButtonDown && engine->isCurrentlyPlaying(golpe) == false)
+                    {
+
+
+                        if(angulo < angulo4 + 30 && angulo > angulo4 - 30){
+
+
+                        s14 = engine->play3D(golpe,posicion,false,false,true);
+                        enemigos[n]->quitarVida();
+                        }
+                    }
+                }
+            }
+        }
+
+
+         //// TORRETA
+
+
+        input.p1.Set(enemigos[5]->getBody()->GetPosition().x, enemigos[5]->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input.p2.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+        bool    hitmuro     =   enemigos[5]->noteveo();
+        bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
+
+
+        distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
+        angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
+
+
+            if(hitprota && distancia<30 && !hitmuro){
+                    //  && angulo2>-150 && angulo2<40
+                   // b2Vec2 hitPoint = input.p1+output.fraction * (input.p2 - input.p1);
+                   // b2Vec2 normal = output.normal;
+
+                enemigos[5]->getBody()->SetTransform(enemigos[5]->getBody()->GetPosition(), angulo2);
+                enemigos[5]->getModelo()->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
+
+                if(!kiko2){
+                    s9 = engine->play3D(aviso,posicion,false,false,true);
+                    kiko2 = true;
+                }
+                if(s9->isFinished()){
+
+
+                if(engine->isCurrentlyPlaying(lasertorreta)==false)
+                        s8 = engine->play3D(lasertorreta,posicion,true,false,true);
+
+
+
+                modelo->setVisible(true);
+                modelo->setScale(core::vector3df(distancia/10, 0.5f, 0.5f));
+                modelo->setPosition(core::vector3df((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
+                modelo->setRotation(core::vector3df(0,enemigos[5]->getBody()->GetAngle(),0));
+                smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(255, 255, 255, 255));
+
+                vidaProta=prota->getVida();
+
+                if(vidaProta >=0){
+                    vidaProta-=0.1*DeltaTime;
+                    prota->setVida(vidaProta);
+                }
+
+                }
+
+            }
+            else{
+
+                if(engine->isCurrentlyPlaying(lasertorreta))
+                s8->stop();
+
+                smgr->getMeshManipulator()->setVertexColors(enemigos[5]->getModelo()->getMesh(),irr::video::SColor(0, 0, 0, 0));
+                modelo->setVisible(false);
+
+                kiko2 = false;
+
+            }
+
+
+        //TARJETA CAE DE ENEMIGO
+
+        if(enemigos[6]->getMuerto() && unatarjeta == false){
+            unatarjeta = true;
+            Mapa->objetos->push_back(new MapComponent(0, core::vector3df(enemigos[6]->getPosicion().X+3, 0, enemigos[6]->getPosicion().Z+3), smgr, 4));
+        }
+
+
+        if(unatarjeta){
+
+        if((sqrt(pow(Mapa->objetos->at(4)->body->GetPosition().y-prota->getBody()->GetPosition().y, 2) + pow(Mapa->objetos->at(4)->body->GetPosition().x-prota->getBody()->GetPosition().x, 2)))/10 < 0.3)
+            hayobj2 = true;
+
+        if(hayobj2)
+        {
+
+            Mapa->objetos->at(4)->Desactivar();
+
+            if((sqrt(pow(Mapa->puertas->at(2)->body->GetPosition().y-prota->getBody()->GetPosition().y, 2) + pow(Mapa->puertas->at(2)->body->GetPosition().x-prota->getBody()->GetPosition().x, 2)))/10 < 0.3)
+            {
+
+                Mapa->puertas->at(2)->Desactivar();
+            }
+            else
+            {
+                Mapa->puertas->at(2)->Activar();
+            }
+
+
+        }
+
+
+        }
+
 
         ///CAMARA
         if(receiver.isKeyDown(KEY_ESCAPE))
@@ -724,18 +889,19 @@ int main()
         ///UPDATES ENEMIGO
         //Guardia
         if(!congelado1)
-        enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
+            enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
         //Alarma
-         if(!congelado2)
-        enemigos[1]->update(prota->getCuboProta(), tiempo, enemigos);
+        if(!congelado2)
+            enemigos[1]->update(prota->getCuboProta(), tiempo, enemigos);
         //Medico
-         if(!congelado3)
-        enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
-        if(aparcao){
-                 if(!congelado4)
-                    enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
-                 if(!congelado5)
-                    enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
+        if(!congelado3)
+            enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
+        if(aparcao)
+        {
+            if(!congelado4)
+                enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
+            if(!congelado5)
+                enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
         }
         enemigos[6]->update(prota->getCuboProta(), tiempo, enemigos);
 
@@ -744,12 +910,14 @@ int main()
         //Si el dron no se ha convertido en alarma
         if(cambiao == false)
             enemigos[1]->setPosicion();
-        if(aparcao){
+        if(aparcao)
+        {
             enemigos[3]->setPosicion();
             enemigos[4]->setPosicion();
         }
         enemigos[2]->setPosicion();
         enemigos[6]->setPosicion();
+
 
         //std::cout << enemigos[0]->angulo<<"\n";
         world->Step(DeltaTime);

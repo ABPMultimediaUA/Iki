@@ -19,7 +19,7 @@ class Player : public GameEntity
     protected:
 
     private:
-        Structs::TPosicion toMousePosition = {0,0,0};
+        Structs::TPosicion toMousePosition = {170,0,50};
 
 };
 

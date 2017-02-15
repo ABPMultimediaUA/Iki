@@ -2,6 +2,9 @@
 #define STRUCTS_H
 
 #include <irrlicht.h>
+#include <stdio.h>
+#include "vector"
+#include "string"
 
 using namespace irr;
 

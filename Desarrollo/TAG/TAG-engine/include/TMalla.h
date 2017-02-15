@@ -1,6 +1,7 @@
 #ifndef TMALLA_H
 #define TMALLA_H
 
+#include <iostream>
 #include <TEntidad.h>
 #include "TFichero.h"
 #include "TRecursoMalla.h"
@@ -11,7 +12,7 @@ class TMalla : public TEntidad
         TMalla();
         virtual ~TMalla();
 
-        void cargarMalla(TFichero);
+        void cargarMalla(TFichero fich);
 
         void beginDraw();
         void endDraw();

@@ -50,7 +50,6 @@
 		<Unit filename="include/TFichero.h" />
 		<Unit filename="include/TLuz.h" />
 		<Unit filename="include/TMalla.h" />
-		<Unit filename="include/TMatriz4x4.h" />
 		<Unit filename="include/TNodo.h" />
 		<Unit filename="include/TRecurso.h" />
 		<Unit filename="include/TRecursoMalla.h" />
@@ -62,7 +61,6 @@
 		<Unit filename="src/TFichero.cpp" />
 		<Unit filename="src/TLuz.cpp" />
 		<Unit filename="src/TMalla.cpp" />
-		<Unit filename="src/TMatriz4x4.cpp" />
 		<Unit filename="src/TNodo.cpp" />
 		<Unit filename="src/TRecurso.cpp" />
 		<Unit filename="src/TRecursoMalla.cpp" />

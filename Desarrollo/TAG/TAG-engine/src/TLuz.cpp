@@ -2,7 +2,7 @@
 
 TLuz::TLuz()
 {
-    //ctor
+
 }
 
 TLuz::~TLuz()
@@ -10,18 +10,21 @@ TLuz::~TLuz()
     //dtor
 }
 
-void TLuz::setIntensidad(TColor)
+void TLuz::setIntensidad(TColor col)
 {
-
+    intensidad= col;
 }
+
 TColor TLuz::getIntensidad()
 {
-
+    return intensidad;
 }
+
 void TLuz::beginDraw()
 {
-
+    std::cout<<"Luz draw()"<<std::endl;
 }
+
 void TLuz::endDraw()
 {
 
