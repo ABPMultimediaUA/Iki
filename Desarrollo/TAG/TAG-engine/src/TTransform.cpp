@@ -4,7 +4,7 @@
 
 TTransform::TTransform()
 {
-
+    matriz= mat4(1.f);
 }
 
 TTransform::~TTransform()
@@ -20,12 +20,7 @@ void TTransform::identidad()
 void TTransform::cargar(mat4 mat)
 {
     matriz= mat;
-    //no estoy seguro de esta comprobacion
-    /*
-    if(mat != mat4(1.f))
-    {
-        matriz= mat;
-    }*/
+
 }
 
 void TTransform::trasponer()

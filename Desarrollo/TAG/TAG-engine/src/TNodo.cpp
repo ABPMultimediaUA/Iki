@@ -22,9 +22,29 @@ int TNodo::addHijo(TNodo* nodo)
 
 int TNodo::remHijo(TNodo* nodo)
 {
+    //recorrer vector y si está eliminarlo y devolver 1, si no 0.
+    if (nodo != nullptr){
+        vector<TNodo*>::iterator it = hijos.begin();
+        while(it != hijos.end()){
+            if(*it == nodo) {
+                hijos.erase(it);
+                return 1;
+            }
+            ++it;
+        }
+    }
     return 0;
-
 }
+/*
+    for(int i=0; i < hijos.size(); i++)
+    {
+        if(hijos[i] == nodo)
+        {
+            hijos.erase(hijos.begin() + i);
+            return 1;
+        }
+    }
+*/
 
 bool TNodo::setEntidad(TEntidad* ent)
 {

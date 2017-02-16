@@ -13,8 +13,8 @@ class TCamara : public TEntidad
         TCamara();
         virtual ~TCamara();
 
-        void setPerspectiva(float x, float y);
-        void setParalela(float x, float y);
+        void setPerspectiva(float sup, float inf, float izq, float dch, float cer, float lej);
+        void setParalela(float sup, float inf, float izq, float dch, float cer, float lej);
 
         void beginDraw();
         void endDraw();
@@ -23,8 +23,7 @@ class TCamara : public TEntidad
 
     private:
         bool esPerspectiva;
-        float cercano, lejano;
-        std::vector<float> vec, vec2;
+        float superior, inferior, izquierda, derecha, cercano, lejano;
 };
 
 #endif // TCAMARA_H

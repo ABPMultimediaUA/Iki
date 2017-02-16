@@ -15,7 +15,24 @@ int main()
     TNodo* nodito0= new TNodo();
     TNodo* nodito1= new TNodo();
     TNodo* nodito2= new TNodo();
-    TNodo* nodito3= new TNodo();
+
+    TMalla* malla0= new TMalla();
+    TTransform* transform0= new TTransform();
+    TTransform* transform1= new TTransform();
+
+
+    nodito0->setEntidad(transform0);
+    nodito1->setEntidad(transform1);
+    nodito2->setEntidad(malla0);
+
+    noditoEsc->addHijo(nodito0);
+    nodito0->addHijo(nodito1);
+    nodito1->addHijo(nodito2);
+
+    transform0->rotar(90, 5, 5, 5);
+    transform1->trasladar(10, 10, 10);
+
+    /*TNodo* nodito3= new TNodo();
     TNodo* nodito4= new TNodo();
     TNodo* nodito5= new TNodo();
     TNodo* nodito6= new TNodo();
@@ -30,7 +47,7 @@ int main()
     TNodo* nodito15= new TNodo();
 
 //Transformaciones
-    TTransform* transformEsc= new TTransform();
+    //TTransform* transformEsc= new TTransform();
     TTransform* transform0= new TTransform();
     TTransform* transform1= new TTransform();
     TTransform* transform2= new TTransform();
@@ -102,7 +119,7 @@ int main()
     nodito3->addHijo(nodito10);
     nodito3->addHijo(nodito11);
 //////
-
+*/
     noditoEsc->draw();
 
 

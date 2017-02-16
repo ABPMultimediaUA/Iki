@@ -16,10 +16,8 @@ void TCamara::setPerspectiva(float sup, float inf, float izq, float dch, float c
     inferior= inf;
     izquierda= izq;
     derecha= dch;
-    cercano= cer;
+    cerca= cer;
     lejano= lej;
-
-    esPerspectiva= true;
 }
 void TCamara::setParalela(float sup, float inf, float izq, float dch, float cer, float lej)
 {
@@ -27,10 +25,8 @@ void TCamara::setParalela(float sup, float inf, float izq, float dch, float cer,
     inferior= inf;
     izquierda= izq;
     derecha= dch;
-    cercano= cer;
+    cerca= cer;
     lejano= lej;
-
-    esPerspectiva= false;
 }
 void TCamara::beginDraw()
 {

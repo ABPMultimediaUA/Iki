@@ -36,6 +36,7 @@
 			<Add directory="include/glm" />
 			<Add directory="include/GL" />
 			<Add directory="include/SDL" />
+			<Add directory="include/assimp" />
 		</Compiler>
 		<Linker>
 			<Add library="lib/glew32.lib" />
@@ -43,11 +44,13 @@
 			<Add library="lib/SDL2.lib" />
 			<Add library="lib/SDL2main.lib" />
 			<Add library="lib/SDL2test.lib" />
+			<Add library="lib/assimp.lib" />
 		</Linker>
 		<Unit filename="include/TCamara.h" />
 		<Unit filename="include/TColor.h" />
 		<Unit filename="include/TEntidad.h" />
 		<Unit filename="include/TFichero.h" />
+		<Unit filename="include/TGestorRecursos.h" />
 		<Unit filename="include/TLuz.h" />
 		<Unit filename="include/TMalla.h" />
 		<Unit filename="include/TNodo.h" />
@@ -59,6 +62,7 @@
 		<Unit filename="src/TColor.cpp" />
 		<Unit filename="src/TEntidad.cpp" />
 		<Unit filename="src/TFichero.cpp" />
+		<Unit filename="src/TGestorRecursos.cpp" />
 		<Unit filename="src/TLuz.cpp" />
 		<Unit filename="src/TMalla.cpp" />
 		<Unit filename="src/TNodo.cpp" />
