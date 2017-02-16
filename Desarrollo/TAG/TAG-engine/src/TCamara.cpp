@@ -2,7 +2,7 @@
 
 TCamara::TCamara()
 {
-    esPerspectiva= false;
+    esPerspectiva = false;
 }
 
 TCamara::~TCamara()
@@ -12,31 +12,31 @@ TCamara::~TCamara()
 
 void TCamara::setPerspectiva(float sup, float inf, float izq, float dch, float cer, float lej)
 {
-    superior= sup;
-    inferior= inf;
-    izquierda= izq;
-    derecha= dch;
-    cercano= cer;
-    lejano= lej;
+    superior  = sup;
+    inferior  = inf;
+    izquierda = izq;
+    derecha   = dch;
+    cercano   = cer;
+    lejano    = lej;
 
-    esPerspectiva= true;
+    esPerspectiva = true;
 }
 void TCamara::setParalela(float sup, float inf, float izq, float dch, float cer, float lej)
 {
-    superior= sup;
-    inferior= inf;
-    izquierda= izq;
-    derecha= dch;
-    cercano= cer;
-    lejano= lej;
+    superior  = sup;
+    inferior  = inf;
+    izquierda = izq;
+    derecha   = dch;
+    cercano   = cer;
+    lejano    = lej;
 
-    esPerspectiva= false;
+    esPerspectiva = false;
 }
 void TCamara::beginDraw()
 {
-    std::cout << "camara draw()" <<std::endl;
+
 }
 void TCamara::endDraw()
 {
-    //cout << "Desapilamos camara" << endl;
+
 }

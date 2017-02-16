@@ -20,7 +20,7 @@ class TTransform : public TEntidad
         void cargar(mat4 mat);
         void trasponer();
         void trasladar(float x, float y, float z);
-        void rotar(float orient, float x, float y, float z);
+        void rotar(float angulo, float x, float y, float z);
 
         void beginDraw();
         void endDraw();

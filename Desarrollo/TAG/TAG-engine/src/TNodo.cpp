@@ -2,8 +2,8 @@
 
 TNodo::TNodo()
 {
-    entidad= nullptr;
-    padre= nullptr;
+    entidad = nullptr;
+    padre = nullptr;
 }
 
 TNodo::~TNodo()
@@ -13,8 +13,7 @@ TNodo::~TNodo()
 
 int TNodo::addHijo(TNodo* nodo)
 {
-    if (nodo != nullptr)
-    {
+    if (nodo != nullptr){
         hijos.push_back(nodo);
     }
     return hijos.size();
@@ -48,8 +47,7 @@ int TNodo::remHijo(TNodo* nodo)
 
 bool TNodo::setEntidad(TEntidad* ent)
 {
-    if(ent != nullptr)
-    {
+    if(ent != nullptr){
         entidad = ent;
         return true;
     }
@@ -64,23 +62,18 @@ TEntidad *TNodo::getEntidad()
 TNodo *TNodo::getPadre()
 {
     return padre;
-
 }
 
 void TNodo::draw()
 {
-    if(entidad != nullptr)
-    {
+    if(entidad != nullptr){
         entidad->beginDraw();
     }
-
-    for(int i=0; i < hijos.size(); i++)
-    {
-        std::cout<<i<<std::endl;
+    for(int i=0; i < hijos.size(); i++){
+        //std::cout<<i<<std::endl;
         hijos[i]->draw();
     }
-    if(entidad != nullptr)
-    {
+    if(entidad != nullptr){
         entidad->endDraw();
     }
 }

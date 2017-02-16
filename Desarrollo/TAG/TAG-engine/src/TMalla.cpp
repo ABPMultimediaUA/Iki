@@ -2,7 +2,7 @@
 
 TMalla::TMalla()
 {
-    malla= nullptr;
+    malla = nullptr;
 }
 
 TMalla::~TMalla()
