@@ -15,8 +15,9 @@ Player::~Player()
 
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 2;
-    vida=200;
+    vida=3;
     balas= 1;
+    ismoving = false;
     smgr1=smgr;
     escalado= core::vector3df(1,0,1);
 

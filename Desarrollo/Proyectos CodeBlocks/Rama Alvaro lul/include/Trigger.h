@@ -10,42 +10,41 @@
 //          activated when an entity moves within its region of influence.
 //
 //-----------------------------------------------------------------------------
-//#include "BaseGameEntity.h"
+//#include "game/BaseGameEntity.h"
 //#include "TriggerRegion.h"
-#include <irrlicht.h>
-
 //template <class entity_type>
-class Trigger// : public GameEntity
+class Trigger// : public BaseGameEntity
 {
     public:
         //Trigger();
         //virtual ~Trigger();
 
-        Trigger(/*unsigned int id*/)://BaseGameEntity(id),
-                                 m_bRemoveFromGame(false),
-                                 m_bActive(true),
+//        Trigger(unsigned int id):BaseGameEntity(id),
+//                                 m_bRemoveFromGame(false),
+//                                 m_bActive(true),
 //                                 m_iGraphNodeIndex(-1),
-                                 m_pRegionOfInfluence(NULL)
-        {}
+//                                 m_pRegionOfInfluence(NULL)
 
-        virtual ~Trigger(){delete m_pRegionOfInfluence;}
+//        {}
+
+//        virtual ~Trigger(){delete m_pRegionOfInfluence;}
 
         //when this is called the trigger determines if the entity is within the
         //trigger's region of influence. If it is then the trigger will be
         //triggered and the appropriate action will be taken.
-        virtual void  Try(entity_type*) = 0;
+//        virtual void  Try(entity_type*) = 0;
 
         //called each update-step of the game. This methods updates any internal
         //state the trigger may have
         virtual void  Update() = 0;
 
-//        int  GraphNodeIndex()const{return m_iGraphNodeIndex;}
+        int  GraphNodeIndex()const{return m_iGraphNodeIndex;}
         bool isToBeRemoved()const{return m_bRemoveFromGame;}
         bool isActive(){return m_bActive;}
 
     protected:
 
-//      void SetGraphNodeIndex(int idx){m_iGraphNodeIndex = idx;}
+      void SetGraphNodeIndex(int idx){m_iGraphNodeIndex = idx;}
 
       void SetToBeRemovedFromGame(){m_bRemoveFromGame = true;}
       void SetInactive(){m_bActive = false;}
@@ -56,8 +55,8 @@ class Trigger// : public GameEntity
 //      bool isTouchingTrigger(Vector2D EntityPos, double EntityRadius)const;
 
       //child classes use one of these methods to initialize the trigger region
-      void AddCircularTriggerRegion(irr::core::vector2d center, double radius);
-      void AddRectangularTriggerRegion(Vector2D TopLeft, Vector2D BottomRight);
+//      void AddCircularTriggerRegion(Vector2D center, double radius);
+//      void AddRectangularTriggerRegion(Vector2D TopLeft, Vector2D BottomRight);
 
     private:
       //Every trigger owns a trigger region. If an entity comes within this
@@ -80,40 +79,41 @@ class Trigger// : public GameEntity
 
 //------------------------ AddCircularTriggerRegion ---------------------------
 //-----------------------------------------------------------------------------
-//template <class entity_type>
-void Trigger/*<entity_type>*/::AddCircularTriggerRegion(Vector2D center,
-                                                    double    radius)
-{
+template <class entity_type>
+//void Trigger<entity_type>::AddCircularTriggerRegion(Vector2D center,
+//                                                    double    radius)
+//{
   //if this replaces an existing region, tidy up memory
-  if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+//  if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
 
-  m_pRegionOfInfluence = new TriggerRegion_Circle(center, radius);
-}
+//  m_pRegionOfInfluence = new TriggerRegion_Circle(center, radius);
+//}
 
+/// MAGIA
 //--------------------- AddRectangularTriggerRegion ---------------------------
 //-----------------------------------------------------------------------------
 //template <class entity_type>
-void Trigger/*<entity_type>*/::AddRectangularTriggerRegion(Vector2D TopLeft,
-                                                       Vector2D BottomRight)
-{
+//void Trigger<entity_type>::AddRectangularTriggerRegion(Vector2D TopLeft,
+//                                                       Vector2D BottomRight)
+//{
   //if this replaces an existing region, tidy up memory
-  if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+//  if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
 
-  m_pRegionOfInfluence = new TriggerRegion_Rectangle(TopLeft, BottomRight);
-}
+//  m_pRegionOfInfluence = new TriggerRegion_Rectangle(TopLeft, BottomRight);
+//}
 
 //--------------------- isTouchingTrigger -------------------------------------
 //-----------------------------------------------------------------------------
 //template <class entity_type>
-bool Trigger/*<entity_type>*/::isTouchingTrigger(Vector2D EntityPos,
-                                             double    EntityRadius)const
-{
-    if (m_pRegionOfInfluence)
-    {
-        return m_pRegionOfInfluence->isTouching(EntityPos, EntityRadius);
-    }
+//bool Trigger<entity_type>::isTouchingTrigger(Vector2D EntityPos,
+//                                             double    EntityRadius)const
+//{
+//  if (m_pRegionOfInfluence)
+//  {
+//    return m_pRegionOfInfluence->isTouching(EntityPos, EntityRadius);
+//  }
 
-    return false;
-}
+//  return false;
+//}
 
 #endif // TRIGGER_H

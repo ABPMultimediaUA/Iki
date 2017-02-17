@@ -48,6 +48,11 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
     smgr1 = smgr;
 
+
+    rayo = smgr1->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
+    modelo2 = smgr1->addMeshSceneNode(rayo);
+    modelo2->setVisible(false);
+
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
     bodyDef.position.Set(posicion.X, posicion.Z);
@@ -269,21 +274,21 @@ void Enemigo::vigilar()
     time=tiempo.getTime();
     tiempoVigilando=(time-reloj);
     //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
-    if(tiempoVigilando < 3.0)
+    if(tiempoVigilando < 1.5)
     {
         if(lul)
             angulo = angulo + 30;
 
         lul = false;
     }
-    else if(tiempoVigilando>= 3.0 && tiempoVigilando<= 6.0)
+    else if(tiempoVigilando>= 1.5 && tiempoVigilando<= 3.0)
     {
         if(lul2)
             angulo = angulo - 60;
 
         lul2 = false;
     }
-    else if(tiempoVigilando>6.0)
+    else if(tiempoVigilando>3.0)
     {
         if(lul3)
             angulo = angulo + 30;
@@ -291,6 +296,8 @@ void Enemigo::vigilar()
         lul3 = false;
     }
     posicion = cuboEnemigo;
+    if(!noteveo() || distanciaPlayer < 8 && player->sigilo == false && player->ismoving == true)
+        estado = 3;
 }
 
 void Enemigo::curar(Enemigo aliado)
@@ -334,10 +341,10 @@ void Enemigo::escanear()
     time=tiempo.getTime();
     tiempoEscaneando=(time-reloj);
     //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
-    if(tiempoEscaneando < 3.0 && sospecha < 25 && distanciaPlayer<28 && !noteveo())
+    if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<28 && !noteveo())
     {
         //sospecha+=1*tiempo.getTimeFactor();
-        if (player->velocidad == 4.5f )
+        if (player->sigilo == true )
             sospecha+=10*tiempo.getTimeFactor();
         else
             sospecha+=30*tiempo.getTimeFactor();
@@ -405,10 +412,11 @@ int Enemigo::maquinaEstados()
         case 0:
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
             patrullar();
-            //Si el player se acerca mucho aunque este en sigilo
-            if (distanciaPlayer < 4)
+            //Aqui lo que molaria es tener una especie de manera de detectar si se esta reproduciendo algun sonido del prota tmb o si se esta moviendo al menos.
+            if (distanciaPlayer < 8 && player->sigilo == false && player->ismoving == true)
             {
-                estado=1;
+                puntoInteres=posicionProta;
+                estado=8;
             }
             //Si el player se acerca sospecha
 
@@ -444,7 +452,7 @@ int Enemigo::maquinaEstados()
                 primeraVez=false;
 
             }
-            if (tiempoVigilando < 8.0)
+            if (tiempoVigilando < 4.5)
             {
                 vigilar();
             }
@@ -508,7 +516,7 @@ int Enemigo::maquinaEstados()
                 puntoInteres = posicionProta;
                 estado = 8;
             }
-            if(distanciaPlayer<3)
+            if(distanciaPlayer<6)
             {
                 estado=7;
             }
@@ -516,12 +524,57 @@ int Enemigo::maquinaEstados()
             //si lo pierde de vista, vuelve a la patrulla
             break;
         case 7: //ATACAR
-            if(distanciaPlayer<3)
+
+            if(distanciaPlayer<6 && !prepara)
             {
-                smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
-                atacar();
+                reloj=tiempo.setMomento();
+                prepara = true;
+
+                angulo = atan2f((direccionHaciaProta.Z) , -(direccionHaciaProta.X)) * 180.f / irr::core::PI;
+                input2.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+
+                //Pa que no sufrais con if's infinitos lul
+                bodyauxiliar = player->getBody()->GetPosition()-this->getBody()->GetPosition();
+
+                float modulo = sqrt((bodyauxiliar.x*bodyauxiliar.x) + (bodyauxiliar.y*bodyauxiliar.y));
+
+                input2.p2.Set(this->getBody()->GetPosition().x+((bodyauxiliar.x/modulo)*10), this->getBody()->GetPosition().y+((bodyauxiliar.y/modulo)*10));
+
+                //input2.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+                distanciahuhu = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
+                modelo2->setScale(core::vector3df(distanciahuhu/10, 0.5f, 0.5f));
+                modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
+                modelo2->setRotation(core::vector3df(0,angulo,0));
             }
-            else
+            if(prepara == true)
+            {
+
+                time=tiempo.getTime();
+                tiempoataque=(time-reloj);
+
+                if(tiempoataque > 1.5)
+                {
+                    smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
+                    modelo2->setVisible(true);
+                    if(distanciaPlayer<=distanciahuhu && !noteveo() && !solounaveh)
+                    {
+                        player->setVida(player->getVida()-1);
+                        std::cout << player->getVida()<<"\n";
+                        solounaveh = true;
+                    }
+                    if(tiempoataque > 2.0)
+                    {
+                        modelo2->setVisible(false);
+                        tiempoataque = 0;
+                        prepara = false;
+                        solounaveh = false;
+                    }
+                }
+
+
+
+            }
+            else if(!prepara && distanciaPlayer >= 6)
             {
                 estado=6;
             }
@@ -647,7 +700,6 @@ bool Enemigo::noteveo()
 
     angulo7 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
 
-
     if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output,	input,	0))
         return true;
     else if (morito->puertas->at(1)->body->GetFixtureList()->RayCast(&output,	input,	0))
@@ -659,7 +711,7 @@ bool Enemigo::noteveo()
             return true;
 
     }
-    /*if((angulo <= -135 && angulo7 >= 135) || (angulo >= 135 && angulo7 <= -135))
+    if((angulo <= -135 && angulo7 >= 135) || (angulo >= 135 && angulo7 <= -135))
     {
         return false;
 
@@ -671,8 +723,7 @@ bool Enemigo::noteveo()
         else
             return true;
 
-    }*/
-    return false;
+    }
 
 
 

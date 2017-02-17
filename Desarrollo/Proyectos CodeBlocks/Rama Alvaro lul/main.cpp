@@ -462,6 +462,7 @@ int main()
             if(toMousePosition.getLength() <= 1)
             {
                 prota->moverBody(vector3df(0,0,0));
+                prota->ismoving = false;
                 if(pasosP==true || pasos2P==true)
                 {
                     s1->stop();
@@ -473,6 +474,7 @@ int main()
             }
             else
             {
+                 prota->ismoving = true;
                 prota->moverBody(toMousePosition);
                 if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT))
                 {
@@ -870,12 +872,18 @@ int main()
             cameraTar.X+=0.3*DeltaTime;
         }
 
-        if(receiver.isKeyDown(KEY_LSHIFT))
+        if(receiver.isKeyDown(KEY_LSHIFT)){
             prota->velocidad = 2.5f;
-        else if(engine->isCurrentlyPlaying(aceite) == true)
+            prota->sigilo = true;
+        }
+        else if(engine->isCurrentlyPlaying(aceite) == true){
             prota->velocidad = 10.f;
-        else
+            prota->sigilo = true;
+        }
+        else{
             prota->velocidad = 5.5f;
+            prota->sigilo = false;
+        }
 
 
 
@@ -927,18 +935,18 @@ int main()
         smgr->drawAll();
         guienv->drawAll();
 
-        if(prota->getVida() >= 200)
+        if(prota->getVida() >= 3)
         {
             driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
             driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
             driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
         }
-        else if(prota->getVida() >= 100)
+        else if(prota->getVida() >= 2)
         {
             driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
             driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
         }
-        else if(prota->getVida() > 0)
+        else if(prota->getVida() >= 1)
         {
             driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
         }

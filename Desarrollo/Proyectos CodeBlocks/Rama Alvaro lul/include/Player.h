@@ -35,6 +35,8 @@ class Player
         void setLaser(int l);
         void muerte();
         void setNoMuerto();
+        bool sigilo = false;
+        bool ismoving;
 
     protected:
 

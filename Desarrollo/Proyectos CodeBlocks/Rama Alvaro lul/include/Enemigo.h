@@ -5,7 +5,6 @@
 #include "driverChoice.h"
 #include "../include/Time.h"
 #include "../include/Fuzzy.h"
-#include "../include/Muros.h"
 #include <World.h>
 #include <Player.h>
 #include "../include/Map.h"
@@ -80,7 +79,17 @@ class Enemigo
     private:
         scene::IMesh *mura1;
         scene::IMeshSceneNode *modelo;
+        scene::IMeshSceneNode *modelo2;
+
+        float angulohuhu = 0;
+        float distanciahuhu = 0;
+        scene::IMesh *rayo;
+        bool prepara = false;
+        bool solounaveh = false;
+
+
         b2Body *body2;
+        b2Vec2 bodyauxiliar;
         float tam;
         float movx, movy;
         int id;
@@ -90,6 +99,7 @@ class Enemigo
         float vida;
         float sospecha;
         float tiempoVigilando;
+        float tiempoataque = 0;
         int tiempoEscaneando;
         core::vector3df posicion;
 
@@ -124,6 +134,9 @@ class Enemigo
 
         b2RayCastInput input;
         b2RayCastOutput	output;
+
+        b2RayCastInput input2;
+        b2RayCastOutput	output2;
 
         PatrolPoint* pRuta;
         Fuzzy logica;

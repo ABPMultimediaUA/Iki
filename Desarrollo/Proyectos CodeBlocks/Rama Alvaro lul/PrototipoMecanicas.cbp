@@ -69,7 +69,7 @@
 		</Compiler>
 		<Linker>
 			<Add library="Irrlicht" />
-			<Add library="engineBox2D/bin/Debug/libengineBox2D.a" />
+			<Add library="engineBox2D\bin\Debug\libengineBox2D.a" />
 			<Add library="libirrKlang.a" />
 			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
@@ -84,16 +84,12 @@
 		<Unit filename="include/MapComponent.h">
 			<Option target="Windows" />
 		</Unit>
-		<Unit filename="include/Muros.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Singleton.h" />
 		<Unit filename="include/Suelo.h" />
 		<Unit filename="include/Time.h" />
-		<Unit filename="include/Trigger.h" />
-		<Unit filename="include/TriggerRegion.h" />
-		<Unit filename="include/TriggerSystem.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h">
 			<Option target="Windows" />
@@ -107,7 +103,6 @@
 		<Unit filename="src/MapComponent.cpp">
 			<Option target="Windows" />
 		</Unit>
-		<Unit filename="src/Muros.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/Player.cpp" />
