@@ -38,17 +38,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="include/glm" />
-			<Add directory="include/GL" />
 			<Add directory="include/SDL" />
 			<Add directory="include/assimp" />
+			<Add directory="include/GL" />
 		</Compiler>
 		<Linker>
-			<Add library="lib/glew32.lib" />
-			<Add library="lib/glew32s.lib" />
 			<Add library="lib/SDL2.lib" />
 			<Add library="lib/SDL2main.lib" />
 			<Add library="lib/SDL2test.lib" />
 			<Add library="lib/assimp.lib" />
+			<Add library="lib/glew32.lib" />
+			<Add library="lib/glew32s.lib" />
+			<Add library="lib/glew32mxs.lib" />
+			<Add library="lib/glew32mx.lib" />
 		</Linker>
 		<Unit filename="include/TCamara.h" />
 		<Unit filename="include/TColor.h" />

@@ -40,7 +40,7 @@ void TTransform::rotar(float angulo, float x, float y, float z)
 void TTransform::beginDraw()
 {
     std::cout<<"apilando matriz"<<std::endl;
-    glPushMatrix();
+    //glPushMatrix();
 
     std::cout<<"multiplicando la transformacion a la actual"<<std::endl;
     //????
@@ -49,5 +49,5 @@ void TTransform::beginDraw()
 void TTransform::endDraw()
 {
     std::cout<<"desapilando matriz"<<std::endl;
-    glPopMatrix();
+    //glPopMatrix();
 }

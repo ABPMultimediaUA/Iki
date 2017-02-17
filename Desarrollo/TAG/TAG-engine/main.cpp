@@ -3,6 +3,7 @@
 #include <glm.hpp>
 #include <GL/gl.h>
 
+
 #include "TNodo.h"
 #include "TTransform.h"
 #include "TLuz.h"
@@ -34,9 +35,9 @@ int main()
     transform0->rotar(90, 5, 5, 5);
     transform1->trasladar(10, 10, 10);
 
-    glMatrixMode(GL_MODELVIEW);
+    /*glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    glPushMatrix();
+    glPushMatrix();*/
 
     noditoEsc->draw();
 
