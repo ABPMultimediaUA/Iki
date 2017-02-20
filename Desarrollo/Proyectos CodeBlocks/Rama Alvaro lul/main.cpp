@@ -803,7 +803,7 @@ int main()
 
                 }
 
-            if(distancia<30 && !mecagoyaendios)
+            if(distancia<30 && !mecagoyaendios && angulo2>-180 && angulo2<-40)
             {
 
 
@@ -899,26 +899,6 @@ int main()
                 device->closeDevice();
                 return 0;
             }
-            else if(receiver.isKeyDown(KEY_KEY_D))
-            {
-                cameraPos.Z+=0.3*DeltaTime;
-                cameraTar.Z+=0.3*DeltaTime;
-            }
-            else if (receiver.isKeyDown(KEY_KEY_A))
-            {
-                cameraPos.Z-=0.3*DeltaTime;
-                cameraTar.Z-=0.3*DeltaTime;
-            }
-            else if(receiver.isKeyDown(KEY_KEY_W))
-            {
-                cameraPos.X-=0.3*DeltaTime;
-                cameraTar.X-=0.3*DeltaTime;
-            }
-            else if (receiver.isKeyDown(KEY_KEY_S))
-            {
-                cameraPos.X+=0.3*DeltaTime;
-                cameraTar.X+=0.3*DeltaTime;
-            }
 
             if(receiver.isKeyDown(KEY_LSHIFT))
             {
@@ -942,8 +922,8 @@ int main()
             TimeStamp = timer->getTime();
             tiempo.update();
 
-            camera->setPosition(cameraPos);
-            camera->setTarget(cameraTar);
+           camera->setTarget(prota->getCuboProta());
+           camera->setPosition(vector3df(prota->getCuboProta().X + 15, prota->getCuboProta().Y + 30, prota->getCuboProta().Z));
 
             ///UPDATES ENEMIGO
             //Guardia
