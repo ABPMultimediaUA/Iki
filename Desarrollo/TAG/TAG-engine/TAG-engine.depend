@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1487330954 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1487601386 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	<iostream>
 	<glm.hpp>
 	<GL/gl.h>
@@ -68,15 +68,15 @@
 
 1486489218 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmatriz4x4.h
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\trecurso.cpp
+1487602148 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\trecurso.cpp
 	"TRecurso.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\trecurso.h
+1487602143 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\trecurso.h
 
 1487238690 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
-1487330964 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
+1487601386 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
 	"TTransform.h"
 	<iostream>
 	<GL/gl.h>
@@ -549,23 +549,27 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1487238690 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
+1487604491 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
 	"TGestorRecursos.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
+1487611638 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
 	<iostream>
 	<vector>
 	"TRecurso.h"
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importer.hpp
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importer.hpp
 	"types.h"
 	"config.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\types.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\types.h
 	<sys/types.h>
-	<memory.h>
 	<math.h>
 	<stddef.h>
+	<string.h>
+	<limits.h>
 	"defs.h"
 	"vector3.h"
 	"vector2.h"
@@ -573,6 +577,7 @@
 	"matrix3x3.h"
 	"matrix4x4.h"
 	"quaternion.h"
+	<cstring>
 	<new>
 	<string>
 	"./Compiler/pushpack1.h"
@@ -584,63 +589,70 @@
 	"matrix3x3.inl"
 	"matrix4x4.inl"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\defs.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\defs.h
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.h
+	<cmath>
 	<math.h>
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pushpack1.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pushpack1.h
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\poppack1.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\poppack1.h
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.h
+	<cmath>
 	<math.h>
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.h
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.h
-
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.inl
-	"vector2.h"
-
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.inl
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.h
 	"vector3.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.inl
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.h
+
+1481015538 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.inl
+	"vector2.h"
+	<cmath>
+
+1481015538 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.inl
+	"vector3.h"
+	<cmath>
+
+1481015536 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.inl
 	"color4.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.inl
+1481015538 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.inl
 	"quaternion.h"
+	<cmath>
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.inl
+1481015536 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.inl
 	"matrix3x3.h"
 	"matrix4x4.h"
 	<algorithm>
+	<cmath>
 	<limits>
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.inl
+1481015538 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.inl
 	"matrix4x4.h"
 	"matrix3x3.h"
 	"quaternion.h"
 	<algorithm>
 	<limits>
-	<math.h>
+	<cmath>
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\config.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\config.h
 
 1487256056 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
@@ -1317,7 +1329,7 @@
 	"TTransform.h"
 	<iostream>
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\scene.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\scene.h
 	"types.h"
 	"texture.h"
 	"mesh.h"
@@ -1325,33 +1337,54 @@
 	"camera.h"
 	"material.h"
 	"anim.h"
+	"metadata.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\texture.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\texture.h
 	"types.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\mesh.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\mesh.h
 	"types.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\light.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\light.h
 	"types.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\camera.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\camera.h
 	"types.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.h
 	"types.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 	"material.inl"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.inl
+1481015536 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.inl
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\anim.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\anim.h
 	"types.h"
 	"quaternion.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\postprocess.h
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\postprocess.h
 	"types.h"
+
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\metadata.h
+	<assert.h>
+	"Compiler/pstdint.h"
+	<limits.h>
+	<stdint.h>
+	<string>
+
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pstdint.h
+	<stddef.h>
+	<limits.h>
+	<signal.h>
+	<stdint.h>
+	<wchar.h>
+
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\cimport.h
+	"types.h"
+	<assimp/importerdesc.h>
+
+1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importerdesc.h
 
