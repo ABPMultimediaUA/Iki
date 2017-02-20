@@ -75,6 +75,7 @@
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>
 		<Unit filename="Makefile" />
+		<Unit filename="include/CMainMenu.h" />
 		<Unit filename="include/Enemigo.h" />
 		<Unit filename="include/Fuzzy.h" />
 		<Unit filename="include/Game.h" />
@@ -95,6 +96,7 @@
 			<Option target="Windows" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="src/CMainMenu.cpp" />
 		<Unit filename="src/Fuzzy.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Map.cpp">

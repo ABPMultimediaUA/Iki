@@ -99,6 +99,7 @@ class Enemigo
         float vida;
         float sospecha;
         float tiempoVigilando;
+        float tiempoPatrullando;
         float tiempoataque = 0;
         int tiempoEscaneando;
         core::vector3df posicion;
@@ -116,6 +117,8 @@ class Enemigo
         float time;
         float reloj;
         bool primeraVez;
+        bool primeraVez2;
+        bool primeraVez3;
         bool mensajePendiente;
         int mensajeEstado;
         Enemigo *compis[3];
@@ -126,9 +129,9 @@ class Enemigo
         bool lul;
         bool lul2;
         bool lul3;
-        bool creado= false;
-        bool fabrica= true;
-        bool devolver=false;
+        bool creado = false;
+        bool fabrica = false;
+        bool devolver = false;
         PatrolRoute ruta;
         Player *player;
 
