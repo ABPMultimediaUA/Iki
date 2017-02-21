@@ -6,6 +6,8 @@
 #include "vector"
 #include "string"
 
+#include <Box2D/Box2D.h>
+
 using namespace irr;
 
 using namespace core; //namespace fundamentales;

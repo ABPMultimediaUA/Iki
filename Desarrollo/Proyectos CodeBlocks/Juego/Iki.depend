@@ -350,12 +350,12 @@
 	"Player.h"
 	"World.h"
 
-1487087411 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1487098441 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Camera.h"
 	<iostream>
 
-1487089520 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1487098441 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"SceneNode.h"
 	"MyEventReceiver.h"
@@ -1297,15 +1297,14 @@
 1482527709 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1486488807 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
+1487689831 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
 	"LevelData.h"
 	"Map.h"
 	"Enemy.h"
 
-1487098107 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
-	<stdio.h>
+1487689365 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
+	<vector>
 	"tinyxml2.h"
-	"MapComponent.h"
 	"Structs.h"
 	"MeshSceneNode.h"
 
@@ -1318,30 +1317,30 @@
 1482527712 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
 	"GameEntity.h"
 
-1487090974 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1487688634 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
+	"MapComponent.h"
 
-1487091693 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1487689961 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"GraphicsFacade.h"
-	"PhisicsWorld.h"
-
-1487091751 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
-	"Scene.h"
-	"GraphicsFacade.h"
-	"PhisicsWorld.h"
-
-1486488808 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 
-1487096532 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\camera.cpp
+1487689972 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+	"Scene.h"
+	"GraphicsFacade.h"
+
+1487687734 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+	"World.h"
+
+1487098441 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\camera.cpp
 	"Camera.h"
 	"GraphicsFacade.h"
 
 1486652934 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\camera.h
 	"Structs.h"
 
-1487090649 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\graphicsfacade.h
+1487668619 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"SceneNode.h"
@@ -1350,13 +1349,14 @@
 1486488807 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
 	<irrlicht.h>
 
-1487068290 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
+1487687078 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
 	<irrlicht.h>
 	<stdio.h>
 	"vector"
 	"string"
+	<Box2D/Box2D.h>
 
-1487090659 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\graphicsfacade.cpp
+1487098441 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\graphicsfacade.cpp
 	"GraphicsFacade.h"
 
 1486488808 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\structs.cpp
@@ -1476,7 +1476,7 @@
 1485939508 source:c:\users\pablo\desktop\juego\src\world.cpp
 	"World.h"
 
-1487064702 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\meshscenenode.h
+1487098441 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\meshscenenode.h
 	"Structs.h"
 
 1486652937 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\meshscenenode.cpp
@@ -1491,7 +1491,7 @@
 	<Box2D/Box2D.h>
 	"MeshSceneNode.h"
 
-1485853501 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tinyxml2.h
+1487098441 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tinyxml2.h
 	<ctype.h>
 	<limits.h>
 	<stdio.h>
@@ -1507,29 +1507,29 @@
 	<android/log.h>
 	<assert.h>
 
-1487086302 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
+1487687003 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
 	"Structs.h"
 	"AnimatedMesh.h"
-	"PhisicsWorld.h"
 
-1487088139 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\animatedmesh.h
+1487098441 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\animatedmesh.h
 	"Structs.h"
 
 1487068255 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\files.h
 	"Structs.h"
 
-1487089227 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\animatedmesh.cpp
+1487098441 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\animatedmesh.cpp
 	"AnimatedMesh.h"
 	"GraphicsFacade.h"
 
 1487066267 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\files.cpp
 	"Files.h"
 
-1487097098 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
+1487689947 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
 	"MapComponent.h"
 	"AnimatedMesh.h"
+	"World.h"
 
-1485853502 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tinyxml2.cpp
+1487098441 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tinyxml2.cpp
 	"tinyxml2.h"
 	<new>
 	<stddef.h>

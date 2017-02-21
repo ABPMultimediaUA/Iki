@@ -1,12 +1,13 @@
 #include "Map.h"
+#include "MapComponent.h"
 
 Map::Map()
 {
-    muros = new vector<MapComponent*>();
-    puertas = new vector<MapComponent*>();
-    palancas = new vector<MapComponent*>();
-    objetos = new vector<MapComponent*>();
-    apisonadoras = new vector<MapComponent*>();
+//    muros = new vector<MapComponent*>();
+//    puertas = new vector<MapComponent*>();
+//    palancas = new vector<MapComponent*>();
+//    objetos = new vector<MapComponent*>();
+//    apisonadoras = new vector<MapComponent*>();
     //patrullas = new vector<MapComponent*>();
 }
 
@@ -28,7 +29,7 @@ void Map::crearComponente(int tipo){
             object->QueryFloatAttribute("y", &x);
             pos = {x,0,z};
             object->QueryFloatAttribute("rotation", &r);
-            muros->push_back(new MapComponent(r, pos, tipo));
+            muros.push_back(new MapComponent(r, pos, tipo));
             object = object->NextSiblingElement("object");
         }
     }

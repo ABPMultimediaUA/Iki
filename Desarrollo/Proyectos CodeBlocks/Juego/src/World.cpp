@@ -1,9 +1,16 @@
 #include "World.h"
 
+#define VELITER 10
+#define POSITER 10
+#define TIMESTEP 1.0f / 250.0f
+
 World::World()
 {
     datos_nivel = new LevelData;
-    mapa = new Map();
+
+    gravity.x = 0.0f;
+    gravity.y = 0.0f;
+    phisics_world = new b2World(gravity);
 }
 
 World::~World()
@@ -12,7 +19,13 @@ World::~World()
     delete mapa;
 }
 
+void World::Step(float DeltaTime){
+    phisics_world->Step(DeltaTime * TIMESTEP, VELITER, POSITER);
+}
+
 void World::inicializar_mundo(){
+
+    mapa = new Map();
     mapa->inicializar_mapa();
     /*std::vector<vector3df> posiciones = datos_nivel->getEnemPosiciones();
     for(std::vector<vector3df>::iterator it = posiciones.begin(); it != posiciones.end(); ++it){
