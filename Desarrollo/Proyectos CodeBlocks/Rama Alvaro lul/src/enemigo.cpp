@@ -20,7 +20,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     ruta = pr;
     id=ID;
     input.maxFraction	=	1.0f;
-    tam= 2;
+    tam = 2;
     lul = true;
     lul2 = true;
     lul3 = true;
@@ -38,9 +38,12 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     modelo->setRotation(vector3df(0,0,0));
 
     tiempoVigilando = 0.0;
+    tiempoPatrullando = 0.0;
     tiempoEscaneando = 0;
     avMovement = 0.0;
     primeraVez=true;
+    primeraVez2=true;
+    primeraVez3=true;
     time=0.0;
     mensajePendiente=false;
     muerto=false;
@@ -94,6 +97,8 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr, core::vector3df p)
     modelo->setPosition(p);
     modelo->setRotation(core::vector3df(0,-45,0));
     posicion=modelo->getPosition();
+    angulo = -145;
+
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_staticBody;
@@ -111,6 +116,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr, core::vector3df p)
     fixtureDef.restitution  = 0.9f;
     fixtureDef.density  = 10.f;
     body2->CreateFixture(&fixtureDef);
+    cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
 }
 
 
@@ -381,6 +387,7 @@ void Enemigo::escanear()
 void Enemigo::matar()
 {
     modelo->setVisible(false);
+    modelo2->setVisible(false);
     body2->SetActive(false);
     muerto=true;
     estado=10;
@@ -390,9 +397,6 @@ void Enemigo::matar()
 
 }
 void Enemigo::avisarCapsulas()
-{
-}
-void Enemigo::atacar()
 {
 
 }
@@ -410,9 +414,17 @@ int Enemigo::maquinaEstados()
         switch (estado)
         {
         case 0:
+
+            if(primeraVez2)
+            {
+                reloj=tiempo.setMomento();
+                primeraVez2 = false;
+            }
+            time=tiempo.getTime();
+            tiempoPatrullando=(time-reloj);
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
             patrullar();
-            //Aqui lo que molaria es tener una especie de manera de detectar si se esta reproduciendo algun sonido del prota tmb o si se esta moviendo al menos.
+
             if (distanciaPlayer < 8 && player->sigilo == false && player->ismoving == true)
             {
                 puntoInteres=posicionProta;
@@ -427,6 +439,15 @@ int Enemigo::maquinaEstados()
                     estado = 1;
 
             }
+            else if(tiempoPatrullando>11)
+            {
+                tiempoPatrullando = 0;
+                primeraVez2 = true;
+                if(rand() % 100 < 40)
+                    estado = 2;
+            }
+
+
             //a veces se para a vigilar dependiendo de ciertas circunstancias
             break;
 
@@ -446,10 +467,10 @@ int Enemigo::maquinaEstados()
             break;
         case 2: //VIGILAR
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 0, 0));
-            if(primeraVez)
+            if(primeraVez3)
             {
                 reloj=tiempo.setMomento();
-                primeraVez=false;
+                primeraVez3=false;
 
             }
             if (tiempoVigilando < 4.5)
@@ -458,7 +479,10 @@ int Enemigo::maquinaEstados()
             }
             else
             {
-                primeraVez=true;
+                lul = true;
+                lul2 = true;
+                lul3 = true;
+                primeraVez3=true;
                 tiempoVigilando=0.0;
                 posicionInicial = pRuta->getPunto()- cuboEnemigo;
                 estado=0;
@@ -552,7 +576,7 @@ int Enemigo::maquinaEstados()
                 time=tiempo.getTime();
                 tiempoataque=(time-reloj);
 
-                if(tiempoataque > 1.5)
+                if(tiempoataque > 1.1)
                 {
                     smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(50, 20, 50, 0));
                     modelo2->setVisible(true);
@@ -562,7 +586,7 @@ int Enemigo::maquinaEstados()
                         std::cout << player->getVida()<<"\n";
                         solounaveh = true;
                     }
-                    if(tiempoataque > 2.0)
+                    if(tiempoataque > 1.6)
                     {
                         modelo2->setVisible(false);
                         tiempoataque = 0;
@@ -623,6 +647,8 @@ void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[7])
     tiempo = temps;
     if(modelo)
     {
+
+
         if(tipo==2) //SI ES MEDICO
         {
             direccionHuir = (aliados[5]->getPosicion()-posicion);
@@ -683,8 +709,8 @@ void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[7])
         direccionHaciaProta=cuboProta-posicion;
         maquinaEstados();
         posicionProta=cuboProta;
-
     }
+
 }
 
 void Enemigo::setMuro(Map* murito, Player *prota)

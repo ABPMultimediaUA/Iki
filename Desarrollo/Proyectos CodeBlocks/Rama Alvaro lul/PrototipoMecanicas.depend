@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1487341041 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1487548191 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -7,6 +7,7 @@
 	"irrKlang/conio.h"
 	<iostream>
 	"include/Map.h"
+	"include/CMainMenu.h"
 	"include/PatrolRoute.h"
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
@@ -1159,7 +1160,7 @@
 1481736228 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1487343517 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+1487548419 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -2828,7 +2829,13 @@
 
 1486910404 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\triggersystem.h
 
-1487343165 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+1487546478 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
+
+1487430196 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
+	<irrlicht.h>
+
+1487457879 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
+	"CMainMenu.h"
 
