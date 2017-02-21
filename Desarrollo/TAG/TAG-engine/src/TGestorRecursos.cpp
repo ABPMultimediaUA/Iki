@@ -19,8 +19,16 @@ TRecurso *TGestorRecursos::getRecurso(char* nombre)
             return recursos[i];
         }
     }
+    TRecurso* rec;
+    const aiScene* scene = imp.ReadFile(nombre, aiProcess_Triangulate);
+   //rec->//parse
+    recursos.push_back(rec);
+    return rec;
+}
 
-    /*
+/*
+for hecho como decia Fran pero da error en el *t->getNombre()
+
     vector<TRecurso*>::iterator it = recursos.begin();
     *it->
     while(it != recursos.end())
@@ -31,12 +39,4 @@ TRecurso *TGestorRecursos::getRecurso(char* nombre)
         }
         ++it;
     }
-    */
-
-    Assimp::Importer imp;
-    TRecurso* rec;
-    const aiScene* scene = imp.ReadFile(nombre, aiProcess_Triangulate);
-   //rec->//parse
-    recursos.push_back(rec);
-    return rec;
-}
+*/

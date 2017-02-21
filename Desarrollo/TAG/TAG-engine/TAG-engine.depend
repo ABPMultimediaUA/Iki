@@ -9,18 +9,20 @@
 	"TMalla.h"
 	"TCamara.h"
 
-1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
+1487691885 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
 	"TEntidad.h"
 
-1486655244 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
+1487693859 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
+	<glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stack>
 
-1487259342 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
+1487670980 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
 	"TMalla.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+1487671129 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
 	<iostream>
 	<TEntidad.h>
-	"TFichero.h"
 	"TRecursoMalla.h"
 	<assimp/Importer.hpp>
 	<assimp/scene.h>
@@ -76,14 +78,12 @@
 1487238690 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
-1487601386 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
+1487693861 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
 	"TTransform.h"
+
+1487693861 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
 	<iostream>
 	<GL/gl.h>
-
-1487259342 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
-	<glm.hpp>
-	<glm/gtc/matrix_transform.hpp>
 	<TEntidad.h>
 
 1486489223 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\glm.hpp
@@ -549,10 +549,10 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1487604491 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
+1487671265 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
 	"TGestorRecursos.h"
 
-1487611638 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
+1487671104 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
 	<iostream>
 	<vector>
 	"TRecurso.h"
@@ -1387,4 +1387,11 @@
 	<assimp/importerdesc.h>
 
 1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importerdesc.h
+
+1487678777 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmatriz.h
+	<glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+
+1487677180 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmatriz.cpp
+	"TMatriz.h"
 

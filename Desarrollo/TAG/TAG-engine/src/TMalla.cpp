@@ -10,7 +10,7 @@ TMalla::~TMalla()
     //dtor
 }
 
-void TMalla::cargarMalla(TFichero fich)
+void TMalla::cargarMalla(char fichero)
 {
 
 }

@@ -1,10 +1,12 @@
 #ifndef TTRANSFORM_H
 #define TTRANSFORM_H
 
+#include <iostream>
+#include <GL/gl.h>
 
-#include <glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+
 #include <TEntidad.h>
+
 
 
 using namespace glm;
@@ -29,6 +31,8 @@ class TTransform : public TEntidad
 
     private:
         mat4 matriz;
+
+
 };
 
 #endif // TTRANSFORM_H
