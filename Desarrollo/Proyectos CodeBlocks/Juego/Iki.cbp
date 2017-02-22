@@ -93,6 +93,9 @@
 		<Unit filename="include/Triggers/Trigger.h" />
 		<Unit filename="include/Triggers/TriggerRegion.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Circle.h" />
+		<Unit filename="include/Triggers/TriggerRegion_Rectangle.cpp" />
+		<Unit filename="include/Triggers/TriggerRegion_Rectangle.h" />
+		<Unit filename="include/Triggers/TriggerSystem.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
@@ -114,6 +117,7 @@
 		<Unit filename="src/Triggers/Trigger.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion_Circle.cpp" />
+		<Unit filename="src/Triggers/TriggerSystem.cpp" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/tinyxml2.cpp" />
 		<Extensions>

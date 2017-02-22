@@ -8,4 +8,5 @@ Trigger::Trigger()
 Trigger::~Trigger()
 {
     //dtor
+    //delete m_pRegionOfInfluence;
 }
