@@ -763,7 +763,7 @@ int main()
                         {
 
 
-                            if(angulo < angulo4 + 30 && angulo > angulo4 - 30)
+                            if(angulo+180 < angulo4+210 && angulo+180 > angulo4+150)
                             {
                                 if(enemigos[n]->getEstado()==0 || enemigos[n]->getEstado()==2)
                                 {
@@ -782,6 +782,25 @@ int main()
             }
 
 
+            ////Apisonadora mata gente
+            if(cerrandose && cerrada)
+            {
+                for(n= 0; n <= 6; n++)
+                {
+                    if(enemigos[n]->getCreado())
+                    {
+                        if(sqrt(pow(enemigos[n]->getBody()->GetPosition().y-Mapa->patrullas->at(13)->pp->getPunto().Z, 2) + pow(enemigos[n]->getBody()->GetPosition().x-Mapa->patrullas->at(13)->pp->getPunto().X, 2))/10 < 0.1)
+                        {
+                            enemigos[n]->matar();
+                        }
+                    }
+
+                }
+                if(sqrt(pow(prota->getBody()->GetPosition().y-Mapa->patrullas->at(13)->pp->getPunto().Z, 2) + pow(prota->getBody()->GetPosition().x-Mapa->patrullas->at(13)->pp->getPunto().X, 2))/10 < 0.1){
+                    prota->setVida(0);
+                }
+            }
+
             //// TORRETA
 
 
@@ -792,18 +811,19 @@ int main()
             angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
 
             for (int i = 0; i < Mapa->muros->size(); i++)
+            {
+
+                if (Mapa->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
                 {
-
-                    if (Mapa->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0)){
-                        mecagoyaendios =  true;
-                        break;
-                    }
-                    else
-                        mecagoyaendios =  false;
-
+                    mecagoyaendios =  true;
+                    break;
                 }
+                else
+                    mecagoyaendios =  false;
 
-            if(distancia<30 && !mecagoyaendios && angulo2>-180 && angulo2<-40)
+            }
+
+            if(distancia<25 && !mecagoyaendios && angulo2>-180 && angulo2<-40)
             {
 
 
@@ -922,8 +942,8 @@ int main()
             TimeStamp = timer->getTime();
             tiempo.update();
 
-           camera->setTarget(prota->getCuboProta());
-           camera->setPosition(vector3df(prota->getCuboProta().X + 15, prota->getCuboProta().Y + 30, prota->getCuboProta().Z));
+            camera->setTarget(prota->getCuboProta());
+            camera->setPosition(vector3df(prota->getCuboProta().X + 15, prota->getCuboProta().Y + 30, prota->getCuboProta().Z));
 
             ///UPDATES ENEMIGO
             //Guardia
