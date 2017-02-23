@@ -99,6 +99,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr, core::vector3df p)
     posicion=modelo->getPosition();
     angulo = -145;
 
+    input.maxFraction	=	1.0f;
 
     b2BodyDef bodyDef;
     bodyDef.type= b2_staticBody;
@@ -737,19 +738,13 @@ bool Enemigo::noteveo()
             return true;
 
     }
-    if((angulo <= -135 && angulo7 >= 135) || (angulo >= 135 && angulo7 <= -135))
-    {
-        return false;
 
-    }
-    else
-    {
-        if(angulo <= angulo7 + 45 && angulo >= angulo7 - 45)
+        if(angulo+180 <= angulo7 + 225 && angulo+180 >= angulo7 + 135)
             return false;
         else
             return true;
 
-    }
+
 
 
 

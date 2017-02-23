@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <TEntidad.h>
-#include "TFichero.h"
 #include "TRecursoMalla.h"
 
 #include <assimp/Importer.hpp>      // C++ importer interface
@@ -16,8 +15,7 @@ class TMalla : public TEntidad
         TMalla();
         virtual ~TMalla();
 
-        void cargarMalla(TFichero fich);
-
+        void cargarMalla(char fichero);
         void beginDraw();
         void endDraw();
 

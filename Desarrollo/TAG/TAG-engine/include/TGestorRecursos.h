@@ -23,6 +23,7 @@ class TGestorRecursos
 
     private:
         vector<TRecurso*> recursos;
+        Assimp::Importer imp;
 };
 
 #endif // TGESTORRECURSOS_H

@@ -3,7 +3,6 @@
 
 #include "Structs.h"
 #include "AnimatedMesh.h"
-#include "PhisicsWorld.h"
 
 class MapComponent
 {

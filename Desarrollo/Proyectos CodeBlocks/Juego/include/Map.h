@@ -2,9 +2,8 @@
 #define MAP_H
 
 #pragma once
-#include <stdio.h>
+#include <vector>
 #include "tinyxml2.h"
-#include "MapComponent.h"
 
 #include "Structs.h"
 #include "MeshSceneNode.h"
@@ -12,11 +11,13 @@
 using namespace tinyxml2;
 using namespace std;
 
+class MapComponent;
+
 class Map
 {
     public:
         Map();
-        virtual ~Map();
+        ~Map();
         void crearComponente(int tipo);
         void inicializar_mapa();
 
@@ -26,11 +27,11 @@ class Map
 
         MeshSceneNode *suelo;
 
-        vector<MapComponent*> * muros;
-        vector<MapComponent*> * puertas;
-        vector<MapComponent*> * objetos;
-        vector<MapComponent*> * palancas;
-        vector<MapComponent*> * apisonadoras;
+        vector<MapComponent*> muros;
+        vector<MapComponent*> puertas;
+        vector<MapComponent*> objetos;
+        vector<MapComponent*> palancas;
+        vector<MapComponent*> apisonadoras;
         //vector<MapComponent*> * patrullas;
 
         tinyxml2::XMLDocument* docFile;

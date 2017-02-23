@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2490">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2494">
  <objectgroup color="#000000" name="Pared">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
@@ -622,6 +622,7 @@
  </objectgroup>
  <objectgroup color="#0000ff" name="Palancas">
   <object id="2433" x="83.8522" y="94.6928" width="2" height="2"/>
+  <object id="2493" x="67.9091" y="99.1818" width="2" height="2"/>
  </objectgroup>
  <objectgroup color="#ffffff" name="Objetos">
   <object id="2434" x="30.625" y="182.773" width="2" height="2"/>
@@ -646,6 +647,7 @@
   <object id="2466" x="118.125" y="118.125" width="2" height="2"/>
   <object id="2467" x="127.761" y="105.489" width="2" height="2"/>
   <object id="2468" x="118.125" y="118" width="2" height="2"/>
-  <object id="2470" x="115.047" y="71.9472" width="2" height="2" rotation="51.5266"/>
+  <object id="2470" x="116.865" y="75.3961" width="2" height="2" rotation="51.5266"/>
+  <object id="2492" x="80" y="98.5625" width="2" height="2"/>
  </objectgroup>
 </map>
