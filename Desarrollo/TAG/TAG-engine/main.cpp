@@ -1,9 +1,4 @@
-#include <iostream>
-
-#include <glm.hpp>
 #include "Display.h"
-#include <GL/gl.h>
-
 
 #include "TNodo.h"
 #include "TTransform.h"
@@ -17,10 +12,11 @@
 
 using namespace std;
 
-int main()
+
+int main(int argc, char *argv[])
 {
 
-   	Display display(WIDTH, HEIGHT,"Motor gráfico");
+   	Display display(WIDTH, HEIGHT,"Motor grafico");
 
 
 
@@ -52,11 +48,11 @@ int main()
 
     noditoEsc->draw();
 
-    while(!display.IsClosed())
+   while(!display.IsClosed())
 	{
 		display.Clear(0.0f,0.15f,0.3f,1.0f);
-
-		/*float sinCounter = sinf(counter);
+    /*
+		float sinCounter = sinf(counter);
 		float cosCounter = cosf(counter);
 
 		//transform.getPos().x = sinCounter;
@@ -71,10 +67,9 @@ int main()
 		texture.Bind(0);
 		shader.Update(transform,camera);
 		mesh2.Draw();
-        */
+*/
 		display.Update();
 		//counter += 0.0001f;
 	}
-
     return 0;
 }
