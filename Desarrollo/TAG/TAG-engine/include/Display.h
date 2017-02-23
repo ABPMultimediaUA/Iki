@@ -2,6 +2,9 @@
 
 #include <SDL\SDL.h>
 #include <string>
+#include <GL\glew.h>
+#include <iostream>
+
 
 class Display
 {

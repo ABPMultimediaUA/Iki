@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <glm.hpp>
+#include "Display.h"
 #include <GL/gl.h>
 
 
@@ -10,7 +11,7 @@
 #include "TMalla.h"
 #include "TCamara.h"
 
-#include "Display.h"
+
 #define WIDTH 800
 #define HEIGHT 600
 
