@@ -10,10 +10,19 @@
 #include "TMalla.h"
 #include "TCamara.h"
 
+#include "Display.h"
+#define WIDTH 800
+#define HEIGHT 600
+
 using namespace std;
 
 int main()
 {
+
+   	Display display(WIDTH, HEIGHT,"Motor gráfico");
+
+
+
     //cout << "Hello world!" << endl;
     TNodo* noditoEsc= new TNodo();
     TNodo* nodito0= new TNodo();
@@ -39,7 +48,32 @@ int main()
     glLoadIdentity();
     glPushMatrix();*/
 
+
     noditoEsc->draw();
+
+    while(!display.IsClosed())
+	{
+		display.Clear(0.0f,0.15f,0.3f,1.0f);
+
+		/*float sinCounter = sinf(counter);
+		float cosCounter = cosf(counter);
+
+		//transform.getPos().x = sinCounter;
+		transform.getPos().z = cosCounter;
+
+		transform.getRot().x = counter;
+		transform.getRot().y = counter;
+		transform.getRot().z = counter;//cosf(counter * 50);
+		//transform.setScale(glm::vec3(cosCounter,cosCounter,cosCounter));
+
+		shader.Bind();
+		texture.Bind(0);
+		shader.Update(transform,camera);
+		mesh2.Draw();
+        */
+		display.Update();
+		//counter += 0.0001f;
+	}
 
     return 0;
 }
