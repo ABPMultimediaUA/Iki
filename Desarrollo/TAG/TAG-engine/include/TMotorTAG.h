@@ -15,7 +15,7 @@ class TMotorTAG
         TMotorTAG();
         virtual ~TMotorTAG();
         TNodo *crearNodo(TNodo * padre, TEntidad *ent);
-        TTransform *crearTransform();
+        TTransform *crearTransform(char nom);
         TCamara *crearCamara();
         TLuz *crearLuz();
         TMalla *crearMalla(char *fichero);
