@@ -19,14 +19,10 @@ class Player
         void inicializar(scene::ISceneManager*,video::IVideoDriver* driver);
         void setPosition(core::vector3df vec);
         void setCuboProta(core::vector3df);
-        void setPosicionBody(float ang);
         void moverBody(core::vector3df vec);
-        bool cogerObjeto(core::vector3df, scene::ISceneManager*);
-        bool atacar(core::vector3df, scene::ISceneManager*);
         core::vector3df getPosicionProta();
         core::vector3df getCuboProta();
         scene::IMeshSceneNode* getModelo();
-        scene::IMeshSceneNode* getEsfera();
         b2Body* getBody();
         int getLaser();
         float getVida();
@@ -41,8 +37,8 @@ class Player
     protected:
 
     private:
-        scene::IMeshSceneNode *modelo, *esfera;
-        core::vector3df cuboProta, escalado;
+        scene::IMeshSceneNode *modelo;
+        core::vector3df cuboProta;
         b2Body *body;
         int tam, balas;
         float movx, movy;

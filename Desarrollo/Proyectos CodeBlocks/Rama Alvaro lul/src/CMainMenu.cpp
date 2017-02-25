@@ -2,57 +2,30 @@
 // This file is not documented.
 
 #include "CMainMenu.h"
+#include "MyEventReceiver.h"
 
 
 
 CMainMenu::CMainMenu()
-: startButton(0), salirButton(0), MenuDevice(0), start(false)
 {
 }
-
 
 
 bool CMainMenu::run()
 {
 
+    MyEventReceiver receiver;
 
-	MenuDevice = createDevice(video::EDT_OPENGL,core::dimension2d<u32>(1360, 768), 16, false, false, false, this);
+	MenuDevice = createDevice(video::EDT_OPENGL,core::dimension2d<u32>(1360, 768), 16, false, false, false, &receiver);
 
 
 	video::IVideoDriver* driver = MenuDevice->getVideoDriver();
 	scene::ISceneManager* smgr = MenuDevice->getSceneManager();
-	gui::IGUIEnvironment* guienv = MenuDevice->getGUIEnvironment();
+	guilul *guipropio = new guilul;
 
 	core::stringw str = "Irrlicht Engine Demo v";
 	str += MenuDevice->getVersion();
 	MenuDevice->setWindowCaption(str.c_str());
-
-	// set new Skin
-	gui::IGUISkin* newskin = guienv->createSkin(gui::EGST_BURNING_SKIN);
-	guienv->setSkin(newskin);
-	newskin->drop();
-
-
-	// add images
-
-	const s32 leftX = 550;
-
-	// add tab control
-
-	gui::IGUITabControl* tabctrl = guienv->addTabControl(core::rect<int>(leftX,100,800-10,768-10),
-		0, false, false);
-
-
-	// add list box
-
-
-	startButton = guienv->addButton(core::rect<int>(30,195,200,224), tabctrl, 2, L"Nueva Partida");
-	salirButton = guienv->addButton(core::rect<int>(30,295,200,324), tabctrl, 3, L"Salir");
-
-
-
-	// create a fixed camera
-	smgr->addCameraSceneNode(0, core::vector3df(45,0,0), core::vector3df(0,0,0));
 
 
 
@@ -62,11 +35,25 @@ bool CMainMenu::run()
 		{
 			driver->beginScene(false, true, video::SColor(0,0,0,0));
 
+            guipropio->anyadirmenu(400, 60, driver);
+            guipropio->anyadirboton(0, 540, 160, driver);
+            guipropio->anyadirboton(1, 540, 300, driver);
+
+			if(receiver.GetMouseState().LeftButtonDown){
+                if(receiver.GetMouseState().Position.X > 542 && receiver.GetMouseState().Position.X < 778){
+                    if(receiver.GetMouseState().Position.Y > 172 && receiver.GetMouseState().Position.Y < 275){
+                        MenuDevice->closeDevice();
+                        start = true;
+
+                    }
+                    else if(receiver.GetMouseState().Position.Y > 304 && receiver.GetMouseState().Position.Y < 414){
+                        MenuDevice->closeDevice();
+                        exit(0);
+                    }
+                }
+            }
 
 
-
-			smgr->drawAll();
-			guienv->drawAll();
 			driver->endScene();
 		}
 	}
@@ -79,30 +66,3 @@ bool CMainMenu::run()
 
 	return start;
 }
-
-
-bool CMainMenu::OnEvent(const SEvent& event)
-{
-
-	if (event.EventType == EET_GUI_EVENT)
-	{
-		s32 id = event.GUIEvent.Caller->getID();
-		switch(id)
-		{
-		case 2:
-			if (event.GUIEvent.EventType == gui::EGET_BUTTON_CLICKED )
-			{
-				MenuDevice->closeDevice();
-				start = true;
-			}
-		case 3:
-			if (event.GUIEvent.EventType == gui::EGET_BUTTON_CLICKED )
-				MenuDevice->closeDevice();
-
-		}
-	}
-
-	return start;
-}
-
-

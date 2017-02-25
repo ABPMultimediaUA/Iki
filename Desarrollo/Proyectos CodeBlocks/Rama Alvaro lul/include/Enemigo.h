@@ -94,7 +94,6 @@ class Enemigo
         float movx, movy;
         int id;
         int estado; //0-> patrullar 1-> vigilar 2-> combate 3-> pedir ayuda 4-> huir 5-> perseguir 6-> atacar 7->inspeccionar 8->sospechar 9->muerto
-        int direccion; //0-> arriba 1-> derecha 2-> abajo 3-> izquierda
         int tipo; //0-> guardia, 1-> dron, 2-> medico
         float vida;
         float sospecha;
@@ -124,7 +123,6 @@ class Enemigo
         Enemigo *compis[3];
         bool muerto;
         bool hayAliado;
-        float rotacion;
         bool danyado;
         bool lul;
         bool lul2;

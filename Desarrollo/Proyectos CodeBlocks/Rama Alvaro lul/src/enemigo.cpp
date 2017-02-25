@@ -26,7 +26,6 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     lul3 = true;
     estado = 0;
     vida=3;
-    direccion = 0;
     tipo = t;
     sospecha = 0.0;
     creado= true;
@@ -77,9 +76,6 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
     posicionInicial = pRuta->getPunto() - cuboEnemigo;
     angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
     modelo->setRotation(vector3df(0,angulo,0));
-    rotacion=modelo->getRotation().Y;
-    //std::cout << "Primera Rotacion: " << rotacion  << std::endl;
-    //std::cout << "Primer Angulo: " << angulo  << std::endl;
 
 
 }
@@ -120,11 +116,6 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr, core::vector3df p)
     cuboEnemigo = vector3df(body2->GetPosition().x, 0, body2->GetPosition().y);
 }
 
-
-/*
-void Enemigo::setPosition(core::vector3df vec){
-    modelo->setPosition(core::vector3df(vec.X, 0, vec.Z));
-}*/
 
 b2Body* Enemigo::getBody()
 {
@@ -201,14 +192,11 @@ core::vector3df Enemigo::getCuboEnemigo()
 
 void Enemigo::patrullar()
 {
-    // if(id==2){
+
     if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) >0.1)
     {
 
-        //rotar el body tambien
         cuboEnemigo += posicionInicial.normalize()*avMovement;
-        //std::cout << "Distancia: " << cuboEnemigo.getDistanceFrom(pRuta->getPunto()) << std::endl;
-        //std::cout << "Punto (X,Z): " << posicionInicial.X << "," << posicionInicial.Z << std::endl;
 
     }
     else
@@ -216,16 +204,11 @@ void Enemigo::patrullar()
         cuboEnemigo=pRuta->getPunto();
         pRuta = pRuta->getNext();
         posicionInicial = pRuta->getPunto() - cuboEnemigo;
-        //angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
 
-        //angulo = atan2f((pRuta->getPunto().Z-posicion.Z) ,-(pRuta->getPunto().X-posicion.X)) * 180.f /PI;
-
-        //std::cout << "Angulo: " << angulo  << std::endl;
-        //std::cout << "Rotacion: " << rotacion  << std::endl;
     }
     posicion = cuboEnemigo;
     angulo = atan2f((pRuta->getPunto().Z-posicion.Z) ,-(pRuta->getPunto().X-posicion.X)) * 180.f /PI;
-    //}
+
 }
 
 bool Enemigo::comprobarPunto(b2Vec2 v)
@@ -240,7 +223,7 @@ void Enemigo::quitarVida()
 {
     if(vida>0)
         --vida;
-    //std::cout << vida;
+
     if(vida <= 0)
     {
         matar();
@@ -277,10 +260,10 @@ void Enemigo::inspeccionar()
 }
 void Enemigo::vigilar()
 {
-    //devuelve tiempo en s
+
     time=tiempo.getTime();
     tiempoVigilando=(time-reloj);
-    //printf("tiempoVigilando:  %0.2f \n", tiempoVigilando);
+
     if(tiempoVigilando < 1.5)
     {
         if(lul)
@@ -347,17 +330,17 @@ void Enemigo::escanear()
 {
     time=tiempo.getTime();
     tiempoEscaneando=(time-reloj);
-    //if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<80 && !getMuro()&& seeWhereIgo()){
+
     if(tiempoEscaneando < 3.0 && sospecha < 99 && distanciaPlayer<28 && !noteveo())
     {
-        //sospecha+=1*tiempo.getTimeFactor();
+
         if (player->sigilo == true )
             sospecha+=10*tiempo.getTimeFactor();
         else
             sospecha+=30*tiempo.getTimeFactor();
-        //std::cout << sospecha << std::endl;
+
     }
-    else   // Cuando termina de escanear
+    else
     {
         primeraVez=true;
         //logica difusa
@@ -366,7 +349,7 @@ void Enemigo::escanear()
         logica.InitializeRules();
         logica.CalculateFAM();
         float val = logica.Defuzzify();
-        // std::cout << "  " << val << std::endl;
+
 
         if (val <= 25.0)
         {
@@ -381,7 +364,7 @@ void Enemigo::escanear()
         {
             estado = 3;
         }
-        //
+
     }
     posicion = cuboEnemigo;
 }
@@ -435,7 +418,7 @@ int Enemigo::maquinaEstados()
 
             else if(distanciaPlayer>=4 && distanciaPlayer<28)
             {
-                //std::cout << seeWhereIgo() <<"\n";
+
                 if (!noteveo())
                     estado = 1;
 
@@ -565,7 +548,6 @@ int Enemigo::maquinaEstados()
 
                 input2.p2.Set(this->getBody()->GetPosition().x+((bodyauxiliar.x/modulo)*10), this->getBody()->GetPosition().y+((bodyauxiliar.y/modulo)*10));
 
-                //input2.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
                 distanciahuhu = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
                 modelo2->setScale(core::vector3df(distanciahuhu/10, 0.5f, 0.5f));
                 modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
@@ -644,7 +626,7 @@ int Enemigo::maquinaEstados()
 
 void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[7])
 {
-    //std::cout << "PosiconAliado(x,y)" << posicionAliado.X<<","<<posicionAliado.Z << std::endl;
+
     tiempo = temps;
     if(modelo)
     {
@@ -667,8 +649,7 @@ void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[7])
                 {
                     if(hayAliado && aliado->getID()!=i) //Si ya tiene asignado un aliado
                     {
-                        //std::cout << "Uno(X,Z): " << posicion.getDistanceFrom(aliados[i]->getPosicion())<<" "<<i<< std::endl;
-                        //std::cout << "Dos(X,Z): " << posicion.getDistanceFrom(aliado->getPosicion())<<" "<<i<< std::endl;
+
                         if(posicion.getDistanceFrom(aliados[i]->getPosicion()) < posicion.getDistanceFrom(aliado->getPosicion()))
                         {
                             posicionAliado=aliados[i]->getPosicion();
@@ -682,7 +663,7 @@ void Enemigo::update(core::vector3df cuboProta, Time temps, Enemigo *aliados[7])
                         direccionHaciaAliado= (posicionAliado-posicion);
                         aliado=aliados[i];
                         hayAliado=true;
-                        //std::cout << "ID: " << aliados[i]->getID() << std::endl;
+
                     }
                     else if(aliado->getID()==i)
                     {
@@ -738,11 +719,16 @@ bool Enemigo::noteveo()
             return true;
 
     }
-
+    if(tipo!=4)
+    {
         if(angulo+180 <= angulo7 + 225 && angulo+180 >= angulo7 + 135)
             return false;
         else
             return true;
+    }
+
+    return false;
+
 
 
 
