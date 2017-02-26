@@ -13,7 +13,7 @@ class Trigger : public GameEntity
         //when this is called the trigger determines if the entity is within the
         //trigger's region of influence. If it is then the trigger will be
         //triggered and the appropriate action will be taken.
-        ///virtual void Try(entity_type*) = 0;
+        virtual void Try(GameEntity*) = 0;
         //called each update step of the game. This method updates any internal
         //state the trigger may have
         virtual void Update() = 0;

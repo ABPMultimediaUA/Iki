@@ -43,25 +43,25 @@ class TriggerSystem
         //this method iterates through the container of entities passed as a
         //parameter and passes each one to the Try method of each trigger provided
         //the entity is alive and is ready for a trigger update.
-        /*template <class ContainerOfEntities>
-        void TryTriggers(ContainerOfEntities& entities)
+        //template <class ContainerOfEntities>
+        void TryTriggers(GameEntity* entity)
         {
-            //test each entity against the triggers
+        /*    //test each entity against the triggers
             ContainerOfEntities::iterator curEnt = entities.begin();
             for (curEnt; curEnt != entities.end(); ++curEnt)
             {
                 //an entity must be ready for its next trigger update and it must be
                 //alive before it is tested against each trigger.
-                if ((*curEnt)->isReadyForTriggerUpdate() && (*curEnt)->isAlive())
-                {
+        */      //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
+                //{
                     TriggerList::const_iterator curTrg;
                     for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
                     {
-                        (*curTrg)->Try(*curEnt);
+                        (*curTrg)->Try(entity);
                     }
-                }
-            }
-        }*/
+                //}
+            //}
+        }
 
     public:
         //this deletes any current triggers and empties the trigger list
@@ -78,6 +78,10 @@ class TriggerSystem
         //this is used to register triggers with the TriggerSystem (the TriggerSystem
         //will take care of tidying up memory used by a trigger)
         void Register(Trigger* trigger);
+        //lee el mapa tmx y crea y registra los triggers correspondientes
+        void LeerMapa();
+        //updates
+        void Update(GameEntity* entity);
         //some triggers are required to be rendered (like giver-triggers for example)
         void Render();
         const TriggerList& GetTriggers()const{return m_Triggers;}
