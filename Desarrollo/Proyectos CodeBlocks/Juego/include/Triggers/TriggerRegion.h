@@ -1,7 +1,7 @@
 #ifndef TRIGGERREGION_H
 #define TRIGGERREGION_H
 
-#include "../Structs.h"
+#include "Structs.h"
 
 class TriggerRegion
 {

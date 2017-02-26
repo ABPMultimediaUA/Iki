@@ -36,7 +36,7 @@ void Scene::bucle_juego(){
 
     while(GraphicsFacade::getInstance().run()){
         player->update(camara, mousePosition);
-        //triggersystem->Update(player);
+        triggersystem->Update(player);
         camara->render(player->getPosition());
         World::getInstance()->Step(DeltaTime);
 

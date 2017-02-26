@@ -2904,7 +2904,7 @@
 1487851648 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\leveldata.cpp
 	"LevelData.h"
 
-1487854138 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1488136297 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
@@ -2919,7 +2919,7 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1488126297 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1488138035 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"GraphicsFacade.h"
 
@@ -2971,8 +2971,8 @@
 1487851648 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion.cpp
 	"TriggerRegion.h"
 
-1487851647 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
-	"../Structs.h"
+1488138284 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
+	"Structs.h"
 
 1487851648 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_circle.cpp
 	"TriggerRegion_Circle.h"
@@ -3009,10 +3009,12 @@
 1488124229 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1488126779 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1488138121 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
+	"MapComponent.h"
 
-1488126660 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
+1488138284 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
 	"vector"
 	"Trigger.h"
+	"tinyxml2.h"
 
