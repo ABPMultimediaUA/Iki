@@ -19,7 +19,7 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         id=ID;
         input.maxFraction	=	1.0f;
         tam= 2;
-        estado = 0;
+        estado = 11;
         vida=3;
         direccion = 0;
         tipo = t;
@@ -364,7 +364,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         switch (estado)
         {
         case 0:
-        smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
+            smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
             patrullar();
             //Si el player se acerca mucho aunque este en sigilo
             if (distanciaPlayer < 4){
@@ -498,8 +498,48 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             break;
         case 10: //MUERTO
             break;
+        case 11: ///PRUEBA
+        smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
+
+        /*path2.crearPath(prota->getPosicionProta(),listaPosiciones);
+
+            it2 = listaPosiciones.begin();
+            while( it2 != listaPosiciones.end())
+             {
+                 cout << (*it2).X << " " << (*it2).Z<< endl;
+                 it2++;
+             }
+
+          if(it2 != listaPosiciones.end()){
+            posicionA=vector3df(0,0,0);
+            toNextPosition = posicionA  - enemigos[0]->getPosicion();
+          }
+            toProtaPosition = prota->getCuboProta() - enemigos[0]->getPosicion();
+
+            if(toNextPosition.getLength() <= 1) //CUANDO LLEGA AL ULTIMO NODO
+            {
+                enemigos[0]->setCuboEnemigo(vector3df(0,0,0));
+                if(it2 != listaPosiciones.end())
+                    it++;
+                else if(it2 == listaPosiciones.end()){
+                    if(toProtaPosition.getLength() <= 1) //CUANDO LLEGA AL DESTINO
+                    {
+                        enemigos[0]->setCuboEnemigo(vector3df(0,0,0));
+                    }
+                    else{
+                        enemigos[0]->setCuboEnemigo(toProtaPosition);
+                    }
+                }
+            }
+            else
+            {
+                if(it2 != listaPosiciones.end()){
+                    enemigos[0]->setCuboEnemigo(toNextPosition);
+                }
+            }
+*/
         default:
-            estado = 11;
+            estado = 12;
             break;
 
         }
@@ -574,6 +614,41 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     bool Enemigo::getMuro(){
         input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
         input.p2.Set(player->getBody()->GetPosition().x, player->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+
+        if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output,	input,	0))
+            return true;
+        else if (morito->puertas->at(1)->body->GetFixtureList()->RayCast(&output,	input,	0))
+            return true;
+
+            for (int i = 0; i < morito->muros->size(); i++) {
+                if (morito->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
+                    return true;
+
+            }
+
+       return false;
+    }
+    bool Enemigo::isPathObstructured(vector3df destino){
+        input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input.p2.Set(destino.X, destino.Y);	//	Punto	final	del	rayo
+
+        if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output,	input,	0))
+            return true;
+        else if (morito->puertas->at(1)->body->GetFixtureList()->RayCast(&output,	input,	0))
+            return true;
+
+            for (int i = 0; i < morito->muros->size(); i++) {
+                if (morito->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
+                    return true;
+
+	}
+
+       return false;
+    }
+    bool Enemigo::canWalkBetween(vector3df desde, vector3df hasta){
+
+     input.p1.Set(desde.X, hasta.Z);	//	Punto	inicial	del	rayo
+     input.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
         if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output,	input,	0))
             return true;

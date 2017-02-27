@@ -6,6 +6,7 @@
 #include <Heuristic_Euclid.h>
 #include <SparseGraph.h>
 #include <Edge.h>
+#include "PathEdge.h"
 #include <PriorityQueue.h>
 #include <stdio.h>
 
@@ -45,6 +46,8 @@ class Algoritmo
         std::list<int> GetPathToTarget()const;
         //returns the total cost to the target
         double GetCostToTarget()const{return costReal[hasta];}
+
+        std::list<PathEdge> GetPathAsPathEdges()const;
 
     protected:
 

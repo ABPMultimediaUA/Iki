@@ -4,12 +4,19 @@
 #include <irrlicht.h>
 #include "driverChoice.h"
 #include <World.h>
+#include "Map.h"
 
 #define MOV_SPEED 10.0f;
 
 
 
 using namespace irr;
+
+using namespace core; //namespace fundamentales;
+using namespace scene; //namespace de escena;
+using namespace video; //namespace de vídeo;
+using namespace io; //namespace io;
+using namespace gui; //namespace gui;
 
 class Player
 {
@@ -35,6 +42,8 @@ class Player
         void setLaser(int l);
         void muerte();
         void setNoMuerto();
+        bool isPathObstructured(vector3df destino);
+        void setMuro(Map* murito);
 
     protected:
 
@@ -47,6 +56,13 @@ class Player
         float vida;
         scene::ISceneManager* smgr1;
         class World* iworld;
+        b2RayCastInput input;
+        b2RayCastOutput	output;
+        class Map* mapa;
+        float distancia;
+        float angulo;
+        scene::IMesh *rayo2;
+        scene::IMeshSceneNode *modelo2;
 
 
 

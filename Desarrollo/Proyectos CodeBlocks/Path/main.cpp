@@ -8,6 +8,7 @@
 
 #include "include/PatrolRoute.h"
 #include "PathFinding.h"
+#include "PathPlanner.h"
 #include "SparseGraph.h"
 #include "Nodo.h"
 
@@ -156,11 +157,6 @@ int main()
         Mapa->loadMap(smgr);
 
     }
-    ///PATHFINDING
-    SparseGraph *grafo = Mapa->getNavGraph();
-    PathFinding path(grafo);
-    std::list<int> listaNodos;
-    std::list<int>::iterator it;
 
 
 
@@ -229,7 +225,7 @@ int main()
         enemigos[i]= new Enemigo;
     }
     if(enemigos[0])
-        enemigos[0]->inicialiazar(0,0, smgr,vector3df(Mapa->patrullas->at(0)->pp->getPunto()),pr05);
+        enemigos[0]->inicialiazar(0,0, smgr,vector3df(73,0,120),pr05);
     if(enemigos[1])
         enemigos[1]->inicialiazar(1,1, smgr,vector3df(Mapa->patrullas->at(6)->pp->getPunto()),pr06);
     if(enemigos[2])
@@ -248,6 +244,7 @@ int main()
     if(prota)
     {
         prota->inicializar(smgr,driver);
+        prota->setMuro(Mapa);
 
     }
 
@@ -261,6 +258,8 @@ int main()
     vector3df toMousePositionObj;
     vector3df toMousePosition;
     vector3df toNextNodo;
+    vector3df toProtaPosition;
+    vector3df toNextPosition;
     core::line3df ray(mousePosition, prota->getCuboProta());
     core::line3df ray2(mousePosition, prota->getCuboProta());
     core::line3df ray3(mousePosition, prota->getCuboProta());
@@ -319,7 +318,7 @@ int main()
     ///SUELO
 
 
-    IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(600.f, -5.f, 600.f));
+    IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(200.f, -5.f, 200.f));
     scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
 
     if(suelo)
@@ -410,10 +409,21 @@ int main()
     float objvida= 0.0f;
     int objlaser= 0;
 
+
+        ///PATHFINDING
+    SparseGraph *grafo = Mapa->getNavGraph();
+    PathFinding path(grafo,prota);
+    std::list<int> listaNodos;
+    std::list<int>::iterator it;
+
+
     ///CICLO DEL JUEGO
     while(device->run())
     {
+
         driver->beginScene(true, true, SColor(255, 100, 101, 140));
+
+
 
 
 
@@ -424,29 +434,26 @@ int main()
             stop= false;
 
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(receiver.GetMouseState().Position, camera);
-            float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
-                                  -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
-            prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
-            prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
-            prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
-            std::cout<<"PosicionProta: "<<prota->getPosicionProta().X<<","<<prota->getPosicionProta().Z<<std::endl;
-            std::cout<<"Posicion Mouse: "<<mousePosition.X<<","<<mousePosition.Z<<std::endl;
-            bool saconseguido = path.crearPath(prota->getPosicionProta(),mousePosition,listaNodos);
+            plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition);
+            //std::cout<<"PosicionProta: "<<prota->getPosicionProta().X<<","<<prota->getPosicionProta().Z<<std::endl;
+            //std::cout<<"Posicion Mouse: "<<mousePosition.X<<","<<mousePosition.Z<<std::endl;
+            listaNodos.clear();
+            path.crearPath(prota->getPosicionProta(),mousePosition,listaNodos);
              /*it = listaNodos.begin();
              while( it != listaNodos.end())
              {
              cout << *it << endl;
              it++;
              }*/
-             it=listaNodos.begin();
+            it=listaNodos.begin();
         }
-
-        ///clic izq
 
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
-            if(it != listaNodos.end())
-            toNextNodo = grafo->getNode(*it).posicion - prota->getCuboProta();
+
+
+            if(!listaNodos.empty() && it != listaNodos.end())
+                toNextNodo = grafo->getNode(*it).posicion - prota->getCuboProta();
 
             toMousePosition = mousePosition - prota->getCuboProta();
 
@@ -468,14 +475,36 @@ int main()
                     {
                         prota->moverBody(vector3df(0,0,0));
                     }
-                    else
+                    else{
+                        ///ESTO EN UNA FUNCION PORQUE LUEGO SE REPITEEEE
+                        float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
+                                  -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+                        prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
+                        prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+                        prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
                         prota->moverBody(toMousePosition);
+                    }
                 }
             }
             else
             {
-                if(it != listaNodos.end())
+                if(!listaNodos.empty() && it != listaNodos.end()){
+                    ///ESTO EN UNA FUNCION PORQUE ANTES SE REPITEEEE
+                    float angulo = atan2f((grafo->getNode(*it).posicion.Z-prota->getModelo()->getPosition().Z) ,
+                                      -(grafo->getNode(*it).posicion.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+                    prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
+                    prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+                    prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
                     prota->moverBody(toNextNodo);
+                }
+                else if(listaNodos.empty()){
+                         if(toMousePosition.getLength() <= 1) //CUANDO LLEGA AL DESTINO
+                    {
+                        prota->moverBody(vector3df(0,0,0));
+                    }
+                        else
+                        prota->moverBody(toMousePosition);
+                }
 
                 if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT))
                 {
@@ -509,8 +538,7 @@ int main()
                 input2.maxFraction	=	1.0f;
                 b2RayCastOutput	output2;
 
-                ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                receiver.GetMouseState().Position, camera);
+                ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(receiver.GetMouseState().Position, camera);
 
                 plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
 
@@ -781,6 +809,9 @@ int main()
         }
         enemigos[2]->setPosicion();
         enemigos[6]->setPosicion();*/
+        if(!congelado1)
+        enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
+        enemigos[0]->setPosicion();
 
         //std::cout << enemigos[0]->angulo<<"\n";
         world->Step(DeltaTime);

@@ -708,7 +708,7 @@
     <property name="Conecta" value="10,15,12"/>
    </properties>
   </object>
-  <object id="2529" name="12" x="109.182" y="93.5455" width="2" height="2">
+  <object id="2529" name="12" x="111.727" y="93.6364" width="2" height="2">
    <properties>
     <property name="Conecta" value="16,11,13"/>
    </properties>
@@ -733,7 +733,7 @@
     <property name="Conecta" value="8,12,13"/>
    </properties>
   </object>
-  <object id="2534" name="17" x="122.636" y="93.3636" width="2" height="2">
+  <object id="2534" name="17" x="123" y="91.2727" width="2" height="2">
    <properties>
     <property name="Conecta" value="14,15"/>
    </properties>

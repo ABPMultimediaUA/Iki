@@ -9,6 +9,7 @@
 #include <World.h>
 #include <Player.h>
 #include "../include/Map.h"
+#include <iostream>
 
 #include "../include/PatrolRoute.h"
 
@@ -66,14 +67,13 @@ class Enemigo
         bool getMuro();
         bool getCreado();
         bool seeWhereIgo();
-        class Map* morito;
+
         void huir();
         int getTipo();
         int getID();
-        int i=0;
-        float distanciaPlayer;
-        float angulo;
-
+        bool isPathObstructured(vector3df destino);
+        bool canWalkBetween(vector3df desde, vector3df hasta);
+        std::list<vector3df> setLista(std::list<vector3df> lista){listaPosiciones=lista;}
     protected:
 
     private:
@@ -91,6 +91,10 @@ class Enemigo
         float tiempoVigilando;
         int tiempoEscaneando;
         core::vector3df posicion;
+        int i=0;
+        float distanciaPlayer;
+        float angulo;
+        //std::list<vector3df>::iterator it;
 
         core::vector3df posicionInicial;
         core::vector3df puntoInteres;
@@ -118,6 +122,7 @@ class Enemigo
 
         b2RayCastInput input;
         b2RayCastOutput	output;
+        class Map* morito;
 
         PatrolPoint* pRuta;
         Fuzzy logica;
@@ -125,6 +130,12 @@ class Enemigo
         class World* iworld;
         Enemigo *aliado;
 
+        ///PATHPLANNING
+        //SparseGraph *grafo = Mapa->getNavGraph();
+//        PathPlanner path2(enemigos[0],grafo);
+        std::list<vector3df> listaPosiciones;
+        std::list<vector3df>::iterator it2;
+        vector3df posicionA;
 
 
 };
