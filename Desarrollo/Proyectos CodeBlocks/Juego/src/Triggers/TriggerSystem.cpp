@@ -31,20 +31,23 @@ void TriggerSystem::Register(Trigger* trigger)
 
 void TriggerSystem::UpdateTriggers()
 {
-    TriggerList::iterator curTrg = m_Triggers.begin();
-    while (curTrg != m_Triggers.end())
+    if (!m_Triggers.empty())
     {
-        //remove trigger if dead
-        if ((*curTrg)->isToBeRemoved())
+        TriggerList::iterator curTrg = m_Triggers.begin();
+        while (curTrg != m_Triggers.end())
         {
-            delete *curTrg;
-            curTrg = m_Triggers.erase(curTrg);
-        }
-        else
-        {
-            //update this trigger
-            (*curTrg)->Update();
-            ++curTrg;
+            //remove trigger if dead
+            if ((*curTrg)->isToBeRemoved())
+            {
+                delete *curTrg;
+                curTrg = m_Triggers.erase(curTrg);
+            }
+            else
+            {
+                //update this trigger
+                (*curTrg)->Update();
+                ++curTrg;
+            }
         }
     }
 }
@@ -60,6 +63,7 @@ void TriggerSystem::TryTriggers(GameEntity* entity)
         */      //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
                 //{
                     TriggerList::const_iterator curTrg;
+                    if (!m_Triggers.empty())
                     for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
                     {
                         (*curTrg)->Try(entity);
