@@ -31,7 +31,7 @@ TCamara *TMotorTAG::crearCamara()
 {
     TCamara *camara= new TCamara();
 
-    return camara
+    return camara;
 }
 
 TLuz *TMotorTAG::crearLuz()

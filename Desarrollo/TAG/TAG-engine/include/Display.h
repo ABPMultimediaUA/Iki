@@ -1,8 +1,10 @@
 #pragma once
 
+#define GLEW_STATIC
+#include <glew.h>
+
 #include <SDL2\SDL.h>
 #include <string>
-#include <GL\glew.h>
 #include <iostream>
 
 
