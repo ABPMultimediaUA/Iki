@@ -19,6 +19,10 @@ class TMotorTAG
         TCamara *crearCamara();
         TLuz *crearLuz();
         TMalla *crearMalla(char *fichero);
+        int registrarCamara(TNodo* nod);
+        int registrarLuz(TNodo* nod);
+        void setCamaraActiva(int i);
+        void setLuzActiva(int i);
         void draw();
         //Metodos para el regsitro y manejo de las camaras, luces y viewports.
 
@@ -27,6 +31,8 @@ class TMotorTAG
     private:
         TNodo* escena;
         TGestorRecursos *gestorRecursos;
+        TLuz *luces[];
+        TCamara *camaras[];
 
         //Atributos para mantenimiento de las camaras, luces y viewports.
 };
