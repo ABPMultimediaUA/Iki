@@ -44,9 +44,9 @@
 		</Compiler>
 		<Linker>
 			<Add option="-Llib -lmingw32 -lSDL2main -lSDL2" />
+			<Add library="lib/glew32s.lib" />
 			<Add library="lib/libassimp.dll.a" />
 			<Add library="lib/glew32.lib" />
-			<Add library="lib/glew32s.lib" />
 			<Add library="lib/libopenal32.a" />
 			<Add library="lib/libopengl32.a" />
 			<Add library="lib/libSDL2.dll.a" />
