@@ -21,7 +21,7 @@ void Trigger_Puerta::Try(GameEntity* ent)
     }
     else{
         //Close la puerta
-
+        std::cout << "   " << std::endl;
     }
 }
 
