@@ -21,7 +21,7 @@ class Scene
 
         Camera *camara;
         World *world;
-        TriggerSystem *triggersystem;
+        TriggerSystem triggersystem;
         Player *player;
         Structs::TPosicion mousePosition;
         f32 TimeStamp;

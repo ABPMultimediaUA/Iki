@@ -27,7 +27,7 @@ void Scene::inicializar_escena(){
 
     player->inicializar_player();
     World::getInstance()->inicializar_mundo();
-    triggersystem->LeerMapa();
+    triggersystem.LeerMapa();
 
     bucle_juego();
 }
@@ -36,7 +36,7 @@ void Scene::bucle_juego(){
 
     while(GraphicsFacade::getInstance().run()){
         player->update(camara, mousePosition);
-        triggersystem->Update(player);
+        triggersystem.Update(player);
         camara->render(player->getPosition());
         World::getInstance()->Step(DeltaTime);
 

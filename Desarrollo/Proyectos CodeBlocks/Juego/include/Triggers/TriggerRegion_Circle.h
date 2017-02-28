@@ -10,7 +10,7 @@ class TriggerRegion_Circle : public TriggerRegion
         TriggerRegion_Circle(Structs::TPosicion pos, double rad);
         virtual ~TriggerRegion_Circle();
 
-        virtual bool isTouching(Structs::TPosicion EntityPos, double EntityRadius);
+        bool isTouching(Structs::TPosicion EntityPos, double EntityRadius) const;
 
     protected:
 

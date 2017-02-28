@@ -1,4 +1,6 @@
 #include "Trigger.h"
+#include "TriggerRegion_Circle.h"
+#include "TriggerRegion_Rectangle.h"
 
 Trigger::Trigger()
 {
@@ -24,7 +26,7 @@ void Trigger::AddCircularTriggerRegion(Structs::TPosicion center, double radius)
   //if this replaces an existing region, tidy up memory
   if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
 
-  ///m_pRegionOfInfluence = new TriggerRegion_Circle(center, radius);
+  m_pRegionOfInfluence = new TriggerRegion_Circle(center, radius);
 }
 
 void Trigger::AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight)
@@ -32,5 +34,5 @@ void Trigger::AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::T
   //if this replaces an existing region, tidy up memory
   if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
 
-  ///m_pRegionOfInfluence = new TriggerRegion_Rectangle(TopLeft, BottomRight);
+  m_pRegionOfInfluence = new TriggerRegion_Rectangle(TopLeft, BottomRight);
 }

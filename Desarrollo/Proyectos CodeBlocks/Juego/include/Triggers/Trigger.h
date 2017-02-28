@@ -18,6 +18,10 @@ class Trigger : public GameEntity
         //state the trigger may have
         virtual void Update() = 0;
 
+        //child classes use one of these methods to add a trigger region
+        void AddCircularTriggerRegion(Structs::TPosicion center, double radius);
+        void AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight);
+
         bool isToBeRemoved()const{return m_bRemoveFromGame;}
         bool isActive(){return m_bActive;}
 
@@ -28,9 +32,6 @@ class Trigger : public GameEntity
         //returns true if the entity given by a position and bounding radius is
         //overlapping the trigger region
         bool isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const;
-        //child classes use one of these methods to add a trigger region
-        void AddCircularTriggerRegion(Structs::TPosicion center, double radius);
-        void AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight);
 
     private:
         //Every trigger owns a trigger region. If an entity comes within this

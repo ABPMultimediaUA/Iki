@@ -1,6 +1,7 @@
 #include "TriggerSystem.h"
-#include "MapComponent.h"
-
+#include "Trigger_Puerta.h"
+#include "TriggerRegion_Rectangle.h"
+#include <iostream>
 TriggerSystem::TriggerSystem()
 {
     //ctor
@@ -64,18 +65,18 @@ void TriggerSystem::TryTriggers(GameEntity* entity)
                 //{
                     TriggerList::const_iterator curTrg;
                     if (!m_Triggers.empty())
-                    for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
-                    {
-                        (*curTrg)->Try(entity);
-                    }
+                        for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
+                        {
+                            (*curTrg)->Try(entity);
+                        }
                 //}
             //}
 }
 
 void TriggerSystem::Update(GameEntity* entity)
 {
-    //UpdateTriggers();
-    //TryTriggers(entity);
+    UpdateTriggers();
+    TryTriggers(entity);
 }
 
 void TriggerSystem::Render()
@@ -83,7 +84,7 @@ void TriggerSystem::Render()
     TriggerList::iterator curTrg;
     for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
     {
-        ///(*curTrg)->Render();
+        ///¡(*curTrg)->Render();
     }
 }
 
@@ -93,7 +94,7 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
 
     Structs::TPosicion pos;
     float r;
-
+    if (m_Triggers.empty())
     if (objectGroup->FirstChildElement("object")){
         object = objectGroup->FirstChildElement("object");
         while (object){
@@ -101,15 +102,23 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
             object->QueryFloatAttribute("y", &pos.X);
             object->QueryFloatAttribute("rotation", &r);
 
-            //Creamos el Trigger y lo registramos
-            //Crear el tipo
-            //Crear la Region
-            //Asignar la Region
+            if (tipo == 2){
+                //Creamos el Trigger y lo registramos
+                //Crear el tipo
+                Trigger_Puerta* trigger = new Trigger_Puerta;
+                //Crear la Region
+                Structs::TPosicion tl = {175,0,45};
+                Structs::TPosicion br = {165,0,55};
+                //Asignar la Region
+                trigger->AddRectangularTriggerRegion(tl,br);
+                //Crear y asignar body
 
-            //Crear y asignar body
+            //}
 
             //pushback
-            //muros.push_back(new MapComponent(r, pos, tipo));
+            m_Triggers.push_back(trigger);
+
+            }
 
             object = object->NextSiblingElement("object");
         }
@@ -134,11 +143,12 @@ void TriggerSystem::LeerMapa()
     //Se recorre la cada capa de Objects
     tinyxml2::XMLElement* objectGroup = mapElement->FirstChildElement("objectgroup");
     while (objectGroup){
+
         //Para cada capa se asigna un tipo de Trigger
         if      (objectGroup->Attribute("name", "Puertas"))    CrearTipoTrigger(2, objectGroup);
-        else if (objectGroup->Attribute("name", "Palancas"))   CrearTipoTrigger(3, objectGroup);
-        else if (objectGroup->Attribute("name", "Objetos"))    CrearTipoTrigger(4, objectGroup);
-        else if (objectGroup->Attribute("name", "Apisonadora"))CrearTipoTrigger(5, objectGroup);
+        //else if (objectGroup->Attribute("name", "Palancas"))   CrearTipoTrigger(3, objectGroup);
+        //else if (objectGroup->Attribute("name", "Objetos"))    CrearTipoTrigger(4, objectGroup);
+        //else if (objectGroup->Attribute("name", "Apisonadora"))CrearTipoTrigger(5, objectGroup);
 
         objectGroup = objectGroup->NextSiblingElement("objectgroup");
 
