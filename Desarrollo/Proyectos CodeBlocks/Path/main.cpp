@@ -230,13 +230,11 @@ int main()
         enemigos[1]->inicialiazar(1,1, smgr,vector3df(Mapa->patrullas->at(6)->pp->getPunto()),pr06);
     if(enemigos[2])
         enemigos[2]->inicialiazar(2,2,smgr,vector3df(Mapa->patrullas->at(2)->pp->getPunto()),pr01);
-    if(enemigos[5])
-        enemigos[5]->inicialiazar2(smgr);
     if(enemigos[6])
         enemigos[6]->inicialiazar(0,6,smgr,vector3df(Mapa->patrullas->at(8)->pp->getPunto()),pr02);
 
 
-    smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 255, 0, 0));
+    smgr->getMeshManipulator()->setVertexColors(enemigos[0]->getModelo()->getMesh(),irr::video::SColor(255, 0, 0, 0));
 
 
     ///PLAYER
@@ -410,11 +408,19 @@ int main()
     int objlaser= 0;
 
 
-        ///PATHFINDING
+    ///PATHFINDING
     SparseGraph *grafo = Mapa->getNavGraph();
     PathFinding path(grafo,prota);
     std::list<int> listaNodos;
     std::list<int>::iterator it;
+
+    ///PATHPLANNING
+    PathPlanner path2(enemigos[0],grafo);
+    std::list<PathEdge> listaNodos2;
+    std::list<PathEdge>::iterator it2;
+    vector3df toNextNodo2;
+    vector3df toProta;
+    vector3df cuboEnemigo=enemigos[0]->getPosicion();
 
 
     ///CICLO DEL JUEGO
@@ -425,7 +431,43 @@ int main()
 
 
 
+        if(enemigos[0]->getEstado()== 11){
+            path2.crearPath(prota->getModelo()->getPosition(),listaNodos2);
+            it2=listaNodos2.begin();
+            while( it2 != listaNodos2.end())
+             {
+                cout <<"X: "<<(*it2).getDestination().X<<" Z: "<<(*it2).getDestination().Z  << endl;
+                it2++;
+             }
+             it2=listaNodos2.begin();
+             enemigos[0]->setEstado(12);
 
+        }
+        if(enemigos[0]->getEstado()==12){
+            toProta=prota->getModelo()->getPosition() - enemigos[0]->getModelo()->getPosition();
+
+            if(!enemigos[0]->isPathObstructured(prota->getModelo()->getPosition())){//SI NO HAY NADA EN MEDIO PERSIGUE NORMAL
+                if(toProta.getLength() <= 1)
+                    enemigos[0]->moverBody(vector3df(0,0,0));
+                else
+                    enemigos[0]->moverBody(toProta);
+                    std::cout<<"entraaaa"<<std::endl;
+            }
+            else{ //SINO PERSIGUE SIGUIENDO EL PATH
+                if(!listaNodos2.empty() && it2 != listaNodos2.end()){
+                    toNextNodo2=(*it2).getDestination() - enemigos[0]->getModelo()->getPosition();
+
+                    if(toNextNodo2.getLength() <= 1) //CUANDO LLEGA AL NODO
+                    {
+                        enemigos[0]->moverBody(vector3df(0,0,0));//SE PARA
+                        if(it2 != listaNodos2.end())
+                            it2++;
+                    }
+                    else    //ANDANDO HACIA EL NODO
+                            enemigos[0]->moverBody(toNextNodo2);
+                }
+            }
+        }
 
         ///RATON
         ///clic dcho
@@ -435,29 +477,20 @@ int main()
 
             ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(receiver.GetMouseState().Position, camera);
             plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition);
-            //std::cout<<"PosicionProta: "<<prota->getPosicionProta().X<<","<<prota->getPosicionProta().Z<<std::endl;
-            //std::cout<<"Posicion Mouse: "<<mousePosition.X<<","<<mousePosition.Z<<std::endl;
             listaNodos.clear();
             path.crearPath(prota->getPosicionProta(),mousePosition,listaNodos);
-             /*it = listaNodos.begin();
-             while( it != listaNodos.end())
-             {
-             cout << *it << endl;
-             it++;
-             }*/
             it=listaNodos.begin();
         }
 
         if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
         {
 
-
             if(!listaNodos.empty() && it != listaNodos.end())
                 toNextNodo = grafo->getNode(*it).posicion - prota->getCuboProta();
 
             toMousePosition = mousePosition - prota->getCuboProta();
 
-            if(toNextNodo.getLength() <= 1) //CUANDO LLEGA AL ULTIMO NODO
+            if(toNextNodo.getLength() <= 1) //CUANDO LLEGA AL NODO
             {
                 prota->moverBody(vector3df(0,0,0));
                 if(pasosP==true || pasos2P==true)
@@ -526,108 +559,6 @@ int main()
                 stop= true;
             }
         }
-
-
-        if(prota->getLaser() > 0){
-            if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser){
-                balamenos= prota->getLaser() - 1;
-                prota->setLaser(balamenos);
-                rayolaser = true;
-                rayolaser1 = true;
-                b2RayCastInput input2;
-                input2.maxFraction	=	1.0f;
-                b2RayCastOutput	output2;
-
-                ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(receiver.GetMouseState().Position, camera);
-
-                plane.getIntersectionWithLine(ray3.start, ray3.getVector(), mousePosition);
-
-                toMousePosition = mousePosition - prota->getCuboProta();
-
-                input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
-                float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
-                input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*30), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*30));
-
-                //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
-                //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
-
-
-                distancia3 = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
-                angulo3 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
-
-
-                if(enemigos[0]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado1 = true;
-                else if(enemigos[1]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado2 = true;
-                else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado3 = true;
-
-                if(kiko){
-
-                if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado4 = true;
-                else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
-                    congelado5 = true;
-                }
-
-
-                s10 = engine->play3D(rayopara,posicion,false,false,true);
-                s11 = engine->play3D(hack,posicion,false,false,true);
-
-                modelo2->setVisible(true);
-                modelo2->setScale(core::vector3df(distancia3/10, 0.5f, 0.5f));
-                modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
-                modelo2->setRotation(core::vector3df(0,angulo3,0));
-            }
-        }
-
-
-        if(rayolaser == true && s10->isFinished()){
-            rayolaser = false;
-            congelado1 = false;
-            congelado2 = false;
-            congelado3 = false;
-            congelado4 = false;
-            congelado5 = false;
-            congelado6 = false;
-        }
-
-        if(rayolaser1 == true && s11->isFinished()){
-            rayolaser1 = false;
-            modelo2->setVisible(false);
-        }
-
-
-        if(enemigos[1]->getEstado() == 3){
-            if(cambiao == false){
-                //smgr->getMeshManipulator()->setVertexColors(enemigos[1]->getModelo()->getMesh(),irr::video::SColor(255, 0, 255, 0));
-                s4 = engine->play3D(alarma,posicion,false,false,true);
-                cambiao = true;
-            }
-            else if(s4->isFinished()){
-                aparcao = true;
-                kiko = true;
-                vector3df posicion= enemigos[1]->getPosicion()+vector3df(5,0,5);
-                vector3df posicion2= enemigos[1]->getPosicion()+vector3df(-5,0,-5);
-                enemigos[3]->inicialiazar(0,4,smgr,posicion,pr03);
-                enemigos[4]->inicialiazar(0,5,smgr,posicion2,pr04);
-                enemigos[3]->setEstado(8);
-                enemigos[4]->setEstado(8);
-                enemigos[3]->setPunto(enemigos[1]->getPunto());
-                enemigos[4]->setPunto(enemigos[1]->getPunto());
-                enemigos[1]->setEstado(10);
-
-                //eliminar enemigo
-                enemigos[1]->matar();
-
-            }
-        }
-
-
-        prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
-
-        ///VIDA PROTA
 
 
 
@@ -764,6 +695,8 @@ int main()
             cameraTar.X+=0.3*DeltaTime;
         }
 
+        ///VELOCIDADES
+
         if(receiver.isKeyDown(KEY_LSHIFT))
             prota->velocidad = 2.5f;
         else if(engine->isCurrentlyPlaying(aceite) == true)
@@ -771,7 +704,7 @@ int main()
         else
             prota->velocidad = 5.5f;
 
-
+            enemigos[0]->velocidad = 5.0f;
 
         DeltaTime = timer->getTime() - TimeStamp;
         TimeStamp = timer->getTime();
@@ -780,38 +713,12 @@ int main()
         camera->setPosition(cameraPos);
         camera->setTarget(cameraTar);
 
-       /* ///UPDATES ENEMIGO
-        //Guardia
-        if(!congelado1)
+        ///UPDATES
         enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
-        //Alarma
-         if(!congelado2)
-        enemigos[1]->update(prota->getCuboProta(), tiempo, enemigos);
-        //Medico
-         if(!congelado3)
-        enemigos[2]->update(prota->getCuboProta(), tiempo, enemigos);
-        if(aparcao){
-                 if(!congelado4)
-                    enemigos[3]->update(prota->getCuboProta(), tiempo, enemigos);
-                 if(!congelado5)
-                    enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
-        }
-        enemigos[6]->update(prota->getCuboProta(), tiempo, enemigos);
-
-        ///SET POSITION ENEMIGOS
-        enemigos[0]->setPosicion();
-        //Si el dron no se ha convertido en alarma
-        if(cambiao == false)
-            enemigos[1]->setPosicion();
-        if(aparcao){
-            enemigos[3]->setPosicion();
-            enemigos[4]->setPosicion();
-        }
-        enemigos[2]->setPosicion();
-        enemigos[6]->setPosicion();*/
-        if(!congelado1)
-        enemigos[0]->update(prota->getCuboProta(), tiempo, enemigos);
-        enemigos[0]->setPosicion();
+        ///SETERS
+        enemigos[0]->setPosition(vector3df(enemigos[0]->getBody()->GetPosition().x,0,enemigos[0]->getBody()->GetPosition().y));
+        prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
+        //enemigos[0]->setPosicion();
 
         //std::cout << enemigos[0]->angulo<<"\n";
         world->Step(DeltaTime);

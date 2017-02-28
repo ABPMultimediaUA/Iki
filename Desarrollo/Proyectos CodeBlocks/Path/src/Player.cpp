@@ -123,7 +123,6 @@ bool Player::atacar(core::vector3df vec, scene::ISceneManager* smgr){
 }
 
 void Player::moverBody(core::vector3df vec){
-    //body->ApplyLinearImpulse(b2Vec2(0, 5.0), b2Vec2(vec.X, vec.Z), true);
     movx = vec.X;
     movy = vec.Z;
     double modulo = sqrt((movx*movx) + (movy*movy));
@@ -133,17 +132,6 @@ void Player::moverBody(core::vector3df vec){
     }
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
-    //body->ApplyForce(b2Vec2(movx, movy), b2Vec2(movx, movy), true);
-    //std::cout << "body X: "<<body->GetPosition().x  <<" \n";
-    //std::cout << "body Z: "<<body->GetPosition().y  <<" \n";
-
-    //body->ApplyLinearImpulse(b2Vec2(0.1, 0.1), body->GetPosition());
-    /*if(vec.X != body->GetPosition().x){
-       //body->ApplyForce( b2Vec2(force,0), body->GetWorldCenter() );
-    }
-    if(vec.Y != body->GetPosition().y){
-        //body->SetLinearVelocity(b2Vec2(0.0, 15.0));
-    }*/
 }
 
 void Player::setCuboProta(core::vector3df cb){

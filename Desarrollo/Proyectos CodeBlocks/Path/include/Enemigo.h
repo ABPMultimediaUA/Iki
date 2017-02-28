@@ -67,6 +67,7 @@ class Enemigo
         bool getMuro();
         bool getCreado();
         bool seeWhereIgo();
+        void moverBody(vector3df vec);
 
         void huir();
         int getTipo();
@@ -74,6 +75,8 @@ class Enemigo
         bool isPathObstructured(vector3df destino);
         bool canWalkBetween(vector3df desde, vector3df hasta);
         std::list<vector3df> setLista(std::list<vector3df> lista){listaPosiciones=lista;}
+        float velocidad;
+        void setPosition(vector3df vec);
     protected:
 
     private:
@@ -122,6 +125,8 @@ class Enemigo
 
         b2RayCastInput input;
         b2RayCastOutput	output;
+        b2RayCastInput input2;
+        b2RayCastOutput	output2;
         class Map* morito;
 
         PatrolPoint* pRuta;
