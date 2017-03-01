@@ -89,6 +89,7 @@
 		</Unit>
 		<Unit filename="include/Muros.h" />
 		<Unit filename="include/Nodo.h" />
+		<Unit filename="include/PathEdge.h" />
 		<Unit filename="include/PathFinding.h" />
 		<Unit filename="include/PathPlanner.h" />
 		<Unit filename="include/PatrolPoint.h" />
@@ -117,6 +118,7 @@
 		</Unit>
 		<Unit filename="src/Muros.cpp" />
 		<Unit filename="src/Nodo.cpp" />
+		<Unit filename="src/PathEdge.cpp" />
 		<Unit filename="src/PathFinding.cpp" />
 		<Unit filename="src/PathPlanner.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />

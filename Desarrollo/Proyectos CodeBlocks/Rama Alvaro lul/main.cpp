@@ -6,6 +6,7 @@
 #include <iostream>
 #include "include/Map.h"
 #include "include/CMainMenu.h"
+#include "include/MyEventReceiver.h"
 
 #include "include/PatrolRoute.h"
 
@@ -23,93 +24,9 @@ using namespace io;     //Ficheros
 using namespace gui;    //Interfaz de usuario
 
 
-
-
-
-
-class MyEventReceiver : public IEventReceiver
-{
-private:
-    bool KeyDown[KEY_KEY_CODES_COUNT];
-public:
-
-    MyEventReceiver()
-    {
-        for(int i=0; i<KEY_KEY_CODES_COUNT; i++)
-        {
-            KeyDown[i] = false;
-        }
-    }
-
-    struct SMouseState
-    {
-        core::position2di Position;
-        bool RightButtonDown, LeftButtonDown= false;
-        SMouseState() : RightButtonDown(false) { }
-    } MouseState;
-
-    // This is the one method that we have to implement
-    virtual bool OnEvent(const SEvent& event)
-    {
-        // Remember the mouse state
-        if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
-        {
-            switch(event.MouseInput.Event)
-            {
-            case EMIE_RMOUSE_PRESSED_DOWN:
-                MouseState.RightButtonDown = true;
-                break;
-
-            case EMIE_LMOUSE_PRESSED_DOWN:
-                MouseState.LeftButtonDown= true;
-                break;
-
-            case EMIE_RMOUSE_LEFT_UP:
-                MouseState.RightButtonDown = false;
-                break;
-
-            case EMIE_LMOUSE_LEFT_UP:
-                MouseState.LeftButtonDown= false;
-                break;
-
-            case EMIE_MOUSE_MOVED:
-                MouseState.Position.X = event.MouseInput.X;
-                MouseState.Position.Y = event.MouseInput.Y;
-                break;
-
-            default:
-                // We won't use the wheel
-                break;
-            }
-        }
-        else if (event.EventType == irr::EET_KEY_INPUT_EVENT)
-        {
-            KeyDown[event.KeyInput.Key] = event.KeyInput.PressedDown;
-        }
-
-    }
-
-    virtual bool isKeyDown(EKEY_CODE keyCode) const
-    {
-        return KeyDown[keyCode];
-    }
-
-    virtual bool isKeyUp(EKEY_CODE keyCode) const
-    {
-        return !KeyDown[keyCode];
-    }
-    const SMouseState & GetMouseState(void) const
-    {
-        return MouseState;
-    }
-
-
-};
-
-
-
 int main()
 {
+
 
     CMainMenu menu;
 
@@ -117,8 +34,6 @@ int main()
     {
 
         MyEventReceiver receiver;
-        float posx, posy, posz;
-        vector3df posmuro;
 
         World* world;
         world = World::Instance();
@@ -133,8 +48,6 @@ int main()
 
         ISceneManager* smgr= device->getSceneManager();         //Gestion de la escena
         IVideoDriver* driver= device->getVideoDriver();         //Ciclo del juego
-        IGUIEnvironment* guienv= device->getGUIEnvironment();   //Interfaz de usuario
-
 
 
         ///CAMARA
@@ -151,7 +64,6 @@ int main()
             Mapa->loadMap(smgr);
 
         }
-
 
 
 
@@ -229,12 +141,6 @@ int main()
         pr06.setFinal(Mapa->patrullas->at(6)->pp->getPrev());
 
 
-
-
-        int danio = 0;
-
-        //std::cout << "1\n";
-
         ///ENEMIGOS
         Enemigo  *enemigos[7];
         for(int i=0; i<7; i++)
@@ -271,12 +177,9 @@ int main()
 
         ///RATON
         core::plane3df plane(prota->getCuboProta(), core::vector3df(0, -1, 0));
-        core::vector3df mousePosition= core::vector3df(0,0,0);
-        vector3df toMousePositionObj;
+        core::vector3df mousePosition = core::vector3df(0,0,0);
         vector3df toMousePosition;
         core::line3df ray(mousePosition, prota->getCuboProta());
-        core::line3df ray11(mousePosition, prota->getCuboProta());
-        core::line3df ray2(mousePosition, prota->getCuboProta());
         core::line3df ray3(mousePosition, prota->getCuboProta());
 
         ///SONIDOS
@@ -334,7 +237,6 @@ int main()
 
         ///SUELO
 
-
         IMesh *mesh = smgr->getGeometryCreator()->createCubeMesh(vector3df(600.f, -5.f, 600.f));
         scene::IMeshSceneNode *suelo = smgr->addMeshSceneNode(mesh);
 
@@ -344,8 +246,7 @@ int main()
             suelo->setRotation(core::vector3df(0,0,0));
             suelo->setMaterialFlag(EMF_LIGHTING, false);
             suelo->setMaterialTexture( 0, driver->getTexture("texturas/suelo.png") );
-            //suelo->getMaterial(0).getTextureMatrix(0).setTextureTranslate(1,1);
-            //suelo->getMaterial(0).getTextureMatrix(0).setTextureScale(1,1);
+
         }
 
         ///VIDA PROTA
@@ -388,9 +289,6 @@ int main()
         bool cambiao = false;
         bool aparcao = false;
         bool hayobj= false, hayobj2 = false, vez= false, vez2 = false, vez3 = false;
-        bool centinela= false;
-        bool tocado= false;
-        bool stop= true;
         bool kiko= false;
         bool kiko2= false;
         bool rayolaser = false;
@@ -399,8 +297,6 @@ int main()
         bool unatarjeta = false;
         bool abriendose = false;
         bool cerrandose = true;
-        bool mecagoyaendios = true;
-
 
         //PERCEPCION SENSONRIAL
 
@@ -410,6 +306,9 @@ int main()
         b2RayCastInput input2;
         input2.maxFraction	=	1.0f;
         b2RayCastOutput	output2;
+        b2RayCastInput input3;
+        input3.maxFraction	=	1.0f;
+        b2RayCastOutput	output3;
         float angulo2 = 0;
         float distancia = 0;
         scene::IMesh *rayo = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(10.f, 1.f, 1.f));
@@ -424,14 +323,11 @@ int main()
         scene::IMeshSceneNode *modelo2 = smgr->addMeshSceneNode(rayo2);
         modelo2->setVisible(false);
 
-        int lastFPS = -1;
-        u32 myClock;
-        int frame = 0;
         Time tiempo;
         tiempo.set(device);
         float vidaProta;
         float angulo;
-        int n, balamenos= 0;
+        int n;
         float objvida= 0.0f;
         int objlaser= 0;
 
@@ -446,7 +342,6 @@ int main()
             ///raton
             if(receiver.GetMouseState().RightButtonDown)
             {
-                stop= false;
 
                 ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                           receiver.GetMouseState().Position, camera);
@@ -454,7 +349,7 @@ int main()
                                 -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
                 prota->getBody()->SetTransform(prota->getBody()->GetPosition(), angulo);
                 prota->getModelo()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
-                prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+
             }
 
             if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
@@ -473,7 +368,7 @@ int main()
                         pasos2P = false;
                     }
 
-                    stop= true;
+
                 }
                 else
                 {
@@ -496,7 +391,7 @@ int main()
                         pasosP = false;
 
                     }
-                    stop= true;
+
                 }
             }
 
@@ -505,13 +400,9 @@ int main()
             {
                 if(receiver.isKeyDown(KEY_KEY_Q) && !rayolaser)
                 {
-                    balamenos= prota->getLaser() - 1;
-                    prota->setLaser(balamenos);
+                    prota->setLaser(prota->getLaser() - 1);
                     rayolaser = true;
                     rayolaser1 = true;
-                    b2RayCastInput input2;
-                    input2.maxFraction	=	1.0f;
-                    b2RayCastOutput	output2;
 
                     ray3 = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
                                receiver.GetMouseState().Position, camera);
@@ -520,31 +411,30 @@ int main()
 
                     toMousePosition = mousePosition - prota->getCuboProta();
 
-                    input2.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+                    input3.p1.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
                     float modulo = sqrt((toMousePosition.X*toMousePosition.X) + (toMousePosition.Z*toMousePosition.Z));
-                    input2.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*30), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*30));
-
-                    //bool    hitmuro     =   muro1->body15->GetFixtureList()->RayCast(&output,	input,	0);
-                    //bool    hitprota	=	prota->getBody()->GetFixtureList()->RayCast(&output,	input,	0);
+                    input3.p2.Set(prota->getCuboProta().X+((toMousePosition.X/modulo)*30), prota->getCuboProta().Z+((toMousePosition.Z/modulo)*30));
 
 
-                    distancia3 = sqrt(pow(input2.p2.x-input2.p1.x, 2)+pow(input2.p2.y-input2.p1.y, 2));
-                    angulo3 = atan2f((input2.p2.y-input2.p1.y) , -(input2.p2.x-input2.p1.x)) * 180.f / irr::core::PI;
+                    distancia3 = sqrt(pow(input3.p2.x-input3.p1.x, 2)+pow(input3.p2.y-input3.p1.y, 2));
+                    angulo3 = atan2f((input3.p2.y-input3.p1.y) , -(input3.p2.x-input3.p1.x)) * 180.f / irr::core::PI;
 
 
-                    if(enemigos[0]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    if(enemigos[0]->getBody()->GetFixtureList()->RayCast(&output2,	input3,	0))
                         congelado1 = true;
-                    else if(enemigos[1]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    else if(enemigos[1]->getBody()->GetFixtureList()->RayCast(&output2,	input3,	0))
                         congelado2 = true;
-                    else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                    else if(enemigos[2]->getBody()->GetFixtureList()->RayCast(&output2,	input3,	0))
                         congelado3 = true;
+                    else if(enemigos[6]->getBody()->GetFixtureList()->RayCast(&output2,	input3,	0))
+                        congelado6 = true;
 
                     if(kiko)
                     {
 
-                        if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                        if(enemigos[3]->getBody()->GetFixtureList()->RayCast(&output2,	input3,	0))
                             congelado4 = true;
-                        else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input2,	0))
+                        else if(enemigos[4]->getBody()->GetFixtureList()->RayCast(&output2,	input3,	0))
                             congelado5 = true;
                     }
 
@@ -554,7 +444,7 @@ int main()
 
                     modelo2->setVisible(true);
                     modelo2->setScale(core::vector3df(distancia3/10, 0.5f, 0.5f));
-                    modelo2->setPosition(core::vector3df((input2.p2.x+input2.p1.x)/2,0,(input2.p2.y+input2.p1.y)/2));
+                    modelo2->setPosition(core::vector3df((input3.p2.x+input3.p1.x)/2,0,(input3.p2.y+input3.p1.y)/2));
                     modelo2->setRotation(core::vector3df(0,angulo3,0));
                 }
             }
@@ -796,7 +686,8 @@ int main()
                     }
 
                 }
-                if(sqrt(pow(prota->getBody()->GetPosition().y-Mapa->patrullas->at(13)->pp->getPunto().Z, 2) + pow(prota->getBody()->GetPosition().x-Mapa->patrullas->at(13)->pp->getPunto().X, 2))/10 < 0.1){
+                if(sqrt(pow(prota->getBody()->GetPosition().y-Mapa->patrullas->at(13)->pp->getPunto().Z, 2) + pow(prota->getBody()->GetPosition().x-Mapa->patrullas->at(13)->pp->getPunto().X, 2))/10 < 0.1)
+                {
                     prota->setVida(0);
                 }
             }
@@ -810,22 +701,9 @@ int main()
             distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
             angulo2 = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
 
-            for (int i = 0; i < Mapa->muros->size(); i++)
+
+            if(distancia<25 && !enemigos[5]->noteveo() && angulo2>-180 && angulo2<-40)
             {
-
-                if (Mapa->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
-                {
-                    mecagoyaendios =  true;
-                    break;
-                }
-                else
-                    mecagoyaendios =  false;
-
-            }
-
-            if(distancia<25 && !mecagoyaendios && angulo2>-180 && angulo2<-40)
-            {
-
 
 
                 enemigos[5]->getBody()->SetTransform(enemigos[5]->getBody()->GetPosition(), angulo2);
@@ -937,7 +815,6 @@ int main()
             }
 
 
-
             DeltaTime = timer->getTime() - TimeStamp;
             TimeStamp = timer->getTime();
             tiempo.update();
@@ -962,7 +839,8 @@ int main()
                 if(!congelado5)
                     enemigos[4]->update(prota->getCuboProta(), tiempo, enemigos);
             }
-            enemigos[6]->update(prota->getCuboProta(), tiempo, enemigos);
+            if(!congelado6)
+                enemigos[6]->update(prota->getCuboProta(), tiempo, enemigos);
 
 
             ///SET POSITION ENEMIGOS
@@ -984,7 +862,6 @@ int main()
 
             //std::cout << "nigg\n";
             smgr->drawAll();
-            guienv->drawAll();
 
             if(prota->getVida() >= 3)
             {

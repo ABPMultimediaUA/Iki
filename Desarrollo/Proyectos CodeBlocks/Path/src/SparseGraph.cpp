@@ -36,11 +36,7 @@ Edge& SparseGraph::getEdge(int from, int to){
 int SparseGraph::getNextNodeIndex() const{
     return nextNodeIndex;
 }
-//  Given a node this method first checks to see if the node has been added
-//  previously but is now innactive. If it is, it is reactivated.
-//
-//  If the node has not been added previously, it is checked to make sure its
-//  index matches the next node index before being added to the graph
+
 int SparseGraph::addNode(Nodo node){
   if (node.Index() < (int)nodos.size())
   {
@@ -156,7 +152,6 @@ void SparseGraph::removeEdge(int from,int to){
 }
 
 int SparseGraph::numNodes()const{
-    //std::cout<<"CuantosNodos"<<nodos.size()<<std::endl;
     return nodos.size();
 }
 int SparseGraph::numActiveNodes()const{
@@ -205,11 +200,6 @@ bool SparseGraph::isEdgePresent(int from, int to)const{
     else return false;
 }
 
-  //-------------------------------- UniqueEdge ----------------------------
-//
-//  returns true if the edge is not present in the graph. Used when adding
-//  edges to prevent duplication
-//------------------------------------------------------------------------
 
 bool SparseGraph::UniqueEdge(int from, int to)const
 {
@@ -217,7 +207,6 @@ bool SparseGraph::UniqueEdge(int from, int to)const
        curEdge != aristas[from].end();
        ++curEdge)
   {
-      //std::cout<<curEdge->From()<<"UniqueEdge: "<<curEdge->To()<<std::endl;
     if (curEdge->To() == to)
     {
       return false;
@@ -257,8 +246,7 @@ void SparseGraph::setEdgeCost(int from, int to, double NewCost)
 }
 int SparseGraph::nodeMoreClose(irr::core::vector3df p){
     for(int i=0;i<nodos.size();i++){
-        //std::cout<<"Posicion partida: "<<p.X<<","<<p.Z<<std::endl;
-        //std::cout<<"Entraa: "<<nodos[i].posicion.getDistanceFrom(p)<<std::endl;
+        ///COMPROBAR SI EL NODO MAS CERCANO ESTA DETRAS DE UN OBSTACULO
         if(nodos[i].posicion.getDistanceFrom(p)< menorDistancia){
             menorDistancia=nodos[i].posicion.getDistanceFrom(p);
             indice=nodos[i].Index();
@@ -268,110 +256,5 @@ int SparseGraph::nodeMoreClose(irr::core::vector3df p){
     return indice;
 }
 
-///SAVES Y LOADS
-//-------------------------------- Save ---------------------------------------
-
-/*bool SparseGraph::save(const char* FileName)const
-{
-  //open the file and make sure it's valid
-  std::ofstream out(FileName);
-
-  if (!out)
-  {
-    throw std::runtime_error("Cannot open file: " + std::string(FileName));
-    return false;
-  }
-
-  return save(out);
-}
-
-//-------------------------------- Save ---------------------------------------
-bool SparseGraph::save(std::ofstream& stream)const
-{
-  //save the number of nodes
-  stream << nodos.size() << std::endl;
-
-  //iterate through the graph nodes and save them
-  NodeVector::const_iterator curNode = nodos.begin();
-  for (curNode; curNode!=nodos.end(); ++curNode)
-  {
-    stream << *curNode;
-  }
-
-  //save the number of edges
-  stream << NumEdges() << std::endl;
 
 
-  //iterate through the edges and save them
-  for (unsigned int nodeIdx = 0; nodeIdx < nodos.size(); ++nodeIdx)
-  {
-    for (EdgeList::const_iterator curEdge = aristas[nodeIdx].begin();
-         curEdge!=aristas[nodeIdx].end(); ++curEdge)
-    {
-      stream << *curEdge;
-    }
-  }
-
-  return true;
-}
-//------------------------------- Load ----------------------------------------
-//----------------------------------------------------------------------------
-bool SparseGraph::load(const char* FileName)
-{
-  //open file and make sure it's valid
-  std::ifstream in(FileName);
-
-  if (!in)
-  {
-    throw std::runtime_error("Cannot open file: " + std::string(FileName));
-    return false;
-  }
-
-  return load(in);
-}
-
-//------------------------------- Load ----------------------------------------
-//-----------------------------------------------------------------------------
-bool SparseGraph::load(std::ifstream& stream)
-{
-  clear();
-
-  //get the number of nodes and read them in
-  int NumNodes, NumEdges;
-
-  stream >> NumNodes;
-
-  for (int n=0; n<NumNodes; ++n)
-  {
-    Nodo newNode(stream);
-
-    //when editing graphs it's possible to end up with a situation where some
-    //of the nodes have been invalidated (their id's set to invalid_node_index). Therefore
-    //when a node of index invalid_node_index is encountered, it must still be added.
-    if (NewNode.Index() != -1)
-    {
-      addNode(NewNode);
-    }
-    else
-    {
-      nodos.push_back(NewNode);
-
-      //make sure an edgelist is added for each node
-      aristas.push_back(EdgeList());
-
-      ++nextNodeIndex;
-    }
-  }
-
-  //now add the edges
-  stream >> NumEdges;
-  for (int e=0; e<NumEdges; ++e)
-  {
-    Edge nextEdge(stream);
-
-    addEdge(nextEdge);
-  }
-
-  return true;
-}
-*/

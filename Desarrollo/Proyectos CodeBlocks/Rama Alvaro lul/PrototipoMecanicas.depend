@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1487693010 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1488027808 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -8,6 +8,7 @@
 	<iostream>
 	"include/Map.h"
 	"include/CMainMenu.h"
+	"include/MyEventReceiver.h"
 	"include/PatrolRoute.h"
 
 1481736244 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\irrlicht-1.8.4\include\irrlicht.h
@@ -1160,7 +1161,7 @@
 1481736228 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1487548420 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
+1487953276 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\enemigo.h
 	<irrlicht.h>
 	"driverChoice.h"
 	"../include/Time.h"
@@ -1191,7 +1192,7 @@
 	<Box2D/Box2D.h>
 	<iostream>
 
-1487256686 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\player.h
+1487952626 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\player.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -1373,7 +1374,7 @@
 1484068820 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1487341042 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
+1487952585 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -2829,15 +2830,16 @@
 
 1486910404 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\triggersystem.h
 
-1487797696 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
+1487953276 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
-1487430198 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
-	<irrlicht.h>
+1488037133 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
+	<guilul.h>
 
-1487457880 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
+1488037133 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
 	"CMainMenu.h"
+	"MyEventReceiver.h"
 
 1487693010 source:f:\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
@@ -4246,4 +4248,25 @@
 1487687184 source:f:\proyectos codeblocks\rama alvaro lul\src\enemigo.cpp
 	"Enemigo.h"
 	<Box2D/Box2D.h>
+
+1487963770 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\\gui.h
+	<irrlicht.h>
+
+1487981052 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\gui.h
+	<irrlicht.h>
+	<iostream>
+
+1487963557 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\gui.cpp
+	"gui.h"
+
+1488024310 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\guilul.h
+	<irrlicht.h>
+	<iostream>
+
+1488025402 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\guilul.cpp
+	"guilul.h"
+
+1488027808 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\myeventreceiver.h
+	<irrlicht.h>
+	<iostream>
 

@@ -15,7 +15,7 @@
 class PathFinding
 {
     public:
-        PathFinding(SparseGraph* graf);
+        PathFinding(SparseGraph* graf, Player* play);
         virtual ~PathFinding();
         irr::core::vector3df getPunto();
         bool crearPath(irr::core::vector3df partida,irr::core::vector3df destino, std::list<int>& path);

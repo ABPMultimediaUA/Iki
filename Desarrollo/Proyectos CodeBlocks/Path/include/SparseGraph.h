@@ -56,11 +56,6 @@ class SparseGraph
         //------------------------------------------------------------------------
         void setEdgeCost(int from, int to, double NewCost);
 
-        ///Metodos para cargar y guardar un grafo desde una archivo o desde un nombre de archivo
-        bool save(const char* FileName)const;
-        bool save(std::ofstream& stream)const;
-        bool load(const char* FileName);
-        bool load(std::ifstream& stream);
 
         void clear(){nextNodeIndex = 0; nodos.clear(); aristas.clear();}
         void RemoveEdges()
