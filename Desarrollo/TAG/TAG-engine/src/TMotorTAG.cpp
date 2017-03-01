@@ -73,6 +73,7 @@ int TMotorTAG::registrarLuz(TNodo* nod)
 void TMotorTAG::setLuzActiva(int i)
 {
     l_activa[i] = true;
+    glEnable(GL_LIGHTING);
 }
 
 void TMotorTAG::setLuzApagada(int i)
@@ -95,6 +96,7 @@ void TMotorTAG::setCamaraApagada(int i)
 void TMotorTAG::draw()
 {
     int i;
+    //drawLuces
     for(i= 0; i < luces.size(); i++)
     {
         if(l_activa[i])
@@ -114,18 +116,32 @@ void TMotorTAG::draw()
             mat4 mat_aux = mat4(1.f);
             while(it != aux.begin())
             {
-                mat_aux= *it->getEntidad().getMatriz() ;
+                //mat_aux= *it->getEntidad().getMatriz() ;
                 //* mat_aux
                 --it;
             }
+            //	printf("LUZ:         %.1f %.1f %.1f \n", pos.x, pos.y, pos.z);
+            glUniform3f(glGetUniformLocation(sh->Program, "light.position"), pos.x, pos.y, pos.z);
+
+            //propiedades de la luz
+            glUniform3f(glGetUniformLocation(sh->Program, "light.ambient"),   0.15f, 0.15f, 0.15f);
+            glUniform3f(glGetUniformLocation(sh->Program, "light.diffuse"),   2.5f, 2.5f, 2.5f);
+            glUniform3f(glGetUniformLocation(sh->Program, "light.specular"),  1.0f, 1.0f, 1.0f);
+            glUniform1f(glGetUniformLocation(sh->Program, "light.constant"),  1.0f);
+            glUniform1f(glGetUniformLocation(sh->Program, "light.linear"),    0.09);
+            glUniform1f(glGetUniformLocation(sh->Program, "light.quadratic"), 0.032);
+            //glUniform3f
             //Aqui hemos llegado a la luz
             //Dibujar luces[i] con mat_aux aplicada
         }
     }
 
+    //drawCamaras
     for(i= 0; i < camaras.size(); i++)
     {
         //recorrer el arbol a la inversa
 
     }
+
+    //drawEscena
 }
