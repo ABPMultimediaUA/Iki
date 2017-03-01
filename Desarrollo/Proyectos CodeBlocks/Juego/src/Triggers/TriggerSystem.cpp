@@ -84,7 +84,7 @@ void TriggerSystem::Render()
     TriggerList::iterator curTrg;
     for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
     {
-        ///¡(*curTrg)->Render();
+        ///(*curTrg)->Render();
     }
 }
 

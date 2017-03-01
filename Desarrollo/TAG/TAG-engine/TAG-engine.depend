@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1487862575 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1488208220 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	"Display.h"
 	"TNodo.h"
 	"TTransform.h"
@@ -34,10 +34,10 @@
 	"TEntidad.h"
 	<vector>
 
-1487259342 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
+1487953797 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
 
-1487238690 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
+1487953796 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
 	<iostream>
 	<vector>
 	<TEntidad.h>
@@ -79,7 +79,7 @@
 1487694363 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
 	"TTransform.h"
 
-1487694363 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
+1488369827 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
 	<iostream>
 	<GL/gl.h>
 	<TEntidad.h>
@@ -652,25 +652,25 @@
 
 1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\config.h
 
-1487256056 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
+1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
 
-1487239104 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
 	<iostream>
 	<vector>
 	<TEntidad.h>
 
-1487843024 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
+1487854138 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<stack>
 
-1486495417 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tcolor.cpp
+1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tcolor.cpp
 	"TColor.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tcolor.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tcolor.h
 
-1487843024 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
+1487854139 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
 	"TEntidad.h"
 
 1486495417 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tfichero.cpp
@@ -678,10 +678,10 @@
 
 1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tfichero.h
 
-1487843024 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
+1487854139 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
 	"TGestorRecursos.h"
 
-1487843024 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
+1487854138 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
 	<iostream>
 	<vector>
 	"TRecurso.h"
@@ -689,20 +689,20 @@
 	<assimp/scene.h>
 	<assimp/postprocess.h>
 
-1487239104 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\trecurso.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\trecurso.h
 
-1487256087 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
+1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
 	"TLuz.h"
 
-1486997207 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
 	<iostream>
 	<TEntidad.h>
 	"TColor.h"
 
-1487843024 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
+1487854139 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
 	"TMalla.h"
 
-1487843024 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+1487854138 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
 	<iostream>
 	<TEntidad.h>
 	"TRecursoMalla.h"
@@ -710,14 +710,14 @@
 	<assimp/scene.h>
 	<assimp/postprocess.h>
 
-1487239104 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\trecursomalla.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\trecursomalla.h
 	<TRecurso.h>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importer.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importer.hpp
 	"types.h"
 	"config.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\types.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\types.h
 	<sys/types.h>
 	<math.h>
 	<stddef.h>
@@ -742,62 +742,62 @@
 	"matrix3x3.inl"
 	"matrix4x4.inl"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\defs.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\defs.h
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.h
 	<cmath>
 	<math.h>
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pushpack1.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pushpack1.h
 
-1487239104 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\poppack1.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\poppack1.h
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.h
 	<cmath>
 	<math.h>
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.h
 	"vector3.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.h
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.inl
 	"vector2.h"
 	<cmath>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.inl
 	"vector3.h"
 	<cmath>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.inl
 	"color4.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.inl
 	"quaternion.h"
 	<cmath>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.inl
 	"matrix3x3.h"
 	"matrix4x4.h"
 	<algorithm>
 	<cmath>
 	<limits>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.inl
 	"matrix4x4.h"
 	"matrix3x3.h"
 	"quaternion.h"
@@ -805,9 +805,9 @@
 	<limits>
 	<cmath>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\config.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\config.h
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\scene.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\scene.h
 	"types.h"
 	"texture.h"
 	"mesh.h"
@@ -817,53 +817,50 @@
 	"anim.h"
 	"metadata.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\texture.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\texture.h
 	"types.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\mesh.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\mesh.h
 	"types.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\light.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\light.h
 	"types.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\camera.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\camera.h
 	"types.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.h
 	"types.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 	"material.inl"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.inl
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\anim.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\anim.h
 	"types.h"
 	"quaternion.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\postprocess.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\postprocess.h
 	"types.h"
 
-1487686204 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\trecurso.cpp
+1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\trecurso.cpp
 	"TRecurso.h"
 
-1487239104 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
+1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
-1487843763 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
-	<iostream>
-	<glm.hpp>
-	<GL/gl.h>
+1488204599 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+	"Display.h"
 	"TNodo.h"
 	"TTransform.h"
 	"TLuz.h"
 	"TMalla.h"
 	"TCamara.h"
-	"Display.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\glm.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\glm.hpp
 	"detail/_fixes.hpp"
 	<cmath>
 	<climits>
@@ -892,26 +889,26 @@
 	"vector_relational.hpp"
 	"integer.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_fixes.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_fixes.hpp
 	<cmath>
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\fwd.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\fwd.hpp
 	"detail/type_int.hpp"
 	"detail/type_float.hpp"
 	"detail/type_vec.hpp"
 	"detail/type_mat.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_int.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_int.hpp
 	"setup.hpp"
 	<type_traits>
 	<cstdint>
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\setup.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\setup.hpp
 	<cassert>
 	<cstddef>
 	"../simd/platform.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\platform.h
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\platform.h
 	<cuda.h>
 	<intrin.h>
 	<immintrin.h>
@@ -922,66 +919,66 @@
 	<pmmintrin.h>
 	<emmintrin.h>
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_float.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_float.hpp
 	"setup.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec.hpp
 	"precision.hpp"
 	"type_int.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\precision.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\precision.hpp
 	"setup.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat.hpp
 	"precision.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec2.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec2.hpp
 	"detail/type_vec2.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec2.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec2.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec2.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_swizzle.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_swizzle.hpp
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_swizzle_func.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_swizzle_func.hpp
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec2.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec2.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec3.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec3.hpp
 	"detail/type_vec3.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec3.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec3.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec3.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec3.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec3.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec4.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec4.hpp
 	"detail/type_vec4.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec4.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4.inl
 	"type_vec4_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4_simd.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4_simd.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x2.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x2.hpp
 	"detail/type_mat2x2.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x2.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_mat.hpp"
@@ -989,10 +986,10 @@
 	<cstddef>
 	"type_mat2x2.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x2.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x2.inl
 	"func_matrix.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix.hpp
 	"../detail/precision.hpp"
 	"../detail/setup.hpp"
 	"../detail/type_mat.hpp"
@@ -1010,10 +1007,10 @@
 	"../mat4x4.hpp"
 	"func_matrix.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x3.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x3.hpp
 	"detail/type_mat2x3.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x3.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x3.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -1022,12 +1019,12 @@
 	<cstddef>
 	"type_mat2x3.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x3.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x3.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x4.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x4.hpp
 	"detail/type_mat2x4.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x4.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x4.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -1036,12 +1033,12 @@
 	<cstddef>
 	"type_mat2x4.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x4.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x4.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x2.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x2.hpp
 	"detail/type_mat3x2.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x2.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -1050,12 +1047,12 @@
 	<cstddef>
 	"type_mat3x2.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x2.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x2.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x3.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x3.hpp
 	"detail/type_mat3x3.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x3.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_mat.hpp"
@@ -1063,13 +1060,13 @@
 	<cstddef>
 	"type_mat3x3.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x3.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x3.inl
 	"func_matrix.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x4.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x4.hpp
 	"detail/type_mat3x4.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x4.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x4.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -1078,12 +1075,12 @@
 	<cstddef>
 	"type_mat3x4.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x4.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x4.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x2.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x2.hpp
 	"detail/type_mat4x2.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x2.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -1092,12 +1089,12 @@
 	<cstddef>
 	"type_mat4x2.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x2.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x2.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x3.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x3.hpp
 	"detail/type_mat4x3.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x3.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -1106,12 +1103,12 @@
 	<cstddef>
 	"type_mat4x3.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x3.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x3.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x4.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x4.hpp
 	"detail/type_mat4x4.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4.hpp
 	"../fwd.hpp"
 	"type_vec4.hpp"
 	"type_mat.hpp"
@@ -1119,25 +1116,25 @@
 	<cstddef>
 	"type_mat4x4.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4.inl
 	"func_matrix.hpp"
 	"type_mat4x4_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4_simd.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4_simd.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix.inl
 	"../geometric.hpp"
 	<limits>
 	"func_matrix_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\geometric.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\geometric.hpp
 	"detail/func_geometric.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric.hpp
 	"type_vec3.hpp"
 	"func_geometric.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric.inl
 	"func_exponential.hpp"
 	"func_common.hpp"
 	"type_vec2.hpp"
@@ -1145,7 +1142,7 @@
 	"type_float.hpp"
 	"func_geometric_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -1153,7 +1150,7 @@
 	<cmath>
 	"func_exponential.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec1.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec1.hpp
 	"../fwd.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -1161,9 +1158,9 @@
 	<cstddef>
 	"type_vec1.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec1.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec1.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential.inl
 	"func_vector_relational.hpp"
 	"_vectorize.hpp"
 	<limits>
@@ -1171,37 +1168,37 @@
 	<cassert>
 	"func_exponential_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational.hpp
 	"precision.hpp"
 	"setup.hpp"
 	"func_vector_relational.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational.inl
 	<limits>
 	"func_vector_relational_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational_simd.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational_simd.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_vectorize.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_vectorize.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential_simd.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential_simd.inl
 	"../simd/exponential.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\exponential.h
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\exponential.h
 	"platform.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"type_int.hpp"
 	"_fixes.hpp"
 	"func_common.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common.inl
 	"func_vector_relational.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -1210,88 +1207,88 @@
 	<limits>
 	"func_common_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common_simd.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common_simd.inl
 	"../simd/common.h"
 	<immintrin.h>
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\common.h
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\common.h
 	"platform.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric_simd.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric_simd.inl
 	"../simd/geometric.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\geometric.h
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\geometric.h
 	"common.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix_simd.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix_simd.inl
 	"type_mat4x4.hpp"
 	"func_geometric.hpp"
 	"../simd/matrix.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\matrix.h
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\matrix.h
 	"geometric.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\trigonometric.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\trigonometric.hpp
 	"detail/func_trigonometric.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_trigonometric.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric.inl
 	"_vectorize.hpp"
 	<cmath>
 	<limits>
 	"func_trigonometric_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric_simd.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric_simd.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\exponential.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\exponential.hpp
 	"detail/func_exponential.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\common.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\common.hpp
 	"detail/func_common.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\packing.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\packing.hpp
 	"detail/func_packing.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing.hpp
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"func_packing.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing.inl
 	"func_common.hpp"
 	"type_half.hpp"
 	"../fwd.hpp"
 	"func_packing_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_half.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_half.hpp
 	"setup.hpp"
 	"type_half.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_half.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_half.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing_simd.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing_simd.inl
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\matrix.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\matrix.hpp
 	"detail/func_matrix.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vector_relational.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vector_relational.hpp
 	"detail/func_vector_relational.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\integer.hpp
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\integer.hpp
 	"detail/func_integer.hpp"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer.hpp
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_common.hpp"
 	"func_vector_relational.hpp"
 	"func_integer.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer.inl
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -1301,22 +1298,22 @@
 	<limits>
 	"func_integer_simd.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer_simd.inl
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer_simd.inl
 	"../simd/integer.h"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\integer.h
+1487851709 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\integer.h
 
-1486997207 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
 	<iostream>
 	"TEntidad.h"
 	<vector>
 
-1487843024 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
+1487854138 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
 	<iostream>
 	<GL/gl.h>
 	<TEntidad.h>
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.hpp
 	"../mat4x4.hpp"
 	"../vec2.hpp"
 	"../vec3.hpp"
@@ -1324,22 +1321,22 @@
 	"../gtc/constants.hpp"
 	"matrix_transform.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.hpp
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.hpp
 	"../detail/setup.hpp"
 	"constants.inl"
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.inl
 	<limits>
 
-1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.inl
+1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.inl
 	"../geometric.hpp"
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1487256838 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
+1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
 	"TNodo.h"
 
-1487843024 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
+1487854139 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
 	"TTransform.h"
 
 1480267482 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\scene.h
@@ -1408,23 +1405,25 @@
 1487694363 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmatriz.cpp
 	"TMatriz.h"
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\metadata.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\metadata.h
 	<assert.h>
 	"Compiler/pstdint.h"
 	<limits.h>
 	<stdint.h>
 	<string>
 
-1487686203 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pstdint.h
+1487851707 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pstdint.h
 	<stddef.h>
 	<limits.h>
 	<signal.h>
 	<stdint.h>
 	<wchar.h>
 
-1486480108 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
-	<SDL\SDL.h>
+1488208091 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
+	<glew.h>
+	<SDL2\SDL.h>
 	<string>
+	<iostream>
 
 1486495417 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl\sdl.h
 	"SDL_main.h"
@@ -1745,17 +1744,17 @@
 	"begin_code.h"
 	"close_code.h"
 
-1487843024 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmatriz.cpp
+1487854139 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmatriz.cpp
 	"TMatriz.h"
 
-1487843024 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmatriz.h
+1487854138 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmatriz.h
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1487860216 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
+1488208232 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
+	<glew.h>
 	<SDL2\SDL.h>
 	<string>
-	<GL\glew.h>
 	<iostream>
 
 1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl\sdl.h
@@ -2077,7 +2076,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1485974810 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\gl\glew.h
+1487953796 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -2089,10 +2088,10 @@
 1487860224 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
 	"Display.h"
 
-1487850049 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
+1488208232 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
 	"TMotorTAG.h"
 
-1487850107 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
+1488209042 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
 	"TNodo.h"
 	"TTransform.h"
 	"TLuz.h"
@@ -2100,7 +2099,7 @@
 	"TCamara.h"
 	"TGestorRecursos.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -2131,12 +2130,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_main.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_stdinc.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -2164,34 +2163,34 @@
 	<stdlib.h>
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_config.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_platform.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\begin_code.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\begin_code.h
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\close_code.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\close_code.h
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_assert.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_atomic.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_audio.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -2201,24 +2200,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_error.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_endian.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mutex.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_thread.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -2227,18 +2226,18 @@
 	<process.h>
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rwops.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_clipboard.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_cpuinfo.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -2250,7 +2249,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_events.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -2264,7 +2263,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_video.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -2272,13 +2271,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_pixels.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rect.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -2286,7 +2285,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_surface.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -2295,11 +2294,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_blendmode.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keyboard.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -2307,27 +2306,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keycode.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_scancode.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mouse.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_joystick.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gamecontroller.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -2335,11 +2334,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_quit.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gesture.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -2347,60 +2346,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_touch.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_filesystem.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_haptic.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_hints.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_loadso.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_log.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_messagebox.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_power.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_render.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_system.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -2408,32 +2407,18 @@
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_timer.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1476935894 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_version.h
+1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204960 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
-	"Display.h"
-	"TNodo.h"
-	"TTransform.h"
-	"TLuz.h"
-	"TMalla.h"
-	"TCamara.h"
-
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
-	<SDL2\SDL.h>
-	<string>
-	<GL\glew.h>
-	<iostream>
-
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -2464,12 +2449,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_main.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_stdinc.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -2497,34 +2482,34 @@
 	<stdlib.h>
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_config.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_config.h
 	"SDL_platform.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_platform.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\begin_code.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\begin_code.h
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\close_code.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\close_code.h
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_assert.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_atomic.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_audio.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -2534,24 +2519,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_error.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_endian.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mutex.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_thread.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -2560,18 +2545,18 @@
 	<process.h>
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rwops.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_clipboard.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_cpuinfo.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -2583,7 +2568,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_events.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -2597,7 +2582,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_video.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -2605,13 +2590,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_pixels.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rect.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -2619,7 +2604,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_surface.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -2628,11 +2613,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_blendmode.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keyboard.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -2640,27 +2625,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keycode.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_scancode.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mouse.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_joystick.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gamecontroller.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -2668,11 +2653,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_quit.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gesture.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -2680,60 +2665,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_touch.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_filesystem.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_haptic.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_hints.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_loadso.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_log.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_messagebox.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_power.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_render.h
+1488204598 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_system.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -2741,18 +2726,18 @@
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_timer.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_version.h
+1488204599 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1488204958 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\gl\glew.h
+1487854138 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -2761,712 +2746,17 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1487183106 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tnodo.h
-	<iostream>
-	"TEntidad.h"
-	<vector>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tentidad.h
-	<glm.hpp>
-	<glm/gtc/matrix_transform.hpp>
-	<stack>
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\glm.hpp
-	"detail/_fixes.hpp"
-	<cmath>
-	<climits>
-	<cfloat>
-	<limits>
-	<cassert>
-	"fwd.hpp"
-	"vec2.hpp"
-	"vec3.hpp"
-	"vec4.hpp"
-	"mat2x2.hpp"
-	"mat2x3.hpp"
-	"mat2x4.hpp"
-	"mat3x2.hpp"
-	"mat3x3.hpp"
-	"mat3x4.hpp"
-	"mat4x2.hpp"
-	"mat4x3.hpp"
-	"mat4x4.hpp"
-	"trigonometric.hpp"
-	"exponential.hpp"
-	"common.hpp"
-	"packing.hpp"
-	"geometric.hpp"
-	"matrix.hpp"
-	"vector_relational.hpp"
-	"integer.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_fixes.hpp
-	<cmath>
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\fwd.hpp
-	"detail/type_int.hpp"
-	"detail/type_float.hpp"
-	"detail/type_vec.hpp"
-	"detail/type_mat.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_int.hpp
-	"setup.hpp"
-	<type_traits>
-	<cstdint>
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\setup.hpp
-	<cassert>
-	<cstddef>
-	"../simd/platform.h"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\platform.h
-	<cuda.h>
-	<intrin.h>
-	<immintrin.h>
-	<immintrin.h>
-	<nmmintrin.h>
-	<smmintrin.h>
-	<tmmintrin.h>
-	<pmmintrin.h>
-	<emmintrin.h>
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_float.hpp
-	"setup.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec.hpp
-	"precision.hpp"
-	"type_int.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\precision.hpp
-	"setup.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat.hpp
-	"precision.hpp"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec2.hpp
-	"detail/type_vec2.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec2.hpp
-	"type_vec.hpp"
-	"_swizzle.hpp"
-	"_swizzle_func.hpp"
-	<cstddef>
-	"type_vec2.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_swizzle.hpp
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_swizzle_func.hpp
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec2.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec3.hpp
-	"detail/type_vec3.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec3.hpp
-	"type_vec.hpp"
-	"_swizzle.hpp"
-	"_swizzle_func.hpp"
-	<cstddef>
-	"type_vec3.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec3.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vec4.hpp
-	"detail/type_vec4.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4.hpp
-	"type_vec.hpp"
-	"_swizzle.hpp"
-	"_swizzle_func.hpp"
-	<cstddef>
-	"type_vec4.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4.inl
-	"type_vec4_simd.inl"
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec4_simd.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x2.hpp
-	"detail/type_mat2x2.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x2.hpp
-	"../fwd.hpp"
-	"type_vec2.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat2x2.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x2.inl
-	"func_matrix.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix.hpp
-	"../detail/precision.hpp"
-	"../detail/setup.hpp"
-	"../detail/type_mat.hpp"
-	"../vec2.hpp"
-	"../vec3.hpp"
-	"../vec4.hpp"
-	"../mat2x2.hpp"
-	"../mat2x3.hpp"
-	"../mat2x4.hpp"
-	"../mat3x2.hpp"
-	"../mat3x3.hpp"
-	"../mat3x4.hpp"
-	"../mat4x2.hpp"
-	"../mat4x3.hpp"
-	"../mat4x4.hpp"
-	"func_matrix.inl"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x3.hpp
-	"detail/type_mat2x3.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x3.hpp
-	"../fwd.hpp"
-	"type_vec2.hpp"
-	"type_vec3.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat2x3.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x3.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat2x4.hpp
-	"detail/type_mat2x4.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x4.hpp
-	"../fwd.hpp"
-	"type_vec2.hpp"
-	"type_vec4.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat2x4.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat2x4.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x2.hpp
-	"detail/type_mat3x2.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x2.hpp
-	"../fwd.hpp"
-	"type_vec2.hpp"
-	"type_vec3.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat3x2.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x2.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x3.hpp
-	"detail/type_mat3x3.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x3.hpp
-	"../fwd.hpp"
-	"type_vec3.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat3x3.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x3.inl
-	"func_matrix.hpp"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat3x4.hpp
-	"detail/type_mat3x4.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x4.hpp
-	"../fwd.hpp"
-	"type_vec3.hpp"
-	"type_vec4.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat3x4.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat3x4.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x2.hpp
-	"detail/type_mat4x2.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x2.hpp
-	"../fwd.hpp"
-	"type_vec2.hpp"
-	"type_vec4.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat4x2.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x2.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x3.hpp
-	"detail/type_mat4x3.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x3.hpp
-	"../fwd.hpp"
-	"type_vec3.hpp"
-	"type_vec4.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat4x3.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x3.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\mat4x4.hpp
-	"detail/type_mat4x4.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4.hpp
-	"../fwd.hpp"
-	"type_vec4.hpp"
-	"type_mat.hpp"
-	<limits>
-	<cstddef>
-	"type_mat4x4.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4.inl
-	"func_matrix.hpp"
-	"type_mat4x4_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_mat4x4_simd.inl
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix.inl
-	"../geometric.hpp"
-	<limits>
-	"func_matrix_simd.inl"
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\geometric.hpp
-	"detail/func_geometric.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric.hpp
-	"type_vec3.hpp"
-	"func_geometric.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric.inl
-	"func_exponential.hpp"
-	"func_common.hpp"
-	"type_vec2.hpp"
-	"type_vec4.hpp"
-	"type_float.hpp"
-	"func_geometric_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential.hpp
-	"type_vec1.hpp"
-	"type_vec2.hpp"
-	"type_vec3.hpp"
-	"type_vec4.hpp"
-	<cmath>
-	"func_exponential.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec1.hpp
-	"../fwd.hpp"
-	"type_vec.hpp"
-	"_swizzle.hpp"
-	"_swizzle_func.hpp"
-	<cstddef>
-	"type_vec1.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_vec1.inl
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential.inl
-	"func_vector_relational.hpp"
-	"_vectorize.hpp"
-	<limits>
-	<cmath>
-	<cassert>
-	"func_exponential_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational.hpp
-	"precision.hpp"
-	"setup.hpp"
-	"func_vector_relational.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational.inl
-	<limits>
-	"func_vector_relational_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_vector_relational_simd.inl
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\_vectorize.hpp
-	"type_vec1.hpp"
-	"type_vec2.hpp"
-	"type_vec3.hpp"
-	"type_vec4.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_exponential_simd.inl
-	"../simd/exponential.h"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\exponential.h
-	"platform.h"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common.hpp
-	"setup.hpp"
-	"precision.hpp"
-	"type_int.hpp"
-	"_fixes.hpp"
-	"func_common.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common.inl
-	"func_vector_relational.hpp"
-	"type_vec2.hpp"
-	"type_vec3.hpp"
-	"type_vec4.hpp"
-	"_vectorize.hpp"
-	<limits>
-	"func_common_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_common_simd.inl
-	"../simd/common.h"
-	<immintrin.h>
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\common.h
-	"platform.h"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_geometric_simd.inl
-	"../simd/geometric.h"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\geometric.h
-	"common.h"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_matrix_simd.inl
-	"type_mat4x4.hpp"
-	"func_geometric.hpp"
-	"../simd/matrix.h"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\matrix.h
-	"geometric.h"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\trigonometric.hpp
-	"detail/func_trigonometric.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric.hpp
-	"setup.hpp"
-	"precision.hpp"
-	"func_trigonometric.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric.inl
-	"_vectorize.hpp"
-	<cmath>
-	<limits>
-	"func_trigonometric_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_trigonometric_simd.inl
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\exponential.hpp
-	"detail/func_exponential.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\common.hpp
-	"detail/func_common.hpp"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\packing.hpp
-	"detail/func_packing.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing.hpp
-	"type_vec2.hpp"
-	"type_vec4.hpp"
-	"func_packing.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing.inl
-	"func_common.hpp"
-	"type_half.hpp"
-	"../fwd.hpp"
-	"func_packing_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_half.hpp
-	"setup.hpp"
-	"type_half.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\type_half.inl
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_packing_simd.inl
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\matrix.hpp
-	"detail/func_matrix.hpp"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\vector_relational.hpp
-	"detail/func_vector_relational.hpp"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\integer.hpp
-	"detail/func_integer.hpp"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer.hpp
-	"setup.hpp"
-	"precision.hpp"
-	"func_common.hpp"
-	"func_vector_relational.hpp"
-	"func_integer.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer.inl
-	"type_vec2.hpp"
-	"type_vec3.hpp"
-	"type_vec4.hpp"
-	"type_int.hpp"
-	"_vectorize.hpp"
-	<intrin.h>
-	<limits>
-	"func_integer_simd.inl"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\detail\func_integer_simd.inl
-	"../simd/integer.h"
-
-1486650933 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\simd\integer.h
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.hpp
-	"../mat4x4.hpp"
-	"../vec2.hpp"
-	"../vec3.hpp"
-	"../vec4.hpp"
-	"../gtc/constants.hpp"
-	"matrix_transform.inl"
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.hpp
-	"../detail/setup.hpp"
-	"constants.inl"
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\constants.inl
-	<limits>
-
-1486650932 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtc\matrix_transform.inl
-	"../geometric.hpp"
-	"../trigonometric.hpp"
-	"../matrix.hpp"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
-	<iostream>
-	<GL/gl.h>
-	<TEntidad.h>
-
-1487183106 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
-	<iostream>
-	<TEntidad.h>
-	"TColor.h"
-
-1486650931 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tcolor.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
-	<iostream>
-	<TEntidad.h>
-	"TRecursoMalla.h"
-	<assimp/Importer.hpp>
-	<assimp/scene.h>
-	<assimp/postprocess.h>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\trecursomalla.h
-	<TRecurso.h>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\trecurso.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\importer.hpp
-	"types.h"
-	"config.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\types.h
-	<sys/types.h>
-	<math.h>
-	<stddef.h>
-	<string.h>
-	<limits.h>
-	"defs.h"
-	"vector3.h"
-	"vector2.h"
-	"color4.h"
-	"matrix3x3.h"
-	"matrix4x4.h"
-	"quaternion.h"
-	<cstring>
-	<new>
-	<string>
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-	"vector2.inl"
-	"vector3.inl"
-	"color4.inl"
-	"quaternion.inl"
-	"matrix3x3.inl"
-	"matrix4x4.inl"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\defs.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.h
-	<cmath>
-	<math.h>
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pushpack1.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\poppack1.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.h
-	<cmath>
-	<math.h>
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.h
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.h
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.h
-	"vector3.h"
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector2.inl
-	"vector2.h"
-	<cmath>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\vector3.inl
-	"vector3.h"
-	<cmath>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\color4.inl
-	"color4.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\quaternion.inl
-	"quaternion.h"
-	<cmath>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix3x3.inl
-	"matrix3x3.h"
-	"matrix4x4.h"
-	<algorithm>
-	<cmath>
-	<limits>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\matrix4x4.inl
-	"matrix4x4.h"
-	"matrix3x3.h"
-	"quaternion.h"
-	<algorithm>
-	<limits>
-	<cmath>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\config.h
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\scene.h
-	"types.h"
-	"texture.h"
-	"mesh.h"
-	"light.h"
-	"camera.h"
-	"material.h"
-	"anim.h"
-	"metadata.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\texture.h
-	"types.h"
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\mesh.h
-	"types.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\light.h
-	"types.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\camera.h
-	"types.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.h
-	"types.h"
-	"./Compiler/pushpack1.h"
-	"./Compiler/poppack1.h"
-	"material.inl"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\material.inl
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\anim.h
-	"types.h"
-	"quaternion.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\metadata.h
-	<assert.h>
-	"Compiler/pstdint.h"
-	<limits.h>
-	<stdint.h>
-	<string>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\compiler\pstdint.h
-	<stddef.h>
-	<limits.h>
-	<signal.h>
-	<stdint.h>
-	<wchar.h>
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\assimp\postprocess.h
-	"types.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
-	<iostream>
-	<vector>
-	<TEntidad.h>
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
+1487854147 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
 	"Display.h"
 
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
-	"TCamara.h"
-
-1486650933 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tcolor.cpp
-	"TColor.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
-	"TEntidad.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tgestorrecursos.cpp
-	"TGestorRecursos.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tgestorrecursos.h
-	<iostream>
-	<vector>
-	"TRecurso.h"
-	<assimp/Importer.hpp>
-	<assimp/scene.h>
-	<assimp/postprocess.h>
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
-	"TLuz.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
-	"TMalla.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tmatriz.cpp
-	"TMatriz.h"
-
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tmatriz.h
-	<glm.hpp>
-	<glm/gtc/matrix_transform.hpp>
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
+1488207945 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
 	"TMotorTAG.h"
 
-1488204959 c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
+1488207945 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
 	"TNodo.h"
 	"TTransform.h"
 	"TLuz.h"
 	"TMalla.h"
 	"TCamara.h"
 	"TGestorRecursos.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\tnodo.cpp
-	"TNodo.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\trecurso.cpp
-	"TRecurso.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
-	"TRecursoMalla.h"
-
-1488204961 source:c:\users\mateobernal\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
-	"TTransform.h"
 

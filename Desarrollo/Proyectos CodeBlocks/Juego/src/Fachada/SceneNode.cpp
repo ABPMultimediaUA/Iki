@@ -1,5 +1,5 @@
-#include "SceneNode.h"
-#include "GraphicsFacade.h"
+#include "Fachada/SceneNode.h"
+#include "Fachada/GraphicsFacade.h"
 #include "World.h"
 
 SceneNode::SceneNode(float tam, Structs::TPosicion posicionInicial)

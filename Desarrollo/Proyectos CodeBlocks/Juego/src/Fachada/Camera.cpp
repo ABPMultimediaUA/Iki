@@ -1,5 +1,5 @@
-#include "Camera.h"
-#include "GraphicsFacade.h"
+#include "Fachada/Camera.h"
+#include "Fachada/GraphicsFacade.h"
 
 Camera::Camera(Structs::TPosicion position, Structs::TPosicion lookAt)
 {

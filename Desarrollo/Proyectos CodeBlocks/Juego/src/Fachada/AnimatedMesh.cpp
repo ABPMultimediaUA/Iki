@@ -1,5 +1,5 @@
-#include "AnimatedMesh.h"
-#include "GraphicsFacade.h"
+#include "Fachada/AnimatedMesh.h"
+#include "Fachada/GraphicsFacade.h"
 
 AnimatedMesh::AnimatedMesh(const char* file, Structs::TColor color, Structs::TPosicion posicion, float rotacion)
 {

@@ -2,7 +2,7 @@
 #define MAPCOMPONENT_H
 
 #include "Structs.h"
-#include "AnimatedMesh.h"
+#include "Fachada/AnimatedMesh.h"
 
 class MapComponent
 {
