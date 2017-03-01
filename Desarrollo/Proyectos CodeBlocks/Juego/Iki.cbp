@@ -85,7 +85,6 @@
 		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/MeshSceneNode.h" />
 		<Unit filename="include/MyEventReceiver.h" />
-		<Unit filename="include/PhisicsWorld.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/SceneNode.h" />
@@ -93,6 +92,11 @@
 		<Unit filename="include/Triggers/Trigger.h" />
 		<Unit filename="include/Triggers/TriggerRegion.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Circle.h" />
+		<Unit filename="include/Triggers/TriggerRegion_Rectangle.h" />
+		<Unit filename="include/Triggers/TriggerSystem.h" />
+		<Unit filename="include/Triggers/Trigger_Municion.h" />
+		<Unit filename="include/Triggers/Trigger_Puerta.h" />
+		<Unit filename="include/Triggers/Trigger_Respawning.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
@@ -106,7 +110,6 @@
 		<Unit filename="src/MapComponent.cpp" />
 		<Unit filename="src/MeshSceneNode.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
-		<Unit filename="src/PhisicsWorld.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/SceneNode.cpp" />
@@ -114,6 +117,11 @@
 		<Unit filename="src/Triggers/Trigger.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion_Circle.cpp" />
+		<Unit filename="src/Triggers/TriggerRegion_Rectangle.cpp" />
+		<Unit filename="src/Triggers/TriggerSystem.cpp" />
+		<Unit filename="src/Triggers/Trigger_Municion.cpp" />
+		<Unit filename="src/Triggers/Trigger_Puerta.cpp" />
+		<Unit filename="src/Triggers/Trigger_Respawning.cpp" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/tinyxml2.cpp" />
 		<Extensions>

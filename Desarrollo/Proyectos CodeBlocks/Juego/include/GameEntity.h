@@ -13,13 +13,17 @@ class GameEntity
     public:
         GameEntity();
         ~GameEntity();
+
         Structs::TPosicion getPosition() { return posicion; }
+        double             getRadio()    { return radio;    }
 
     protected:
         SceneNode *modelo;
         b2Body *body;
         int tipo;
+
         Structs::TPosicion posicion;
+        double radio;
 
 };
 
