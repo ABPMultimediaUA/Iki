@@ -2,9 +2,10 @@
 #define SCENE_H
 
 #include "Structs.h"
-#include "Camera.h"
+#include "Fachada/Camera.h"
 #include "Player.h"
 #include "World.h"
+#include "TriggerSystem.h"
 
 class Scene
 {
@@ -20,6 +21,7 @@ class Scene
 
         Camera *camara;
         World *world;
+        TriggerSystem triggersystem;
         Player *player;
         Structs::TPosicion mousePosition;
         f32 TimeStamp;

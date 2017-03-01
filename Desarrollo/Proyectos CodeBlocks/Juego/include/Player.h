@@ -2,7 +2,7 @@
 #define PLAYER_H
 
 #include "GameEntity.h"
-#include "Camera.h"
+#include "Fachada/Camera.h"
 #include <iostream>
 
 #define MOV_SPEED 10.0f;

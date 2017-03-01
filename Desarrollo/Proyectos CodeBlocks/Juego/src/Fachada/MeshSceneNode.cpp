@@ -1,5 +1,5 @@
-#include "MeshSceneNode.h"
-#include "GraphicsFacade.h"
+#include "Fachada/MeshSceneNode.h"
+#include "Fachada/GraphicsFacade.h"
 
 MeshSceneNode::MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicion, Structs::TColor color)
 {

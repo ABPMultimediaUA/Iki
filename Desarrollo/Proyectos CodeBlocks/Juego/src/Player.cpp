@@ -1,6 +1,6 @@
 #include "Player.h"
-#include "GraphicsFacade.h"
-#include "World.h"
+#include "Fachada/GraphicsFacade.h"
+#include "PhisicsWorld.h"
 
 Player::Player()
 {
@@ -20,11 +20,12 @@ void Player::inicializar_player(){
     modelo->cambiarColor(color);
     posicion = modelo->getPosition();
 
+    radio = 1;
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(170, 50);
-    body = World::getInstance()->getWorld()->CreateBody(&bodyDef);
+    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;
     bodyShape.SetAsBox(2/2, 2/2);

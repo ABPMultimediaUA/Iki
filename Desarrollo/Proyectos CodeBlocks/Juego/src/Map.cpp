@@ -64,10 +64,10 @@ void Map::inicializar_mapa(){
 
         //Paredes
         if      (objectGroup->Attribute("name", "Pared"))      crearComponente(1);
-        else if (objectGroup->Attribute("name", "Puertas"))    crearComponente(2);
-        else if (objectGroup->Attribute("name", "Palancas"))   crearComponente(3);
-        else if (objectGroup->Attribute("name", "Objetos"))    crearComponente(4);
-        else if (objectGroup->Attribute("name", "Apisonadora"))crearComponente(5);
+        //else if (objectGroup->Attribute("name", "Puertas"))    crearComponente(2);
+        //else if (objectGroup->Attribute("name", "Palancas"))   crearComponente(3);
+        //else if (objectGroup->Attribute("name", "Objetos"))    crearComponente(4);
+        //else if (objectGroup->Attribute("name", "Apisonadora"))crearComponente(5);
 
         /*else if (objectGroup->Attribute("name", "Patrol"))
         {
