@@ -17,11 +17,11 @@ void Trigger_Puerta::Try(GameEntity* ent)
 {
     if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
         //Open la puerta
-        std::cout << "ejeje " << std::endl;
+        //std::cout << "ejeje " << std::endl;
     }
     else{
         //Close la puerta
-        std::cout << "   " << std::endl;
+        //std::cout << "   " << std::endl;
     }
 }
 

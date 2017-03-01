@@ -2,6 +2,7 @@
 #include "Trigger_Puerta.h"
 #include "TriggerRegion_Rectangle.h"
 #include <iostream>
+
 TriggerSystem::TriggerSystem()
 {
     //ctor
@@ -115,11 +116,14 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
 
             //}
 
+            ///  ////////////////
+           /// Trigger* trigger = fabrica->createTrigger();
+            ///  ////////////////
+
             //pushback
             m_Triggers.push_back(trigger);
 
             }
-
             object = object->NextSiblingElement("object");
         }
     }
