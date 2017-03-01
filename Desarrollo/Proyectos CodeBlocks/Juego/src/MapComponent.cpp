@@ -1,6 +1,6 @@
 #include "MapComponent.h"
-#include "AnimatedMesh.h"
-#include "World.h"
+#include "Fachada/AnimatedMesh.h"
+#include "PhisicsWorld.h"
 
 MapComponent::MapComponent(float a, Structs::TPosicion b, int i)
 {
@@ -95,7 +95,7 @@ MapComponent::MapComponent(float a, Structs::TPosicion b, int i)
     }
         //file = "Modelos/cubito.obj";
     bodyDef.position.Set(b.X, b.Z);
-    body = World::getInstance()->getWorld()->CreateBody(&bodyDef);
+    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
     bodyShape.SetAsBox(ancho, alto);
     body->CreateFixture(&bodyShape, 1.0f);
     body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265358979323846 * a);

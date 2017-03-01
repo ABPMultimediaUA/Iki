@@ -1,9 +1,13 @@
-#include "../include/Enemy.h"
+#include "Enemy.h"
+#include "Fachada/GraphicsFacade.h"
 
 
-Enemy::Enemy()
+Enemy::Enemy(int &num_enemigos)
 {
+    num_enemigos++;
+    id = num_enemigos;
     estado = 0;
+    sospecha = 0.0;
 }
 
 Enemy::~Enemy()
@@ -11,14 +15,15 @@ Enemy::~Enemy()
 
 }
 
-/*void Enemy::inicializar_enemigo(int t, ISceneManager* smgr, vector3df p)
+void Enemy::inicializar_enemigo(int t, Structs::TPosicion p)
 {
-        estado = 0;
-        tipo = t;
-        posicion = p; //Meter en interfaz
-        modelo = smgr->addCubeSceneNode(5);
-        modelo->setPosition(posicion);
-        smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),irr::video::SColor(0, 0, 255, 0));
-}*/
+    Structs::TColor color = {0,0,255,0};
+    tipo = t;
+    posicion = p;
+    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
+
+    modelo->cambiarColor(color);
+
+}
 
 

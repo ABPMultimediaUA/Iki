@@ -1,8 +1,10 @@
 #include "Scene.h"
-#include "GraphicsFacade.h"
+#include "Fachada/GraphicsFacade.h"
+#include "PhisicsWorld.h"
 
 Scene::Scene()
 {
+    world = new World();
     player = new Player();
     mousePosition = {170,0,50};
 }
@@ -26,7 +28,7 @@ void Scene::inicializar_escena(){
     DeltaTime = 0;
 
     player->inicializar_player();
-    World::getInstance()->inicializar_mundo();
+    world->inicializar_mundo();
 
     bucle_juego();
 }
@@ -36,7 +38,7 @@ void Scene::bucle_juego(){
     while(GraphicsFacade::getInstance().run()){
         player->update(camara, mousePosition);
         camara->render(player->getPosition());
-        World::getInstance()->Step(DeltaTime);
+        PhisicsWorld::getInstance()->Step(DeltaTime);
         DeltaTime = GraphicsFacade::getInstance().getTimer()->getTime() - TimeStamp;
         TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();
 
