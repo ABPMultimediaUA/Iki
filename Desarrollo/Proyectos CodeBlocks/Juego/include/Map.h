@@ -6,7 +6,7 @@
 #include "tinyxml2.h"
 
 #include "Structs.h"
-#include "MeshSceneNode.h"
+#include "Fachada/MeshSceneNode.h"
 
 using namespace tinyxml2;
 using namespace std;

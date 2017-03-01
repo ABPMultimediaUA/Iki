@@ -37,13 +37,13 @@ class Player
         b2Body* getBody();
         int getLaser();
         float getVida();
-        float velocidad;
         void setVida(float v);
         void setLaser(int l);
         void muerte();
         void setNoMuerto();
         bool isPathObstructured(vector3df destino);
         void setMuro(Map* murito);
+        float velocidad;
 
     protected:
 
