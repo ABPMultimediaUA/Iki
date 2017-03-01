@@ -16,8 +16,9 @@ class GameEntity
 
         //Getters
         Structs::TPosicion getPosition() { return posicion; }
-        int                getTipo()     { return tipo;}
-        float              getVida()     { return vida;}
+        int                getTipo()     { return tipo;     }
+        float              getVida()     { return vida;     }
+        double             getRadio()    { return radio;    }
 
     protected:
 
@@ -26,6 +27,7 @@ class GameEntity
         int tipo;
         float vida;
         Structs::TPosicion posicion;
+        double radio;
 
 };
 

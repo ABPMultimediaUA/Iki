@@ -88,11 +88,11 @@ std::list<PathEdge> Algoritmo::GetPathAsPathEdges()const
   std::list<PathEdge> path;
 
   //just return an empty path if no target or no path found
-  if (desde < 0)  return path;
+  if (hasta < 0)  return path;
 
-  int nd = desde;
+  int nd = hasta;
 
-  while ((nd != hasta) && (PathMasCorto[nd] != 0))
+  while ((nd != desde) && (PathMasCorto[nd] != 0))
   {
     path.push_front(PathEdge(Grafo.getNode(PathMasCorto[nd]->From()).posicion,
                              Grafo.getNode(PathMasCorto[nd]->To()).posicion,

@@ -29,6 +29,7 @@ void Scene::inicializar_escena(){
 
     player->inicializar_player();
     world->inicializar_mundo();
+    triggersystem.LeerMapa();
 
     bucle_juego();
 }
@@ -37,6 +38,7 @@ void Scene::bucle_juego(){
 
     while(GraphicsFacade::getInstance().run()){
         player->update(camara, mousePosition);
+        triggersystem.Update(player);
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step(DeltaTime);
         DeltaTime = GraphicsFacade::getInstance().getTimer()->getTime() - TimeStamp;

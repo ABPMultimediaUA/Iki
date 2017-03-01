@@ -18,16 +18,16 @@ bool PathPlanner::crearPath(irr::core::vector3df destino, std::list<PathEdge>& p
     //Comprobamos si el bot puede moverse directamente al objetivo con
     //un metodo que tomo como comienzo la posicion dedestino y un radio de
     //la entidad y depermina si el bot es capaz de moverse entre las dos posiciones
-    if(enemigo->isPathObstructured(posicionDestino)){
+    if(!enemigo->isPathObstructured(posicionDestino)){
             //create an edge connecting the bot's current position and the
             //target position and push it on the path list (flagged to use the
             //"normal" behavior = 1)
-            path.push_back(PathEdge(enemigo->getPosicion(), posicionDestino,1));
+            path.push_back(PathEdge(enemigo->getModelo()->getPosition(), posicionDestino,1));
             return true;
     }
     //encontar el nodo mas cercano a la posicion del bot, getclosesnode es un metodo
     //que consulta el grafo de navegacion de nodos para determinar el mas cercano no obstruido
-    int NodoMasCercano=grafo->nodeMoreClose(enemigo->getPosicion());
+    int NodoMasCercano=grafo->nodeMoreClose(enemigo->getModelo()->getPosition());
     //Si ningun nodo visible se encuentra, devolvemos false, esto ocurrira si
     //el grafo esta mal diseñado o si el bot esta bugeado o algo
     if(NodoMasCercano == -1){
@@ -44,9 +44,9 @@ bool PathPlanner::crearPath(irr::core::vector3df destino, std::list<PathEdge>& p
      //grab the path as a list of PathEdges
      path = alg.GetPathAsPathEdges();
      if(!path.empty()){
-     path.push_front(PathEdge(enemigo->getPosicion(), path.front().getSource(),1));
-     path.push_back(PathEdge(path.back().getDestination(),posicionDestino,1));
-     return true;
+         path.push_front(PathEdge(enemigo->getPosicion(), path.front().getSource(),1));
+         path.push_back(PathEdge(path.back().getDestination(),posicionDestino,1));
+         return true;
      }
      else{
         //no path found by the search

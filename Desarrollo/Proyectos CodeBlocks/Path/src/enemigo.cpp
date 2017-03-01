@@ -17,9 +17,8 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
 
         pRuta = pr.getInicial();
         id=ID;
-        input.maxFraction	=	1.0f;
         tam= 2;
-        estado = 11;
+        estado = 4;
         vida=3;
         direccion = 0;
         tipo = t;
@@ -65,48 +64,15 @@ void Enemigo::inicialiazar(int t, int ID,scene::ISceneManager* smgr, core::vecto
         angulo = atan2f((posicionInicial.Z) ,-(posicionInicial.X)) * 180.f /PI;
         modelo->setRotation(vector3df(0,angulo,0));
         rotacion=modelo->getRotation().Y;
-        //std::cout << "Primera Rotacion: " << rotacion  << std::endl;
-        //std::cout << "Primer Angulo: " << angulo  << std::endl;
-
+        input.maxFraction	=	1.0f;
+        input2.maxFraction	=	1.0f;
 
 }
 
-void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
-    tam= 2;
-    vida = 150;
-    tipo=4;
-    id=3;
-
-    mura1 = smgr->getGeometryCreator()->createCubeMesh(core::vector3df(8.f, 8.f, 8.f));
-    modelo = smgr->addMeshSceneNode(mura1);
-
-    modelo->setPosition(core::vector3df(180,0,255));
-    modelo->setRotation(core::vector3df(0,-45,0));
-    posicion=modelo->getPosition();
-
-    b2BodyDef bodyDef;
-    bodyDef.type= b2_staticBody;
-    bodyDef.position.Set(180, 255);
-    iworld= World::Instance();
-    body2= iworld->getWorld()->CreateBody(&bodyDef);
-
-    b2PolygonShape bodyShape;
-    bodyShape.SetAsBox(tam/2, tam/2);
-    body2->CreateFixture(&bodyShape, 1.0f);
-
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
-    body2->CreateFixture(&fixtureDef);
-}
-
-
-    /*
-    void Enemigo::setPosition(core::vector3df vec){
-        modelo->setPosition(core::vector3df(vec.X, 0, vec.Z));
-    }*/
+   void Enemigo::setPosition(core::vector3df vec){
+        modelo->setPosition(vec);
+        posicion = modelo->getPosition();
+    }
 
     b2Body* Enemigo::getBody(){
         return body2;
@@ -145,6 +111,7 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
     void Enemigo::setPosicion(){
             body2->SetTransform(b2Vec2(cuboEnemigo.X, cuboEnemigo.Z), 0);
             modelo->setPosition(vector3df(body2->GetPosition().x, 0, body2->GetPosition().y));
+            posicion = modelo->getPosition();
 
     }
 
@@ -173,7 +140,6 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
 
     void Enemigo::patrullar()
     {
-       // if(id==2){
             if(cuboEnemigo.getDistanceFrom(pRuta->getPunto()) >0.1){
 
                 //rotar el body tambien
@@ -196,7 +162,6 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
                 //std::cout << "Rotacion: " << rotacion  << std::endl;
             }
         posicion = cuboEnemigo;
-        //}
     }
 
     bool Enemigo::comprobarPunto(b2Vec2 v){
@@ -255,57 +220,19 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         posicion = cuboEnemigo;
     }
 
-    void Enemigo::curar(Enemigo aliado)
-    {
-
-    }
     void Enemigo::perseguir(){
         cuboEnemigo += direccionHaciaProta.normalize() * avMovement * 2.0;
         posicion = cuboEnemigo;
 
     }
-    void Enemigo::pedirAyuda(){
-        cuboEnemigo += direccionHaciaAliado.normalize() * avMovement* 2.0;
-        posicion = cuboEnemigo;
-    }
-    void Enemigo::huir(){
-            cuboEnemigo += direccionHuir.normalize() * avMovement* 2.0;
-            posicion = cuboEnemigo;
-    }
+
     void Enemigo::proteger(){ //GIRAR ALREDEDOR DEL ALIADO
         if(fabs(posicion.X - aliado->getPosicion().X) > 2 && fabs(posicion.Z - aliado->getPosicion().Z) > 2){
             cuboEnemigo += direccionHaciaAliado.normalize() * avMovement* 2.0;
         }
         posicion = cuboEnemigo;
     }
-    /*bool Enemigo::seeWhereIgo(){
-        devolver=false;
-        if(angulo==0)//mira a la izquierda
-        {
-            if(player->getPosicionProta().X < posicion.X){
-                devolver=true;
-            }
-        }
-        if(angulo==180)//mira a la dercha
-        {
-            if(player->getPosicionProta().X > posicion.X){
-                devolver=true;
-            }
-        }
-        if(angulo==-90)//mira hacia arriba
-        {
-            if(player->getPosicionProta().Z < posicion.Z){
-                devolver=true;
-            }
-        }
-        if(angulo==90)//mira hacia abajo
-        {
-            if(player->getPosicionProta().Z > posicion.Z){
-                devolver=true;
-            }
-        }
-        return devolver;
-    }*/
+
     void Enemigo::escanear(){
         time=tiempo.getTime();
         tiempoEscaneando=(time-reloj);
@@ -416,37 +343,11 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 255, 0));
                 if(tipo == 0){
                     estado=6;
-                    //si el prota esta a rango ataca
-                    //sino persigue
                 }
-                else if(tipo == 1){
-                    //mantiene poscion y suena
-                    posicion = cuboEnemigo;
-                    puntoInteres=posicionProta;
-                    avisarCapsulas();
-                }
-                else if(tipo == 2){
-                        if(hayAliado)
-                            estado=4;
-                        else
-                            estado=5;
-                   //si hay enemigo pedir ayuda, cuando le encuentre avisarle y curarle o perseguirle;
-                   //si no hay huir, cuando haya huido volver a patrullar
-                }
-            break;
-        case 4: //PEDIR AYUDA
-            pedirAyuda();
-            //fabs es para valor absoluto
-            if( posicion.getDistanceFrom(aliado->getPosicion()) < 5){
-                estado=9;
-                mensajeEstado=6;
-                mensajePendiente=true;
-            }
-            //cuando lo encuentra, lo cura si es necesario y lo protege
-            break;
-        case 5: //HUIR
-            if(cuboEnemigo.getDistanceFrom(posicionAliado) > 10){
-            huir();
+        case 4://PRUEBAA
+            smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(255, 100, 100, 0));
+            if(distanciaPlayer<50){
+                estado = 11;
             }
             break;
         case 6: //PERSEGUIR
@@ -485,61 +386,19 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
             }
 
             break;
-        case 9: //PROTEGER
-            proteger();
-            if (aliado->getEstado()==10){
-                std::cout << "PosiconAliado(x,y)" << posicionAliado.X<<","<<posicionAliado.Z <<"entraaaaaa"<<std::endl;
-                estado=5;
-            }
-            if(aliado->getEstado()==0){
-                estado=0;
-                posicionInicial = pRuta->getPunto() - cuboEnemigo;
-            }
-            break;
         case 10: //MUERTO
             break;
         case 11: ///PRUEBA
-        smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(70, 70, 70, 0));
-
-        /*path2.crearPath(prota->getPosicionProta(),listaPosiciones);
-
-            it2 = listaPosiciones.begin();
-            while( it2 != listaPosiciones.end())
-             {
-                 cout << (*it2).X << " " << (*it2).Z<< endl;
-                 it2++;
-             }
-
-          if(it2 != listaPosiciones.end()){
-            posicionA=vector3df(0,0,0);
-            toNextPosition = posicionA  - enemigos[0]->getPosicion();
-          }
-            toProtaPosition = prota->getCuboProta() - enemigos[0]->getPosicion();
-
-            if(toNextPosition.getLength() <= 1) //CUANDO LLEGA AL ULTIMO NODO
-            {
-                enemigos[0]->setCuboEnemigo(vector3df(0,0,0));
-                if(it2 != listaPosiciones.end())
-                    it++;
-                else if(it2 == listaPosiciones.end()){
-                    if(toProtaPosition.getLength() <= 1) //CUANDO LLEGA AL DESTINO
-                    {
-                        enemigos[0]->setCuboEnemigo(vector3df(0,0,0));
-                    }
-                    else{
-                        enemigos[0]->setCuboEnemigo(toProtaPosition);
-                    }
-                }
+            smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 255, 0, 0));
+            break;
+        case 12: ///PRUEBA
+            smgr1->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(0, 0, 255, 0));
+            if(distanciaPlayer>=50){
+                estado=4;
             }
-            else
-            {
-                if(it2 != listaPosiciones.end()){
-                    enemigos[0]->setCuboEnemigo(toNextPosition);
-                }
-            }
-*/
+            break;
         default:
-            estado = 12;
+            estado = 13;
             break;
 
         }
@@ -553,58 +412,24 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
         tiempo = temps;
         if(modelo)
         {
-            if(tipo==2){//SI ES MEDICO
-                direccionHuir = (aliados[5]->getPosicion()-posicion);
-                //habria que comprobar el tipo de aliado y si es guardia guardarnos las posiciones, en este caso sabemos que es el 0
-                for(i=0;i<7;i++){
-                    if(aliados[i]->getTipo()==0 && aliados[i]->getEstado()==10){
-                        if(aliado->getID()==aliados[i]->getID()){
-                            hayAliado=false;
-                        }
-                    }
-                    if(aliados[i]->getTipo()==0 && aliados[i]->getEstado()!=10 && (i==0 || i==6)){//Hay guardias y no estan muertos
-                        if(hayAliado && aliado->getID()!=i){//Si ya tiene asignado un aliado
-                            //std::cout << "Uno(X,Z): " << posicion.getDistanceFrom(aliados[i]->getPosicion())<<" "<<i<< std::endl;
-                            //std::cout << "Dos(X,Z): " << posicion.getDistanceFrom(aliado->getPosicion())<<" "<<i<< std::endl;
-                            if(posicion.getDistanceFrom(aliados[i]->getPosicion()) < posicion.getDistanceFrom(aliado->getPosicion())){
-                                posicionAliado=aliados[i]->getPosicion();
-                                direccionHaciaAliado= (posicionAliado-posicion);
-                                aliado=aliados[i];
-                            }
-                        }
-                        else if (hayAliado==false){//Si no tiene asignado un aliado
-                        posicionAliado=aliados[i]->getPosicion();
-                        direccionHaciaAliado= (posicionAliado-posicion);
-                        aliado=aliados[i];
-                        hayAliado=true;
-                        //std::cout << "ID: " << aliados[i]->getID() << std::endl;
-                        }
-                        else if(aliado->getID()==i){
-                            aliado=aliados[i];
-                            posicionAliado=aliado->getPosicion();
-                            direccionHaciaAliado= (posicionAliado-posicion);
-                        }
-
-                    }
-                    else{
-                        posicionAliado=aliados[5]->getPosicion();
-                    }
-                }
-                if(mensajePendiente){
-                    //aqui pues deberiamos tener un destinario, de momento solo tenemos mensaje entre la medio y el guardia y por eso es asi
-                    aliado->setEstado(mensajeEstado);
-                    mensajePendiente=false;
-                }
-            }
-
             avMovement = 9.5f * tiempo.getTimeFactor();
             distanciaPlayer = posicion.getDistanceFrom(cuboProta);
             direccionHaciaProta=cuboProta-posicion;
             maquinaEstados();
             posicionProta=cuboProta;
-
         }
     }
+    void Enemigo::moverBody(core::vector3df vec){
+
+    double modulo = sqrt((vec.X*vec.X) + (vec.Z*vec.Z));
+    if(modulo != 0){
+        vec.X = (vec.X / modulo) * velocidad * 0.70;
+        vec.Z = (vec.Z / modulo) * velocidad * 0.70;
+    }
+
+    body2->SetLinearVelocity(b2Vec2(vec.X, vec.Z));
+}
+
 
     void Enemigo::setMuro(Map* murito, Player *prota){
         player= prota;
@@ -629,20 +454,18 @@ void Enemigo::inicialiazar2(scene::ISceneManager* smgr){
        return false;
     }
     bool Enemigo::isPathObstructured(vector3df destino){
-        input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
-        input.p2.Set(destino.X, destino.Y);	//	Punto	final	del	rayo
+        input2.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
+        input2.p2.Set(destino.X, destino.Y);	//	Punto	final	del	rayo
 
-        if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output,	input,	0))
+        if (morito->puertas->at(0)->body->GetFixtureList()->RayCast(&output2,	input2,	0))
             return true;
-        else if (morito->puertas->at(1)->body->GetFixtureList()->RayCast(&output,	input,	0))
+        else if (morito->puertas->at(1)->body->GetFixtureList()->RayCast(&output2,	input2,	0))
             return true;
 
             for (int i = 0; i < morito->muros->size(); i++) {
-                if (morito->muros->at(i)->body->GetFixtureList()->RayCast(&output,	input,	0))
+                if (morito->muros->at(i)->body->GetFixtureList()->RayCast(&output2,	input2,	0))
                     return true;
-
 	}
-
        return false;
     }
     bool Enemigo::canWalkBetween(vector3df desde, vector3df hasta){

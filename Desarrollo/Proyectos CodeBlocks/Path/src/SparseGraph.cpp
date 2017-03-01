@@ -246,6 +246,7 @@ void SparseGraph::setEdgeCost(int from, int to, double NewCost)
 }
 int SparseGraph::nodeMoreClose(irr::core::vector3df p){
     for(int i=0;i<nodos.size();i++){
+        ///COMPROBAR SI EL NODO MAS CERCANO ESTA DETRAS DE UN OBSTACULO
         if(nodos[i].posicion.getDistanceFrom(p)< menorDistancia){
             menorDistancia=nodos[i].posicion.getDistanceFrom(p);
             indice=nodos[i].Index();
@@ -254,5 +255,6 @@ int SparseGraph::nodeMoreClose(irr::core::vector3df p){
     menorDistancia=5000;
     return indice;
 }
+
 
 
