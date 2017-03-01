@@ -634,18 +634,78 @@
   <object id="2452" x="80" y="96.5341" width="2" height="2"/>
  </objectgroup>
  <objectgroup color="#ffaa7f" name="Patrol">
-  <object id="2457" x="32.75" y="184.625" width="2" height="2"/>
-  <object id="2458" x="33.25" y="132.375" width="2" height="2"/>
-  <object id="2459" x="33.625" y="119.125" width="2" height="2"/>
-  <object id="2460" x="17.875" y="105.625" width="2" height="2"/>
-  <object id="2461" x="33" y="91.875" width="2" height="2"/>
-  <object id="2462" x="53.125" y="104" width="2" height="2"/>
-  <object id="2463" x="57.625" y="76.625" width="2" height="2"/>
-  <object id="2464" x="96" y="69.125" width="2" height="2"/>
-  <object id="2465" x="96.625" y="98.875" width="2" height="2"/>
-  <object id="2466" x="112.5" y="116.625" width="2" height="2"/>
-  <object id="2467" x="124.75" y="111.75" width="2" height="2"/>
-  <object id="2468" x="124" y="87.25" width="2" height="2"/>
+  <object id="2457" x="32.75" y="184.625" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="0"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2458" x="33.25" y="132.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="0"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2459" x="33.625" y="119.125" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="1"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2460" x="17.875" y="105.625" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="1"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2461" x="33" y="91.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="1"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2462" x="53.125" y="104" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="1"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2463" x="57.625" y="76.625" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="2"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2464" x="96" y="69.125" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="2"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2465" x="96.625" y="98.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="3"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2466" x="112.5" y="116.625" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="3"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2467" x="124.75" y="111.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="3"/>
+    <property name="Next" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2468" x="124" y="87.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" type="int" value="3"/>
+    <property name="Next" type="int" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="WayPoints">
   <object id="2516" name="0" x="62.6364" y="173.545" width="2" height="2">

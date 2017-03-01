@@ -1,11 +1,12 @@
 #include "Enemy.h"
 #include "Fachada/GraphicsFacade.h"
+#include "PatrolRoute.h"
+#include "PatrolPoint.h"
 
-
-Enemy::Enemy(int &num_enemigos)
+Enemy::Enemy(PatrolRoute* rutita)
 {
-    num_enemigos++;
-    id = num_enemigos;
+    ruta = rutita;
+    posicion = rutita->getInicial()->getPunto();
     estado = 0;
     sospecha = 0.0;
 }
@@ -15,11 +16,10 @@ Enemy::~Enemy()
 
 }
 
-void Enemy::inicializar_enemigo(int t, Structs::TPosicion p)
+void Enemy::inicializar_enemigo(int t)
 {
     Structs::TColor color = {0,0,255,0};
     tipo = t;
-    posicion = p;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
 

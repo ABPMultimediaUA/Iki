@@ -4,12 +4,14 @@
 #include "GameEntity.h"
 #include "Structs.h"
 
+class PatrolRoute;
+
 class Enemy : public GameEntity
 {
     public:
-        Enemy(int&);
+        Enemy(PatrolRoute*);
         ~Enemy();
-        void inicializar_enemigo(int, Structs::TPosicion);
+        void inicializar_enemigo(int);
 
         int getEstado(){ return estado;}
         int getID()    { return id;}
@@ -17,6 +19,7 @@ class Enemy : public GameEntity
     private:
         int estado, id; //0-> patrulla, 1-> sospechar, 2-> atacar, 3-> nsnc
         float sospecha;
+        PatrolRoute* ruta;
 
         /*PatrolRoute ruta;
         PatrolPoint* pRuta;*/
