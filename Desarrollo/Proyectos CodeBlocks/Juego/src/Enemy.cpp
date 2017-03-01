@@ -21,7 +21,6 @@ void Enemy::inicializar_enemigo(int t, Structs::TPosicion p)
     tipo = t;
     posicion = p;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
-
     modelo->cambiarColor(color);
 
 }
