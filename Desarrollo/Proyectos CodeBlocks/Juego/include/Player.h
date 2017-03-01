@@ -15,6 +15,7 @@ class Player : public GameEntity
         void inicializar_player();
         void moverBody(Structs::TPosicion vec);
         void update(Camera* camara, Structs::TPosicion mousePosition);
+        bool isPlayer(){return true;};
 
     protected:
 

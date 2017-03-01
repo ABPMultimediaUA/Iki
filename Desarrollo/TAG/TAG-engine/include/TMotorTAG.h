@@ -8,6 +8,8 @@
 #include "TCamara.h"
 #include "TGestorRecursos.h"
 
+#include <GL/glut.h>
+
 
 class TMotorTAG
 {
@@ -22,7 +24,9 @@ class TMotorTAG
         int registrarCamara(TNodo* nod);
         int registrarLuz(TNodo* nod);
         void setCamaraActiva(int i);
+        void setCamaraApagada(int i);
         void setLuzActiva(int i);
+        void setLuzApagada(int i);
         void draw();
         //Metodos para el regsitro y manejo de las camaras, luces y viewports.
 
@@ -31,8 +35,9 @@ class TMotorTAG
     private:
         TNodo* escena;
         TGestorRecursos *gestorRecursos;
-        TLuz *luces[];
-        TCamara *camaras[];
+        vector<bool> l_activa, c_activa;
+        vector<TNodo*> luces;
+        vector<TNodo*> camaras;
 
         //Atributos para mantenimiento de las camaras, luces y viewports.
 };

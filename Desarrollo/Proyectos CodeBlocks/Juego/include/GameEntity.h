@@ -15,10 +15,13 @@ class GameEntity
         ~GameEntity();
 
         //Getters
-        Structs::TPosicion getPosition() { return posicion; }
-        int                getTipo()     { return tipo;     }
-        float              getVida()     { return vida;     }
-        double             getRadio()    { return radio;    }
+        virtual Structs::TPosicion getPosition() { return posicion; }
+        virtual int                getTipo()     { return tipo;     }
+        virtual float              getVida()     { return vida;     }
+        virtual double             getRadio()    { return radio;    }
+        virtual bool               isPlayer()    { return true;     };
+
+
 
     protected:
 
