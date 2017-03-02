@@ -4,12 +4,14 @@
 #include "Map.h"
 
 class Enemy;
+class PatrolRoute;
 
 class World
 {
     public:
         World();
         virtual ~World();
+        void crearRutas(Map*);
         void inicializar_mundo();
         void update_mundo();
 
@@ -20,8 +22,8 @@ class World
 
     private:
 
-        int num_enemigos;
         Map* mapa;
+        std::vector<PatrolRoute*> rutas;
         std::vector<Enemy*> enemigos;
 
 };
