@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <TEntidad.h>
-#include "TColor.h"
 
 
 class TLuz : public TEntidad
@@ -11,9 +10,11 @@ class TLuz : public TEntidad
     public:
         TLuz();
         virtual ~TLuz();
+        vec3 getPoscion(){return posicion;};
+        vec3 getIntensidad(){return intensidad;};
+        void setPosicion(vec3 pos);
+        void setIntensidad(vec3 col);
 
-        void setIntensidad(TColor col);
-        TColor getIntensidad();
 
         void beginDraw();
         void endDraw();
@@ -21,7 +22,8 @@ class TLuz : public TEntidad
     protected:
 
     private:
-        TColor intensidad;
+        vec3 intensidad;
+        vec3 posicion;
 };
 
 #endif // TLUZ_H

@@ -8,8 +8,6 @@
 #include "TCamara.h"
 #include "TGestorRecursos.h"
 
-
-
 class TMotorTAG
 {
     public:

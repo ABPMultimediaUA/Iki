@@ -38,7 +38,7 @@ void TTransform::trasladar(float x, float y, float z)
 
 void TTransform::rotar(float angulo, float x, float y, float z)
 {
-    matriz = rotate(matriz, angulo, vec3(x, y, z));
+    matriz = rotate(matriz, (float) radians(angulo), vec3(x, y, z));
 }
 
 void TTransform::beginDraw()
