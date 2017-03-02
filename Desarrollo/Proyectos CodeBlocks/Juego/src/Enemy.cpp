@@ -3,6 +3,9 @@
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
 
+
+
+
 Enemy::Enemy(PatrolRoute* rutita)
 {
     ruta = rutita;
@@ -11,10 +14,6 @@ Enemy::Enemy(PatrolRoute* rutita)
     sospecha = 0.0;
 }
 
-Enemy::~Enemy()
-{
-
-}
 
 void Enemy::inicializar_enemigo(int t)
 {
@@ -24,5 +23,6 @@ void Enemy::inicializar_enemigo(int t)
     modelo->cambiarColor(color);
 
 }
+
 
 

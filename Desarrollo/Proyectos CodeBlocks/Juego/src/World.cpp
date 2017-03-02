@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "PatrolRoute.h"
 
+
 World::World()
 {
     mapa = new Map;
@@ -48,6 +49,7 @@ void World::inicializar_mundo(){
 
     Structs::TPosicion pos = {150,0,50};
     mapa->inicializar_mapa();
+
     crearRutas(mapa);
     for(int i = 0; i < rutas.size(); i++){
         enemigos.push_back(new Enemy(rutas.at(i)));

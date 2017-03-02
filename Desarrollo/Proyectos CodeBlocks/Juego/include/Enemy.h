@@ -1,9 +1,10 @@
 #ifndef ENEMIGO_H
 #define ENEMIGO_H
 
-#include "GameEntity.h"
-#include "Structs.h"
+#include <GameEntity.h>
 
+
+class Guardia;
 class PatrolRoute;
 
 class Enemy : public GameEntity
@@ -12,14 +13,23 @@ class Enemy : public GameEntity
         Enemy(PatrolRoute*);
         ~Enemy();
         void inicializar_enemigo(int);
-
+        virtual void update()=0;
+        void SetID(int val);
+        int getID()const{return id;}
         int getEstado(){ return estado;}
-        int getID()    { return id;}
+        int getTipo(){return tipo;}
 
+    protected:
+        int estado, id;
+        int tipo;
     private:
-        int estado, id; //0-> patrulla, 1-> sospechar, 2-> atacar, 3-> nsnc
+
+        static int m_iNextValidID;
+        Guardia* guardia;
+        int estado;
         float sospecha;
         PatrolRoute* ruta;
+
 
         /*PatrolRoute ruta;
         PatrolPoint* pRuta;*/
