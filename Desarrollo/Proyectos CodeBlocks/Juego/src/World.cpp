@@ -1,5 +1,6 @@
 #include "World.h"
 #include "Enemy.h"
+#include "Guardia.h"
 #include "PatrolRoute.h"
 
 
@@ -52,8 +53,12 @@ void World::inicializar_mundo(){
 
     crearRutas(mapa);
     for(int i = 0; i < rutas.size(); i++){
-        enemigos.push_back(new Enemy(rutas.at(i)));
-        enemigos.at(i)->inicializar_enemigo(mapa->getTipos().at(i));
+        switch(mapa->getTipos().at(i)){
+        case 1:
+            enemigos.push_back(new Guardia(rutas.at(i)));
+            break;
+        }
+       // enemigos.at(i)->inicializar_enemigo(mapa->getTipos().at(i));
     }
 
     //Enemy* pruebaEnemigo = new Enemy(num_enemigos);

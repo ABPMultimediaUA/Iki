@@ -4,14 +4,13 @@
 #include <GameEntity.h>
 
 
-class Guardia;
 class PatrolRoute;
 
 class Enemy : public GameEntity
 {
     public:
-        Enemy(PatrolRoute*);
-        ~Enemy();
+        Enemy(){}
+        ~Enemy(){}
         void inicializar_enemigo(int);
         virtual void update()=0;
         void SetID(int val);
@@ -22,13 +21,12 @@ class Enemy : public GameEntity
     protected:
         int estado, id;
         int tipo;
+        PatrolRoute* ruta;
+        float sospecha;
     private:
 
         static int m_iNextValidID;
-        Guardia* guardia;
-        int estado;
-        float sospecha;
-        PatrolRoute* ruta;
+
 
 
         /*PatrolRoute ruta;
