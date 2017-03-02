@@ -73,7 +73,7 @@ int TMotorTAG::registrarLuz(TNodo* nod)
 void TMotorTAG::setLuzActiva(int i)
 {
     l_activa[i] = true;
-    glEnable(GL_LIGHTING);
+    //glEnable(GL_LIGHTING);
 }
 
 void TMotorTAG::setLuzApagada(int i)
@@ -120,6 +120,7 @@ void TMotorTAG::draw()
                 //* mat_aux
                 --it;
             }
+            /*
             //	printf("LUZ:         %.1f %.1f %.1f \n", pos.x, pos.y, pos.z);
             glUniform3f(glGetUniformLocation(sh->Program, "light.position"), pos.x, pos.y, pos.z);
 
@@ -133,6 +134,7 @@ void TMotorTAG::draw()
             //glUniform3f
             //Aqui hemos llegado a la luz
             //Dibujar luces[i] con mat_aux aplicada
+            */
         }
     }
 

@@ -8,9 +8,6 @@
 #include "TCamara.h"
 #include "TGestorRecursos.h"
 
-#include <GL/glut.h>
-
-
 class TMotorTAG
 {
     public:

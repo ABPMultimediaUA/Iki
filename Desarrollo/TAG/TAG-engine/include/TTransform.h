@@ -2,12 +2,9 @@
 #define TTRANSFORM_H
 
 #include <iostream>
-#include <GL/gl.h>
-
-
 #include <TEntidad.h>
 
-
+#include <GL/gl.h>
 
 using namespace glm;
 using namespace std;
