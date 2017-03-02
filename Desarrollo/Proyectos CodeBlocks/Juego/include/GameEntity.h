@@ -14,11 +14,13 @@ class GameEntity
         ~GameEntity();
 
         //Getters
-        Structs::TPosicion getPosition() { return posicion; }
-        float              getVida()     { return vida;     }
-        double             getRadio()    { return radio;    }
+        virtual float              getVida()     { return vida;     }
+        virtual double             getRadio()    { return radio;    }
+        virtual Structs::TPosicion getPosition() { return posicion; }
+        virtual bool               isPlayer()    { return true;     }
         //all entities must implement an update function
         //virtual void Update()=0;
+
 
     protected:
 
