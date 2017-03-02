@@ -33,7 +33,7 @@ class Guardia : public Enemy
             G_stateMachine->Update();
         }
         StateMachine<Guardia>* GetFSM()const{return G_stateMachine;}
-        void inicializar_guardia(Structs::TPosicion);
+        void inicializar_enemigo();
 
 
 };

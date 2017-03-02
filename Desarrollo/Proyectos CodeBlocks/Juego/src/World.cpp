@@ -53,22 +53,15 @@ void World::inicializar_mundo(){
 
     crearRutas(mapa);
     for(int i = 0; i < rutas.size(); i++){
-        switch(mapa->getTipos().at(i)){
-        case 1:
-            enemigos.push_back(new Guardia(rutas.at(i)));
-            break;
+        switch(mapa->getTipos()[i]){
+            case 1:
+                enemigos.push_back(new Guardia(rutas[i]));
+                break;
+            default:
+                break;
         }
-       // enemigos.at(i)->inicializar_enemigo(mapa->getTipos().at(i));
+        enemigos[i]->inicializar_enemigo();
     }
-
-    //Enemy* pruebaEnemigo = new Enemy(num_enemigos);
-    //pruebaEnemigo->inicializar_enemigo(1, pos);
-    /*std::vector<vector3df> posiciones = datos_nivel->getEnemPosiciones();
-    for(std::vector<vector3df>::iterator it = posiciones.begin(); it != posiciones.end(); ++it){
-        Enemy *enemigo = new Enemy;
-        enemigo->inicializar_enemigo(1, smgr, *it);
-        enemigos.push_back(enemigo);
-    }*/
 }
 
 /*void World::update_mundo(){

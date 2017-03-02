@@ -11,10 +11,11 @@ class Patrullar : public State<Guardia>
 public:
     //this is a singleton
     static Patrullar* Instance();
-    virtual void Enter(Guardia* guardia);
-    virtual void Execute(Guardia* guardia);
-    virtual void Exit(Guardia* guardia);
-    virtual bool OnMessage(Guardia*, const Telegram&);
+    void Enter(Guardia* guardia);
+    void Execute(Guardia* guardia);
+    void Exit(Guardia* guardia);
+    bool OnMessage(Guardia*, const Telegram&);
+
 private:
     Patrullar(){};
     //copy ctor and assignment should be private

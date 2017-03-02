@@ -11,7 +11,7 @@ class Enemy : public GameEntity
     public:
         Enemy(){}
         ~Enemy(){}
-        void inicializar_enemigo(int);
+        virtual void inicializar_enemigo()=0;
         virtual void update()=0;
         void SetID(int val);
         int getID()const{return id;}

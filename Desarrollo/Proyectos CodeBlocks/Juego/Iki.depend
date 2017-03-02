@@ -4471,16 +4471,16 @@
 1488204948 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion.cpp
 	"TriggerRegion.h"
 
-1488455799 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1488470840 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"Guardia.h"
 	"PatrolRoute.h"
 
-1488457225 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
+1488470741 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
 	<GameEntity.h>
 
-1488457247 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1488470641 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 
@@ -4574,16 +4574,16 @@
 	"TriggerRegion_Rectangle.h"
 	<iostream>
 
-1488458513 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\state.h
+1488467394 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\state.h
 
 1488454658 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\state.cpp
 	"StateMachine/State.h"
 
-1488454658 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
+1488470567 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
 	"Guardia.h"
 	"Fachada/GraphicsFacade.h"
 
-1488458281 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\guardia.h
+1488470557 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\guardia.h
 	"Enemy.h"
 	"StateMachine/StateMachine.h"
 	"StateMachine/Patrullar.h"
@@ -4595,10 +4595,11 @@
 	<Enemy.h>
 	"StateMachine/State.h"
 
-1488458136 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
+1488468187 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
 	"StateMachine/Patrullar.h"
+	"Guardia.h"
 
-1488458612 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\patrullar.h
+1488468111 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\patrullar.h
 	"StateMachine/State.h"
 
 1488454658 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
