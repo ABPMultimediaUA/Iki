@@ -16,20 +16,21 @@ void World::crearRutas(Map* mapa){
 
     int enem = 0;
 
-    //std::vector<PatrolPoint*> puntos = mapa->getPatrullas();
+    std::vector<PatrolPoint*> puntos = mapa->getPatrullas();
     PatrolPoint* aux = mapa->getPatrullas().at(0);
 
-    for(std::vector<PatrolPoint*>::iterator it = mapa->getPatrullas().begin() ; it != mapa->getPatrullas().end(); ++it){
-    //for(int i = 0; i < puntos.size(); i++){
+    //for(std::vector<PatrolPoint*>::iterator it = mapa->getPatrullas().begin() ; it != mapa->getPatrullas().end(); ++it){
+    for(int i = 1; i < puntos.size(); i++){
 
-        if(aux != *it && (*it)->getEnemigo() == aux->getEnemigo()){
-            aux->setNext(*it);
-            (*it)->setPrev(aux);
+        if(puntos.at(i)->getEnemigo() == aux->getEnemigo()){
+            aux->setNext(puntos.at(i));
+            puntos.at(i)->setPrev(aux);
             if(aux->getID() == 1){
                 rutas.push_back(new PatrolRoute(aux));
             }
-            aux = *it;
         }
+        aux = puntos.at(i);
+
     }
 }
 

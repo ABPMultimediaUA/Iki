@@ -62,6 +62,7 @@ void Map::inicializar_mapa(){
     while (objectGroup){
 
         float x, z;
+        int c = 0, c2 = 0, n = 0;
 
         //Paredes
         if      (objectGroup->Attribute("name", "Pared"))      crearComponente(1);
@@ -79,7 +80,7 @@ void Map::inicializar_mapa(){
 
                 while (object)
                 {
-                    int c = 0, c2 = 0, n = 0;
+
                     object->QueryFloatAttribute("x", &z);
                     object->QueryFloatAttribute("y", &x);
                     pos.X = x;
@@ -95,7 +96,7 @@ void Map::inicializar_mapa(){
                     if(c == c2)
                         cont++;
                     else{
-                        cont = 0;
+                        cont = 1;
                         c2 = c;
                     }
 
