@@ -3,6 +3,8 @@
 #include "TriggerRegion_Rectangle.h"
 #include <iostream>
 
+#include "../Fachada/AnimatedMesh.h"
+
 TriggerSystem::TriggerSystem()
 {
     //ctor
@@ -92,38 +94,41 @@ void TriggerSystem::Render()
 void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup)
 {
     tinyxml2::XMLElement* object;
-
-    Structs::TPosicion pos;
-    float r;
-    if (m_Triggers.empty())
+    float x, z, r, width, heigh;
+    //if (m_Triggers.empty())
     if (objectGroup->FirstChildElement("object")){
         object = objectGroup->FirstChildElement("object");
         while (object){
-            object->QueryFloatAttribute("x", &pos.Z);
-            object->QueryFloatAttribute("y", &pos.X);
+            object->QueryFloatAttribute("x", &z);
+            object->QueryFloatAttribute("y", &x);
+            object->QueryFloatAttribute("width", &width);
+            object->QueryFloatAttribute("heigh", &heigh);
             object->QueryFloatAttribute("rotation", &r);
+
+            ///  ////////////////
+           /// Trigger* trigger = fabrica->createTrigger();
+            ///  ////////////////
+            const char* cadena = "";
+            Structs::TColor color = {0,0,0,0};
 
             if (tipo == 2){
                 //Creamos el Trigger y lo registramos
                 //Crear el tipo
                 Trigger_Puerta* trigger = new Trigger_Puerta;
                 //Crear la Region
-                Structs::TPosicion tl = {175,0,45};
-                Structs::TPosicion br = {165,0,55};
+
+                Structs::TPosicion tl = {x+heigh/2,0,z-width/2};
+                Structs::TPosicion br = {x-heigh/2,0,z+width/2};
                 //Asignar la Region
                 trigger->AddRectangularTriggerRegion(tl,br);
-                //Crear y asignar body
-
-            //}
-
-            ///  ////////////////
-           /// Trigger* trigger = fabrica->createTrigger();
-            ///  ////////////////
-
-            //pushback
-            m_Triggers.push_back(trigger);
-
+                //Crear y asignar body // modelos
+                Structs::TPosicion pos = {x,0,z};
+                cadena = "Modelos/puertita.obj";
+                AnimatedMesh* modelo = new AnimatedMesh(cadena, color, pos, r);
+                trigger->setMesh(modelo);
+                m_Triggers.push_back(trigger);
             }
+
             object = object->NextSiblingElement("object");
         }
     }

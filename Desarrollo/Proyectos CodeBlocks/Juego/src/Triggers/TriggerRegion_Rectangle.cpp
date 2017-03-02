@@ -14,11 +14,10 @@ TriggerRegion_Rectangle::~TriggerRegion_Rectangle()
 bool TriggerRegion_Rectangle::isTouching(Structs::TPosicion EntityPos, double EntityRadius) const
 {
     //distances calculated in squared-distance space
-    //if (  (BottomRight.Z > EntityPos.Z-EntityRadius && TopLeft.Z < EntityPos.Z-EntityRadius)
-       // || TopLeft.Z     < EntityPos.Z+EntityRadius
-       // || TopLeft.X     > EntityPos.X-EntityRadius
-       // || BottomRight.X < EntityPos.X+EntityRadius){
-
+    //if (  //  TopLeft.X     TopLeft.Z       distance   EntityPos.X EntityPos.Z
+          //  TopLeft.X     BottomRight.Z   distance   EntityPos.X EntityPos.Z
+          //  BottomRight.X TopLeft.Z       distance   EntityPos.X EntityPos.Z
+          //  BottomRight.X BottomRight.Z   distance   EntityPos.X EntityPos.Z    {
     //    return true;
     //}
 

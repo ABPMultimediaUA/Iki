@@ -616,8 +616,8 @@
   <object id="2450" x="29.875" y="190.625" width="2" height="2" rotation="-180.011"/>
  </objectgroup>
  <objectgroup color="#ff0000" name="Puertas">
-  <object id="1283" x="38.7408" y="167.013" width="2" height="2" rotation="90"/>
-  <object id="1913" x="35.0122" y="130.777" width="2" height="2" rotation="180"/>
+  <object id="1283" x="42.9226" y="165.013" width="6" height="6" rotation="90"/>
+  <object id="1913" x="31.5" y="126.5" width="5" height="5"/>
   <object id="2389" x="117.854" y="64.0308" width="2" height="2" rotation="180"/>
  </objectgroup>
  <objectgroup color="#0000ff" name="Palancas">
