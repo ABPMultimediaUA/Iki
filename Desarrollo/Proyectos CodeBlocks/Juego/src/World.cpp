@@ -29,6 +29,16 @@ void World::crearRutas(Map* mapa){
                 rutas.push_back(new PatrolRoute(aux));
             }
         }
+        else{
+            if(aux->getNext0() == 0){
+                aux->setNext(rutas.back()->getInicial());
+                rutas.back()->getInicial()->setPrev(aux);
+            }
+            else{
+                aux->setNext(aux->getPrev());
+                rutas.back()->getInicial()->setPrev(rutas.back()->getInicial()->getNext());
+            }
+        }
         aux = puntos.at(i);
 
     }
@@ -41,7 +51,7 @@ void World::inicializar_mundo(){
     crearRutas(mapa);
     for(int i = 0; i < rutas.size(); i++){
         enemigos.push_back(new Enemy(rutas.at(i)));
-        enemigos.at(i)->inicializar_enemigo(1);
+        enemigos.at(i)->inicializar_enemigo(mapa->getTipos().at(i));
     }
 
     //Enemy* pruebaEnemigo = new Enemy(num_enemigos);

@@ -23,6 +23,7 @@ class Map
         void inicializar_mapa();
 
         vector<PatrolPoint*> getPatrullas() { return patrullas; }
+        vector<int>          getTipos()     { return tipos;     }
 
     protected:
 
@@ -31,11 +32,8 @@ class Map
         MeshSceneNode *suelo;
 
         vector<MapComponent*> muros;
-        //vector<MapComponent*> puertas;
-        //vector<MapComponent*> objetos;
-        //vector<MapComponent*> palancas;
-        //vector<MapComponent*> apisonadoras;
-        vector<PatrolPoint*> patrullas;
+        vector<PatrolPoint*>  patrullas;
+        vector<int>           tipos;
 
         tinyxml2::XMLDocument* docFile;
         tinyxml2::XMLElement* mapElement;

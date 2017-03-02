@@ -91,7 +91,9 @@ void Map::inicializar_mapa(){
                             c = atoi(property->Attribute("value"));
                         if(property->Attribute("name", "Next"))
                             n = atoi(property->Attribute("value"));
-                        property = object->FirstChildElement("properties")->NextSiblingElement("property");
+                        if(property->Attribute("name", "Tipo"))
+                            tipos.push_back(atoi(property->Attribute("value")));
+                        property = property->NextSiblingElement("property");
                     }
                     if(c == c2)
                         cont++;

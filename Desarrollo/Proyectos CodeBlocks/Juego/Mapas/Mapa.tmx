@@ -638,6 +638,7 @@
    <properties>
     <property name="Enemigo" type="int" value="0"/>
     <property name="Next" type="int" value="0"/>
+    <property name="Tipo" type="int" value="1"/>
    </properties>
   </object>
   <object id="2458" x="33.25" y="132.375" width="2" height="2">
@@ -650,6 +651,7 @@
    <properties>
     <property name="Enemigo" type="int" value="1"/>
     <property name="Next" type="int" value="0"/>
+    <property name="Tipo" type="int" value="2"/>
    </properties>
   </object>
   <object id="2460" x="17.875" y="105.625" width="2" height="2">
@@ -674,6 +676,7 @@
    <properties>
     <property name="Enemigo" type="int" value="2"/>
     <property name="Next" type="int" value="0"/>
+    <property name="Tipo" type="int" value="3"/>
    </properties>
   </object>
   <object id="2464" x="96" y="69.125" width="2" height="2">
@@ -686,6 +689,7 @@
    <properties>
     <property name="Enemigo" type="int" value="3"/>
     <property name="Next" type="int" value="0"/>
+    <property name="Tipo" type="int" value="1"/>
    </properties>
   </object>
   <object id="2466" x="112.5" y="116.625" width="2" height="2">

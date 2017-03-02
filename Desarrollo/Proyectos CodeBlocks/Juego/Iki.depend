@@ -1321,7 +1321,7 @@
 1482527712 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
 	"GameEntity.h"
 
-1488449619 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1488452872 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
@@ -1335,7 +1335,7 @@
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488449322 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1488452651 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"PatrolRoute.h"
@@ -3084,7 +3084,7 @@
 	"TriggerRegion_Rectangle.h"
 	<iostream>
 
-1488383863 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolpoint.h
+1488451132 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolpoint.h
 	"Structs.h"
 
 1488383863 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolroute.h

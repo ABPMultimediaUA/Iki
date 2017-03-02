@@ -22,6 +22,9 @@ class PatrolPoint
     protected:
 
     private:
+        // enemigo es el enemigo al que se le asocia el PatrolPoint
+        // id es la id dentro de la ruta de patrulla, cada ruta de patrulla empezara por un PatrolPoint con id 1
+        // next0 indica la direccion hacia la que va el PatrolPoint, si es 0 va hacia el next, si es 1 va hacia el prev
         int enemigo, id, next0;
 
         Structs::TPosicion punto;
