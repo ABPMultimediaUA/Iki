@@ -1,6 +1,7 @@
 #include "World.h"
 #include "Enemy.h"
 
+
 World::World()
 {
     num_enemigos = 0;
@@ -16,8 +17,8 @@ void World::inicializar_mundo(){
 
     Structs::TPosicion pos = {150,0,50};
     mapa->inicializar_mapa();
-    Enemy* pruebaEnemigo = new Enemy(num_enemigos);
-    pruebaEnemigo->inicializar_enemigo(1, pos);
+    Enemy* pruebaEnemigo = new Enemy();
+    pruebaEnemigo->inicializar_enemigo(1,pos);
     /*std::vector<vector3df> posiciones = datos_nivel->getEnemPosiciones();
     for(std::vector<vector3df>::iterator it = posiciones.begin(); it != posiciones.end(); ++it){
         Enemy *enemigo = new Enemy;
