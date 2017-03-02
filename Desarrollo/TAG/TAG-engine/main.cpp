@@ -1,4 +1,4 @@
-#include "Display.h"
+#include "TDisplay.h"
 
 #include "TNodo.h"
 #include "TTransform.h"
@@ -16,7 +16,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-   	Display display(WIDTH, HEIGHT,"Motor grafico");
+   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
 
 
 

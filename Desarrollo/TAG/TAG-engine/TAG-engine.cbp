@@ -51,9 +51,8 @@
 			<Add library="lib/libopengl32.a" />
 			<Add library="lib/libSDL2.dll.a" />
 		</Linker>
-		<Unit filename="include/Display.h" />
 		<Unit filename="include/TCamara.h" />
-		<Unit filename="include/TColor.h" />
+		<Unit filename="include/TDisplay.h" />
 		<Unit filename="include/TEntidad.h" />
 		<Unit filename="include/TGestorRecursos.h" />
 		<Unit filename="include/TLuz.h" />
@@ -63,11 +62,11 @@
 		<Unit filename="include/TNodo.h" />
 		<Unit filename="include/TRecurso.h" />
 		<Unit filename="include/TRecursoMalla.h" />
+		<Unit filename="include/TShader.h" />
 		<Unit filename="include/TTransform.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Display.cpp" />
 		<Unit filename="src/TCamara.cpp" />
-		<Unit filename="src/TColor.cpp" />
+		<Unit filename="src/TDisplay.cpp" />
 		<Unit filename="src/TEntidad.cpp" />
 		<Unit filename="src/TGestorRecursos.cpp" />
 		<Unit filename="src/TLuz.cpp" />
@@ -77,6 +76,7 @@
 		<Unit filename="src/TNodo.cpp" />
 		<Unit filename="src/TRecurso.cpp" />
 		<Unit filename="src/TRecursoMalla.cpp" />
+		<Unit filename="src/TShader.cpp" />
 		<Unit filename="src/TTransform.cpp" />
 		<Extensions>
 			<code_completion />

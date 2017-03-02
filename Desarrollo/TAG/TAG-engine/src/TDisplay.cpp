@@ -1,9 +1,9 @@
-#include "Display.h"
+#include "TDisplay.h"
 
 
 
 
-Display::Display(int width, int height, const std::string &title)
+TDisplay::TDisplay(int width, int height, const std::string &title)
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -33,26 +33,26 @@ Display::Display(int width, int height, const std::string &title)
 	glCullFace(GL_BACK);
 }
 
-bool Display::IsClosed()
+bool TDisplay::IsClosed()
 {
 	return m_isClosed;
 }
 
 
-Display::~Display()
+TDisplay::~TDisplay()
 {
 	SDL_GL_DeleteContext(m_glContext);
 	SDL_DestroyWindow(m_window);
 	SDL_Quit();
 }
 
-void Display::Clear(float r,float g,float b,float a)
+void TDisplay::Clear(float r,float g,float b,float a)
 {
 	glClearColor(r,g,b,a);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void Display::Update()
+void TDisplay::Update()
 {
 	SDL_GL_SwapWindow(m_window);
 	SDL_Event e;

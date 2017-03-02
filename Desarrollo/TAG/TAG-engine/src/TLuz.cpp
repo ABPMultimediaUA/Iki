@@ -2,7 +2,8 @@
 
 TLuz::TLuz()
 {
-
+    posicion= vec3(0.0f, 0.0f, 0.0f);
+    intensidad= vec3(0.0f, 0.0f, 0.0f);
 }
 
 TLuz::~TLuz()
@@ -10,14 +11,14 @@ TLuz::~TLuz()
     //dtor
 }
 
-void TLuz::setIntensidad(TColor col)
+void TLuz::setIntensidad(vec3 col)
 {
     intensidad = col;
 }
 
-TColor TLuz::getIntensidad()
+void TLuz::setPosicion(vec3 pos)
 {
-    return intensidad;
+    posicion = pos;
 }
 
 void TLuz::beginDraw()
