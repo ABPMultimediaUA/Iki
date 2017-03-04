@@ -39,7 +39,7 @@ int main()
         world = World::Instance();
 
         //Objeto principal que nos permite interactuar con el motor
-        IrrlichtDevice* device = createDevice(video::EDT_OPENGL,core::dimension2d<u32>(1360, 768), 16, false, false, false, &receiver);
+        IrrlichtDevice* device = createDevice(video::EDT_OPENGL,core::dimension2d<u32>(menu.resolucionX, menu.resolucionY), 16, false, false, false, &receiver);
         device->setWindowCaption(L"IKI" );
         ITimer* timer = device->getTimer();
         f32 TimeStamp = timer->getTime();
@@ -48,6 +48,11 @@ int main()
 
         ISceneManager* smgr= device->getSceneManager();         //Gestion de la escena
         IVideoDriver* driver= device->getVideoDriver();         //Ciclo del juego
+
+        guilul *guiingame = new guilul;
+        guiingame->anyadirmenu(400, 60, driver);
+        guiingame->anyadirboton(3, 540, 160, driver);
+        guiingame->anyadirboton(1, 540, 300, driver);
 
 
         ///CAMARA
@@ -234,6 +239,8 @@ int main()
         pasos1->setDefaultVolume(2.0f);
         pasos2->setDefaultVolume(1.0f);
 
+        engine->setSoundVolume(menu.volumen);
+
 
         ///SUELO
 
@@ -297,6 +304,7 @@ int main()
         bool unatarjeta = false;
         bool abriendose = false;
         bool cerrandose = true;
+        bool menupausa = false;
 
         //PERCEPCION SENSONRIAL
 
@@ -338,6 +346,7 @@ int main()
 
             driver->beginScene(true, true, SColor(255, 100, 101, 140));
 
+            if(!menupausa){
 
             ///raton
             if(receiver.GetMouseState().RightButtonDown)
@@ -663,6 +672,7 @@ int main()
                                 else
                                 {
                                     s14 = engine->play3D(golpe,posicion,false,false,true);
+
                                     enemigos[n]->quitarVida();
                                 }
                             }
@@ -794,8 +804,8 @@ int main()
             ///CAMARA
             if(receiver.isKeyDown(KEY_ESCAPE))
             {
-                device->closeDevice();
-                return 0;
+                menupausa = true;
+
             }
 
             if(receiver.isKeyDown(KEY_LSHIFT))
@@ -814,6 +824,7 @@ int main()
                 prota->sigilo = false;
             }
 
+            prota->setPosition(vector3df(prota->getBody()->GetPosition().x, 0, prota->getBody()->GetPosition().y));
 
             DeltaTime = timer->getTime() - TimeStamp;
             TimeStamp = timer->getTime();
@@ -863,28 +874,42 @@ int main()
             //std::cout << "nigg\n";
             smgr->drawAll();
 
-            if(prota->getVida() >= 3)
-            {
-                driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-                driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-                driver->draw2DImage(image, position2d<s32>(110, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-            }
-            else if(prota->getVida() >= 2)
-            {
-                driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-                driver->draw2DImage(image, position2d<s32>(60, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-            }
-            else if(prota->getVida() >= 1)
-            {
-                driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(0, 0, 47, 47), 0, SColor(255, 255, 255, 255), true);
-            }
+            guiingame->vidaprota(prota->getVida(), driver);
 
-            driver->endScene();
+
             //std::cout << "yep\n";
         }
 
+        else{
+
+            DeltaTime = timer->getTime() - TimeStamp;
+            TimeStamp = timer->getTime();
+            tiempo.update();
+
+            smgr->drawAll();
+
+            guiingame->menu.at(0)->draw(driver);
+            guiingame->boton.at(0)->draw(driver);
+            guiingame->boton.at(1)->draw(driver);
+
+            if(receiver.GetMouseState().LeftButtonDown){
+                if(receiver.GetMouseState().Position.X > guiingame->boton.at(0)->posicionX && receiver.GetMouseState().Position.X < guiingame->boton.at(0)->posicionX + 240){
+                    if(receiver.GetMouseState().Position.Y > guiingame->boton.at(0)->posicionY && receiver.GetMouseState().Position.Y < guiingame->boton.at(0)->posicionY + 120){
+                        menupausa = false;
+
+                    }
+                    else if(receiver.GetMouseState().Position.Y > guiingame->boton.at(1)->posicionY && receiver.GetMouseState().Position.Y < guiingame->boton.at(1)->posicionY + 120){
+                        device->closeDevice();
+                        exit(0);
+                    }
+                }
+            }
+        }
+        driver->endScene();
+        }
         device->drop();
         engine->drop();
+
 
     }
 
