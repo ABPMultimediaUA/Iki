@@ -51,28 +51,26 @@ bool CMainMenu::run()
                 for(int i = 0; i<=2; i++)
                 {
                     guipropio->boton.at(i)->draw(driver);
+                    guipropio->boton.at(i)->comprobarmouse(receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y);
                 }
 
                 if(receiver.GetMouseState().LeftButtonDown)
                 {
-                    if(receiver.GetMouseState().Position.X > guipropio->boton.at(0)->posicionX && receiver.GetMouseState().Position.X < guipropio->boton.at(0)->posicionX + 240)
+                    if(guipropio->boton.at(0)->estaencima)
                     {
-                        if(receiver.GetMouseState().Position.Y > guipropio->boton.at(0)->posicionY && receiver.GetMouseState().Position.Y < guipropio->boton.at(0)->posicionY + 120)
-                        {
-                            MenuDevice->closeDevice();
-                            start = true;
+                        MenuDevice->closeDevice();
+                        start = true;
 
-                        }
-                        else if(receiver.GetMouseState().Position.Y > guipropio->boton.at(1)->posicionY && receiver.GetMouseState().Position.Y < guipropio->boton.at(1)->posicionY + 120)
-                        {
-                            options = true;
+                    }
+                    else if(guipropio->boton.at(1)->estaencima)
+                    {
+                        options = true;
 
-                        }
-                        else if(receiver.GetMouseState().Position.Y > guipropio->boton.at(2)->posicionY && receiver.GetMouseState().Position.Y < guipropio->boton.at(2)->posicionY + 120)
-                        {
-                            MenuDevice->closeDevice();
-                            exit(0);
-                        }
+                    }
+                    else if(guipropio->boton.at(2)->estaencima)
+                    {
+                        MenuDevice->closeDevice();
+                        exit(0);
                     }
                 }
             }

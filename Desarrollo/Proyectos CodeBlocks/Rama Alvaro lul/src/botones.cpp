@@ -31,8 +31,19 @@ botones::~botones()
 }
 
 void botones::draw(video::IVideoDriver* driver){
-
-    driver->draw2DImage(image, position2d<s32>(posicionX, posicionY), rect<s32>(0, 0, 240, 120), 0, SColor(255, 255, 255, 255), true);
+    if(!estaencima)
+    driver->draw2DImage(image, position2d<s32>(posicionX, posicionY), rect<s32>(0, 0, 240, 120), 0, SColor(235, 190, 190, 190), true);
+    else
+        driver->draw2DImage(image, position2d<s32>(posicionX, posicionY), rect<s32>(0, 0, 240, 120), 0, SColor(255, 255, 255, 255), true);
 }
 
+void botones::comprobarmouse(float x, float y){
 
+    if((x > posicionX && x < posicionX + 240) && (y > posicionY && y < posicionY + 120))
+        estaencima = true;
+
+        else
+            estaencima = false;
+
+
+}

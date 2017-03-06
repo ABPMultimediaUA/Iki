@@ -875,6 +875,7 @@ int main()
             smgr->drawAll();
 
             guiingame->vidaprota(prota->getVida(), driver);
+            guiingame->laserprota(rayolaser, driver);
 
 
             //std::cout << "yep\n";

@@ -17,8 +17,10 @@ class botones
         botones(int, int, int, video::IVideoDriver*);
         virtual ~botones();
         void draw(video::IVideoDriver*);
+        void comprobarmouse(float, float);
         int posicionX;
-         int posicionY;
+        int posicionY;
+        bool estaencima = false;
 
     protected:
     private:

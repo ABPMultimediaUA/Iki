@@ -50,3 +50,11 @@ void guilul::vidaprota(float a, video::IVideoDriver* driver)
     else if(a>=1)
         driver->draw2DImage(image, position2d<s32>(10, 10), rect<s32>(10, 0, 115, 250), 0, SColor(255, 255, 255, 255), true);
 }
+void guilul::laserprota(bool a, video::IVideoDriver* driver)
+{
+    ITexture *image = driver->getTexture("texturas/lasertocar.png");
+    if(!a)
+        driver->draw2DImage(image, position2d<s32>(1240, 650), rect<s32>(0, 0, 110, 109), 0, SColor(255, 255, 255, 255), true);
+    else
+        driver->draw2DImage(image, position2d<s32>(1240, 650), rect<s32>(0, 0, 110, 109), 0, SColor(255, 125, 125, 125), true);
+}

@@ -28,6 +28,7 @@ class guilul
         void anyadircontrol(int, int, int, video::IVideoDriver*);
         void anyadirmenu(int, int, video::IVideoDriver*);
         void vidaprota(float, video::IVideoDriver*);
+        void laserprota(bool, video::IVideoDriver*);
         vector<botones*> boton;
         vector<menus*> menu;
         vector<controles*> control;
