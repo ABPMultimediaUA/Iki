@@ -19,7 +19,7 @@ class GameEntity
         virtual Structs::TPosicion getPosition() { return posicion; };
         virtual int                getTipo()     { return tipo;     };
         virtual float              getVida()     { return vida;     };
-        virtual double             getRadio()    { return radio;    };
+        virtual float              getRadio()    { return radio;    };
         virtual bool               isPlayer()    { return true;     };
 
         virtual void               setMesh(AnimatedMesh* m){ aniMesh = m;};
@@ -33,7 +33,7 @@ class GameEntity
         int tipo;
         float vida;
         Structs::TPosicion posicion;
-        double radio;
+        float radio;
 
 };
 

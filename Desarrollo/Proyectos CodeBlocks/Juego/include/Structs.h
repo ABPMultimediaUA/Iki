@@ -40,6 +40,8 @@ class Structs
             float profundo;
         }TMedida;
 
+        float distance (TPosicion p1, TPosicion p2);
+
     protected:
 
     private:

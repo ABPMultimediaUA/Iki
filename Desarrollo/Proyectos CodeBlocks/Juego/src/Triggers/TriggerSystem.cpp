@@ -94,11 +94,12 @@ void TriggerSystem::Render()
 void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup)
 {
     tinyxml2::XMLElement* object;
-    float x, z, r, width, heigh;
-    //if (m_Triggers.empty())
+    float z, x, width, heigh, r;
+
     if (objectGroup->FirstChildElement("object")){
         object = objectGroup->FirstChildElement("object");
         while (object){
+
             object->QueryFloatAttribute("x", &z);
             object->QueryFloatAttribute("y", &x);
             object->QueryFloatAttribute("width", &width);
@@ -116,7 +117,6 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
                 //Crear el tipo
                 Trigger_Puerta* trigger = new Trigger_Puerta;
                 //Crear la Region
-
                 Structs::TPosicion tl = {x+heigh/2,0,z-width/2};
                 Structs::TPosicion br = {x-heigh/2,0,z+width/2};
                 //Asignar la Region
@@ -136,7 +136,7 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
 
 void TriggerSystem::LeerMapa()
 {
-    int _width, _tileWidth, _height, _tileHeigth;
+    //int _width, _tileWidth, _height, _tileHeigth;
 
     //Se lee el fichero .tmx
     tinyxml2::XMLDocument* docFile;
@@ -144,17 +144,18 @@ void TriggerSystem::LeerMapa()
     docFile->LoadFile("Mapas/Mapa.tmx");
 
     tinyxml2::XMLElement* mapElement = docFile->FirstChildElement("map");
-    mapElement->QueryIntAttribute("width", &_width);
-    mapElement->QueryIntAttribute("height", &_height);
-    mapElement->QueryIntAttribute("tilewidth", &_tileWidth);
-    mapElement->QueryIntAttribute("tileheight", &_tileHeigth);
+   // mapElement->QueryIntAttribute("width", &_width);
+   // mapElement->QueryIntAttribute("height", &_height);
+   // mapElement->QueryIntAttribute("tilewidth", &_tileWidth);
+   // mapElement->QueryIntAttribute("tileheight", &_tileHeigth);
 
     //Se recorre la cada capa de Objects
     tinyxml2::XMLElement* objectGroup = mapElement->FirstChildElement("objectgroup");
     while (objectGroup){
 
         //Para cada capa se asigna un tipo de Trigger
-        if      (objectGroup->Attribute("name", "Puertas"))    CrearTipoTrigger(2, objectGroup);
+        if      (objectGroup->Attribute("name", "Puertas"))
+            CrearTipoTrigger(2, objectGroup);
         //else if (objectGroup->Attribute("name", "Palancas"))   CrearTipoTrigger(3, objectGroup);
         //else if (objectGroup->Attribute("name", "Objetos"))    CrearTipoTrigger(4, objectGroup);
         //else if (objectGroup->Attribute("name", "Apisonadora"))CrearTipoTrigger(5, objectGroup);

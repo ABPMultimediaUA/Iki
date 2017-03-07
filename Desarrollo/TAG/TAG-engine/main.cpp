@@ -16,7 +16,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
+//   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
 
 
 
@@ -48,9 +48,9 @@ int main(int argc, char *argv[])
 
     noditoEsc->draw();
 
-   while(!display.IsClosed())
-	{
-		display.Clear(0.0f,0.15f,0.3f,1.0f);
+//   while(!display.IsClosed())
+	//{
+	//	display.Clear(0.0f,0.15f,0.3f,1.0f);
     /*
 		float sinCounter = sinf(counter);
 		float cosCounter = cosf(counter);
@@ -68,8 +68,8 @@ int main(int argc, char *argv[])
 		shader.Update(transform,camera);
 		mesh2.Draw();
 */
-		display.Update();
+//		display.Update();
 		//counter += 0.0001f;
-	}
+//	}
     return 0;
 }
