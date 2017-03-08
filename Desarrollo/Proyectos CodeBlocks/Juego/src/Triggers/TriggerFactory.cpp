@@ -53,8 +53,8 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     if (tipo == 4){
         Trigger_Municion* trigger = new Trigger_Municion();
         //region
-        Structs::TPosicion centro (x,0,z);
-        float radio = 2.5;
+        Structs::TPosicion centro(x,0,z);
+        float radio = 5;
         trigger->AddCircularTriggerRegion(centro,radio);
         //modelo;
         AnimatedMesh* modelo = new AnimatedMesh("Modelos/objeto.obj", {0,0,0,0}, centro, r);
