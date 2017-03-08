@@ -19,6 +19,8 @@ class Player : public GameEntity
         void update(Camera* camara);
         bool isPlayer(){return true;};
 
+        void CogerMunicion();
+
     protected:
 
     private:

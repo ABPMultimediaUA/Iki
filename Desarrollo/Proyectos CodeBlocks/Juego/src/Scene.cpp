@@ -10,6 +10,7 @@ Scene::Scene()
 
 Scene::~Scene()
 {
+    triggersystem.Clear();
     delete player;
     delete world;
 }

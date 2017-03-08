@@ -165,8 +165,6 @@ class Structs
             float profundo;
         }TMedida;
 
-
-
     protected:
 
     private:

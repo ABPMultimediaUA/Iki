@@ -127,6 +127,19 @@ int main()
     //scene::ISceneManager* smgr = device->getSceneManager();
 
     //INICIALIZAR ESCENA
+/*
+#include <iostream>
+
+std::cout << "" << std::endl;
+std::cout << "  _____ _  _______    _____          __  __ ______ " << std::endl;
+std::cout << " |_   _| |/ /_   _|  / ____|   /\   |  \/  |  ____|" << std::endl;
+std::cout << "   | | | ' /  | |   | |  __   /  \  | \  / | |__   " << std::endl;
+std::cout << "   | | |  <   | |   | | |_ | / /\ \ | |\/| |  __|  " << std::endl;
+std::cout << "  _| |_| . \ _| |_  | |__| |/ ____ \| |  | | |____ " << std::endl;
+std::cout << " |_____|_|\_\_____|  \_____/_/    \_\_|  |_|______|" << std::endl;
+std::cout << "" << std::endl;
+
+*/
 
     Scene* escena = new Scene();
     escena->inicializar_escena();/*

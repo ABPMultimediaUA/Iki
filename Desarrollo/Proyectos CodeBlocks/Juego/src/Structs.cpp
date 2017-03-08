@@ -1,4 +1,5 @@
 #include "Structs.h"
+#include <math.h>
 
 Structs::Structs()
 {

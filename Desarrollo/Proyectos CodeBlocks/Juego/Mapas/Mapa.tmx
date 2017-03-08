@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2540">
- <objectgroup color="#000000" name="Pared">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2562">
+ <objectgroup color="#000000" name="Pared" opacity="0.97">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
   <object id="413" x="132.742" y="75.3964" width="2" height="2" rotation="55.669"/>
@@ -616,9 +616,8 @@
   <object id="2450" x="29.875" y="190.625" width="2" height="2" rotation="-180.011"/>
  </objectgroup>
  <objectgroup color="#ff0000" name="Puertas">
-  <object id="1283" x="38.7408" y="167.013" width="2" height="2" rotation="90"/>
-  <object id="1913" x="35.0122" y="130.777" width="2" height="2" rotation="180"/>
-  <object id="2389" x="117.854" y="64.0308" width="2" height="2" rotation="180"/>
+  <object id="2560" x="38.75" y="166.875" width="2" height="2" rotation="90"/>
+  <object id="2561" x="35.125" y="130.25" width="2" height="2" rotation="180"/>
  </objectgroup>
  <objectgroup color="#0000ff" name="Palancas">
   <object id="2433" x="30.0909" y="132.454" width="2" height="2"/>
@@ -636,15 +635,15 @@
  <objectgroup color="#ffaa7f" name="Patrol">
   <object id="2457" x="32.75" y="184.625" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="0"/>
-    <property name="Next" type="int" value="0"/>
-    <property name="Tipo" type="int" value="1"/>
+    <property name="Enemigo" value="0"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="1"/>
    </properties>
   </object>
   <object id="2458" x="33.25" y="132.375" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="0"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="0"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2459" x="33.625" y="119.125" width="2" height="2">
@@ -656,20 +655,20 @@
   </object>
   <object id="2460" x="17.875" y="105.625" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="1"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2461" x="33" y="91.875" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="1"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2462" x="53.125" y="104" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="1"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2463" x="57.625" y="76.625" width="2" height="2">
@@ -681,33 +680,33 @@
   </object>
   <object id="2464" x="96" y="69.125" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="2"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2465" x="96.625" y="98.875" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="3"/>
-    <property name="Next" type="int" value="0"/>
-    <property name="Tipo" type="int" value="1"/>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="1"/>
    </properties>
   </object>
   <object id="2466" x="112.5" y="116.625" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="3"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2467" x="124.75" y="111.75" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="3"/>
-    <property name="Next" type="int" value="0"/>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
    </properties>
   </object>
   <object id="2468" x="124" y="87.25" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="3"/>
-    <property name="Next" type="int" value="1"/>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="1"/>
    </properties>
   </object>
  </objectgroup>
