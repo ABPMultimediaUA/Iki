@@ -11,6 +11,7 @@ Scene::Scene()
 Scene::~Scene()
 {
     delete player;
+    delete world;
 }
 
 void Scene::inicializar_escena(){

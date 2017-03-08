@@ -11,9 +11,9 @@ class Patrullar : public State<Enemy>
 public:
     //this is a singleton
     static Patrullar* Instance();
-    void Enter(Enemy* guardia);
-    void Execute(Enemy* guardia);
-    void Exit(Enemy* guardia);
+    void Enter(Enemy* enemigo);
+    void Execute(Enemy* enemigo);
+    void Exit(Enemy* enemigo);
     bool OnMessage(Enemy*, const Telegram&);
 
 private:

@@ -35,7 +35,7 @@ void Guardia::inicializar_enemigo()
     modelo->cambiarColor(color);
 
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
-   // posinit = calculadora.restar( pRuta->getPunto(), posaux);
-    //angulo = atan2f((posinit.Z) ,-(posinit.X)) * 180.f /PI;
+    posinit = pRuta->getPunto()-posaux;
+    angulo = atan2f((posinit.Z) ,-(posinit.X)) * 180.f /PI;
 
 }

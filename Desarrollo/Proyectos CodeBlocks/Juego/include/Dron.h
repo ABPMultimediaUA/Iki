@@ -21,17 +21,13 @@ class Dron : public Enemy
             //set up state machine
             G_stateMachine = new StateMachine<Enemy>(this);
             G_stateMachine->SetCurrentState(Patrullar::Instance());
-            G_stateMachine->SetGlobalState(Patrullar::Instance());
+           // G_stateMachine->SetGlobalState(Patrullar::Instance());
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
-            estado = 0;
             sospecha = 0.0;
         }
         ~Dron(){delete G_stateMachine;}
-        void update()
-        {
-            G_stateMachine->Update();
-        }
+        void update();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo();
 
