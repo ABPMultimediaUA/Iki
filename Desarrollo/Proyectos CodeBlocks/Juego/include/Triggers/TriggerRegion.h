@@ -9,7 +9,7 @@ class TriggerRegion
         TriggerRegion();
         virtual ~TriggerRegion();
 
-        virtual bool isTouching(Structs::TPosicion EntityPos, double EntityRadius)const = 0;
+        virtual bool isTouching(Structs::TPosicion EntityPos, float EntityRadius)const = 0;
 
     protected:
 

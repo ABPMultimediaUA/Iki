@@ -22,8 +22,9 @@ class PhisicsWorld
             return &singleton;
         };
         virtual ~PhisicsWorld();
-        void Step(float DeltaTime);
+        void Step();
         b2World* getWorld(){return phisics_world;};
+        float getDeltaTime(){return (float)DeltaTime;}
 
     protected:
 
@@ -31,6 +32,10 @@ class PhisicsWorld
         PhisicsWorld();
         b2World* phisics_world;
         b2Vec2 gravity;
+
+        f32 TimeStamp;
+        f32 DeltaTime;
+
 };
 
 #endif // PHISICSWORLD_H

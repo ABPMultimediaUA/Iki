@@ -5,6 +5,7 @@
 
 
 class PatrolRoute;
+class PatrolPoint;
 
 class Enemy : public GameEntity
 {
@@ -15,14 +16,22 @@ class Enemy : public GameEntity
         virtual void update()=0;
         void SetID(int val);
         int getID()const{return id;}
-        int getEstado(){ return estado;}
         int getTipo(){return tipo;}
+        virtual void setPosition(Structs::TPosicion p) {
+            body->SetTransform(b2Vec2(p.X, p.Z), 0);
+            modelo->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+            modelo->setRotation(body->GetAngle());
+            }
+        void patrullar();
 
     protected:
-        int estado, id;
-        int tipo;
+        int id,tipo;
         PatrolRoute* ruta;
-        float sospecha;
+        PatrolPoint* pRuta;
+        float sospecha,angulo,avMovement;
+        Structs::TPosicion posinit,posaux;
+
+
     private:
 
         static int m_iNextValidID;

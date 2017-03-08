@@ -2,7 +2,8 @@
 #include "Enemy.h"
 #include "Guardia.h"
 #include "PatrolRoute.h"
-
+#include "Medico.h"
+#include "Dron.h"
 
 World::World()
 {
@@ -48,7 +49,7 @@ void World::crearRutas(Map* mapa){
 
 void World::inicializar_mundo(){
 
-    Structs::TPosicion pos = {150,0,50};
+    Structs::TPosicion pos (150,0,50);
     mapa->inicializar_mapa();
 
     crearRutas(mapa);
@@ -57,6 +58,12 @@ void World::inicializar_mundo(){
             case 1:
                 enemigos.push_back(new Guardia(rutas[i]));
                 break;
+            case 2:
+                enemigos.push_back(new Medico(rutas[i]));
+                break;
+            case 3:
+                enemigos.push_back(new Dron(rutas[i]));
+                break;
             default:
                 break;
         }
@@ -64,9 +71,9 @@ void World::inicializar_mundo(){
     }
 }
 
-/*void World::update_mundo(){
-    for(std::vector<Enemy*>::iterator it = enemigos.begin(); it != posiciones.end(); ++it){
-        it->update_enem();
+void World::update_mundo(){
+    for(std::vector<Enemy*>::iterator it = enemigos.begin(); it != enemigos.end(); ++it){
+        (*it)->update();
     }
-    mapa->update_mapa();
-}*/
+    //mapa->update_mapa();
+}
