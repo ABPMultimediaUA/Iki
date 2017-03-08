@@ -1,15 +1,16 @@
 #include "Player.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
+#include "Player_Ray.h"
 
 Player::Player()
 {
-
+    rayo = new Player_Ray();
 }
 
 Player::~Player()
 {
-
+    delete rayo;
 }
 
 void Player::inicializar_player(){
@@ -52,72 +53,81 @@ void Player::moverBody(Structs::TPosicion vec){
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
-void Player::update(Camera* camara, Structs::TPosicion mousePosition){
+void Player::update(Camera* camara){
 
-    if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown)
-        {
-            //stop= false;
+    Structs::TPosicion mousePosition = {170,0,50};
 
+    if(rayo->getBalas() > 0){
+        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
             GraphicsFacade::getInstance().cambiarRay(camara);
-
-
-            //ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-            //          receiver.GetMouseState().Position, camera);
-            //float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
-            //                      -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
-
-            //modelo->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
-            //prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+            rayo->lanzar_rayo(posicion);
         }
+    }
 
-        if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
+        //stop= false;
+
+        GraphicsFacade::getInstance().cambiarRay(camara);
+        moverse = true;
+
+
+        //ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+        //          receiver.GetMouseState().Position, camera);
+        //float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
+        //                      -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
+
+        //modelo->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+        //prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+    }
+
+    if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    {
+        toMousePosition.X = mousePosition.X - posicion.X;
+        toMousePosition.Y = mousePosition.Y - posicion.Y;
+        toMousePosition.Z = mousePosition.Z - posicion.Z;
+
+        if(GraphicsFacade::getInstance().calcularDistancia(toMousePosition) <= 1)
         {
-            toMousePosition.X = mousePosition.X - posicion.X;
-            toMousePosition.Y = mousePosition.Y - posicion.Y;
-            toMousePosition.Z = mousePosition.Z - posicion.Z;
-
-            if(GraphicsFacade::getInstance().calcularDistancia(toMousePosition) <= 1)
+            toMousePosition = {0,0,0};
+            moverBody(toMousePosition);
+            /*if(pasosP==true || pasos2P==true)
             {
-                toMousePosition = {0,0,0};
-                moverBody(toMousePosition);
-                /*if(pasosP==true || pasos2P==true)
-                {
-                    s1->stop();
-                    pasosP = false;
-                    pasos2P = false;
-                }*/
+                s1->stop();
+                pasosP = false;
+                pasos2P = false;
+            }*/
 
-                //stop= true;
-            }
-            else
-            {
-                moverBody(toMousePosition);
-
-                posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-                modelo->setPosition(posicion);
-
-                float angulo = atan2f((mousePosition.Z-modelo->getNode()->getPosition().Z) ,
-                                  -(mousePosition.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
-                body->SetTransform(body->GetPosition(), angulo);
-                modelo->setRotation(body->GetAngle());
-                /*if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT))
-                {
-                    if(engine->isCurrentlyPlaying(pasos2))
-                        s1->stop();
-                    s1 = engine->play3D(pasos1,posicion,true,false,true);
-                    pasosP = true;
-                    pasos2P = false;
-                }
-                else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT))
-                {
-                    if(engine->isCurrentlyPlaying(pasos1))
-                        s1->stop();
-                    s1 = engine->play3D(pasos2,posicion,true,false,true);
-                    pasos2P = true;
-                    pasosP = false;
-
-                }*/
-                //stop= true;
-            }
+            //stop= true;
         }
+        else
+        {
+            moverBody(toMousePosition);
+
+            posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+            modelo->setPosition(posicion);
+
+            float angulo = atan2f((mousePosition.Z-modelo->getNode()->getPosition().Z) ,
+                              -(mousePosition.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
+            body->SetTransform(body->GetPosition(), angulo);
+            modelo->setRotation(body->GetAngle());
+            /*if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT))
+            {
+                if(engine->isCurrentlyPlaying(pasos2))
+                    s1->stop();
+                s1 = engine->play3D(pasos1,posicion,true,false,true);
+                pasosP = true;
+                pasos2P = false;
+            }
+            else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT))
+            {
+                if(engine->isCurrentlyPlaying(pasos1))
+                    s1->stop();
+                s1 = engine->play3D(pasos2,posicion,true,false,true);
+                pasos2P = true;
+                pasosP = false;
+
+            }*/
+            //stop= true;
+        }
+    }
 }

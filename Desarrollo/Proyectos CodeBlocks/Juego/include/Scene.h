@@ -23,7 +23,6 @@ class Scene
         World *world;
         TriggerSystem triggersystem;
         Player *player;
-        Structs::TPosicion mousePosition;
         f32 TimeStamp;
         f32 DeltaTime;
 };

@@ -10,16 +10,16 @@
 class Guardia : public Enemy
 {
     private:
-        StateMachine<Guardia>* G_stateMachine;
-        State<Guardia>* actualState;
-        State<Guardia>* oldState;
-        State<Guardia>* globalState;
+        StateMachine<Enemy>* G_stateMachine;
+        State<Enemy>* actualState;
+        State<Enemy>* oldState;
+        State<Enemy>* globalState;
 
     public:
         Guardia(PatrolRoute* rutita)
         {
             //set up state machine
-            G_stateMachine = new StateMachine<Guardia>(this);
+            G_stateMachine = new StateMachine<Enemy>(this);
             G_stateMachine->SetCurrentState(Patrullar::Instance());
             G_stateMachine->SetGlobalState(Patrullar::Instance());
             ruta = rutita;
@@ -32,7 +32,7 @@ class Guardia : public Enemy
         {
             G_stateMachine->Update();
         }
-        StateMachine<Guardia>* GetFSM()const{return G_stateMachine;}
+        StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo();
 
 

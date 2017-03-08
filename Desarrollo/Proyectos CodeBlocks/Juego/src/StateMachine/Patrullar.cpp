@@ -1,5 +1,5 @@
 #include "StateMachine/Patrullar.h"
-#include "Guardia.h"
+#include "Enemy.h"
 
 
 Patrullar* Patrullar::Instance()
@@ -8,7 +8,7 @@ Patrullar* Patrullar::Instance()
 
   return &instance;
 }
-void Patrullar::Enter(Guardia* guardia){}
-void Patrullar::Execute(Guardia* guardia){}
-void Patrullar::Exit(Guardia* guardia){}
-bool Patrullar::OnMessage(Guardia*, const Telegram&){}
+void Patrullar::Enter(Enemy* guardia){}
+void Patrullar::Execute(Enemy* guardia){}
+void Patrullar::Exit(Enemy* guardia){}
+bool Patrullar::OnMessage(Enemy*, const Telegram&){}
