@@ -1,9 +1,7 @@
 #include "TriggerSystem.h"
-#include "Trigger_Puerta.h"
-#include "TriggerRegion_Rectangle.h"
 #include <iostream>
 
-#include "../Fachada/AnimatedMesh.h"
+#include "TriggerFactory.h"
 
 TriggerSystem::TriggerSystem()
 {
@@ -94,7 +92,8 @@ void TriggerSystem::Render()
 void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup)
 {
     tinyxml2::XMLElement* object;
-    float z, x, width, heigh, r;
+    TriggerFactory factory;
+    float z, x, r;
 
     if (objectGroup->FirstChildElement("object")){
         object = objectGroup->FirstChildElement("object");
@@ -102,32 +101,10 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
 
             object->QueryFloatAttribute("x", &z);
             object->QueryFloatAttribute("y", &x);
-            object->QueryFloatAttribute("width", &width);
-            object->QueryFloatAttribute("heigh", &heigh);
             object->QueryFloatAttribute("rotation", &r);
 
-            ///  ////////////////
-           /// Trigger* trigger = fabrica->createTrigger();
-            ///  ////////////////
-            const char* cadena = "";
-            Structs::TColor color = {0,0,0,0};
-
-            if (tipo == 2){
-                //Creamos el Trigger y lo registramos
-                //Crear el tipo
-                Trigger_Puerta* trigger = new Trigger_Puerta;
-                //Crear la Region
-                Structs::TPosicion tl = {x+heigh/2,0,z-width/2};
-                Structs::TPosicion br = {x-heigh/2,0,z+width/2};
-                //Asignar la Region
-                trigger->AddRectangularTriggerRegion(tl,br);
-                //Crear y asignar body // modelos
-                Structs::TPosicion pos = {x,0,z};
-                cadena = "Modelos/puertita.obj";
-                AnimatedMesh* modelo = new AnimatedMesh(cadena, color, pos, r);
-                trigger->setMesh(modelo);
-                m_Triggers.push_back(trigger);
-            }
+            Trigger* trigger = factory.crearTrigger(tipo,z,x,r);
+            m_Triggers.push_back(trigger);
 
             object = object->NextSiblingElement("object");
         }

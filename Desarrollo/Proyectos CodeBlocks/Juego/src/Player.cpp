@@ -20,7 +20,7 @@ void Player::inicializar_player(){
     modelo->cambiarColor(color);
     posicion = modelo->getPosition();
 
-    radio = 1;
+    radio = 5;
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;

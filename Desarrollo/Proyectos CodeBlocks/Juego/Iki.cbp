@@ -97,6 +97,7 @@
 		<Unit filename="include/StateMachine/StateMachine.h" />
 		<Unit filename="include/Structs.h" />
 		<Unit filename="include/Triggers/Trigger.h" />
+		<Unit filename="include/Triggers/TriggerFactory.h" />
 		<Unit filename="include/Triggers/TriggerRegion.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Circle.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Rectangle.h" />
@@ -129,6 +130,7 @@
 		<Unit filename="src/StateMachine/StateMachine.cpp" />
 		<Unit filename="src/Structs.cpp" />
 		<Unit filename="src/Triggers/Trigger.cpp" />
+		<Unit filename="src/Triggers/TriggerFactory.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion_Circle.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion_Rectangle.cpp" />

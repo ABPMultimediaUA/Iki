@@ -8,7 +8,6 @@
 
 #include <Box2D/Box2D.h>
 
-
 class GameEntity
 {
     public:
@@ -20,8 +19,10 @@ class GameEntity
         virtual int                getTipo()     { return tipo;     };
         virtual float              getVida()     { return vida;     };
         virtual float              getRadio()    { return radio;    };
-        virtual bool               isPlayer()    { return true;     };
+        virtual bool               isPlayer()    { return false;    };
 
+        virtual b2Body*            getBody(){return body;};
+        virtual void               setBody(b2BodyDef bodyDef);
         virtual void               setMesh(AnimatedMesh* m){ aniMesh = m;};
 
 
@@ -30,6 +31,7 @@ class GameEntity
         AnimatedMesh *aniMesh;
         SceneNode *modelo;
         b2Body *body;
+
         int tipo;
         float vida;
         Structs::TPosicion posicion;

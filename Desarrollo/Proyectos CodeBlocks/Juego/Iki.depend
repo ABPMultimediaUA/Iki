@@ -2674,7 +2674,7 @@
 	"Fachada/Camera.h"
 	<iostream>
 
-1488885943 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1488969353 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Fachada/AnimatedMesh.h"
 	"Fachada/SceneNode.h"
@@ -2903,8 +2903,9 @@
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 
-1487851648 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
+1488969353 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
 	"GameEntity.h"
+	"PhisicsWorld.h"
 
 1487851648 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\leveldata.cpp
 	"LevelData.h"
@@ -2913,7 +2914,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1488887608 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1488898789 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -2966,7 +2967,7 @@
 	"GraphicsFacade.h"
 	"World.h"
 
-1488887608 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\structs.cpp
+1488897685 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\structs.cpp
 	"Structs.h"
 	<math.h>
 
@@ -2984,7 +2985,7 @@
 1488887049 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
 	"Structs.h"
 
-1488886985 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_circle.cpp
+1488966908 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_circle.cpp
 	"TriggerRegion_Circle.h"
 
 1488886609 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_circle.h
@@ -3154,7 +3155,7 @@
 1488362129 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1488883473 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1488903005 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	<iostream>
@@ -3165,15 +3166,13 @@
 1488362129 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
 	"Trigger_Respawning.h"
 
-1488887557 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
+1488966900 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1488885497 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1488968619 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
-	"Trigger_Puerta.h"
-	"TriggerRegion_Rectangle.h"
 	<iostream>
-	"../Fachada/AnimatedMesh.h"
+	"TriggerFactory.h"
 
 1488473141 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolpoint.h
 	"Structs.h"
@@ -3217,4 +3216,16 @@
 
 1488473141 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
+
+1488969353 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+	"TriggerFactory.h"
+	"TriggerRegion_Circle.h"
+	"TriggerRegion_Rectangle.h"
+	"Trigger_Puerta.h"
+	"../Fachada/AnimatedMesh.h"
+	"../PhisicsWorld.h"
+	"Structs.h"
+
+1488968180 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerfactory.h
+	"Trigger.h"
 
