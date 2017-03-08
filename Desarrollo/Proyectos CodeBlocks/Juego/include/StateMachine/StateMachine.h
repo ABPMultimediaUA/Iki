@@ -10,55 +10,53 @@ class StateMachine
 {
     private:
         //a pointer to the agent that owns this instance
-        entity_type* m_pOwner;
-        State<entity_type>* m_pCurrentState;
+        entity_type* propietario;
+        State<entity_type>* actualState;
         //a record of the last state the agent was in
-        State<entity_type>* m_pPreviousState;
+        State<entity_type>* previoState;
         //this state logic is called every time the FSM is updated
-        State<entity_type>* m_pGlobalState;
+        State<entity_type>* globalState;
 
     public:
-        StateMachine(entity_type* owner):m_pOwner(owner),
-        m_pCurrentState(NULL),
-        m_pPreviousState(NULL),
-        m_pGlobalState(NULL)
+        StateMachine(entity_type* owner):propietario(owner),
+        actualState(NULL),
+        previoState(NULL),
+        globalState(NULL)
         {}
         //use these methods to initialize the FSM
-        void SetCurrentState(State<entity_type>* s){m_pCurrentState = s;}
-        void SetGlobalState(State<entity_type>* s) {m_pGlobalState = s;}
-        void SetPreviousState(State<entity_type>* s){m_pPreviousState = s;}
+        void SetCurrentState(State<entity_type>* s){actualState = s;}
+        void SetGlobalState(State<entity_type>* s) {globalState = s;}
+        void SetPreviousState(State<entity_type>* s){previoState = s;}
         //call this to update the FSM
         void Update()const
         {
-        //if a global state exists, call its execute method
-        if (m_pGlobalState) m_pGlobalState->Execute(m_pOwner);
-        //same for the current state
-        if (m_pCurrentState) m_pCurrentState->Execute(m_pOwner);
+            //if a global state exists, call its execute method
+            if (globalState) globalState->Execute(propietario);
+            //same for the current state
+            if (actualState) actualState->Execute(propietario);
         }
         //change to a new state
         void ChangeState(State<entity_type>* pNewState){
-            assert(pNewState &&
-            "<StateMachine::ChangeState>: trying to change to a null state");
+            assert(pNewState && "<StateMachine::ChangeState>: trying to change to a null state");
             //keep a record of the previous state
-            m_pPreviousState = m_pCurrentState;
+            previoState = actualState;
             //call the exit method of the existing state
-            m_pCurrentState->Exit(m_pOwner);
+            actualState->Exit(propietario);
             //change state to the new state
-            m_pCurrentState = pNewState;
+            actualState = pNewState;
             //call the entry method of the new state
-            m_pCurrentState->Enter(m_pOwner);
+            actualState->Enter(propietario);
         }
         //change state back to the previous state
         void RevertToPreviousState()
         {
-        ChangeState(m_pPreviousState);
+        ChangeState(previoState);
         }
         //accessors
-        State<entity_type>* CurrentState() const{return m_pCurrentState;}
-        State<entity_type>* GlobalState() const{return m_pGlobalState;}
-        State<entity_type>* PreviousState() const{return m_pPreviousState;}
-        //returns true if the current state’s type is equal to the type of the
-        //class passed as a parameter.
+        State<entity_type>* CurrentState() const{return actualState;}
+        State<entity_type>* GlobalState() const{return globalState;}
+        State<entity_type>* PreviousState() const{return previoState;}
+        //returns true if the current state’s type is equal to the type of the class passed as a parameter.
         bool isInState(const State<entity_type>& st)const;
 
 

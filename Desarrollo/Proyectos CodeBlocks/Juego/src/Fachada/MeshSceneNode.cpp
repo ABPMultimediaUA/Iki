@@ -15,3 +15,19 @@ MeshSceneNode::~MeshSceneNode()
 {
     //dtor
 }
+
+void MeshSceneNode::setPosition(Structs::TPosicion pos){
+    node->setPosition(vector3df(pos.X, pos.Y, pos.Z));
+}
+
+void MeshSceneNode::setRotation(float rot){
+    node->setRotation(vector3df(0, rot, 0));
+}
+
+void MeshSceneNode::setScale(Structs::TMedida scale){
+    node->setScale(vector3df(scale.ancho, scale.alto, scale.profundo));
+}
+
+void MeshSceneNode::setVisible(bool visible){
+    node->setVisible(visible);
+}

@@ -1,5 +1,6 @@
 #ifndef STATE
 #define STATE
+#include "Structs.h"
 struct Telegram;
 
 template <class entity_type>
@@ -16,6 +17,7 @@ class State
 
 
     protected:
+        Structs calculadora;
 
     private:
 };

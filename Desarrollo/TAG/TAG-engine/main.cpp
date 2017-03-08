@@ -10,7 +10,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
+//   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
 
     //cout << "Hello world!" << endl;
 
@@ -87,8 +87,8 @@ int main(int argc, char *argv[])
 		shader.Update(transform,camera);
 		mesh2.Draw();
 */
-		display.Update();
+//		display.Update();
 		//counter += 0.0001f;
-	}
+//	}
     return 0;
 }

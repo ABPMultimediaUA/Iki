@@ -25,7 +25,7 @@ class Trigger_Respawning : public Trigger
         void Deactivate()
         {
             SetInactive();
-            m_iNumUpdatesRemainingUntilRespawn = m_iNumUpdatesBetweenRespawns;
+            //m_iNumUpdatesRemainingUntilRespawn = m_iNumUpdatesBetweenRespawns;
         }
 };
 

@@ -10,7 +10,6 @@ class PatrolRoute
         virtual ~PatrolRoute();
 
         void setInicial(PatrolPoint* p);
-        void setFinal(PatrolPoint* p);
 
 
         PatrolPoint* getInicial(){ return inicial; };

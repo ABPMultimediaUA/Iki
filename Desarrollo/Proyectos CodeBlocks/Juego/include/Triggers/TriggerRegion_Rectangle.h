@@ -10,12 +10,14 @@ class TriggerRegion_Rectangle : public TriggerRegion
         TriggerRegion_Rectangle(Structs::TPosicion tl, Structs::TPosicion br);
         virtual ~TriggerRegion_Rectangle();
 
-        bool isTouching(Structs::TPosicion EntityPos, double EntityRadius) const;
+        bool isTouching(Structs::TPosicion EntityPos, float EntityRadius) const;
 
     protected:
 
     private:
         Structs::TPosicion TopLeft;
+        Structs::TPosicion TopRight;
+        Structs::TPosicion BottomLeft;
         Structs::TPosicion BottomRight;
 };
 

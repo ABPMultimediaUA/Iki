@@ -847,9 +847,13 @@
 1487851709 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
-1488791840 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1488883474 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	"TDisplay.h"
-	"TMotorTAG.h"
+	"TNodo.h"
+	"TTransform.h"
+	"TLuz.h"
+	"TMalla.h"
+	"TCamara.h"
 
 1487851708 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\glm\glm.hpp
 	"detail/_fixes.hpp"
@@ -1410,7 +1414,7 @@
 	<stdint.h>
 	<wchar.h>
 
-1488208091 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
+1488362195 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\display.h
 	<glew.h>
 	<SDL2\SDL.h>
 	<string>
@@ -2740,15 +2744,15 @@
 1487854147 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
 	"Display.h"
 
-1488791553 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
+1488883475 source:c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
 	"TMotorTAG.h"
 
-1488791043 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
+1488883474 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
 	"TNodo.h"
 	"TTransform.h"
 	"TLuz.h"
-	"TCamara.h"
 	"TMalla.h"
+	"TCamara.h"
 	"TGestorRecursos.h"
 
 1487953796 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\gl\glut.h

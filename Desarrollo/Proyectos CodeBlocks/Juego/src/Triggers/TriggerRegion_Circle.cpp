@@ -1,6 +1,6 @@
 #include "TriggerRegion_Circle.h"
 
-TriggerRegion_Circle::TriggerRegion_Circle(Structs::TPosicion pos, double rad)
+TriggerRegion_Circle::TriggerRegion_Circle(Structs::TPosicion pos, float rad)
 {
     center = pos;
     radius = rad;
@@ -11,8 +11,11 @@ TriggerRegion_Circle::~TriggerRegion_Circle()
     //dtor
 }
 
-bool TriggerRegion_Circle::isTouching(Structs::TPosicion EntityPos, double EntityRadius) const
+bool TriggerRegion_Circle::isTouching(Structs::TPosicion EntityPos, float EntityRadius) const
 {
-    //return ((m_vPos, pos) < (EntityRadius + m_dRadius)*(EntityRadius + m_dRadius);
+    if ( center.Distance(EntityPos) <= radius + EntityRadius )
+    {
+        return true;
+    }
     return false;
 }

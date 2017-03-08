@@ -1,4 +1,5 @@
 #include "PhisicsWorld.h"
+#include  "Fachada/GraphicsFacade.h"
 
 #define VELITER 10
 #define POSITER 10
@@ -8,6 +9,10 @@ PhisicsWorld::PhisicsWorld()
 {
     gravity.x = 0.0f;
     gravity.y = 0.0f;
+
+    TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();
+    DeltaTime = 0;
+
     phisics_world = new b2World(gravity);
 }
 
@@ -16,6 +21,8 @@ PhisicsWorld::~PhisicsWorld()
     //dtor
 }
 
-void PhisicsWorld::Step(float DeltaTime){
+void PhisicsWorld::Step(){
+    DeltaTime = GraphicsFacade::getInstance().getTimer()->getTime() - TimeStamp;
+    TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();
     phisics_world->Step(DeltaTime * TIMESTEP, VELITER, POSITER);
 }
