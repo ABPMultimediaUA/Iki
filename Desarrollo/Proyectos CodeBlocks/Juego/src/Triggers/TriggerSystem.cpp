@@ -73,7 +73,7 @@ void TriggerSystem::TryTriggers(GameEntity* entity)
 
 void TriggerSystem::Update(GameEntity* entity)
 {
-    UpdateTriggers();
+    //UpdateTriggers();
     TryTriggers(entity);
 }
 

@@ -1540,7 +1540,7 @@
 	<cstddef>
 	<cstdarg>
 
-1488977035 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	<irrKlang.h>
 	"driverChoice.h"
 	"irrKlang/conio.h"
@@ -1878,14 +1878,14 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1488977050 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
+1488980030 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
 	"Structs.h"
 	"Fachada/Camera.h"
 	"Player.h"
 	"World.h"
 	"TriggerSystem.h"
 
-1488977315 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
 	<irrlicht.h>
 	<stdio.h>
 	"vector"
@@ -2673,12 +2673,12 @@
 1486495416 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\camera.h
 	"Structs.h"
 
-1488977050 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Fachada/Camera.h"
 	<iostream>
 
-1488978311 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Fachada/AnimatedMesh.h"
 	"Fachada/SceneNode.h"
@@ -2909,7 +2909,7 @@
 	"PatrolPoint.h"
 	"PhisicsWorld.h"
 
-1488977035 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
 	"GameEntity.h"
 	"PhisicsWorld.h"
 
@@ -2920,7 +2920,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1488977050 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -2932,7 +2932,7 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1488977359 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1488980030 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -2977,7 +2977,7 @@
 	"GraphicsFacade.h"
 	"World.h"
 
-1488977806 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\structs.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\structs.cpp
 	"Structs.h"
 	<math.h>
 
@@ -2992,13 +2992,13 @@
 1487851648 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion.cpp
 	"TriggerRegion.h"
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
 	"Structs.h"
 
-1488978091 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_circle.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_circle.cpp
 	"TriggerRegion_Circle.h"
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_circle.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_circle.h
 	<TriggerRegion.h>
 
 1488362706 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\camera.h
@@ -3138,49 +3138,49 @@
 	"Fachada/GraphicsFacade.h"
 	"World.h"
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
 	"vector"
 	"Trigger.h"
 	"tinyxml2.h"
 
-1488978527 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger.h
 	<GameEntity.h>
 	"TriggerRegion.h"
 
-1488977035 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger.cpp
 	"Trigger.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_rectangle.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_rectangle.h
 	<TriggerRegion.h>
 
-1488978499 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
+1488980090 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
 	"Trigger_Municion.h"
 	"GameEntity.h"
 	"Player.h"
 
-1488978602 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_municion.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_municion.h
 	<Trigger_Respawning.h>
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1488977035 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	<iostream>
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1488362129 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
 	"Trigger_Respawning.h"
 
-1488978169 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1488977423 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1488978958 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
 	<iostream>
 	"TriggerFactory.h"
@@ -3230,7 +3230,7 @@
 1488473141 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
 
-1488978602 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1488980267 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -3240,7 +3240,7 @@
 	"../PhisicsWorld.h"
 	"Structs.h"
 
-1488977035 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerfactory.h
+1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerfactory.h
 	"Trigger.h"
 
 1488977050 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\vector2d.h

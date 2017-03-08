@@ -26,11 +26,11 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     if (tipo == 2){
         Trigger_Puerta* trigger = new Trigger_Puerta();
         //region
-        Structs::TPosicion tl = {x+3,0,z-3};
-        Structs::TPosicion br = {x-3,0,z+3};
+        Structs::TPosicion tl(x+3,0,z-3);
+        Structs::TPosicion br(x-3,0,z+3);
         trigger->AddRectangularTriggerRegion(tl,br);
         //modelo
-        Structs::TPosicion pos = {x,0,z};
+        Structs::TPosicion pos(x,0,z);
         const char* cadena = "Modelos/puertita.obj";
         Structs::TColor color = {0,0,0,0};
         AnimatedMesh* modelo = new AnimatedMesh(cadena, color, pos, r);
@@ -53,7 +53,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     if (tipo == 4){
         Trigger_Municion* trigger = new Trigger_Municion();
         //region
-        Structs::TPosicion centro = {x,0,z};
+        Structs::TPosicion centro (x,0,z);
         float radio = 2.5;
         trigger->AddCircularTriggerRegion(centro,radio);
         //modelo;
