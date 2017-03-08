@@ -13,8 +13,9 @@ Trigger_Municion::~Trigger_Municion()
 
 void Trigger_Municion::Try(GameEntity* ent)
 {
-    /*if (isActive() && isTouchingTrigger(ent->Pos(), ent->BRadius())){
-        ent->PickupWeapon( EntityType() );
+    if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->Pos(), ent->BRadius())){
+        ent->CogerMunicion();
         Deactivate();
-    }*/
+        //Desvisualizar body
+    }
 }

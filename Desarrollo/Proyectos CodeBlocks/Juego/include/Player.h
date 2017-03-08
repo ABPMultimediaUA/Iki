@@ -17,6 +17,8 @@ class Player : public GameEntity
         void update(Camera* camara, Structs::TPosicion mousePosition);
         bool isPlayer(){return true;};
 
+        void CogerMunicion();
+
     protected:
 
     private:

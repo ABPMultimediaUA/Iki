@@ -121,3 +121,8 @@ void Player::update(Camera* camara, Structs::TPosicion mousePosition){
             }
         }
 }
+
+void Player::CogerMunicion()
+{
+    rayo->cogerBalas();
+}

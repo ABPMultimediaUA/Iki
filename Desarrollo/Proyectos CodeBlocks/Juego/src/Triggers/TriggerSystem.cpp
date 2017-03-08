@@ -131,7 +131,8 @@ void TriggerSystem::LeerMapa()
         if      (objectGroup->Attribute("name", "Puertas"))
             CrearTipoTrigger(2, objectGroup);
         //else if (objectGroup->Attribute("name", "Palancas"))   CrearTipoTrigger(3, objectGroup);
-        //else if (objectGroup->Attribute("name", "Objetos"))    CrearTipoTrigger(4, objectGroup);
+        else if (objectGroup->Attribute("name", "Objetos"))
+            CrearTipoTrigger(4, objectGroup);
         //else if (objectGroup->Attribute("name", "Apisonadora"))CrearTipoTrigger(5, objectGroup);
 
         objectGroup = objectGroup->NextSiblingElement("objectgroup");
