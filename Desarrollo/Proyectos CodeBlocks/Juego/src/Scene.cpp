@@ -12,6 +12,7 @@ Scene::Scene()
 Scene::~Scene()
 {
     delete player;
+    triggersystem.Clear();
 }
 
 void Scene::inicializar_escena(){

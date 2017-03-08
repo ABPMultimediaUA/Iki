@@ -16,7 +16,6 @@ TriggerSystem::~TriggerSystem()
 
 void TriggerSystem::Clear()
 {
-    //this deletes any current triggers and empties the trigger list
     TriggerList::iterator curTrg;
     for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
     {
@@ -38,7 +37,6 @@ void TriggerSystem::UpdateTriggers()
         TriggerList::iterator curTrg = m_Triggers.begin();
         while (curTrg != m_Triggers.end())
         {
-            //remove trigger if dead
             if ((*curTrg)->isToBeRemoved())
             {
                 delete *curTrg;
@@ -46,7 +44,6 @@ void TriggerSystem::UpdateTriggers()
             }
             else
             {
-                //update this trigger
                 (*curTrg)->Update();
                 ++curTrg;
             }
