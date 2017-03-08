@@ -1,5 +1,5 @@
 #include "StateMachine/Patrullar.h"
-#include "Guardia.h"
+#include "Enemy.h"
 
 
 Patrullar* Patrullar::Instance()
@@ -8,6 +8,7 @@ Patrullar* Patrullar::Instance()
 
   return &instance;
 }
+
 void Patrullar::Enter(Enemy* guardia){
     /*//if the miner is not already located at the gold mine, he must
     //change location to the gold mine

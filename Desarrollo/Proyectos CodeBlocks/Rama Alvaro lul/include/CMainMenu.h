@@ -19,11 +19,18 @@ public:
 
 	bool run();
 
+	float volumen = 0.5;
+	int resolucionX = 1360;
+	int resolucionY = 768;
+
 
 private:
 
     ITexture *image;
 	IrrlichtDevice *MenuDevice;
+
+	bool options = false;
+	bool opcionesresolucion = false;
 
 	bool start = false;
 

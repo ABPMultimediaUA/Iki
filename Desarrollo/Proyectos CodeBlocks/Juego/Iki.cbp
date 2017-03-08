@@ -23,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Option projectResourceIncludeDirsRelation="1" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="include" />
 					<Add directory="include/Triggers" />
@@ -104,6 +105,7 @@
 		<Unit filename="include/Triggers/Trigger_Municion.h" />
 		<Unit filename="include/Triggers/Trigger_Puerta.h" />
 		<Unit filename="include/Triggers/Trigger_Respawning.h" />
+		<Unit filename="include/Vector2D.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />

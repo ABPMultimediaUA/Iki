@@ -12,9 +12,9 @@ class Guardia : public Enemy
     private:
         StateMachine<Enemy>* G_stateMachine;
         State<Enemy>* actualState;
+
         State<Enemy>* previoState;
         State<Enemy>* globalState;
-
 
     public:
         Guardia(PatrolRoute* rutita)

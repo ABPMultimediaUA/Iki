@@ -6,7 +6,6 @@ Scene::Scene()
 {
     world = new World();
     player = new Player();
-    mousePosition = {170,0,50};
 }
 
 Scene::~Scene()
@@ -34,8 +33,9 @@ void Scene::inicializar_escena(){
 void Scene::bucle_juego(){
 
     while(GraphicsFacade::getInstance().run()){
-        player->update(camara, mousePosition);
+
         world->update_mundo();
+        player->update(camara);
         triggersystem.Update(player);
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();

@@ -23,7 +23,7 @@ class Scene
         World *world;
         TriggerSystem triggersystem;
         Player *player;
-        Structs::TPosicion mousePosition;
+
 };
 
 #endif // SCENE_H
