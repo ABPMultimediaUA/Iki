@@ -107,8 +107,8 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
                 //Crear el tipo
                 Trigger_Puerta* trigger = new Trigger_Puerta;
                 //Crear la Region
-                Structs::TPosicion tl = {175,0,45};
-                Structs::TPosicion br = {165,0,55};
+                Structs::TPosicion tl (175,0,45);
+                Structs::TPosicion br (165,0,55);
                 //Asignar la Region
                 trigger->AddRectangularTriggerRegion(tl,br);
                 //Crear y asignar body

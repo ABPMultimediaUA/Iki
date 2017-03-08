@@ -3,18 +3,18 @@
 
 #include "StateMachine/State.h"
 
-class Guardia;
+class Enemy;
 
 //template <class entity_type>
-class Patrullar : public State<Guardia>
+class Patrullar : public State<Enemy>
 {
 public:
     //this is a singleton
     static Patrullar* Instance();
-    void Enter(Guardia* guardia);
-    void Execute(Guardia* guardia);
-    void Exit(Guardia* guardia);
-    bool OnMessage(Guardia*, const Telegram&);
+    void Enter(Enemy* guardia);
+    void Execute(Enemy* guardia);
+    void Exit(Enemy* guardia);
+    bool OnMessage(Enemy*, const Telegram&);
 
 private:
     Patrullar(){};

@@ -48,7 +48,7 @@ void World::crearRutas(Map* mapa){
 
 void World::inicializar_mundo(){
 
-    Structs::TPosicion pos = {150,0,50};
+    Structs::TPosicion pos (150,0,50);
     mapa->inicializar_mapa();
 
     crearRutas(mapa);
@@ -64,9 +64,9 @@ void World::inicializar_mundo(){
     }
 }
 
-/*void World::update_mundo(){
-    for(std::vector<Enemy*>::iterator it = enemigos.begin(); it != posiciones.end(); ++it){
-        it->update_enem();
+void World::update_mundo(){
+    for(std::vector<Enemy*>::iterator it = enemigos.begin(); it != enemigos.end(); ++it){
+        (*it)->update();
     }
-    mapa->update_mapa();
-}*/
+    //mapa->update_mapa();
+}

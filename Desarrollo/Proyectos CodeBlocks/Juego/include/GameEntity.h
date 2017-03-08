@@ -2,8 +2,8 @@
 #define GAME_H
 
 #include "Structs.h"
+#include "Vector2D.h"
 #include "Fachada/SceneNode.h"
-#include "MyEventReceiver.h"
 #include <Box2D/Box2D.h>
 
 
@@ -18,9 +18,6 @@ class GameEntity
         virtual double             getRadio()    { return radio;    }
         virtual Structs::TPosicion getPosition() { return posicion; }
         virtual bool               isPlayer()    { return true;     }
-        //all entities must implement an update function
-        //virtual void Update()=0;
-
 
     protected:
 

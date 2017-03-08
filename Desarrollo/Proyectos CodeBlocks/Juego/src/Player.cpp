@@ -14,7 +14,7 @@ Player::~Player()
 
 void Player::inicializar_player(){
 
-    Structs::TPosicion posicionInicial = {170,0,50};
+    Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {0,0,0,0};
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);
@@ -48,7 +48,6 @@ void Player::moverBody(Structs::TPosicion vec){
         movx = (movx / modulo) * 10.0f * 0.70;
         movy = (movy / modulo) * 10.0f * 0.70;
     }
-
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 

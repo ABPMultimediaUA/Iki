@@ -38,7 +38,7 @@ void Map::crearComponente(int tipo){
 void Map::inicializar_mapa(){
 
     Structs::TMedida med = {600,-5,600};
-    Structs::TPosicion pos = {0,0,0};
+    Structs::TPosicion pos(0,0,0);
     Structs::TColor col = {0,255,255,255};
     int cont = 0;
 
