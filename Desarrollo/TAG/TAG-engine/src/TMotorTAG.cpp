@@ -22,23 +22,19 @@ TNodo *TMotorTAG::crearNodo(TNodo *padre, TEntidad *ent)
 TTransform *TMotorTAG::crearTransform()
 {
     TTransform *tranformacion = new TTransform();
-
     return tranformacion;
-
-}
-
-TCamara *TMotorTAG::crearCamara()
-{
-    TCamara *camara= new TCamara();
-
-    return camara;
 }
 
 TLuz *TMotorTAG::crearLuz()
 {
     TLuz *luz = new TLuz();
-
     return luz;
+}
+
+TCamara *TMotorTAG::crearCamara()
+{
+    TCamara *camara= new TCamara();
+    return camara;
 }
 
 TMalla *TMotorTAG::crearMalla(char* fichero)
@@ -46,58 +42,43 @@ TMalla *TMotorTAG::crearMalla(char* fichero)
 
 }
 
-int TMotorTAG::registrarCamara(TNodo* nod)
+TNodo *TMotorTAG::getCamaraActiva()
 {
-    int x;
-    for(x = 0; x < camaras.size(); x++)
+    for(int i = 0; i < c_activa.size(); i++)
     {
-        camaras.push_back(nod);
-        c_activa.push_back(true);
+        if(c_activa[i])
+            return camaras[i];
     }
-
-    return x;
+    return nullptr;
 }
+
 int TMotorTAG::registrarLuz(TNodo* nod)
 {
-    int y;
-    for(y = 0; y < luces.size(); y++)
-    {
+    //int y;
+    //for(y = 0; y < luces.size(); y++)
+    //{
         luces.push_back(nod);
         l_activa.push_back(true);
-
-    }
-
-    return y;
+    //}
+    return 1;
 }
 
-void TMotorTAG::setLuzActiva(int i)
+int TMotorTAG::registrarCamara(TNodo* nod)
 {
-    l_activa[i] = true;
-    //glEnable(GL_LIGHTING);
+    //int x;
+    //for(x = 0; x < camaras.size(); x++)
+    //{
+        camaras.push_back(nod);
+        c_activa.push_back(false);
+    //}
+    return 1;
 }
-
-void TMotorTAG::setLuzApagada(int i)
-{
-    l_activa[i] = false;
-}
-
-void TMotorTAG::setCamaraActiva(int i)
-{
-    c_activa[i] = true;
-}
-
-void TMotorTAG::setCamaraApagada(int i)
-{
-    c_activa[i] = false;
-}
-
-
 
 void TMotorTAG::draw()
 {
-    int i;
-    //drawLuces
-    for(i= 0; i < luces.size(); i++)
+
+    ///drawLuces
+    for(int i= 0; i < luces.size(); i++)
     {
         if(l_activa[i])
         {
@@ -105,11 +86,11 @@ void TMotorTAG::draw()
             TNodo* nodo;
             vector<TNodo*> aux;
             aux.push_back(luces[i]);
-            nodo= aux.back()->getPadre();
+            nodo = aux.back()->getPadre();
             while(nodo)
             {
                 aux.push_back(nodo);
-                nodo= aux.back()->getPadre();
+                nodo = aux.back()->getPadre();
             }
             //Recorre desde la raiz hasta la luz
             vector<TNodo*>::iterator it = aux.end();
@@ -137,13 +118,33 @@ void TMotorTAG::draw()
             */
         }
     }
+    ///Viewport
 
-    //drawCamaras
-    for(i= 0; i < camaras.size(); i++)
+
+
+    ///drawCamaras
+    //Guardamos en un vector aux desde la luz hasta la raiz
+    TNodo* nodo = getCamaraActiva();
+    vector<TNodo*> aux;
+    aux.push_back(nodo);
+    nodo = aux.back()->getPadre();
+    while(nodo)
     {
-        //recorrer el arbol a la inversa
-
+        aux.push_back(nodo);
+        nodo = aux.back()->getPadre();
     }
+    //Recorre de manera inversa raiz->camara
+    vector<TNodo*>::iterator it = aux.end();
+    mat4 mat_aux = mat4(1.f);
+    while(it != aux.begin())
+    {
+        //mat_aux= *it->getEntidad().getMatriz() ;
+        //* mat_aux
+        --it;
+    }
+    //invertir mat_aux
+    //cargar la matriz con la camara
 
-    //drawEscena
+    ///drawEscena
+    escena->draw();
 }

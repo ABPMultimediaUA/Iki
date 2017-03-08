@@ -1,11 +1,5 @@
 #include "TDisplay.h"
-
-#include "TNodo.h"
-#include "TTransform.h"
-#include "TLuz.h"
-#include "TMalla.h"
-#include "TCamara.h"
-
+#include "TMotorTAG.h"
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -18,9 +12,8 @@ int main(int argc, char *argv[])
 
 //   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
 
-
-
     //cout << "Hello world!" << endl;
+
     TNodo* noditoEsc= new TNodo();
     TNodo* nodito0= new TNodo();
     TNodo* nodito1= new TNodo();
@@ -41,16 +34,42 @@ int main(int argc, char *argv[])
     transform0->rotar(90, 5, 5, 5);
     transform1->trasladar(10, 10, 10);
 
-    /*glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glPushMatrix();*/
+    ///crear y registrar luz
+    //TLuz *luz = motor->crearLuz (…)
+    //TNodo *nodoLuz = motor->crearNodo (padre, luz);
+    //int nLuz = motor->registrarLuz (nodoLuz)
+    //motor->setLuzActiva (nLuz)
 
+    ///crear y registrar camara
+    //TCamara *camara= motor->crearCamara (…)
+    //TNodo *nodoCamara = motor->crearCamara (padre, camara);
+    //int nCamara = motor->registrarCamara (nodoCamara)
+    //motor->setCamaraActiva (nCamara)
 
+/*
+    TMotorTAG  *motor   = new TMotorTAG();
+    TTransform *transf1 = motor->crearTransform();
+    TTransform *transf2 = motor->crearTransform();
+    TLuz    *luz    = motor->crearLuz();
+    TCamara *camara = motor->crearCamara();
+
+    transf1->trasladar (0,0,-300);
+    transf2->trasladar (10, 10, 0);
+
+    TNodo *nodoTransf1 = motor->crearNodo (motor->getEscena(), transf1);
+    TNodo *nodoTransf2 = motor->crearNodo (motor->getEscena(), transf2);
+
+    TNodo *nodoLuz     = motor->crearNodo (nodoTransf1, luz);
+    TNodo *nodoCamara  = motor->crearNodo (nodoTransf2, camara);
+*/
     noditoEsc->draw();
 
-//   while(!display.IsClosed())
-	//{
-	//	display.Clear(0.0f,0.15f,0.3f,1.0f);
+    ////////
+
+
+    while(!display.IsClosed())
+    {
+		display.Clear(0.0f,0.15f,0.3f,1.0f);
     /*
 		float sinCounter = sinf(counter);
 		float cosCounter = cosf(counter);

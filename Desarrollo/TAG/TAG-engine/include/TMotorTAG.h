@@ -4,8 +4,8 @@
 #include "TNodo.h"
 #include "TTransform.h"
 #include "TLuz.h"
-#include "TMalla.h"
 #include "TCamara.h"
+#include "TMalla.h"
 #include "TGestorRecursos.h"
 
 class TMotorTAG
@@ -13,25 +13,32 @@ class TMotorTAG
     public:
         TMotorTAG();
         virtual ~TMotorTAG();
+
         TNodo *crearNodo(TNodo * padre, TEntidad *ent);
         TTransform *crearTransform();
-        TCamara *crearCamara();
         TLuz *crearLuz();
+        TCamara *crearCamara();
         TMalla *crearMalla(char *fichero);
-        int registrarCamara(TNodo* nod);
+
+        TNodo *getEscena(){return escena;};
+        TNodo *getCamaraActiva();
+
         int registrarLuz(TNodo* nod);
-        void setCamaraActiva(int i);
-        void setCamaraApagada(int i);
-        void setLuzActiva(int i);
-        void setLuzApagada(int i);
+        int registrarCamara(TNodo* nod);
+
+        void setLuzActiva(int i)    {l_activa[i] = true; };
+        void setLuzApagada(int i)   {l_activa[i] = false;};
+        void setCamaraActiva(int i) {c_activa[i] = true; };
+        void setCamaraApagada(int i){c_activa[i] = false;};
+
         void draw();
-        //Metodos para el regsitro y manejo de las camaras, luces y viewports.
 
     protected:
 
     private:
         TNodo* escena;
         TGestorRecursos *gestorRecursos;
+
         vector<bool> l_activa, c_activa;
         vector<TNodo*> luces;
         vector<TNodo*> camaras;

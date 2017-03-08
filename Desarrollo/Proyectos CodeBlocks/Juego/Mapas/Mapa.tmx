@@ -648,9 +648,9 @@
   </object>
   <object id="2459" x="33.625" y="119.125" width="2" height="2">
    <properties>
-    <property name="Enemigo" value="1"/>
-    <property name="Next" value="0"/>
-    <property name="Tipo" value="1"/>
+    <property name="Enemigo" type="int" value="1"/>
+    <property name="Next" type="int" value="0"/>
+    <property name="Tipo" type="int" value="2"/>
    </properties>
   </object>
   <object id="2460" x="17.875" y="105.625" width="2" height="2">
@@ -673,9 +673,9 @@
   </object>
   <object id="2463" x="57.625" y="76.625" width="2" height="2">
    <properties>
-    <property name="Enemigo" value="2"/>
-    <property name="Next" value="0"/>
-    <property name="Tipo" value="1"/>
+    <property name="Enemigo" type="int" value="2"/>
+    <property name="Next" type="int" value="0"/>
+    <property name="Tipo" type="int" value="3"/>
    </properties>
   </object>
   <object id="2464" x="96" y="69.125" width="2" height="2">

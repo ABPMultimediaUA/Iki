@@ -79,12 +79,8 @@
 		<Unit filename="include/Enemigo.h" />
 		<Unit filename="include/Fuzzy.h" />
 		<Unit filename="include/Game.h" />
-		<Unit filename="include/Map.h">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="include/MapComponent.h">
-			<Option target="Windows" />
-		</Unit>
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
@@ -92,45 +88,43 @@
 		<Unit filename="include/Singleton.h" />
 		<Unit filename="include/Suelo.h" />
 		<Unit filename="include/Time.h" />
+		<Unit filename="include/Trigger.h" />
+		<Unit filename="include/TriggerRegion.h" />
+		<Unit filename="include/TriggerSystem.h" />
 		<Unit filename="include/World.h" />
+		<Unit filename="include/botones.h" />
+		<Unit filename="include/controles.h" />
 		<Unit filename="include/guilul.h" />
-		<Unit filename="include/tinyxml2.h">
-			<Option target="Windows" />
-		</Unit>
+		<Unit filename="include/menus.h" />
+		<Unit filename="include/tinyxml2.h" />
+		<Unit filename="include/titulos.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/CMainMenu.cpp" />
 		<Unit filename="src/Fuzzy.cpp" />
 		<Unit filename="src/Game.cpp" />
-		<Unit filename="src/Map.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/MapComponent.cpp">
-			<Option target="Windows" />
-		</Unit>
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/MapComponent.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Singleton.cpp" />
 		<Unit filename="src/Suelo.cpp" />
 		<Unit filename="src/Time.cpp" />
+		<Unit filename="src/Trigger.cpp" />
+		<Unit filename="src/TriggerRegion.cpp" />
+		<Unit filename="src/TriggerSystem.cpp" />
 		<Unit filename="src/World.cpp" />
+		<Unit filename="src/botones.cpp" />
+		<Unit filename="src/controles.cpp" />
 		<Unit filename="src/enemigo.cpp" />
-		<Unit filename="src/fuzzytests/FuzzyModule.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/fuzzytests/FuzzySet.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/fuzzytests/FuzzySet_Triangle.cpp">
-			<Option target="Windows" />
-		</Unit>
-		<Unit filename="src/fuzzytests/FuzzyVariable.cpp">
-			<Option target="Windows" />
-		</Unit>
+		<Unit filename="src/fuzzytests/FuzzyModule.cpp" />
+		<Unit filename="src/fuzzytests/FuzzySet.cpp" />
+		<Unit filename="src/fuzzytests/FuzzySet_Triangle.cpp" />
+		<Unit filename="src/fuzzytests/FuzzyVariable.cpp" />
 		<Unit filename="src/guilul.cpp" />
-		<Unit filename="src/tinyxml2.cpp">
-			<Option target="Windows" />
-		</Unit>
+		<Unit filename="src/menus.cpp" />
+		<Unit filename="src/tinyxml2.cpp" />
+		<Unit filename="src/titulos.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
