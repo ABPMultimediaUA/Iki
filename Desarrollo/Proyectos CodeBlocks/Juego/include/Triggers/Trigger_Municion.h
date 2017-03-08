@@ -11,6 +11,7 @@ class Trigger_Municion : public Trigger_Respawning
         virtual ~Trigger_Municion();
         void Try(GameEntity*);
 
+        void Update();
         void Render();
 
     protected:

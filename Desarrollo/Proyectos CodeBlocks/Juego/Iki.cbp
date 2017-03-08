@@ -63,6 +63,7 @@
 			<Add alias="All" targets="Windows;Linux;" />
 		</VirtualTargets>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-g" />
 			<Add directory="../irrlicht-1.8.4/include" />
 			<Add directory="../irrKlang-1.5.0/include" />
@@ -76,6 +77,7 @@
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>
 		<Unit filename="Makefile" />
+		<Unit filename="include/Dron.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/Fachada/AnimatedMesh.h" />
 		<Unit filename="include/Fachada/Camera.h" />
@@ -87,11 +89,13 @@
 		<Unit filename="include/LevelData.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapComponent.h" />
+		<Unit filename="include/Medico.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
 		<Unit filename="include/PhisicsWorld.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/Player_Ray.h" />
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/StateMachine/Patrullar.h" />
 		<Unit filename="include/StateMachine/State.h" />
@@ -110,6 +114,7 @@
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Dron.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/Fachada/AnimatedMesh.cpp" />
 		<Unit filename="src/Fachada/Camera.cpp" />
@@ -121,11 +126,13 @@
 		<Unit filename="src/LevelData.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapComponent.cpp" />
+		<Unit filename="src/Medico.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/PhisicsWorld.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Player_Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/StateMachine/Patrullar.cpp" />
 		<Unit filename="src/StateMachine/State.cpp" />

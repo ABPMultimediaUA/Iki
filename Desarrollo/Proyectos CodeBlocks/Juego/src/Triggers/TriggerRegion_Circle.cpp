@@ -13,7 +13,7 @@ TriggerRegion_Circle::~TriggerRegion_Circle()
 
 bool TriggerRegion_Circle::isTouching(Structs::TPosicion EntityPos, float EntityRadius) const
 {
-    if ( s.distance(center,EntityPos) <= radius + EntityRadius )
+    if ( center.Distance(EntityPos) <= radius + EntityRadius )
     {
         return true;
     }

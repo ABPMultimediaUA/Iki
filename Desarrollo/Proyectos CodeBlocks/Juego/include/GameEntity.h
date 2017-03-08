@@ -2,15 +2,9 @@
 #define GAME_H
 
 #include "Structs.h"
-<<<<<<< HEAD
 #include "Fachada/AnimatedMesh.h"
 #include "Fachada/SceneNode.h"
 #include "MyEventReceiver.h"
-=======
-#include "Vector2D.h"
-#include "Fachada/SceneNode.h"
-#include <Box2D/Box2D.h>
->>>>>>> refs/remotes/origin/master
 
 #include <Box2D/Box2D.h>
 

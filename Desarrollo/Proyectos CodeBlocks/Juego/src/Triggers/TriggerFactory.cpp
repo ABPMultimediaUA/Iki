@@ -4,6 +4,7 @@
 #include "TriggerRegion_Rectangle.h"
 
 #include "Trigger_Puerta.h"
+#include "Trigger_Municion.h"
 
 
 #include "../Fachada/AnimatedMesh.h"
@@ -23,7 +24,7 @@ TriggerFactory::~TriggerFactory()
 Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
 {
     if (tipo == 2){
-        Trigger_Puerta* trigger = new Trigger_Puerta;
+        Trigger_Puerta* trigger = new Trigger_Puerta();
         //region
         Structs::TPosicion tl = {x+3,0,z-3};
         Structs::TPosicion br = {x-3,0,z+3};
@@ -50,7 +51,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     }
 
     if (tipo == 4){
-        Trigger_Municion* trigger = new Trigger_Municion;
+        Trigger_Municion* trigger = new Trigger_Municion();
         //region
         Structs::TPosicion centro = {x,0,z};
         float radio = 2.5;
