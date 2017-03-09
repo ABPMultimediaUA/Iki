@@ -2,12 +2,12 @@
 #define ALGORITMO
 
 #include <irrlicht.h>
-#include <enemigo.h>
-#include <Heuristic_Euclid.h>
-#include <SparseGraph.h>
-#include <Edge.h>
-#include "PathEdge.h"
-#include <PriorityQueue.h>
+#include <Enemy.h>
+#include <Path/Heuristic_Euclid.h>
+#include <Path/SparseGraph.h>
+#include <Path/Edge.h>
+#include "Path/PathEdge.h"
+#include <Path/PriorityQueue.h>
 #include <stdio.h>
 
 //template< class graph_type, class heuristic>

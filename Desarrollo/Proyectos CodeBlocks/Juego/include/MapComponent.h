@@ -9,12 +9,11 @@ class MapComponent
     public:
         MapComponent(float, Structs::TPosicion, int);
         ~MapComponent();
+        b2Body *body;
 
     protected:
 
     private:
-
-        b2Body *body;
         AnimatedMesh *modelo;
 };
 

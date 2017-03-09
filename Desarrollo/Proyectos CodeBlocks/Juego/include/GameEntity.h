@@ -5,6 +5,12 @@
 #include "Fachada/AnimatedMesh.h"
 #include "Fachada/SceneNode.h"
 #include "MyEventReceiver.h"
+#include <vector>
+#include <fstream>
+#include <string>
+#include <list>
+#include "Map.h"
+
 
 #include <Box2D/Box2D.h>
 

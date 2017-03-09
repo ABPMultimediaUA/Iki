@@ -1,21 +1,21 @@
 #ifndef PATHEDGE
 #define PATHEDGE
 
-#include <irrlicht.h>
-#include <enemigo.h>
-#include <SparseGraph.h>
+
+#include <Enemy.h>
+#include <Path/SparseGraph.h>
 
 class PathEdge
 {
-    public:PathEdge(irr::core::vector3df Source,irr::core::vector3df Destination,int Behavior)
+    public:PathEdge(Structs::TPosicion Source,Structs::TPosicion Destination,int Behavior)
                     :desde(Source),
                      hasta(Destination),
                      behavior(Behavior){}
 
-    irr::core::vector3df getDestination()const{return hasta;}
-    void SetDestination(irr::core::vector3df NewDest){hasta=NewDest;}
-    irr::core::vector3df getSource()const{return desde;}
-    void SetSource(irr::core::vector3df NewSource){desde=NewSource;}
+    Structs::TPosicion getDestination()const{return hasta;}
+    void SetDestination(Structs::TPosicion NewDest){hasta=NewDest;}
+    Structs::TPosicion getSource()const{return desde;}
+    void SetSource(Structs::TPosicion NewSource){desde=NewSource;}
     int Behavior()const;
 
 
@@ -23,8 +23,8 @@ class PathEdge
 
     private:
         //positions of the source and destination nodes this edge connects
-        irr::core::vector3df desde;
-        irr::core::vector3df hasta;
+        Structs::TPosicion desde;
+        Structs::TPosicion hasta;
         //the behavior associated with traversing this edge
         int behavior;
 };

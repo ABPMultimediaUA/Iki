@@ -3,7 +3,7 @@
 
 #define NDEBUG
 
-#include <irrlicht.h>
+
 #include <list>
 #include <cstdlib>
 #include <iostream>
@@ -49,7 +49,7 @@ class SparseGraph
         bool isEmpty()const;
         bool isNodePresent(int idx)const;//devuelve true su el nodo que nos dan esta presente en el grafo
         bool isEdgePresent(int from, int to)const;
-        int nodeMoreClose(irr::core::vector3df p);
+        int nodeMoreClose(Structs::TPosicion p);
         //-------------------------- SetEdgeCost ---------------------------------
         //
         //  Sets the cost of a specific edge

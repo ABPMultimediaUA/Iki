@@ -1,4 +1,4 @@
-#include "NavGraph.h"
+#include "Path/NavGraph.h"
 
 NavGraph::NavGraph()
 {

@@ -1,7 +1,7 @@
 #ifndef NODO
 #define NODO
 
-#include <irrlicht.h>
+#include "Structs.h"
 #include <list>
 #include <cstdlib>
 #include <iostream>
@@ -17,7 +17,7 @@ class Nodo
         int Index()const;
         void setIndex(int NewIndex);
         float calcularCoste(Nodo b);
-        irr::core::vector3df posicion;
+        Structs::TPosicion posicion;
 
     protected:
         int index;

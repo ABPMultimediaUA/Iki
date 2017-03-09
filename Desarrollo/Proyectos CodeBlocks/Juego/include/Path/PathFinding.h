@@ -1,7 +1,7 @@
 #ifndef PATHFINDING
 #define PATHFINDING
 
-#include <irrlicht.h>
+#include <Structs.h>
 #include <vector>
 #include <fstream>
 #include <string>
@@ -17,9 +17,9 @@ class PathFinding
     public:
         PathFinding(SparseGraph* graf, Player* play);
         virtual ~PathFinding();
-        irr::core::vector3df getPunto();
-        bool crearPath(irr::core::vector3df partida,irr::core::vector3df destino, std::list<int>& path);
-        int nodoMasCercano(irr::core::vector3df);
+        Structs::TPosicion getPunto();
+        bool crearPath(Structs::TPosicion partida,Structs::TPosicion destino, std::list<int>& path);
+        int nodoMasCercano(Structs::TPosicion);
 
     protected:
 

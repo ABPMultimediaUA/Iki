@@ -30,7 +30,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         float radio = 3.5;
         trigger->AddCircularTriggerRegion(centro,radio);
         //modelo
-        AnimatedMesh* modelo = new AnimatedMesh("Modelos/puertita.obj", {0,0,0,0}, centro, r);
+        AnimatedMesh* modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
         //b2body
         b2BodyDef bodyDef;
@@ -54,7 +54,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         float radio = 1.f;
         trigger->AddCircularTriggerRegion(centro,radio);
         //modelo;
-        AnimatedMesh* modelo = new AnimatedMesh("Modelos/objeto.obj", {0,0,0,0}, centro, r);
+        AnimatedMesh* modelo = new AnimatedMesh("resources/Modelos/objeto.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
 
         return trigger;

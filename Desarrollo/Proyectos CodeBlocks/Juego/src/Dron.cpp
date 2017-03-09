@@ -8,8 +8,9 @@ void Dron::update(){
     tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime() + tiempoEnEstado;
 }
 
-void Dron::inicializar_enemigo()
+void Dron::inicializar_enemigo(Map* m)
 {
+    Mapa=m;
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
     bodyDef.position.Set(posicion.X, posicion.Z);
