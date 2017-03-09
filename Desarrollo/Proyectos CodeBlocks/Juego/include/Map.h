@@ -8,11 +8,15 @@
 #include "Structs.h"
 #include "PatrolPoint.h"
 #include "Fachada/MeshSceneNode.h"
+#include "Path/SparseGraph.h"
+#include "Path/Edge.h"
+#include "Path/Nodo.h"
 
 using namespace tinyxml2;
 using namespace std;
 
 class MapComponent;
+class Nodo;
 
 class Map
 {
@@ -24,6 +28,8 @@ class Map
 
         vector<PatrolPoint*> getPatrullas() { return patrullas; }
         vector<int>          getTipos()     { return tipos;     }
+        SparseGraph*         getGrafo()     { return Grafo;     }
+        vector<MapComponent*> muros;
 
     protected:
 
@@ -31,7 +37,7 @@ class Map
 
         MeshSceneNode *suelo;
 
-        vector<MapComponent*> muros;
+
         vector<PatrolPoint*>  patrullas;
         vector<int>           tipos;
 
@@ -45,6 +51,15 @@ class Map
         int _tileWidth;
         int _height;
         int _tileHeigth;
+
+        Nodo node;
+        Edge edge;
+        SparseGraph* Grafo;
+        std::vector<int> fila;
+        std::vector<std::vector<int>> conectaCon;
+        float coste;
+        int indice;
+
 
 };
 

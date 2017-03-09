@@ -1,6 +1,6 @@
 #include "Trigger_Puerta.h"
 #include "GameEntity.h"
-//#include <iostream>
+#include <iostream>
 
 Trigger_Puerta::Trigger_Puerta()
 {
@@ -15,17 +15,17 @@ Trigger_Puerta::~Trigger_Puerta()
 
 void Trigger_Puerta::Try(GameEntity* ent)
 {
-    if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
+    if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
         //Open la puerta
-        //std::cout << "->>>>abierta " << std::endl;
-        aniMesh->setVisible(false);
-        body->SetActive(false);
+        //std::cout << " abierta " << std::endl;
+       //aniMesh->setVisible(true);
+       body->SetActive(false);
     }
     else{
         //Close la puerta
-        //std::cout << "-<<<<cerrada " << std::endl;
-        aniMesh->setVisible(true);
-        body->SetActive(true);
+        //std::cout << " cerrada " << std::endl;
+        //aniMesh->setVisible(false);
+        body->SetActive(false);
     }
 }
 

@@ -10,9 +10,10 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-    triggersystem.Clear();
-    delete player;
+    //triggersystem.Clear();
     delete world;
+    delete player;
+
 }
 
 void Scene::inicializar_escena(){
@@ -24,10 +25,11 @@ void Scene::inicializar_escena(){
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
     //camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
-
-    player->inicializar_player();
     world->inicializar_mundo();
-    triggersystem.LeerMapa();
+    Mapa = world->getMapa();
+    player->inicializar_player(Mapa);
+
+    //triggersystem.LeerMapa();
 
     bucle_juego();
 }
@@ -38,7 +40,7 @@ void Scene::bucle_juego(){
 
         world->update_mundo();
         player->update(camara);
-        triggersystem.Update(player);
+        //triggersystem.Update(player);
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 

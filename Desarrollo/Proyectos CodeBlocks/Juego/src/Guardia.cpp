@@ -9,9 +9,9 @@ void Guardia::update(){
     std::cout<<"Tiempo en estado: "<< tiempoEnEstado<<std::endl;
 }
 
-void Guardia::inicializar_enemigo()
+void Guardia::inicializar_enemigo(Map* m)
 {
-
+    Mapa=m;
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
     bodyDef.position.Set(posicion.X, posicion.Z);

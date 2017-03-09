@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "World.h"
 #include "TriggerSystem.h"
+#include "Map.h"
 
 class Scene
 {
@@ -23,6 +24,7 @@ class Scene
         World *world;
         TriggerSystem triggersystem;
         Player *player;
+        Map* Mapa;
 
 };
 

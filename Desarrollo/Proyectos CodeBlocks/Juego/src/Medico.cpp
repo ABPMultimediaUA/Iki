@@ -8,8 +8,9 @@ void Medico::update(){
     tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime() + tiempoEnEstado;
 }
 
-void Medico::inicializar_enemigo()
+void Medico::inicializar_enemigo(Map* m)
 {
+    Mapa=m;
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
     bodyDef.position.Set(posicion.X, posicion.Z);

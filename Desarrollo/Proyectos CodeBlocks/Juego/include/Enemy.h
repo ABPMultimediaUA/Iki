@@ -11,7 +11,7 @@ class Enemy : public GameEntity
     public:
         Enemy(){}
         ~Enemy(){}
-        virtual void inicializar_enemigo()=0;
+        virtual void inicializar_enemigo(Map* m)=0;
         virtual void update()=0;
         void SetID(int val);
         int getID()const{return id;}
@@ -32,6 +32,7 @@ class Enemy : public GameEntity
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement;
         Structs::TPosicion posinit,posaux;
+        Map* Mapa;
 
         f32 tiempoEnEstado;
 
@@ -39,11 +40,6 @@ class Enemy : public GameEntity
     private:
 
         static int m_iNextValidID;
-
-
-
-        /*PatrolRoute ruta;
-        PatrolPoint* pRuta;*/
 
 };
 
