@@ -19,6 +19,7 @@
 			<Target title="Windows">
 				<Option platforms="Windows;" />
 				<Option output="ejemplo" prefix_auto="0" extension_auto="1" />
+				<Option object_output="../../../../iki_objs" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectResourceIncludeDirsRelation="1" />
