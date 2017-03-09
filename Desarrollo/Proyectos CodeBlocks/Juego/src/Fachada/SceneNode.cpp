@@ -28,7 +28,7 @@ void SceneNode::setRotation(float angulo){
 }
 
 void SceneNode::cambiarColor(Structs::TColor color){
-    std::cout << "Opacidad: " << color.opacity << std::endl;
+    //std::cout << "Opacidad: " << color.opacity << std::endl;
     node->setMaterialFlag(video::EMF_LIGHTING, false);
     GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(), SColor(color.opacity, color.r, color.g, color.b));
 }
