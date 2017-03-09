@@ -34,15 +34,25 @@ void World::crearRutas(Map* mapa){
         }
         else{
             if(aux->getNext0() == 0){
-                aux->setNext(rutas.back()->getInicial());
-                rutas.back()->getInicial()->setPrev(aux);
+                aux->setNext(rutas[rutas.size()-1]->getInicial());
+                rutas[rutas.size()-1]->getInicial()->setPrev(aux);
             }
             else{
                 aux->setNext(aux->getPrev());
-                rutas.back()->getInicial()->setPrev(rutas.back()->getInicial()->getNext());
+                rutas[rutas.size()-1]->getInicial()->setPrev(rutas[rutas.size()-1]->getInicial()->getNext());
             }
         }
         aux = puntos.at(i);
+        if(puntos.size()-1 == i){
+            if(aux->getNext0() == 0){
+                aux->setNext(rutas[rutas.size()-1]->getInicial());
+                rutas[rutas.size()-1]->getInicial()->setPrev(aux);
+            }
+            else{
+                aux->setNext(aux->getPrev());
+                rutas[rutas.size()-1]->getInicial()->setPrev(rutas[rutas.size()-1]->getInicial()->getNext());
+            }
+        }
 
     }
 }

@@ -31,6 +31,7 @@ void Dron::inicializar_enemigo()
     pRuta = ruta->getInicial();
     Structs::TColor color = {0,255,0,0};
     tipo = 3;
+    direccion = 0;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
 

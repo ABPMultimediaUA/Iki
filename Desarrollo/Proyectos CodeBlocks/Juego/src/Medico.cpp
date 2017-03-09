@@ -29,7 +29,8 @@ void Medico::inicializar_enemigo()
 
     pRuta = ruta->getInicial();
     Structs::TColor color = {0,0,0,255};
-    tipo = 3;
+    tipo = 2;
+    direccion = 0;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};

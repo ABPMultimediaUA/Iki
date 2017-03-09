@@ -23,13 +23,16 @@ class Enemy : public GameEntity
             modelo->setRotation(body->GetAngle());
             }
         void patrullar();
+        void vigilar();
 
     protected:
-        int id,tipo;
+        int id,tipo, direccion;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement;
         Structs::TPosicion posinit,posaux;
+
+        f32 tiempoEnEstado;
 
 
     private:
