@@ -1,5 +1,6 @@
 #include "Vigilar.h"
 #include "Enemy.h"
+#include "Guardia.h"
 
 Vigilar* Vigilar::Instance()
 {
@@ -22,6 +23,10 @@ void Vigilar::Enter(Enemy* enemigo){
 void Vigilar::Execute(Enemy* enemigo){
 
     enemigo->vigilar();
+    if(enemigo->getTiempo() > 5){
+        enemigo->resetTime();
+        static_cast<Guardia*>(enemigo)->GetFSM()->ChangeState(Patrullar::Instance());
+    }
 
 }
 

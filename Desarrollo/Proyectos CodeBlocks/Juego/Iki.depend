@@ -1310,10 +1310,10 @@
 	"PatrolPoint.h"
 	"Fachada/MeshSceneNode.h"
 
-1488988540 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
+1489058479 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
 	<GameEntity.h>
 
-1488987910 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -1327,7 +1327,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1488979169 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -1338,7 +1338,7 @@
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488987439 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1489055542 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"Guardia.h"
@@ -3027,11 +3027,11 @@
 1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
 	"Structs.h"
 
-1488970013 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
 	"Fachada/AnimatedMesh.h"
 	"Fachada/GraphicsFacade.h"
 
-1488970013 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animatedmesh.h
+1489055481 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animatedmesh.h
 	"Structs.h"
 
 1488362706 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
@@ -3085,7 +3085,7 @@
 1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_rectangle.h
 	<TriggerRegion.h>
 
-1488979169 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
 	"Trigger_Municion.h"
 	"GameEntity.h"
 	"Player.h"
@@ -3097,7 +3097,7 @@
 1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1488979169 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	<iostream>
@@ -3108,10 +3108,10 @@
 1488362716 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
 	"Trigger_Respawning.h"
 
-1488979169 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1488979169 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
 	<iostream>
 	"TriggerFactory.h"
@@ -3332,14 +3332,16 @@
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
 
-1489053910 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
-	"StateMachine/Patrullar.h"
+1489058771 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
+	"Patrullar.h"
+	"Vigilar.h"
 	"Enemy.h"
+	"Guardia.h"
 
 1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\patrullar.h
 	"StateMachine/State.h"
 
-1488979169 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -3352,46 +3354,46 @@
 1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerfactory.h
 	"Trigger.h"
 
-1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\guardia.h
+1489056874 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\guardia.h
 	"Enemy.h"
 	"StateMachine/StateMachine.h"
 	"StateMachine/Patrullar.h"
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
-1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\medico.h
+1489056911 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\medico.h
 	"Enemy.h"
 	"StateMachine/StateMachine.h"
 	"StateMachine/Patrullar.h"
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
-1488979168 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\dron.h
+1489056902 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\dron.h
 	"Enemy.h"
 	"StateMachine/StateMachine.h"
 	"StateMachine/Patrullar.h"
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
-1488980133 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\dron.cpp
+1489056922 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\dron.cpp
 	"Dron.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488980107 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
+1489058653 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
 	"Guardia.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488980122 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\medico.cpp
+1489057043 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\medico.cpp
 	"Medico.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488988326 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\vigilar.cpp
+1489055481 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\vigilar.cpp
 	"Vigilar.h"
 	"Enemy.h"
 
-1488988336 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\vigilar.h
+1489055481 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\vigilar.h
 	"StateMachine/State.h"
 

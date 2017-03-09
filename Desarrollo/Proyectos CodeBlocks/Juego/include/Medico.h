@@ -25,6 +25,7 @@ class Medico : public Enemy
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;
+            tiempoEnEstado = 0;
         }
         ~Medico(){delete G_stateMachine;}
         void update();

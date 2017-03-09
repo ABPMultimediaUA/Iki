@@ -5,7 +5,7 @@
 void Dron::update(){
     G_stateMachine->Update();
     avMovement=9.5*PhisicsWorld::getInstance()->getDeltaTime()/1000;
-
+    tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime() + tiempoEnEstado;
 }
 
 void Dron::inicializar_enemigo()

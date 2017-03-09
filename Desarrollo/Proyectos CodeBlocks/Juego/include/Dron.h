@@ -25,6 +25,7 @@ class Dron : public Enemy
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;
+            tiempoEnEstado = 0;
         }
         ~Dron(){delete G_stateMachine;}
         void update();

@@ -43,6 +43,7 @@ void World::crearRutas(Map* mapa){
             }
         }
         aux = puntos.at(i);
+
         if(puntos.size()-1 == i){
             if(aux->getNext0() == 0){
                 aux->setNext(rutas[rutas.size()-1]->getInicial());
