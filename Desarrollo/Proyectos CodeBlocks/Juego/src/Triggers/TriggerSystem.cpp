@@ -73,7 +73,7 @@ void TriggerSystem::TryTriggers(GameEntity* entity)
 
 void TriggerSystem::Update(GameEntity* entity)
 {
-    UpdateTriggers();
+    //UpdateTriggers();
     TryTriggers(entity);
 }
 
@@ -115,7 +115,7 @@ void TriggerSystem::LeerMapa()
     //Se lee el fichero .tmx
     tinyxml2::XMLDocument* docFile;
     docFile = new tinyxml2::XMLDocument;
-    docFile->LoadFile("Mapas/Mapa.tmx");
+    docFile->LoadFile("resources/Mapas/Mapa.tmx");
 
     tinyxml2::XMLElement* mapElement = docFile->FirstChildElement("map");
    // mapElement->QueryIntAttribute("width", &_width);

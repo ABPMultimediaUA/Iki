@@ -46,7 +46,7 @@ void Map::inicializar_mapa(){
 
     docFile = new XMLDocument; //Se crea el objeto del documento
 
-    docFile->LoadFile("Mapas/Mapa.tmx"); //Se carga el archivo xml
+    docFile->LoadFile("resources/Mapas/Mapa.tmx"); //Se carga el archivo xml
 
     mapElement = docFile->FirstChildElement("map"); //Se enlaza el elemento mapa
 

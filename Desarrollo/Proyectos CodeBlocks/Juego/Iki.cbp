@@ -73,8 +73,8 @@
 		</Compiler>
 		<Linker>
 			<Add library="Irrlicht" />
-			<Add library="engineBox2D/bin/Debug/libengineBox2D.a" />
-			<Add library="libirrKlang.a" />
+			<Add library="lib/libbox2d.a" />
+			<Add library="lib/libirrKlang.a" />
 			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>

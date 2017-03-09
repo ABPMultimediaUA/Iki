@@ -16,7 +16,7 @@ devices.
 
 #include <irrKlang.h>
 #include "driverChoice.h"
-#include "irrKlang/conio.h"
+#include "lib/irrKlang/conio.h"
 #include "Scene.h"
 
 using namespace irrklang;
@@ -127,9 +127,14 @@ int main()
     //scene::ISceneManager* smgr = device->getSceneManager();
 
     //INICIALIZAR ESCENA
-/*
+
 #include <iostream>
 
+std::cout << "==================" << std::endl;
+std::cout << "     IKI GAME     " << std::endl;
+std::cout << "==================" << std::endl;
+
+/*
 std::cout << "" << std::endl;
 std::cout << "  _____ _  _______    _____          __  __ ______ " << std::endl;
 std::cout << " |_   _| |/ /_   _|  / ____|   /\   |  \/  |  ____|" << std::endl;
