@@ -1,4 +1,4 @@
-#include "PathFinding.h"
+#include "Path/PathFinding.h"
 
 PathFinding::PathFinding(SparseGraph* graf, Player* play)
 {
@@ -12,7 +12,7 @@ PathFinding::~PathFinding()
 {
     //dtor
 }
-bool PathFinding::crearPath(irr::core::vector3df partida,irr::core::vector3df destino, std::list<int>& path){
+bool PathFinding::crearPath(Structs::TPosicion partida,Structs::TPosicion destino, std::list<int>& path){
     //Buscar nodos cercanos a partida y a destino
     int desde = grafo->nodeMoreClose(partida);
     //std::cout<<"NodoPartida: "<<desde<<std::endl;

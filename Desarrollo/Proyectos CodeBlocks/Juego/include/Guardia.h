@@ -30,7 +30,7 @@ class Guardia : public Enemy
         ~Guardia(){delete G_stateMachine;}
         void update();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
-        void inicializar_enemigo();
+        void inicializar_enemigo(Map* m);
 
 
 };

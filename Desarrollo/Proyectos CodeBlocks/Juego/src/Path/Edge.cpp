@@ -1,7 +1,5 @@
-#include "Edge.h"
-#include <list>
-#include <cstdlib>
-#include <iostream>
+#include "Path/Edge.h"
+
 
 float Edge::Cost() const{
     return cost;

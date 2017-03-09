@@ -1,9 +1,8 @@
 #ifndef HEURISTIC_EUCLID
 #define HEURISTIC_EUCLID
 
-#include <irrlicht.h>
-#include <SparseGraph.h>
-#include <Nodo.h>
+#include <Path/SparseGraph.h>
+#include <Path/Nodo.h>
 
 class Heuristic_Euclid
 {
@@ -13,7 +12,7 @@ Heuristic_Euclid(){}
 //template <class graph_type>
 static double Calculate(const SparseGraph& G, int nd1, int nd2)
 {
-return G.getNode(nd1).posicion.getDistanceFrom(G.getNode(nd2).posicion);
+    return G.getNode(nd1).posicion.Distance(G.getNode(nd2).posicion);
 }
 };
 #endif // HEURISTIC_EUCLID

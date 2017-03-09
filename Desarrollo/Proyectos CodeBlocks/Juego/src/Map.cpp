@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "MapComponent.h"
 
+
 Map::Map()
 {
 //    muros = new vector<MapComponent*>();
@@ -8,7 +9,8 @@ Map::Map()
 //    palancas = new vector<MapComponent*>();
 //    objetos = new vector<MapComponent*>();
 //    apisonadoras = new vector<MapComponent*>();
-    //patrullas = new vector<MapComponent*>();
+//    patrullas = new vector<MapComponent*>();
+    Grafo = new SparseGraph(true);
 }
 
 Map::~Map()
@@ -59,10 +61,13 @@ void Map::inicializar_mapa(){
     //Pasamos a leer los ObjectGroups
     objectGroup = mapElement->FirstChildElement("objectgroup");
 
+
     while (objectGroup){
 
         float x, z;
         int c = 0, c2 = 0, n = 0;
+        const char * value;
+        int name;
 
         //Paredes
         if      (objectGroup->Attribute("name", "Pared"))      crearComponente(1);
@@ -109,6 +114,60 @@ void Map::inicializar_mapa(){
 
 
 
+            }
+        }
+        else if (objectGroup->Attribute("name", "WayPoints"))
+        {
+           if (objectGroup->FirstChildElement("object"))
+            {
+
+                object = objectGroup->FirstChildElement("object");
+
+
+                while (object)
+                {
+                    object->QueryAttribute("name", &name);
+                    object->QueryFloatAttribute("x", &z);
+                    object->QueryFloatAttribute("y", &x);
+                    if(object->FirstChildElement("properties")->FirstChildElement("property")){
+                    property = object->FirstChildElement("properties")->FirstChildElement("property");
+                    value = property->Attribute("value");
+                    //std::cout<<"nombre: "<<name<<std::endl;
+                    }
+                    node.setIndex((int)name);
+                    //std::cout<<"index del nodo: "<<node.Index()<<std::endl;
+                    node.posicion= Structs::TPosicion(x,0,z);
+                    //std::cout<<"X: "<<node.posicion.X<<" Z: "<<node.posicion.Z<<std::endl;
+                    Grafo->addNode(node);
+
+                    char * str = (char*)value; //cambio un const char a char
+                    char * pch;
+                    pch = strtok (str,",");   // Separar por la coma
+                    fila.clear();
+                    while (pch != NULL)
+                    {
+                        int num = atoi(pch);
+                        fila.push_back(num);
+                        //cout<<"Este: "<<n<<"conecta con este: "<<fila.back()<<endl;
+                        pch = strtok (NULL,",");
+                    }
+                    conectaCon.push_back(fila);
+                    object = object->NextSiblingElement("object");
+                }
+                 cout<<"Numero de Nodos Totales "<<Grafo->numNodes()<<endl;
+
+                for (int i=0; i < conectaCon.size();i++){
+                    for(int j=0; j < conectaCon[i].size();j++){
+                        if(i!=conectaCon[i][j]){
+                            //cout<<"Este: "<<i<<" conecta con este: "<<conectaCon[i][j]<<endl;
+                            coste=Grafo->getNode(i).calcularCoste(Grafo->getNode(conectaCon[i][j]));
+                            edge.setFrom(i);
+                            edge.setTo(conectaCon[i][j]);
+                            edge.setCost(coste);
+                            Grafo->addEdge(edge);
+                        }
+                    }
+                }
             }
         }
 

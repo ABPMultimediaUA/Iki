@@ -25,7 +25,7 @@ void Trigger_Puerta::Try(GameEntity* ent)
         //Close la puerta
         //std::cout << " cerrada " << std::endl;
         //aniMesh->setVisible(false);
-        body->SetActive(true);
+        body->SetActive(false);
     }
 }
 

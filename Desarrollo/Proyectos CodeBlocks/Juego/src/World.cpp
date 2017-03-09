@@ -7,7 +7,7 @@
 
 World::World()
 {
-    mapa = new Map;
+    mapa = new Map();
 }
 
 World::~World()
@@ -67,7 +67,7 @@ void World::inicializar_mundo(){
             default:
                 break;
         }
-        enemigos[i]->inicializar_enemigo();
+        enemigos[i]->inicializar_enemigo(mapa);
     }
 }
 

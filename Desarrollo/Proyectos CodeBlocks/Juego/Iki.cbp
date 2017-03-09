@@ -63,7 +63,6 @@
 			<Add alias="All" targets="Windows;Linux;" />
 		</VirtualTargets>
 		<Compiler>
-			<Add option="-std=c++11" />
 			<Add option="-g" />
 			<Add directory="../irrlicht-1.8.4/include" />
 			<Add directory="../irrKlang-1.5.0/include" />
@@ -91,6 +90,16 @@
 		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/Medico.h" />
 		<Unit filename="include/MyEventReceiver.h" />
+		<Unit filename="include/Path/Algoritmo.h" />
+		<Unit filename="include/Path/Edge.h" />
+		<Unit filename="include/Path/Heuristic_Euclid.h" />
+		<Unit filename="include/Path/NavGraph.h" />
+		<Unit filename="include/Path/Nodo.h" />
+		<Unit filename="include/Path/PathEdge.h" />
+		<Unit filename="include/Path/PathFinding.h" />
+		<Unit filename="include/Path/PathPlanner.h" />
+		<Unit filename="include/Path/PriorityQueue.h" />
+		<Unit filename="include/Path/SparseGraph.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
 		<Unit filename="include/PhisicsWorld.h" />
@@ -128,6 +137,15 @@
 		<Unit filename="src/MapComponent.cpp" />
 		<Unit filename="src/Medico.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
+		<Unit filename="src/Path/Algoritmo.cpp" />
+		<Unit filename="src/Path/Edge.cpp" />
+		<Unit filename="src/Path/Heuristic_Euclid.cpp" />
+		<Unit filename="src/Path/NavGraph.cpp" />
+		<Unit filename="src/Path/Nodo.cpp" />
+		<Unit filename="src/Path/PathEdge.cpp" />
+		<Unit filename="src/Path/PathFinding.cpp" />
+		<Unit filename="src/Path/PathPlanner.cpp" />
+		<Unit filename="src/Path/SparseGraph.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/PhisicsWorld.cpp" />

@@ -1,7 +1,7 @@
 #ifndef EDGE
 #define EDGE
 
-#include <irrlicht.h>
+#include <Structs.h>
 
 
 class Edge
@@ -40,7 +40,7 @@ class Edge
         BehaviorType behavior;
 
     private:
-        irr::core::vector3df posicion;
+        Structs::TPosicion posicion;
         //extra_info extra_info; si queremos que el nodo represente un pickup como armadura, vida, etc y luego poder buscarlo en el grafo
 };
 

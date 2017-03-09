@@ -5,6 +5,11 @@
 #include "Fachada/Camera.h"
 #include <iostream>
 
+
+
+class PathFinding;
+class SparseGraph;
+
 #define MOV_SPEED 10.0f;
 
 class Player_Ray;
@@ -14,20 +19,34 @@ class Player : public GameEntity
     public:
         Player();
         ~Player();
-        void inicializar_player();
+        void inicializar_player(Map* m);
         void moverBody(Structs::TPosicion vec);
         void update(Camera* camara);
         bool isPlayer(){return true;};
 
         void CogerMunicion();
+        bool isPathObstructured(Structs::TPosicion destino);
+        void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
 
     protected:
 
     private:
         bool moverse = false;
         Structs::TPosicion toMousePosition = {170,0,50};
+        Structs::TPosicion toNextNodo;
+        Structs::TPosicion toNextPosition;
+        Structs::TPosicion quietoParado = {0,0,0};
 
         Player_Ray* rayo;
+        b2RayCastInput input;
+        b2RayCastOutput	output;
+        float distancia,angulo;
+        ///PATHFINDING
+        Map* Mapa;
+        SparseGraph* grafo;
+        PathFinding* path;
+        std::list<int> listaNodos;
+        std::list<int>::iterator it;
 
 };
 
