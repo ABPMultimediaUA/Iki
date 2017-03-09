@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2562">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2590">
  <objectgroup color="#000000" name="Pared" opacity="0.97">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
@@ -623,10 +623,9 @@
   <object id="2433" x="30.0909" y="132.454" width="2" height="2"/>
  </objectgroup>
  <objectgroup color="#ffffff" name="Objetos">
-  <object id="2434" x="63.3068" y="159.364" width="2" height="2"/>
-  <object id="2435" x="68.8182" y="122.273" width="2" height="2"/>
-  <object id="2436" x="23.9091" y="99.5455" width="2" height="2"/>
-  <object id="2437" x="80.6364" y="78.2727" width="2" height="2"/>
+  <object id="2586" x="48.375" y="161.125" width="2" height="2" rotation="360"/>
+  <object id="2587" x="59.625" y="123.375" width="2" height="2" rotation="180"/>
+  <object id="2588" x="43.625" y="100.125" width="2" height="2" rotation="90"/>
  </objectgroup>
  <objectgroup color="#ffff00" name="Apisonadora">
   <object id="2451" x="80" y="100.733" width="2" height="2"/>
@@ -648,9 +647,9 @@
   </object>
   <object id="2459" x="33.625" y="119.125" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="1"/>
-    <property name="Next" type="int" value="0"/>
-    <property name="Tipo" type="int" value="2"/>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="2"/>
    </properties>
   </object>
   <object id="2460" x="17.875" y="105.625" width="2" height="2">
@@ -673,9 +672,9 @@
   </object>
   <object id="2463" x="57.625" y="76.625" width="2" height="2">
    <properties>
-    <property name="Enemigo" type="int" value="2"/>
-    <property name="Next" type="int" value="0"/>
-    <property name="Tipo" type="int" value="3"/>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="3"/>
    </properties>
   </object>
   <object id="2464" x="96" y="69.125" width="2" height="2">

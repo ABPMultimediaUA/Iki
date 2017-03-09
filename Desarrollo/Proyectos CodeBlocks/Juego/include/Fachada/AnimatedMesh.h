@@ -9,6 +9,8 @@ class AnimatedMesh
         AnimatedMesh(const char* f, Structs::TColor color, Structs::TPosicion, float rotacion);
         virtual ~AnimatedMesh();
 
+        void setVisible(bool visible);
+
     protected:
 
     private:

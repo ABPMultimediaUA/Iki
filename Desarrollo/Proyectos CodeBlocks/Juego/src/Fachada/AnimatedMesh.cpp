@@ -16,3 +16,7 @@ AnimatedMesh::~AnimatedMesh()
 {
     //dtor
 }
+
+void AnimatedMesh::setVisible(bool visible){
+    modelo->setVisible(visible);
+}
