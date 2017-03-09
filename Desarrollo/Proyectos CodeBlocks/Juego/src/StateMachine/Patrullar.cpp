@@ -1,5 +1,7 @@
-#include "StateMachine/Patrullar.h"
+#include "Patrullar.h"
+#include "Vigilar.h"
 #include "Enemy.h"
+#include "Guardia.h"
 
 
 Patrullar* Patrullar::Instance()
@@ -23,6 +25,10 @@ void Patrullar::Enter(Enemy* enemigo){
 void Patrullar::Execute(Enemy* enemigo){
 
     enemigo->patrullar();
+    if(enemigo->getTiempo() > 11){
+        enemigo->resetTime();
+        static_cast<Guardia*>(enemigo)->GetFSM()->ChangeState(Vigilar::Instance());
+    }
 
 }
 

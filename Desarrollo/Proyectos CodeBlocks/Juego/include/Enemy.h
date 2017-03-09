@@ -3,7 +3,6 @@
 
 #include <GameEntity.h>
 
-
 class PatrolRoute;
 class PatrolPoint;
 
@@ -22,15 +21,20 @@ class Enemy : public GameEntity
             modelo->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
             modelo->setRotation(body->GetAngle());
             }
+        f32 getTiempo() { return tiempoEnEstado;}
+        void resetTime() { tiempoEnEstado = 0;}
         void patrullar();
+        void vigilar();
 
     protected:
-        int id,tipo;
+        int id,tipo, direccion;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
+
+        f32 tiempoEnEstado;
 
 
     private:

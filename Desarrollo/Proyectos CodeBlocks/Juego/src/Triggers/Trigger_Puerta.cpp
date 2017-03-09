@@ -18,14 +18,14 @@ void Trigger_Puerta::Try(GameEntity* ent)
     if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
         //Open la puerta
         //std::cout << " abierta " << std::endl;
-       //aniMesh->setVisible(true);
+       aniMesh->setVisible(false);
        body->SetActive(false);
     }
     else{
         //Close la puerta
         //std::cout << " cerrada " << std::endl;
-        //aniMesh->setVisible(false);
-        body->SetActive(false);
+        aniMesh->setVisible(true);
+        body->SetActive(true);
     }
 }
 

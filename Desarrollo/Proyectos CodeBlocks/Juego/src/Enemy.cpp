@@ -13,11 +13,17 @@ void Enemy::patrullar()
     }
     else //CUANDO LLEGA A UN PUNTO PATRULLA
     {
-        posaux=pRuta->getPunto();
-        if(pRuta->getNext0() == 0)
+        posaux = pRuta->getPunto();
+        if(direccion == 0){
+            if(pRuta->getNext() == pRuta->getPrev())
+                direccion = 1;
             pRuta = pRuta->getNext();
-        else
+
+        }else{
+            if(pRuta->getNext() == pRuta->getPrev())
+                direccion = 0;
             pRuta = pRuta->getPrev();
+        }
 
         posinit = pRuta->getPunto() - posaux;
 
@@ -25,6 +31,10 @@ void Enemy::patrullar()
     posicion = posaux;
     angulo = atan2f((pRuta->getPunto().Z-posicion.Z) ,-(pRuta->getPunto().X-posicion.X)) * 180.f /PI;
     setPosition(posicion);
+
+}
+
+void Enemy::vigilar(){
 
 }
 

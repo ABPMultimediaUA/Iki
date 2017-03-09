@@ -4,7 +4,9 @@
 
 void Guardia::update(){
     G_stateMachine->Update();
-    avMovement=9.5*PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    avMovement = 9.5*PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime()/1000 + tiempoEnEstado;
+    std::cout<<"Tiempo en estado: "<< tiempoEnEstado<<std::endl;
 }
 
 void Guardia::inicializar_enemigo(Map* m)
@@ -31,6 +33,7 @@ void Guardia::inicializar_enemigo(Map* m)
     pRuta = ruta->getInicial();
     Structs::TColor color = {0,0,255,0};
     tipo = 1;
+    direccion = 0;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
 

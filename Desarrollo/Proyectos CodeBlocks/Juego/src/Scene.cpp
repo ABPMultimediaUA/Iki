@@ -10,7 +10,7 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-    //triggersystem.Clear();
+    triggersystem.Clear();
     delete world;
     delete player;
 
@@ -29,7 +29,7 @@ void Scene::inicializar_escena(){
     Mapa = world->getMapa();
     player->inicializar_player(Mapa);
 
-    //triggersystem.LeerMapa();
+    triggersystem.LeerMapa();
 
     bucle_juego();
 }
@@ -40,7 +40,7 @@ void Scene::bucle_juego(){
 
         world->update_mundo();
         player->update(camara);
-        //triggersystem.Update(player);
+        triggersystem.Update(player);
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 

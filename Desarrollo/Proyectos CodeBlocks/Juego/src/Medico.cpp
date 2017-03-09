@@ -5,6 +5,7 @@
 void Medico::update(){
     G_stateMachine->Update();
     avMovement=9.5*PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime() + tiempoEnEstado;
 }
 
 void Medico::inicializar_enemigo(Map* m)
@@ -30,7 +31,8 @@ void Medico::inicializar_enemigo(Map* m)
 
     pRuta = ruta->getInicial();
     Structs::TColor color = {0,0,0,255};
-    tipo = 3;
+    tipo = 2;
+    direccion = 0;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
