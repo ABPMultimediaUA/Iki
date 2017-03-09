@@ -6,6 +6,7 @@
 Trigger_Municion::Trigger_Municion()
 {
     //ctor
+    SetActive();
 }
 
 Trigger_Municion::~Trigger_Municion()
@@ -19,7 +20,7 @@ void Trigger_Municion::Try(GameEntity* ent)
         static_cast<Player*>(ent)->CogerMunicion();
         Deactivate();
         std::cout << ">>>> si cojo " << std::endl;
-        //Desvisualizar body
+        aniMesh->setVisible(false);
     }
 }
 

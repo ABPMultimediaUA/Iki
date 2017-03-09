@@ -15,6 +15,7 @@ TriggerRegion_Rectangle::~TriggerRegion_Rectangle()
 
 bool TriggerRegion_Rectangle::isTouching(Structs::TPosicion EntityPos, float EntityRadius) const
 {
+    /// BUG HERE, BAD CALCULATED
     if (   EntityPos.Distance(TopLeft)     <= EntityRadius
         || EntityPos.Distance(TopRight)    <= EntityRadius
         || EntityPos.Distance(BottomLeft)  <= EntityRadius
