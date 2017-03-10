@@ -27,10 +27,12 @@ public:
 private:
 
     ITexture *image;
+
 	IrrlichtDevice *MenuDevice;
 
 	bool options = false;
 	bool opcionesresolucion = false;
+	bool opcionescontrol = false;
 
 	bool start = false;
 

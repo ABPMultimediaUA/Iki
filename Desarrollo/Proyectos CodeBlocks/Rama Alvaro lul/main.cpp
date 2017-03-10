@@ -6,6 +6,7 @@
 #include <iostream>
 #include "include/Map.h"
 #include "include/CMainMenu.h"
+#include "include/MenuIngame.h"
 #include "include/MyEventReceiver.h"
 
 #include "include/PatrolRoute.h"
@@ -49,11 +50,7 @@ int main()
         ISceneManager* smgr= device->getSceneManager();         //Gestion de la escena
         IVideoDriver* driver= device->getVideoDriver();         //Ciclo del juego
 
-        guilul *guiingame = new guilul;
-        guiingame->anyadirmenu(400, 60, driver);
-        guiingame->anyadirboton(3, 540, 160, driver);
-        guiingame->anyadirboton(1, 540, 300, driver);
-
+        MenuIngame menuingame(driver, menu.resolucionX, menu.resolucionY, menu.volumen);
 
         ///CAMARA
         ICameraSceneNode * camera = smgr->addCameraSceneNode(0,core::vector3df(190, 30, 40),core::vector3df(170,-10,40));
@@ -304,7 +301,6 @@ int main()
         bool unatarjeta = false;
         bool abriendose = false;
         bool cerrandose = true;
-        bool menupausa = false;
 
         //PERCEPCION SENSONRIAL
 
@@ -346,7 +342,7 @@ int main()
 
             driver->beginScene(true, true, SColor(255, 100, 101, 140));
 
-            if(!menupausa){
+            if(!menuingame.menupausa){
 
             ///raton
             if(receiver.GetMouseState().RightButtonDown)
@@ -804,7 +800,7 @@ int main()
             ///CAMARA
             if(receiver.isKeyDown(KEY_ESCAPE))
             {
-                menupausa = true;
+                menuingame.menupausa = true;
 
             }
 
@@ -871,14 +867,11 @@ int main()
             world->Step(DeltaTime);
             world->getWorld()->ClearForces();
 
-            //std::cout << "nigg\n";
             smgr->drawAll();
 
-            guiingame->vidaprota(prota->getVida(), driver);
-            guiingame->laserprota(rayolaser, driver);
 
+            menuingame.hud(driver, prota->getVida(), rayolaser, menu.resolucionX, menu.resolucionY, receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y, prota->getLaser());
 
-            //std::cout << "yep\n";
         }
 
         else{
@@ -889,22 +882,9 @@ int main()
 
             smgr->drawAll();
 
-            guiingame->menu.at(0)->draw(driver);
-            guiingame->boton.at(0)->draw(driver);
-            guiingame->boton.at(1)->draw(driver);
+            menuingame.run(driver, receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y, receiver.GetMouseState().LeftButtonDown);
+            engine->setSoundVolume(menuingame.volumen);
 
-            if(receiver.GetMouseState().LeftButtonDown){
-                if(receiver.GetMouseState().Position.X > guiingame->boton.at(0)->posicionX && receiver.GetMouseState().Position.X < guiingame->boton.at(0)->posicionX + 240){
-                    if(receiver.GetMouseState().Position.Y > guiingame->boton.at(0)->posicionY && receiver.GetMouseState().Position.Y < guiingame->boton.at(0)->posicionY + 120){
-                        menupausa = false;
-
-                    }
-                    else if(receiver.GetMouseState().Position.Y > guiingame->boton.at(1)->posicionY && receiver.GetMouseState().Position.Y < guiingame->boton.at(1)->posicionY + 120){
-                        device->closeDevice();
-                        exit(0);
-                    }
-                }
-            }
         }
         driver->endScene();
         }

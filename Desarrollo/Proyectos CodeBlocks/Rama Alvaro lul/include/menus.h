@@ -13,20 +13,19 @@ using namespace video;  //Driver y rendering
 
 class menus
 {
-    public:
-        menus(int, int, video::IVideoDriver*);
-        virtual ~menus();
-        void draw(video::IVideoDriver*);
-        ITexture *image;
-         int posicionX;
-         int posicionY;
-         int tipo;
+public:
+    menus(int, int, video::IVideoDriver*);
+    virtual ~menus();
+    void draw(video::IVideoDriver*);
+    ITexture *image;
+    int posicionX;
+    int posicionY;
+    int tipo;
 
-    protected:
-    private:
-
-
+protected:
+private:
 
 };
 
 #endif
+

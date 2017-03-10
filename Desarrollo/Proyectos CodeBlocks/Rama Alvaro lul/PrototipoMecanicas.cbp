@@ -81,6 +81,7 @@
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapComponent.h" />
+		<Unit filename="include/MenuIngame.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
@@ -104,6 +105,7 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapComponent.cpp" />
+		<Unit filename="src/MenuIngame.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />
 		<Unit filename="src/Player.cpp" />

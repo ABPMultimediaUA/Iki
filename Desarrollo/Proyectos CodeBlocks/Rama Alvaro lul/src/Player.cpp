@@ -16,7 +16,7 @@ Player::~Player()
 void Player::inicializar(scene::ISceneManager* smgr,video::IVideoDriver* driver){
     tam= 2;
     vida=5;
-    balas= 1;
+    balas= 5;
     ismoving = false;
     smgr1=smgr;
 
