@@ -96,14 +96,16 @@ void TMotorTAG::drawLuces()
             }
             std::cout << "    Recorremos al reves" << std::endl;
             //Recorre desde la raiz hasta la luz
-            vector<TNodo*>::iterator it = aux.end();
+            //vector<TNodo*>::iterator it = aux.end();
             mat4 mat_aux = mat4(1.f);
-            while(it != aux.begin())
+            //while(it != aux.begin())
+            //{
+            for(std::size_t i=aux.size()-1; i > 0; i--)
             {
                 std::cout << "    Aplicamos matriz transform en una auxiliar" << std::endl;
                 //mat_aux= *it->getEntidad().getMatriz() ;
                 //* mat_aux
-                --it;
+                //--it;
             }
             /*
             //	printf("LUZ:         %.1f %.1f %.1f \n", pos.x, pos.y, pos.z);
@@ -152,14 +154,16 @@ void TMotorTAG::drawCamaras()
             }
             std::cout << "    Recorremos al reves" << std::endl;
             //Recorre de manera inversa raiz->camara
-            vector<TNodo*>::iterator it = aux.end();
+            //vector<TNodo*>::iterator it = aux.end();
             mat4 mat_aux = mat4(1.f);
-            while(it != aux.begin())
+            //while(it != aux.begin())
+            //{
+            for(std::size_t i=aux.size()-1; i > 0; i--)
             {
                 std::cout << "    Aplicamos matriz transform en una auxiliar" << std::endl;
                 //mat_aux= *it->getEntidad().getMatriz() ;
                 //* mat_aux
-                --it;
+                //--it;
             }
             //invertir mat_aux
             //cargar la matriz con la camara
