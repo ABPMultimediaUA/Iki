@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 
    	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
 
-    //cout << "Hello world!" << endl;
 
     TNodo* noditoEsc= new TNodo();
     TNodo* nodito0= new TNodo();
