@@ -1,13 +1,20 @@
 #ifndef ENEMIGO_H
 #define ENEMIGO_H
 
-#include <GameEntity.h>
+#include "GameEntity.h"
 
 class PatrolRoute;
 class PatrolPoint;
 
+
 class Enemy : public GameEntity
 {
+
+    private:
+        std::vector<Enemy*> aliados;
+        std::list<Enemy*>::iterator it;
+        static int m_iNextValidID;
+
     public:
         Enemy(){}
         ~Enemy(){}
@@ -28,6 +35,18 @@ class Enemy : public GameEntity
             Msg_Alarma,
             Msg_DameTuPosicion
         };
+        void registrarEnemigo(Enemy* newE){
+            aliados.push_back(newE);
+        }
+        //this method removes the entity from the list
+        void borrarEnemigo(Enemy* enemigo){
+           /* for (it = aliados.begin() ; it != aliados.end(); ++it){
+                if((*it)->getID() == enemigo->getID()){
+                    aliados.erase(it);
+                    break;
+                }
+            }*/
+        }
 
     protected:
 
@@ -41,9 +60,6 @@ class Enemy : public GameEntity
         f32 tiempoEnEstado;
 
 
-    private:
-
-        static int m_iNextValidID;
 
 };
 

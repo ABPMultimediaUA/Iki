@@ -88,9 +88,8 @@ class SparseGraph
         int indice;
 
     public:
-                  ///ITERADORES
+    ///ITERADORES
         //iteradores clientes pueden utilizar para tener acceso a nodos y aristas
-        //const class used to iterate through all the edges connected to a specific node.
       class ConstEdgeIterator
       {
       private:
@@ -103,9 +102,7 @@ class SparseGraph
 
       public:
 
-        ConstEdgeIterator(const SparseGraph& graph,
-                          int                           node): G(graph),
-                                                               NodeIndex(node)
+        ConstEdgeIterator(const SparseGraph& graph,int node): G(graph),NodeIndex(node)
         {
           /* we don't need to check for an invalid node index since if the node is
              invalid there will be no associated edges
@@ -146,7 +143,6 @@ class SparseGraph
       };
 
   friend class ConstEdgeIterator;
-        //non const class used to iterate through all the edges connected to a specific node.
         class EdgeIterator
         {
         private:
@@ -185,7 +181,6 @@ class SparseGraph
 
             }
 
-        //return true if we are at the end of the edge list
             bool end()
             {
                 return (curEdge == G.aristas[NodeIndex].end());
