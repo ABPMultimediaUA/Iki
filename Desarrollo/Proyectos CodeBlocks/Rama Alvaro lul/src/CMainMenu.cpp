@@ -33,10 +33,13 @@ bool CMainMenu::run()
     guipropio->anyadirboton(2, 540, 300, driver);
     guipropio->anyadirboton(1, 540, 440, driver);
     guipropio->anyadirtitulo(0, 570, 125, driver);
-    guipropio->anyadircontrol(0, 540, 175, driver);
+    guipropio->anyadircontrol(0, 540, 175, driver, volumen);
     guipropio->anyadirtitulo(1, 570, 270, driver);
+    guipropio->anyadirtitulo(2, 570, 340, driver);
     guipropio->anyadirboton(4, 540, 540, driver);
-    guipropio->anyadircontrol(1, 565, 320, driver);
+    guipropio->anyadircontrol(1, 565, 320, driver, volumen);
+    guipropio->anyadircontrol(2, 565, 390, driver, volumen);
+
 
 
     while(MenuDevice->run())
@@ -76,38 +79,37 @@ bool CMainMenu::run()
             }
             else
             {
-                if(!opcionesresolucion)
+                if(!opcionesresolucion && !opcionescontrol)
                 {
                     guipropio->menu.at(0)->draw(driver);
                     guipropio->titulo.at(0)->draw(driver);
                     guipropio->control.at(0)->draw(driver);
                     guipropio->boton.at(3)->draw(driver);
                     guipropio->titulo.at(1)->draw(driver);
+                    guipropio->titulo.at(2)->draw(driver);
+
+                    guipropio->boton.at(3)->comprobarmouse(receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y);
+                    guipropio->control.at(0)->comprobarmouse2(receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y);
+                    guipropio->titulo.at(1)->comprobarmouse3(receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y);
+                    guipropio->titulo.at(2)->comprobarmouse3(receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y);
 
 
                     if(receiver.GetMouseState().LeftButtonDown)
                     {
-                        if(receiver.GetMouseState().Position.Y > guipropio->boton.at(3)->posicionY && receiver.GetMouseState().Position.Y < guipropio->boton.at(3)->posicionY + 120)
-                        {
-                            if(receiver.GetMouseState().Position.X > guipropio->boton.at(3)->posicionX && receiver.GetMouseState().Position.X < guipropio->boton.at(3)->posicionX + 240)
-                            {
-
+                        if(guipropio->boton.at(3)->estaencima){
 
                                 options = false;
-                            }
-
                         }
-                        else if(receiver.GetMouseState().Position.Y > guipropio->control.at(0)->posicionY && receiver.GetMouseState().Position.Y < guipropio->control.at(0)->posicionY + 90)
+                        else if(guipropio->control.at(0)->estaencimamenos)
                         {
-                            if(receiver.GetMouseState().Position.X > guipropio->control.at(0)->posicionX && receiver.GetMouseState().Position.X < guipropio->control.at(0)->posicionX + 130)
-                            {
+
                                 if(volumen > 0)
                                 {
                                     guipropio->control.at(0)->menos();
                                     volumen = volumen - 0.1;
                                 }
                             }
-                            else if(receiver.GetMouseState().Position.X > guipropio->control.at(0)->posicionX + 130 && receiver.GetMouseState().Position.X < guipropio->control.at(0)->posicionX + 260)
+                            else if(guipropio->control.at(0)->estaencimamas)
                             {
                                 if(volumen < 1)
                                 {
@@ -115,27 +117,25 @@ bool CMainMenu::run()
                                     volumen = volumen + 0.1;
                                 }
                             }
-                        }
-                        else if(receiver.GetMouseState().Position.Y > guipropio->titulo.at(1)->posicionY && receiver.GetMouseState().Position.Y < guipropio->titulo.at(1)->posicionY + 50)
-                        {
-                            if(receiver.GetMouseState().Position.X > guipropio->titulo.at(1)->posicionX && receiver.GetMouseState().Position.X < guipropio->titulo.at(1)->posicionX + 200)
-                            {
+
+                        if(guipropio->titulo.at(1)->estaencima)
                                 opcionesresolucion = true;
 
-                            }
-                        }
+                        if(guipropio->titulo.at(2)->estaencima)
+                                opcionescontrol = true;
+
+
+
                     }
                 }
-                else
+                else if(opcionesresolucion)
                 {
                     guipropio->control.at(1)->draw(driver);
+                    guipropio->control.at(1)->comprobarmouse2(receiver.GetMouseState().Position.X, receiver.GetMouseState().Position.Y);
 
                     if(receiver.GetMouseState().LeftButtonDown)
                     {
-                        if(receiver.GetMouseState().Position.X > guipropio->control.at(1)->posicionX+10 && receiver.GetMouseState().Position.X < guipropio->control.at(1)->posicionX + 200)
-                        {
-                            if(receiver.GetMouseState().Position.Y > guipropio->control.at(1)->posicionY+10 && receiver.GetMouseState().Position.Y < guipropio->control.at(1)->posicionY + 41.25)
-                            {
+                        if(guipropio->control.at(1)->estaencima1){
                                 guipropio->control.at(1)->a = true;
                                 guipropio->control.at(1)->b = false;
                                 guipropio->control.at(1)->c = false;
@@ -143,8 +143,9 @@ bool CMainMenu::run()
                                 resolucionX = 1360;
                                 resolucionY = 768;
 
+
                             }
-                            else if(receiver.GetMouseState().Position.Y > guipropio->control.at(1)->posicionY+41.25 && receiver.GetMouseState().Position.Y < guipropio->control.at(1)->posicionY + 72.50)
+                            else if(guipropio->control.at(1)->estaencima2)
                             {
                                 guipropio->control.at(1)->a = false;
                                 guipropio->control.at(1)->b = true;
@@ -154,7 +155,7 @@ bool CMainMenu::run()
                                 resolucionY = 720;
 
                             }
-                            else if(receiver.GetMouseState().Position.Y > guipropio->control.at(1)->posicionY+72.50 && receiver.GetMouseState().Position.Y < guipropio->control.at(1)->posicionY + 103.75)
+                            else if(guipropio->control.at(1)->estaencima3)
                             {
                                 guipropio->control.at(1)->a = false;
                                 guipropio->control.at(1)->b = false;
@@ -164,7 +165,7 @@ bool CMainMenu::run()
                                 resolucionY = 768;
 
                             }
-                            else if(receiver.GetMouseState().Position.Y > guipropio->control.at(1)->posicionY+103.75 && receiver.GetMouseState().Position.Y < guipropio->control.at(1)->posicionY + 135)
+                            else if(guipropio->control.at(1)->estaencima4)
                             {
                                 guipropio->control.at(1)->a = false;
                                 guipropio->control.at(1)->b = false;
@@ -178,11 +179,13 @@ bool CMainMenu::run()
                                 opcionesresolucion = false;
 
 
-                        }
-                        else
-                            opcionesresolucion = false;
-
                     }
+                }
+                else if(opcionescontrol){
+                    guipropio->control.at(2)->draw(driver);
+                    if(receiver.GetMouseState().LeftButtonDown)
+                    opcionescontrol = false;
+
                 }
 
             }

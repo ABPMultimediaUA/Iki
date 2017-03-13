@@ -19,6 +19,8 @@ class titulos
         void draw(video::IVideoDriver*);
         int posicionX;
         int posicionY;
+        void comprobarmouse3(float, float);
+        bool estaencima = false;
 
     protected:
     private:

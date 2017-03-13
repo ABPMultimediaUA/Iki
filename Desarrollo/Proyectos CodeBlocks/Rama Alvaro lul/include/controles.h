@@ -14,15 +14,21 @@ using namespace video;  //Driver y rendering
 class controles
 {
     public:
-        controles(int, int, int, video::IVideoDriver*);
+        controles(int, int, int, video::IVideoDriver*, float);
         virtual ~controles();
         void draw(video::IVideoDriver*);
         void mas();
         void menos();
-        float barra = 111;
+        float barra;
         int posicionX;
         int posicionY;
         bool a = true, b = false, c = false, d = false;
+        bool estaencima1 = false, estaencima2 = false, estaencima3 = false, estaencima4 = false;
+        void comprobarmouse(float, float);
+        bool estaencimamas = true;
+        bool estaencimamenos = false;
+        void comprobarmouse2(float, float);
+
 
     protected:
     private:
