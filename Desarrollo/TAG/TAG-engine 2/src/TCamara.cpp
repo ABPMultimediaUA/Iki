@@ -1,13 +1,12 @@
 #include "TCamara.h"
 
-
-TCamara::TCamara(const glm::vec3& pos, float fov, float aspect, float zNear, float zFar)
+TCamara::TCamara(const vec3& pos, float fov, float aspect, float cer, float lej)
 {
-    m_perspective = glm::perspective(fov, aspect, zNear, zFar);
+    m_perspective = glm::perspective(fov, aspect, cer, lej);
     m_position = pos;
-    m_forward = glm::vec3(0,0,1);
-    m_up = glm::vec3(0,1,0);
+    //esPerspectiva = false;
 }
+
 
 TCamara::~TCamara()
 {
@@ -24,6 +23,7 @@ void TCamara::setPerspectiva(float sup, float inf, float izq, float dch, float c
     lejano    = lej;
 
     esPerspectiva = true;
+
 }
 void TCamara::setParalela(float sup, float inf, float izq, float dch, float cer, float lej)
 {
@@ -36,6 +36,13 @@ void TCamara::setParalela(float sup, float inf, float izq, float dch, float cer,
 
     esPerspectiva = false;
 }
+
+mat4 TCamara::getViewProjection() const
+{
+    return m_perspective * lookAt(m_position, m_position + vec3(0,0,1), vec3(0,1,0));
+}
+
+
 void TCamara::beginDraw()
 {
 

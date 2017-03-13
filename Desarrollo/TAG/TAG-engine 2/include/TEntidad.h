@@ -3,16 +3,7 @@
 
 #include <glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <GL\glew.h>
-#include <GL/gl.h>
-
 #include <stack>
-#include <glm\glm.hpp>
-#include <glm\gtx\transform.hpp>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
 
 using namespace glm;
 using namespace std;

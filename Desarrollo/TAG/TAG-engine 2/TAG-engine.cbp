@@ -41,20 +41,21 @@
 			<Add directory="include/assimp" />
 			<Add directory="include/GL" />
 			<Add directory="include/SDL2" />
+			<Add directory="include/ImageMagick-6" />
 		</Compiler>
 		<Linker>
 			<Add option="-Llib -lmingw32 -lSDL2main -lSDL2" />
+			<Add library="lib\glew32s.lib" />
 			<Add library="lib\libassimp.dll.a" />
 			<Add library="lib\glew32.lib" />
-			<Add library="lib\glew32s.lib" />
 			<Add library="lib\libopenal32.a" />
 			<Add library="lib\libopengl32.a" />
 			<Add library="lib\libSDL2.dll.a" />
+			<Add library="lib\CORE_DB_Magick++_.lib" />
+			<Add library="lib\CORE_RL_Magick++_.lib" />
 		</Linker>
-		<Unit filename="include/Display.h" />
-		<Unit filename="include/Shader.h" />
 		<Unit filename="include/TCamara.h" />
-		<Unit filename="include/TColor.h" />
+		<Unit filename="include/TDisplay.h" />
 		<Unit filename="include/TEntidad.h" />
 		<Unit filename="include/TGestorRecursos.h" />
 		<Unit filename="include/TLuz.h" />
@@ -64,12 +65,12 @@
 		<Unit filename="include/TNodo.h" />
 		<Unit filename="include/TRecurso.h" />
 		<Unit filename="include/TRecursoMalla.h" />
+		<Unit filename="include/TShader.h" />
+		<Unit filename="include/TTextura.h" />
 		<Unit filename="include/TTransform.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Display.cpp" />
-		<Unit filename="src/Shader.cpp" />
 		<Unit filename="src/TCamara.cpp" />
-		<Unit filename="src/TColor.cpp" />
+		<Unit filename="src/TDisplay.cpp" />
 		<Unit filename="src/TEntidad.cpp" />
 		<Unit filename="src/TGestorRecursos.cpp" />
 		<Unit filename="src/TLuz.cpp" />
@@ -79,6 +80,7 @@
 		<Unit filename="src/TNodo.cpp" />
 		<Unit filename="src/TRecurso.cpp" />
 		<Unit filename="src/TRecursoMalla.cpp" />
+		<Unit filename="src/TShader.cpp" />
 		<Unit filename="src/TTransform.cpp" />
 		<Extensions>
 			<code_completion />
