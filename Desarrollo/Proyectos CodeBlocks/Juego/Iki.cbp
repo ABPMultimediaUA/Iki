@@ -19,6 +19,7 @@
 			<Target title="Windows">
 				<Option platforms="Windows;" />
 				<Option output="ejemplo" prefix_auto="0" extension_auto="1" />
+				<Option object_output="../../../../../.objs" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectResourceIncludeDirsRelation="1" />
@@ -124,7 +125,6 @@
 		<Unit filename="include/Triggers/Trigger_Municion.h" />
 		<Unit filename="include/Triggers/Trigger_Puerta.h" />
 		<Unit filename="include/Triggers/Trigger_Respawning.h" />
-		<Unit filename="include/Vector2D.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
