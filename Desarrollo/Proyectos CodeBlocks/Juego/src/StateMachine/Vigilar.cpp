@@ -31,4 +31,4 @@ void Vigilar::Execute(Enemy* enemigo){
 }
 
 void Vigilar::Exit(Enemy* enemigo){}
-bool Vigilar::OnMessage(Enemy*, const Telegram&){}
+bool Vigilar::OnMessage(Enemy*, const Mensaje&){}

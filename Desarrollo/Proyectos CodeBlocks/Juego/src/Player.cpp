@@ -18,6 +18,9 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
+    id=nextID;
+    nextID++;
+
     Mapa=m;
     grafo = Mapa->getGrafo();
     path = new PathFinding(grafo,this);

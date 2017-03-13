@@ -15,14 +15,13 @@ World::~World()
     delete mapa;
 }
 
-void World::crearRutas(Map* mapa){
+void World::crearRutas(Map* mapa){ ///REVISAR SI ES POSIBLE OPTIMIZAR
 
     int enem = 0;
 
     std::vector<PatrolPoint*> puntos = mapa->getPatrullas();
     PatrolPoint* aux = mapa->getPatrullas().at(0);
 
-    //for(std::vector<PatrolPoint*>::iterator it = mapa->getPatrullas().begin() ; it != mapa->getPatrullas().end(); ++it){
     for(int i = 1; i < puntos.size(); i++){
 
         if(puntos.at(i)->getEnemigo() == aux->getEnemigo()){
@@ -59,11 +58,11 @@ void World::crearRutas(Map* mapa){
 }
 
 void World::inicializar_mundo(){
-
-    Structs::TPosicion pos (150,0,50);
+    //inicializar mapa
     mapa->inicializar_mapa();
-
+    //crear e inicializar rutas
     crearRutas(mapa);
+    //crear e inicializar enemigos
     for(int i = 0; i < rutas.size(); i++){
         switch(mapa->getTipos()[i]){
             case 1:

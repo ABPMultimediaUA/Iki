@@ -13,14 +13,11 @@ class Enemy : public GameEntity
         ~Enemy(){}
         virtual void inicializar_enemigo(Map* m)=0;
         virtual void update()=0;
+        void init(Map* m);
         void SetID(int val);
         int getID()const{return id;}
         int getTipo(){return tipo;}
-        virtual void setPosition(Structs::TPosicion p) {
-            body->SetTransform(b2Vec2(p.X, p.Z), 0);
-            modelo->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
-            modelo->setRotation(body->GetAngle());
-            }
+        void setPosition(Structs::TPosicion p);
         f32 getTiempo() { return tiempoEnEstado;}
         void resetTime() { tiempoEnEstado = 0;}
         void patrullar();
@@ -28,11 +25,13 @@ class Enemy : public GameEntity
         enum message_type
         {
             Msg_NecesitoAyuda,
-            Msg_Alarma
+            Msg_Alarma,
+            Msg_DameTuPosicion
         };
 
     protected:
-        int id,tipo, direccion;
+
+        int tipo,direccion;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement;

@@ -8,6 +8,10 @@
 
 #include "Mensaje.h"
 /*
+Esta clase crea los mensajes los cuales son enviados inmediatamente
+o se almacenan en la una cola para enviarlos pasados un tiempo
+*/
+
 
 class GameEntity;
 
@@ -58,6 +62,5 @@ public:
 };
 
 
-*/
 #endif
 

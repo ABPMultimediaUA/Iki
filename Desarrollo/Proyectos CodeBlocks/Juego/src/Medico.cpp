@@ -10,33 +10,9 @@ void Medico::update(){
 
 void Medico::inicializar_enemigo(Map* m)
 {
-    Mapa=m;
-    b2BodyDef bodyDef;
-    bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(posicion.X, posicion.Z);
-    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
-
-
-    b2PolygonShape bodyShape;
-    bodyShape.SetAsBox(1, 1);
-    body->CreateFixture(&bodyShape, 1.0f);
-
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
-    body->CreateFixture(&fixtureDef);
-
-
-    pRuta = ruta->getInicial();
+    //De momento todos tienen el mismo body y cosas en comun asi que las inicializo para los tres en init
+    init(m);
     Structs::TColor color = {0,0,0,255};
     tipo = 2;
-    direccion = 0;
-    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
-    posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
-    posinit = pRuta->getPunto()-posaux;
-    angulo = atan2f((posinit.Z) ,-(posinit.X)) * 180.f /PI;
-
 }

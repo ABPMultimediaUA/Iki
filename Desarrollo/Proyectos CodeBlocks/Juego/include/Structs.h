@@ -55,7 +55,7 @@ class Structs
 
                 return sqrt(zSeparation*zSeparation + xSeparation*xSeparation);
             }
-            const TPosicion& operator+(const TPosicion &rhs){
+            const TPosicion operator+(const TPosicion &rhs){
 
                 float  x = X +rhs.X;
                 float  y = Y +rhs.Y;
@@ -64,7 +64,7 @@ class Structs
                 TPosicion result(x,y,z);
                 return result;
             }
-            const TPosicion& operator-(const TPosicion &rhs){
+            const TPosicion operator-(const TPosicion &rhs) {
                 float  x = X - rhs.X;
                 float  y = Y - rhs.Y;
                 float  z = Z - rhs.Z;
@@ -73,14 +73,14 @@ class Structs
                 return result;
             }
 
-            TPosicion operator*(const TPosicion &rhs){
+            const TPosicion operator*(const TPosicion &rhs){
                 float  x = X *rhs.X;
                 float  y = Y *rhs.Y;
                 float  z = Z *rhs.Z;
                 TPosicion result (x,y,z);
                 return result;
             }
-            TPosicion operator*(float rhs){
+            const TPosicion operator*(float rhs){
                 float  x = X *rhs;
                 float  y = Y *rhs;
                 float  z = Z *rhs;
@@ -88,7 +88,7 @@ class Structs
                 return result;
             }
 
-            TPosicion operator/(float rhs){
+            const TPosicion operator/(float rhs){
                 float  x = X /rhs;
                 float  y = Y /rhs;
                 float  z = Z /rhs;

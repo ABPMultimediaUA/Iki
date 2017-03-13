@@ -19,7 +19,6 @@
 			<Target title="Windows">
 				<Option platforms="Windows;" />
 				<Option output="ejemplo" prefix_auto="0" extension_auto="1" />
-				<Option object_output="../../../../iki_objs" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectResourceIncludeDirsRelation="1" />
@@ -109,6 +108,8 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Player_Ray.h" />
 		<Unit filename="include/Scene.h" />
+		<Unit filename="include/StateMachine/EnviarMensaje.h" />
+		<Unit filename="include/StateMachine/Mensaje.h" />
 		<Unit filename="include/StateMachine/Patrullar.h" />
 		<Unit filename="include/StateMachine/State.h" />
 		<Unit filename="include/StateMachine/StateMachine.h" />
@@ -156,6 +157,8 @@
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Player_Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/StateMachine/EnviarMensaje.cpp" />
+		<Unit filename="src/StateMachine/Mensaje.cpp" />
 		<Unit filename="src/StateMachine/Patrullar.cpp" />
 		<Unit filename="src/StateMachine/State.cpp" />
 		<Unit filename="src/StateMachine/StateMachine.cpp" />
