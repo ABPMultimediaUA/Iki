@@ -4157,3 +4157,696 @@
 1487238690 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregable 5\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
+1489407208 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\main.cpp
+	"TNodo.h"
+	"TTransform.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tnodo.h
+	<iostream>
+	"TEntidad.h"
+	<vector>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tentidad.h
+	<glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<stack>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\glm.hpp
+	"detail/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\_fixes.hpp
+	<cmath>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\fwd.hpp
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	"../simd/platform.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\simd\platform.h
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<nmmintrin.h>
+	<smmintrin.h>
+	<tmmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec.hpp
+	"precision.hpp"
+	"type_int.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\precision.hpp
+	"setup.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat.hpp
+	"precision.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\vec2.hpp
+	"detail/type_vec2.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\_swizzle.hpp
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\_swizzle_func.hpp
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec2.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\vec3.hpp
+	"detail/type_vec3.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec3.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\vec4.hpp
+	"detail/type_vec4.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec4.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec4.inl
+	"type_vec4_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec4_simd.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat2x2.hpp
+	"detail/type_mat2x2.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat2x2.inl
+	"func_matrix.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_matrix.hpp
+	"../detail/precision.hpp"
+	"../detail/setup.hpp"
+	"../detail/type_mat.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"func_matrix.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat2x3.hpp
+	"detail/type_mat2x3.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat2x3.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat2x4.hpp
+	"detail/type_mat2x4.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat2x4.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat3x2.hpp
+	"detail/type_mat3x2.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat3x2.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat3x3.hpp
+	"detail/type_mat3x3.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat3x3.inl
+	"func_matrix.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat3x4.hpp
+	"detail/type_mat3x4.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat3x4.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat4x2.hpp
+	"detail/type_mat4x2.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x2.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat4x3.hpp
+	"detail/type_mat4x3.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x3.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\mat4x4.hpp
+	"detail/type_mat4x4.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x4.inl
+	"func_matrix.hpp"
+	"type_mat4x4_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_mat4x4_simd.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+	"func_matrix_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\geometric.hpp
+	"detail/func_geometric.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_geometric.hpp
+	"type_vec3.hpp"
+	"func_geometric.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_geometric.inl
+	"func_exponential.hpp"
+	"func_common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+	"func_geometric_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_exponential.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<cmath>
+	"func_exponential.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec1.hpp
+	"../fwd.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_vec1.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_exponential.inl
+	"func_vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+	"func_exponential_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_vector_relational.hpp
+	"precision.hpp"
+	"setup.hpp"
+	"func_vector_relational.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_vector_relational.inl
+	<limits>
+	"func_vector_relational_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_vector_relational_simd.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_exponential_simd.inl
+	"../simd/exponential.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\simd\exponential.h
+	"platform.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_common.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"type_int.hpp"
+	"_fixes.hpp"
+	"func_common.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_common.inl
+	"func_vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+	"func_common_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_common_simd.inl
+	"../simd/common.h"
+	<immintrin.h>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\simd\common.h
+	"platform.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_geometric_simd.inl
+	"../simd/geometric.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\simd\geometric.h
+	"common.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_matrix_simd.inl
+	"type_mat4x4.hpp"
+	"func_geometric.hpp"
+	"../simd/matrix.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\simd\matrix.h
+	"geometric.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\trigonometric.hpp
+	"detail/func_trigonometric.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_trigonometric.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_trigonometric.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+	"func_trigonometric_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_trigonometric_simd.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\exponential.hpp
+	"detail/func_exponential.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\common.hpp
+	"detail/func_common.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\packing.hpp
+	"detail/func_packing.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_packing.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"func_packing.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_packing.inl
+	"func_common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+	"func_packing_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\type_half.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_packing_simd.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\matrix.hpp
+	"detail/func_matrix.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\vector_relational.hpp
+	"detail/func_vector_relational.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\integer.hpp
+	"detail/func_integer.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_integer.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_common.hpp"
+	"func_vector_relational.hpp"
+	"func_integer.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_integer.inl
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+	"func_integer_simd.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\detail\func_integer_simd.inl
+	"../simd/integer.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\simd\integer.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\gtc\constants.inl
+	<limits>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\ttransform.h
+	<iostream>
+	<TEntidad.h>
+	<GL/gl.h>
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tcamara.cpp
+	"TCamara.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tcamara.h
+	<iostream>
+	<vector>
+	<TEntidad.h>
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tentidad.cpp
+	"TEntidad.h"
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tgestorrecursos.cpp
+	"TGestorRecursos.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tgestorrecursos.h
+	<iostream>
+	<vector>
+	"TRecurso.h"
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\trecurso.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\importer.hpp
+	"types.h"
+	"config.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\types.h
+	<sys/types.h>
+	<math.h>
+	<stddef.h>
+	<string.h>
+	<limits.h>
+	"defs.h"
+	"vector3.h"
+	"vector2.h"
+	"color4.h"
+	"matrix3x3.h"
+	"matrix4x4.h"
+	"quaternion.h"
+	<cstring>
+	<new>
+	<string>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"vector2.inl"
+	"vector3.inl"
+	"color4.inl"
+	"quaternion.inl"
+	"matrix3x3.inl"
+	"matrix4x4.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\defs.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\vector3.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\compiler\pushpack1.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\compiler\poppack1.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\vector2.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\color4.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\matrix3x3.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\matrix4x4.h
+	"vector3.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\quaternion.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\vector2.inl
+	"vector2.h"
+	<cmath>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\vector3.inl
+	"vector3.h"
+	<cmath>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\color4.inl
+	"color4.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\quaternion.inl
+	"quaternion.h"
+	<cmath>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\matrix3x3.inl
+	"matrix3x3.h"
+	"matrix4x4.h"
+	<algorithm>
+	<cmath>
+	<limits>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\matrix4x4.inl
+	"matrix4x4.h"
+	"matrix3x3.h"
+	"quaternion.h"
+	<algorithm>
+	<limits>
+	<cmath>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\config.h
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\scene.h
+	"types.h"
+	"texture.h"
+	"mesh.h"
+	"light.h"
+	"camera.h"
+	"material.h"
+	"anim.h"
+	"metadata.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\texture.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\mesh.h
+	"types.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\light.h
+	"types.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\camera.h
+	"types.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\material.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"material.inl"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\material.inl
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\anim.h
+	"types.h"
+	"quaternion.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\metadata.h
+	<assert.h>
+	"Compiler/pstdint.h"
+	<limits.h>
+	<stdint.h>
+	<string>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\compiler\pstdint.h
+	<stddef.h>
+	<limits.h>
+	<signal.h>
+	<stdint.h>
+	<wchar.h>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\assimp\postprocess.h
+	"types.h"
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tluz.cpp
+	"TLuz.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tluz.h
+	<iostream>
+	<TEntidad.h>
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tmalla.cpp
+	"TMalla.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tmalla.h
+	<iostream>
+	<TEntidad.h>
+	"TRecursoMalla.h"
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\trecursomalla.h
+	<TRecurso.h>
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tmatriz.cpp
+	"TMatriz.h"
+
+1488995954 c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\include\tmatriz.h
+	<glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\tnodo.cpp
+	"TNodo.h"
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\trecurso.cpp
+	"TRecurso.h"
+
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\trecursomalla.cpp
+	"TRecursoMalla.h"
+
+1489407369 source:c:\users\adri\documents\github\iki\desarrollo\tag\entregables\entregable 5\src\ttransform.cpp
+	"TTransform.h"
+

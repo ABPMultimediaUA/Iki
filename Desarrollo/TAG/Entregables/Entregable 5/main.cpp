@@ -28,43 +28,33 @@ int main(int argc, char *argv[])
     TTransform* transform3 = new TTransform();
     TTransform* transform4 = new TTransform();
     TTransform* transform5 = new TTransform();
-    TTransform* transform6 = new TTransform();
-    TTransform* transform7 = new TTransform();
-    TTransform* transform8 = new TTransform();
 
-    nodito0->setEntidad(transform0);
-    nodito1->setEntidad(transform1);
+    //Transladamos la matriz (5, 5, 5)
+    cout<<"Transladamos la matriz (5, 5, 5): "<<endl;
+    transform0->trasladar(5.0f, 5.0f, 5.0f);
 
+    //Rotamos la matriz en el eje x 45º
+    cout<<"Rotamos la matriz en el eje x 45º: "<<endl;
+    transform1->rotar(45.0f, 1.0f, 0.0f, 0.0f);
 
-    nodito0->setEntidad(nullptr);
-    nodito1->setEntidad(nullptr);
-    nodito2->setEntidad(nullptr);
-    nodito3->setEntidad(nullptr);
-    nodito4->setEntidad(nullptr);
-    nodito5->setEntidad(nullptr);
-    nodito6->setEntidad(nullptr);
-    nodito7->setEntidad(nullptr);
-    nodito8->setEntidad(nullptr);
-    nodito9->setEntidad(nullptr);
+    //Rotamos la matriz en el eje y 45º
+    cout<<"Rotamos la matriz en el eje y 45º: "<<endl;
+    transform2->rotar(45.0f, 0.0f, 1.0f, 0.0f);
 
-    noditoEsc->addHijo(nodito0);
-    noditoEsc->addHijo(nodito1);
-    noditoEsc->addHijo(nodito2);
+    //Rotamos la matriz en el eje z 45º
+    cout<<"Rotamos la matriz en el eje z 45º: "<<endl;
+    transform3->rotar(45.0f, 0.0f, 0.0f, 1.0f);
 
-    nodito0->addHijo(nodito3);
-    nodito0->addHijo(nodito4);
+    cout<<"Escalamos la matriz (5): "<<endl;
+    transform4->escalarAbs(5.0f);
 
-    nodito1->addHijo(nodito5);
+    cout<<"Escalamos la matriz (2, 3, 6): "<<endl;
+    transform5->escalarRel(2.0f, 3.0f, 6.0f);
 
-    nodito2->addHijo(nodito6);
-
-    nodito3->addHijo(nodito7);
-    nodito3->addHijo(nodito8);
-
-    nodito5->addHijo(nodito9);
+    cout<<""<<endl;
+    cout<<""<<endl;
 
 
-    noditoEsc->draw();
 
     std::cin>>x;
 
