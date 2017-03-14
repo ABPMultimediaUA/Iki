@@ -13,7 +13,7 @@ class Vigilar : public State<Enemy>
         void Enter(Enemy* enemigo);
         void Execute(Enemy* enemigo);
         void Exit(Enemy* enemigo);
-        bool OnMessage(Enemy*, const Telegram&);
+        bool OnMessage(Enemy*, const Mensaje&);
 
     protected:
 

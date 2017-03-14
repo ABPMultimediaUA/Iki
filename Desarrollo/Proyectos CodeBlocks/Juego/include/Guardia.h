@@ -2,7 +2,6 @@
 #define GUARDIA_H
 
 #include "Enemy.h"
-#include "StateMachine/StateMachine.h"
 #include "StateMachine/Patrullar.h"
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"

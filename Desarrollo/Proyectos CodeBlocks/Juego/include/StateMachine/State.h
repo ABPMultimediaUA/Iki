@@ -1,7 +1,7 @@
 #ifndef STATE
 #define STATE
 #include "Structs.h"
-struct Telegram;
+struct Mensaje;
 
 template <class entity_type>
 class State
@@ -13,7 +13,7 @@ class State
         virtual ~State(){};
         //this executes if the agent receives a message from the
         //message dispatcher
-        virtual bool OnMessage(entity_type*, const Telegram&)=0;
+        virtual bool OnMessage(entity_type*, const Mensaje&)=0;
 
 
     protected:

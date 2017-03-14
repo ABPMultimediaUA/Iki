@@ -4,6 +4,7 @@
 #include "Player_Ray.h"
 #include "Path/PathFinding.h"
 #include "MapComponent.h"
+#include "PhisicsWorld.h"
 
 
 Player::Player()
@@ -17,6 +18,9 @@ Player::~Player()
 }
 
 void Player::inicializar_player(Map* m){
+
+    id=nextID;
+    nextID++;
 
     Mapa=m;
     grafo = Mapa->getGrafo();
@@ -51,19 +55,16 @@ void Player::inicializar_player(Map* m){
 }
 
 void Player::moverBody(Structs::TPosicion vec){
-    float movx = vec.X;
-    float movy = vec.Z;
-    float modulo = sqrt((movx*movx) + (movy*movy));
-    if(modulo != 0){
-        movx = (movx / modulo) * 10.0f * 0.70;
-        movy = (movy / modulo) * 10.0f * 0.70;
-    }
+    vec.Normalize();
+    float movx = vec.X * avMovement;
+    float movy = vec.Z * avMovement;
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
 void Player::update(Camera* camara){
 
-    Structs::TPosicion mousePosition = {170,0,50};
+    deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    avMovement = deltaTime * 700;
 
     if(rayo->getBalas() > 0){
         if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
@@ -156,12 +157,6 @@ void Player::CogerMunicion()
 bool Player::isPathObstructured(Structs::TPosicion destino){
     input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
     input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
-
-    //distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
-    //angulo = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
-    //modelo->setScale(Structs::TPosicion(distancia/10, 0.5f, 0.5f));
-    //modelo->setPosition(Structs::TPosicion((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
-    //modelo->setRotation(Structs::TPosicion(0,angulo,0));
 
     ///colision con paredes
     for (int i = 0; i < Mapa->muros.size(); i++) {

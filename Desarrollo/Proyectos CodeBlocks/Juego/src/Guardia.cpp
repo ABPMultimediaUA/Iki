@@ -4,41 +4,19 @@
 
 void Guardia::update(){
     G_stateMachine->Update();
-    avMovement = 9.5*PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    avMovement = deltaTime * 9.5; //9.5 es la velocidad
     tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime()/1000 + tiempoEnEstado;
-    std::cout<<"Tiempo en estado: "<< tiempoEnEstado<<std::endl;
 }
 
 void Guardia::inicializar_enemigo(Map* m)
 {
-    Mapa=m;
-    b2BodyDef bodyDef;
-    bodyDef.type= b2_dynamicBody;
-    bodyDef.position.Set(posicion.X, posicion.Z);
-    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
-
-
-    b2PolygonShape bodyShape;
-    bodyShape.SetAsBox(1, 1);
-    body->CreateFixture(&bodyShape, 1.0f);
-
-    b2FixtureDef fixtureDef;
-    fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 10.5f;
-    fixtureDef.restitution  = 0.9f;
-    fixtureDef.density  = 10.f;
-    body->CreateFixture(&fixtureDef);
-
-
-    pRuta = ruta->getInicial();
+    //De momento todos tienen el mismo body y cosas en comun asi que las inicializo para los tres en init
+    init(m);
+    registrarEnemigo(this);
     Structs::TColor color = {0,0,255,0};
     tipo = 1;
     direccion = 0;
-    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
-
-    posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
-    posinit = pRuta->getPunto()-posaux;
-    angulo = atan2f((posinit.Z) ,-(posinit.X)) * 180.f /PI;
 
 }

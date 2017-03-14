@@ -54,16 +54,23 @@ TNodo *TMotorTAG::getCamaraActiva()
 
 int TMotorTAG::registrarLuz(TNodo* nod)
 {
-
-    luces.push_back(nod);
-    l_activa.push_back(true);
+    //int y;
+    //for(y = 0; y < luces.size(); y++)
+    //{
+        luces.push_back(nod);
+        l_activa.push_back(true);
+    //}
     return 1;
 }
 
 int TMotorTAG::registrarCamara(TNodo* nod)
 {
-    camaras.push_back(nod);
-    c_activa.push_back(false);
+    //int x;
+    //for(x = 0; x < camaras.size(); x++)
+    //{
+        camaras.push_back(nod);
+        c_activa.push_back(false);
+    //}
     return 1;
 }
 
@@ -71,7 +78,7 @@ void TMotorTAG::draw()
 {
 
     ///drawLuces
-    for(std::size_t i= 0; i < luces.size(); i++)
+    for(int i= 0; i < luces.size(); i++)
     {
         if(l_activa[i])
         {
