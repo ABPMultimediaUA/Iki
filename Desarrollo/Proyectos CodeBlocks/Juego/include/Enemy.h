@@ -32,12 +32,7 @@ class Enemy : public GameEntity
         void resetTime() { tiempoEnEstado = 0;}
         void patrullar();
         void vigilar();
-        enum message_type
-        {
-            Msg_NecesitoAyuda,
-            Msg_Alarma,
-            Msg_DameTuPosicion
-        };
+        virtual bool HandleMessage(const Mensaje& msg)=0;
         void registrarEnemigo(Enemy* newE){
             aliados.push_back(newE);
         }

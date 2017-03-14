@@ -12,7 +12,6 @@ Esta clase crea los mensajes los cuales son enviados inmediatamente
 o se almacenan en la una cola para enviarlos pasados un tiempo
 */
 
-
 class GameEntity;
 
 
@@ -29,15 +28,14 @@ class EnviarMensaje
 {
 private:
 
-  //a std::set is used as the container for the delayed messages
-  //because of the benefit of automatic sorting and avoidance
-  //of duplicates. Messages are sorted by their dispatch time.
+  //Set es un contenedor asociativo que contiene un conjunto ordenado de objetos unicos de tipo Key.
+  //La clasificacion se realiza mediante la tecla de funcion de comparacion compara.
+  //Cola de prioridad
   std::set<Mensaje> PriorityQ;
 
-  //this method is utilized by DispatchMsg or DispatchDelayedMessages.
-  //This method calls the message handling member function of the receiving
-  //entity, Receptor, with the newly created telegram
-  void Descargar(GameEntity* Receptor, const Mensaje& msg);
+  //Este metodo llama a la funcion miembro de manejo de mensajes de la
+  //entidad, receptor, con el mensaje recien creado
+  void Descargar(GameEntity* receptor, const Mensaje& msg);
 
   EnviarMensaje(){}
 
@@ -46,7 +44,7 @@ private:
   EnviarMensaje& operator=(const EnviarMensaje&);
 
 public:
-
+  //Es SINGLETON
   static EnviarMensaje* Instance();
 
   //send a message to another agent. Receiving agent is referenced by ID.

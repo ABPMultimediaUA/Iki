@@ -1,9 +1,9 @@
 #include "EnviarMensaje.h"
 #include "GameEntity.h"
 //#include "misc/FrameCounter.h"
-//#include "game/EntityManager.h"
+#include "EntityManager.h"
 //#include "Debug/DebugConsole.h"
-/*
+
 using std::set;
 
 EnviarMensaje* EnviarMensaje::Instance()
@@ -13,35 +13,29 @@ EnviarMensaje* EnviarMensaje::Instance()
   return &instance;
 }
 
-void EnviarMensaje::Envio(GameEntity* pReceiver, const Mensaje& telegram)
+void EnviarMensaje::Descargar(GameEntity* receptor, const Mensaje& mensaje)
 {
-  if (!Receptor->HandleMessage(telegram))
+  if (!receptor->HandleMessage(mensaje))
   {
-    //telegram could not be handled
+    //mensaje could not be handled
     #ifdef SHOW_MESSAGING_INFO
     debug_con << "Message not handled" << "";
     #endif
   }
 }
 
-//---------------------------- DispatchMsg ---------------------------
-//
-//  given a message, a receiver, a sender and any time delay, this function
-//  routes the message to the correct agent (if no delay) or stores
-//  in the message queue to be dispatched at the correct time
-//------------------------------------------------------------------------
-void EnviarMensaje::Envio(double       delay,
-                                    int          sender,
-                                    int          receiver,
-                                    int          msg,
-                                    void*        AdditionalInfo = NULL)
+void EnviarMensaje::Envio(  double       delay,
+                            int          sender,
+                            int          receiver,
+                            int          msg,
+                            void*        AdditionalInfo = NULL)
 {
 
   //get a pointer to the receiver
-  GameEntity* Receptor = EntityMgr->GetEntityFromID(receiver);
+  GameEntity* receptor = EntityMgr->getEntityByID(receiver);
 
   //make sure the receiver is valid
-  if (Receptor == NULL)
+  if (receptor == NULL)
   {
     #ifdef SHOW_MESSAGING_INFO
     debug_con << "\nWarning! No Receiver with ID of " << receiver << " found" << "";
@@ -63,15 +57,16 @@ void EnviarMensaje::Envio(double       delay,
     #endif
 
     //send the Mensaje to the recipient
-    Envio(Receptor, Mensaje);
+    Descargar(receptor, Mensaje);
   }
 
   //else calculate the time when the Mensaje should be dispatched
   else
   {
-    double CurrentTime = TickCounter->GetCurrentFrame();
+    //double CurrentTime = TickCounter->GetCurrentFrame();
 
-    Mensaje.DispatchTime = CurrentTime + delay;
+    //Mensaje.TiempoEnvio = CurrentTime + delay;
+    Mensaje.TiempoEnvio =delay;
 
     //and put it in the queue
     PriorityQ.insert(Mensaje);
@@ -89,10 +84,10 @@ void EnviarMensaje::Envio(double       delay,
 //  This function dispatches any telegrams with a timestamp that has
 //  expired. Any dispatched telegrams are removed from the queue
 //------------------------------------------------------------------------
-void EnviarMensaje::EnvioMensajePendiente()
+/*void EnviarMensaje::EnvioMensajePendiente()
 {
   //first get current time
-  double CurrentTime = TickCounter->GetCurrentFrame();
+//  double CurrentTime = TickCounter->GetCurrentFrame();
 
   //now peek at the queue to see if any telegrams need dispatching.
   //remove all telegrams from the front of the queue that have gone
@@ -105,15 +100,15 @@ void EnviarMensaje::EnvioMensajePendiente()
     const Mensaje& Mensaje = *PriorityQ.begin();
 
     //find the recipient
-    GameEntity* Receptor = EntityMgr->GetEntityFromID(Mensaje.Receiver);
+    GameEntity* receptor = EntityMgr->GetEntityFromID(Mensaje.Receiver);
 
     #ifdef SHOW_MESSAGING_INFO
     debug_con << "\nQueued Mensaje ready for dispatch: Sent to "
-         << Receptor->ID() << ". Msg is "<< Mensaje.Msg << "";
+         << receptor->ID() << ". Msg is "<< Mensaje.Msg << "";
     #endif
 
     //send the Mensaje to the recipient
-    Envio(Receptor, Mensaje);
+    Descargar(receptor, Mensaje);
 
 	//remove it from the queue
     PriorityQ.erase(PriorityQ.begin());

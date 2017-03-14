@@ -4,6 +4,7 @@
 #include "PatrolRoute.h"
 #include "Medico.h"
 #include "Dron.h"
+#include "EntityManager.h"
 
 World::World()
 {
@@ -78,6 +79,7 @@ void World::inicializar_mundo(){
                 break;
         }
         enemigos[i]->inicializar_enemigo(mapa);
+        EntityMgr->registrarEntity(enemigos[i]);
     }
 }
 
