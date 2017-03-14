@@ -15,7 +15,7 @@ MapComponent::MapComponent(float a, Structs::TPosicion b, int i)
     body->CreateFixture(&bodyShape, 1.0f);
     body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265358979323846 * a);
 
-    modelo = new AnimatedMesh("Modelos/cubito.obj", color, b, a);
+    modelo = new AnimatedMesh("resources/Modelos/cubito.obj", color, b, a);
 
         //file = "Modelos/cubito.obj";
         /*bodyDef.type = b2_staticBody;

@@ -5,11 +5,12 @@
 void Dron::update(){
     G_stateMachine->Update();
     avMovement=9.5*PhisicsWorld::getInstance()->getDeltaTime()/1000;
-
+    tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime() + tiempoEnEstado;
 }
 
-void Dron::inicializar_enemigo()
+void Dron::inicializar_enemigo(Map* m)
 {
+    Mapa=m;
     b2BodyDef bodyDef;
     bodyDef.type= b2_dynamicBody;
     bodyDef.position.Set(posicion.X, posicion.Z);
@@ -31,6 +32,7 @@ void Dron::inicializar_enemigo()
     pRuta = ruta->getInicial();
     Structs::TColor color = {0,255,0,0};
     tipo = 3;
+    direccion = 0;
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     modelo->cambiarColor(color);
 

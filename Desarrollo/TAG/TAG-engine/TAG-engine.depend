@@ -1,11 +1,7 @@
 # depslib dependency file v1.0
-1488451897 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1488810516 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	"TDisplay.h"
-	"TNodo.h"
-	"TTransform.h"
-	"TLuz.h"
-	"TMalla.h"
-	"TCamara.h"
+	"TMotorTAG.h"
 
 1487694363 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
 	"TEntidad.h"
@@ -48,10 +44,10 @@
 1488456980 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcolor.h
 	<glm.hpp>
 
-1488455266 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
+1488458812 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tluz.cpp
 	"TLuz.h"
 
-1488457263 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
+1488458812 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tluz.h
 	<iostream>
 	<TEntidad.h>
 
@@ -76,10 +72,10 @@
 1487238690 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\trecursomalla.cpp
 	"TRecursoMalla.h"
 
-1488450404 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
+1488458812 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttransform.cpp
 	"TTransform.h"
 
-1488453013 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
+1488458812 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttransform.h
 	<iostream>
 	<TEntidad.h>
 	<GL/gl.h>
@@ -2087,15 +2083,15 @@
 1487860224 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
 	"Display.h"
 
-1488452703 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
+1488995955 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
 	"TMotorTAG.h"
 
-1488452904 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
+1488810049 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
 	"TNodo.h"
 	"TTransform.h"
 	"TLuz.h"
-	"TMalla.h"
 	"TCamara.h"
+	"TMalla.h"
 	"TGestorRecursos.h"
 
 1487863515 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\sdl2\sdl.h
@@ -2764,19 +2760,19 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1488451745 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tdisplay.cpp
+1488458812 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tdisplay.cpp
 	"TDisplay.h"
 
-1488451771 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tdisplay.h
+1488458812 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tdisplay.h
 	<glew.h>
 	<SDL2\SDL.h>
 	<string>
 	<iostream>
 
-1488451674 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tshader.cpp
+1488458812 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tshader.cpp
 	"TShader.h"
 
-1488451674 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tshader.h
+1488458812 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tshader.h
 
 1488473141 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tdisplay.h
 	<glew.h>

@@ -25,10 +25,10 @@ class guilul
         virtual ~guilul();
         void anyadirboton(int, int, int, video::IVideoDriver*);
         void anyadirtitulo(int, int, int, video::IVideoDriver*);
-        void anyadircontrol(int, int, int, video::IVideoDriver*);
+        void anyadircontrol(int, int, int, video::IVideoDriver*, float);
         void anyadirmenu(int, int, video::IVideoDriver*);
         void vidaprota(float, video::IVideoDriver*);
-        void laserprota(bool, video::IVideoDriver*);
+        void laserprota(bool, video::IVideoDriver*, int, int, float, float, int);
         vector<botones*> boton;
         vector<menus*> menu;
         vector<controles*> control;

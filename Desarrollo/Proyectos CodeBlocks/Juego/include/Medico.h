@@ -25,11 +25,12 @@ class Medico : public Enemy
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;
+            tiempoEnEstado = 0;
         }
         ~Medico(){delete G_stateMachine;}
         void update();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
-        void inicializar_enemigo();
+        void inicializar_enemigo(Map* m);
 
 
 };

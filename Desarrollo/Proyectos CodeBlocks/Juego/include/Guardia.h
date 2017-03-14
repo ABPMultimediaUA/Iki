@@ -26,11 +26,12 @@ class Guardia : public Enemy
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;
+            tiempoEnEstado = 0;
         }
         ~Guardia(){delete G_stateMachine;}
         void update();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
-        void inicializar_enemigo();
+        void inicializar_enemigo(Map* m);
 
 
 };

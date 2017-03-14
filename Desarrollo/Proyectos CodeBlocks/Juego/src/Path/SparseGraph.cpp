@@ -1,4 +1,4 @@
-#include "SparseGraph.h"
+#include "Path/SparseGraph.h"
 
 
 const Nodo& SparseGraph::getNode(int idx)const{
@@ -244,11 +244,11 @@ void SparseGraph::setEdgeCost(int from, int to, double NewCost)
     }
   }
 }
-int SparseGraph::nodeMoreClose(irr::core::vector3df p){
+int SparseGraph::nodeMoreClose(Structs::TPosicion p){
     for(int i=0;i<nodos.size();i++){
         ///COMPROBAR SI EL NODO MAS CERCANO ESTA DETRAS DE UN OBSTACULO
-        if(nodos[i].posicion.getDistanceFrom(p)< menorDistancia){
-            menorDistancia=nodos[i].posicion.getDistanceFrom(p);
+        if(nodos[i].posicion.Distance(p)< menorDistancia){
+            menorDistancia=nodos[i].posicion.Distance(p);
             indice=nodos[i].Index();
         }
     }

@@ -2,7 +2,7 @@
 #define NAVGRAPH
 
 #include <irrlicht.h>
-#include <enemigo.h>
+#include <Enemy.h>
 
 class NavGraph
 {

@@ -1,7 +1,6 @@
-#include "PathPlanner.h"
+#include "Path/PathPlanner.h"
 
-PathPlanner::PathPlanner(Enemigo* owner, SparseGraph* graf):enemigo(owner)
-    //,grafo(enemigo->GetWorld()->GetMap()->GetNavGraph())
+PathPlanner::PathPlanner(GameEntity* owner, SparseGraph* graf):entidad(owner)
 {
     grafo=graf;
 }
@@ -11,23 +10,23 @@ PathPlanner::~PathPlanner()
     //dtor
 }
 
-bool PathPlanner::crearPath(irr::core::vector3df destino, std::list<PathEdge>& path){
-
+bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& path){
+/*
     posicionDestino=destino;
     //Si no hay muros entre el punto de partida y el punto de destino, devuelvo el path directamente con el punto de partida y destino
     //Comprobamos si el bot puede moverse directamente al objetivo con
     //un metodo que tomo como comienzo la posicion dedestino y un radio de
     //la entidad y depermina si el bot es capaz de moverse entre las dos posiciones
-    if(!enemigo->isPathObstructured(posicionDestino)){
+    if(!entidad->isPathObstructured(posicionDestino)){
             //create an edge connecting the bot's current position and the
             //target position and push it on the path list (flagged to use the
             //"normal" behavior = 1)
-            path.push_back(PathEdge(enemigo->getModelo()->getPosition(), posicionDestino,1));
+            path.push_back(PathEdge(entidad->getModelo()->getPosition(), posicionDestino,1));
             return true;
     }
     //encontar el nodo mas cercano a la posicion del bot, getclosesnode es un metodo
     //que consulta el grafo de navegacion de nodos para determinar el mas cercano no obstruido
-    int NodoMasCercano=grafo->nodeMoreClose(enemigo->getModelo()->getPosition());
+    int NodoMasCercano=grafo->nodeMoreClose(entidad->getModelo()->getPosition());
     //Si ningun nodo visible se encuentra, devolvemos false, esto ocurrira si
     //el grafo esta mal diseñado o si el bot esta bugeado o algo
     if(NodoMasCercano == -1){
@@ -44,7 +43,7 @@ bool PathPlanner::crearPath(irr::core::vector3df destino, std::list<PathEdge>& p
      //grab the path as a list of PathEdges
      path = alg.GetPathAsPathEdges();
      if(!path.empty()){
-         path.push_front(PathEdge(enemigo->getPosicion(), path.front().getSource(),1));
+         path.push_front(PathEdge(entidad->getPosicion(), path.front().getSource(),1));
          path.push_back(PathEdge(path.back().getDestination(),posicionDestino,1));
          return true;
      }
@@ -52,8 +51,9 @@ bool PathPlanner::crearPath(irr::core::vector3df destino, std::list<PathEdge>& p
         //no path found by the search
         return false;
      }
+     */
 }
- void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<vector3df> &path){
+ void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<Structs::TPosicion> &path){
 
     std::list<int>::iterator it;
     it = pNodos.begin();
@@ -79,7 +79,7 @@ assign E2 to E1 and advance E2.
 the path.
 */
 void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
-{
+{/*
     //creo una pareja de iteradores y apunto al incio del path
     std::list<PathEdge>::iterator e1(path.begin()), e2(path.begin());
     //increment e2 so it points to the edge following e1.
@@ -91,7 +91,7 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
     while (e2 != path.end())
     {
         //check for obstruction, adjust and remove the edges accordingly
-        if ( enemigo->canWalkBetween(e1->getSource(), e2->getDestination()) )
+        if ( entidad->canWalkBetween(e1->getSource(), e2->getDestination()) )
         {
             e1->SetDestination(e2->getDestination());
             e2 = path.erase(e2);
@@ -101,7 +101,7 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
             e1 = e2;
             ++e2;
         }
-    }
+    }*/
 }
 void PathPlanner::SmoothPathEdgesPrecise(std::list<PathEdge>& path)
 {

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1488646035 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
+1489151568 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -8,6 +8,7 @@
 	<iostream>
 	"include/Map.h"
 	"include/CMainMenu.h"
+	"include/MenuIngame.h"
 	"include/MyEventReceiver.h"
 	"include/PatrolRoute.h"
 
@@ -1197,7 +1198,7 @@
 	"driverChoice.h"
 	<World.h>
 
-1488468915 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
+1488468916 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\map.h
 	<stdio.h>
 	"tinyxml2.h"
 	"MapComponent.h"
@@ -1218,7 +1219,7 @@
 	<android/log.h>
 	<assert.h>
 
-1486466114 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+1488902764 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -1360,7 +1361,7 @@
 1486457180 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\map.cpp
 	"Map.h"
 
-1486594248 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
+1488902716 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\mapcomponent.cpp
 	"Map.h"
 
 1484068819 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\muros.cpp
@@ -1374,7 +1375,7 @@
 1484068820 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1488481775 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
+1489154802 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -2834,14 +2835,14 @@
 	"Enemigo.h"
 	<Box2D/Box2D.h>
 
-1488580445 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
+1489168490 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
 	<guilul.h>
 
-1488648498 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
+1489169481 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
 	"CMainMenu.h"
 	"MyEventReceiver.h"
 
-1488296136 source:f:\proyectos codeblocks\rama alvaro lul\main.cpp
+1488903266 source:f:\proyectos codeblocks\rama alvaro lul\main.cpp
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 	"include/Enemigo.h"
@@ -4034,7 +4035,7 @@
 	"driverChoice.h"
 	<World.h>
 
-1486466114 f:\proyectos codeblocks\rama alvaro lul\include\map.h
+1488468916 f:\proyectos codeblocks\rama alvaro lul\include\map.h
 	<stdio.h>
 	"tinyxml2.h"
 	"MapComponent.h"
@@ -4055,7 +4056,7 @@
 	<android/log.h>
 	<assert.h>
 
-1486466114 f:\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
+1488902764 f:\proyectos codeblocks\rama alvaro lul\include\mapcomponent.h
 	<irrlicht.h>
 	"driverChoice.h"
 	<World.h>
@@ -4177,10 +4178,10 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1488039320 f:\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
+1488900910 f:\proyectos codeblocks\rama alvaro lul\include\cmainmenu.h
 	<guilul.h>
 
-1488294338 source:f:\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
+1488798526 source:f:\proyectos codeblocks\rama alvaro lul\src\cmainmenu.cpp
 	"CMainMenu.h"
 	"MyEventReceiver.h"
 
@@ -4213,7 +4214,7 @@
 1484068820 source:f:\proyectos codeblocks\rama alvaro lul\src\patrolroute.cpp
 	"PatrolRoute.h"
 
-1488039320 source:f:\proyectos codeblocks\rama alvaro lul\src\player.cpp
+1488481776 source:f:\proyectos codeblocks\rama alvaro lul\src\player.cpp
 	"Player.h"
 	<Box2D/Box2D.h>
 
@@ -4261,7 +4262,7 @@
 1487963557 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\gui.cpp
 	"gui.h"
 
-1488646035 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\guilul.h
+1489151507 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\guilul.h
 	<irrlicht.h>
 	<stdio.h>
 	<botones.h>
@@ -4272,50 +4273,57 @@
 	<World.h>
 	"PatrolRoute.h"
 
-1488646235 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\guilul.cpp
+1489154802 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\guilul.cpp
 	"guilul.h"
 
 1488039320 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\myeventreceiver.h
 	<irrlicht.h>
 	<iostream>
 
-1488039320 f:\proyectos codeblocks\rama alvaro lul\include\guilul.h
+1488900912 f:\proyectos codeblocks\rama alvaro lul\include\guilul.h
 	<irrlicht.h>
-	<iostream>
+	<stdio.h>
+	<botones.h>
+	<menus.h>
+	<controles.h>
+	<titulos.h>
+	"driverChoice.h"
+	<World.h>
+	"PatrolRoute.h"
 
 1488039320 f:\proyectos codeblocks\rama alvaro lul\include\myeventreceiver.h
 	<irrlicht.h>
 	<iostream>
 
-1488039320 source:f:\proyectos codeblocks\rama alvaro lul\src\guilul.cpp
+1488798526 source:f:\proyectos codeblocks\rama alvaro lul\src\guilul.cpp
 	"guilul.h"
 
-1488648092 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\botones.h
+1488798526 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\botones.h
 	<irrlicht.h>
 	<iostream>
 
-1488648227 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\botones.cpp
+1488798526 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\botones.cpp
 	"botones.h"
 
-1488473686 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\menus.h
+1488908674 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\menus.h
 	<irrlicht.h>
 	<iostream>
 
-1488582155 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\controles.h
+1489100062 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\controles.h
 	<irrlicht.h>
 	<iostream>
 
-1488576415 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\titulos.h
+1489014360 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\titulos.h
 	<irrlicht.h>
 	<iostream>
 
-1488583410 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\controles.cpp
+1489168490 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\controles.cpp
 	"controles.h"
 
-1488473728 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\menus.cpp
+1488473730 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\menus.cpp
 	"menus.h"
 
-1488576884 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\titulos.cpp
+1489168566 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\titulos.cpp
 	"titulos.h"
 
 1486940600 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\trigger.cpp
@@ -4332,4 +4340,53 @@
 	"TriggerSystem.h"
 
 1486940600 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\triggersystem.h
+
+1488798526 f:\proyectos codeblocks\rama alvaro lul\include\botones.h
+	<irrlicht.h>
+	<iostream>
+
+1488473688 f:\proyectos codeblocks\rama alvaro lul\include\menus.h
+	<irrlicht.h>
+	<iostream>
+
+1488582156 f:\proyectos codeblocks\rama alvaro lul\include\controles.h
+	<irrlicht.h>
+	<iostream>
+
+1488576416 f:\proyectos codeblocks\rama alvaro lul\include\titulos.h
+	<irrlicht.h>
+	<iostream>
+
+1488583412 source:f:\proyectos codeblocks\rama alvaro lul\src\controles.cpp
+	"controles.h"
+
+1488473730 source:f:\proyectos codeblocks\rama alvaro lul\src\menus.cpp
+	"menus.h"
+
+1488576886 source:f:\proyectos codeblocks\rama alvaro lul\src\titulos.cpp
+	"titulos.h"
+
+1486940600 source:f:\proyectos codeblocks\rama alvaro lul\src\trigger.cpp
+	"Trigger.h"
+
+1486940600 f:\proyectos codeblocks\rama alvaro lul\include\trigger.h
+
+1486940600 source:f:\proyectos codeblocks\rama alvaro lul\src\triggerregion.cpp
+	"TriggerRegion.h"
+
+1486940600 f:\proyectos codeblocks\rama alvaro lul\include\triggerregion.h
+
+1486940600 source:f:\proyectos codeblocks\rama alvaro lul\src\triggersystem.cpp
+	"TriggerSystem.h"
+
+1486940600 f:\proyectos codeblocks\rama alvaro lul\include\triggersystem.h
+
+1488798526 source:f:\proyectos codeblocks\rama alvaro lul\src\botones.cpp
+	"botones.h"
+
+1489169924 c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\include\menuingame.h
+	<guilul.h>
+
+1489169962 source:c:\users\jarbar\desktop\iki\desarrollo\proyectos codeblocks\rama alvaro lul\src\menuingame.cpp
+	"MenuIngame.h"
 

@@ -3,7 +3,6 @@
 
 #include <GameEntity.h>
 
-
 class PatrolRoute;
 class PatrolPoint;
 
@@ -12,7 +11,7 @@ class Enemy : public GameEntity
     public:
         Enemy(){}
         ~Enemy(){}
-        virtual void inicializar_enemigo()=0;
+        virtual void inicializar_enemigo(Map* m)=0;
         virtual void update()=0;
         void SetID(int val);
         int getID()const{return id;}
@@ -22,24 +21,25 @@ class Enemy : public GameEntity
             modelo->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
             modelo->setRotation(body->GetAngle());
             }
+        f32 getTiempo() { return tiempoEnEstado;}
+        void resetTime() { tiempoEnEstado = 0;}
         void patrullar();
+        void vigilar();
 
     protected:
-        int id,tipo;
+        int id,tipo, direccion;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement;
         Structs::TPosicion posinit,posaux;
+        Map* Mapa;
+
+        f32 tiempoEnEstado;
 
 
     private:
 
         static int m_iNextValidID;
-
-
-
-        /*PatrolRoute ruta;
-        PatrolPoint* pRuta;*/
 
 };
 

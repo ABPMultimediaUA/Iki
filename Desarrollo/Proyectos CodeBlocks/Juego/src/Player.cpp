@@ -2,6 +2,9 @@
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
 #include "Player_Ray.h"
+#include "Path/PathFinding.h"
+#include "MapComponent.h"
+
 
 Player::Player()
 {
@@ -13,7 +16,11 @@ Player::~Player()
     delete rayo;
 }
 
-void Player::inicializar_player(){
+void Player::inicializar_player(Map* m){
+
+    Mapa=m;
+    grafo = Mapa->getGrafo();
+    path = new PathFinding(grafo,this);
 
     Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {0,0,0,0};
@@ -21,7 +28,7 @@ void Player::inicializar_player(){
     modelo->cambiarColor(color);
     posicion = modelo->getPosition();
 
-    radio = 5;
+    radio = 1.0;
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
@@ -38,6 +45,8 @@ void Player::inicializar_player(){
     fixtureDef.restitution  = 0.f;
     fixtureDef.density  = 100.f;
     body->CreateFixture(&fixtureDef);
+    //Para los ray!
+    input.maxFraction	=	1.0f;
 
 }
 
@@ -64,22 +73,16 @@ void Player::update(Camera* camara){
     }
 
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
-        //stop= false;
 
         GraphicsFacade::getInstance().cambiarRay(camara);
         moverse = true;
-
-
-        //ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-        //          receiver.GetMouseState().Position, camera);
-        //float angulo = atan2f((mousePosition.Z-prota->getModelo()->getPosition().Z) ,
-        //                      -(mousePosition.X-prota->getModelo()->getPosition().X)) * 180.f / irr::core::PI;
-
-        //modelo->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
-        //prota->getEsfera()->setRotation(core::vector3df(0,prota->getBody()->GetAngle(),0));
+        listaNodos.clear();
+        GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
+        path->crearPath(posicion,mousePosition,listaNodos);
+        it=listaNodos.begin();
     }
 
-    if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+   /* if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
     {
         toMousePosition.X = mousePosition.X - posicion.X;
         toMousePosition.Y = mousePosition.Y - posicion.Y;
@@ -89,14 +92,6 @@ void Player::update(Camera* camara){
         {
             toMousePosition = {0,0,0};
             moverBody(toMousePosition);
-            /*if(pasosP==true || pasos2P==true)
-            {
-                s1->stop();
-                pasosP = false;
-                pasos2P = false;
-            }*/
-
-            //stop= true;
         }
         else
         {
@@ -109,24 +104,47 @@ void Player::update(Camera* camara){
                               -(mousePosition.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
             body->SetTransform(body->GetPosition(), angulo);
             modelo->setRotation(body->GetAngle());
-            /*if(pasosP==false && !receiver.isKeyDown(KEY_LSHIFT))
-            {
-                if(engine->isCurrentlyPlaying(pasos2))
-                    s1->stop();
-                s1 = engine->play3D(pasos1,posicion,true,false,true);
-                pasosP = true;
-                pasos2P = false;
-            }
-            else if (pasos2P==false && receiver.isKeyDown(KEY_LSHIFT))
-            {
-                if(engine->isCurrentlyPlaying(pasos1))
-                    s1->stop();
-                s1 = engine->play3D(pasos2,posicion,true,false,true);
-                pasos2P = true;
-                pasosP = false;
+        }
+    }*/
+    if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    {
+        if(!listaNodos.empty() && it != listaNodos.end())
+            toNextNodo = grafo->getNode(*it).posicion - posicion;
+        else
+            toNextNodo=quietoParado;
 
+            toMousePosition = mousePosition - posicion;
+
+        if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
+        {
+            moverBody(quietoParado);
+            if(it != listaNodos.end()) //SI AUN NO ES EL ULTIMO NODO
+                it++;
+            else if(it == listaNodos.end()){ //SI ES EL ULTIMO NODO
+                if(toMousePosition.Length() <= 1) //CUANDO LLEGA AL DESTINO
+                {
+                    moverBody(quietoParado);
+                }
+                else{ //CUANDO AUN NO HA LLEGADO AL DESTINO
+                    MoverPlayer(mousePosition,toMousePosition);
+                }
+            }
+        }
+        else
+        { //CUANDO AUN NO HA LLEGADO A UN NODO
+            if(!listaNodos.empty() && it != listaNodos.end()){
+                MoverPlayer(grafo->getNode(*it).posicion,toNextNodo);
+            }
+            /*else if(listaNodos.empty()){ //CUANDO NO HAY NODOS POR RECORRER
+                     if(toMousePosition.Length() <= 1){ //CUANDO LLEGA AL DESTINO
+                        moverBody(quietoParado);
+                    }
+                    else{ //CUANDO AUN NO HA LLEGADO AL DESTINO
+                        moverBody(toMousePosition);
+                        posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+                        modelo->setPosition(posicion);
+                    }
             }*/
-            //stop= true;
         }
     }
 }
@@ -134,4 +152,32 @@ void Player::update(Camera* camara){
 void Player::CogerMunicion()
 {
     rayo->cogerBalas();
+}
+bool Player::isPathObstructured(Structs::TPosicion destino){
+    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
+    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
+
+    //distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
+    //angulo = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
+    //modelo->setScale(Structs::TPosicion(distancia/10, 0.5f, 0.5f));
+    //modelo->setPosition(Structs::TPosicion((input.p2.x+input.p1.x)/2,0,(input.p2.y+input.p1.y)/2));
+    //modelo->setRotation(Structs::TPosicion(0,angulo,0));
+
+    ///colision con paredes
+    for (int i = 0; i < Mapa->muros.size(); i++) {
+        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+            return true;
+        }
+    }
+
+    return false;
+}
+void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
+    float angulo = atan2f((p1.Z-modelo->getNode()->getPosition().Z) ,
+                          -(p1.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
+    body->SetTransform(body->GetPosition(), angulo);
+    modelo->setRotation(body->GetAngle());
+    moverBody(p2);
+    posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+    modelo->setPosition(posicion);
 }
