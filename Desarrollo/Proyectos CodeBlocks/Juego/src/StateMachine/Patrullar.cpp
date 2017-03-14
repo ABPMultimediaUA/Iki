@@ -1,7 +1,7 @@
 #include "Patrullar.h"
 #include "Vigilar.h"
 #include "Enemy.h"
-#include "Guardia.h"
+#include "StateMachine/Mensaje.h"
 
 
 Patrullar* Patrullar::Instance()
@@ -27,10 +27,10 @@ void Patrullar::Execute(Enemy* enemigo){
     enemigo->patrullar();
     if(enemigo->getTiempo() > 11){
         enemigo->resetTime();
-        static_cast<Guardia*>(enemigo)->GetFSM()->ChangeState(Vigilar::Instance());
+        enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
 
 }
 
 void Patrullar::Exit(Enemy* enemigo){}
-bool Patrullar::OnMessage(Enemy*, const Telegram&){}
+bool Patrullar::OnMessage(Enemy*, const Mensaje&){}
