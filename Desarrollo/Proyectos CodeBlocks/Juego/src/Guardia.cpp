@@ -16,7 +16,6 @@ void Guardia::inicializar_enemigo(Map* m)
     registrarEnemigo(this);
     Structs::TColor color = {0,0,255,0};
     tipo = 1;
-    direccion = 0;
     modelo->cambiarColor(color);
 
 }

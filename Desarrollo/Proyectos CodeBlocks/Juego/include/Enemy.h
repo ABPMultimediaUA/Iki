@@ -4,8 +4,8 @@
 #include "GameEntity.h"
 #include "StateMachine.h"
 
-class PatrolRoute;
-class PatrolPoint;
+#include "PatrolRoute.h"
+#include "PatrolPoint.h"
 
 
 class Enemy : public GameEntity
@@ -25,7 +25,9 @@ class Enemy : public GameEntity
         void SetID(int val);
         int getID()const{return id;}
         int getTipo(){return tipo;}
-        void setPosition(Structs::TPosicion p);
+        PatrolPoint* getPPatrulla(){return pRuta; }
+        PatrolRoute* getPatrulla() {return ruta;  }
+        void setPosition();
         f32 getTiempo() { return tiempoEnEstado;}
         void resetTime() { tiempoEnEstado = 0;}
         void patrullar();
@@ -51,7 +53,7 @@ class Enemy : public GameEntity
 
     protected:
 
-        int tipo,direccion;
+        int tipo,direccion,estadoVigilando;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement,deltaTime;

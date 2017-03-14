@@ -25,7 +25,7 @@ void Patrullar::Enter(Enemy* enemigo){
 void Patrullar::Execute(Enemy* enemigo){
 
     enemigo->patrullar();
-    if(enemigo->getTiempo() > 11){
+    if(enemigo->getPatrulla()->getInicial() == enemigo->getPPatrulla()){
         enemigo->resetTime();
         enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
