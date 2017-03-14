@@ -20,17 +20,19 @@ class TMotorTAG
         TCamara *crearCamara();
         TMalla *crearMalla(char *fichero);
 
-        TNodo *getEscena(){return escena;};
+        TNodo *getEscena(){return escena;}
         TNodo *getCamaraActiva();
 
         int registrarLuz(TNodo* nod);
         int registrarCamara(TNodo* nod);
 
-        void setLuzActiva(int i)    {l_activa[i] = true; };
-        void setLuzApagada(int i)   {l_activa[i] = false;};
-        void setCamaraActiva(int i) {c_activa[i] = true; };
-        void setCamaraApagada(int i){c_activa[i] = false;};
+        void setLuzActiva(int i)    {l_activa[i] = true; }
+        void setLuzApagada(int i)   {l_activa[i] = false;}
+        void setCamaraActiva(int i) {c_activa[i] = true; }
+        void setCamaraApagada(int i){c_activa[i] = false;}
 
+        void drawLuces();
+        void drawCamaras();
         void draw();
 
     protected:

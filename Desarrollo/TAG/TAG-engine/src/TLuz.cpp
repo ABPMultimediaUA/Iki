@@ -23,7 +23,7 @@ void TLuz::setPosicion(vec3 pos)
 
 void TLuz::beginDraw()
 {
-
+    std::cout << "  Luz detected " << std::endl;
 }
 
 void TLuz::endDraw()

@@ -17,7 +17,7 @@ void TMalla::cargarMalla(char fichero)
 
 void TMalla::beginDraw()
 {
-    std::cout<<"malla draw()"<<std::endl;
+    std::cout << "malla draw()" << std::endl;
 }
 
 void TMalla::endDraw()

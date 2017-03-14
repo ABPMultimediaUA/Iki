@@ -34,7 +34,7 @@ void TCamara::setParalela(float sup, float inf, float izq, float dch, float cer,
 }
 void TCamara::beginDraw()
 {
-
+    std::cout << "  Camara detected " << std::endl;
 }
 void TCamara::endDraw()
 {

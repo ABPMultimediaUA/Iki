@@ -34,11 +34,70 @@ void TTransform::trasponer()
 void TTransform::trasladar(float x, float y, float z)
 {
     matriz = translate(matriz, vec3(x, y, z));
+
+//comprobamos que realiza bien la translacion
+    cout<<"Trasladamos: "<<endl;
+    for(int i =0; i<4; i++){
+        for(int j =0; j<4; j++){
+            if(j != 3)
+                cout<<matriz[i][j]<<" ";
+            else
+                cout<<matriz[i][j]<<endl;
+        }
+    }
+    cout<<endl;
 }
 
 void TTransform::rotar(float angulo, float x, float y, float z)
 {
     matriz = rotate(matriz, (float) radians(angulo), vec3(x, y, z));
+
+//comprobamos que realiza bien la rotacion
+    cout<<"Rotamos: "<<endl;
+    for(int i =0; i<4; i++){
+        for(int j =0; j<4; j++){
+            if(j != 3)
+                cout<<matriz[i][j]<<" ";
+            else
+                cout<<matriz[i][j]<<endl;
+        }
+    }
+    cout<<endl;
+
+}
+
+void TTransform::escalarRel(float x, float y, float z)
+{
+    matriz = scale(matriz, vec3(x, y, z));
+
+//comprobamos que realiza bien el escalado relativo
+    cout<<"Escalamos Rel: "<<endl;
+    for(int i =0; i<4; i++){
+        for(int j =0; j<4; j++){
+            if(j != 3)
+                cout<<matriz[i][j]<<" ";
+            else
+                cout<<matriz[i][j]<<endl;
+        }
+    }
+    cout<<endl;
+}
+
+void TTransform::escalarAbs(float num)
+{
+    matriz = scale(matriz, vec3(num, num, num));
+
+//comprobamos que realiza bien el escalado absoluto
+    cout<<"Escalamos Abs: "<<endl;
+    for(int i =0; i<4; i++){
+        for(int j =0; j<4; j++){
+            if(j != 3)
+                cout<<matriz[i][j]<<" ";
+            else
+                cout<<matriz[i][j]<<endl;
+        }
+    }
+    cout<<endl;
 }
 
 void TTransform::beginDraw()

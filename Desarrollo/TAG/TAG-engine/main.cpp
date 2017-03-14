@@ -1,93 +1,56 @@
 #include "TDisplay.h"
 #include "TMotorTAG.h"
 
-#define WIDTH 800
-#define HEIGHT 600
-
 using namespace std;
-
 
 int main(int argc, char *argv[])
 {
-
-   	TDisplay display(WIDTH, HEIGHT,"Motor grafico");
-
-
-    TNodo* noditoEsc= new TNodo();
-    TNodo* nodito0= new TNodo();
-    TNodo* nodito1= new TNodo();
-    TNodo* nodito2= new TNodo();
-
-    TMalla* malla0= new TMalla();
-    TTransform* transform0 = new TTransform();
-    TTransform* transform1 = new TTransform();
-
-    nodito0->setEntidad(transform0);
-    nodito1->setEntidad(transform1);
-    nodito2->setEntidad(malla0);
-
-    noditoEsc->addHijo(nodito0);
-    nodito0->addHijo(nodito1);
-    nodito1->addHijo(nodito2);
-
-    transform0->rotar(90, 5, 5, 5);
-    transform1->trasladar(10, 10, 10);
-
-    ///crear y registrar luz
-    //TLuz *luz = motor->crearLuz (…)
-    //TNodo *nodoLuz = motor->crearNodo (padre, luz);
-    //int nLuz = motor->registrarLuz (nodoLuz)
-    //motor->setLuzActiva (nLuz)
-
-    ///crear y registrar camara
-    //TCamara *camara= motor->crearCamara (…)
-    //TNodo *nodoCamara = motor->crearCamara (padre, camara);
-    //int nCamara = motor->registrarCamara (nodoCamara)
-    //motor->setCamaraActiva (nCamara)
-
-/*
     TMotorTAG  *motor   = new TMotorTAG();
+
+    //Transform
     TTransform *transf1 = motor->crearTransform();
     TTransform *transf2 = motor->crearTransform();
-    TLuz    *luz    = motor->crearLuz();
-    TCamara *camara = motor->crearCamara();
+    TTransform *transf3 = motor->crearTransform();
+    TTransform *transf4 = motor->crearTransform();
+    TTransform *transf5 = motor->crearTransform();
+    TTransform *transf6 = motor->crearTransform();
 
-    transf1->trasladar (0,0,-300);
-    transf2->trasladar (10, 10, 0);
+    transf1->trasladar (20.0f, 0.0f, 5.0f);
+    transf2->trasladar (1.0f, 10.0f, 0.0f);
+    transf3->trasladar (0.0f, 15.0f, -10.0f);
+    transf4->rotar (90.0f, 1.0f, 0.0f, 0.0f);
 
     TNodo *nodoTransf1 = motor->crearNodo (motor->getEscena(), transf1);
     TNodo *nodoTransf2 = motor->crearNodo (motor->getEscena(), transf2);
+    TNodo *nodoTransf3 = motor->crearNodo (motor->getEscena(), transf3);
+    TNodo *nodoTransf4 = motor->crearNodo (nodoTransf3, transf4);
+    TNodo *nodoTransf5 = motor->crearNodo (nodoTransf2, transf5);
+    TNodo *nodoTransf6 = motor->crearNodo (nodoTransf2, transf6);
 
-    TNodo *nodoLuz     = motor->crearNodo (nodoTransf1, luz);
-    TNodo *nodoCamara  = motor->crearNodo (nodoTransf2, camara);
-*/
-    noditoEsc->draw();
+    //Luces y Camaras
+    TLuz      *luz1    = motor->crearLuz();
+    TCamara   *camara1 = motor->crearCamara();
 
-    ////////
+    TNodo *nodoLuz1    = motor->crearNodo (nodoTransf1, luz1);
+    TNodo *nodoCamara1 = motor->crearNodo (nodoTransf4, camara1);
 
+        //Registro
+    int nLuz = motor->registrarLuz(nodoLuz1);
+    motor->setLuzActiva(nLuz);
 
-    while(!display.IsClosed())
-    {
-		display.Clear(0.0f,0.15f,0.3f,1.0f);
-    /*
-		float sinCounter = sinf(counter);
-		float cosCounter = cosf(counter);
+    int nCamara = motor->registrarCamara(nodoCamara1);
+    motor->setCamaraActiva(nCamara);
 
-		//transform.getPos().x = sinCounter;
-		transform.getPos().z = cosCounter;
+    //Mallas
 
-		transform.getRot().x = counter;
-		transform.getRot().y = counter;
-		transform.getRot().z = counter;//cosf(counter * 50);
-		//transform.setScale(glm::vec3(cosCounter,cosCounter,cosCounter));
+    ///Escena
+    ///     |---nodoTransf1---nodoLuz1
+    ///     |
+    ///     |---nodoTransf2---nodoTransf5
+    ///     |             |---nodoTransf6
+    ///     |
+    ///     |---nodoTransf3---nodoTransf4---nodoCamara1
 
-		shader.Bind();
-		texture.Bind(0);
-		shader.Update(transform,camera);
-		mesh2.Draw();
-*/
-		display.Update();
-//		counter += 0.0001f;
-    }
-    return 0;
+    motor->draw();
+
 }
