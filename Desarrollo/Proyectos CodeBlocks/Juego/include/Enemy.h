@@ -13,7 +13,6 @@ class Enemy : public GameEntity
 
     private:
         std::vector<Enemy*> aliados;
-        std::list<Enemy*>::iterator it;
         static int m_iNextValidID;
 
     public:
@@ -42,12 +41,12 @@ class Enemy : public GameEntity
         }
         //this method removes the entity from the list
         void borrarEnemigo(Enemy* enemigo){
-           /* for (it = aliados.begin() ; it != aliados.end(); ++it){
+           for (std::vector<Enemy*>::iterator it = aliados.begin() ; it != aliados.end(); ++it){
                 if((*it)->getID() == enemigo->getID()){
                     aliados.erase(it);
                     break;
                 }
-            }*/
+            }
         }
 
     protected:
@@ -58,7 +57,6 @@ class Enemy : public GameEntity
         float sospecha,angulo,avMovement,deltaTime;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-
         f32 tiempoEnEstado;
 
 

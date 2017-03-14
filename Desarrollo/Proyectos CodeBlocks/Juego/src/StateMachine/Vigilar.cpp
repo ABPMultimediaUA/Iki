@@ -21,7 +21,6 @@ void Vigilar::Enter(Enemy* enemigo){
 }
 
 void Vigilar::Execute(Enemy* enemigo){
-
     enemigo->vigilar();
     if(enemigo->getTiempo() > 5){
         enemigo->resetTime();

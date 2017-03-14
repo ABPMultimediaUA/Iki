@@ -7,7 +7,6 @@ void Guardia::update(){
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 9.5; //9.5 es la velocidad
     tiempoEnEstado = PhisicsWorld::getInstance()->getDeltaTime()/1000 + tiempoEnEstado;
-    std::cout<<"Tiempo en estado: "<< tiempoEnEstado<<std::endl;
 }
 
 void Guardia::inicializar_enemigo(Map* m)
