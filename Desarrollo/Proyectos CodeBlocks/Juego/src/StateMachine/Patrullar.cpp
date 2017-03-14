@@ -1,9 +1,6 @@
 #include "Patrullar.h"
 #include "Vigilar.h"
 #include "Enemy.h"
-#include "Guardia.h"
-#include "Medico.h"
-#include "Dron.h"
 #include "StateMachine/Mensaje.h"
 
 
@@ -30,12 +27,7 @@ void Patrullar::Execute(Enemy* enemigo){
     enemigo->patrullar();
     if(enemigo->getTiempo() > 11){
         enemigo->resetTime();
-        if(enemigo->getTipo()== 1)
-            static_cast<Guardia*>(enemigo)->GetFSM()->ChangeState(Vigilar::Instance());
-       /* else if(enemigo->getTipo()== 2)
-            static_cast<Medico*>(enemigo)->GetFSM()->ChangeState(Vigilar::Instance());
-        else if(enemigo->getTipo()== 3)
-            static_cast<Dron*>(enemigo)->GetFSM()->ChangeState(Vigilar::Instance());*/
+        enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
 
 }

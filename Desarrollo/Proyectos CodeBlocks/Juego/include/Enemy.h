@@ -2,6 +2,7 @@
 #define ENEMIGO_H
 
 #include "GameEntity.h"
+#include "StateMachine.h"
 
 class PatrolRoute;
 class PatrolPoint;
@@ -20,6 +21,7 @@ class Enemy : public GameEntity
         ~Enemy(){}
         virtual void inicializar_enemigo(Map* m)=0;
         virtual void update()=0;
+        virtual StateMachine<Enemy>* GetFSM()const=0;
         void init(Map* m);
         void SetID(int val);
         int getID()const{return id;}
@@ -53,7 +55,7 @@ class Enemy : public GameEntity
         int tipo,direccion;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
-        float sospecha,angulo,avMovement;
+        float sospecha,angulo,avMovement,deltaTime;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
 
