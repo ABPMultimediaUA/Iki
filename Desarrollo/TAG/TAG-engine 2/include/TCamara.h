@@ -1,41 +1,40 @@
 #ifndef TCAMARA_H
 #define TCAMARA_H
 
-//#include <iostream>
-//#include <vector>
+#include <iostream>
+#include <vector>
+
+#include <glm\glm.hpp>
+#include <glm\gtx\transform.hpp>
 
 #include <TEntidad.h>
 
-//#include <glm\glm.hpp>
-//#include <glm\gtx\transform.hpp>
+using namespace glm;
 
 
-class TCamara : TEntidad
+class TCamara : public TEntidad
 {
-public:
-	TCamara(const glm::vec3& pos, float fov, float aspect, float zNear, float zFar);
+    public:
+        TCamara(const vec3& pos, float fov, float aspect, float cer, float lej);
 
+        virtual ~TCamara();
 
-    virtual ~TCamara();
-    void setPerspectiva(float sup, float inf, float izq, float dch, float cer, float lej);
-    void setParalela(float sup, float inf, float izq, float dch, float cer, float lej);
+        void setPerspectiva(float sup, float inf, float izq, float dch, float cer, float lej);
+        void setParalela(float sup, float inf, float izq, float dch, float cer, float lej);
 
-	inline glm::mat4 getViewProjection() const
-	{
-		return m_perspective * glm::lookAt(m_position, m_position + m_forward, m_up);
-	}
+        mat4 getViewProjection() const;
 
-	void beginDraw();
-    void endDraw();
+        void beginDraw();
+        void endDraw();
 
-protected:
-private:
-	glm::mat4 m_perspective;
-	glm::vec3 m_position;
-	glm::vec3 m_forward;
-	glm::vec3 m_up;
-	bool esPerspectiva;
-    float superior, inferior, izquierda, derecha, cercano, lejano;
+    protected:
+
+    private:
+        bool esPerspectiva;
+        float superior, inferior, izquierda, derecha, cercano, lejano;
+
+        mat4 m_perspective;
+        vec3 m_position; // posicion de la camara.
 };
 
 #endif // TCAMARA_H
