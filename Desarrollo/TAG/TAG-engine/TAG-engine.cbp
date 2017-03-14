@@ -51,6 +51,7 @@
 			<Add library="lib/libopengl32.a" />
 			<Add library="lib/libSDL2.dll.a" />
 		</Linker>
+		<Unit filename="include/TAnimacion.h" />
 		<Unit filename="include/TCamara.h" />
 		<Unit filename="include/TDisplay.h" />
 		<Unit filename="include/TEntidad.h" />
@@ -65,6 +66,7 @@
 		<Unit filename="include/TShader.h" />
 		<Unit filename="include/TTransform.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/TAnimacion.cpp" />
 		<Unit filename="src/TCamara.cpp" />
 		<Unit filename="src/TDisplay.cpp" />
 		<Unit filename="src/TEntidad.cpp" />
