@@ -32,15 +32,16 @@ class Player : public GameEntity
 
     private:
         bool moverse = false;
-        Structs::TPosicion toMousePosition = {170,0,50};
+        Structs::TPosicion toMousePosition;
         Structs::TPosicion toNextNodo;
         Structs::TPosicion toNextPosition;
+        Structs::TPosicion mousePosition = {170,0,50};
         Structs::TPosicion quietoParado = {0,0,0};
 
         Player_Ray* rayo;
         b2RayCastInput input;
         b2RayCastOutput	output;
-        float distancia,angulo;
+        float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING
         Map* Mapa;
         SparseGraph* grafo;

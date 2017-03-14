@@ -9,6 +9,8 @@
 #include <fstream>
 #include <string>
 #include <list>
+#include <iostream>
+#include <map>
 #include "Map.h"
 
 
@@ -22,7 +24,6 @@ class GameEntity
 
         //Getters
         virtual Structs::TPosicion getPosition() { return posicion; };
-        virtual int                getTipo()     { return tipo;     };
         virtual float              getVida()     { return vida;     };
         virtual float              getRadio()    { return radio;    };
         virtual bool               isPlayer()    { return false;    };
@@ -31,17 +32,25 @@ class GameEntity
         virtual void               setBody(b2BodyDef bodyDef);
         virtual void               setMesh(AnimatedMesh* m){ aniMesh = m;};
 
+        void registrarEntity(GameEntity* newE);
+        //this method removes the entity from the list
+        void borrarEntity(GameEntity* entity);
+
+        GameEntity* getEntityByID(int id)const;
+
     protected:
 
         AnimatedMesh *aniMesh;
         SceneNode *modelo;
         b2Body *body;
 
-        int tipo;
+        int id,nextID=0;
         float vida;
         Structs::TPosicion posicion;
         float radio;
 
+    private:
+        typedef std::map<int, GameEntity*> EntityMap;
 };
 
 #endif // GAME_H

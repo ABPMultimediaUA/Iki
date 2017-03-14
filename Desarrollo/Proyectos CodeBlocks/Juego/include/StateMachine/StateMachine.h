@@ -2,10 +2,11 @@
 #define STATEMACHINE
 
 #include <irrlicht.h>
-#include <Enemy.h>
 #include "StateMachine/State.h"
+class Enemy;
 
 template <class entity_type>
+
 class StateMachine
 {
     private:
