@@ -15,7 +15,7 @@ Trigger_Puerta::~Trigger_Puerta()
 
 void Trigger_Puerta::Try(GameEntity* ent)
 {
-    if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
+    if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
         //Open la puerta
         //std::cout << " abierta " << std::endl;
        aniMesh->setVisible(false);

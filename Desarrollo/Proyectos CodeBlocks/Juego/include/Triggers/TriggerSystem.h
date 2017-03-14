@@ -23,7 +23,7 @@ class TriggerSystem
     public:
         void Clear();
         void Register(Trigger* trigger);
-        void CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup);
+        void CrearTipoTrigger(tinyxml2::XMLElement* objectGroup);
         void LeerMapa();
 
         void Update(GameEntity* entity);

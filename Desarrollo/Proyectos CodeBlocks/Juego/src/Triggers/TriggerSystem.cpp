@@ -86,11 +86,11 @@ void TriggerSystem::Render()
     }
 }
 
-void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup)
+void TriggerSystem::CrearTipoTrigger(tinyxml2::XMLElement* objectGroup)
 {
     tinyxml2::XMLElement* object;
     TriggerFactory factory;
-    float z, x, r;
+    float z, x, r, t;
 
     if (objectGroup->FirstChildElement("object")){
         object = objectGroup->FirstChildElement("object");
@@ -99,43 +99,33 @@ void TriggerSystem::CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup
             object->QueryFloatAttribute("x", &z);
             object->QueryFloatAttribute("y", &x);
             object->QueryFloatAttribute("rotation", &r);
+            object->QueryFloatAttribute("type", &t);
 
-            Trigger* trigger = factory.crearTrigger(tipo,z,x,r);
+            Trigger* trigger = factory.crearTrigger(t,z,x,r);
             m_Triggers.push_back(trigger);
 
             object = object->NextSiblingElement("object");
+
         }
     }
 }
 
 void TriggerSystem::LeerMapa()
 {
-    //int _width, _tileWidth, _height, _tileHeigth;
-
     //Se lee el fichero .tmx
     tinyxml2::XMLDocument* docFile;
     docFile = new tinyxml2::XMLDocument;
     docFile->LoadFile("resources/Mapas/Mapa.tmx");
 
     tinyxml2::XMLElement* mapElement = docFile->FirstChildElement("map");
-   // mapElement->QueryIntAttribute("width", &_width);
-   // mapElement->QueryIntAttribute("height", &_height);
-   // mapElement->QueryIntAttribute("tilewidth", &_tileWidth);
-   // mapElement->QueryIntAttribute("tileheight", &_tileHeigth);
-
     //Se recorre la cada capa de Objects
     tinyxml2::XMLElement* objectGroup = mapElement->FirstChildElement("objectgroup");
     while (objectGroup){
-
-        //Para cada capa se asigna un tipo de Trigger
-        if      (objectGroup->Attribute("name", "Puertas"))
-            CrearTipoTrigger(2, objectGroup);
-        //else if (objectGroup->Attribute("name", "Palancas"))   CrearTipoTrigger(3, objectGroup);
-        else if (objectGroup->Attribute("name", "Objetos"))
-            CrearTipoTrigger(4, objectGroup);
-        //else if (objectGroup->Attribute("name", "Apisonadora"))CrearTipoTrigger(5, objectGroup);
-
-        objectGroup = objectGroup->NextSiblingElement("objectgroup");
-
+        if (objectGroup->Attribute("name", "Triggers")){
+            CrearTipoTrigger(objectGroup);
+            objectGroup = nullptr;
+        }else{
+            objectGroup = objectGroup->NextSiblingElement("objectgroup");
+        }
     }
 }

@@ -25,6 +25,11 @@ class Player : public GameEntity
         bool isPlayer(){return true;};
 
         void CogerMunicion();
+
+        void CogerLlave(){llaves++;}
+        void UsarLlave(){llaves--;}
+        int  GetLlaves(){return llaves;}
+
         bool isPathObstructured(Structs::TPosicion destino);
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
 
@@ -37,6 +42,8 @@ class Player : public GameEntity
         Structs::TPosicion toNextPosition;
         Structs::TPosicion mousePosition = {170,0,50};
         Structs::TPosicion quietoParado = {0,0,0};
+
+        int llaves = 0;
 
         Player_Ray* rayo;
         b2RayCastInput input;
