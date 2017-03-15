@@ -12,6 +12,9 @@ class TRecursoMalla : public TRecurso
         cargarFichero(char* nombre);
         draw();
 
+        char *getNombre();
+        void setNombre(char* n);
+
     protected:
 
     private:

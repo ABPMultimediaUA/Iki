@@ -2,7 +2,10 @@
 #define TANIMACION_H
 
 #include <TEntidad.h>
-#include <TMalla.h>
+
+#include <vector>
+#include "TRecursoMalla.h"
+
 
 class TAnimacion : public TEntidad
 {
@@ -10,14 +13,14 @@ class TAnimacion : public TEntidad
         TAnimacion();
         virtual ~TAnimacion();
 
-        void almacenarMalla(TMalla malla);
-        void beginDraw();
+        void almacenarMalla(TRecursoMalla* malla);
+        void beginDraw(int frame);
         void endDraw();
 
     protected:
 
     private:
-        vector<TMalla*> animacion;
+        vector<TRecursoMalla*> animacion;
         int frame;
 };
 

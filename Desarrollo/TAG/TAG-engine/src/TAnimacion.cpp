@@ -10,17 +10,17 @@ TAnimacion::~TAnimacion()
     //dtor
 }
 
-TAnimacion::almacenarMalla(TMalla malla)
+void TAnimacion::almacenarMalla(TRecursoMalla* malla)
 {
     animacion.push_back(malla);
 }
 
-TAnimacion::beginDraw()
+void TAnimacion::beginDraw(int frame)
 {
-
+    animacion[frame]->draw();
 }
 
-TAnimacion::endDraw()
+void TAnimacion::endDraw()
 {
 
 }
