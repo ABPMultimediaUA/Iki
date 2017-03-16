@@ -1,5 +1,6 @@
 #include "TMotorTAG.h"
 
+
 TMotorTAG::TMotorTAG()
 {
     //ctor
@@ -32,17 +33,24 @@ TLuz *TMotorTAG::crearLuz()
     return luz;
 }
 
-TCamara *TMotorTAG::crearCamara()
+TCamara *TMotorTAG::crearCamara(const vec3& pos, float grad, int anch,int alt, float cer, float lej)
 {
-    TCamara *camara= new TCamara();
+    TCamara *camara= new TCamara(pos, grad, anch, alt, cer, lej);
     return camara;
 }
 
-TMalla *TMotorTAG::crearMalla(char* fichero)
+TMalla *TMotorTAG::crearMalla(const std::string& filename)
 {
-
+    TMalla* malla= new TMalla();
+    malla->LoadMesh(filename);
+    return malla;
 }
 
+TShader TMotorTAG::cargarShader(const std::string& filename)
+{
+    TShader shader(filename);
+    return shader;
+}
 TNodo *TMotorTAG::getCamaraActiva()
 {
     for(std::size_t i=0; i < c_activa.size(); i++)

@@ -1,12 +1,14 @@
 #ifndef TMOTORTAG_H
 #define TMOTORTAG_H
 
+#include "TShader.h"
 #include "TNodo.h"
 #include "TTransform.h"
 #include "TLuz.h"
 #include "TCamara.h"
 #include "TMalla.h"
 #include "TGestorRecursos.h"
+
 
 class TMotorTAG
 {
@@ -17,8 +19,9 @@ class TMotorTAG
         TNodo *crearNodo(TNodo *padre, TEntidad *ent);
         TTransform *crearTransform();
         TLuz *crearLuz();
-        TCamara *crearCamara();
-        TMalla *crearMalla(char *fichero);
+        TCamara *crearCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej);
+        TMalla *crearMalla(const std::string& filename);
+        TShader cargarShader(const std::string& filename);
 
         TNodo *getEscena(){return escena;}
         TNodo *getCamaraActiva();
