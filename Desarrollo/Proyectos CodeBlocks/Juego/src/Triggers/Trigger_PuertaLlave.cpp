@@ -12,7 +12,7 @@ Trigger_PuertaLlave::~Trigger_PuertaLlave()
 {
     //dtor
 }
-#include <iostream>
+
 void Trigger_PuertaLlave::Try(GameEntity* ent)
 {
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
@@ -24,7 +24,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             aniMesh->setVisible(false);
             body->SetActive(false);
         }else{
-            std::cout << " Necesitas una llave " << std::endl;
+            //std::cout << " Necesitas una llave " << std::endl;
         }
     }
     else{
