@@ -29,6 +29,7 @@ class MyEventReceiver : public IEventReceiver
         struct SMouseState{
             position2di Position;
             bool RightButtonDown;
+            bool LeftButtonDown;
             SMouseState() : RightButtonDown(false) { }
         } MouseState;
 
@@ -43,6 +44,14 @@ class MyEventReceiver : public IEventReceiver
 
                     case EMIE_RMOUSE_LEFT_UP:
                         MouseState.RightButtonDown = false;
+                    break;
+
+                    case EMIE_LMOUSE_PRESSED_DOWN:
+                        MouseState.LeftButtonDown = true;
+                    break;
+
+                    case EMIE_LMOUSE_LEFT_UP:
+                        MouseState.LeftButtonDown = false;
                     break;
 
                     case EMIE_MOUSE_MOVED:

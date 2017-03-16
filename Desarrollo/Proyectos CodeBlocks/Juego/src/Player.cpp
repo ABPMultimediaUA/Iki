@@ -2,7 +2,7 @@
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
 #include "Player_Ray.h"
-#include "Path/PathFinding.h"
+#include "Enemies/Path/PathFinding.h"
 #include "MapComponent.h"
 #include "PhisicsWorld.h"
 

@@ -1,10 +1,8 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef GAMEENTITY_H
+#define GAMEENTITY_H
 
-#include "Structs.h"
 #include "Fachada/AnimatedMesh.h"
 #include "Fachada/SceneNode.h"
-#include "MyEventReceiver.h"
 #include <vector>
 #include <fstream>
 #include <string>
@@ -12,9 +10,6 @@
 #include <iostream>
 #include <map>
 #include "Map.h"
-
-
-#include <Box2D/Box2D.h>
 
 class GameEntity
 {

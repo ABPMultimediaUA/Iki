@@ -1,21 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "GameEntity.h"
+#include <GameEntity.h>
 #include "Fachada/Camera.h"
-#include <iostream>
-
-
 
 class PathFinding;
 class SparseGraph;
+class Player_Ray;
 
 #define MOV_SPEED 10.0f;
 
-class Player_Ray;
-
-class Player : public GameEntity
-{
+class Player : public GameEntity{
     public:
         Player();
         ~Player();
@@ -48,7 +43,8 @@ class Player : public GameEntity
         PathFinding* path;
         std::list<int> listaNodos;
         std::list<int>::iterator it;
-
 };
 
 #endif // PLAYER_H
+
+

@@ -165,6 +165,13 @@ class Structs
             float profundo;
         }TMedida;
 
+        typedef struct{
+            int X_inicio;
+            int Y_inicio;
+            int X_final;
+            int Y_final;
+        }TRectangulo;
+
     protected:
 
     private:

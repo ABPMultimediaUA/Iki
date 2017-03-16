@@ -13,6 +13,8 @@ GraphicsFacade::GraphicsFacade()
 
 	timer = device->getTimer();
 
+
+
 	//cout << "Graphics Engine inicializado" << endl;
 }
 
@@ -23,10 +25,9 @@ GraphicsFacade::~GraphicsFacade()
 
 void GraphicsFacade::draw(){
 
-	driver->beginScene(true, true, SColor(255,113,113,133));
 	//Dibujamos los nodos y los cuadros de texto del entorno
+	driver->beginScene(true, true, SColor(255,113,113,133));
 	smgr->drawAll();
-	guienv->drawAll();
 	driver->endScene();
 
 }

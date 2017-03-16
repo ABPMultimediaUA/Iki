@@ -2,7 +2,7 @@
 #define ENEMIGO_H
 
 #include "GameEntity.h"
-#include "StateMachine.h"
+#include "Enemies/StateMachine/StateMachine.h"
 
 class PatrolRoute;
 class PatrolPoint;
