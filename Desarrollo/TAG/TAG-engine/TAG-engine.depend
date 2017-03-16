@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1489667973 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1489686518 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	"TDisplay.h"
 	"TMotorTAG.h"
 	"TShader.h"
@@ -36,7 +36,7 @@
 	"TEntidad.h"
 	<vector>
 
-1489666129 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
+1489686466 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
 
 1489666128 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
@@ -2089,8 +2089,9 @@
 1487860224 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
 	"Display.h"
 
-1489666211 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
+1489686916 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
 	"TMotorTAG.h"
+	"TShader.h"
 
 1489665917 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
 	"TShader.h"
@@ -2776,10 +2777,10 @@
 	<string>
 	<iostream>
 
-1489666668 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tshader.cpp
+1489686466 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tshader.cpp
 	"TShader.h"
 
-1489666640 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tshader.h
+1489685695 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tshader.h
 	<glew.h>
 	"TTransform.h"
 	"TCamara.h"

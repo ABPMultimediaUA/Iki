@@ -1,4 +1,5 @@
 #include "TMotorTAG.h"
+#include "TShader.h"
 
 
 TMotorTAG::TMotorTAG()
@@ -169,10 +170,28 @@ void TMotorTAG::drawCamaras()
             for(std::size_t i=aux.size()-1; i > 0; i--)
             {
                 std::cout << "    Aplicamos matriz transform en una auxiliar" << std::endl;
+                TTransform* t = dynamic_cast<TTransform*>(aux[i]->getEntidad());
+                if (t)
+                {
+                    mat_aux = t->getMatriz() * mat_aux;
+
+                        for(int i =0; i<4; i++){
+                            for(int j =0; j<4; j++){
+                                if(j != 3)
+                                    cout<<mat_aux[i][j]<<" ";
+                                else
+                                    cout<<mat_aux[i][j]<<endl;
+                            }
+                        }
+                        cout<<endl;
+                                    std::cout << "........-------------------------------------------------" << std::endl;
+                }
                 //mat_aux= *it->getEntidad().getMatriz() ;
                 //* mat_aux
                 //--it;
             }
+            TShader::viewMatrix = inverse(mat_aux);
+
             //invertir mat_aux
             //cargar la matriz con la camara
         }

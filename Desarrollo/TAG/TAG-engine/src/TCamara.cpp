@@ -46,7 +46,8 @@ void TCamara::setParalela(float izq, float dch, float inf, float sup, float cer,
 mat4 TCamara::getMatrizProyeccion() const
 {
     if(esPerspectiva)
-        return m_perspectiva;
+        //return m_perspectiva;
+         return m_perspectiva;// * lookAt(v_posicion, v_posicion + vec3(0,0,1), vec3(0,1,0));
     else
         return m_paralela;
 }

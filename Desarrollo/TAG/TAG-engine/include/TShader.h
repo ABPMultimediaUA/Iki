@@ -23,6 +23,7 @@ class TShader
         string LoadShader(const string& fileName);
         GLuint CreateShader(const string& text, GLenum shaderType);
         virtual ~TShader();
+        static mat4 viewMatrix;
 
     protected:
 

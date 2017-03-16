@@ -19,9 +19,9 @@ int main(int argc, char *argv[])
     TTransform *transf5 = motor->crearTransform();
     TTransform *transf6 = motor->crearTransform();
 
-    transf1->trasladar (20.0f, 0.0f, 5.0f);
+    //transf1->trasladar (0.0f, 0.0f, 15.0f);
     //transf2->trasladar (1.0f, 1.0f, 1.0f);
-    //transf3->trasladar (1.0f, 15.0f, -10.0f);
+    transf3->trasladar (0.0f, 0.0f, 10.0f);
     //transf4->rotar (90.0f, 1.0f, 0.0f, 0.0f);
 
     TNodo *nodoTransf1 = motor->crearNodo (motor->getEscena(), transf1);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
     //Luces y Camaras
     TLuz      *luz1    = motor->crearLuz();
-    TCamara   *camara1 = motor->crearCamara(glm::vec3(0, 0, -5), 45.0f, 800, 600, 0.1f, 1000.0f);
+    TCamara   *camara1 = motor->crearCamara(glm::vec3(0, 0, 15), 45.0f, 800, 600, 0.1f, 1000.0f);
 
     TNodo *nodoLuz1    = motor->crearNodo (nodoTransf1, luz1);
     TNodo *nodoCamara1 = motor->crearNodo (nodoTransf4, camara1);

@@ -1,5 +1,7 @@
 #include "TShader.h"
 
+mat4 TShader::viewMatrix;
+
 TShader::TShader(const string& FileName)
 {
     m_programa = glCreateProgram();
@@ -43,7 +45,7 @@ void TShader::Bind()
 void TShader::Update(TCamara* camera)
 {
 	//glm::mat4 model = camera.getViewProjection() * transform.GetModel();  // falta transform.
-    glm::mat4 model = camera->getMatrizProyeccion();  // falta transform.
+    glm::mat4 model = camera->getMatrizProyeccion() * TShader::viewMatrix ;  // falta transform.
 
 	glUniformMatrix4fv(m_uniforms[TRANSFORM_U], 1, GL_FALSE, &model[0][0]);
 }
