@@ -1,10 +1,5 @@
 #include "FuzzyVariable.h"
 
-FuzzyVariable::FuzzyVariable()
-{
-    //ctor
-}
-
 FuzzyVariable::~FuzzyVariable()
 {
     //dtor
@@ -24,10 +19,6 @@ FuzzyVariable::~FuzzyVariable()
 //-----------------------------------------------------------------------------
 void FuzzyVariable::Fuzzify(double val)
 {
-  //make sure the value is within the bounds of this variable
-  assert ( (val >= m_dMinRange) && (val <= m_dMaxRange) &&
-           "<FuzzyVariable::Fuzzify>: value out of range");
-
   //for each set in the flv calculate the DOM for the given value
   MemberSets::const_iterator curSet;
   for (curSet = m_MemberSets.begin(); curSet != m_MemberSets.end(); ++curSet)
@@ -52,17 +43,17 @@ double FuzzyVariable::DeFuzzifyMaxAv()const
   {
     bottom += curSet->second->GetDOM();
 
-    top += curSet->second->GetRepresentativeVal() * curSet->second->GetDOM();
+    top += curSet->second->GetRepv() * curSet->second->GetDOM();
   }
 
   //make sure bottom is not equal to zero
-  if (isEqual(0, bottom)) return 0.0;
+  if (0 == bottom) return 0.0;
 
   return top / bottom;
 }
 
 
-
+/*
 //------------------------- AddTriangularSet ----------------------------------
 //
 //  adds a triangular shaped fuzzy set to the variable
@@ -115,3 +106,4 @@ FzSet FuzzyVariable::AddRightShoulderSet(std::string name,
 
   return FzSet(*m_MemberSets[name]);
 }
+*/

@@ -23,7 +23,7 @@ class FuzzySet_Triangle : public FuzzySet
         //the values that define the shape of this FLV
         float m_dPeakPoint;
         float m_dLeftOffset;
-        float m_dRightOffset
+        float m_dRightOffset;
 };
 
 #endif // FUZZYSET_TRIANGLE_H

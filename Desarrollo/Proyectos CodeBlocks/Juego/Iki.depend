@@ -2945,15 +2945,18 @@
 1489082530 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\leveldata.cpp
 	"LevelData.h"
 
-1489061493 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
-1489055237 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 	"Player_Ray.h"
+	"Path/PathFinding.h"
+	"MapComponent.h"
+	"PhisicsWorld.h"
 
 1487239103 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\graphicsfacade.h
 	"MyEventReceiver.h"
@@ -2961,12 +2964,12 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1488980030 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488977050 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"Guardia.h"
@@ -3185,22 +3188,23 @@
 1489082530 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_rectangle.h
 	<TriggerRegion.h>
 
-1489058524 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
+1489658543 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
 	"Trigger_Municion.h"
 	"Player.h"
 	<iostream>
 
-1489058524 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_municion.h
+1489082530 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_municion.h
 	<Trigger_Respawning.h>
 
 1489082530 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1489058524 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
+	<iostream>
 
-1489058524 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1489082530 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1489082530 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
@@ -3209,7 +3213,7 @@
 1489500861 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1489061493 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1489658543 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
 	<iostream>
 	"TriggerFactory.h"
@@ -3217,14 +3221,13 @@
 1489082529 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolpoint.h
 	"Structs.h"
 
-1488977050 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
 	"Guardia.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488977050 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\guardia.h
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\guardia.h
 	"Enemy.h"
-	"StateMachine/StateMachine.h"
 	"StateMachine/Patrullar.h"
 	"PatrolRoute.h"
 	"PatrolPoint.h"
@@ -3248,9 +3251,11 @@
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
-1488977050 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
-	"StateMachine/Patrullar.h"
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
+	"Patrullar.h"
+	"Vigilar.h"
 	"Enemy.h"
+	"StateMachine/Mensaje.h"
 
 1489082530 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\state.cpp
 	"StateMachine/State.h"
@@ -3258,7 +3263,7 @@
 1489082530 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
 
-1489061452 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1489658543 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -3268,7 +3273,7 @@
 	"../PhisicsWorld.h"
 	"Structs.h"
 
-1488978958 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerfactory.h
+1489082529 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerfactory.h
 	"Trigger.h"
 
 1488977050 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\vector2d.h
@@ -3280,9 +3285,8 @@
 1489082529 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player_ray.h
 	"Structs.h"
 
-1488977050 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\medico.h
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\medico.h
 	"Enemy.h"
-	"StateMachine/StateMachine.h"
 	"StateMachine/Patrullar.h"
 	"PatrolRoute.h"
 	"PatrolPoint.h"
@@ -3298,7 +3302,7 @@
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1488977050 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\medico.cpp
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\medico.cpp
 	"Medico.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -5214,4 +5218,93 @@
 
 1489694447 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset.cpp
 	"FuzzySet.h"
+
+1490032144 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_left.cpp
+	"FuzzySet_Left.h"
+
+1490022608 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_left.h
+	<FuzzySet.h>
+
+1490032226 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_right.cpp
+	"FuzzySet_Right.h"
+
+1490022607 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_right.h
+	<FuzzySet.h>
+
+1490032272 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_triangle.cpp
+	"FuzzySet_Triangle.h"
+
+1490032232 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_triangle.h
+	<FuzzySet.h>
+
+1490032417 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyvariable.cpp
+	"FuzzyVariable.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\edge.cpp
+	"Path/Edge.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\heuristic_euclid.cpp
+	"Path/Heuristic_Euclid.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\navgraph.cpp
+	"Path/NavGraph.h"
+
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\path\navgraph.h
+	<irrlicht.h>
+	<Enemy.h>
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\nodo.cpp
+	"Path/Nodo.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\pathedge.cpp
+	"Path/PathEdge.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\pathfinding.cpp
+	"Path/PathFinding.h"
+
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\path\pathfinding.h
+	<Structs.h>
+	<vector>
+	<fstream>
+	<string>
+	<list>
+	"Player.h"
+	"SparseGraph.h"
+	"Map.h"
+	"Algoritmo.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\pathplanner.cpp
+	"Path/PathPlanner.h"
+
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\path\pathplanner.h
+	"SparseGraph.h"
+	"Algoritmo.h"
+	"GameEntity.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\sparsegraph.cpp
+	"Path/SparseGraph.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\enviarmensaje.cpp
+	"EnviarMensaje.h"
+	"GameEntity.h"
+
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\enviarmensaje.h
+	<set>
+	<string>
+	"Mensaje.h"
+
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\mensaje.h
+	<iostream>
+	<math.h>
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\mensaje.cpp
+	"Mensaje.h"
+
+1489660659 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\vigilar.h
+	"StateMachine/State.h"
+
+1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\vigilar.cpp
+	"Vigilar.h"
+	"Enemy.h"
+	"Patrullar.h"
 
