@@ -29,6 +29,7 @@
 					<Add directory="include" />
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
+					<Add directory="include/FuzzyLogic" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -53,6 +54,7 @@
 					<Add directory="include" />
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
+					<Add directory="include/FuzzyLogic" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -86,6 +88,13 @@
 		<Unit filename="include/Fachada/GraphicsFacade.h" />
 		<Unit filename="include/Fachada/MeshSceneNode.h" />
 		<Unit filename="include/Fachada/SceneNode.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyModule.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyRule.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet_Left.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet_Right.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet_Triangle.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyVariable.h" />
 		<Unit filename="include/GameEntity.h" />
 		<Unit filename="include/Guardia.h" />
 		<Unit filename="include/LevelData.h" />
@@ -135,6 +144,13 @@
 		<Unit filename="src/Fachada/GraphicsFacade.cpp" />
 		<Unit filename="src/Fachada/MeshSceneNode.cpp" />
 		<Unit filename="src/Fachada/SceneNode.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzyModule.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzyRule.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet_Left.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet_Right.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet_Triangle.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzyVariable.cpp" />
 		<Unit filename="src/GameEntity.cpp" />
 		<Unit filename="src/Guardia.cpp" />
 		<Unit filename="src/LevelData.cpp" />

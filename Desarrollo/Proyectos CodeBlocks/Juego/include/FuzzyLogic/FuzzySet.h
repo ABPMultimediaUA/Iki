@@ -6,19 +6,19 @@ class FuzzySet
 {
     public:
         //this will hold the degree of membership in this set of a given value
-        float m_dDOM;
+        float dom;
         //this is the maximum of the set's membership function. For instance, if
         //the set is triangular then this will be the peak point of the triangle.
         //If the set has a plateau then this value will be the midpoint of the
         //plateau. This value is set in the constructor to avoid run-time
         //calculation of midpoint values.
-        float m_dRepresentativeValue;
+        float repv;
 
     public:
         FuzzySet();
         virtual ~FuzzySet();
 
-        FuzzySet(float RepVal):m_dDOM(0.0), m_dRepresentativeValue(RepVal){}
+        FuzzySet(float RepVal):dom(0.0), repv(RepVal){}
         //return the degree of membership in this set of the given value. NOTE:
         //this does not set m_dDOM to the DOM of the value passed as the parameter.
         //This is because the centroid defuzzification method also uses this method
@@ -30,10 +30,10 @@ class FuzzySet
         //existing m_dDOM value
         void ORwithDOM(float val);
         //accessor methods
-        float GetRepresentativeVal()const;
-        void ClearDOM(){m_dDOM = 0.0;}
-        float GetDOM()const{return m_dDOM;}
-        void SetDOM(float val);
+        float GetRepv()const{return repv;}
+        float GetDOM()const {return dom; }
+        void SetDOM(float val){dom = val;}
+        void ClearDOM(){dom = 0.0;}
 };
 
 #endif // FUZZYSET_H
