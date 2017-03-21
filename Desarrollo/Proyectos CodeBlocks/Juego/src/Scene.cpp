@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
+#include "EntityManager.h"
 
 Scene::Scene()
 {
@@ -26,8 +27,9 @@ void Scene::inicializar_escena(){
     GraphicsFacade::getInstance().iniciarRay(rayPos);
     //camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
     world->inicializar_mundo();
-    Mapa = world->getMapa();
-    player->inicializar_player(Mapa);
+    mapa = world->getMapa();
+    player->inicializar_player(mapa);
+    EntityMgr->registrarEntity(player);
 
     triggersystem.LeerMapa();
 

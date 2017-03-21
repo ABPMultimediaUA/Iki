@@ -3,12 +3,12 @@
 
 #include "SparseGraph.h"
 #include "Algoritmo.h"
-#include "GameEntity.h"
+#include "Enemy.h"
 
 class PathPlanner
 {
     public:
-        PathPlanner(GameEntity* owner,SparseGraph* graf);
+        PathPlanner(SparseGraph* graf,Enemy* owner);
         virtual ~PathPlanner();
         bool crearPath(Structs::TPosicion destino, std::list<PathEdge>& path);
 
@@ -18,9 +18,9 @@ class PathPlanner
     protected:
 
     private:
-        GameEntity* entidad; //Puntero al propietario de esta clase
+        Enemy* enemigo; //Puntero al propietario de esta clase
         SparseGraph* grafo;
-        //const SparseGraph& grafo;//const NavGraph& grafo;//Una referencia local al navgraph
+        //const SparseGraph& grafo;
         Structs::TPosicion posicionDestino;
         int getNodoMasCercano(Structs::TPosicion pos);
 };

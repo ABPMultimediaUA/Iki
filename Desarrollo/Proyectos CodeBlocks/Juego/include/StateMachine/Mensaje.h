@@ -6,12 +6,10 @@
 
 struct Mensaje
 {
+  float       TiempoEnvio;
   int          Emisor;
   int          Receptor;
-  //the message itself. These are all enumerated in the file
-  //"MessageTypes.h"
   int          Msg;
-  double       TiempoEnvio;
   void*        Info;
 
 
@@ -22,7 +20,7 @@ struct Mensaje
   {}
 
 
-  Mensaje(double time,
+  Mensaje(float time,
            int    sender,
            int    receiver,
            int    msg,
@@ -36,11 +34,7 @@ struct Mensaje
 };
 
 
-//these telegrams will be stored in a priority queue. Therefore the >
-//operator needs to be overloaded so that the PQ can sort the telegrams
-//by time priority. Note how the times must be smaller than
-//SmallestDelay apart before two Telegrams are considered unique.
-const double SmallestDelay = 0.25;
+const float SmallestDelay = 0.25;
 
 
 inline bool operator==(const Mensaje& t1, const Mensaje& t2)
@@ -72,8 +66,6 @@ inline std::ostream& operator<<(std::ostream& os, const Mensaje& t)
   return os;
 }
 
-//handy helper function for dereferencing the Info field of the Mensaje
-//to the required type.
 template <class T>
 inline T DereferenceToType(void* p)
 {

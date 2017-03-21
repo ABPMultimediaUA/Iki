@@ -59,7 +59,24 @@ class StateMachine
         State<entity_type>* PreviousState() const{return previoState;}
         //returns true if the current state’s type is equal to the type of the class passed as a parameter.
         bool isInState(const State<entity_type>& st)const;
+        bool  HandleMessage(const Mensaje& msg)const
+        {
+            //first see if the current state is valid and that it can handle
+            //the message
+            if (actualState && actualState->OnMessage(propietario, msg))
+            {
+                return true;
+            }
 
+            //if not, and if a global state has been implemented, send
+            //the message to the global state
+            if (globalState && globalState->OnMessage(propietario, msg))
+            {
+                return true;
+            }
+
+            return false;
+        }
 
     protected:
 
