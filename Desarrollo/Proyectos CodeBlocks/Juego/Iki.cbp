@@ -127,6 +127,7 @@
 		<Unit filename="include/Triggers/Trigger_Puerta.h" />
 		<Unit filename="include/Triggers/Trigger_PuertaLlave.h" />
 		<Unit filename="include/Triggers/Trigger_Respawning.h" />
+		<Unit filename="include/Triggers/Trigger_Ruido.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
@@ -177,6 +178,7 @@
 		<Unit filename="src/Triggers/Trigger_Puerta.cpp" />
 		<Unit filename="src/Triggers/Trigger_PuertaLlave.cpp" />
 		<Unit filename="src/Triggers/Trigger_Respawning.cpp" />
+		<Unit filename="src/Triggers/Trigger_Ruido.cpp" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/tinyxml2.cpp" />
 		<Extensions>

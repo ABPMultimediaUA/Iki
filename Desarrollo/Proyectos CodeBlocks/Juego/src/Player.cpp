@@ -61,6 +61,10 @@ void Player::moverBody(Structs::TPosicion vec){
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
+bool Player::isMoving(){
+    return false;
+}
+
 void Player::update(Camera* camara){
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
@@ -76,14 +80,12 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        moverse = true;
         listaNodos.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
         path->crearPath(posicion,mousePosition,listaNodos);
         it=listaNodos.begin();
     }
-
-   /* if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+   /* if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
     {
         toMousePosition.X = mousePosition.X - posicion.X;
         toMousePosition.Y = mousePosition.Y - posicion.Y;
@@ -107,7 +109,7 @@ void Player::update(Camera* camara){
             modelo->setRotation(body->GetAngle());
         }
     }*/
-    if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
     {
         if(!listaNodos.empty() && it != listaNodos.end())
             toNextNodo = grafo->getNode(*it).posicion - posicion;

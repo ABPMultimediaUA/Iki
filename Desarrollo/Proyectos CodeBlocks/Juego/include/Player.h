@@ -33,10 +33,11 @@ class Player : public GameEntity
         bool isPathObstructured(Structs::TPosicion destino);
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
 
+        bool isMoving();
+
     protected:
 
     private:
-        bool moverse = false;
         Structs::TPosicion toMousePosition;
         Structs::TPosicion toNextNodo;
         Structs::TPosicion toNextPosition;
