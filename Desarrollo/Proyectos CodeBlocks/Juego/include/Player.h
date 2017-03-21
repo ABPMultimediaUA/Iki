@@ -33,7 +33,7 @@ class Player : public GameEntity
         bool isPathObstructured(Structs::TPosicion destino);
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
 
-        bool isMoving();
+        bool getMoving();
 
     protected:
 
@@ -44,6 +44,7 @@ class Player : public GameEntity
         Structs::TPosicion mousePosition = {170,0,50};
         Structs::TPosicion quietoParado = {0,0,0};
 
+        bool isMoving;
         int llaves = 0;
 
         Player_Ray* rayo;

@@ -59,10 +59,15 @@ void Player::moverBody(Structs::TPosicion vec){
     float movx = vec.X * avMovement;
     float movy = vec.Z * avMovement;
     body->SetLinearVelocity(b2Vec2(movx, movy));
+
+    if (vec == quietoParado)
+        isMoving = false;
+    else
+        isMoving = true;
 }
 
-bool Player::isMoving(){
-    return false;
+bool Player::getMoving(){
+    return isMoving;
 }
 
 void Player::update(Camera* camara){
@@ -177,4 +182,5 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
     modelo->setPosition(posicion);
+
 }

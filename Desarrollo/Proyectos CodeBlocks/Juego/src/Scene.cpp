@@ -28,7 +28,6 @@ void Scene::inicializar_escena(){
     world->inicializar_mundo();
     Mapa = world->getMapa();
     player->inicializar_player(Mapa);
-
     triggersystem.LeerMapa();
 
     bucle_juego();
