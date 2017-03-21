@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "TriggerFactory.h"
+#include "EntityManager.h"
 
 TriggerSystem::TriggerSystem()
 {
@@ -51,15 +52,15 @@ void TriggerSystem::UpdateTriggers()
     }
 }
 
-void TriggerSystem::TryTriggers(GameEntity* entity)
+void TriggerSystem::TryTriggers()
 {
-        /*    //test each entity against the triggers
-            ContainerOfEntities::iterator curEnt = entities.begin();
+            //test each entity against the triggers
+            EntityMgr::iterator curEnt = entities.begin();
             for (curEnt; curEnt != entities.end(); ++curEnt)
             {
                 //an entity must be ready for its next trigger update and it must be
                 //alive before it is tested against each trigger.
-        */      //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
+                //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
                 //{
                     TriggerList::const_iterator curTrg;
                     if (!triggers.empty())
@@ -68,13 +69,13 @@ void TriggerSystem::TryTriggers(GameEntity* entity)
                             (*curTrg)->Try(entity);
                         }
                 //}
-            //}
+            }
 }
 
-void TriggerSystem::Update(GameEntity* entity)
+void TriggerSystem::Update()
 {
     //UpdateTriggers();
-    TryTriggers(entity);
+    TryTriggers();
 }
 
 void TriggerSystem::Render()

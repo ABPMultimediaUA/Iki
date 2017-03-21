@@ -45,7 +45,7 @@ void Scene::bucle_juego(){
         world->update_mundo();
         player->update(camara);
 
-        triggersystem.Update(player);
+        triggersystem.Update();
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 
