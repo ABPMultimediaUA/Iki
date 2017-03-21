@@ -52,6 +52,7 @@ void Player::inicializar_player(Map* m){
     //Para los ray!
     input.maxFraction	=	1.0f;
 
+    ruido = new Trigger_Ruido();
 }
 
 void Player::moverBody(Structs::TPosicion vec){
@@ -70,10 +71,27 @@ bool Player::getMoving(){
     return isMoving;
 }
 
+void Player::TriggerRuido(){
+    if (isMoving){
+        if (!ruido->isActive()){
+            //std::cout << "creamos el triggersito" << std::endl;
+            ruido->AddCircularRegion(this->posicion, 90);
+            ruido->SetActive();
+        }
+    }else{
+        if (ruido->isActive()){
+            //std::cout << "borramos el triggersito" << std::endl;
+            ruido->SetInactive();
+        }
+    }
+}
+
 void Player::update(Camera* camara){
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 700;
+
+    TriggerRuido();
 
     if(rayo->getBalas() > 0){
         if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){

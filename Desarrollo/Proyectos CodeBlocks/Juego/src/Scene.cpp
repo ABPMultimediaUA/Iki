@@ -28,38 +28,20 @@ void Scene::inicializar_escena(){
     world->inicializar_mundo();
     Mapa = world->getMapa();
     player->inicializar_player(Mapa);
+
     triggersystem.LeerMapa();
+    Trigger* ruido = player->getRuido();
+    triggersystem.Register(ruido);
 
     bucle_juego();
 }
 
-#include "Trigger_Ruido.h"
 void Scene::bucle_juego(){
-
-
-Trigger* ruido = new Trigger_Ruido();
-triggersystem.Register(ruido);
 
     while(GraphicsFacade::getInstance().run()){
 
         world->update_mundo();
         player->update(camara);
-
-        if (player->getMoving())
-        {
-            if (!ruido->isActive()){
-                //std::cout << "creamos el triggersito" << std::endl;
-                ruido->AddCircularRegion(player->getPosition(), 90);
-                ruido->SetActive();
-            }
-        }else{
-            if (ruido->isActive()){
-                //std::cout << "borramos el triggersito" << std::endl;
-                ruido->SetInactive();
-            }
-        }
-
-
 
         triggersystem.Update(player);
         camara->render(player->getPosition());

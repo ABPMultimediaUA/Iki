@@ -27,7 +27,7 @@ class Trigger : public GameEntity
         bool isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const;
 
     private:
-        TriggerRegion* region;
+        TriggerRegion* region = nullptr;
         bool removeFromGame;
         bool active;
 };
