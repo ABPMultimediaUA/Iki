@@ -81,6 +81,7 @@
 		<Unit filename="Makefile" />
 		<Unit filename="include/Dron.h" />
 		<Unit filename="include/Enemy.h" />
+		<Unit filename="include/EntityManager.h" />
 		<Unit filename="include/Fachada/AnimatedMesh.h" />
 		<Unit filename="include/Fachada/Camera.h" />
 		<Unit filename="include/Fachada/GraphicsFacade.h" />
@@ -133,6 +134,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Dron.cpp" />
 		<Unit filename="src/Enemy.cpp" />
+		<Unit filename="src/EntityManager.cpp" />
 		<Unit filename="src/Fachada/AnimatedMesh.cpp" />
 		<Unit filename="src/Fachada/Camera.cpp" />
 		<Unit filename="src/Fachada/GraphicsFacade.cpp" />

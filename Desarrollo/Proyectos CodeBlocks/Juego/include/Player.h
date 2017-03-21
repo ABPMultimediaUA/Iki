@@ -25,13 +25,14 @@ class Player : public GameEntity
         bool isPlayer(){return true;};
 
         void CogerMunicion();
-
         void CogerLlave(){llaves++;}
         void UsarLlave(){llaves--;}
         int  GetLlaves(){return llaves;}
 
-        bool isPathObstructured(Structs::TPosicion destino);
+
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
+        bool HandleMessage(const Mensaje& msg){return true;}
+        bool isPathObstructured(Structs::TPosicion destino);
 
         bool getMoving();
         void TriggerRuido();

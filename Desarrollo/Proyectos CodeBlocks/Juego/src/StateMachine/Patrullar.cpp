@@ -1,5 +1,7 @@
 #include "Patrullar.h"
 #include "Vigilar.h"
+#include "PedirAyuda.h"
+#include "Investigar.h"
 #include "Enemy.h"
 #include "StateMachine/Mensaje.h"
 
@@ -12,25 +14,35 @@ Patrullar* Patrullar::Instance()
 }
 
 void Patrullar::Enter(Enemy* enemigo){
-    /*//if the miner is not already located at the gold mine, he must
-    //change location to the gold mine
-    if (pMiner->Location() != goldmine)
-    {
-    cout << "\n" << GetNameOfEntity(pMiner->ID()) << ": "
-    << "Walkin' to the gold mine";
-    pMiner->ChangeLocation(goldmine);
-    }*/
+
 }
 
 void Patrullar::Execute(Enemy* enemigo){
 
     enemigo->patrullar();
-    if(enemigo->getTiempo() > 11){
+
+    if(enemigo->getDistanciaPlayer() < 3){
+        if(enemigo->getTipo()== 2){
+            enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());
+        }
+    }
+
+    /*if(enemigo->getPatrulla()->getInicial() == enemigo->getPPatrulla()){
         enemigo->resetTime();
         enemigo->GetFSM()->ChangeState(Vigilar::Instance());
-    }
+    }*/
+
 
 }
 
 void Patrullar::Exit(Enemy* enemigo){}
-bool Patrullar::OnMessage(Enemy*, const Mensaje&){}
+bool Patrullar::OnMessage(Enemy* enemigo, const Mensaje& msg){
+    switch( msg.Msg )
+    {
+        case Msg_NeedHelp:
+        {
+            std::cout<<"recibo el mensajeee"<<std::endl;
+            enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        }
+    }
+}

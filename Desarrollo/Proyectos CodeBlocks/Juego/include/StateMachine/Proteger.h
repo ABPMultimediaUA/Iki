@@ -1,15 +1,15 @@
-#ifndef VIGILAR_H
-#define VIGILAR_H
+#ifndef PROTEGER
+#define PROTEGER
 
 #include "StateMachine/State.h"
 
 class Enemy;
 
-class Vigilar : public State<Enemy>
+class Proteger : public State<Enemy>
 {
     public:
         //es SINGLETON
-        static Vigilar* Instance();
+        static Proteger* Instance();
         void Enter(Enemy* enemigo);
         void Execute(Enemy* enemigo);
         void Exit(Enemy* enemigo);
@@ -18,9 +18,9 @@ class Vigilar : public State<Enemy>
     protected:
 
     private:
-        Vigilar(){};
-        Vigilar(const Vigilar&);
-        Vigilar& operator=(const Vigilar&);
+        Proteger(){};
+        Proteger(const Proteger&);
+        Proteger& operator=(const Proteger&);
 };
 
-#endif // VIGILAR_H
+#endif // PROTEGER

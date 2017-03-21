@@ -24,7 +24,7 @@ class Scene
         World *world;
         TriggerSystem triggersystem;
         Player *player;
-        Map* Mapa;
+        Map* mapa;
 
 };
 

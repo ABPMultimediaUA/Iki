@@ -18,6 +18,7 @@ class Trigger : public GameEntity
 
         bool isToBeRemoved()const{return removeFromGame;}
         bool isActive(){return active;}
+        bool HandleMessage(const Mensaje& msg){return false;}
 
     //protected:
         void SetToBeRemoved(){removeFromGame = true;}
