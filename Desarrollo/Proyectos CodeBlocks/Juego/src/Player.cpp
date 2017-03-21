@@ -40,7 +40,7 @@ void Player::inicializar_player(Map* m){
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;
-    bodyShape.SetAsBox(2/2, 2/2);
+    bodyShape.SetAsBox(1,1);
     body->CreateFixture(&bodyShape, 1.0f);
 
     b2FixtureDef fixtureDef;
