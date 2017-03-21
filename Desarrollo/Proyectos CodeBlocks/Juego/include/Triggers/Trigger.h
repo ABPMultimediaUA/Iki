@@ -19,7 +19,7 @@ class Trigger : public GameEntity
         bool isToBeRemoved()const{return removeFromGame;}
         bool isActive(){return active;}
 
-    protected:
+    //protected:
         void SetToBeRemoved(){removeFromGame = true;}
         void SetInactive(){active = false;}
         void SetActive(){active = true;}

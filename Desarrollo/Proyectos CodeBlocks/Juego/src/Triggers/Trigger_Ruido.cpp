@@ -3,6 +3,7 @@
 Trigger_Ruido::Trigger_Ruido()
 {
     //ctor
+    SetActive();
 }
 
 Trigger_Ruido::~Trigger_Ruido()
