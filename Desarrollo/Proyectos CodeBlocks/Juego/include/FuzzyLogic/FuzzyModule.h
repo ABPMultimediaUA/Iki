@@ -2,6 +2,8 @@
 #define FUZZYMODULE_H
 
 #include <vector>
+#include <string>
+#include <map>
 #include "FuzzyVariable.h"
 #include "FuzzyRule.h"
 
