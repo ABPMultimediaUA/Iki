@@ -33,7 +33,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     if (tipo == 3){
         trigger = new Trigger_Llave();
         //region
-        trigger->AddCircularTriggerRegion(centro,1.f);
+        trigger->AddCircularRegion(centro,1.f);
         //modelo;
         modelo = new AnimatedMesh("resources/Modelos/objeto.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
@@ -41,7 +41,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     else if (tipo == 4){
         trigger = new Trigger_Municion();
         //region
-        trigger->AddCircularTriggerRegion(centro,1.f);
+        trigger->AddCircularRegion(centro,1.f);
         //modelo;
         modelo = new AnimatedMesh("resources/Modelos/objeto.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
@@ -49,7 +49,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     else if (tipo == 5){
         trigger = new Trigger_Puerta();
         //Region
-        trigger->AddCircularTriggerRegion(centro,3.5);
+        trigger->AddCircularRegion(centro,3.5);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
@@ -68,7 +68,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     else if (tipo == 6){
         trigger = new Trigger_PuertaLlave();
         //Region
-        trigger->AddCircularTriggerRegion(centro,3.5);
+        trigger->AddCircularRegion(centro,3.5);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);

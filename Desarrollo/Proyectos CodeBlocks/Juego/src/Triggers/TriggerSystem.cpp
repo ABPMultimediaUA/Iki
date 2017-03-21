@@ -17,30 +17,30 @@ TriggerSystem::~TriggerSystem()
 void TriggerSystem::Clear()
 {
     TriggerList::iterator curTrg;
-    for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
+    for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
     {
         delete *curTrg;
     }
 
-    m_Triggers.clear();
+    triggers.clear();
 }
 
 void TriggerSystem::Register(Trigger* trigger)
 {
-    m_Triggers.push_back(trigger);
+    triggers.push_back(trigger);
 }
 
 void TriggerSystem::UpdateTriggers()
 {
-    if (!m_Triggers.empty())
+    if (!triggers.empty())
     {
-        TriggerList::iterator curTrg = m_Triggers.begin();
-        while (curTrg != m_Triggers.end())
+        TriggerList::iterator curTrg = triggers.begin();
+        while (curTrg != triggers.end())
         {
             if ((*curTrg)->isToBeRemoved())
             {
                 delete *curTrg;
-                curTrg = m_Triggers.erase(curTrg);
+                curTrg = triggers.erase(curTrg);
             }
             else
             {
@@ -62,8 +62,8 @@ void TriggerSystem::TryTriggers(GameEntity* entity)
         */      //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
                 //{
                     TriggerList::const_iterator curTrg;
-                    if (!m_Triggers.empty())
-                        for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
+                    if (!triggers.empty())
+                        for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
                         {
                             (*curTrg)->Try(entity);
                         }
@@ -80,7 +80,7 @@ void TriggerSystem::Update(GameEntity* entity)
 void TriggerSystem::Render()
 {
     TriggerList::iterator curTrg;
-    for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
+    for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
     {
         ///(*curTrg)->Render();
     }
@@ -102,7 +102,7 @@ void TriggerSystem::CrearTipoTrigger(tinyxml2::XMLElement* objectGroup)
             object->QueryFloatAttribute("type", &t);
 
             Trigger* trigger = factory.crearTrigger(t,z,x,r);
-            m_Triggers.push_back(trigger);
+            triggers.push_back(trigger);
 
             object = object->NextSiblingElement("object");
 

@@ -16,7 +16,7 @@ class TriggerSystem
 
     private:
 
-        TriggerList m_Triggers;
+        TriggerList triggers;
         void UpdateTriggers();
         void TryTriggers(GameEntity* entity);
 
@@ -28,7 +28,7 @@ class TriggerSystem
 
         void Update(GameEntity* entity);
         void Render();
-        const TriggerList& GetTriggers()const{return m_Triggers;}
+        const TriggerList& GetTriggers()const{return triggers;}
 
 };
 

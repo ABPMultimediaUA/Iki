@@ -11,9 +11,7 @@ class Trigger_Puerta : public Trigger
         virtual ~Trigger_Puerta();
 
         void Try(GameEntity*);
-
         void Update();
-        void Render();
 
     protected:
 

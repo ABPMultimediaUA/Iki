@@ -3,7 +3,6 @@
 
 #include <Trigger.h>
 
-
 class Trigger_Ruido : public Trigger
 {
     public:
