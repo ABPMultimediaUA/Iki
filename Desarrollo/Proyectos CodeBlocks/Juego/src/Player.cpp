@@ -19,8 +19,8 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    id=nextID;
-    nextID++;
+    id=0;
+    EntityMgr->registrarEntity(this);
 
     Mapa=m;
     grafo = Mapa->getGrafo();

@@ -9,14 +9,11 @@
 class Dron : public Enemy
 {
     private:
-        StateMachine<Enemy>* G_stateMachine;
-        State<Enemy>* actualState;
-        State<Enemy>* oldState;
-        State<Enemy>* globalState;
 
     public:
-        Dron(PatrolRoute* rutita)
+        Dron(int ID,PatrolRoute* rutita)
         {
+            id=ID;
             //set up state machine
             G_stateMachine = new StateMachine<Enemy>(this);
             G_stateMachine->SetCurrentState(Patrullar::Instance());
@@ -27,7 +24,6 @@ class Dron : public Enemy
             tiempoEnEstado = 0;
         }
         ~Dron(){delete G_stateMachine;}
-        void update();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);};

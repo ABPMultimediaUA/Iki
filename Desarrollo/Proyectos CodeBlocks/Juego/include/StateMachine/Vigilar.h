@@ -8,7 +8,7 @@ class Enemy;
 class Vigilar : public State<Enemy>
 {
     public:
-            //this is a singleton
+        //es SINGLETON
         static Vigilar* Instance();
         void Enter(Enemy* enemigo);
         void Execute(Enemy* enemigo);
@@ -19,7 +19,6 @@ class Vigilar : public State<Enemy>
 
     private:
         Vigilar(){};
-        //copy ctor and assignment should be private
         Vigilar(const Vigilar&);
         Vigilar& operator=(const Vigilar&);
 };

@@ -1,6 +1,7 @@
 #ifndef STATE
 #define STATE
 #include "Structs.h"
+
 struct Mensaje;
 
 template <class entity_type>
@@ -17,7 +18,11 @@ class State
 
 
     protected:
-        Structs calculadora;
+        enum message_type
+        {
+            Msg_NeedHelp,
+            Msg_NeedPosition
+        };
 
     private:
 };

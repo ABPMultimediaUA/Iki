@@ -7,6 +7,7 @@
 #include "MyEventReceiver.h"
 #include "Map.h"
 #include "Mensaje.h"
+#include "EntityManager.h"
 #include <vector>
 #include <fstream>
 #include <string>
@@ -43,7 +44,7 @@ class GameEntity
         SceneNode *modelo;
         b2Body *body;
 
-        int id,nextID=0;
+        int id,nextID;
         float vida;
         Structs::TPosicion posicion;
         float radio;

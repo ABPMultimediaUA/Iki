@@ -2,8 +2,8 @@
 #define PATHEDGE
 
 
-#include <Enemy.h>
-#include <Path/SparseGraph.h>
+
+#include "Structs.h"
 
 class PathEdge
 {
