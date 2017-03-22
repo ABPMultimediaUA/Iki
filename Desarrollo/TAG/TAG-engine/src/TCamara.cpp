@@ -2,8 +2,8 @@
 
 TCamara::TCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej)
 {
-    cercano   = cer;
-    lejano    = lej;
+    cercano = cer;
+    lejano = lej;
     v_posicion = pos;
 
     ancho = anch;

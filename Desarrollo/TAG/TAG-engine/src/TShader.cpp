@@ -5,8 +5,8 @@ mat4 TShader::viewMatrix;
 TShader::TShader(const string& FileName)
 {
     m_programa = glCreateProgram();
-	m_shaders[0] = CreateShader(LoadShader(FileName + ".vs"),GL_VERTEX_SHADER);
-	m_shaders[1] = CreateShader(LoadShader(FileName + ".fs"), GL_FRAGMENT_SHADER);
+	m_shaders[0] = CreateShader(LoadShader(FileName + ".vert"),GL_VERTEX_SHADER);
+	m_shaders[1] = CreateShader(LoadShader(FileName + ".frag"), GL_FRAGMENT_SHADER);
 
 	for (unsigned int i=0;i < NUM_SHADERS;i++)
 	{

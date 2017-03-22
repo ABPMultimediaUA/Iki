@@ -61,7 +61,17 @@ int main(int argc, char *argv[])
 
     TNodo *nodoMalla1 = motor->crearNodo (nodoTransf5, malla);
 
+motor->draw();
 
+GLuint vertShader = glCreateShader( GL_VERTEX_SHADER );
+if( 0 == vertShader )
+{
+fprintf(stderr, "Error creating vertex shader.\n");
+exit(1);
+}
+
+
+/*
     while(!display.IsClosed())
     {
         display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
@@ -72,7 +82,7 @@ int main(int argc, char *argv[])
 
 		display.Update();
     }
-
+*/
 
 
 }
