@@ -13,7 +13,7 @@ class Trigger_Ruido : public Trigger
         void Update();
 
     private:
-        speed = 0;
+        int speed = 0;
 };
 
 #endif // TRIGGER_RUIDO_H

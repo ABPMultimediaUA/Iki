@@ -10,7 +10,7 @@ Trigger::Trigger()
 Trigger::~Trigger()
 {
     //dtor
-    if (region) delete region;
+    //if (region) delete region;
 }
 
 bool Trigger::isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const
@@ -23,16 +23,14 @@ bool Trigger::isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadiu
 
 void Trigger::AddCircularRegion(Structs::TPosicion center, double radius)
 {
-  if (region)
-    delete region;
+  if (region) delete region;
 
   region = new TriggerRegion_Circle(center, radius);
 }
 
 void Trigger::AddRectangularRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight)
 {
-  if (region)
-    delete region;
+  if (region) delete region;
 
   region = new TriggerRegion_Rectangle(TopLeft, BottomRight);
 }

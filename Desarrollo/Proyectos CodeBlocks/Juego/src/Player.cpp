@@ -53,6 +53,9 @@ void Player::inicializar_player(Map* m){
     input.maxFraction	=	1.0f;
 
     ruido = new Trigger_Ruido();
+    ruido->AddCircularRegion(posicion, 90);
+    ruido->SetInactive();
+    isMoving = false;
 }
 
 void Player::moverBody(Structs::TPosicion vec){

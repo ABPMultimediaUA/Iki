@@ -29,11 +29,10 @@ void Scene::inicializar_escena(){
     world->inicializar_mundo();
     mapa = world->getMapa();
     player->inicializar_player(mapa);
-    EntityMgr->registrarEntity(player);
 
-    triggersystem.LeerMapa();
     Trigger* ruido = player->getRuido();
     triggersystem.Register(ruido);
+    triggersystem.LeerMapa();
 
     bucle_juego();
 }
@@ -45,7 +44,7 @@ void Scene::bucle_juego(){
         world->update_mundo();
         player->update(camara);
 
-        triggersystem.Update(player);
+        triggersystem.Update();
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 

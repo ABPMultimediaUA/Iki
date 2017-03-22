@@ -1,7 +1,8 @@
 #include "TriggerSystem.h"
-#include <iostream>
-
 #include "TriggerFactory.h"
+#include "EntityManager.h"
+
+#include <iostream>
 
 TriggerSystem::TriggerSystem()
 {
@@ -51,30 +52,23 @@ void TriggerSystem::UpdateTriggers()
     }
 }
 
-void TriggerSystem::TryTriggers(GameEntity* entity)
+void TriggerSystem::TryTriggers()
 {
-        /*    //test each entity against the triggers
-            ContainerOfEntities::iterator curEnt = entities.begin();
-            for (curEnt; curEnt != entities.end(); ++curEnt)
+        //test each entity against the triggers;
+           // std::vector<GameEntity*>::iterator curEnt = EntityMgr->getEntities().begin();
+           // for (curEnt; curEnt != EntityMgr->getEntities().end(); ++curEnt)
+           // {
+            TriggerList::iterator curTrg;
+            for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
             {
-                //an entity must be ready for its next trigger update and it must be
-                //alive before it is tested against each trigger.
-        */      //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
-                //{
-                    TriggerList::const_iterator curTrg;
-                    if (!triggers.empty())
-                        for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
-                        {
-                            (*curTrg)->Try(entity);
-                        }
-                //}
-            //}
+                (*curTrg)->Try(EntityMgr->getEntityByID(0));
+            }
 }
 
-void TriggerSystem::Update(GameEntity* entity)
+void TriggerSystem::Update()
 {
-    //UpdateTriggers();
-    TryTriggers(entity);
+    UpdateTriggers();
+    TryTriggers();
 }
 
 void TriggerSystem::Render()
@@ -103,6 +97,8 @@ void TriggerSystem::CrearTipoTrigger(tinyxml2::XMLElement* objectGroup)
 
             Trigger* trigger = factory.crearTrigger(t,z,x,r);
             triggers.push_back(trigger);
+
+                std::cout << triggers.size() << std::endl;
 
             object = object->NextSiblingElement("object");
 

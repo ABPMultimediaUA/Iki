@@ -111,8 +111,11 @@
 		<Unit filename="include/Player_Ray.h" />
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/StateMachine/EnviarMensaje.h" />
+		<Unit filename="include/StateMachine/Investigar.h" />
 		<Unit filename="include/StateMachine/Mensaje.h" />
 		<Unit filename="include/StateMachine/Patrullar.h" />
+		<Unit filename="include/StateMachine/PedirAyuda.h" />
+		<Unit filename="include/StateMachine/Proteger.h" />
 		<Unit filename="include/StateMachine/State.h" />
 		<Unit filename="include/StateMachine/StateMachine.h" />
 		<Unit filename="include/StateMachine/Vigilar.h" />
@@ -163,8 +166,11 @@
 		<Unit filename="src/Player_Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/StateMachine/EnviarMensaje.cpp" />
+		<Unit filename="src/StateMachine/Investigar.cpp" />
 		<Unit filename="src/StateMachine/Mensaje.cpp" />
 		<Unit filename="src/StateMachine/Patrullar.cpp" />
+		<Unit filename="src/StateMachine/PedirAyuda.cpp" />
+		<Unit filename="src/StateMachine/Proteger.cpp" />
 		<Unit filename="src/StateMachine/State.cpp" />
 		<Unit filename="src/StateMachine/StateMachine.cpp" />
 		<Unit filename="src/StateMachine/Vigilar.cpp" />
