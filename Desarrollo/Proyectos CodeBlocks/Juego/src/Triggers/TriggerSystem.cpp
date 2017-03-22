@@ -2,8 +2,6 @@
 #include "TriggerFactory.h"
 #include "EntityManager.h"
 
-#include <iostream>
-
 TriggerSystem::TriggerSystem()
 {
     //ctor
@@ -54,14 +52,23 @@ void TriggerSystem::UpdateTriggers()
 
 void TriggerSystem::TryTriggers()
 {
-        //test each entity against the triggers;
-           // std::vector<GameEntity*>::iterator curEnt = EntityMgr->getEntities().begin();
-           // for (curEnt; curEnt != EntityMgr->getEntities().end(); ++curEnt)
-           // {
-            TriggerList::iterator curTrg;
-            for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
+
+            //test each entity against the triggers
+            std::vector<GameEntity*> entities = EntityMgr->getEntities();
+            std::vector<GameEntity*>::iterator curEnt = entities.begin();
+            for (curEnt; curEnt != entities.end(); ++curEnt)
             {
-                (*curTrg)->Try(EntityMgr->getEntityByID(0));
+                //an entity must be ready for its next trigger update and it must be
+                //alive before it is tested against each trigger.
+                //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
+                //{
+                    TriggerList::const_iterator curTrg;
+                    if (!m_Triggers.empty())
+                        for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
+                        {
+                            (*curTrg)->Try(*curEnt);
+                        }
+                //}
             }
 }
 

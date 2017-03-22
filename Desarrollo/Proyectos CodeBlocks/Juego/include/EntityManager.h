@@ -35,7 +35,7 @@ public:
     void registrarGuardia(Enemy* newGuardia);
     void borrarGuardia(Enemy* enemigo);
     Enemy* getGuardiaCerca(Structs::TPosicion posicion);
-
+    
     std::vector<GameEntity*> getEntities(){ return entities; };
 };
 

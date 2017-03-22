@@ -33,7 +33,6 @@ class Trigger : public GameEntity
     private:
         TriggerRegion* region = nullptr;
         bool removeFromGame = false;
-
 };
 
 #endif // TRIGGER_H
