@@ -63,8 +63,8 @@ void TriggerSystem::TryTriggers()
                 //if ((*entity)->isReadyForTriggerUpdate() && (*entity)->isAlive())
                 //{
                     TriggerList::const_iterator curTrg;
-                    if (!m_Triggers.empty())
-                        for (curTrg = m_Triggers.begin(); curTrg != m_Triggers.end(); ++curTrg)
+                    if (!triggers.empty())
+                        for (curTrg = triggers.begin(); curTrg != triggers.end(); ++curTrg)
                         {
                             (*curTrg)->Try(*curEnt);
                         }
