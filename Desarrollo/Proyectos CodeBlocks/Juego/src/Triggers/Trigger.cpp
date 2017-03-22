@@ -23,14 +23,14 @@ bool Trigger::isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadiu
 
 void Trigger::AddCircularTriggerRegion(Structs::TPosicion center, double radius)
 {
-  //if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+  if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
 
   m_pRegionOfInfluence = new TriggerRegion_Circle(center, radius);
 }
 
 void Trigger::AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight)
 {
-  //if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+  if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
 
   m_pRegionOfInfluence = new TriggerRegion_Rectangle(TopLeft, BottomRight);
 }
