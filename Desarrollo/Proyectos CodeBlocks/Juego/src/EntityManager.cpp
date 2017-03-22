@@ -29,7 +29,7 @@ void EntityManager::borrarEntity(GameEntity* pEntity)
 void EntityManager::registrarEntity(GameEntity* NewEntity)
 {
   entityMap.insert(std::make_pair(NewEntity->ID(), NewEntity));
-  ents.push_back(NewEntity);
+  entities.push_back(NewEntity);
 }
 void EntityManager::registrarGuardia(Enemy* newGuardia){
     guardias.push_back(newGuardia);

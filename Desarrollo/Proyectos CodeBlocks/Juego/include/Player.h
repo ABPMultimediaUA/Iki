@@ -2,9 +2,9 @@
 #define PLAYER_H
 
 #include "GameEntity.h"
+#include "Trigger_Ruido.h"
 #include "Fachada/Camera.h"
 #include <iostream>
-
 
 
 class PathFinding;
@@ -25,19 +25,33 @@ class Player : public GameEntity
         bool isPlayer(){return true;};
 
         void CogerMunicion();
+        void CogerLlave(){llaves++;}
+        void UsarLlave(){llaves--;}
+        int  GetLlaves(){return llaves;}
+
+
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
         bool HandleMessage(const Mensaje& msg){return true;}
         bool isPathObstructured(Structs::TPosicion destino);
 
+        int getSpeed(){ return speed; }
+        bool getMoving();
+        void TriggerRuido();
+        Trigger *getRuido(){return ruido;}
+
     protected:
 
     private:
-        bool moverse = false;
         Structs::TPosicion toMousePosition;
         Structs::TPosicion toNextNodo;
         Structs::TPosicion toNextPosition;
         Structs::TPosicion mousePosition = {170,0,50};
         Structs::TPosicion quietoParado = {0,0,0};
+
+        Trigger_Ruido* ruido;
+        bool isMoving;
+        int speed;
+        int llaves = 0;
 
         Player_Ray* rayo;
         b2RayCastInput input;

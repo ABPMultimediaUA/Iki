@@ -16,19 +16,19 @@ class TriggerSystem
 
     private:
 
-        TriggerList m_Triggers;
+        TriggerList triggers;
         void UpdateTriggers();
         void TryTriggers();
 
     public:
         void Clear();
         void Register(Trigger* trigger);
-        void CrearTipoTrigger(int tipo, tinyxml2::XMLElement* objectGroup);
+        void CrearTipoTrigger(tinyxml2::XMLElement* objectGroup);
         void LeerMapa();
 
         void Update();
         void Render();
-        const TriggerList& GetTriggers()const{return m_Triggers;}
+        const TriggerList& GetTriggers()const{return triggers;}
 
 };
 

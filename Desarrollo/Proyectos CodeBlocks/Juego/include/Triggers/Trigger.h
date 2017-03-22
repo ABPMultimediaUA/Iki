@@ -13,24 +13,26 @@ class Trigger : public GameEntity
         virtual void Try(GameEntity*) = 0;
         virtual void Update() = 0;
 
-        void AddCircularTriggerRegion(Structs::TPosicion center, double radius);
-        void AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight);
+        void AddCircularRegion(Structs::TPosicion center, double radius);
+        void AddRectangularRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight);
 
-        bool isToBeRemoved()const{return m_bRemoveFromGame;}
-        bool isActive(){return m_bActive;}
+        bool isToBeRemoved()const{return removeFromGame;}
+        bool isActive(){return active;}
         bool HandleMessage(const Mensaje& msg){return false;}
 
-    protected:
-        void SetToBeRemoved(){m_bRemoveFromGame = true;}
-        void SetInactive(){m_bActive = false;}
-        void SetActive(){m_bActive = true;}
+    //protected:
+        void SetToBeRemoved(){removeFromGame = true;}
+        void SetInactive(){active = false;}
+        void SetActive(){active = true;}
 
         bool isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const;
 
+    protected:
+        bool active = true;
+
     private:
-        TriggerRegion* m_pRegionOfInfluence = nullptr;
-        bool m_bRemoveFromGame;
-        bool m_bActive;
+        TriggerRegion* region = nullptr;
+        bool removeFromGame = false;
 };
 
 #endif // TRIGGER_H

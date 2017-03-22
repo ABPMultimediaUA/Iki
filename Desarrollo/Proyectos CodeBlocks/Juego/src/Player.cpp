@@ -52,19 +52,59 @@ void Player::inicializar_player(Map* m){
     //Para los ray!
     input.maxFraction	=	1.0f;
 
+    ruido = new Trigger_Ruido();
+    ruido->AddCircularRegion(posicion, 90);
+    ruido->SetInactive();
+    isMoving = false;
 }
 
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
     float movx = vec.X * avMovement;
     float movy = vec.Z * avMovement;
+
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
+        speed = 1;
+        movx *= 0.5;
+        movy *= 0.5;
+    }
+
+    if (vec == quietoParado){
+        isMoving = false;
+        speed = 0;
+    }else{
+        isMoving = true;
+        ++speed;
+    }
+
     body->SetLinearVelocity(b2Vec2(movx, movy));
+}
+
+bool Player::getMoving(){
+    return isMoving;
+}
+
+void Player::TriggerRuido(){
+    if (isMoving){
+        if (!ruido->isActive()){
+            //std::cout << "creamos el triggersito" << std::endl;
+            ruido->AddCircularRegion(this->posicion, 90);
+            ruido->SetActive();
+        }
+    }else{
+        if (ruido->isActive()){
+            //std::cout << "borramos el triggersito" << std::endl;
+            ruido->SetInactive();
+        }
+    }
 }
 
 void Player::update(Camera* camara){
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 700;
+
+    TriggerRuido();
 
     if(rayo->getBalas() > 0){
         if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
@@ -76,14 +116,12 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        moverse = true;
         listaNodos.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
         path->crearPath(posicion,mousePosition,listaNodos);
         it=listaNodos.begin();
     }
-
-   /* if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+   /* if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
     {
         toMousePosition.X = mousePosition.X - posicion.X;
         toMousePosition.Y = mousePosition.Y - posicion.Y;
@@ -107,7 +145,7 @@ void Player::update(Camera* camara){
             modelo->setRotation(body->GetAngle());
         }
     }*/
-    if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
     {
         if(!listaNodos.empty() && it != listaNodos.end())
             toNextNodo = grafo->getNode(*it).posicion - posicion;
@@ -175,4 +213,5 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
     modelo->setPosition(posicion);
+
 }
