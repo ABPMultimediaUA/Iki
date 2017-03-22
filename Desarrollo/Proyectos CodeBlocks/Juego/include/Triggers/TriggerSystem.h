@@ -18,7 +18,7 @@ class TriggerSystem
 
         TriggerList triggers;
         void UpdateTriggers();
-        void TryTriggers();
+        void TryTriggers(GameEntity* entity);
 
     public:
         void Clear();
@@ -26,7 +26,7 @@ class TriggerSystem
         void CrearTipoTrigger(tinyxml2::XMLElement* objectGroup);
         void LeerMapa();
 
-        void Update();
+        void Update(GameEntity* entity);
         void Render();
         const TriggerList& GetTriggers()const{return triggers;}
 
