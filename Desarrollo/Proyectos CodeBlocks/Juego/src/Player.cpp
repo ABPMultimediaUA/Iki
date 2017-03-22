@@ -59,12 +59,22 @@ void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
     float movx = vec.X * avMovement;
     float movy = vec.Z * avMovement;
-    body->SetLinearVelocity(b2Vec2(movx, movy));
 
-    if (vec == quietoParado)
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
+        speed = 1;
+        movx *= 0.5;
+        movy *= 0.5;
+    }
+
+    if (vec == quietoParado){
         isMoving = false;
-    else
+        speed = 0;
+    }else{
         isMoving = true;
+        ++speed;
+    }
+
+    body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
 bool Player::getMoving(){

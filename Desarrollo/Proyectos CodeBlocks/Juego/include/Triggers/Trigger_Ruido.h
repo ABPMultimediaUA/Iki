@@ -11,6 +11,9 @@ class Trigger_Ruido : public Trigger
 
         void Try(GameEntity*);
         void Update();
+
+    private:
+        speed = 0;
 };
 
 #endif // TRIGGER_RUIDO_H

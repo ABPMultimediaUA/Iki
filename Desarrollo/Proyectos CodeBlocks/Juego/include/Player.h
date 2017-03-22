@@ -34,6 +34,7 @@ class Player : public GameEntity
         bool HandleMessage(const Mensaje& msg){return true;}
         bool isPathObstructured(Structs::TPosicion destino);
 
+        int getSpeed(){ return speed; }
         bool getMoving();
         void TriggerRuido();
         Trigger *getRuido(){return ruido;}
@@ -49,6 +50,7 @@ class Player : public GameEntity
 
         Trigger_Ruido* ruido;
         bool isMoving;
+        int speed;
         int llaves = 0;
 
         Player_Ray* rayo;
