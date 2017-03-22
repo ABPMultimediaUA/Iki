@@ -2690,7 +2690,7 @@
 1486495416 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\camera.h
 	"Structs.h"
 
-1490178929 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Trigger_Ruido.h"
 	"Fachada/Camera.h"
@@ -2957,7 +2957,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1490183567 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -2972,13 +2972,13 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1490185079 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 	"EntityManager.h"
 
-1490181421 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"Guardia.h"
@@ -3181,16 +3181,16 @@
 	"Fachada/GraphicsFacade.h"
 	"World.h"
 
-1490179884 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
 	"vector"
 	"Trigger.h"
 	"tinyxml2.h"
 
-1490178554 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger.h
+1490186778 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger.h
 	<GameEntity.h>
 	"TriggerRegion.h"
 
-1490183148 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger.cpp
 	"Trigger.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -3198,28 +3198,27 @@
 1490035597 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion_rectangle.h
 	<TriggerRegion.h>
 
-1490178554 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
+1490186691 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_municion.cpp
 	"Trigger_Municion.h"
 	"Player.h"
 
-1490178554 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_municion.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_municion.h
 	<Trigger_Respawning.h>
 
 1490035597 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1490178554 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1490186691 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
-	<iostream>
 
-1490178554 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1490035598 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
 	"Trigger_Respawning.h"
 
-1490178554 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
 1490185079 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
@@ -3275,7 +3274,7 @@
 1490035598 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
 
-1490178554 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -5279,35 +5278,35 @@
 	"Enemy.h"
 	"Patrullar.h"
 
-1490181985 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_llave.cpp
+1490186691 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_llave.cpp
 	"Trigger_Llave.h"
 	"Player.h"
 
-1490178554 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
 	<Trigger_Respawning.h>
 
-1490178554 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
+1490186691 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
 	"Trigger_PuertaLlave.h"
 	"Player.h"
 
-1490178554 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
 	<Trigger.h>
 
-1490179352 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
+1490186691 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
 	"Trigger_Ruido.h"
 	"Fachada/GraphicsFacade.h"
 	"Player.h"
 
-1490179323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_ruido.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_ruido.h
 	<Trigger.h>
 
-1490180758 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\entitymanager.h
+1490186515 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\entitymanager.h
 	<map>
 	<cassert>
 	<string>
 	"Structs.h"
 
-1490181728 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
+1490186515 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
 	"EntityManager.h"
 	"GameEntity.h"
 	"Enemy.h"

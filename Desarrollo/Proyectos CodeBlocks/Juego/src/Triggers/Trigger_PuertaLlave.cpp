@@ -1,10 +1,9 @@
 #include "Trigger_PuertaLlave.h"
 #include "Player.h"
 
-
 Trigger_PuertaLlave::Trigger_PuertaLlave()
 {
-    SetActive();
+
 }
 
 Trigger_PuertaLlave::~Trigger_PuertaLlave()

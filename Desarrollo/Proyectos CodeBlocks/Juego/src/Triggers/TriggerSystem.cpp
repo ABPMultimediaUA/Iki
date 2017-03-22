@@ -98,8 +98,6 @@ void TriggerSystem::CrearTipoTrigger(tinyxml2::XMLElement* objectGroup)
             Trigger* trigger = factory.crearTrigger(t,z,x,r);
             triggers.push_back(trigger);
 
-                std::cout << triggers.size() << std::endl;
-
             object = object->NextSiblingElement("object");
 
         }

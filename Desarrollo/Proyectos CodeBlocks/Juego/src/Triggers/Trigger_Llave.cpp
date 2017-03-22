@@ -4,7 +4,7 @@
 
 Trigger_Llave::Trigger_Llave()
 {
-    SetActive();
+
 }
 
 Trigger_Llave::~Trigger_Llave()

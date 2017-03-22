@@ -1,10 +1,9 @@
 #include "Trigger_Puerta.h"
 #include "GameEntity.h"
-#include <iostream>
 
 Trigger_Puerta::Trigger_Puerta()
 {
-    SetActive();
+
 }
 
 Trigger_Puerta::~Trigger_Puerta()

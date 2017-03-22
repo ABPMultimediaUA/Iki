@@ -4,7 +4,7 @@
 
 Trigger_Municion::Trigger_Municion()
 {
-    SetActive();
+
 }
 
 Trigger_Municion::~Trigger_Municion()
