@@ -23,13 +23,19 @@ class GraphicsFacade
         }
         ~GraphicsFacade();
 
+        void beginScene();
+        void endScene();
+
         void draw();
         bool run();
+        void close();
         void drop();
 
         void setWindowCaption();
         void iniciarRay(Structs::TPosicion rayPos);
         void cambiarRay(Camera* camara);
+        void changeResolution(int);
+        //void reSizeWindow();
         bool interseccionRayPlano(Structs::TPosicion &mousePosition);
         float calcularDistancia(Structs::TPosicion position);
         ISceneManager* getScene() { return smgr; }
@@ -46,6 +52,7 @@ class GraphicsFacade
     private:
 
         GraphicsFacade();
+        void crearDevice();
         IrrlichtDevice* device;
         IVideoDriver* driver;
         ISceneManager* smgr;
@@ -53,6 +60,8 @@ class GraphicsFacade
         ITimer* timer;
         plane3df plane;
         line3df ray;
+
+        int resolucionX = 1280, resolucionY = 720;
 };
 
 #endif // GRAPHICSFACADE_H

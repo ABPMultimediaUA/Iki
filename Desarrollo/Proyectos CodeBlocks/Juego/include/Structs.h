@@ -2,6 +2,7 @@
 #define STRUCTS_H
 
 #include <irrlicht.h>
+#include <iostream>
 #include <stdio.h>
 #include "vector"
 #include "string"

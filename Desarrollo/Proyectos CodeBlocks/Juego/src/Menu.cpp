@@ -1,15 +1,17 @@
 #include "Menu.h"
 #include "GUI/GUI.h"
 #include "GUI_Button.h"
-#include "GraphicsFacade.h"
+#include "GUI_Title.h"
+#include "GUI_Control.h"
+#include "Fachada/GraphicsFacade.h"
 
 Menu::Menu()
 {
     gui = new GUI();
 
     volumen = 0.5;
-    resolucionX = 1360;
-    resolucionY = 768;
+
+    draw_type = 0;
 }
 
 Menu::~Menu()
@@ -17,27 +19,91 @@ Menu::~Menu()
     //dtor
 }
 
+void Menu::inicializar_menu(){
+    ///MENU
+    gui->anyadirmenu (400, 60);
+
+    ///BOTONES
+    gui->anyadirboton(540, 160, "nuevapartidaboton");
+    NuevaPartida = static_cast<GUI_Button*>(gui->getComponentes().back());
+
+    gui->anyadirboton(540, 440, "salirboton");
+    Salir        = static_cast<GUI_Button*>(gui->getComponentes().back());
+
+    gui->anyadirboton(540, 300, "botonopciones");
+    Opciones     = static_cast<GUI_Button*>(gui->getComponentes().back());
+
+    gui->anyadirboton(540, 540, "botonatras");
+    Atras        = static_cast<GUI_Button*>(gui->getComponentes().back());
+
+    ///TITULOS
+    gui->anyadirtitulo(570, 125, "titulovolumen");
+
+    gui->anyadirtitulo(570, 270, "resolucionboton");
+    Resolucion        = static_cast<GUI_Title*>(gui->getComponentes().back());
+
+    gui->anyadirtitulo(570, 340, "controlestitulo");
+    Control_Tit       = static_cast<GUI_Title*>(gui->getComponentes().back());
+
+    gui->anyadirtitulo(565, 390, "controlespanel");
+    gui->getComponentes().back()->setRect(214, 145);
+
+    ///CONTROLES
+
+    gui->anyadircontrol(565, 320, "resoluciondentro", "checklleno");
+    Controles         = static_cast<GUI_Control*>(gui->getComponentes().back());
+}
+
+void Menu::comprobarBotones(){
+    NuevaPartida->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+    Opciones->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+    Salir->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+    Atras->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+    Resolucion->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+    Control_Tit->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+}
+
 bool Menu::run(){
 
-    gui->anyadirboton(0, 540, 160);
-    gui->anyadirboton(2, 540, 300);
-    gui->anyadirboton(1, 540, 440);
-
     while(GraphicsFacade::getInstance().run()){
-        for(int i = 0; i<=2; i++){
-            gui->getBotones().at(i)->draw();
-            gui->getBotones().at(i)->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
-        }
+
+        gui->draw(draw_type);
+
+        comprobarBotones();
+
         if(MyEventReceiver::getInstance().GetMouseState().LeftButtonDown){
-            if(gui->getBotones().at(0)->getActivo()){
-                GraphicsFacade::getInstance().drop();
-                return true;
+            if(draw_type == 0){
+                if(NuevaPartida->getActivo()){
+                    return true;
+                }
+                else if(Opciones->getActivo()){
+                    draw_type = 1;
+                }
+                else if(Salir->getActivo()){
+                    GraphicsFacade::getInstance().close();
+                    return true;
+                    exit(0);
+                }
             }
-            else if(gui->getBotones().at(2)->getActivo()){
-                GraphicsFacade::getInstance().drop();
-                return true;
-                exit(0);
+            else if(draw_type == 1){
+                if(Resolucion->getActivo())
+                    draw_type = 2;
+                else if(Control_Tit->getActivo())
+                    draw_type = 3;
+                else if(Atras->getActivo())
+                    draw_type = 0;
+            }
+            else if(draw_type == 2){
+                GraphicsFacade::getInstance().changeResolution(Controles->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y));
+
+                if(Resolucion->getActivo())
+                    draw_type = 1;
+            }
+            else if(draw_type == 3){
+                    if(Control_Tit->getActivo())
+                    draw_type = 1;
             }
         }
     }
+    return false;
 }

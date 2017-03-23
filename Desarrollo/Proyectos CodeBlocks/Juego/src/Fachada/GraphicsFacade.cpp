@@ -2,10 +2,7 @@
 
 GraphicsFacade::GraphicsFacade()
 {
-    device = createDevice(video::EDT_OPENGL, dimension2d<u32>(1280, 720), 16, false, false, false, &MyEventReceiver::getInstance());
-	//device->activateJoysticks(*MastEventReceiver::getInstance().getJoystickInfo()); //activamos el joystick
-	//cout << "Hay " << MastEventReceiver::getInstance().getJoystickInfo()->size() << " mando(s) conectado(s)" << endl;
-	device->setResizable(true);
+    crearDevice();
 
 	driver = device->getVideoDriver();
 	smgr = device->getSceneManager();
@@ -23,12 +20,24 @@ GraphicsFacade::~GraphicsFacade()
     //dtor
 }
 
-void GraphicsFacade::draw(){
+void GraphicsFacade::beginScene(){
+    driver->beginScene(true, true, SColor(255,113,133,133));
+}
 
+void GraphicsFacade::crearDevice(){
+    device = createDevice(video::EDT_OPENGL, dimension2d<u32>(resolucionX, resolucionY), 16, false, false, false, &MyEventReceiver::getInstance());
+	device->setResizable(true);
+}
+
+void GraphicsFacade::endScene(){
+    driver->endScene();
+}
+
+void GraphicsFacade::draw(){
 	//Dibujamos los nodos y los cuadros de texto del entorno
-	driver->beginScene(true, true, SColor(255,113,113,133));
+	beginScene();
 	smgr->drawAll();
-	driver->endScene();
+	endScene();
 
 }
 
@@ -36,6 +45,10 @@ bool GraphicsFacade::run(){
 
 	return device->run();
 
+}
+
+void GraphicsFacade::close(){
+    device->closeDevice();
 }
 
 void GraphicsFacade::drop(){
@@ -92,3 +105,53 @@ Camera* GraphicsFacade::createCamera(Structs::TPosicion position, Structs::TPosi
 
 	return cam;
 }
+
+void GraphicsFacade::changeResolution(int number){
+    ///number: 0-> 1360x768 1-> 1280x720 2-> 1024x768 3-> 768x576
+
+    bool holi = false;
+
+    switch(number){
+    case 0:
+        if(resolucionX != 1280){
+            resolucionX = 1280;
+            resolucionY = 720;
+            holi = true;
+        }
+        break;
+    case 1:
+        if(resolucionX != 1360){
+            resolucionX = 1360;
+            resolucionY = 768;
+            holi = true;
+        }
+        break;
+    case 2:
+        if(resolucionX != 1024){
+            resolucionX = 1024;
+            resolucionY = 768;
+            holi = true;
+        }
+        break;
+    case 3:
+        if(resolucionX != 1280){
+            resolucionX = 768;
+            resolucionY = 576;
+            holi = true;
+        }
+        break;
+    default:
+        break;
+    }
+
+    if(holi){
+        /*close();
+        drop();
+        createDevice();*/
+    }
+}
+
+/*void GraphicsFacade::reSizeWindow(){
+    driver->OnResize(dimension2du(resolucionX, resolucionY));
+    smgr->getActiveCamera()->setAspectRatio((float)resolucionX/resolucionY);
+}*/

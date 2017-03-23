@@ -1,9 +1,13 @@
 #include "GUI_Button.h"
 #include "Fachada/Image.h"
 
-GUI_Button::GUI_Button(int t, int x, int y)
+GUI_Button::GUI_Button(int x, int y, std::string cadena)
 {
-    switch(t){
+
+    cadena = "resources/texturas/"+cadena+".png";
+    const char * c = cadena.c_str();
+    image = new Image(c);
+    /*switch(t){
     case 0:
         image = new Image("resources/texturas/nuevapartidaboton.png");
         break;
@@ -24,33 +28,14 @@ GUI_Button::GUI_Button(int t, int x, int y)
         break;
     default:
         break;
-    }
+    }*/
 
     posicionX = x;
     posicionY = y;
+    rec       = {0  , 0  , 240, 120};
 }
 
 GUI_Button::~GUI_Button()
 {
     delete image;
-}
-
-void GUI_Button::draw(){
-    Structs::TColor      color = {235, 190, 190, 190};
-    Structs::TRectangulo rec   = {0  , 0  , 240, 120};
-
-    if(!estaencima)
-        image->draw(posicionX, posicionY, rec, color);
-    else{
-        color = {255, 255, 255, 255};
-        image->draw(posicionX, posicionY, rec, color);
-    }
-}
-
-void GUI_Button::comprobarmouse(float x, float y){
-
-    if((x > posicionX && x < posicionX + 240) && (y > posicionY && y < posicionY + 120))
-        estaencima = true;
-    else
-        estaencima = false;
 }

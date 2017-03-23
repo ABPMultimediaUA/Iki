@@ -1,5 +1,5 @@
-#include "Image.h"
-#include "GraphicsFacade.h"
+#include "Fachada/Image.h"
+#include "Fachada/GraphicsFacade.h"
 
 Image::Image(const char* cadena)
 {

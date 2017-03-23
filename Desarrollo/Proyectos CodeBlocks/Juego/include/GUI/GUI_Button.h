@@ -1,24 +1,17 @@
 #ifndef GUI_BUTTON_H
 #define GUI_BUTTON_H
 
-class Image;
+#include "GUI_Component.h"
 
-class GUI_Button
+class GUI_Button : public GUI_Component
 {
     public:
-        GUI_Button(int, int, int);
+        GUI_Button(int, int, std::string);
         ~GUI_Button();
-
-        bool getActivo(){return estaencima;}
-        void draw();
-        void comprobarmouse(float, float);
 
     protected:
 
     private:
-        Image* image;
-        int posicionX, posicionY;
-        bool estaencima;
 };
 
 #endif // GUI_BUTTON_H
