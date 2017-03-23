@@ -1,12 +1,19 @@
 #include "Sonido.h"
 
-Sonido::Sonido(char *cad, ISoundEngine* engine)
+Sonido::Sonido(std::string s, irrklang::ISoundEngine* engine)
 {
     //ctor
-    sonido = engine->addSoundSourceFromFile(cad);
+    std::string str = "ruta de sonidos" + s;
+    const char *cstr = str.c_str();
+    sonido = engine->addSoundSourceFromFile(cstr);
 }
 
 Sonido::~Sonido()
 {
     //dtor
+}
+
+void Sonido::setVolumen(float f)
+{
+    sonido->setDefaultVolume(f);
 }

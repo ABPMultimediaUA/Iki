@@ -1,22 +1,26 @@
 #ifndef SONIDO_H
 #define SONIDO_H
 
+#include <string>
 #include <irrKlang.h>
 #include "../lib/irrKlang/conio.h"
 
-using namespace irrklang;
 
 class Sonido
 {
     public:
-        Sonido(char *cad, ISoundEngine* engine);
+        Sonido(std::string s, irrklang::ISoundEngine* engine);
         virtual ~Sonido();
+
+        irrklang::ISoundSource* getSonido(){ return sonido; }
+
+        void setVolumen(float f);
 
     protected:
 
     private:
 
-        ISoundSource* sonido;
+        irrklang::ISoundSource* sonido;
 };
 
 #endif // SONIDO_H
