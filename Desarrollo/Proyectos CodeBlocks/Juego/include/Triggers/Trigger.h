@@ -20,19 +20,17 @@ class Trigger : public GameEntity
         bool isActive(){return active;}
         bool HandleMessage(const Mensaje& msg){return false;}
 
-    //protected:
+    protected:
         void SetToBeRemoved(){removeFromGame = true;}
         void SetInactive(){active = false;}
         void SetActive(){active = true;}
 
         bool isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const;
 
-    protected:
-        bool active = true;
-
     private:
         TriggerRegion* region = nullptr;
         bool removeFromGame = false;
+        bool active = true;
 };
 
 #endif // TRIGGER_H
