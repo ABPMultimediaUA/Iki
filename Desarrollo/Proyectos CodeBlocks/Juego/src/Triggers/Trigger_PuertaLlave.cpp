@@ -24,8 +24,8 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
         }
     }
     else{
-        aniMesh->setVisible(true);
-        body->SetActive(true);
+        //aniMesh->setVisible(true);
+        //body->SetActive(true);
     }
 }
 

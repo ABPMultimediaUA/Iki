@@ -5,7 +5,7 @@
 Trigger_Ruido::Trigger_Ruido()
 {
     //ctor
-    active = false;
+    SetInactive();
 }
 
 Trigger_Ruido::~Trigger_Ruido()

@@ -54,7 +54,6 @@ void Player::inicializar_player(Map* m){
 
     ruido = new Trigger_Ruido();
     ruido->AddCircularRegion(posicion, 90);
-    ruido->SetInactive();
     isMoving = false;
 }
 
@@ -89,12 +88,12 @@ void Player::TriggerRuido(){
         if (!ruido->isActive()){
             //std::cout << "creamos el triggersito" << std::endl;
             ruido->AddCircularRegion(this->posicion, 90);
-            ruido->SetActive();
+            ruido->activar();
         }
     }else{
         if (ruido->isActive()){
             //std::cout << "borramos el triggersito" << std::endl;
-            ruido->SetInactive();
+            ruido->desactivar();
         }
     }
 }
