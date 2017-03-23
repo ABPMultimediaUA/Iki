@@ -12,6 +12,9 @@ class Trigger_Ruido : public Trigger
         void Try(GameEntity*);
         void Update();
 
+        void activar(){ SetActive(); }
+        void desactivar(){ SetInactive(); }
+
     private:
         int speed = 0;
 };
