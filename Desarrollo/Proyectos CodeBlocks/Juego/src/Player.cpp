@@ -62,18 +62,17 @@ void Player::moverBody(Structs::TPosicion vec){
     float movx = vec.X * avMovement;
     float movy = vec.Z * avMovement;
 
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
-        speed = 1;
-        movx *= 0.5;
-        movy *= 0.5;
-    }
-
     if (vec == quietoParado){
         isMoving = false;
         speed = 0;
     }else{
         isMoving = true;
-        ++speed;
+        speed = 1;
+    }
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
+        speed++;
+        movx *= 0.5;
+        movy *= 0.5;
     }
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
@@ -87,7 +86,7 @@ void Player::TriggerRuido(){
     if (isMoving){
         if (!ruido->isActive()){
             //std::cout << "creamos el triggersito" << std::endl;
-            ruido->AddCircularRegion(this->posicion, 90);
+            ruido->AddCircularRegion(this->posicion, 20);
             ruido->activar();
         }
     }else{

@@ -22,6 +22,8 @@ void Trigger_Ruido::Try(GameEntity* ent)
         speed = static_cast<Player*>(ent)->getSpeed();
     }
 
+    std::cout << "ARREGLA ESTO HIJODEPUTA" << std::endl;
+
     if (isActive() && !ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
 
         if (speed == 1){
