@@ -5,6 +5,7 @@ class GUI;
 class GUI_Button;
 class GUI_Title;
 class GUI_Control;
+class GUI_VolumeControl;
 
 class Menu
 {
@@ -31,6 +32,8 @@ class Menu
         GUI_Title* Control_Tit;
 
         GUI_Control* Controles;
+
+        GUI_VolumeControl* Volumen;
 
         float volumen;
 

@@ -18,6 +18,7 @@ class GUI
         void anyadirboton  (int, int, std::string);
         void anyadirtitulo (int, int, std::string);
         void anyadircontrol(int, int, std::string, std::string);
+        void anyadirvolumen(int, int);
 
         void draw(int);
 

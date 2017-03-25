@@ -3,6 +3,7 @@
 #include "GUI_Button.h"
 #include "GUI_Title.h"
 #include "GUI_Control.h"
+#include "GUI_VolumeControl.h"
 #include "Fachada/GraphicsFacade.h"
 
 Menu::Menu()
@@ -52,6 +53,12 @@ void Menu::inicializar_menu(){
 
     gui->anyadircontrol(565, 320, "resoluciondentro", "checklleno");
     Controles         = static_cast<GUI_Control*>(gui->getComponentes().back());
+
+    ///CONTROL VOLUMEN
+
+    gui->anyadirvolumen(540, 175);
+    Volumen           = static_cast<GUI_VolumeControl*>(gui->getComponentes().back());
+
 }
 
 void Menu::comprobarBotones(){
@@ -86,6 +93,8 @@ bool Menu::run(){
                 }
             }
             else if(draw_type == 1){
+                Volumen->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+
                 if(Resolucion->getActivo())
                     draw_type = 2;
                 else if(Control_Tit->getActivo())

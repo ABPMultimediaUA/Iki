@@ -3,6 +3,7 @@
 #include "GUI_Menu.h"
 #include "GUI_Title.h"
 #include "GUI_Control.h"
+#include "GUI_VolumeControl.h"
 #include "Fachada/GraphicsFacade.h"
 
 GUI::GUI()
@@ -31,6 +32,10 @@ void GUI::anyadircontrol(int x, int y, std::string nombre, std::string nombre2){
     componentes.push_back(new GUI_Control(x, y, nombre, nombre2));
 }
 
+void GUI::anyadirvolumen(int x, int y){
+    componentes.push_back(new GUI_VolumeControl(x, y));
+}
+
 void GUI::draw(int draw_type){
     GraphicsFacade::getInstance().beginScene();
     componentes[0]->draw();
@@ -41,6 +46,7 @@ void GUI::draw(int draw_type){
     }
     else if(draw_type == 1 || draw_type == 2 || draw_type == 3){
         componentes[5]->draw();
+        componentes[10]->draw();
         componentes[6]->draw();
         componentes[4]->draw();
         if(draw_type == 1)

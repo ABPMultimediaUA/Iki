@@ -5438,17 +5438,18 @@
 	"Scene.h"
 	"Menu.h"
 
-1490279029 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\menu.h
+1490441337 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\menu.h
 
-1490283940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
+1490441701 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
 	"GUI.h"
 	"GUI_Button.h"
 	"GUI_Menu.h"
 	"GUI_Title.h"
 	"GUI_Control.h"
+	"GUI_VolumeControl.h"
 	"Fachada/GraphicsFacade.h"
 
-1490180532 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui.h
+1490440963 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui.h
 	<vector>
 	<string>
 
@@ -5480,12 +5481,13 @@
 1490180492 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui_title.h
 	"GUI_Component.h"
 
-1490283756 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
+1490441340 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
 	"Menu.h"
 	"GUI/GUI.h"
 	"GUI_Button.h"
 	"GUI_Title.h"
 	"GUI_Control.h"
+	"GUI_VolumeControl.h"
 	"Fachada/GraphicsFacade.h"
 
 1490020691 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\image.cpp
@@ -5500,5 +5502,12 @@
 
 1490283810 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_component.cpp
 	"GUI_Component.h"
+	"Fachada/Image.h"
+
+1490441174 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui_volumecontrol.h
+	"GUI_Component.h"
+
+1490441504 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_volumecontrol.cpp
+	"GUI_VolumeControl.h"
 	"Fachada/Image.h"
 

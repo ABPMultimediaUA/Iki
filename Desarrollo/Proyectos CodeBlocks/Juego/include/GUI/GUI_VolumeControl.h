@@ -7,10 +7,13 @@
 class GUI_VolumeControl : public GUI_Component
 {
     public:
-        GUI_VolumeControl();
+        GUI_VolumeControl(int, int);
         ~GUI_VolumeControl();
 
         void draw();
+        void subirVolumen();
+        void bajarVolumen();
+        int comprobarmouse(float, float);
 
     protected:
 
@@ -18,7 +21,7 @@ class GUI_VolumeControl : public GUI_Component
         Image* image2;
         Structs::TRectangulo rec2;
         int posicionX2, posicionY2;
-        int porcentajeVol;
+        //int porcentajeVol;
 };
 
 #endif // GUI_VOLUMECONTROL_H
