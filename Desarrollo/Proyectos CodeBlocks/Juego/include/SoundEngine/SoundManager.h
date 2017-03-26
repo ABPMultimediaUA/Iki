@@ -2,8 +2,8 @@
 #define SOUNDMANAGER_H
 
 #include <map>
+#include <vector>
 #include <string>
-#include "Sonido.h"
 
 #include <irrKlang.h>
 #include "../lib/irrKlang/conio.h"
@@ -17,7 +17,8 @@ class SoundManager
         }
         virtual ~SoundManager();
 
-        typedef std::map<std::string, Sonido*> SoundMap;
+        typedef std::map<std::string, irrklang::ISoundSource*> SoundMap;
+        typedef std::vector<irrklang::ISound*> SoundChannels;
 
         void cargarSonido(std::string cadena);
         void playSonido(std::string s);
@@ -38,7 +39,9 @@ class SoundManager
     private:
         SoundManager();
         irrklang::ISoundEngine* engine;
+
         SoundMap sonidos;
+        SoundChannels canales;
 
 };
 
