@@ -5,7 +5,7 @@
 Trigger_Puerta::Trigger_Puerta()
 {
     SoundManager::getInstance()->cargarSonido("alarma_sintetizada2");
-    SoundManager::getInstance()->volumenSonido(2.0f,"alarma_sintetizada2");
+    //SoundManager::getInstance()->volumenSonido(2.0f,"alarma_sintetizada2");
 }
 
 Trigger_Puerta::~Trigger_Puerta()
@@ -18,9 +18,12 @@ void Trigger_Puerta::Try(GameEntity* ent)
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
        aniMesh->setVisible(false);
        body->SetActive(false);
-       //SoundManager::getInstance()->volumenSonido(2.0f,"pasosnormales");
-       if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2")))
+       if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
+            std::cout << "fdsdf" << std::endl;
             SoundManager::getInstance()->playSonido("alarma_sintetizada2");
+       }else{
+            std::cout << "  " << std::endl;
+       }
     }
     else{
         aniMesh->setVisible(true);
