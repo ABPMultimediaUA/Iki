@@ -20,18 +20,17 @@ class SoundManager
         typedef std::map<std::string, irrklang::ISoundSource*> SoundMap;
         typedef std::vector<irrklang::ISound*> SoundChannels;
 
+        bool isCargado(std::string cadena);
         void cargarSonido(std::string cadena);
         void playSonido(std::string s);
 
         bool isPlaying(std::string s);
 
         void volumenGeneral(float f);
-        void volumenSonido(float f, const char *s);
-        /*
-        ISound;
-        isound->stop;
-        isound->isFinished();
-        */
+        void volumenSonido(float f, std::string s);
+
+        void soundStop(irrklang::ISound* s){ s->stop(); }
+        bool soundIsFinished(irrklang::ISound* s){ return s->isFinished(); }
         void Update();
 
     protected:
