@@ -15,8 +15,8 @@ Game::~Game()
 }
 
 void Game::start_game(){
-    menu->inicializar_menu();
-    if(menu->run()){
+    menu->inicializar_menu(0);
+    if(menu->run(true)){
         escena->inicializar_escena();
     }
 }

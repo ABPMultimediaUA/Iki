@@ -37,26 +37,30 @@ void GUI::anyadirvolumen(int x, int y){
 }
 
 void GUI::draw(int draw_type){
-    GraphicsFacade::getInstance().beginScene();
+        //GraphicsFacade::getInstance().beginScene();
     componentes[0]->draw();
-    if(draw_type == 0){
+    if(draw_type == 1){
         componentes[1]->draw();
         componentes[2]->draw();
         componentes[3]->draw();
     }
-    else if(draw_type == 1 || draw_type == 2 || draw_type == 3){
+    else if(draw_type == 2 || draw_type == 3 || draw_type == 4){
         componentes[5]->draw();
         componentes[10]->draw();
         componentes[6]->draw();
         componentes[4]->draw();
-        if(draw_type == 1)
+        if(draw_type == 2)
             componentes[7]->draw();
-        else if(draw_type == 2)
+        else if(draw_type == 3)
             componentes[9]->draw();
-        else if(draw_type == 3){
+        else if(draw_type == 4){
             componentes[7]->draw();
             componentes[8]->draw();
         }
     }
-    GraphicsFacade::getInstance().endScene();
+    //GraphicsFacade::getInstance().endScene();
+}
+
+void GUI::clean(){
+    componentes.clear();
 }

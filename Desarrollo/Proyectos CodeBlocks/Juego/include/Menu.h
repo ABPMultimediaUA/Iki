@@ -13,16 +13,16 @@ class Menu
         Menu();
         ~Menu();
 
-        void inicializar_menu();
+        void inicializar_menu(int);
         void draw();
         void comprobarBotones();
-        bool run();
+        bool run(bool);
 
     protected:
 
     private:
 
-        GUI* gui;
+        //GUI* gui;
         GUI_Button* NuevaPartida;
         GUI_Button* Opciones;
         GUI_Button* Salir;

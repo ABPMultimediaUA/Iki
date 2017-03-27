@@ -7,6 +7,7 @@
 #include "SceneNode.h"
 #include "Structs.h"
 
+class GUI;
 
 class GraphicsFacade
 {
@@ -23,10 +24,13 @@ class GraphicsFacade
         }
         ~GraphicsFacade();
 
+        void inicializar_gui(int);
+        void vaciar_gui();
+
         void beginScene();
         void endScene();
 
-        void draw();
+        void draw(int);
         bool run();
         void close();
         void drop();
@@ -41,7 +45,7 @@ class GraphicsFacade
         ISceneManager* getScene() { return smgr; }
         IrrlichtDevice* getDevice() { return device; }
         IVideoDriver* getDriver() { return driver; }
-        IGUIEnvironment* getGUI() { return guienv; }
+        GUI* getGUI() { return gui; }
         ITimer* getTimer() { return timer; };
 
         SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
@@ -53,10 +57,10 @@ class GraphicsFacade
 
         GraphicsFacade();
         void crearDevice();
+        GUI* gui;
         IrrlichtDevice* device;
         IVideoDriver* driver;
         ISceneManager* smgr;
-        IGUIEnvironment* guienv;
         ITimer* timer;
         plane3df plane;
         line3df ray;

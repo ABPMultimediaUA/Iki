@@ -1,4 +1,5 @@
 #include "Fachada/GraphicsFacade.h"
+#include "GUI.h"
 
 GraphicsFacade::GraphicsFacade()
 {
@@ -6,7 +7,8 @@ GraphicsFacade::GraphicsFacade()
 
 	driver = device->getVideoDriver();
 	smgr = device->getSceneManager();
-	guienv = device->getGUIEnvironment();
+	gui = new GUI();
+	//guienv = device->getGUIEnvironment();
 
 	timer = device->getTimer();
 
@@ -18,6 +20,45 @@ GraphicsFacade::GraphicsFacade()
 GraphicsFacade::~GraphicsFacade()
 {
     //dtor
+}
+
+void GraphicsFacade::inicializar_gui(int menu){
+    ///MENU
+    gui->anyadirmenu (400, 60);
+
+    ///BOTONES
+    if(menu == 0)
+        gui->anyadirboton(540, 160, "nuevapartidaboton");
+    else
+        gui->anyadirboton(540, 160, "botoncontinuar");
+
+    gui->anyadirboton(540, 440, "salirboton");
+
+    gui->anyadirboton(540, 300, "botonopciones");
+
+    gui->anyadirboton(540, 540, "botonatras");
+
+    ///TITULOS
+    gui->anyadirtitulo(570, 125, "titulovolumen");
+
+    gui->anyadirtitulo(570, 270, "resolucionboton");
+
+    gui->anyadirtitulo(570, 340, "controlestitulo");
+
+    gui->anyadirtitulo(565, 390, "controlespanel");
+
+    ///CONTROLES
+
+    gui->anyadircontrol(565, 320, "resoluciondentro", "checklleno");
+
+    ///CONTROL VOLUMEN
+
+    gui->anyadirvolumen(540, 175);
+
+}
+
+void GraphicsFacade::vaciar_gui(){
+    gui->clean();
 }
 
 void GraphicsFacade::beginScene(){
@@ -33,10 +74,12 @@ void GraphicsFacade::endScene(){
     driver->endScene();
 }
 
-void GraphicsFacade::draw(){
+void GraphicsFacade::draw(int draw_type){
 	//Dibujamos los nodos y los cuadros de texto del entorno
 	beginScene();
 	smgr->drawAll();
+	if(draw_type > 0)
+        gui->draw(draw_type);
 	endScene();
 
 }

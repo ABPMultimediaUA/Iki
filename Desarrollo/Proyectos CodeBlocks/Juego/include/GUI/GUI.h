@@ -21,6 +21,7 @@ class GUI
         void anyadirvolumen(int, int);
 
         void draw(int);
+        void clean();
 
     protected:
 
