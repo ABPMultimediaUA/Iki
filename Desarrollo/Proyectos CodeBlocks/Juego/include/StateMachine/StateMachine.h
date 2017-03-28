@@ -1,9 +1,8 @@
 #ifndef STATEMACHINE
 #define STATEMACHINE
 
-#include <irrlicht.h>
 #include "StateMachine/State.h"
-class Enemy;
+
 
 template <class entity_type>
 
@@ -58,7 +57,11 @@ class StateMachine
         State<entity_type>* GlobalState() const{return globalState;}
         State<entity_type>* PreviousState() const{return previoState;}
         //returns true if the current state’s type is equal to the type of the class passed as a parameter.
-        bool isInState(const State<entity_type>& st)const;
+        bool isInState(const State<entity_type>& st)const{
+            if (typeid(*actualState) == typeid(st))
+                return true;
+            return false;
+        }
         bool  HandleMessage(const Mensaje& msg)const
         {
             //first see if the current state is valid and that it can handle

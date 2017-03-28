@@ -1,15 +1,5 @@
 #include "Path/PathPlanner.h"
 
-PathPlanner::PathPlanner(SparseGraph* graf, Enemy* owner):enemigo(owner)
-{
-    grafo=graf;
-}
-
-PathPlanner::~PathPlanner()
-{
-    //dtor
-}
-
 bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& path){
 
     posicionDestino=destino;
@@ -17,16 +7,16 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
     //Comprobamos si el bot puede moverse directamente al objetivo con
     //un metodo que tomo como comienzo la posicion dedestino y un radio de
     //la entidad y depermina si el bot es capaz de moverse entre las dos posiciones
-    if(!enemigo->isPathObstructured(posicionDestino)){
+    if(!propietario->isPathObstructured(posicionDestino)){
             //create an edge connecting the bot's current position and the
             //target position and push it on the path list (flagged to use the
             //"normal" behavior = 1)
-            path.push_back(PathEdge(enemigo->getPosition(), posicionDestino,1));
+            path.push_back(PathEdge(propietario->getPosition(), posicionDestino,1));
             return true;
     }
     //encontar el nodo mas cercano a la posicion del bot, getclosesnode es un metodo
     //que consulta el grafo de navegacion de nodos para determinar el mas cercano no obstruido
-    int NodoMasCercano=grafo->nodeMoreClose(enemigo->getPosition());
+    int NodoMasCercano=grafo->nodeMoreClose(propietario->getPosition());
     //Si ningun nodo visible se encuentra, devolvemos false, esto ocurrira si
     //el grafo esta mal diseñado o si el bot esta bugeado o algo
     if(NodoMasCercano == -1){
@@ -43,7 +33,7 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
      //grab the path as a list of PathEdges
      path = alg.GetPathAsPathEdges();
      if(!path.empty()){
-         path.push_front(PathEdge(enemigo->getPosition(), path.front().getSource(),1));
+         path.push_front(PathEdge(propietario->getPosition(), path.front().getSource(),1));
          path.push_back(PathEdge(path.back().getDestination(),posicionDestino,1));
          return true;
      }
@@ -52,7 +42,7 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
         return false;
      }
 }
- void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<Structs::TPosicion> &path){
+void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<Structs::TPosicion> &path){
 
     std::list<int>::iterator it;
     it = pNodos.begin();
@@ -61,7 +51,7 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
         path.push_back(grafo->getNode(*it).posicion);
         it++;
     }
- }
+}
 ///ASI FUNCIONA
 /*
 1. Grab the source position of E1.
@@ -79,7 +69,7 @@ the path.
 */
 void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
 {
-    //creo una pareja de iteradores y apunto al incio del path
+    //create a couple of iterators and point them at the front of the path
     std::list<PathEdge>::iterator e1(path.begin()), e2(path.begin());
     //increment e2 so it points to the edge following e1.
     ++e2;
@@ -90,7 +80,7 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
     while (e2 != path.end())
     {
         //check for obstruction, adjust and remove the edges accordingly
-        if ( enemigo->canWalkBetween(e1->getSource(), e2->getDestination()) )
+        if ( propietario->canWalkBetween(e1->getSource(), e2->getDestination()) )
         {
             e1->SetDestination(e2->getDestination());
             e2 = path.erase(e2);
@@ -104,7 +94,7 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
 }
 void PathPlanner::SmoothPathEdgesPrecise(std::list<PathEdge>& path)
 {
-   /* //create a couple of iterators
+    //create a couple of iterators
     std::list<PathEdge>::iterator e1, e2;
     //point e1 to the beginning of the path
     e1 = path.begin();
@@ -121,9 +111,9 @@ void PathPlanner::SmoothPathEdgesPrecise(std::list<PathEdge>& path)
         while (e2 != path.end())
         {
             //check for obstruction, adjust and remove the edges accordingly
-            if ( m_pOwner->canWalkBetween(e1->Source(), e2->Destination()) )
+            if ( propietario->canWalkBetween(e1->getSource(), e2->getDestination()) )
             {
-                e1->SetDestination(e2->Destination());
+                e1->SetDestination(e2->getDestination());
                 e2 = path.erase(++e1, ++e2);
                 e1 = e2;
                 --e1;
@@ -134,5 +124,8 @@ void PathPlanner::SmoothPathEdgesPrecise(std::list<PathEdge>& path)
             }
         }
         ++e1;
-    }*/
+    }
 }
+
+
+

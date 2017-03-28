@@ -19,7 +19,7 @@ void PedirAyuda::Enter(Enemy* enemigo){
 
 void PedirAyuda::Execute(Enemy* enemigo){
     static_cast<Medico*>(enemigo)->pedirAyuda();
-    if(enemigo->getPosition().Distance(enemigo->getGuardiaMasCercano()->getPosition())<15.0f){
+    if(enemigo->getPosition().Distance(enemigo->getGuardiaMasCercano()->getPosition())<10.0f){
         EnviarMsg->Envio(0,enemigo->ID(),enemigo->getGuardiaMasCercano()->ID(),Msg_NeedHelp,0);
         enemigo->GetFSM()->ChangeState(Proteger::Instance());
     }

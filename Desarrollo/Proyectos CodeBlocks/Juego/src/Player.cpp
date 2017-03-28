@@ -3,6 +3,7 @@
 #include "PhisicsWorld.h"
 #include "Player_Ray.h"
 #include "Path/PathFinding.h"
+#include "Path/PathPlanner.h"
 #include "MapComponent.h"
 #include "PhisicsWorld.h"
 
@@ -24,7 +25,8 @@ void Player::inicializar_player(Map* m){
 
     Mapa=m;
     grafo = Mapa->getGrafo();
-    path = new PathFinding(grafo,this);
+    //path = new PathFinding(grafo,this);
+    path2 = new PathPlanner(grafo,this);
 
     Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {0,0,0,0};
@@ -45,9 +47,9 @@ void Player::inicializar_player(Map* m){
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 100.f;
-    fixtureDef.restitution  = 0.f;
-    fixtureDef.density  = 100.f;
+    fixtureDef.density  = 10.f;
+    fixtureDef.friction = 1.f;
+    fixtureDef.restitution  = -100.f;
     body->CreateFixture(&fixtureDef);
     //Para los ray!
     input.maxFraction	=	1.0f;
@@ -56,6 +58,7 @@ void Player::inicializar_player(Map* m){
     ruido->AddCircularRegion(posicion, 90);
     isMoving = false;
 }
+
 
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
@@ -77,6 +80,7 @@ void Player::moverBody(Structs::TPosicion vec){
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
+
 
 bool Player::getMoving(){
     return isMoving;
@@ -114,74 +118,35 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        listaNodos.clear();
+        moverse = true;
+        //listaNodos.clear();
+        listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
-        path->crearPath(posicion,mousePosition,listaNodos);
-        it=listaNodos.begin();
+        //path->crearPath(posicion,mousePosition,listaNodos);
+        path2->crearPath(mousePosition,listaEjes);
+        path2->SmoothPathEdgesQuick(listaEjes);
+        //it=listaNodos.begin();
+        it2=listaEjes.begin();
+
+        
     }
-   /* if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
-    {
-        toMousePosition.X = mousePosition.X - posicion.X;
-        toMousePosition.Y = mousePosition.Y - posicion.Y;
-        toMousePosition.Z = mousePosition.Z - posicion.Z;
 
-        if(GraphicsFacade::getInstance().calcularDistancia(toMousePosition) <= 1)
-        {
-            toMousePosition = {0,0,0};
-            moverBody(toMousePosition);
-        }
-        else
-        {
-            moverBody(toMousePosition);
-
-            posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-            modelo->setPosition(posicion);
-
-            float angulo = atan2f((mousePosition.Z-modelo->getNode()->getPosition().Z) ,
-                              -(mousePosition.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
-            body->SetTransform(body->GetPosition(), angulo);
-            modelo->setRotation(body->GetAngle());
-        }
-    }*/
     if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
-    {
-        if(!listaNodos.empty() && it != listaNodos.end())
-            toNextNodo = grafo->getNode(*it).posicion - posicion;
+
+        if(!listaEjes.empty() && it2 != listaEjes.end())
+            toNextNodo = (*it2).getDestination() - posicion;
         else
             toNextNodo=quietoParado;
-
-            toMousePosition = mousePosition - posicion;
 
         if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
         {
             moverBody(quietoParado);
-            if(it != listaNodos.end()) //SI AUN NO ES EL ULTIMO NODO
-                it++;
-            else if(it == listaNodos.end()){ //SI ES EL ULTIMO NODO
-                if(toMousePosition.Length() <= 1) //CUANDO LLEGA AL DESTINO
-                {
-                    moverBody(quietoParado);
-                }
-                else{ //CUANDO AUN NO HA LLEGADO AL DESTINO
-                    MoverPlayer(mousePosition,toMousePosition);
-                }
-            }
+            if(it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+                it2++;
         }
         else
         { //CUANDO AUN NO HA LLEGADO A UN NODO
-            if(!listaNodos.empty() && it != listaNodos.end()){
-                MoverPlayer(grafo->getNode(*it).posicion,toNextNodo);
-            }
-            /*else if(listaNodos.empty()){ //CUANDO NO HAY NODOS POR RECORRER
-                     if(toMousePosition.Length() <= 1){ //CUANDO LLEGA AL DESTINO
-                        moverBody(quietoParado);
-                    }
-                    else{ //CUANDO AUN NO HA LLEGADO AL DESTINO
-                        moverBody(toMousePosition);
-                        posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-                        modelo->setPosition(posicion);
-                    }
-            }*/
+            MoverPlayer((*it2).getDestination(),toNextNodo);
         }
     }
 }
@@ -203,9 +168,23 @@ bool Player::isPathObstructured(Structs::TPosicion destino){
 
     return false;
 }
+bool Player::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
+
+     input.p1.Set(desde.X, hasta.Z);	//	Punto	inicial	del	rayo
+     input.p2.Set(desde.X, hasta.Z);	//	Punto	final	del	rayo
+
+     ///colision con paredes
+    for (int i = 0; i < Mapa->muros.size(); i++) {
+        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+            return true;
+        }
+    }
+
+    return false;
+}
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
-    float angulo = atan2f((p1.Z-modelo->getNode()->getPosition().Z) ,
-                          -(p1.X-modelo->getNode()->getPosition().X)) * 180.f / irr::core::PI;
+    float angulo = atan2f((p1.Z-posicion.Z) ,
+                          -(p1.X-posicion.X)) * 180.f / irr::core::PI;
     body->SetTransform(body->GetPosition(), angulo);
     modelo->setRotation(body->GetAngle());
     moverBody(p2);
@@ -213,3 +192,5 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     modelo->setPosition(posicion);
 
 }
+
+

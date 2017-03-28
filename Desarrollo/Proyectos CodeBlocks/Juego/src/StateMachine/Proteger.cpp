@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "Patrullar.h"
 #include "Medico.h"
+#include "VolverALaPatrulla.h"
 
 
 Proteger* Proteger::Instance()
@@ -17,6 +18,8 @@ void Proteger::Enter(Enemy* enemigo){
 
 void Proteger::Execute(Enemy* enemigo){
     static_cast<Medico*>(enemigo)->proteger();
+    if(enemigo->getGuardiaMasCercano()->GetFSM()->isInState(*VolverALaPatrulla::Instance()))
+        enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
 }
 
 void Proteger::Exit(Enemy* enemigo){}
