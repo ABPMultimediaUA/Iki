@@ -2,8 +2,8 @@
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
 #include "Player_Ray.h"
-#include "Path/PathFinding.h"
-#include "Path/PathPlanner.h"
+#include "Enemies/Path/PathFinding.h"
+#include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 #include "PhisicsWorld.h"
 
@@ -106,19 +106,22 @@ void Player::update(Camera* camara){
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 700;
 
-    TriggerRuido();
+    rayo->borrar_rayo();
 
-    if(rayo->getBalas() > 0){
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
-            GraphicsFacade::getInstance().cambiarRay(camara);
-            rayo->lanzar_rayo(posicion);
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
+        if(rayo->getBalas() > 0){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000 - rayo->getVidaRayo() > 1){
+                GraphicsFacade::getInstance().cambiarRay(camara);
+                rayo->lanzar_rayo(posicion);
+            }
         }
     }
+    TriggerRuido();
 
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        moverse = true;
+        //moverse = true;
         //listaNodos.clear();
         listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
@@ -128,10 +131,10 @@ void Player::update(Camera* camara){
         //it=listaNodos.begin();
         it2=listaEjes.begin();
 
-        
+
     }
 
-    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition)){
 
         if(!listaEjes.empty() && it2 != listaEjes.end())
             toNextNodo = (*it2).getDestination() - posicion;

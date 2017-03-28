@@ -2,7 +2,7 @@
 
 menus::menus(int x, int y, video::IVideoDriver* driver)
 {
-        image = driver->getTexture("texturas/menu.png");
+    image = driver->getTexture("texturas/menu.png");
 
     posicionX = x;
     posicionY = y;
