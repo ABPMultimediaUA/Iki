@@ -26,18 +26,16 @@ bool SoundManager::isCargado(std::string cadena)
 void SoundManager::cargarSonido(std::string cadena)
 {
     if (!isCargado(cadena)){
-        std::string str = "resources/Sonidos/" + cadena;
-        const char *cstr = str.c_str();
-
-        irrklang::ISoundSource* sonido = engine->addSoundSourceFromFile(cstr);
-        sonidos.insert(std::make_pair(cadena,sonido));
+        std::string str = "resources/Sonidos/" + cadena + ".wav";
+        irrklang::ISoundSource* sonido = engine->addSoundSourceFromFile(str.c_str());
+        sonidos[cadena] = sonido;
 
     }
 }
 
 void SoundManager::playSonido(std::string s)
 {
-    irrklang::ISound* canal = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),true,false,true);
+    irrklang::ISound* canal = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),false,false,true);
     canales.push_back(canal);
 }
 
