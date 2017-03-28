@@ -19,10 +19,10 @@ void Trigger_Puerta::Try(GameEntity* ent)
        aniMesh->setVisible(false);
        body->SetActive(false);
        if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
-            std::cout << "fdsdf" << std::endl;
+            //std::cout << "fdsdf" << std::endl;
             SoundManager::getInstance()->playSonido("alarma_sintetizada2");
        }else{
-            std::cout << "  " << std::endl;
+            //std::cout << "  " << std::endl;
        }
     }
     else{

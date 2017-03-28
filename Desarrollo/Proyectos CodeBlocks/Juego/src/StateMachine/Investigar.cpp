@@ -3,6 +3,8 @@
 #include "Enemy.h"
 #include "Patrullar.h"
 #include "Guardia.h"
+#include "Escanear.h"
+#include "VolverALaPatrulla.h"
 
 Investigar* Investigar::Instance()
 {
@@ -17,8 +19,19 @@ void Investigar::Enter(Enemy* enemigo){
 }
 
 void Investigar::Execute(Enemy* enemigo){
+    if(enemigo->getDistanciaPlayer()<10){
+        if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
+            //static_cast<Guardia*>(enemigo)->atacar();
+            enemigo->GetFSM()->ChangeState(Escanear::Instance());
+    }
+    if(enemigo->getPosition() == enemigo->getPosicionInteres()){
+            enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+    }
     static_cast<Guardia*>(enemigo)->investigar();
+
 }
 
-void Investigar::Exit(Enemy* enemigo){}
+void Investigar::Exit(Enemy* enemigo){
+
+}
 bool Investigar::OnMessage(Enemy*, const Mensaje&){}

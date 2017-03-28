@@ -6,11 +6,9 @@ GraphicsFacade::GraphicsFacade()
 	//device->activateJoysticks(*MastEventReceiver::getInstance().getJoystickInfo()); //activamos el joystick
 	//cout << "Hay " << MastEventReceiver::getInstance().getJoystickInfo()->size() << " mando(s) conectado(s)" << endl;
 	device->setResizable(true);
-
 	driver = device->getVideoDriver();
 	smgr = device->getSceneManager();
 	guienv = device->getGUIEnvironment();
-
 	timer = device->getTimer();
 
 	//cout << "Graphics Engine inicializado" << endl;
@@ -55,12 +53,12 @@ void GraphicsFacade::iniciarRay(Structs::TPosicion rayPos){
 
 void GraphicsFacade::cambiarRay(Camera* camara){
     ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                      MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());
+          MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());
 }
 
 bool GraphicsFacade::interseccionRayPlano(Structs::TPosicion &mousePosition){
 
-    vector3df mousePosition2(170,0,50);
+    vector3df mousePosition2;
 
     if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition2)){
         mousePosition.X = mousePosition2.X;

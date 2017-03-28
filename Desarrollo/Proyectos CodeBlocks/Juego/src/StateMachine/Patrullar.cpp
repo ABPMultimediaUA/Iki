@@ -2,6 +2,7 @@
 #include "Vigilar.h"
 #include "PedirAyuda.h"
 #include "Investigar.h"
+#include "Escanear.h"
 #include "Enemy.h"
 #include "StateMachine/Mensaje.h"
 
@@ -14,23 +15,24 @@ Patrullar* Patrullar::Instance()
 }
 
 void Patrullar::Enter(Enemy* enemigo){
-
 }
 
 void Patrullar::Execute(Enemy* enemigo){
 
     enemigo->patrullar();
 
-    if(enemigo->getDistanciaPlayer() < 3){
-        if(enemigo->getTipo()== 2){
-            enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());
+    if(enemigo->getDistanciaPlayer() < 5){
+        //std::cout<<"Escaneando..."<<std::endl;
+        if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+            std::cout<<"Te he visto!..."<<std::endl;
+            enemigo->GetFSM()->ChangeState(Escanear::Instance());
         }
     }
 
-    /*if(enemigo->getPatrulla()->getInicial() == enemigo->getPPatrulla()){
-        enemigo->resetTime();
+    if(enemigo->getPatrulla()->getInicial()->getNext()->getPunto() == enemigo->getPosition()){
+        //std::cout<<"Vigilando..."<<std::endl;
         enemigo->GetFSM()->ChangeState(Vigilar::Instance());
-    }*/
+    }
 
 
 }

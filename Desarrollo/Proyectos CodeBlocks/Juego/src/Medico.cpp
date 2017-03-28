@@ -23,22 +23,29 @@ void Medico::pedirAyuda(){
     {
         if(it != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
             it++;
+        else if(posicion.Distance(getGuardiaMasCercano()->getPosition())>15)
+            crearPath(getGuardiaMasCercano()->getPosition());
     }
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
+        //MoverEnemigo((*it).getDestination(),toNextNodo);
         toNextNodo.Normalize();
-        posicion = posicion + toNextNodo * (avMovement*1.5);
+        posicion=posicion+toNextNodo*(avMovement*2.5);
+        angulo = atan2f( ((*it).getDestination().Z - posicion.Z) , -((*it).getDestination().X-posicion.X) ) * 180.f / irr::core::PI;
     }
-
-    angulo = atan2f((toNextNodo.Z-posicion.Z) ,-(toNextNodo.X-posicion.X)) * 180.f /PI;
     setPosition();
 }
 void Medico::proteger(){
+
     toProtegido = protegido->getPosition() - posicion;
-    if(toProtegido.Length()>5){
+    if(toProtegido.Length()> 5){
+        //MoverEnemigo(protegido->getPosition(),toProtegido);
         toProtegido.Normalize();
-        posicion = posicion + toProtegido * (avMovement*1.5);
-        angulo = atan2f((toProtegido.Z-posicion.Z) ,-(toProtegido.X-posicion.X)) * 180.f /PI;
-        setPosition();
+        posicion=posicion+toProtegido*(avMovement*2.5);
+        angulo = atan2f((protegido->getPosition().Z-posicion.Z) ,
+                -(protegido->getPosition().X-posicion.X)) * 180.f / irr::core::PI;
     }
+    //else
+        //moverBody(quietoParado);
+    setPosition();
 }

@@ -3,7 +3,6 @@
 
 Camera::Camera(Structs::TPosicion position, Structs::TPosicion lookAt)
 {
-
 	//GraphicsFacade::getInstance().smgr->setAmbientLight(video::SColorf(255, 255, 255));
 
 	camera = GraphicsFacade::getInstance().smgr->addCameraSceneNode(0, vector3df(position.X, position.Y, position.Z), vector3df(lookAt.X, lookAt.Y, lookAt.Z));
