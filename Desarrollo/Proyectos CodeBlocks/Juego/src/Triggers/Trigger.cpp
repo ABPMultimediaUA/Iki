@@ -10,27 +10,27 @@ Trigger::Trigger()
 Trigger::~Trigger()
 {
     //dtor
-    if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+    //if (region) delete region;
 }
 
 bool Trigger::isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const
 {
-    if (m_pRegionOfInfluence){
-        return m_pRegionOfInfluence->isTouching(EntityPos, EntityRadius);
+    if (region){
+        return region->isTouching(EntityPos, EntityRadius);
     }
     return false;
 }
 
-void Trigger::AddCircularTriggerRegion(Structs::TPosicion center, double radius)
+void Trigger::AddCircularRegion(Structs::TPosicion center, double radius)
 {
-  //if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+  if (region) delete region;
 
-  m_pRegionOfInfluence = new TriggerRegion_Circle(center, radius);
+  region = new TriggerRegion_Circle(center, radius);
 }
 
-void Trigger::AddRectangularTriggerRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight)
+void Trigger::AddRectangularRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight)
 {
-  //if (m_pRegionOfInfluence) delete m_pRegionOfInfluence;
+  if (region) delete region;
 
-  m_pRegionOfInfluence = new TriggerRegion_Rectangle(TopLeft, BottomRight);
+  region = new TriggerRegion_Rectangle(TopLeft, BottomRight);
 }

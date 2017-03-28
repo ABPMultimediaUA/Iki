@@ -8,18 +8,14 @@ devices.
 */
 
 #ifdef _MSC_VER
-
 // We'll define this to stop MSVC complaining about sprintf().
 #define _CRT_SECURE_NO_WARNINGS
 #pragma comment(lib, "Irrlicht.lib")
 #endif
 
-#include <irrKlang.h>
 #include "driverChoice.h"
-#include "lib/irrKlang/conio.h"
 #include "Scene.h"
 
-using namespace irrklang;
 
 /*
 we'll store the latest state of the mouse and the first joystick, updating them as we receive events.

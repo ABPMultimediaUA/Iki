@@ -54,13 +54,59 @@ void Player::inicializar_player(Map* m){
     //Para los ray!
     input.maxFraction	=	1.0f;
 
+    ruido = new Trigger_Ruido();
+    ruido->AddCircularRegion(posicion, 90);
+    isMoving = false;
 }
 
+
+void Player::moverBody(Structs::TPosicion vec){
+    vec.Normalize();
+    float movx = vec.X * avMovement;
+    float movy = vec.Z * avMovement;
+
+    if (vec == quietoParado){
+        isMoving = false;
+        speed = 0;
+    }else{
+        isMoving = true;
+        speed = 1;
+    }
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
+        speed++;
+        movx *= 0.5;
+        movy *= 0.5;
+    }
+
+    body->SetLinearVelocity(b2Vec2(movx, movy));
+}
+
+
+bool Player::getMoving(){
+    return isMoving;
+}
+
+void Player::TriggerRuido(){
+    if (isMoving){
+        if (!ruido->isActive()){
+            //std::cout << "creamos el triggersito" << std::endl;
+            ruido->AddCircularRegion(this->posicion, 20);
+            ruido->activar();
+        }
+    }else{
+        if (ruido->isActive()){
+            //std::cout << "borramos el triggersito" << std::endl;
+            ruido->desactivar();
+        }
+    }
+}
 
 void Player::update(Camera* camara){
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 700;
+
+    TriggerRuido();
 
     if(rayo->getBalas() > 0){
         if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
@@ -82,38 +128,10 @@ void Player::update(Camera* camara){
         //it=listaNodos.begin();
         it2=listaEjes.begin();
 
+        
     }
 
-    if(moverse && GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
-    {
-        ///CON PATHFINDING
-       /*if(!listaNodos.empty() && it != listaNodos.end())
-            toNextNodo = grafo->getNode(*it).posicion - posicion;
-        else
-            toNextNodo=quietoParado;
-
-            toMousePosition = mousePosition - posicion;
-
-        if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
-        {
-            moverBody(quietoParado);
-            if(it != listaNodos.end()) //SI AUN NO ES EL ULTIMO NODO
-                it++;
-            else if(it == listaNodos.end()){ //SI ES EL ULTIMO NODO
-                if(toMousePosition.Length() <= 1) //CUANDO LLEGA AL DESTINO
-                {
-                    moverBody(quietoParado);
-                }
-                else{ //CUANDO AUN NO HA LLEGADO AL DESTINO
-                    MoverPlayer(mousePosition,toMousePosition);
-                }
-            }
-        }
-        else
-        { //CUANDO AUN NO HA LLEGADO A UN NODO
-            MoverPlayer(grafo->getNode(*it).posicion,toNextNodo);
-
-        }*/
+    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
 
         if(!listaEjes.empty() && it2 != listaEjes.end())
             toNextNodo = (*it2).getDestination() - posicion;
@@ -172,11 +190,7 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
     modelo->setPosition(posicion);
+
 }
-void Player::moverBody(Structs::TPosicion vec){
-    vec.Normalize();
-    float movx = vec.X * avMovement;
-    float movy = vec.Z * avMovement;
-    body->SetLinearVelocity(b2Vec2(movx, movy));
-}
+
 
