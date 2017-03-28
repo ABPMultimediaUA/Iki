@@ -341,7 +341,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1490614352 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
+1490638569 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
 	"Structs.h"
 	"TriggerSystem.h"
 
@@ -1328,7 +1328,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1490023978 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1490641223 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3332,13 +3332,14 @@
 	<irrlicht.h>
 	"StateMachine/State.h"
 
-1488982768 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player_ray.h
+1490640022 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player_ray.h
 	"Structs.h"
 
-1488982769 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
+1490641173 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
 	"Player_Ray.h"
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
+	"PhisicsWorld.h"
 
 1489058771 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\patrullar.cpp
 	"Patrullar.h"
@@ -5442,7 +5443,7 @@
 
 1490616686 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\menu.h
 
-1490617048 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
+1490636986 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
 	"GUI.h"
 	"GUI_Button.h"
 	"GUI_Menu.h"
@@ -5512,4 +5513,10 @@
 1490446008 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_volumecontrol.cpp
 	"GUI_VolumeControl.h"
 	"Fachada/Image.h"
+
+1490638698 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
+	"HUD.h"
+	"Fachada/Image.h"
+
+1490638728 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
 

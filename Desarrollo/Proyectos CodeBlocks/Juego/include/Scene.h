@@ -14,7 +14,7 @@ class Scene
 {
     public:
         Scene();
-        virtual ~Scene();
+        ~Scene();
         void inicializar_escena();
         void bucle_juego();
 

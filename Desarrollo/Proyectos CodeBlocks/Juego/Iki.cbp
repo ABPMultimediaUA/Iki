@@ -114,6 +114,7 @@
 		<Unit filename="include/GUI/GUI_Menu.h" />
 		<Unit filename="include/GUI/GUI_Title.h" />
 		<Unit filename="include/GUI/GUI_VolumeControl.h" />
+		<Unit filename="include/GUI/HUD.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameEntity.h" />
 		<Unit filename="include/LevelData.h" />
@@ -173,6 +174,7 @@
 		<Unit filename="src/GUI/GUI_Menu.cpp" />
 		<Unit filename="src/GUI/GUI_Title.cpp" />
 		<Unit filename="src/GUI/GUI_VolumeControl.cpp" />
+		<Unit filename="src/GUI/HUD.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameEntity.cpp" />
 		<Unit filename="src/LevelData.cpp" />

@@ -66,10 +66,14 @@ void Player::update(Camera* camara){
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 700;
 
-    if(rayo->getBalas() > 0){
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
-            GraphicsFacade::getInstance().cambiarRay(camara);
-            rayo->lanzar_rayo(posicion);
+    rayo->borrar_rayo();
+
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
+        if(rayo->getBalas() > 0){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000 - rayo->getVidaRayo() > 1){
+                GraphicsFacade::getInstance().cambiarRay(camara);
+                rayo->lanzar_rayo(posicion);
+            }
         }
     }
 

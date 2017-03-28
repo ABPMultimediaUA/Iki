@@ -12,15 +12,18 @@ class Player_Ray
         ~Player_Ray();
 
         void lanzar_rayo(Structs::TPosicion);
+        void borrar_rayo();
 
         void cogerBalas(){ balas++;}
         int getBalas(){ return balas;}
+        f32 getVidaRayo() {return vida;}
 
     protected:
 
     private:
         MeshSceneNode* modelo;
         int balas;
+        f32 vida;
 
         Structs::TPosicion vec_distancia;
 
