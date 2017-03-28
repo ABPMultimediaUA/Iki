@@ -29,6 +29,7 @@
 					<Add directory="include" />
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
+					<Add directory="include/SoundEngine" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -53,6 +54,7 @@
 					<Add directory="include" />
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
+					<Add directory="include/SoundEngine" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -110,6 +112,7 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Player_Ray.h" />
 		<Unit filename="include/Scene.h" />
+		<Unit filename="include/SoundEngine/SoundManager.h" />
 		<Unit filename="include/StateMachine/EnviarMensaje.h" />
 		<Unit filename="include/StateMachine/Investigar.h" />
 		<Unit filename="include/StateMachine/Mensaje.h" />
@@ -165,6 +168,7 @@
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Player_Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/SoundEngine/SoundManager.cpp" />
 		<Unit filename="src/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/StateMachine/Investigar.cpp" />
 		<Unit filename="src/StateMachine/Mensaje.cpp" />
