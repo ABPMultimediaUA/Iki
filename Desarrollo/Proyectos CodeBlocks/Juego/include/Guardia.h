@@ -28,6 +28,8 @@ class Guardia : public Enemy
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);};
         void investigar();
+        void atacar();
+        void ataque();
 
 
 };

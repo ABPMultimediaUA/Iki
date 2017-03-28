@@ -19,6 +19,8 @@ class Trigger : public GameEntity
         bool isToBeRemoved()const{return m_bRemoveFromGame;}
         bool isActive(){return m_bActive;}
         bool HandleMessage(const Mensaje& msg){return false;}
+        bool isPathObstructured(Structs::TPosicion){};
+        bool canWalkBetween(Structs::TPosicion ,Structs::TPosicion){};
 
     protected:
         void SetToBeRemoved(){m_bRemoveFromGame = true;}

@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "Structs.h"
+#include "Path/PathEdge.h"
 #include "Fachada/AnimatedMesh.h"
 #include "Fachada/SceneNode.h"
 #include "MyEventReceiver.h"
@@ -36,6 +37,9 @@ class GameEntity
         virtual void               setBody(b2BodyDef bodyDef);
         virtual void               setMesh(AnimatedMesh* m){ aniMesh = m;};
         virtual bool               HandleMessage(const Mensaje& msg)=0;
+        virtual bool               isPathObstructured(Structs::TPosicion)=0;
+        virtual bool               canWalkBetween(Structs::TPosicion ,Structs::TPosicion)=0;
+        void                       quitarVida(){vida=vida-1;}
 
 
     protected:
