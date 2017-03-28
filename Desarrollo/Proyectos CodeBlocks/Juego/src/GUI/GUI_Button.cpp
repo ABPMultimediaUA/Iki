@@ -1,4 +1,4 @@
-#include "GUI_Button.h"
+#include "GUI/GUI_Button.h"
 #include "Fachada/Image.h"
 
 GUI_Button::GUI_Button(int x, int y, std::string cadena)

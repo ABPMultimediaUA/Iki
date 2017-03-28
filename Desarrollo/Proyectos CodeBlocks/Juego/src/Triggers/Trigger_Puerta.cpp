@@ -1,11 +1,11 @@
 #include "Trigger_Puerta.h"
 #include "GameEntity.h"
-#include <iostream>
+#include "SoundManager.h"
 
 Trigger_Puerta::Trigger_Puerta()
 {
-    //ctor
-    SetActive();
+    SoundManager::getInstance()->cargarSonido("alarma_sintetizada2");
+    //SoundManager::getInstance()->volumenSonido(2.0f,"alarma_sintetizada2");
 }
 
 Trigger_Puerta::~Trigger_Puerta()
@@ -15,26 +15,23 @@ Trigger_Puerta::~Trigger_Puerta()
 
 void Trigger_Puerta::Try(GameEntity* ent)
 {
-    if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
-        //Open la puerta
-        //std::cout << " abierta " << std::endl;
+    if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
        aniMesh->setVisible(false);
        body->SetActive(false);
+       if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
+            //std::cout << "fdsdf" << std::endl;
+            SoundManager::getInstance()->playSonido("alarma_sintetizada2");
+       }else{
+            //std::cout << "  " << std::endl;
+       }
     }
     else{
-        //Close la puerta
-        //std::cout << " cerrada " << std::endl;
         aniMesh->setVisible(true);
         body->SetActive(true);
     }
 }
 
 void Trigger_Puerta::Update()
-{
-
-}
-
-void Trigger_Puerta::Render()
 {
 
 }

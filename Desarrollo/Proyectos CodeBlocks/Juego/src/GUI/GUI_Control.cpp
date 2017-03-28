@@ -1,4 +1,4 @@
-#include "GUI_Control.h"
+#include "GUI/GUI_Control.h"
 #include "Fachada/Image.h"
 
 GUI_Control::GUI_Control(int x, int y, std::string cadena, std::string cadena2)

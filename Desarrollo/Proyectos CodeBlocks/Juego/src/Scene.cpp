@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Map.h"
 #include "Menu.h"
+#include "EntityManager.h"
 
 Scene::Scene()
 {
@@ -38,6 +39,11 @@ void Scene::inicializar_escena(){
     player->inicializar_player(Mapa);
     menu_ingame->inicializar_menu(1);
 
+    //EntityMgr->registrarEntity(player);
+
+
+    Trigger* ruido = player->getRuido();
+    triggersystem.Register(ruido);
     triggersystem.LeerMapa();
 
     bucle_juego();
@@ -52,7 +58,7 @@ void Scene::bucle_juego(){
         }
         world->update_mundo();
         player->update(camara);
-        triggersystem.Update(player);
+        triggersystem.Update();
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 

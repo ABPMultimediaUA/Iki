@@ -4,6 +4,7 @@
 #include "PatrolRoute.h"
 #include "Enemies/Medico.h"
 #include "Enemies/Dron.h"
+#include "EntityManager.h"
 
 World::World()
 {
@@ -66,18 +67,20 @@ void World::inicializar_mundo(){
     for(int i = 0; i < rutas.size(); i++){
         switch(mapa->getTipos()[i]){
             case 1:
-                enemigos.push_back(new Guardia(rutas[i]));
+                enemigos.push_back(new Guardia(i+1,rutas[i]));
                 break;
             case 2:
-                enemigos.push_back(new Medico(rutas[i]));
+                enemigos.push_back(new Medico(i+1,rutas[i]));
                 break;
             case 3:
-                enemigos.push_back(new Dron(rutas[i]));
+                enemigos.push_back(new Dron(i+1,rutas[i]));
                 break;
             default:
                 break;
         }
         enemigos[i]->inicializar_enemigo(mapa);
+
+        //EntityMgr->registrarEntity(enemigos[i]);
     }
 }
 

@@ -1,4 +1,4 @@
-#include "GUI_VolumeControl.h"
+#include "GUI/GUI_VolumeControl.h"
 #include "Fachada/Image.h"
 
 GUI_VolumeControl::GUI_VolumeControl(int x, int y)

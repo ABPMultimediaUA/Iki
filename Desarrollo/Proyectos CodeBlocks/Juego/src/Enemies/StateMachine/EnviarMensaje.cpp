@@ -1,9 +1,9 @@
 #include "Enemies/StateMachine/EnviarMensaje.h"
 #include "GameEntity.h"
-//#include "misc/FrameCounter.h"
-//#include "game/EntityManager.h"
-//#include "Debug/DebugConsole.h"
-/*
+#include "PhisicsWorld.h"
+#include "EntityManager.h"
+
+
 using std::set;
 
 EnviarMensaje* EnviarMensaje::Instance()
@@ -13,112 +13,78 @@ EnviarMensaje* EnviarMensaje::Instance()
   return &instance;
 }
 
-void EnviarMensaje::Envio(GameEntity* pReceiver, const Mensaje& telegram)
+void EnviarMensaje::Descargar(GameEntity* receptor, const Mensaje& mensaje)
 {
-  if (!Receptor->HandleMessage(telegram))
-  {
-    //telegram could not be handled
-    #ifdef SHOW_MESSAGING_INFO
-    debug_con << "Message not handled" << "";
-    #endif
-  }
+    if(!receptor->HandleMessage(mensaje)){
+        std::cout<<"No se ha podido enviar el mensaje"<<std::endl;
+    }
 }
 
-//---------------------------- DispatchMsg ---------------------------
-//
-//  given a message, a receiver, a sender and any time delay, this function
-//  routes the message to the correct agent (if no delay) or stores
-//  in the message queue to be dispatched at the correct time
-//------------------------------------------------------------------------
-void EnviarMensaje::Envio(double       delay,
-                                    int          sender,
-                                    int          receiver,
-                                    int          msg,
-                                    void*        AdditionalInfo = NULL)
+void EnviarMensaje::Envio(  double       delay,
+                            int          sender,
+                            int          receiver,
+                            int          msg,
+                            void*        AdditionalInfo )
 {
 
-  //get a pointer to the receiver
-  GameEntity* Receptor = EntityMgr->GetEntityFromID(receiver);
+    //get a pointer to the receiver
+    GameEntity* receptor = EntityMgr->getEntityByID(receiver);
 
-  //make sure the receiver is valid
-  if (Receptor == NULL)
-  {
-    #ifdef SHOW_MESSAGING_INFO
-    debug_con << "\nWarning! No Receiver with ID of " << receiver << " found" << "";
-    #endif
+    //make sure the receiver is valid
+    if (receptor == NULL)
+    {
+        return;
+    }
 
-    return;
-  }
+    //create the Mensaje
+    Mensaje Mensaje(0, sender, receiver, msg, AdditionalInfo);
 
-  //create the Mensaje
-  Mensaje Mensaje(0, sender, receiver, msg, AdditionalInfo);
+    //if there is no delay, route Mensaje immediately
+    if (delay <= 0.0)
+    {
+        //send the Mensaje to the recipient
+        Descargar(receptor, Mensaje);
+    }
 
-  //if there is no delay, route Mensaje immediately
-  if (delay <= 0.0)
-  {
-    #ifdef SHOW_MESSAGING_INFO
-    debug_con << "\nTelegram dispatched at time: " << TickCounter->GetCurrentFrame()
-         << " by " << sender << " for " << receiver
-         << ". Msg is " << msg << "";
-    #endif
+    //else calculate the time when the Mensaje should be dispatched
+    else
+    {
 
-    //send the Mensaje to the recipient
-    Envio(Receptor, Mensaje);
-  }
+        double CurrentTime = PhisicsWorld::getInstance()->getTimeStamp();
 
-  //else calculate the time when the Mensaje should be dispatched
-  else
-  {
-    double CurrentTime = TickCounter->GetCurrentFrame();
+        Mensaje.TiempoEnvio = CurrentTime + delay;
 
-    Mensaje.DispatchTime = CurrentTime + delay;
-
-    //and put it in the queue
-    PriorityQ.insert(Mensaje);
-
-    #ifdef SHOW_MESSAGING_INFO
-    debug_con << "\nDelayed Mensaje from " << sender << " recorded at time "
-            << TickCounter->GetCurrentFrame() << " for " << receiver
-            << ". Msg is " << msg << "";
-    #endif
-  }
+        //and put it in the queue
+        PriorityQ.insert(Mensaje);
+    }
 }
 
-//---------------------- DispatchDelayedMessages -------------------------
-//
-//  This function dispatches any telegrams with a timestamp that has
-//  expired. Any dispatched telegrams are removed from the queue
-//------------------------------------------------------------------------
+
 void EnviarMensaje::EnvioMensajePendiente()
 {
   //first get current time
-  double CurrentTime = TickCounter->GetCurrentFrame();
+  double CurrentTime = PhisicsWorld::getInstance()->getTimeStamp();
 
   //now peek at the queue to see if any telegrams need dispatching.
   //remove all telegrams from the front of the queue that have gone
   //past their sell by date
   while( !PriorityQ.empty() &&
-	     (PriorityQ.begin()->DispatchTime < CurrentTime) &&
-         (PriorityQ.begin()->DispatchTime > 0) )
+	     (PriorityQ.begin()->TiempoEnvio < CurrentTime) &&
+         (PriorityQ.begin()->TiempoEnvio > 0) )
   {
     //read the Mensaje from the front of the queue
     const Mensaje& Mensaje = *PriorityQ.begin();
 
     //find the recipient
-    GameEntity* Receptor = EntityMgr->GetEntityFromID(Mensaje.Receiver);
-
-    #ifdef SHOW_MESSAGING_INFO
-    debug_con << "\nQueued Mensaje ready for dispatch: Sent to "
-         << Receptor->ID() << ". Msg is "<< Mensaje.Msg << "";
-    #endif
+    GameEntity* receptor = EntityMgr->getEntityByID(Mensaje.Receptor);
 
     //send the Mensaje to the recipient
-    Envio(Receptor, Mensaje);
+    Descargar(receptor, Mensaje);
 
 	//remove it from the queue
     PriorityQ.erase(PriorityQ.begin());
   }
 }
 
-*/
+
 

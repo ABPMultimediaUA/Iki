@@ -9,14 +9,13 @@
 class Medico : public Enemy
 {
     private:
-        StateMachine<Enemy>* G_stateMachine;
-        State<Enemy>* actualState;
-        State<Enemy>* oldState;
-        State<Enemy>* globalState;
+        Enemy* protegido;
+        Structs::TPosicion toProtegido;
 
     public:
-        Medico(PatrolRoute* rutita)
+        Medico(int ID,PatrolRoute* rutita)
         {
+            id=ID;
             //set up state machine
             G_stateMachine = new StateMachine<Enemy>(this);
             G_stateMachine->SetCurrentState(Patrullar::Instance());
@@ -27,9 +26,12 @@ class Medico : public Enemy
             tiempoEnEstado = 0;
         }
         ~Medico(){delete G_stateMachine;}
-        void update();
+        void pedirAyuda();
+        void proteger();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
+        bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}
+        void setProtegido(Enemy* e){protegido=e;}
 
 
 };

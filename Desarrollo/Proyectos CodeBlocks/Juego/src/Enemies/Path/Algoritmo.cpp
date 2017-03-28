@@ -87,7 +87,6 @@ std::list<PathEdge> Algoritmo::GetPathAsPathEdges()const
 {
   std::list<PathEdge> path;
 
-  //just return an empty path if no target or no path found
   if (hasta < 0)  return path;
 
   int nd = hasta;

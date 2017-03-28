@@ -1,5 +1,5 @@
 #include "Fachada/GraphicsFacade.h"
-#include "GUI.h"
+#include "GUI/GUI.h"
 
 GraphicsFacade::GraphicsFacade()
 {
@@ -112,12 +112,12 @@ void GraphicsFacade::iniciarRay(Structs::TPosicion rayPos){
 
 void GraphicsFacade::cambiarRay(Camera* camara){
     ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-                      MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());
+          MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());
 }
 
 bool GraphicsFacade::interseccionRayPlano(Structs::TPosicion &mousePosition){
 
-    vector3df mousePosition2(170,0,50);
+    vector3df mousePosition2;
 
     if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition2)){
         mousePosition.X = mousePosition2.X;

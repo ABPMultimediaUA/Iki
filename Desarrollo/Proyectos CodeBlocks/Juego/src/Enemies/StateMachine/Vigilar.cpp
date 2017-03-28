@@ -1,6 +1,9 @@
 #include "Enemies/StateMachine/Vigilar.h"
 #include "Enemy.h"
 #include "Enemies/StateMachine/Patrullar.h"
+#include "Enemies/StateMachine/Escanear.h"
+#include "Enemies/StateMachine/Mensaje.h"
+#include "Enemies/StateMachine/Investigar.h"
 
 Vigilar* Vigilar::Instance()
 {
@@ -10,24 +13,33 @@ Vigilar* Vigilar::Instance()
 }
 
 void Vigilar::Enter(Enemy* enemigo){
-    /*//if the miner is not already located at the gold mine, he must
-    //change location to the gold mine
-    if (pMiner->Location() != goldmine)
-    {
-    cout << "\n" << GetNameOfEntity(pMiner->ID()) << ": "
-    << "Walkin' to the gold mine";
-    pMiner->ChangeLocation(goldmine);
-    }*/
+    enemigo->resetTime();
 }
 
 void Vigilar::Execute(Enemy* enemigo){
     enemigo->vigilar();
+    if(enemigo->getDistanciaPlayer() < 10){
+        if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
+        //std::cout<<"Escaneando..."<<std::endl;
+            enemigo->GetFSM()->ChangeState(Escanear::Instance());
+    }
     if(enemigo->getTiempo() > 5){
-        enemigo->resetTime();
+        //std::cout<<"Patrullando..."<<std::endl;
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
     }
 
 }
 
-void Vigilar::Exit(Enemy* enemigo){}
-bool Vigilar::OnMessage(Enemy*, const Mensaje&){}
+void Vigilar::Exit(Enemy* enemigo){
+    //enemigo->setPPatrulla(enemigo->getPPatrulla()->getNext());
+}
+bool Vigilar::OnMessage(Enemy* enemigo, const Mensaje& msg){
+    switch( msg.Msg )
+    {
+        case Msg_NeedHelp:
+        {
+            std::cout<<"recibo el mensajeee"<<std::endl;
+            enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        }
+    }
+}

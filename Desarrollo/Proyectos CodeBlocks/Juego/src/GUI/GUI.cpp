@@ -1,9 +1,9 @@
-#include "GUI.h"
-#include "GUI_Button.h"
-#include "GUI_Menu.h"
-#include "GUI_Title.h"
-#include "GUI_Control.h"
-#include "GUI_VolumeControl.h"
+#include "GUI/GUI.h"
+#include "GUI/GUI_Button.h"
+#include "GUI/GUI_Menu.h"
+#include "GUI/GUI_Title.h"
+#include "GUI/GUI_Control.h"
+#include "GUI/GUI_VolumeControl.h"
 #include "Fachada/GraphicsFacade.h"
 
 GUI::GUI()

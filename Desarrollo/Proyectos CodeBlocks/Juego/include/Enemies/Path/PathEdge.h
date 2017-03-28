@@ -1,9 +1,7 @@
-#ifndef PATHEDGE
-#define PATHEDGE
+#ifndef PATHEDGE_H
+#define PATHEDGE_H
 
-
-#include "Enemy.h"
-#include "Enemies/Path/SparseGraph.h"
+#include "Structs.h"
 
 class PathEdge
 {

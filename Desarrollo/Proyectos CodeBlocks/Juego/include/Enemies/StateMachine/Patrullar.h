@@ -7,10 +7,10 @@
 class Enemy;
 class Mensaje;
 
-//template <class entity_type>
 class Patrullar : public State<Enemy>
 {
 public:
+    //es SINGLETON
     static Patrullar* Instance();
     void Enter(Enemy* enemigo);
     void Execute(Enemy* enemigo);
@@ -19,11 +19,8 @@ public:
 
 private:
     Patrullar(){};
-    //copy ctor and assignment should be private
     Patrullar(const Patrullar&);
     Patrullar& operator=(const Patrullar&);
-
-
 };
 
 #endif // PATRULLAR

@@ -1,4 +1,4 @@
-#include "GUI_Menu.h"
+#include "GUI/GUI_Menu.h"
 #include "Fachada/Image.h"
 
 GUI_Menu::GUI_Menu(int x, int y)

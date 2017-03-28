@@ -1,15 +1,21 @@
 #ifndef GAMEENTITY_H
 #define GAMEENTITY_H
 
+#include "Structs.h"
+#include "Enemies/Path/PathEdge.h"
 #include "Fachada/AnimatedMesh.h"
 #include "Fachada/SceneNode.h"
+#include "MyEventReceiver.h"
+#include "Map.h"
+#include "Enemies/StateMachine/Mensaje.h"
+#include "EntityManager.h"
 #include <vector>
 #include <fstream>
 #include <string>
 #include <list>
 #include <iostream>
 #include <map>
-#include "Map.h"
+
 
 class GameEntity
 {
@@ -22,16 +28,16 @@ class GameEntity
         virtual float              getVida()     { return vida;     };
         virtual float              getRadio()    { return radio;    };
         virtual bool               isPlayer()    { return false;    };
+        virtual int                ID()          { return id;       };
 
         virtual b2Body*            getBody(){return body;};
         virtual void               setBody(b2BodyDef bodyDef);
         virtual void               setMesh(AnimatedMesh* m){ aniMesh = m;};
+        virtual bool               HandleMessage(const Mensaje& msg)=0;
+        virtual bool               isPathObstructured(Structs::TPosicion)=0;
+        virtual bool               canWalkBetween(Structs::TPosicion ,Structs::TPosicion)=0;
+        void                       quitarVida(){vida=vida-1;}
 
-        void registrarEntity(GameEntity* newE);
-        //this method removes the entity from the list
-        void borrarEntity(GameEntity* entity);
-
-        GameEntity* getEntityByID(int id)const;
 
     protected:
 
@@ -39,13 +45,11 @@ class GameEntity
         SceneNode *modelo;
         b2Body *body;
 
-        int id,nextID=0;
+        int id,nextID;
         float vida;
         Structs::TPosicion posicion;
         float radio;
 
-    private:
-        typedef std::map<int, GameEntity*> EntityMap;
 };
 
 #endif // GAME_H

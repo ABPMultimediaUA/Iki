@@ -1,4 +1,4 @@
-#include "HUD.h"
+#include "GUI/HUD.h"
 #include "Fachada/Image.h"
 
 HUD::HUD()

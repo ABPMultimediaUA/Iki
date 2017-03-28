@@ -1,4 +1,4 @@
-#include "GUI_Component.h"
+#include "GUI/GUI_Component.h"
 #include "Fachada/Image.h"
 
 GUI_Component::~GUI_Component()

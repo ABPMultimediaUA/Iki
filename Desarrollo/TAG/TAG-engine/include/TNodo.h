@@ -17,6 +17,7 @@ class TNodo
         int remHijo(TNodo* nodo);
         bool setEntidad(TEntidad* ent);
         TEntidad *getEntidad();
+        void setPadre(TNodo* padre);
         TNodo *getPadre();
 
         void draw();

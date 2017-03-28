@@ -1,4 +1,4 @@
-#include "GUI_Title.h"
+#include "GUI/GUI_Title.h"
 #include "Fachada/Image.h"
 
 GUI_Title::GUI_Title(int x, int y, std::string cadena)
