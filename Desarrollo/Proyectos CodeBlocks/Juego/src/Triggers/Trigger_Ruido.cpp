@@ -22,20 +22,20 @@ void Trigger_Ruido::Try(GameEntity* ent)
         speed = static_cast<Player*>(ent)->getSpeed();
     }
 
-    std::cout << "ARREGLA ESTO HIJODEPUTA" << std::endl;
+    //std::cout << "ARREGLA ESTO " << std::endl;
 
     if (isActive() && !ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
 
         if (speed == 1){
             // se mueve lento y me detectan
-            std::cout << "me ven despasico" << std::endl;
+            //std::cout << "me ven despasico" << std::endl;
         }else{
             // static_cast<Enemigo*>(ent)->Sospechar();
-            std::cout << "me ven MUCHO" << std::endl;
+            //std::cout << "me ven MUCHO" << std::endl;
         }
     }
-    else
-        std::cout << "    " << std::endl;
+    else{}
+        //std::cout << "    " << std::endl;
 
 }
 

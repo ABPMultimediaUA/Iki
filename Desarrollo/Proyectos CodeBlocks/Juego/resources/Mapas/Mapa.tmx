@@ -800,8 +800,8 @@
    <property name="Puerta" value="5"/>
    <property name="PuertaLlave" value="6"/>
   </properties>
-  <object id="2595" type="5" x="40.3636" y="166.909" width="2" height="2" rotation="90"/>
-  <object id="2597" type="5" x="33" y="127.909" width="2" height="2" rotation="360"/>
+  <object id="2595" type="5" x="39.0909" y="167.454" width="2" height="2" rotation="90"/>
+  <object id="2597" type="6" x="34.8182" y="129.909" width="2" height="2" rotation="360"/>
   <object id="2598" type="3" x="30.3636" y="184.909" width="2" height="2"/>
   <object id="2599" type="4" x="63.6364" y="159.273" width="2" height="2"/>
  </objectgroup>
