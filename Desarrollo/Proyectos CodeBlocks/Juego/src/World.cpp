@@ -1,9 +1,9 @@
 #include "World.h"
 #include "Enemy.h"
-#include "Guardia.h"
+#include "Enemies/Guardia.h"
 #include "PatrolRoute.h"
-#include "Medico.h"
-#include "Dron.h"
+#include "Enemies/Medico.h"
+#include "Enemies/Dron.h"
 #include "EntityManager.h"
 
 World::World()

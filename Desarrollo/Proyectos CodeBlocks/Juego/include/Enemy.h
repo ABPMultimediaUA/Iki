@@ -1,16 +1,14 @@
-#ifndef ENEMIGO_H
-#define ENEMIGO_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include "GameEntity.h"
-#include "StateMachine.h"
+#include "Enemies/StateMachine/StateMachine.h"
 
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
-#include "Path/PathEdge.h"
-
+#include "Enemies/Path/PathEdge.h"
 
 class PathPlanner;
-
 
 class Enemy : public GameEntity
 {
@@ -29,6 +27,7 @@ class Enemy : public GameEntity
         virtual bool HandleMessage(const Mensaje& msg)=0;
         ///GETTERS
         int getTipo(){return tipo;}
+        float getSospecha(){return sospecha;}
         PatrolPoint* getPPatrulla(){return pRuta; }
         PatrolRoute* getPatrulla() {return ruta;  }
         f32 getTiempo() { return tiempoEnEstado;}
@@ -38,19 +37,25 @@ class Enemy : public GameEntity
         Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
         //Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
         ///SETTERS
-        void SetID(int val);
+        void setID(int val);
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
+        void setPPatrulla(PatrolPoint* p){pRuta=p;}
         ///ESTADOS
         void patrullar();
         void vigilar();
+        void escanear();
         ///METODOS
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
         bool isPathObstructured(Structs::TPosicion destino);
+        bool isEnemySeeing(Structs::TPosicion destino);
         bool canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta);
+        void moverBody(Structs::TPosicion vec);
+        void MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2);
+        void volverALaPatrulla();
 
 
     protected:
@@ -73,6 +78,7 @@ class Enemy : public GameEntity
 
         ///PATHPLANNING
         SparseGraph* grafo;
+        //PathPlanner<Enemy>* path;
         PathPlanner* path;
         std::list<PathEdge> listaEjes;
         std::list<PathEdge>::iterator it;

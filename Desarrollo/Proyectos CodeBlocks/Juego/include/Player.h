@@ -6,16 +6,14 @@
 #include "Fachada/Camera.h"
 #include <iostream>
 
-
 class PathFinding;
+class PathPlanner;
 class SparseGraph;
+class Player_Ray;
 
 #define MOV_SPEED 10.0f;
 
-class Player_Ray;
-
-class Player : public GameEntity
-{
+class Player : public GameEntity{
     public:
         Player();
         ~Player();
@@ -33,6 +31,7 @@ class Player : public GameEntity
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
         bool HandleMessage(const Mensaje& msg){return true;}
         bool isPathObstructured(Structs::TPosicion destino);
+        bool canWalkBetween(Structs::TPosicion,Structs::TPosicion);
 
         int getSpeed(){ return speed; }
         bool getMoving();
@@ -56,6 +55,7 @@ class Player : public GameEntity
         Player_Ray* rayo;
         b2RayCastInput input;
         b2RayCastOutput	output;
+
         float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING
         Map* Mapa;
@@ -64,6 +64,12 @@ class Player : public GameEntity
         std::list<int> listaNodos;
         std::list<int>::iterator it;
 
+        ///PATHPLANNING
+        PathPlanner* path2;
+        std::list<PathEdge> listaEjes;
+        std::list<PathEdge>::iterator it2;
 };
 
 #endif // PLAYER_H
+
+
