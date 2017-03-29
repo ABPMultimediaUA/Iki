@@ -30,6 +30,7 @@
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
 					<Add directory="include/SoundEngine" />
+					<Add directory="include/GUI" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -55,6 +56,7 @@
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
 					<Add directory="include/SoundEngine" />
+					<Add directory="include/GUI" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -121,6 +123,7 @@
 		<Unit filename="include/GUI/GUI_Title.h" />
 		<Unit filename="include/GUI/GUI_VolumeControl.h" />
 		<Unit filename="include/GUI/HUD.h" />
+		<Unit filename="include/GUI/HUD_Element.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameEntity.h" />
 		<Unit filename="include/LevelData.h" />
@@ -190,6 +193,7 @@
 		<Unit filename="src/GUI/GUI_Title.cpp" />
 		<Unit filename="src/GUI/GUI_VolumeControl.cpp" />
 		<Unit filename="src/GUI/HUD.cpp" />
+		<Unit filename="src/GUI/HUD_Element.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameEntity.cpp" />
 		<Unit filename="src/LevelData.cpp" />

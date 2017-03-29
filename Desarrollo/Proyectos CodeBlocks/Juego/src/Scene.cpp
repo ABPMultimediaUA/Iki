@@ -32,11 +32,11 @@ void Scene::inicializar_escena(){
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
-    GraphicsFacade::getInstance().inicializar_gui(1);
     //camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
     world->inicializar_mundo();
     Mapa = world->getMapa();
     player->inicializar_player(Mapa);
+    GraphicsFacade::getInstance().inicializar_gui(1);
     menu_ingame->inicializar_menu(1);
 
     //EntityMgr->registrarEntity(player);
@@ -54,7 +54,9 @@ void Scene::bucle_juego(){
     while(GraphicsFacade::getInstance().run()){
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
+            GraphicsFacade::getInstance().pararTiempo();
             menu_ingame->run(false);
+            GraphicsFacade::getInstance().reanudarTiempo();
         }
         world->update_mundo();
         player->update(camara);

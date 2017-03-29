@@ -9,7 +9,8 @@
 class PathFinding;
 class PathPlanner;
 class SparseGraph;
-class Player_Ray;
+
+#include "Player_Ray.h"
 
 #define MOV_SPEED 10.0f;
 
@@ -34,6 +35,7 @@ class Player : public GameEntity{
         bool canWalkBetween(Structs::TPosicion,Structs::TPosicion);
 
         int getSpeed(){ return speed; }
+        int getMunicion(){ return rayo->getBalas();}
         bool getMoving();
         void TriggerRuido();
         Trigger *getRuido(){return ruido;}

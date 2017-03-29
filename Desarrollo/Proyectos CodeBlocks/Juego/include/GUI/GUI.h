@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+class HUD;
 class GUI_Component;
 
 class GUI
@@ -22,12 +23,14 @@ class GUI
 
         void draw(int);
         void clean();
+        void inicializar_hd();
 
     protected:
 
     private:
 
         std::vector<GUI_Component*> componentes;
+        HUD* hud;
 
 };
 
