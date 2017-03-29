@@ -41,7 +41,6 @@ void Scene::inicializar_escena(){
 
     //EntityMgr->registrarEntity(player);
 
-
     Trigger* ruido = player->getRuido();
     triggersystem.Register(ruido);
     triggersystem.LeerMapa();

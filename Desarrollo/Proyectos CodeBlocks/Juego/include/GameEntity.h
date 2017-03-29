@@ -48,7 +48,7 @@ class GameEntity
         int id,nextID;
         float vida;
         Structs::TPosicion posicion;
-        float radio;
+        float radio = 1.0;
 
 };
 

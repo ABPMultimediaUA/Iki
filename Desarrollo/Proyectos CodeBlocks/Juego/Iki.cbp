@@ -140,7 +140,6 @@
 		<Unit filename="include/Triggers/TriggerFactory.h" />
 		<Unit filename="include/Triggers/TriggerRegion.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Circle.h" />
-		<Unit filename="include/Triggers/TriggerRegion_Rectangle.h" />
 		<Unit filename="include/Triggers/TriggerSystem.h" />
 		<Unit filename="include/Triggers/Trigger_Llave.h" />
 		<Unit filename="include/Triggers/Trigger_Municion.h" />
@@ -209,7 +208,6 @@
 		<Unit filename="src/Triggers/TriggerFactory.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion_Circle.cpp" />
-		<Unit filename="src/Triggers/TriggerRegion_Rectangle.cpp" />
 		<Unit filename="src/Triggers/TriggerSystem.cpp" />
 		<Unit filename="src/Triggers/Trigger_Llave.cpp" />
 		<Unit filename="src/Triggers/Trigger_Municion.cpp" />
