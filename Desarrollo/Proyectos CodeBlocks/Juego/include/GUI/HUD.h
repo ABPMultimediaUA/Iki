@@ -1,7 +1,9 @@
 #ifndef HUD_H
 #define HUD_H
 
-class Image;
+#include "HUD_Element.h"
+
+class Player;
 
 class HUD
 {
@@ -12,15 +14,20 @@ class HUD
         void inicializar_HUD();
         void draw();
 
+        void actualizarBalas();
+        void actualizarVidas();
+
     protected:
 
     private:
-        Image* Vida;
-        Image* Laser;
-        Image* Desc_laser;
-        Image* Num_balas;
+        std::vector<HUD_Element*> elementos;
 
-        //Player* player;
+        HUD_Element* Vida;
+        HUD_Element* Balas;
+        HUD_Element* Leyenda;
+        HUD_Element* Rayo;
+
+        Player* player;
 };
 
 #endif // HUD_H

@@ -51,6 +51,9 @@ class GraphicsFacade
         SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
 
+        void pararTiempo();
+        void reanudarTiempo();
+
     protected:
 
     private:
@@ -65,7 +68,7 @@ class GraphicsFacade
         plane3df plane;
         line3df ray;
 
-        int resolucionX = 1280, resolucionY = 720;
+        int resolucionX = 1360, resolucionY = 768;
 };
 
 #endif // GRAPHICSFACADE_H

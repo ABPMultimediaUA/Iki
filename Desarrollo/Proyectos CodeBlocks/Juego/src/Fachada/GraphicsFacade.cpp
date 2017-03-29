@@ -23,6 +23,9 @@ GraphicsFacade::~GraphicsFacade()
 }
 
 void GraphicsFacade::inicializar_gui(int menu){
+
+    gui->inicializar_hd();
+
     ///MENU
     gui->anyadirmenu (400, 60);
 
@@ -78,16 +81,14 @@ void GraphicsFacade::draw(int draw_type){
 	//Dibujamos los nodos y los cuadros de texto del entorno
 	beginScene();
 	smgr->drawAll();
-	if(draw_type > 0)
-        gui->draw(draw_type);
+    gui->draw(draw_type);
 	endScene();
 
 }
 
 bool GraphicsFacade::run(){
 
-	return device->run();
-
+    return device->run();
 }
 
 void GraphicsFacade::close(){
@@ -194,7 +195,11 @@ void GraphicsFacade::changeResolution(int number){
     }
 }
 
-/*void GraphicsFacade::reSizeWindow(){
-    driver->OnResize(dimension2du(resolucionX, resolucionY));
-    smgr->getActiveCamera()->setAspectRatio((float)resolucionX/resolucionY);
-}*/
+void GraphicsFacade::pararTiempo(){
+    timer->stop();
+}
+
+void GraphicsFacade::reanudarTiempo(){
+    timer->start();
+}
+

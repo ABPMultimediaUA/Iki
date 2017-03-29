@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
-#include "Player_Ray.h"
 #include "Enemies/Path/PathFinding.h"
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
@@ -11,6 +10,7 @@
 Player::Player()
 {
     rayo = new Player_Ray();
+    vida = 5;
 }
 
 Player::~Player()
