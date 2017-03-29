@@ -2,17 +2,19 @@
 #define SCENE_H
 
 #include "Structs.h"
-#include "Fachada/Camera.h"
-#include "Player.h"
-#include "World.h"
 #include "TriggerSystem.h"
-#include "Map.h"
+
+class Camera;
+class Player;
+class World;
+class Map;
+class Menu;
 
 class Scene
 {
     public:
         Scene();
-        virtual ~Scene();
+        ~Scene();
         void inicializar_escena();
         void bucle_juego();
 
@@ -24,7 +26,8 @@ class Scene
         World *world;
         TriggerSystem triggersystem;
         Player *player;
-        Map* mapa;
+        Menu* menu_ingame;
+        Map* Mapa;
 
 };
 

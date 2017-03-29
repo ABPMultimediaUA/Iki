@@ -3,7 +3,7 @@
 #include "PatrolPoint.h"
 #include "PatrolRoute.h"
 #include "PhisicsWorld.h"
-#include "Path/PathPlanner.h"
+#include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 
 void Enemy::update(){
