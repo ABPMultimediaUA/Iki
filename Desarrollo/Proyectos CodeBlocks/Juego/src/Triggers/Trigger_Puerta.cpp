@@ -19,15 +19,9 @@ void Trigger_Puerta::Try(GameEntity* ent)
        aniMesh->setVisible(false);
        body->SetActive(false);
        if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
-            if (!estaDentro){
-                SoundManager::getInstance()->playSonido("alarma_sintetizada2");
-
-            }
-       }else{
-
+            SoundManager::getInstance()->playSonido("alarma_sintetizada2");
        }
-    }
-    else{
+    }else{
         aniMesh->setVisible(true);
         body->SetActive(true);
     }

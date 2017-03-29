@@ -118,7 +118,7 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        moverse = true;
+        //moverse = true;
         //listaNodos.clear();
         listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
@@ -128,10 +128,10 @@ void Player::update(Camera* camara){
         //it=listaNodos.begin();
         it2=listaEjes.begin();
 
-        
+
     }
 
-    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
+    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition)){
 
         if(!listaEjes.empty() && it2 != listaEjes.end())
             toNextNodo = (*it2).getDestination() - posicion;
