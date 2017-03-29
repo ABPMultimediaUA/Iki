@@ -16,6 +16,7 @@ class HUD_Element
         bool comprobarEncima();
         void setActive(bool);
         bool isActive(){return active;}
+        void setPosition(int, int);
 
     protected:
 

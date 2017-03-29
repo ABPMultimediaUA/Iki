@@ -24,7 +24,8 @@ GraphicsFacade::~GraphicsFacade()
 
 void GraphicsFacade::inicializar_gui(int menu){
 
-    gui->inicializar_hd();
+    if(menu != 0)
+        gui->inicializar_hd();
 
     ///MENU
     gui->anyadirmenu (400, 60);

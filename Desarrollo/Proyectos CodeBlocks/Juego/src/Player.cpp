@@ -144,7 +144,7 @@ void Player::update(Camera* camara){
         if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
         {
             moverBody(quietoParado);
-            if(it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+            if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
                 it2++;
         }
         else

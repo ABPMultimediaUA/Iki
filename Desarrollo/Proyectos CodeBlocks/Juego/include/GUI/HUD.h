@@ -16,11 +16,13 @@ class HUD
 
         void actualizarBalas();
         void actualizarVidas();
+        //void actualizarPosicionEnemies();
 
     protected:
 
     private:
         std::vector<HUD_Element*> elementos;
+        //std::vector<HUD_Element*> enemies;
 
         HUD_Element* Vida;
         HUD_Element* Balas;

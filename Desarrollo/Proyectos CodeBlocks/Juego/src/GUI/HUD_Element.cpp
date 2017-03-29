@@ -29,15 +29,12 @@ void HUD_Element::cambiarRect(Structs::TRectangulo rect){
 }
 
 bool HUD_Element::comprobarEncima(){
-    std::cout<<"Posicion(x,y): ("<<posicionX<<","<<posicionY<<")"<<std::endl;
-    std::cout<<"Posicion raton(x,y): ("<<MyEventReceiver::getInstance().GetMouseState().Position.X<<","<<MyEventReceiver::getInstance().GetMouseState().Position.Y<<")"<<std::endl;
 
     if(   (MyEventReceiver::getInstance().GetMouseState().Position.X > posicionX
        && MyEventReceiver::getInstance().GetMouseState().Position.X < posicionX + 110)
        && (MyEventReceiver::getInstance().GetMouseState().Position.Y > posicionY
        && MyEventReceiver::getInstance().GetMouseState().Position.Y < posicionY + 109)){
 
-       std::cout<<"holi"<<std::endl;
        color = {255,125,125,125};
         return true;
        }
@@ -47,5 +44,10 @@ bool HUD_Element::comprobarEncima(){
 
 void HUD_Element::setActive(bool act){
     active = act;
+}
+
+void HUD_Element::setPosition(int x, int y){
+    posicionX = x;
+    posicionY = y;
 }
 

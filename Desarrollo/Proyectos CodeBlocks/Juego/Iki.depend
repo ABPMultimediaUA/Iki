@@ -1341,7 +1341,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1490787116 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1490800033 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3069,7 +3069,7 @@
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1490789079 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1490801285 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
@@ -3349,7 +3349,7 @@
 1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player_ray.h
 	"Structs.h"
 
-1490715534 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
+1490800306 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
 	"Player_Ray.h"
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
@@ -5538,13 +5538,13 @@
 	"GUI/GUI_VolumeControl.h"
 	"Fachada/Image.h"
 
-1490789640 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
+1490801183 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
 	"GUI/HUD.h"
 	"Fachada/Image.h"
 	"EntityManager.h"
 	"Player.h"
 
-1490786743 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
+1490803054 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
 	"HUD_Element.h"
 
 1490711890 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
@@ -5654,10 +5654,10 @@
 	"Enemies/StateMachine/Escanear.h"
 	"Enemies/StateMachine/Mensaje.h"
 
-1490787731 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud_element.h
+1490801932 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud_element.h
 	"Structs.h"
 
-1490790340 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud_element.cpp
+1490801896 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud_element.cpp
 	"HUD_Element.h"
 	"Fachada/Image.h"
 	"MyEventReceiver.h"

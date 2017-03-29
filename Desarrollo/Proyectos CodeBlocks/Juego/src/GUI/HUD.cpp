@@ -47,12 +47,20 @@ void HUD::inicializar_HUD(){
     rec = {85, 0, 98, 17};
     elementos.push_back(new HUD_Element(1035, 525, rec, "numerobalas", false));
     Balas = elementos[3];
+
+    /*vector<GameEntity*> vec = EntityMgr->getEntities();
+    for(size_t i = 0; i < vec.size() - 1; i++){
+        rec = {0, 0, 35, 50};
+        elementos.push_back(new HUD_Element(vec[i]->getPosition().X, vec[i]->getPosition().Z, rec, "preguntavacia", true));
+        enemies.push_back(elementos[i+4]);
+    }*/
 }
 
 void HUD::draw(){
 
     actualizarVidas();
     actualizarBalas();
+    //actualizarPosicionEnemies();
     if(Rayo->comprobarEncima()){
         Leyenda->setActive(true);
         Balas->setActive(true);
@@ -77,3 +85,12 @@ void HUD::actualizarBalas(){
     Structs::TRectangulo rec = {player->getMunicion() * 17, 0, (player->getMunicion() * 17.5) + 10, 16.9};
     Balas->cambiarRect(rec);
 }
+
+/*void HUD::actualizarPosicionEnemies(){
+
+    vector<GameEntity*> vec = EntityMgr->getEntities();
+
+    for(size_t i = 0; i < enemies.size(); i++){
+        enemies[i]->setPosition(vec[i]->getPosition().X + 680, vec[i]->getPosition().Z + 384);
+    }
+}*/
