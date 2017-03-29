@@ -19,6 +19,7 @@ void Trigger_Puerta::triggerDisparado()
     body->SetActive(false);
     if (!fired){
         //if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
+        SoundManager::getInstance()->soundStop("puerta_cerrar");
         SoundManager::getInstance()->playSonido("puerta_abrir");
         fired = true;
     }
