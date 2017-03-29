@@ -48,6 +48,6 @@ void Player_Ray::lanzar_rayo(Structs::TPosicion pos_prota){
 }
 
 void Player_Ray::borrar_rayo(){
-    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000 - vida > 1)
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000 - vida > 0.3)
         modelo->setVisible(false);
 }

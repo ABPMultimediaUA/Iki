@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
-#include "Player_Ray.h"
 #include "Enemies/Path/PathFinding.h"
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
@@ -11,6 +10,7 @@
 Player::Player()
 {
     rayo = new Player_Ray();
+    vida = 5;
 }
 
 Player::~Player()
@@ -144,7 +144,7 @@ void Player::update(Camera* camara){
         if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
         {
             moverBody(quietoParado);
-            if(it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+            if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
                 it2++;
         }
         else
