@@ -1,4 +1,4 @@
-#include "HUD_Element.h"
+#include "GUI/HUD_Element.h"
 #include "Fachada/Image.h"
 #include "MyEventReceiver.h"
 
