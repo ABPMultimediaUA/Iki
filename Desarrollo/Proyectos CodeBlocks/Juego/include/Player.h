@@ -6,17 +6,15 @@
 #include "Fachada/Camera.h"
 #include <iostream>
 
-
 class PathFinding;
 class PathPlanner;
 class SparseGraph;
 
+#include "Player_Ray.h"
+
 #define MOV_SPEED 10.0f;
 
-class Player_Ray;
-
-class Player : public GameEntity
-{
+class Player : public GameEntity{
     public:
         Player();
         ~Player();
@@ -37,6 +35,7 @@ class Player : public GameEntity
         bool canWalkBetween(Structs::TPosicion,Structs::TPosicion);
 
         int getSpeed(){ return speed; }
+        int getMunicion(){ return rayo->getBalas();}
         bool getMoving();
         void TriggerRuido();
         Trigger *getRuido(){return ruido;}
@@ -67,11 +66,13 @@ class Player : public GameEntity
         PathFinding* path;
         std::list<int> listaNodos;
         std::list<int>::iterator it;
+
         ///PATHPLANNING
         PathPlanner* path2;
         std::list<PathEdge> listaEjes;
         std::list<PathEdge>::iterator it2;
-
 };
 
 #endif // PLAYER_H
+
+

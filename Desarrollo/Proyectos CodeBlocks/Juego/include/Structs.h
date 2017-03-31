@@ -2,6 +2,7 @@
 #define STRUCTS_H
 
 #include <irrlicht.h>
+#include <iostream>
 #include <stdio.h>
 #include "vector"
 #include "string"
@@ -194,6 +195,13 @@ class Structs
             float alto;
             float profundo;
         }TMedida;
+
+        typedef struct{
+            int X_inicio;
+            int Y_inicio;
+            int X_final;
+            int Y_final;
+        }TRectangulo;
 
     protected:
 

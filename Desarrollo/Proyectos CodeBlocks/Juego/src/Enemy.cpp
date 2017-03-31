@@ -3,7 +3,7 @@
 #include "PatrolPoint.h"
 #include "PatrolRoute.h"
 #include "PhisicsWorld.h"
-#include "Path/PathPlanner.h"
+#include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 
 void Enemy::update(){
@@ -238,6 +238,6 @@ void Enemy::volverALaPatrulla(){
     setPosition();
 }
 void Enemy::muerto(){
-    posicion = {100,0,100};
+    posicion = {1000,0,1000};
     setPosition();
 }

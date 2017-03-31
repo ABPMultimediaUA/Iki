@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2490">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2494">
  <objectgroup color="#000000" name="Pared">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
@@ -616,18 +616,19 @@
   <object id="2450" x="29.875" y="190.625" width="2" height="2" rotation="-180.011"/>
  </objectgroup>
  <objectgroup color="#ff0000" name="Puertas">
-  <object id="1283" x="38.7408" y="167.013" width="2" height="2" rotation="90"/>
-  <object id="1913" x="34.8304" y="130.595" width="2" height="2" rotation="180"/>
+  <object id="1283" x="34.9091" y="130.364" width="2" height="2" rotation="180"/>
+  <object id="1913" x="38.2281" y="166.868" width="2" height="2" rotation="90"/>
   <object id="2389" x="117.854" y="64.0308" width="2" height="2" rotation="180"/>
  </objectgroup>
  <objectgroup color="#0000ff" name="Palancas">
-  <object id="2433" x="30.2727" y="132.636" width="2" height="2"/>
+  <object id="2433" x="83.8522" y="94.6928" width="2" height="2"/>
+  <object id="2493" x="67.9091" y="99.1818" width="2" height="2"/>
  </objectgroup>
  <objectgroup color="#ffffff" name="Objetos">
-  <object id="2434" x="63.3068" y="159.364" width="2" height="2"/>
-  <object id="2435" x="68.8182" y="122.273" width="2" height="2"/>
-  <object id="2436" x="23.9091" y="99.5455" width="2" height="2"/>
-  <object id="2437" x="80.6364" y="78.2727" width="2" height="2"/>
+  <object id="2434" x="30.625" y="182.773" width="2" height="2"/>
+  <object id="2435" x="3.36365" y="9.36391" width="2" height="2"/>
+  <object id="2436" x="67.9091" y="123.091" width="2" height="2"/>
+  <object id="2437" x="25.1819" y="100.636" width="2" height="2"/>
  </objectgroup>
  <objectgroup color="#ffff00" name="Apisonadora">
   <object id="2451" x="80" y="100.733" width="2" height="2"/>
@@ -642,10 +643,11 @@
   <object id="2462" x="53.125" y="104" width="2" height="2"/>
   <object id="2463" x="57.625" y="76.625" width="2" height="2"/>
   <object id="2464" x="96" y="69.125" width="2" height="2"/>
-  <object id="2465" x="96.625" y="98.875" width="2" height="2"/>
-  <object id="2466" x="112.5" y="116.625" width="2" height="2"/>
-  <object id="2467" x="124.75" y="111.75" width="2" height="2"/>
-  <object id="2468" x="124" y="87.25" width="2" height="2"/>
-  <object id="2470" x="115.047" y="71.9472" width="2" height="2" rotation="51.5266"/>
+  <object id="2465" x="96.8068" y="102.966" width="2" height="2"/>
+  <object id="2466" x="118.125" y="118.125" width="2" height="2"/>
+  <object id="2467" x="127.761" y="105.489" width="2" height="2"/>
+  <object id="2468" x="118.125" y="118" width="2" height="2"/>
+  <object id="2470" x="116.865" y="75.3961" width="2" height="2" rotation="51.5266"/>
+  <object id="2492" x="80" y="98.5625" width="2" height="2"/>
  </objectgroup>
 </map>

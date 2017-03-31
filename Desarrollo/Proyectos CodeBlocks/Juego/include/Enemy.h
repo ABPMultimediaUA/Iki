@@ -1,16 +1,14 @@
-#ifndef ENEMIGO_H
-#define ENEMIGO_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include "GameEntity.h"
-#include "StateMachine.h"
+#include "Enemies/StateMachine/StateMachine.h"
 
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
-
-
+#include "Enemies/Path/PathEdge.h"
 
 class PathPlanner;
-
 
 class Enemy : public GameEntity
 {

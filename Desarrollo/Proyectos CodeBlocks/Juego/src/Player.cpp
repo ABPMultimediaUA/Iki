@@ -1,9 +1,8 @@
 #include "Player.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
-#include "Player_Ray.h"
-#include "Path/PathFinding.h"
-#include "Path/PathPlanner.h"
+#include "Enemies/Path/PathFinding.h"
+#include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 #include "PhisicsWorld.h"
 
@@ -11,6 +10,7 @@
 Player::Player()
 {
     rayo = new Player_Ray();
+    vida = 5;
 }
 
 Player::~Player()
@@ -108,14 +108,17 @@ void Player::update(Camera* camara){
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 700;
 
-    TriggerRuido();
+    rayo->borrar_rayo();
 
-    if(rayo->getBalas() > 0){
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
-            GraphicsFacade::getInstance().cambiarRay(camara);
-            rayo->lanzar_rayo(posicion);
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
+        if(rayo->getBalas() > 0){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000 - rayo->getVidaRayo() > 1){
+                GraphicsFacade::getInstance().cambiarRay(camara);
+                rayo->lanzar_rayo(posicion);
+            }
         }
     }
+    TriggerRuido();
 
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
@@ -128,6 +131,7 @@ void Player::update(Camera* camara){
         path2->SmoothPathEdgesQuick(listaEjes);
         //it=listaNodos.begin();
         it2=listaEjes.begin();
+
     }
     if(!listaEjes.empty() && it2 != listaEjes.end())
         toNextNodo = (*it2).getDestination() - posicion;
@@ -144,6 +148,7 @@ void Player::update(Camera* camara){
     { //CUANDO AUN NO HA LLEGADO A UN NODO
         MoverPlayer((*it2).getDestination(),toNextNodo);
     }
+
 }
 
 void Player::CogerMunicion()

@@ -7,6 +7,7 @@
 #include "SceneNode.h"
 #include "Structs.h"
 
+class GUI;
 
 class GraphicsFacade
 {
@@ -23,36 +24,51 @@ class GraphicsFacade
         }
         ~GraphicsFacade();
 
-        void draw();
+        void inicializar_gui(int);
+        void vaciar_gui();
+
+        void beginScene();
+        void endScene();
+
+        void draw(int);
         bool run();
+        void close();
         void drop();
 
         void setWindowCaption();
         void iniciarRay(Structs::TPosicion rayPos);
         void cambiarRay(Camera* camara);
+        void changeResolution(int);
+        //void reSizeWindow();
         bool interseccionRayPlano(Structs::TPosicion &mousePosition);
         float calcularDistancia(Structs::TPosicion position);
         ISceneManager* getScene() { return smgr; }
         IrrlichtDevice* getDevice() { return device; }
         IVideoDriver* getDriver() { return driver; }
-        IGUIEnvironment* getGUI() { return guienv; }
+        GUI* getGUI() { return gui; }
         ITimer* getTimer() { return timer; };
 
         SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
+
+        void pararTiempo();
+        void reanudarTiempo();
 
     protected:
 
     private:
 
         GraphicsFacade();
+        void crearDevice();
+        GUI* gui;
         IrrlichtDevice* device;
         IVideoDriver* driver;
         ISceneManager* smgr;
-        IGUIEnvironment* guienv;
         ITimer* timer;
         plane3df plane;
         line3df ray;
+
+        int resolucionX = 1360, resolucionY = 768;
 };
 
 #endif // GRAPHICSFACADE_H
