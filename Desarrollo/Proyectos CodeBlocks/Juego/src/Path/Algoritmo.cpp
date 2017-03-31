@@ -1,18 +1,5 @@
 #include "Path/Algoritmo.h"
 
-/*Asi funciona el algoritmo A*:
-- Si el nodo inicial es igual al nodo final, se retorna el nodo inicial como solucion
-- Si no, se adiciona el nodo inicial a la lista abierta
-- Mientras la lista abierta no este vacia, se recorre cada nodo que haya en la lista abierta y se toma el que tenga el costo total mas bajo
-- Si el nodo obtenido es igual al nodo final, se retornan todos los nodos sucesores al nodo encontrado
-- Si no , se toma el nodo y se elimina de la lista abierta para guardarse en la lista cerrada y se buscan todos los nodos adyacentes
-al nodo obtenido y se adicionan a la lista abierta a menos que el nodo se encuentre en la lista cerrada o que el nodo sea solido
-- Si el nodo adyacente ya se encuentra en la lista abierta se verifica que el costo sea menor, si es menor se cambian los valores de costo,
-sino se ignora
-- Se vuelve al paso 3 y se repite hasta que el punto 4 sea verdadero o que la lista abierta quede vacía
-
-*/
-
 void Algoritmo::Search()
 {
 
@@ -41,7 +28,6 @@ void Algoritmo::Search()
             double GCost = costReal[snc] + pE->Cost();
 
 //Si el nodo no ha sido anyadido al vector frontera, lo anyado y actualizo
-//the G and F costs
             if (BuscarFrontera[pE->To()] == NULL)
             {
                 Fcost[pE->To()] = GCost + HCost;

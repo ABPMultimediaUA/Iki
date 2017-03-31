@@ -27,34 +27,24 @@ void EnviarMensaje::Envio(  double       delay,
                             void*        AdditionalInfo )
 {
 
-    //get a pointer to the receiver
     GameEntity* receptor = EntityMgr->getEntityByID(receiver);
-
-    //make sure the receiver is valid
     if (receptor == NULL)
     {
         return;
     }
 
-    //create the Mensaje
     Mensaje Mensaje(0, sender, receiver, msg, AdditionalInfo);
 
-    //if there is no delay, route Mensaje immediately
     if (delay <= 0.0)
     {
-        //send the Mensaje to the recipient
         Descargar(receptor, Mensaje);
     }
 
-    //else calculate the time when the Mensaje should be dispatched
     else
     {
 
         double CurrentTime = PhisicsWorld::getInstance()->getTimeStamp();
-
         Mensaje.TiempoEnvio = CurrentTime + delay;
-
-        //and put it in the queue
         PriorityQ.insert(Mensaje);
     }
 }
@@ -62,26 +52,16 @@ void EnviarMensaje::Envio(  double       delay,
 
 void EnviarMensaje::EnvioMensajePendiente()
 {
-  //first get current time
   double CurrentTime = PhisicsWorld::getInstance()->getTimeStamp();
 
-  //now peek at the queue to see if any telegrams need dispatching.
-  //remove all telegrams from the front of the queue that have gone
-  //past their sell by date
   while( !PriorityQ.empty() &&
 	     (PriorityQ.begin()->TiempoEnvio < CurrentTime) &&
          (PriorityQ.begin()->TiempoEnvio > 0) )
   {
-    //read the Mensaje from the front of the queue
     const Mensaje& Mensaje = *PriorityQ.begin();
 
-    //find the recipient
     GameEntity* receptor = EntityMgr->getEntityByID(Mensaje.Receptor);
-
-    //send the Mensaje to the recipient
     Descargar(receptor, Mensaje);
-
-	//remove it from the queue
     PriorityQ.erase(PriorityQ.begin());
   }
 }

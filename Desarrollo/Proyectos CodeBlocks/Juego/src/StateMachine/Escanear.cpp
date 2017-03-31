@@ -3,6 +3,7 @@
 #include "Patrullar.h"
 #include "PedirAyuda.h"
 #include "Atacar.h"
+#include "Alarma.h"
 
 Escanear* Escanear::Instance()
 {
@@ -18,17 +19,22 @@ void Escanear::Enter(Enemy* enemigo){
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
     if(enemigo->getSospecha()==99){
-            ///COMBATEEE
-            if(enemigo->getTipo()== 2){
-               // std::cout<<"Pidiendo ayuda..."<<std::endl;
-                enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());
-            }
-            else if(enemigo->getTipo()== 1){
-               // std::cout<<"Atacando..."<<std::endl;
-                enemigo->GetFSM()->ChangeState(Atacar::Instance());
-            }
+        ///COMBATEEE
+        switch(enemigo->getTipo()){
+        case 1:
+            enemigo->GetFSM()->ChangeState(Atacar::Instance());
+            break;
+        case 2:
+            enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());
+            break;
+        case 3:
+            enemigo->GetFSM()->ChangeState(Alarma::Instance());
+            break;
+        default:
+            break;
         }
-    else if(enemigo->getTiempo()>3)
+    }
+    else if(enemigo->getTiempo()>1.5)
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
 
 }

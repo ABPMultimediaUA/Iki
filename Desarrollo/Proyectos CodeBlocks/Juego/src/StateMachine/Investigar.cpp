@@ -25,7 +25,7 @@ void Investigar::Execute(Enemy* enemigo){
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
     }
     if(enemigo->getPosition() == enemigo->getPosicionInteres()){
-            enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+            enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
     static_cast<Guardia*>(enemigo)->investigar();
 

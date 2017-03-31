@@ -22,7 +22,6 @@ class PathEdge
     protected:
 
     private:
-        //positions of the source and destination nodes this edge connects
         Structs::TPosicion desde;
         Structs::TPosicion hasta;
         //the behavior associated with traversing this edge

@@ -4,8 +4,6 @@ PathFinding::PathFinding(SparseGraph* graf, Player* play)
 {
     grafo = graf;
     player=play;
-   // player=owner;
-    //ctor
 }
 
 PathFinding::~PathFinding()

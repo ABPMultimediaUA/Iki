@@ -11,7 +11,6 @@ class PatrolRoute
 
         void setInicial(PatrolPoint* p);
 
-
         PatrolPoint* getInicial(){ return inicial; };
         int          getEnemigo(){ return enemigo; };
 

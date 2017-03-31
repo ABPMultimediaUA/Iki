@@ -95,6 +95,7 @@
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/Medico.h" />
+		<Unit filename="include/MemoryRecord.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/Path/Algoritmo.h" />
 		<Unit filename="include/Path/Edge.h" />
@@ -111,10 +112,12 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Player_Ray.h" />
 		<Unit filename="include/Scene.h" />
+		<Unit filename="include/SensorMemory.h" />
 		<Unit filename="include/SoundEngine/SoundManager.h" />
+		<Unit filename="include/StateMachine/Alarma.h" />
 		<Unit filename="include/StateMachine/Atacar.h" />
-		<Unit filename="include/StateMachine/Escanear.h" />
 		<Unit filename="include/StateMachine/EnviarMensaje.h" />
+		<Unit filename="include/StateMachine/Escanear.h" />
 		<Unit filename="include/StateMachine/Investigar.h" />
 		<Unit filename="include/StateMachine/Mensaje.h" />
 		<Unit filename="include/StateMachine/Patrullar.h" />
@@ -157,9 +160,7 @@
 		<Unit filename="src/MyEventReceiver.cpp" />
 		<Unit filename="src/Path/Algoritmo.cpp" />
 		<Unit filename="src/Path/Edge.cpp" />
-		<Unit filename="src/Path/Heuristic_Euclid.cpp" />
 		<Unit filename="src/Path/Nodo.cpp" />
-		<Unit filename="src/Path/PathEdge.cpp" />
 		<Unit filename="src/Path/PathFinding.cpp" />
 		<Unit filename="src/Path/PathPlanner.cpp" />
 		<Unit filename="src/Path/SparseGraph.cpp" />
@@ -170,6 +171,7 @@
 		<Unit filename="src/Player_Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/SoundEngine/SoundManager.cpp" />
+		<Unit filename="src/StateMachine/Alarma.cpp" />
 		<Unit filename="src/StateMachine/Atacar.cpp" />
 		<Unit filename="src/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/StateMachine/Escanear.cpp" />
@@ -178,8 +180,6 @@
 		<Unit filename="src/StateMachine/Patrullar.cpp" />
 		<Unit filename="src/StateMachine/PedirAyuda.cpp" />
 		<Unit filename="src/StateMachine/Proteger.cpp" />
-		<Unit filename="src/StateMachine/State.cpp" />
-		<Unit filename="src/StateMachine/StateMachine.cpp" />
 		<Unit filename="src/StateMachine/Vigilar.cpp" />
 		<Unit filename="src/StateMachine/VolverALaPatrulla.cpp" />
 		<Unit filename="src/Structs.cpp" />

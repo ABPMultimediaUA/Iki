@@ -3,6 +3,7 @@
 
 #include "Enemy.h"
 #include "StateMachine/Patrullar.h"
+#include "StateMachine/Vigilar.h"
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
 

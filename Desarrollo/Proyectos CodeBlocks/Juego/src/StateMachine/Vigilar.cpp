@@ -4,6 +4,7 @@
 #include "Escanear.h"
 #include "Mensaje.h"
 #include "Investigar.h"
+#include "VolverALaPatrulla.h"
 
 Vigilar* Vigilar::Instance()
 {
@@ -18,16 +19,31 @@ void Vigilar::Enter(Enemy* enemigo){
 
 void Vigilar::Execute(Enemy* enemigo){
     enemigo->vigilar();
-    if(enemigo->getDistanciaPlayer() < 10){
+    if(enemigo->getDistanciaPlayer() < 20){
         if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
         //std::cout<<"Escaneando..."<<std::endl;
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
     }
-    if(enemigo->getTiempo() > 5){
+    if(enemigo->getTiempo() > 6){
         //std::cout<<"Patrullando..."<<std::endl;
+        if(enemigo->GetFSM()->PreviousState() == Investigar::Instance()){
+            enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+        }
+        else
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
     }
 
+   /* if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        Structs::TColor color = {0,0,0,0};
+        enemigo->cambiarColor(color);
+    }
+    else{
+        Structs::TColor color = {0,0,0,255};
+        enemigo->cambiarColor(color);
+    }
+    if(enemigo->getTiempo() > 6){
+        enemigo->resetTime();
+    }*/
 }
 
 void Vigilar::Exit(Enemy* enemigo){

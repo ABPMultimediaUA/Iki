@@ -10,17 +10,17 @@
 #include <vector>
 #include <cassert>
 #include <string>
-//#include <iomanip>
+
 
 #include "Nodo.h"
 #include "Edge.h"
 #include <assert.h>
 
-//template<class node_type, class edge_type>
+
 class SparseGraph
 {
     public:
-        //permite el facil acceso dek cliente a los tipos de edges y nodos utilizados en el grafo
+        //permite el facil acceso del cliente a los tipos de edges y nodos utilizados en el grafo
         //typedef edge_type EdgeType;
         //typedef node_type NodeType;*
         //mas typedefs utiles
@@ -50,12 +50,7 @@ class SparseGraph
         bool isNodePresent(int idx)const;//devuelve true su el nodo que nos dan esta presente en el grafo
         bool isEdgePresent(int from, int to)const;
         int nodeMoreClose(Structs::TPosicion p);
-        //-------------------------- SetEdgeCost ---------------------------------
-        //
-        //  Sets the cost of a specific edge
-        //------------------------------------------------------------------------
         void setEdgeCost(int from, int to, double NewCost);
-
 
         void clear(){nextNodeIndex = 0; nodos.clear(); aristas.clear();}
         void RemoveEdges()
@@ -104,9 +99,6 @@ class SparseGraph
 
         ConstEdgeIterator(const SparseGraph& graph,int node): G(graph),NodeIndex(node)
         {
-          /* we don't need to check for an invalid node index since if the node is
-             invalid there will be no associated edges
-         */
 
           curEdge = G.aristas[NodeIndex].begin();
         }
@@ -157,9 +149,6 @@ class SparseGraph
 
             EdgeIterator(SparseGraph& graph,int node): G(graph),NodeIndex(node)
             {
-                /* we don't need to check for an invalid node index since if the node is
-                   invalid there will be no associated edges
-                */
 
                 curEdge = G.aristas[NodeIndex].begin();
             }

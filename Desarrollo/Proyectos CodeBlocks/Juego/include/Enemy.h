@@ -16,7 +16,6 @@ class Enemy : public GameEntity
 {
 
     private:
-        static int m_iNextValidID;
 
 
     public:
@@ -36,10 +35,9 @@ class Enemy : public GameEntity
         float getDistanciaPlayer(){ return distanciaPlayer;}
         Structs::TPosicion getPosicionProta(){return posicionProta;}
         Structs::TPosicion getPosicionInteres(){return posicionInteres;}
-        Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
-        //Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
+        //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
+        Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
         ///SETTERS
-        void setID(int val);
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
         void setPPatrulla(PatrolPoint* p){pRuta=p;}
@@ -47,6 +45,8 @@ class Enemy : public GameEntity
         void patrullar();
         void vigilar();
         void escanear();
+        void muerto();
+        void volverALaPatrulla();
         ///METODOS
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
@@ -57,12 +57,18 @@ class Enemy : public GameEntity
         bool canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta);
         void moverBody(Structs::TPosicion vec);
         void MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2);
-        void volverALaPatrulla();
+        void andarPath(float velocidad,Structs::TPosicion posFinal);
+        bool isWithinFOV(Structs::TPosicion p, float distanceFOV);
+        bool vectorIsInFOV(Structs::TPosicion p);
+        void cambiarColor(Structs::TColor c);
+        void calcularAngulo(Structs::TPosicion p1);
+        bool isGuardia();
+        void girarVista(float giro,int posV);
 
 
     protected:
 
-        int tipo,direccion,estadoVigilando;
+        int tipo,direccion,posVigilando;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
@@ -70,6 +76,7 @@ class Enemy : public GameEntity
         Map* Mapa;
         f32 tiempoEnEstado;
         StateMachine<Enemy>* G_stateMachine;
+        Structs::TPosicion mirandoHacia;
         Structs::TPosicion posicionProta;
         Structs::TPosicion posicionInteres;
         State<Enemy>* actualState;
@@ -77,6 +84,7 @@ class Enemy : public GameEntity
         State<Enemy>* globalState;
         b2RayCastInput input;
         b2RayCastOutput	output;
+        const float DegToRad = PI/180;
 
         ///PATHPLANNING
         SparseGraph* grafo;

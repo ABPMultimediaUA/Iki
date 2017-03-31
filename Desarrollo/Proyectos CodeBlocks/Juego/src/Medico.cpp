@@ -7,10 +7,9 @@ void Medico::inicializar_enemigo(Map* m)
 {
     //De momento todos tienen el mismo body y cosas en comun asi que las inicializo para los tres en init
     init(m);
-    EntityMgr->registrarEntity(this);
     Structs::TColor color = {0,0,0,255};
-    tipo = 2;
     modelo->cambiarColor(color);
+    tipo = 2;
 }
 void Medico::pedirAyuda(){
     //mover medico con la lista de edges creada
@@ -30,8 +29,9 @@ void Medico::pedirAyuda(){
     { //CUANDO AUN NO HA LLEGADO A UN NODO
         //MoverEnemigo((*it).getDestination(),toNextNodo);
         toNextNodo.Normalize();
+        mirandoHacia=toNextNodo;
         posicion=posicion+toNextNodo*(avMovement*2.5);
-        angulo = atan2f( ((*it).getDestination().Z - posicion.Z) , -((*it).getDestination().X-posicion.X) ) * 180.f / irr::core::PI;
+        calcularAngulo((*it).getDestination());
     }
     setPosition();
 }
@@ -41,9 +41,9 @@ void Medico::proteger(){
     if(toProtegido.Length()> 5){
         //MoverEnemigo(protegido->getPosition(),toProtegido);
         toProtegido.Normalize();
+        mirandoHacia=toProtegido;
         posicion=posicion+toProtegido*(avMovement*2.5);
-        angulo = atan2f((protegido->getPosition().Z-posicion.Z) ,
-                -(protegido->getPosition().X-posicion.X)) * 180.f / irr::core::PI;
+        calcularAngulo(protegido->getPosition());
     }
     //else
         //moverBody(quietoParado);

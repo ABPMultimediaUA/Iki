@@ -25,11 +25,10 @@ void Scene::inicializar_escena(){
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
-    //camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+
     world->inicializar_mundo();
     mapa = world->getMapa();
     player->inicializar_player(mapa);
-    //EntityMgr->registrarEntity(player);
 
     Trigger* ruido = player->getRuido();
     triggersystem.Register(ruido);
@@ -52,8 +51,5 @@ void Scene::bucle_juego(){
     }
 
     GraphicsFacade::getInstance().drop();
-
-//    world->update_mundo();
-//    player->update_player();
 
 }

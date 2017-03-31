@@ -18,10 +18,18 @@ void Patrullar::Enter(Enemy* enemigo){
 }
 
 void Patrullar::Execute(Enemy* enemigo){
+    /*if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        Structs::TColor color = {0,0,0,0};
+        enemigo->cambiarColor(color);
+    }
+    else{
+        Structs::TColor color = {0,0,0,255};
+        enemigo->cambiarColor(color);
+    }*/
 
     enemigo->patrullar();
 
-    if(enemigo->getDistanciaPlayer() < 5){
+    if(enemigo->getDistanciaPlayer() < 15){
         //std::cout<<"Escaneando..."<<std::endl;
         if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
             std::cout<<"Te he visto!..."<<std::endl;
@@ -33,7 +41,6 @@ void Patrullar::Execute(Enemy* enemigo){
         //std::cout<<"Vigilando..."<<std::endl;
         enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
-
 
 }
 

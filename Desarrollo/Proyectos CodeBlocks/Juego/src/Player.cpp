@@ -20,7 +20,8 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    id=0;
+    id = 0;
+    vida = 100;
     EntityMgr->registrarEntity(this);
 
     Mapa=m;
@@ -53,6 +54,7 @@ void Player::inicializar_player(Map* m){
     body->CreateFixture(&fixtureDef);
     //Para los ray!
     input.maxFraction	=	1.0f;
+
 
     ruido = new Trigger_Ruido();
     ruido->AddCircularRegion(posicion, 90);
@@ -118,7 +120,6 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        moverse = true;
         //listaNodos.clear();
         listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
@@ -127,27 +128,21 @@ void Player::update(Camera* camara){
         path2->SmoothPathEdgesQuick(listaEjes);
         //it=listaNodos.begin();
         it2=listaEjes.begin();
-
-        
     }
+    if(!listaEjes.empty() && it2 != listaEjes.end())
+        toNextNodo = (*it2).getDestination() - posicion;
+    else
+        toNextNodo=quietoParado;
 
-    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition))
-
-        if(!listaEjes.empty() && it2 != listaEjes.end())
-            toNextNodo = (*it2).getDestination() - posicion;
-        else
-            toNextNodo=quietoParado;
-
-        if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
-        {
-            moverBody(quietoParado);
-            if(it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
-                it2++;
-        }
-        else
-        { //CUANDO AUN NO HA LLEGADO A UN NODO
-            MoverPlayer((*it2).getDestination(),toNextNodo);
-        }
+    if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
+    {
+        moverBody(quietoParado);
+        if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+            it2++;
+    }
+    else
+    { //CUANDO AUN NO HA LLEGADO A UN NODO
+        MoverPlayer((*it2).getDestination(),toNextNodo);
     }
 }
 

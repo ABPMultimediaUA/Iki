@@ -27,7 +27,7 @@ class Map
         void inicializar_mapa();
 
         vector<PatrolPoint*> getPatrullas() { return patrullas; }
-        vector<int>          getTipos()     { return tipos;     }
+        vector<int>          getTiposEnemigos()     { return tipos;   }
         SparseGraph*         getGrafo()     { return Grafo;     }
         vector<MapComponent*> muros;
 

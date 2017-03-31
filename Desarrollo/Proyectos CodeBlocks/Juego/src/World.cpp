@@ -14,11 +14,14 @@ World::World()
 World::~World()
 {
     delete mapa;
+    for(std::vector<Enemy*>::iterator it = enemigos.begin(); it != enemigos.end(); ++it){
+        delete (*it);
+    }
+
 }
 
-void World::crearRutas(Map* mapa){ ///REVISAR SI ES POSIBLE OPTIMIZAR
+void World::crearRutas(){ ///REVISAR SI ES POSIBLE OPTIMIZAR
 
-    int enem = 0;
 
     std::vector<PatrolPoint*> puntos = mapa->getPatrullas();
     PatrolPoint* aux = mapa->getPatrullas().at(0);
@@ -62,31 +65,47 @@ void World::inicializar_mundo(){
     //inicializar mapa
     mapa->inicializar_mapa();
     //crear e inicializar rutas
-    crearRutas(mapa);
+    crearRutas();
     //crear e inicializar enemigos
+    crearEnemigos();
+    //registro el world
+    EntityMgr->registrarWorld(this);
+}
+void World::crearEnemigos(){
     for(int i = 0; i < rutas.size(); i++){
-        switch(mapa->getTipos()[i]){
+        switch(mapa->getTiposEnemigos()[i]){
+            //Les asigno el ID i+1 porque el player sera el 0
             case 1:
-                enemigos.push_back(new Guardia(i+1,rutas[i]));
+                crearEnemigo(1,i+1,rutas[i]);
                 break;
             case 2:
-                enemigos.push_back(new Medico(i+1,rutas[i]));
+                crearEnemigo(2,i+1,rutas[i]);
                 break;
             case 3:
-                enemigos.push_back(new Dron(i+1,rutas[i]));
+                crearEnemigo(3,i+1,rutas[i]);
                 break;
             default:
                 break;
         }
-        enemigos[i]->inicializar_enemigo(mapa);
-
-        //EntityMgr->registrarEntity(enemigos[i]);
     }
 }
+void World::crearEnemigo(int tipo, int id, PatrolRoute* ruta){
+    switch(tipo){
+        case 1:
+            enemigos.push_back(new Guardia(id,ruta));
+            break;
+        case 2:
+            enemigos.push_back(new Medico(id,ruta));
+            break;
+        case 3:
+            enemigos.push_back(new Dron(id,ruta));
+            break;
 
-void World::update_mundo(){
-    for(std::vector<Enemy*>::iterator it = enemigos.begin(); it != enemigos.end(); ++it){
-        (*it)->update();
     }
-    //mapa->update_mapa();
+    enemigos.back()->inicializar_enemigo(mapa);
+}
+void World::update_mundo(){
+    for(int i = 0; i < enemigos.size(); i++){
+        enemigos[i]->update();
+    }
 }

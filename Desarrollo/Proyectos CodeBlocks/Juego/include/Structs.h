@@ -150,6 +150,36 @@ class Structs
                 return (X != rhs.X) || (Y != rhs.Y) || (Z != rhs.Z);
             }
 
+            //------------------ isSecondInFOVOfFirst -------------------------------------
+            //
+            //  returns true if the target position is in the field of view of the entity
+            //  positioned at posFirst facing in facingFirst
+            //-----------------------------------------------------------------------------
+            inline bool isSecondInFOVOfFirst(TPosicion posFirst,
+                                             TPosicion facingFirst,
+                                             TPosicion posSecond,
+                                             float    fov)
+            {
+              TPosicion toTarget = posSecond - posFirst;
+              toTarget.Normalize();
+
+              return facingFirst.Dot(toTarget) >= cos(fov/2.0);
+            }
+            //------------------------- Vec2DDot -------------------------------------
+            //
+            //  calculates the dot product
+            //------------------------------------------------------------------------
+            inline float Dot(const TPosicion &v2)const
+            {
+              return X*v2.X + Z*v2.Z;
+            }
+            inline void rotarVector(double radianes){
+                double ca = cos(radianes);
+                double sa = sin(radianes);
+                this->X = ca*this->X - sa*this->Z;
+                this->Z = sa*this->X + ca*this->Z;
+            }
+
         };
 
         typedef struct{
