@@ -31,6 +31,7 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
      if(!path.empty()){
          path.push_front(PathEdge(propietario->getPosition(), path.front().getSource(),1));
          path.push_back(PathEdge(path.back().getDestination(),posicionDestino,1));
+         SmoothPathEdgesQuick(path);
          return true;
      }
      else{
@@ -50,8 +51,10 @@ void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<Struc
 
 void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
 {
+    bool entro = false;
     //create a couple of iterators and point them at the front of the path
-    std::list<PathEdge>::iterator e1(path.begin()), e2(path.begin());
+    std::list<PathEdge>::iterator e1 = path.begin();
+    std::list<PathEdge>::iterator e2 = path.begin();
     //increment e2 so it points to the edge following e1.
     ++e2;
     //while e2 is not the last edge in the path, step through the edges, checking
@@ -63,11 +66,13 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
         //check for obstruction, adjust and remove the edges accordingly
         if ( propietario->canWalkBetween(e1->getSource(), e2->getDestination()) )
         {
+            entro=true;
             e1->SetDestination(e2->getDestination());
             e2 = path.erase(e2);
         }
         else
         {
+            entro=false;
             e1 = e2;
             ++e2;
         }

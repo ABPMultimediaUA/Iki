@@ -33,8 +33,8 @@ class Enemy : public GameEntity
         float getDistanciaPlayer(){ return distanciaPlayer;}
         Structs::TPosicion getPosicionProta(){return posicionProta;}
         Structs::TPosicion getPosicionInteres(){return posicionInteres;}
-        //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
-        Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
+        Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
+        //Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
         ///SETTERS
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
