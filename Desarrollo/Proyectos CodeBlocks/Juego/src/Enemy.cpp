@@ -93,17 +93,17 @@ bool Enemy::isEnemySeeing(Structs::TPosicion destino){
 }
 bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
 
-     input.p1.Set(desde.X, hasta.Z);	//	Punto	inicial	del	rayo
+     input.p1.Set(desde.X, desde.Z);	//	Punto	inicial	del	rayo
      input.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
       ///colision con paredes
     for (int i = 0; i < Mapa->muros.size(); i++) {
         if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
-            return true;
+            return false;
         }
     }
 
-    return false;
+    return true;
 }
 
 void Enemy::crearPath(Structs::TPosicion destino){

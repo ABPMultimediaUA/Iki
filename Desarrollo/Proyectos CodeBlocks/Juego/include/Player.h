@@ -59,6 +59,9 @@ class Player : public GameEntity{
         b2RayCastInput input;
         b2RayCastOutput	output;
 
+        b2RayCastInput input2;
+        b2RayCastOutput	output2;
+
         float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING
         Map* Mapa;
