@@ -11,13 +11,16 @@ class Trigger_Puerta : public Trigger
         virtual ~Trigger_Puerta();
 
         void Try(GameEntity*);
-
         void Update();
-        void Render();
+
+        void triggerDisparado();
+        void triggerFuera();
 
     protected:
 
     private:
+
+        bool fired = false;
 };
 
 #endif // TRIGGER_PUERTA_H

@@ -20,7 +20,6 @@ botones::botones(int t, int x, int y, video::IVideoDriver* driver)
     else if(t == 5)
         image = driver->getTexture("texturas/aceptarboton.png");
 
-    tipo = t;
     posicionX = x;
     posicionY = y;
 }

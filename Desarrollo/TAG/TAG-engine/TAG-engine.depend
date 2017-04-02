@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1489504696 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
+1490199029 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\main.cpp
 	"TDisplay.h"
 	"TMotorTAG.h"
+	"TShader.h"
 
 1489501636 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tentidad.cpp
 	"TEntidad.h"
@@ -11,13 +12,18 @@
 	<glm/gtc/matrix_transform.hpp>
 	<stack>
 
-1489501636 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
+1489667301 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmalla.cpp
 	"TMalla.h"
 
-1489502276 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+1489667282 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmalla.h
+	<glew.h>
+	<glm\glm.hpp>
+	<glm\gtx\transform.hpp>
 	<iostream>
 	<TEntidad.h>
+	<TTextura.h>
 	"TRecursoMalla.h"
+	<vector>
 	<assimp/Importer.hpp>
 	<assimp/scene.h>
 	<assimp/postprocess.h>
@@ -30,10 +36,10 @@
 	"TEntidad.h"
 	<vector>
 
-1489501636 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
+1490022008 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tcamara.cpp
 	"TCamara.h"
 
-1489502276 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
+1489666128 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tcamara.h
 	<iostream>
 	<vector>
 	<TEntidad.h>
@@ -56,7 +62,7 @@
 1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tfichero.cpp
 	"TFichero.h"
 
-1489593160 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\trecursomalla.h
+1489666719 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\trecursomalla.h
 	<TRecurso.h>
 
 1486489219 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmatriz4x4.cpp
@@ -2083,10 +2089,11 @@
 1487860224 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\display.cpp
 	"Display.h"
 
-1489501636 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
+1490200289 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tmotortag.cpp
 	"TMotorTAG.h"
 
-1489508001 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
+1489665917 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tmotortag.h
+	"TShader.h"
 	"TNodo.h"
 	"TTransform.h"
 	"TLuz.h"
@@ -2769,10 +2776,16 @@
 	<string>
 	<iostream>
 
-1489501636 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tshader.cpp
+1490200722 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tshader.cpp
 	"TShader.h"
 
-1489501635 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tshader.h
+1489685695 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tshader.h
+	<glew.h>
+	"TTransform.h"
+	"TCamara.h"
+	<iostream>
+	<fstream>
+	<string>
 
 1488473141 c:\users\juan\documents\github\iki\desarrollo\tag\tag-engine\include\tdisplay.h
 	<glew.h>
@@ -5922,4 +5935,41 @@
 
 1489504226 source:c:\users\adri\desktop\entregable6\src\ttransform.cpp
 	"TTransform.h"
+
+1489594241 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\tanimacion.cpp
+	"TAnimacion.h"
+
+1489594246 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\tanimacion.h
+	<TEntidad.h>
+	<vector>
+	"TRecursoMalla.h"
+
+1489501635 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtx\transform.hpp
+	"../glm.hpp"
+	"../gtc/matrix_transform.hpp"
+	"transform.inl"
+
+1489501635 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\glm\gtx\transform.inl
+
+1489664312 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\ttextura.h
+	<glew.h>
+	<iostream>
+	"TEntidad.h"
+	"stb_image.h"
+
+1489664378 c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\include\stb_image.h
+	<stdio.h>
+
+1489664378 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\stb_image.cpp
+	"stb_image.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+
+1489664312 source:c:\users\adri\documents\github\iki\desarrollo\tag\tag-engine\src\ttextura.cpp
+	"TTextura.h"
 

@@ -15,3 +15,5 @@ void GameEntity::setBody(b2BodyDef bodyDef)
 {
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 }
+
+

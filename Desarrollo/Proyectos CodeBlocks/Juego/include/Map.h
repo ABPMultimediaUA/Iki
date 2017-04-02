@@ -8,9 +8,9 @@
 #include "Structs.h"
 #include "PatrolPoint.h"
 #include "Fachada/MeshSceneNode.h"
-#include "Path/SparseGraph.h"
-#include "Path/Edge.h"
-#include "Path/Nodo.h"
+#include "Enemies/Path/SparseGraph.h"
+#include "Enemies/Path/Edge.h"
+#include "Enemies/Path/Nodo.h"
 
 using namespace tinyxml2;
 using namespace std;

@@ -1,5 +1,6 @@
 #include "TMotorTAG.h"
 
+
 TMotorTAG::TMotorTAG()
 {
     //ctor
@@ -32,17 +33,24 @@ TLuz *TMotorTAG::crearLuz()
     return luz;
 }
 
-TCamara *TMotorTAG::crearCamara()
+TCamara *TMotorTAG::crearCamara(const vec3& pos, float grad, int anch,int alt, float cer, float lej)
 {
-    TCamara *camara= new TCamara();
+    TCamara *camara= new TCamara(pos, grad, anch, alt, cer, lej);
     return camara;
 }
 
-TMalla *TMotorTAG::crearMalla(char* fichero)
+TMalla *TMotorTAG::crearMalla(const std::string& filename)
 {
-
+    TMalla* malla= new TMalla();
+    malla->LoadMesh(filename);
+    return malla;
 }
 
+TShader TMotorTAG::cargarShader(const std::string& filename)
+{
+    TShader shader(filename);
+    return shader;
+}
 TNodo *TMotorTAG::getCamaraActiva()
 {
     for(std::size_t i=0; i < c_activa.size(); i++)
@@ -74,39 +82,30 @@ int TMotorTAG::registrarCamara(TNodo* nod)
 void TMotorTAG::drawLuces()
 {
     std::cout << "Recorriendo el registro de luces" << std::endl;
-
     for(std::size_t i=0; i < luces.size(); i++)
     {
         std::cout << " > Comprobando luz numero " << i << std::endl;
         if(l_activa[i])
         {
-            std::cout << "   Luz numero " << i << " is activa" << std::endl;
-            std::cout << "   Recorremos desde la luz hasta la raiz" << std::endl;
-            //Guardamos en un vector aux desde la luz hasta la raiz
-
+            cout << "   Luz numero " << i << " is activa" << std::endl;
+            cout << "   Recorremos desde la luz hasta la raiz" << std::endl;
             vector<TNodo*> aux;
             aux.push_back(luces[i]);
-            std::cout<< "    > Insertamos la luz en el vector aux" << std::endl;
+            cout<< "    > Insertamos la luz en el vector aux" << std::endl;
             TNodo* nodo = luces[i]->getPadre();
             while(nodo)
             {
-                std::cout << "     > Insertamos padre" << std::endl;
+                cout << "     > Insertamos padre" << std::endl;
                 aux.push_back(nodo);
                 nodo = aux.back()->getPadre();
             }
-            std::cout << "    Recorremos al reves" << std::endl;
-            //Recorre desde la raiz hasta la luz
-            //vector<TNodo*>::iterator it = aux.end();
+                cout << "    Recorremos al reves" << std::endl;
             mat4 mat_aux = mat4(1.f);
-            //while(it != aux.begin())
-            //{
             for(std::size_t i=aux.size()-1; i > 0; i--)
             {
-                std::cout << "    Aplicamos matriz transform en una auxiliar" << std::endl;
-                //mat_aux= *it->getEntidad().getMatriz() ;
-                //* mat_aux
-                //--it;
+                cout << "    Aplicamos matriz transform en una auxiliar" << std::endl;
             }
+
             /*
             //	printf("LUZ:         %.1f %.1f %.1f \n", pos.x, pos.y, pos.z);
             glUniform3f(glGetUniformLocation(sh->Program, "light.position"), pos.x, pos.y, pos.z);
@@ -125,8 +124,7 @@ void TMotorTAG::drawLuces()
         }
         else
             std::cout << "   Luz numero " << i << " is not activa" << std::endl;
-
-        std:cout << std::endl;
+            std:cout << std::endl;
     }
 }
 
@@ -153,25 +151,33 @@ void TMotorTAG::drawCamaras()
                 nodo = aux.back()->getPadre();
             }
             std::cout << "    Recorremos al reves" << std::endl;
-            //Recorre de manera inversa raiz->camara
-            //vector<TNodo*>::iterator it = aux.end();
             mat4 mat_aux = mat4(1.f);
-            //while(it != aux.begin())
-            //{
             for(std::size_t i=aux.size()-1; i > 0; i--)
             {
                 std::cout << "    Aplicamos matriz transform en una auxiliar" << std::endl;
-                //mat_aux= *it->getEntidad().getMatriz() ;
-                //* mat_aux
-                //--it;
+                TTransform* t = dynamic_cast<TTransform*>(aux[i]->getEntidad());
+                if (t)
+                {
+                    mat_aux = t->getMatriz() * mat_aux;
+                    for(int i =0; i<4; i++)
+                    {
+                        for(int j =0; j<4; j++)
+                        {
+                            if(j != 3)
+                                cout<<mat_aux[i][j]<<" ";
+                            else
+                                cout<<mat_aux[i][j]<<endl;
+                        }
+                    }
+                    cout<<endl;
+                    cout<< "........-------------------------------------------------" << std::endl;
+                }
             }
-            //invertir mat_aux
-            //cargar la matriz con la camara
+            TShader::viewMatrix = inverse(mat_aux);
         }
         else
             std::cout << "   Camara numero " << i << " is not activa" << std::endl;
-
-        std::cout << std::endl;
+            std::cout << std::endl;
     }
 }
 
@@ -180,7 +186,7 @@ void TMotorTAG::draw()
     std::cout << "Iniciando dibujado de la escena" << std::endl;
     std::cout << std::endl;
     drawLuces();
-    //drawViewport();
+
     std::cout << std::endl;
     drawCamaras();
 
