@@ -43,6 +43,7 @@ class Player : public GameEntity{
     protected:
 
     private:
+
         Structs::TPosicion toMousePosition;
         Structs::TPosicion toNextNodo;
         Structs::TPosicion toNextPosition;
@@ -50,13 +51,16 @@ class Player : public GameEntity{
         Structs::TPosicion quietoParado = {0,0,0};
 
         Trigger_Ruido* ruido;
-        bool isMoving;
+        bool isMoving,moverse;
         int speed;
         int llaves = 0;
 
         Player_Ray* rayo;
         b2RayCastInput input;
         b2RayCastOutput	output;
+
+        b2RayCastInput input2;
+        b2RayCastOutput	output2;
 
         float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING

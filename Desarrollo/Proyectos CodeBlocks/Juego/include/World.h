@@ -11,9 +11,11 @@ class World
     public:
         World();
         virtual ~World();
-        void crearRutas(Map*);
+        void crearRutas();
         void inicializar_mundo();
         void update_mundo();
+        void crearEnemigos();
+        void crearEnemigo(int tipo, int id, PatrolRoute* ruta);
 
         Map* getMapa(){return mapa;};
         std::vector<Enemy*> getEnemies(){return enemigos;};
