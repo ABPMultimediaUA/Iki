@@ -23,7 +23,7 @@ FuzzyModule::~FuzzyModule()
 
 void FuzzyModule::AddRule(FuzzyTerm& antecedent, FuzzyTerm& consequence)
 {
-    m_Rules.push_back(new FuzzyRule(antecedent, consequence));
+    rules.push_back(new FuzzyRule(antecedent, consequence));
 }
 
 //-------------------------- CreateFLV ---------------------------
@@ -32,9 +32,9 @@ void FuzzyModule::AddRule(FuzzyTerm& antecedent, FuzzyTerm& consequence)
 //-----------------------------------------------------------------------------
 FuzzyVariable& FuzzyModule::CreateFLV(const std::string& VarName)
 {
-  m_Variables[VarName] = new FuzzyVariable();;
+  varMap[VarName] = new FuzzyVariable();;
 
-  return *m_Variables[VarName];
+  return *varMap[VarName];
 }
 
 //---------------------------- WriteAllDOMs -----------------------------------
@@ -42,8 +42,8 @@ std::ostream& FuzzyModule::WriteAllDOMs(std::ostream& os)
 {
   os << "\n\n";
 
-  VarMap::iterator curVar = m_Variables.begin();
-  for (curVar; curVar != m_Variables.end(); ++curVar)
+  std::map<std::string, FuzzyVariable*>::iterator curVar = varMap.begin();
+  for (curVar; curVar != varMap.end(); ++curVar)
   {
     os << "\n--------------------------- " << curVar->first;;
     curVar->second->WriteDOMs(os);
@@ -64,10 +64,10 @@ std::ostream& FuzzyModule::WriteAllDOMs(std::ostream& os)
 inline void FuzzyModule::Fuzzify(const std::string& NameOfFLV, double val)
 {
   //first make sure the key exists
-  assert ( (m_Variables.find(NameOfFLV) != m_Variables.end()) &&
+  assert ( (varMap.find(NameOfFLV) != varMap.end()) &&
           "<FuzzyModule::Fuzzify>:key not found");
 
-  m_Variables[NameOfFLV]->Fuzzify(val);
+  varMap[NameOfFLV]->Fuzzify(val);
 }
 
 //---------------------------- DeFuzzify --------------------------------------
@@ -79,21 +79,21 @@ inline double
 FuzzyModule::DeFuzzify(const std::string& NameOfFLV, DefuzzifyMethod method)
 {
   //first make sure the key exists
-  assert ( (m_Variables.find(NameOfFLV) != m_Variables.end()) &&
+  assert ( (varMap.find(NameOfFLV) != varMap.end()) &&
           "<FuzzyModule::DeFuzzifyMaxAv>:key not found");
 
   //clear the DOMs of all the consequents of all the rules
   SetConfidencesOfConsequentsToZero();
 
   //process the rules
-  std::vector<FuzzyRule*>::iterator curRule = m_Rules.begin();
-  for (curRule; curRule != m_Rules.end(); ++curRule)
+  std::vector<FuzzyRule*>::iterator curRule = rules.begin();
+  for (curRule; curRule != rules.end(); ++curRule)
   {
     (*curRule)->Calculate();
   }
 
   //now defuzzify the resultant conclusion using the specified method
-    return m_Variables[NameOfFLV]->DeFuzzifyMaxAv();
+    return varMap[NameOfFLV]->DeFuzzifyMaxAv();
 
 }
 
@@ -103,8 +103,8 @@ FuzzyModule::DeFuzzify(const std::string& NameOfFLV, DefuzzifyMethod method)
 //-----------------------------------------------------------------------------
 inline void FuzzyModule::SetConfidencesOfConsequentsToZero()
 {
-  std::vector<FuzzyRule*>::iterator curRule = m_Rules.begin();
-  for (curRule; curRule != m_Rules.end(); ++curRule)
+  std::vector<FuzzyRule*>::iterator curRule = rules.begin();
+  for (curRule; curRule != rules.end(); ++curRule)
   {
     (*curRule)->SetConfidenceOfConsequentToZero();
   }
