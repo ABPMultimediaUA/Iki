@@ -8,9 +8,6 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
     //un metodo que tomo como comienzo la posicion dedestino y un radio de
     //la entidad y depermina si el bot es capaz de moverse entre las dos posiciones
     if(!propietario->isPathObstructured(posicionDestino)){
-            //create an edge connecting the bot's current position and the
-            //target position and push it on the path list (flagged to use the
-            //"normal" behavior = 1)
             path.push_back(PathEdge(propietario->getPosition(), posicionDestino,1));
             return true;
     }
@@ -30,15 +27,14 @@ bool PathPlanner::crearPath(Structs::TPosicion destino, std::list<PathEdge>& pat
      }
      Algoritmo alg(*grafo,NodoMasCercano,NodoMasCercanoToTarget);
      //cogemos el path
-     //grab the path as a list of PathEdges
      path = alg.GetPathAsPathEdges();
      if(!path.empty()){
          path.push_front(PathEdge(propietario->getPosition(), path.front().getSource(),1));
          path.push_back(PathEdge(path.back().getDestination(),posicionDestino,1));
+         SmoothPathEdgesQuick(path);
          return true;
      }
      else{
-        //no path found by the search
         return false;
      }
 }
@@ -52,25 +48,13 @@ void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<Struc
         it++;
     }
 }
-///ASI FUNCIONA
-/*
-1. Grab the source position of E1.
-2. Grab the destination position of E2.
-3. If the agent can move between these two positions unobstructed by
-the world geometry, assign the destination of E1 to that of E2 and
-remove E2 from the path. Reassign E2 to the new edge following E1.
-(Note that this is not a simple line-of-sight test as an entity’s size must
-be taken into consideration— it must be able to move between the
-two positions without bumping into any walls.)
-4. If the agent cannot move unobstructed between the two positions,
-assign E2 to E1 and advance E2.
-5. Repeat steps until the destination of E2 is equal to the destination of
-the path.
-*/
+
 void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
 {
+    bool entro = false;
     //create a couple of iterators and point them at the front of the path
-    std::list<PathEdge>::iterator e1(path.begin()), e2(path.begin());
+    std::list<PathEdge>::iterator e1 = path.begin();
+    std::list<PathEdge>::iterator e2 = path.begin();
     //increment e2 so it points to the edge following e1.
     ++e2;
     //while e2 is not the last edge in the path, step through the edges, checking
@@ -82,11 +66,13 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
         //check for obstruction, adjust and remove the edges accordingly
         if ( propietario->canWalkBetween(e1->getSource(), e2->getDestination()) )
         {
+            entro=true;
             e1->SetDestination(e2->getDestination());
             e2 = path.erase(e2);
         }
         else
         {
+            entro=false;
             e1 = e2;
             ++e2;
         }
