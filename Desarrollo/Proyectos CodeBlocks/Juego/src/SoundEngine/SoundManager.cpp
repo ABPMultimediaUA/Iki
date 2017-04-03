@@ -5,7 +5,7 @@ SoundManager::SoundManager()
 {
     //ctor
     engine = irrklang::createIrrKlangDevice();
-    engine->setSoundVolume(1.0f);
+    engine->setSoundVolume(0.5f);
 }
 
 SoundManager::~SoundManager()
@@ -43,11 +43,13 @@ void SoundManager::cargarMusica(std::string cadena)
 
 void SoundManager::playSonido(std::string s)
 {
-    if (!canales[s]){
-        irrklang::ISound* canal = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),false,false,true);
-        canales[s] = canal;
-    }else{
-        canales[s] = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),false,false,true);
+    if(sonidos[s]){
+        if (!canales[s]){
+            irrklang::ISound* canal = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),false,false,true);
+            canales[s] = canal;
+        }else{
+            canales[s] = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),false,false,true);
+        }
     }
 }
 
@@ -57,7 +59,7 @@ void SoundManager::playMusica(std::string s)
         irrklang::ISound* canal = engine->play3D(musica[s],irrklang::vec3df(0,0,0),true,false,true);
         canales[s] = canal;
     }else{
-        canales[s] = engine->play3D(sonidos[s],irrklang::vec3df(0,0,0),false,false,true);
+        canales[s] = engine->play3D(musica[s],irrklang::vec3df(0,0,0),true,false,true);
     }
 }
 

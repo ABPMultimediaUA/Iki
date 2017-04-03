@@ -21,6 +21,7 @@ class GUI_VolumeControl : public GUI_Component
         Image* image2;
         Structs::TRectangulo rec2;
         int posicionX2, posicionY2;
+        float volumen;
         //int porcentajeVol;
 };
 

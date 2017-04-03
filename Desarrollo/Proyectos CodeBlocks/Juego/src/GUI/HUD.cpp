@@ -35,17 +35,17 @@ void HUD::inicializar_HUD(){
 
     ///Imagen del rayo
     rec = {0, 0, 110, 109};
-    elementos.push_back(new HUD_Element(1240, 650, rec, "lasertocar", true));
+    elementos.push_back(new HUD_Element(1240, 585, rec, "lasertocar", true));
     Rayo = elementos[1];
 
     ///Descripcion del rayo
     rec = {0, 0, 429, 164};
-    elementos.push_back(new HUD_Element(920, 500, rec, "leyendalaser", false));
+    elementos.push_back(new HUD_Element(920, 435, rec, "leyendalaser", false));
     Leyenda = elementos[2];
 
     ///Balas del rayo
     rec = {85, 0, 98, 17};
-    elementos.push_back(new HUD_Element(1035, 525, rec, "numerobalas", false));
+    elementos.push_back(new HUD_Element(1035, 460, rec, "numerobalas", false));
     Balas = elementos[3];
 
     /*vector<GameEntity*> vec = EntityMgr->getEntities();
