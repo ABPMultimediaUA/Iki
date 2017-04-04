@@ -7,6 +7,7 @@
 #include "Map.h"
 #include "Menu.h"
 #include "EntityManager.h"
+#include "TriggerSystem.h"
 
 Scene::Scene()
 {
@@ -17,7 +18,7 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-    triggersystem.Clear();
+    TriggerSystem::getInstance()->Clear();
     delete world;
     delete player;
     delete menu_ingame;
@@ -41,8 +42,8 @@ void Scene::inicializar_escena(){
     menu_ingame->inicializar_menu(1);
 
     Trigger* ruido = player->getRuido();
-    triggersystem.Register(ruido);
-    triggersystem.LeerMapa();
+    TriggerSystem::getInstance()->Register(ruido);
+    TriggerSystem::getInstance()->LeerMapa();
 
     bucle_juego();
 }
@@ -58,7 +59,7 @@ void Scene::bucle_juego(){
         }
         world->update_mundo();
         player->update(camara);
-        triggersystem.Update();
+        TriggerSystem::getInstance()->Update();
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 

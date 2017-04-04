@@ -56,14 +56,22 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //b2body
         b2BodyDef bodyDef;
         bodyDef.type = b2_staticBody;
-        b2PolygonShape bodyShape;
         bodyDef.position.Set(x,z);
         trigger->setBody(bodyDef);
+
+        b2PolygonShape bodyShape;
         if (r==90)
             bodyShape.SetAsBox(5.f,1.f);
         else
             bodyShape.SetAsBox(1.f,5.f);
         trigger->getBody()->CreateFixture(&bodyShape, 1.f);
+
+        //b2FixtureDef fixtureDef;
+        //fixtureDef.shape = &bodyShape;
+        //fixtureDef.friction = 0.f;
+        //fixtureDef.restitution  = -1.f;
+        //fixtureDef.density  = 1.f;
+        //trigger->getBody()->CreateFixture(&fixtureDef);
     }
     else if (tipo == 6){
         trigger = new Trigger_PuertaLlave();

@@ -2,7 +2,6 @@
 #define SCENE_H
 
 #include "Structs.h"
-#include "TriggerSystem.h"
 
 class Camera;
 class Player;
@@ -24,7 +23,6 @@ class Scene
 
         Camera *camara;
         World *world;
-        TriggerSystem triggersystem;
         Player *player;
         Menu* menu_ingame;
         Map* Mapa;

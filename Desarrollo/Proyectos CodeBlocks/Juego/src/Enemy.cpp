@@ -6,6 +6,9 @@
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 
+#include "TriggerSystem.h"
+#include "Trigger.h"
+
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
@@ -69,6 +72,17 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
         }
     }
 
+        ///colision con triggers con body
+    TriggerSystem::TriggerList triggers = TriggerSystem::getInstance()->GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->getBody()){
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
+                return false;
+            }
+        }
+    }
+
+
     return false;
 }
 bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
@@ -103,15 +117,15 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
         }
     }
 
-    /*    ///colision con triggers con body
-    std::vector<*Trigger> triggers = TriggerSystem.GetTriggers();
+        ///colision con triggers con body
+    TriggerSystem::TriggerList triggers = TriggerSystem::getInstance()->GetTriggers();
     for (int i = 0; i < triggers.size(); i++) {
         if (triggers.at(i)->getBody()){
-            if (triggers.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
                 return false;
             }
         }
-    }*/
+    }
 
     return true;
 }
@@ -239,7 +253,7 @@ void Enemy::escanear(){
     setPosition();
     if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<15)
     {
-        sospecha=sospecha+1;
+        sospecha += 1;
         //std::cout<<"Sospecha: "<<sospecha<<std::endl;
     }
 }
