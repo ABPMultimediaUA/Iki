@@ -10,8 +10,7 @@ GraphicsFacade::GraphicsFacade()
 	gui = new GUI();
 	//guienv = device->getGUIEnvironment();
 
-	timer = device->getTimer();
-
+	timer      = device->getTimer();
 
 
 	//cout << "Graphics Engine inicializado" << endl;
@@ -196,11 +195,20 @@ void GraphicsFacade::changeResolution(int number){
     }
 }
 
-void GraphicsFacade::pararTiempo(){
-    timer->stop();
+void GraphicsFacade::setTiempo(f32 tiempo){
+    timer->setTime(tiempo);
+}
+/*void GraphicsFacade::pararTiempo(int time){
+    if(time == 0)
+        timer->stop();
+    else
+        timer_menu->stop();
 }
 
-void GraphicsFacade::reanudarTiempo(){
-    timer->start();
-}
+void GraphicsFacade::reanudarTiempo(int time){
+    if(time == 0)
+        timer->start();
+    else
+        timer_menu->start();
+}*/
 

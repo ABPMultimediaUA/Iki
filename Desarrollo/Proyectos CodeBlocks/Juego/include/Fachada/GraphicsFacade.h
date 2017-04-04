@@ -46,13 +46,12 @@ class GraphicsFacade
         IrrlichtDevice* getDevice() { return device; }
         IVideoDriver* getDriver() { return driver; }
         GUI* getGUI() { return gui; }
-        ITimer* getTimer() { return timer; };
+        ITimer* getTimer()  { return timer; };
 
         SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
 
-        void pararTiempo();
-        void reanudarTiempo();
+        void setTiempo(f32);
 
     protected:
 

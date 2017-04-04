@@ -96,12 +96,23 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
      input.p1.Set(desde.X, desde.Z);	//	Punto	inicial	del	rayo
      input.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
-      ///colision con paredes
+        ///colision con paredes
     for (int i = 0; i < Mapa->muros.size(); i++) {
         if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
             return false;
         }
     }
+
+    /*    ///colision con triggers con body
+    std::vector<*Trigger> triggers = TriggerSystem.GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->getBody()){
+            if (triggers.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+                return false;
+            }
+        }
+    }*/
+
     return true;
 }
 
