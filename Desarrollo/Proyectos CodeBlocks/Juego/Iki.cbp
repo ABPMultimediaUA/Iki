@@ -163,7 +163,6 @@
 		<Unit filename="src/Enemies/Path/Algoritmo.cpp" />
 		<Unit filename="src/Enemies/Path/Edge.cpp" />
 		<Unit filename="src/Enemies/Path/Heuristic_Euclid.cpp" />
-		<Unit filename="src/Enemies/Path/NavGraph.cpp" />
 		<Unit filename="src/Enemies/Path/Nodo.cpp" />
 		<Unit filename="src/Enemies/Path/PathEdge.cpp" />
 		<Unit filename="src/Enemies/Path/PathFinding.cpp" />
