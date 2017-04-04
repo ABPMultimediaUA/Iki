@@ -39,8 +39,6 @@ void Scene::inicializar_escena(){
     player->inicializar_player(Mapa);
     menu_ingame->inicializar_menu(1);
 
-    //EntityMgr->registrarEntity(player);
-
     Trigger* ruido = player->getRuido();
     triggersystem.Register(ruido);
     triggersystem.LeerMapa();
