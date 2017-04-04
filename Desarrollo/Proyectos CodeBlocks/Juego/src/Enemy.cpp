@@ -86,7 +86,7 @@ bool Enemy::vectorIsInFOV(Structs::TPosicion p){
 }
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,15.0) && !isPathObstructured(posicionProta))
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,90*DegToRad) && !isPathObstructured(posicionProta))
         return true;
     else
         return false;

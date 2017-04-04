@@ -27,7 +27,7 @@ void Patrullar::Execute(Enemy* enemigo){
         enemigo->cambiarColor(color);
     }*/
 
-    enemigo->patrullar();
+   // enemigo->patrullar();
 
     if(enemigo->getDistanciaPlayer() < 15){
         //std::cout<<"Escaneando..."<<std::endl;
