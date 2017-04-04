@@ -36,8 +36,7 @@ class GameEntity
         virtual bool               HandleMessage(const Mensaje& msg)=0;
         virtual bool               isPathObstructured(Structs::TPosicion)=0;
         virtual bool               canWalkBetween(Structs::TPosicion ,Structs::TPosicion)=0;
-        void                       quitarVida(){if(vida>0)
-                                                    vida=vida-1;}
+        virtual void               quitarVida(){if(vida>0) vida=vida-1;}
 
 
     protected:

@@ -5,6 +5,7 @@
 #include "PhisicsWorld.h"
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
+#include "Muerto.h"
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
@@ -37,6 +38,8 @@ void Enemy::init(Map* m){
     path = new PathPlanner(grafo,this);
      //Para los ray!
     input.maxFraction	=	1.0f;
+
+    time_since_hitted = 0;
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
@@ -184,6 +187,16 @@ void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
     modelo->setPosition(posicion);
     modelo->setRotation(body->GetAngle());
+}
+void Enemy::quitarVida(){
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 100){
+        if(vida > 0){
+            vida--;
+            time_since_hitted = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted;
+        }
+        else
+            GetFSM()->ChangeState(Muerto::Instance());
+    }
 }
 ///ESTADOS
 

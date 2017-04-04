@@ -40,6 +40,8 @@ class Player : public GameEntity{
         void TriggerRuido();
         Trigger *getRuido(){return ruido;}
 
+        bool imSeeingThisEnemy(Enemy*);
+
     protected:
 
     private:

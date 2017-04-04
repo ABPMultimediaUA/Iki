@@ -10,6 +10,7 @@ void Medico::inicializar_enemigo(Map* m)
     Structs::TColor color = {0,0,0,255};
     modelo->cambiarColor(color);
     tipo = 2;
+    vida = 2;
 }
 void Medico::pedirAyuda(){
     //mover medico con la lista de edges creada

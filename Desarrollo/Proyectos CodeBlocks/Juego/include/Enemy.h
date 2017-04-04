@@ -62,6 +62,9 @@ class Enemy : public GameEntity
         void calcularAngulo(Structs::TPosicion p1);
         bool isGuardia();
         void girarVista(float giro,int posV);
+        void quitarVida();
+
+        float getAngulo(){return angulo;}
 
 
     protected:
@@ -72,7 +75,7 @@ class Enemy : public GameEntity
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-        f32 tiempoEnEstado;
+        f32 tiempoEnEstado, time_since_hitted;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
         Structs::TPosicion posicionProta;

@@ -5,6 +5,7 @@
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 #include "PhisicsWorld.h"
+#include "Muerto.h"
 
 
 Player::Player()
@@ -106,14 +107,14 @@ void Player::TriggerRuido(){
 
 void Player::update(Camera* camara){
 
-    deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
+    deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000.f;
     avMovement = deltaTime * 700;
 
     rayo->borrar_rayo();
 
     if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
         if(rayo->getBalas() > 0){
-            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000 - rayo->getVidaRayo() > 1){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 0.8){
                 GraphicsFacade::getInstance().cambiarRay(camara);
                 rayo->lanzar_rayo(posicion);
             }
@@ -133,6 +134,22 @@ void Player::update(Camera* camara){
         //it=listaNodos.begin();
         it2=listaEjes.begin();
 
+    }
+
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_SPACE)){
+        std::vector<Enemy*> enemies = EntityManager::Instance()->getEnemigos();
+        for(size_t i = 0; i < enemies.size(); i++){
+            if(enemies[i]->getPosition().Distance(this->getPosition()) < 10.f){
+                if(imSeeingThisEnemy(enemies[i])){
+                    std::cout<<"holi: "<<enemies[i]->getVida()<<std::endl;
+                    if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30)
+                        enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
+                    else
+                        enemies[i]->quitarVida();
+                    std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
+                }
+            }
+        }
     }
     if(!listaEjes.empty() && it2 != listaEjes.end())
         toNextNodo = (*it2).getDestination() - posicion;
@@ -184,7 +201,7 @@ bool Player::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
     return true;
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
-    float angulo = atan2f((p1.Z-posicion.Z) ,
+    angulo = atan2f((p1.Z-posicion.Z) ,
                           -(p1.X-posicion.X)) * 180.f / irr::core::PI;
     body->SetTransform(body->GetPosition(), angulo);
     modelo->setRotation(body->GetAngle());
@@ -194,4 +211,11 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 
 }
 
-
+bool Player::imSeeingThisEnemy(Enemy* enemy){
+    float ang = atan2f((enemy->getPosition().Z-posicion.Z) ,
+                          -(enemy->getPosition().X-posicion.X)) * 180.f / irr::core::PI;
+    if(ang > -30 && ang < 30)
+        return true;
+    else
+        return false;
+}
