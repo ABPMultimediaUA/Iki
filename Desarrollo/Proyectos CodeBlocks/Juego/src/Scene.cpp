@@ -32,11 +32,12 @@ void Scene::inicializar_escena(){
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
-    GraphicsFacade::getInstance().inicializar_gui(1);
-    //camera = smgr->addCameraSceneNode(0,core::vector3df(0,90,-40),core::vector3df(0,0,0));
+
     world->inicializar_mundo();
+
     Mapa = world->getMapa();
     player->inicializar_player(Mapa);
+    //GraphicsFacade::getInstance().inicializar_gui(1);
     menu_ingame->inicializar_menu(1);
 
     Trigger* ruido = player->getRuido();
@@ -51,7 +52,9 @@ void Scene::bucle_juego(){
     while(GraphicsFacade::getInstance().run()){
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
-            menu_ingame->run(false);
+            f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
+            menu_ingame->run();
+            GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
         }
         world->update_mundo();
         player->update(camara);

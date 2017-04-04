@@ -10,8 +10,7 @@ GraphicsFacade::GraphicsFacade()
 	gui = new GUI();
 	//guienv = device->getGUIEnvironment();
 
-	timer = device->getTimer();
-
+	timer      = device->getTimer();
 
 
 	//cout << "Graphics Engine inicializado" << endl;
@@ -23,6 +22,10 @@ GraphicsFacade::~GraphicsFacade()
 }
 
 void GraphicsFacade::inicializar_gui(int menu){
+
+    if(menu != 0)
+        gui->inicializar_hd();
+
     ///MENU
     gui->anyadirmenu (400, 60);
 
@@ -78,16 +81,14 @@ void GraphicsFacade::draw(int draw_type){
 	//Dibujamos los nodos y los cuadros de texto del entorno
 	beginScene();
 	smgr->drawAll();
-	if(draw_type > 0)
-        gui->draw(draw_type);
+    gui->draw(draw_type);
 	endScene();
 
 }
 
 bool GraphicsFacade::run(){
 
-	return device->run();
-
+    return device->run();
 }
 
 void GraphicsFacade::close(){
@@ -194,7 +195,20 @@ void GraphicsFacade::changeResolution(int number){
     }
 }
 
-/*void GraphicsFacade::reSizeWindow(){
-    driver->OnResize(dimension2du(resolucionX, resolucionY));
-    smgr->getActiveCamera()->setAspectRatio((float)resolucionX/resolucionY);
+void GraphicsFacade::setTiempo(f32 tiempo){
+    timer->setTime(tiempo);
+}
+/*void GraphicsFacade::pararTiempo(int time){
+    if(time == 0)
+        timer->stop();
+    else
+        timer_menu->stop();
+}
+
+void GraphicsFacade::reanudarTiempo(int time){
+    if(time == 0)
+        timer->start();
+    else
+        timer_menu->start();
 }*/
+

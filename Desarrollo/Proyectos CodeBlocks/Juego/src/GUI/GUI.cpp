@@ -5,15 +5,16 @@
 #include "GUI/GUI_Control.h"
 #include "GUI/GUI_VolumeControl.h"
 #include "Fachada/GraphicsFacade.h"
+#include "GUI/HUD.h"
 
 GUI::GUI()
 {
-    //ctor
+    hud = new HUD();
 }
 
 GUI::~GUI()
 {
-    //dtor
+    delete hud;
 }
 
 void GUI::anyadirmenu(int x, int y){
@@ -38,7 +39,10 @@ void GUI::anyadirvolumen(int x, int y){
 
 void GUI::draw(int draw_type){
 
-    componentes[0]->draw();
+    if(draw_type == 0)
+        hud->draw();
+    else
+        componentes[0]->draw();
     if(draw_type == 1){
         componentes[1]->draw();
         componentes[2]->draw();
@@ -62,4 +66,8 @@ void GUI::draw(int draw_type){
 
 void GUI::clean(){
     componentes.clear();
+}
+
+void GUI::inicializar_hd(){
+    hud->inicializar_HUD();
 }

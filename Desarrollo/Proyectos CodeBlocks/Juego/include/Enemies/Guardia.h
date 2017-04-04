@@ -3,12 +3,25 @@
 
 #include "Enemy.h"
 #include "StateMachine/Patrullar.h"
+#include "StateMachine/Vigilar.h"
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
+
+class MeshSceneNode;
 
 class Guardia : public Enemy
 {
     private:
+        bool ataquePreparado,solounaveh,atacando;
+        float anguloAtaque, distanciaAtaque;
+        b2Body *bodyAtaque;
+        Structs::TPosicion vectorAtaque;
+        MeshSceneNode* modeloAtaque;
+        Structs::TMedida medidaAtaque     = {10,0.5,0.5};
+        Structs::TPosicion posicionAtaque = {0,0,0};
+        Structs::TColor colorAtaque       = {0,128,128,128};
+        b2RayCastInput input2;
+        b2RayCastOutput	output2;
 
     public:
         Guardia(int ID,PatrolRoute* rutita)
@@ -28,8 +41,11 @@ class Guardia : public Enemy
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);};
         void investigar();
-        void atacar();
+        void perseguir();
         void ataque();
+        void cargarAtaque();
+        void ejecutarAtaque();
+        bool getAtacando(){return atacando;}
 
 
 };

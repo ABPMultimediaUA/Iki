@@ -46,10 +46,12 @@ class GraphicsFacade
         IrrlichtDevice* getDevice() { return device; }
         IVideoDriver* getDriver() { return driver; }
         GUI* getGUI() { return gui; }
-        ITimer* getTimer() { return timer; };
+        ITimer* getTimer()  { return timer; };
 
         SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
+
+        void setTiempo(f32);
 
     protected:
 
@@ -65,7 +67,7 @@ class GraphicsFacade
         plane3df plane;
         line3df ray;
 
-        int resolucionX = 1280, resolucionY = 720;
+        int resolucionX = 1360, resolucionY = 768;
 };
 
 #endif // GRAPHICSFACADE_H

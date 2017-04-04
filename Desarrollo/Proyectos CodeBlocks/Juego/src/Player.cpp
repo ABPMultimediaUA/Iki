@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
-#include "Player_Ray.h"
 #include "Enemies/Path/PathFinding.h"
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
@@ -11,6 +10,7 @@
 Player::Player()
 {
     rayo = new Player_Ray();
+    vida = 5;
 }
 
 Player::~Player()
@@ -20,7 +20,8 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    id=0;
+    id = 0;
+    vida = 5;
     EntityMgr->registrarEntity(this);
 
     Mapa=m;
@@ -51,6 +52,8 @@ void Player::inicializar_player(Map* m){
     body->CreateFixture(&fixtureDef);
     //Para los ray!
     input.maxFraction	=	1.0f;
+    input2.maxFraction  =   1.0f;
+
 
     ruido = new Trigger_Ruido();
     ruido->AddCircularRegion(posicion, 20);
@@ -119,7 +122,6 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
         GraphicsFacade::getInstance().cambiarRay(camara);
-        //moverse = true;
         //listaNodos.clear();
         listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
@@ -129,27 +131,23 @@ void Player::update(Camera* camara){
         //it=listaNodos.begin();
         it2=listaEjes.begin();
 
+    }
+    if(!listaEjes.empty() && it2 != listaEjes.end())
+        toNextNodo = (*it2).getDestination() - posicion;
+    else
+        toNextNodo=quietoParado;
 
+    if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
+    {
+        moverBody(quietoParado);
+        if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+            it2++;
+    }
+    else
+    { //CUANDO AUN NO HA LLEGADO A UN NODO
+        MoverPlayer((*it2).getDestination(),toNextNodo);
     }
 
-    if(GraphicsFacade::getInstance().interseccionRayPlano(mousePosition)){
-
-        if(!listaEjes.empty() && it2 != listaEjes.end())
-            toNextNodo = (*it2).getDestination() - posicion;
-        else
-            toNextNodo=quietoParado;
-
-        if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
-        {
-            moverBody(quietoParado);
-            if(it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
-                it2++;
-        }
-        else
-        { //CUANDO AUN NO HA LLEGADO A UN NODO
-            MoverPlayer((*it2).getDestination(),toNextNodo);
-        }
-    }
 }
 
 void Player::CogerMunicion()
@@ -171,17 +169,17 @@ bool Player::isPathObstructured(Structs::TPosicion destino){
 }
 bool Player::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
 
-     input.p1.Set(desde.X, hasta.Z);	//	Punto	inicial	del	rayo
-     input.p2.Set(desde.X, hasta.Z);	//	Punto	final	del	rayo
+     input2.p1.Set(desde.X, desde.Z);	//	Punto	inicial	del	rayo
+     input2.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
      ///colision con paredes
     for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
-            return true;
+        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output2,input2,0)){
+            return false;
         }
     }
 
-    return false;
+    return true;
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     float angulo = atan2f((p1.Z-posicion.Z) ,

@@ -9,7 +9,8 @@
 class PathFinding;
 class PathPlanner;
 class SparseGraph;
-class Player_Ray;
+
+#include "Player_Ray.h"
 
 #define MOV_SPEED 10.0f;
 
@@ -34,6 +35,7 @@ class Player : public GameEntity{
         bool canWalkBetween(Structs::TPosicion,Structs::TPosicion);
 
         int getSpeed(){ return speed; }
+        int getMunicion(){ return rayo->getBalas();}
         bool getMoving();
         void TriggerRuido();
         Trigger *getRuido(){return ruido;}
@@ -41,6 +43,7 @@ class Player : public GameEntity{
     protected:
 
     private:
+
         Structs::TPosicion toMousePosition;
         Structs::TPosicion toNextNodo;
         Structs::TPosicion toNextPosition;
@@ -48,13 +51,16 @@ class Player : public GameEntity{
         Structs::TPosicion quietoParado = {0,0,0};
 
         Trigger_Ruido* ruido;
-        bool isMoving;
+        bool isMoving,moverse;
         int speed;
         int llaves = 0;
 
         Player_Ray* rayo;
         b2RayCastInput input;
         b2RayCastOutput	output;
+
+        b2RayCastInput input2;
+        b2RayCastOutput	output2;
 
         float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING
