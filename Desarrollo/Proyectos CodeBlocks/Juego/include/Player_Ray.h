@@ -18,6 +18,8 @@ class Player_Ray
         int getBalas(){ return balas;}
         f32 getVidaRayo() {return vida;}
 
+        void comprobarEnemigos();
+
     protected:
 
     private:
