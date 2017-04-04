@@ -30,6 +30,7 @@
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
 					<Add directory="include/SoundEngine" />
+					<Add directory="include/Enemies/StateMachine" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -55,6 +56,7 @@
 					<Add directory="include/Triggers" />
 					<Add directory="include/StateMachine" />
 					<Add directory="include/SoundEngine" />
+					<Add directory="include/Enemies/StateMachine" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -96,6 +98,7 @@
 		<Unit filename="include/Enemies/Path/SparseGraph.h" />
 		<Unit filename="include/Enemies/StateMachine/Alarma.h" />
 		<Unit filename="include/Enemies/StateMachine/Atacar.h" />
+		<Unit filename="include/Enemies/StateMachine/Congelado.h" />
 		<Unit filename="include/Enemies/StateMachine/EnviarMensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Escanear.h" />
 		<Unit filename="include/Enemies/StateMachine/Investigar.h" />
@@ -127,7 +130,6 @@
 		<Unit filename="include/GUI/HUD_Element.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameEntity.h" />
-		<Unit filename="include/Game_Entity.h" />
 		<Unit filename="include/LevelData.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapComponent.h" />
@@ -170,6 +172,7 @@
 		<Unit filename="src/Enemies/Path/SparseGraph.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Alarma.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Atacar.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Congelado.cpp" />
 		<Unit filename="src/Enemies/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Escanear.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Investigar.cpp" />
@@ -201,7 +204,6 @@
 		<Unit filename="src/GUI/HUD_Element.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameEntity.cpp" />
-		<Unit filename="src/Game_Entity.cpp" />
 		<Unit filename="src/LevelData.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapComponent.cpp" />
