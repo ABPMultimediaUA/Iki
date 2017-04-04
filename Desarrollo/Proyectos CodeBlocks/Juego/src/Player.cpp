@@ -21,7 +21,7 @@ Player::~Player()
 void Player::inicializar_player(Map* m){
 
     id = 0;
-    vida = 100;
+    vida = 5;
     EntityMgr->registrarEntity(this);
 
     Mapa=m;

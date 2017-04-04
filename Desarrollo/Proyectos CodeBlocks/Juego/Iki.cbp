@@ -87,11 +87,11 @@
 		<Unit filename="include/Enemies/Path/Algoritmo.h" />
 		<Unit filename="include/Enemies/Path/Edge.h" />
 		<Unit filename="include/Enemies/Path/Heuristic_Euclid.h" />
-		<Unit filename="include/Enemies/Path/NavGraph.h" />
 		<Unit filename="include/Enemies/Path/Nodo.h" />
 		<Unit filename="include/Enemies/Path/PathEdge.h" />
 		<Unit filename="include/Enemies/Path/PathFinding.h" />
 		<Unit filename="include/Enemies/Path/PathPlanner.h" />
+		<Unit filename="include/Enemies/Path/PreCalculated.h" />
 		<Unit filename="include/Enemies/Path/PriorityQueue.h" />
 		<Unit filename="include/Enemies/Path/SparseGraph.h" />
 		<Unit filename="include/Enemies/StateMachine/Alarma.h" />

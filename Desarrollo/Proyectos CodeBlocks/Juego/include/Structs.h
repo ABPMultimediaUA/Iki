@@ -163,7 +163,6 @@ class Structs
             {
               TPosicion toTarget = posSecond - posFirst;
               toTarget.Normalize();
-
               return facingFirst.Dot(toTarget) >= cos(fov/2.0);
             }
             //------------------------- Vec2DDot -------------------------------------
