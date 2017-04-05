@@ -41,6 +41,7 @@ class Player : public GameEntity{
         Trigger *getRuido(){return ruido;}
 
         bool imSeeingThisEnemy(Enemy*);
+        void calcularMirarHacia(Structs::TPosicion);
 
     protected:
 
@@ -51,6 +52,7 @@ class Player : public GameEntity{
         Structs::TPosicion toNextPosition;
         Structs::TPosicion mousePosition = {170,0,50};
         Structs::TPosicion quietoParado = {0,0,0};
+        Structs::TPosicion mirarHacia = {0,0,0};
 
         Trigger_Ruido* ruido;
         bool isMoving,moverse;

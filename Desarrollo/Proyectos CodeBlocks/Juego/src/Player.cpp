@@ -66,8 +66,8 @@ void Player::inicializar_player(Map* m){
 
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
-    float movx = vec.X * avMovement;
-    float movy = vec.Z * avMovement;
+    float movx = vec.X * avMovement * 0.75;
+    float movy = vec.Z * avMovement * 0.75;
 
     if (vec == quietoParado){
         isMoving = false;
@@ -128,6 +128,7 @@ void Player::update(Camera* camara){
         //listaNodos.clear();
         listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
+        calcularMirarHacia(mousePosition);
         //path->crearPath(posicion,mousePosition,listaNodos);
         path2->crearPath(mousePosition,listaEjes);
         path2->SmoothPathEdgesQuick(listaEjes);
@@ -141,7 +142,6 @@ void Player::update(Camera* camara){
         for(size_t i = 0; i < enemies.size(); i++){
             if(enemies[i]->getPosition().Distance(this->getPosition()) < 10.f){
                 if(imSeeingThisEnemy(enemies[i])){
-                    std::cout<<"holi: "<<enemies[i]->getVida()<<std::endl;
                     if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30)
                         enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
                     else
@@ -212,10 +212,15 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 }
 
 bool Player::imSeeingThisEnemy(Enemy* enemy){
-    float ang = atan2f((enemy->getPosition().Z-posicion.Z) ,
-                          -(enemy->getPosition().X-posicion.X)) * 180.f / irr::core::PI;
-    if(ang > -30 && ang < 30)
+
+    Structs::TPosicion p;
+    if(p.isSecondInFOVOfFirst(posicion,mirarHacia,enemy->getPosition(),90*PI/180) && !isPathObstructured(enemy->getPosition()))
         return true;
     else
         return false;
+}
+
+void Player::calcularMirarHacia(Structs::TPosicion mousePos){
+
+    mirarHacia = mousePos - getPosition();
 }

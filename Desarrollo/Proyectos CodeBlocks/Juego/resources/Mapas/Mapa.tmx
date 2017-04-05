@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2600">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2601">
  <objectgroup color="#000000" name="Pared" opacity="0.97">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
@@ -798,6 +798,7 @@
    <property name="Municion" value="4"/>
    <property name="Puerta" value="5"/>
    <property name="PuertaLlave" value="6"/>
+   <property name="Torreta" type="int" value="7"/>
   </properties>
   <object id="2595" type="5" x="38.9091" y="167.09" width="2" height="2" rotation="90"/>
   <object id="2597" type="6" x="34.8182" y="129.909" width="2" height="2" rotation="360"/>

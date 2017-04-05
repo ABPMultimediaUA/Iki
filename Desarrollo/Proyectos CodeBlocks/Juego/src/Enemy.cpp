@@ -189,10 +189,10 @@ void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
     modelo->setRotation(body->GetAngle());
 }
 void Enemy::quitarVida(){
-    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 100){
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 0.8){
         if(vida > 0){
             vida--;
-            time_since_hitted = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted;
+            time_since_hitted = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
         }
         else
             GetFSM()->ChangeState(Muerto::Instance());
