@@ -52,18 +52,11 @@ void PathPlanner::ConvertIndicesToVectors(std::list<int> pNodos, std::list<Struc
 void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
 {
     bool entro = false;
-    //create a couple of iterators and point them at the front of the path
     std::list<PathEdge>::iterator e1 = path.begin();
     std::list<PathEdge>::iterator e2 = path.begin();
-    //increment e2 so it points to the edge following e1.
     ++e2;
-    //while e2 is not the last edge in the path, step through the edges, checking
-    //to see if the agent can move without obstruction from the source node of
-    //e1 to the destination node of e2. If the agent can move between those
-    //positions then the two edges are replaced with a single edge.
     while (e2 != path.end())
     {
-        //check for obstruction, adjust and remove the edges accordingly
         if ( propietario->canWalkBetween(e1->getSource(), e2->getDestination()) )
         {
             entro=true;
@@ -80,23 +73,15 @@ void PathPlanner::SmoothPathEdgesQuick(std::list<PathEdge>& path)
 }
 void PathPlanner::SmoothPathEdgesPrecise(std::list<PathEdge>& path)
 {
-    //create a couple of iterators
     std::list<PathEdge>::iterator e1, e2;
-    //point e1 to the beginning of the path
     e1 = path.begin();
     while (e1 != path.end())
     {
-        //point e2 at the edge immediately following e1
         e2 = e1;
         ++e2;
-        //while e2 is not the last edge in the path, step through the edges,
-        //checking to see if the agent can move without obstruction from the
-        //source node of e1 to the destination node of e2. If the agent can move
-        //between those positions then any edges between e1 and e2 are
-        //replaced with a single edge.
+
         while (e2 != path.end())
         {
-            //check for obstruction, adjust and remove the edges accordingly
             if ( propietario->canWalkBetween(e1->getSource(), e2->getDestination()) )
             {
                 e1->SetDestination(e2->getDestination());
