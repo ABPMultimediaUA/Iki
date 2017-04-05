@@ -76,8 +76,10 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
     TriggerSystem::TriggerList triggers = TriggerSystem::getInstance()->GetTriggers();
     for (int i = 0; i < triggers.size(); i++) {
         if (triggers.at(i)->getBody()){
-            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
-                return false;
+            if (triggers.at(i)->getBody()->IsActive()){
+                if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
+                    return true;
+                }
             }
         }
     }
@@ -121,8 +123,10 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
     TriggerSystem::TriggerList triggers = TriggerSystem::getInstance()->GetTriggers();
     for (int i = 0; i < triggers.size(); i++) {
         if (triggers.at(i)->getBody()){
-            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
-                return false;
+            if (triggers.at(i)->getBody()->IsActive()){
+                if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
+                    return false;
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 #include "Trigger_Puerta.h"
 #include "GameEntity.h"
+#include "EntityManager.h"
 #include "SoundManager.h"
 
 Trigger_Puerta::Trigger_Puerta()
@@ -38,15 +39,15 @@ void Trigger_Puerta::triggerFuera()
 
 void Trigger_Puerta::Try(GameEntity* ent)
 {
-    if (ent->isPlayer())
+    //if (ent->isPlayer())
         if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
             triggerDisparado();
-        }else{
-            triggerFuera();
         }
 }
 
 void Trigger_Puerta::Update()
 {
-
+    if(noHayNingunaEntidad())
+        triggerFuera();
 }
+

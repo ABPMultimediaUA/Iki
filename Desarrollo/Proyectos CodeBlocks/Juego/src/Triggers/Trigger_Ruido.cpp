@@ -2,6 +2,7 @@
 #include "Fachada/GraphicsFacade.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "EntityManager.h"
 
 #include <iostream>
 
@@ -29,7 +30,7 @@ void Trigger_Ruido::Try(GameEntity* ent)
             // se mueve lento y me detectan
 
         }else{
-            static_cast<Enemy*>(ent)->calcularAngulo(this->posicion);
+           // static_cast<Enemy*>(ent)->calcularAngulo(this->posicion);
             //static_cast<Enemy*>(ent)->escanear();
         }
     }
