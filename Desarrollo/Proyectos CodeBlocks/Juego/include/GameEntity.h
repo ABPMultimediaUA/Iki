@@ -9,6 +9,8 @@
 #include "Map.h"
 #include "Enemies/StateMachine/Mensaje.h"
 #include "EntityManager.h"
+#include "SoundManager.h"
+
 #include <vector>
 #include <fstream>
 #include <string>

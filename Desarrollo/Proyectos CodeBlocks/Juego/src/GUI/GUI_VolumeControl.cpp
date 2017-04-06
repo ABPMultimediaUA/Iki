@@ -13,7 +13,7 @@ GUI_VolumeControl::GUI_VolumeControl(int x, int y)
     posicionX2 = posicionX + 13;
     posicionY2 = posicionY + 9;
 
-    volumen   = SoundManager::getInstance()->getVolumen();
+    volumen   = SoundMgr->getVolumen();
 
     rec       = {0, 0, 265, 90};
     rec2      = {0, 0, 22 * (volumen * 10.f) , 70 };
@@ -30,7 +30,7 @@ void GUI_VolumeControl::subirVolumen(){
     if(rec2.X_final < 220){
         rec2.X_final = rec2.X_final + 22;
         volumen += 0.1f;
-        SoundManager::getInstance()->volumenGeneral(volumen);
+        SoundMgr->volumenGeneral(volumen);
     }
 }
 
@@ -38,7 +38,7 @@ void GUI_VolumeControl::bajarVolumen(){
     if(rec2.X_final > 0){
         rec2.X_final = rec2.X_final - 22;
         volumen -= 0.1f;
-        SoundManager::getInstance()->volumenGeneral(volumen);
+        SoundMgr->volumenGeneral(volumen);
     }
 }
 

@@ -15,6 +15,7 @@ class Menu
         Menu();
         ~Menu();
 
+        void cargarSonidos();
         void inicializar_menu(int);
         void draw();
         void comprobarBotones(int);

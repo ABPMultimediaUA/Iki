@@ -28,7 +28,7 @@ bool SoundManager::isCargado(std::string cadena)
 void SoundManager::cargarSonido(std::string cadena)
 {
     if (!isCargado(cadena)){
-        std::string str = "resources/Sonidos/" + cadena + ".wav";
+        std::string str = "resources/BSO/" + cadena + ".wav";
         irrklang::ISoundSource* sonido = engine->addSoundSourceFromFile(str.c_str());
         sonidos[cadena] = sonido;
     }
@@ -36,7 +36,7 @@ void SoundManager::cargarSonido(std::string cadena)
 
 void SoundManager::cargarMusica(std::string cadena)
 {
-    std::string str = "resources/Musica/" + cadena + ".wav";
+    std::string str = "resources/BSO/" + cadena + ".wav";
     irrklang::ISoundSource* sonido = engine->addSoundSourceFromFile(str.c_str());
     musica[cadena] = sonido;
 }

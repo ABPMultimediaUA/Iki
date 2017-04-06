@@ -122,6 +122,7 @@ void Player::update(Camera* camara){
                 HUD::getInstance()->rayoUsed();
                 GraphicsFacade::getInstance().cambiarRay(camara);
                 rayo->lanzar_rayo(posicion);
+                SoundMgr->playSonido("Player/disparoprota");
             }
         }
     }
@@ -147,11 +148,14 @@ void Player::update(Camera* camara){
         for(size_t i = 0; i < enemies.size(); i++){
             if(enemies[i]->getPosition().Distance(this->getPosition()) < 10.f){
                 if(imSeeingThisEnemy(enemies[i])){
-                    if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30)
+                    if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30){
+                        SoundMgr->playSonido("Player/metal1");
                         enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
-                    else
+                    }
+                    else{
                         enemies[i]->quitarVida();
-                    std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
+                    }
+                    //std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
                 }
             }
         }

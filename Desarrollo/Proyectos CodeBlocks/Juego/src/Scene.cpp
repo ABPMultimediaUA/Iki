@@ -7,6 +7,7 @@
 #include "Map.h"
 #include "Menu.h"
 #include "EntityManager.h"
+#include "SoundManager.h"
 
 Scene::Scene()
 {
@@ -22,6 +23,24 @@ Scene::~Scene()
     delete player;
     delete menu_ingame;
 
+}
+
+void Scene::cargarSonidos()
+{
+    SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
+    //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
+    //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
+
+    //SoundMgr->cargarSonido("Triggers/ambiente_desierto");
+    SoundMgr->cargarSonido("Triggers/cargadelarma");
+    SoundMgr->cargarSonido("Triggers/tarjeta");
+    SoundMgr->cargarSonido("Triggers/agua");
+    SoundMgr->cargarSonido("Triggers/puerta_abrir");
+    SoundMgr->cargarSonido("Triggers/puerta_cerrar");
+
+    SoundMgr->cargarSonido("Player/disparoprota");
+    SoundMgr->cargarSonido("Player/metal1");
+    SoundMgr->cargarSonido("Player/metal2");
 }
 
 void Scene::inicializar_escena(){
@@ -43,6 +62,9 @@ void Scene::inicializar_escena(){
     Trigger* ruido = player->getRuido();
     triggersystem.Register(ruido);
     triggersystem.LeerMapa();
+
+    cargarSonidos();
+    SoundMgr->playMusica("Ambientes/ambiente_desierto");
 
     bucle_juego();
 }

@@ -191,11 +191,14 @@ void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
 void Enemy::quitarVida(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 0.8){
         if(vida > 0){
+            SoundMgr->playSonido("Player/metal2");
             vida--;
             time_since_hitted = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
         }
-        else
+        else{
+            SoundMgr->playSonido("Player/metal1");
             GetFSM()->ChangeState(Muerto::Instance());
+        }
     }
 }
 ///ESTADOS

@@ -4,11 +4,6 @@
 
 GUI_Button::GUI_Button(int x, int y, std::string cadena)
 {
-
-    SoundManager::getInstance()->cargarSonido("menu_alante");
-    SoundManager::getInstance()->cargarSonido("menu_alante2");
-    SoundManager::getInstance()->cargarSonido("menu_atras");
-
     cadena = "resources/texturas/"+cadena+".png";
     const char * c = cadena.c_str();
     image = new Image(c);
