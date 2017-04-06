@@ -345,7 +345,7 @@
 	"Structs.h"
 	"TriggerSystem.h"
 
-1491478106 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1491494831 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Trigger_Ruido.h"
 	"Fachada/Camera.h"
@@ -1342,7 +1342,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1491480852 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1491494709 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3352,7 +3352,7 @@
 1491323511 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player_ray.h
 	"Structs.h"
 
-1491477404 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
+1491493039 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
 	"Player_Ray.h"
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
@@ -6066,7 +6066,7 @@
 1491243205 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui_volumecontrol.h
 	"GUI_Component.h"
 
-1491480870 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
+1491492374 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
 	"HUD_Element.h"
 
 1491477024 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud_element.h
@@ -6107,13 +6107,14 @@
 	"Fachada/Image.h"
 	"SoundManager.h"
 
-1491478320 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
+1491492311 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
 	"GUI/HUD.h"
 	"Fachada/Image.h"
 	"EntityManager.h"
 	"Player.h"
+	"Fachada/GraphicsFacade.h"
 
-1491477011 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud_element.cpp
+1491490103 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud_element.cpp
 	"GUI/HUD_Element.h"
 	"Fachada/Image.h"
 	"MyEventReceiver.h"
@@ -6186,4 +6187,11 @@
 
 1491387905 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_torreta.h
 	<Trigger.h>
+
+1491494314 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_aceite.cpp
+	"Trigger_Aceite.h"
+	"Player.h"
+
+1491494174 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_aceite.h
+	<Trigger_Respawning.h>
 

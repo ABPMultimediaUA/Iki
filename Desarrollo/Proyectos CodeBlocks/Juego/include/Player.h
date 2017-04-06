@@ -43,6 +43,9 @@ class Player : public GameEntity{
         bool imSeeingThisEnemy(Enemy*);
         void calcularMirarHacia(Structs::TPosicion);
 
+        void subirVelocidad();
+        void comprobarVelocidad();
+
     protected:
 
     private:
@@ -57,6 +60,7 @@ class Player : public GameEntity{
         Trigger_Ruido* ruido;
         bool isMoving,moverse;
         int speed;
+        float velocidad;
         int llaves = 0;
 
         Player_Ray* rayo;
@@ -65,6 +69,8 @@ class Player : public GameEntity{
 
         b2RayCastInput input2;
         b2RayCastOutput	output2;
+
+        f32 tiempo_con_mas_speed;
 
         float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING

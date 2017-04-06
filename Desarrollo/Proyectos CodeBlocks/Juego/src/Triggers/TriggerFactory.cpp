@@ -7,6 +7,7 @@
 #include "Trigger_PuertaLlave.h"
 #include "Trigger_Llave.h"
 #include "Trigger_Municion.h"
+#include "Trigger_Aceite.h"
 
 
 #include "../Fachada/AnimatedMesh.h"
@@ -83,6 +84,14 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         else
             bodyShape.SetAsBox(1.f,5.f);
         trigger->getBody()->CreateFixture(&bodyShape, 1.f);
+    }
+    else if (tipo == 7){
+        trigger = new Trigger_Aceite();
+        //region
+        trigger->AddCircularRegion(centro,1.f);
+        //modelo;
+        modelo = new AnimatedMesh("resources/Modelos/objeto.obj", {0,0,0,0}, centro, r);
+        trigger->setMesh(modelo);
     }
     /*else if (tipo == 7){
         trigger = new Trigger_Torreta();

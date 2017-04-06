@@ -24,6 +24,9 @@ class HUD
         void rayoUsed();
         void rayoNotUsed();
 
+        void sigiloUsed();
+        void sigiloNotUsed();
+
         void activateTarjeta();
         void desactivateTarjeta();
 
@@ -39,6 +42,7 @@ class HUD
         HUD_Element* Balas;
         HUD_Element* Leyenda;
         HUD_Element* Rayo;
+        HUD_Element* Sigilo;
         HUD_Element* Tarjeta;
         HUD_Element* AvisoTarjeta;
         HUD_Element* AvisoMunicion;

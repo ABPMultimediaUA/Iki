@@ -12,6 +12,7 @@ HUD::HUD()
     Balas         = nullptr;
     Leyenda       = nullptr;
     Rayo          = nullptr;
+    Sigilo        = nullptr;
     Tarjeta       = nullptr;
     AvisoTarjeta  = nullptr;
     AvisoMunicion = nullptr;
@@ -26,6 +27,7 @@ HUD::~HUD()
     delete Balas;
     delete Leyenda;
     delete Rayo;
+    delete Sigilo;
     delete Tarjeta;
     delete AvisoTarjeta;
     delete AvisoMunicion;
@@ -42,34 +44,42 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(10, 10, rec, "vidaprota", true));
     Vida = elementos[0];
 
-    ///Imagen del rayo
-    rec = {0, 0, 110, 109};
-    elementos.push_back(new HUD_Element(1240, 585, rec, "lasertocar", true));
-    Rayo = elementos[1];
+    ///Imágenes de habilidades
+    rec = {0, 0, 79, 79};
+    elementos.push_back(new HUD_Element(1080, 585, rec, "Q", true));
+    //Golpe = elementos[1];
+
+    rec = {0, 0, 79, 79};
+    elementos.push_back(new HUD_Element(1160, 585, rec, "W", true));
+    Rayo = elementos[2];
+
+    rec = {0, 0, 79, 79};
+    elementos.push_back(new HUD_Element(1240, 585, rec, "shift", true));
+    Sigilo = elementos[3];
 
     ///Descripcion del rayo
     rec = {0, 0, 429, 164};
-    elementos.push_back(new HUD_Element(920, 435, rec, "leyendalaser", false));
-    Leyenda = elementos[2];
+    elementos.push_back(new HUD_Element(840, 435, rec, "leyendalaser", false));
+    Leyenda = elementos[4];
 
     ///Balas del rayo
     rec = {85, 0, 98, 17};
-    elementos.push_back(new HUD_Element(1035, 460, rec, "numerobalas", false));
-    Balas = elementos[3];
+    elementos.push_back(new HUD_Element(955, 460, rec, "numerobalas", false));
+    Balas = elementos[5];
 
     ///Tarjetita cuando tenemos llave
     rec = {0, 0, 162, 105};
     elementos.push_back(new HUD_Element(1180, 10, rec, "tarjetaesquina", false));
-    Tarjeta = elementos[4];
+    Tarjeta = elementos[6];
 
     ///Avisos
     rec = {0, 0, 122, 25};
     elementos.push_back(new HUD_Element(1200, 280, rec, "tarjeta", false));
-    AvisoTarjeta = elementos[5];
+    AvisoTarjeta = elementos[7];
 
     rec = {0, 0, 122, 25};
     elementos.push_back(new HUD_Element(1200, 280, rec, "municion", false));
-    AvisoMunicion = elementos[6];
+    AvisoMunicion = elementos[8];
 
 }
 
@@ -113,6 +123,14 @@ void HUD::rayoUsed(){
 
 void HUD::rayoNotUsed(){
     Rayo->changeColor({255,255,255,255});
+}
+
+void HUD::sigiloUsed(){
+    Sigilo->changeColor({255,113,113,133});
+}
+
+void HUD::sigiloNotUsed(){
+    Sigilo->changeColor({255,255,255,255});
 }
 
 void HUD::activateTarjeta(){

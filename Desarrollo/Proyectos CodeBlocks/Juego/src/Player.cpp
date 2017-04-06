@@ -22,6 +22,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
+    velocidad = 0.75;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
@@ -67,8 +68,8 @@ void Player::inicializar_player(Map* m){
 
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
-    float movx = vec.X * avMovement * 0.75;
-    float movy = vec.Z * avMovement * 0.75;
+    float movx = vec.X * avMovement * velocidad;
+    float movy = vec.Z * avMovement * velocidad;
 
     if (vec == quietoParado){
         isMoving = false;
@@ -79,11 +80,22 @@ void Player::moverBody(Structs::TPosicion vec){
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
         speed++;
-        movx *= 0.5;
-        movy *= 0.5;
+        velocidad = 0.5;
+        HUD::getInstance()->sigiloUsed();
     }
+    else
+        HUD::getInstance()->sigiloNotUsed();
+    if(velocidad > 0.75)
+        comprobarVelocidad();
 
     body->SetLinearVelocity(b2Vec2(movx, movy));
+}
+
+void Player::comprobarVelocidad(){
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2){
+        velocidad = 0.75;
+        tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    }
 }
 
 
@@ -113,12 +125,12 @@ void Player::update(Camera* camara){
 
     rayo->borrar_rayo();
 
-    if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 0.8){
+    if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
         HUD::getInstance()->rayoNotUsed();
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
         if(rayo->getBalas() > 0){
-            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 0.8){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
                 HUD::getInstance()->rayoUsed();
                 GraphicsFacade::getInstance().cambiarRay(camara);
                 rayo->lanzar_rayo(posicion);
@@ -145,7 +157,7 @@ void Player::update(Camera* camara){
     if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
         std::vector<Enemy*> enemies = EntityManager::Instance()->getEnemigos();
         for(size_t i = 0; i < enemies.size(); i++){
-            if(enemies[i]->getPosition().Distance(this->getPosition()) < 10.f){
+            if(enemies[i]->getPosition().Distance(this->getPosition()) < 8.f){
                 if(imSeeingThisEnemy(enemies[i])){
                     if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30)
                         enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
@@ -239,4 +251,8 @@ void Player::CogerLlave(){
 void Player::UsarLlave(){
     llaves--;
     HUD::getInstance()->desactivateTarjeta();
+}
+
+void Player::subirVelocidad(){
+    velocidad *= 2;
 }
