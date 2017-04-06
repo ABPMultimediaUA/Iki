@@ -8,7 +8,11 @@ class Player;
 class HUD
 {
     public:
-        HUD();
+        static HUD* getInstance() {
+            static HUD singleton;
+            return &singleton;
+        };
+
         ~HUD();
 
         void inicializar_HUD();
@@ -16,20 +20,32 @@ class HUD
 
         void actualizarBalas();
         void actualizarVidas();
-        //void actualizarPosicionEnemies();
+
+        void rayoUsed();
+        void rayoNotUsed();
+
+        void activateTarjeta();
+        void desactivateTarjeta();
+
+        void activateMunicion();
 
     protected:
 
     private:
+        HUD();
         std::vector<HUD_Element*> elementos;
-        //std::vector<HUD_Element*> enemies;
 
         HUD_Element* Vida;
         HUD_Element* Balas;
         HUD_Element* Leyenda;
         HUD_Element* Rayo;
+        HUD_Element* Tarjeta;
+        HUD_Element* AvisoTarjeta;
+        HUD_Element* AvisoMunicion;
 
         Player* player;
+
+        f32 tiempo_con_aviso;
 };
 
 #endif // HUD_H

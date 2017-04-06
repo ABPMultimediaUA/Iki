@@ -9,12 +9,10 @@
 
 GUI::GUI()
 {
-    hud = new HUD();
 }
 
 GUI::~GUI()
 {
-    delete hud;
 }
 
 void GUI::anyadirmenu(int x, int y){
@@ -40,7 +38,7 @@ void GUI::anyadirvolumen(int x, int y){
 void GUI::draw(int draw_type){
 
     if(draw_type == 0)
-        hud->draw();
+        HUD::getInstance()->draw();
     else
         componentes[0]->draw();
     if(draw_type == 1){
@@ -69,5 +67,5 @@ void GUI::clean(){
 }
 
 void GUI::inicializar_hd(){
-    hud->inicializar_HUD();
+    HUD::getInstance()->inicializar_HUD();
 }

@@ -6,6 +6,7 @@
 #include "MapComponent.h"
 #include "PhisicsWorld.h"
 #include "Muerto.h"
+#include "GUI/HUD.h"
 
 
 Player::Player()
@@ -76,7 +77,7 @@ void Player::moverBody(Structs::TPosicion vec){
         isMoving = true;
         speed = 1;
     }
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
         speed++;
         movx *= 0.5;
         movy *= 0.5;
@@ -112,9 +113,13 @@ void Player::update(Camera* camara){
 
     rayo->borrar_rayo();
 
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
+    if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 0.8){
+        HUD::getInstance()->rayoNotUsed();
+    }
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
         if(rayo->getBalas() > 0){
             if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 0.8){
+                HUD::getInstance()->rayoUsed();
                 GraphicsFacade::getInstance().cambiarRay(camara);
                 rayo->lanzar_rayo(posicion);
             }
@@ -137,7 +142,7 @@ void Player::update(Camera* camara){
 
     }
 
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_SPACE)){
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
         std::vector<Enemy*> enemies = EntityManager::Instance()->getEnemigos();
         for(size_t i = 0; i < enemies.size(); i++){
             if(enemies[i]->getPosition().Distance(this->getPosition()) < 10.f){
@@ -172,6 +177,7 @@ void Player::update(Camera* camara){
 void Player::CogerMunicion()
 {
     rayo->cogerBalas();
+    HUD::getInstance()->activateMunicion();
 }
 bool Player::isPathObstructured(Structs::TPosicion destino){
     input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
@@ -223,4 +229,14 @@ bool Player::imSeeingThisEnemy(Enemy* enemy){
 void Player::calcularMirarHacia(Structs::TPosicion mousePos){
 
     mirarHacia = mousePos - getPosition();
+}
+
+void Player::CogerLlave(){
+    llaves++;
+    HUD::getInstance()->activateTarjeta();
+}
+
+void Player::UsarLlave(){
+    llaves--;
+    HUD::getInstance()->desactivateTarjeta();
 }

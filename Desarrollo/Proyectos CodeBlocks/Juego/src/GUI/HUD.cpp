@@ -4,12 +4,17 @@
 #include "EntityManager.h"
 #include "Player.h"
 
+#include "Fachada/GraphicsFacade.h"
+
 HUD::HUD()
 {
-    Vida    = nullptr;
-    Balas   = nullptr;
-    Leyenda = nullptr;
-    Rayo    = nullptr;
+    Vida          = nullptr;
+    Balas         = nullptr;
+    Leyenda       = nullptr;
+    Rayo          = nullptr;
+    Tarjeta       = nullptr;
+    AvisoTarjeta  = nullptr;
+    AvisoMunicion = nullptr;
 
     player  = nullptr;
     //player  = static_cast<Player*>(EntityManager::Instance()->getEntities()[0]);
@@ -21,6 +26,10 @@ HUD::~HUD()
     delete Balas;
     delete Leyenda;
     delete Rayo;
+    delete Tarjeta;
+    delete AvisoTarjeta;
+    delete AvisoMunicion;
+
     delete player;
 }
 
@@ -48,12 +57,20 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(1035, 460, rec, "numerobalas", false));
     Balas = elementos[3];
 
-    /*vector<GameEntity*> vec = EntityMgr->getEntities();
-    for(size_t i = 0; i < vec.size() - 1; i++){
-        rec = {0, 0, 35, 50};
-        elementos.push_back(new HUD_Element(vec[i]->getPosition().X, vec[i]->getPosition().Z, rec, "preguntavacia", true));
-        enemies.push_back(elementos[i+4]);
-    }*/
+    ///Tarjetita cuando tenemos llave
+    rec = {0, 0, 162, 105};
+    elementos.push_back(new HUD_Element(1180, 10, rec, "tarjetaesquina", false));
+    Tarjeta = elementos[4];
+
+    ///Avisos
+    rec = {0, 0, 122, 25};
+    elementos.push_back(new HUD_Element(1200, 280, rec, "tarjeta", false));
+    AvisoTarjeta = elementos[5];
+
+    rec = {0, 0, 122, 25};
+    elementos.push_back(new HUD_Element(1200, 280, rec, "municion", false));
+    AvisoMunicion = elementos[6];
+
 }
 
 void HUD::draw(){
@@ -68,6 +85,10 @@ void HUD::draw(){
     else{
         Leyenda->setActive(false);
         Balas->setActive(false);
+    }
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_aviso > 1.5){
+        AvisoTarjeta->setActive(false);
+        AvisoMunicion->setActive(false);
     }
 
     for(size_t i = 0; i < elementos.size(); i++){
@@ -86,11 +107,25 @@ void HUD::actualizarBalas(){
     Balas->cambiarRect(rec);
 }
 
-/*void HUD::actualizarPosicionEnemies(){
+void HUD::rayoUsed(){
+    Rayo->changeColor({255,113,113,133});
+}
 
-    vector<GameEntity*> vec = EntityMgr->getEntities();
+void HUD::rayoNotUsed(){
+    Rayo->changeColor({255,255,255,255});
+}
 
-    for(size_t i = 0; i < enemies.size(); i++){
-        enemies[i]->setPosition(vec[i]->getPosition().X + 680, vec[i]->getPosition().Z + 384);
-    }
-}*/
+void HUD::activateTarjeta(){
+    Tarjeta->setActive(true);
+    AvisoTarjeta->setActive(true);
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+}
+
+void HUD::desactivateTarjeta(){
+    Tarjeta->setActive(false);
+}
+
+void HUD::activateMunicion(){
+    AvisoMunicion->setActive(true);
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+}

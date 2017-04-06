@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 
-class HUD;
 class GUI_Component;
 
 class GUI
@@ -30,7 +29,6 @@ class GUI
     private:
 
         std::vector<GUI_Component*> componentes;
-        HUD* hud;
 
 };
 

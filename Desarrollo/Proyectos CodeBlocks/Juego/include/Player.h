@@ -24,8 +24,8 @@ class Player : public GameEntity{
         bool isPlayer(){return true;};
 
         void CogerMunicion();
-        void CogerLlave(){llaves++;}
-        void UsarLlave(){llaves--;}
+        void CogerLlave();
+        void UsarLlave();
         int  GetLlaves(){return llaves;}
 
 
