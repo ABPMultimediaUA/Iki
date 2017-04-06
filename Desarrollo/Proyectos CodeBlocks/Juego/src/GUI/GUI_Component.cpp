@@ -24,7 +24,7 @@ int GUI_Component::comprobarmouse(float x, float y){
         estaencima = true;
         if(!sound_fired){
             //if (!SoundManager::getInstance()->isPlaying("menu_alante")){
-                SoundManager::getInstance()->playSonido("menu_alante");
+                SoundMgr->playSonido("Menu/menu_alante");
                 sound_fired = true;
             //}
         }
@@ -43,7 +43,7 @@ void GUI_Component::setRect(int x, int y){
 
 void GUI_Component::reproducir_click(int type){
     if(type == 0)
-        SoundManager::getInstance()->playSonido("menu_alante2");
+        SoundMgr->playSonido("Menu/menu_alante2");
     else
-        SoundManager::getInstance()->playSonido("menu_atras");
+        SoundMgr->playSonido("Menu/menu_atras");
 }

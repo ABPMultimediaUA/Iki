@@ -15,6 +15,7 @@ class Scene
     public:
         Scene();
         ~Scene();
+        void cargarSonidos();
         void inicializar_escena();
         void bucle_juego();
 

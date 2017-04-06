@@ -4,8 +4,7 @@
 
 Trigger_Puerta::Trigger_Puerta()
 {
-    SoundManager::getInstance()->cargarSonido("puerta_abrir");
-    SoundManager::getInstance()->cargarSonido("puerta_cerrar");
+
 }
 
 Trigger_Puerta::~Trigger_Puerta()
@@ -19,8 +18,8 @@ void Trigger_Puerta::triggerDisparado()
     body->SetActive(false);
     if (!fired){
         //if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
-        SoundManager::getInstance()->soundStop("puerta_cerrar");
-        SoundManager::getInstance()->playSonido("puerta_abrir");
+        SoundMgr->soundStop("Triggers/puerta_cerrar");
+        SoundMgr->playSonido("Triggers/puerta_abrir");
         fired = true;
     }
 }
@@ -28,8 +27,8 @@ void Trigger_Puerta::triggerDisparado()
 void Trigger_Puerta::triggerFuera()
 {
     if (fired){
-        SoundManager::getInstance()->soundStop("puerta_abrir");
-        SoundManager::getInstance()->playSonido("puerta_cerrar");
+        SoundMgr->soundStop("Triggers/puerta_abrir");
+        SoundMgr->playSonido("Triggers/puerta_cerrar");
     }
     fired = false;
     aniMesh->setVisible(true);
