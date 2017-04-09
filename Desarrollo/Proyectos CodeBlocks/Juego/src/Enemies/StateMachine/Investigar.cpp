@@ -19,9 +19,8 @@ void Investigar::Enter(Enemy* enemigo){
 }
 
 void Investigar::Execute(Enemy* enemigo){
-    if(enemigo->getDistanciaPlayer()<10){
+    if(enemigo->getDistanciaPlayer()<30 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
-            //static_cast<Guardia*>(enemigo)->atacar();
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
     }
     if(enemigo->getPosition() == enemigo->getPosicionInteres()){

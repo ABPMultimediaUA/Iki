@@ -6,6 +6,7 @@
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
 #include "Muerto.h"
+#include "Enemies/Guardia.h"
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
@@ -89,7 +90,7 @@ bool Enemy::vectorIsInFOV(Structs::TPosicion p){
 }
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,90*DegToRad) && !isPathObstructured(posicionProta))
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
         return true;
     else
         return false;
@@ -174,6 +175,11 @@ void Enemy::girarVista(float giro, int posV){
     double radianes = (-giro) * DegToRad;
     mirandoHacia.rotarVector(radianes);
 }
+bool Enemy::hayGuardias(){
+    if(EntityMgr->hayGuardia())
+        return true;
+    return false;
+}
 ///PARA MOVER CON IMPULSOS?¿
 void Enemy::moverBody(Structs::TPosicion vec){
     vec.Normalize();
@@ -206,8 +212,6 @@ void Enemy::patrullar()
    if(posicion.Distance(pRuta->getPunto()) >0.5) //AVANZAR
     {
         //MoverEnemigo(pRuta->getPunto(),posinit);
-        posinit.Normalize();
-        mirandoHacia=posinit;
         posicion = posicion + posinit * avMovement;
     }
     else //CUANDO LLEGA A UN PUNTO PATRULLA
@@ -226,6 +230,8 @@ void Enemy::patrullar()
         }
 
         posinit = pRuta->getPunto() - posicion;
+        posinit.Normalize();
+        mirandoHacia=posinit;
         calcularAngulo(pRuta->getPunto());
     }
     setPosition();
@@ -250,7 +256,7 @@ void Enemy::vigilar(){
 void Enemy::escanear(){
     calcularAngulo(posicionProta);
     setPosition();
-    if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<15)
+    if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<40 && isEnemySeeing(posicionProta))
     {
         sospecha=sospecha+1;
         //std::cout<<"Sospecha: "<<sospecha<<std::endl;
@@ -263,4 +269,8 @@ void Enemy::volverALaPatrulla(){
 void Enemy::muerto(){
     posicion = {1000,0,1000};
     setPosition();
+    if(this->isGuardia())
+        static_cast<Guardia*>(this)->setModeloVisible(false);
+    EntityMgr->borrarEnemigo(this);
+
 }

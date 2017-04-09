@@ -149,9 +149,10 @@ void Player::update(Camera* camara){
                 if(imSeeingThisEnemy(enemies[i])){
                     if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30)
                         enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
-                    else
+                    else{
                         enemies[i]->quitarVida();
-                    std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
+                        //std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
+                    }
                 }
             }
         }
