@@ -137,6 +137,8 @@ void Player::update(Camera* camara){
                 SoundMgr->playSonido("Player/disparoprota");
             }
         }
+        else
+            HUD::getInstance()->activateNotMunicion();
     }
     TriggerRuido();
 
@@ -257,6 +259,12 @@ void Player::UsarLlave(){
     HUD::getInstance()->desactivateTarjeta();
 }
 
+void Player::NecesitoLlave(){
+    HUD::getInstance()->activateNotTarjeta();
+}
+
 void Player::subirVelocidad(){
     velocidad *= 2;
+    tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    HUD::getInstance()->activateAceite();
 }

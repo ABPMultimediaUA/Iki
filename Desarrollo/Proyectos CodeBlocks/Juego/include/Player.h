@@ -26,6 +26,7 @@ class Player : public GameEntity{
         void CogerMunicion();
         void CogerLlave();
         void UsarLlave();
+        void NecesitoLlave();
         int  GetLlaves(){return llaves;}
 
 

@@ -22,7 +22,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             SoundMgr->cargarSonido("Triggers/tarjeta");
             SoundMgr->playSonido("Triggers/puerta_abrir");
         }else{
-            //std::cout << " Necesitas una llave " << std::endl;
+            static_cast<Player*>(ent)->NecesitoLlave();
         }
     }
     else{
