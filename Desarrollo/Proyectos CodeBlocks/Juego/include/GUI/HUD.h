@@ -37,6 +37,8 @@ class HUD
         void activateNotMunicion();
         void activateNotTarjeta();
 
+        void GameOver();
+
     protected:
 
     private:
@@ -57,6 +59,8 @@ class HUD
         HUD_Element* AvisoAceite;
         HUD_Element* AvisoNotTarjeta;
         HUD_Element* AvisoNotMunicion;
+        HUD_Element* GOver;
+        HUD_Element* BotonFinJuego;
 
         Player* player;
 

@@ -25,9 +25,9 @@ void Alarma::Execute(Enemy* enemigo){
 
 void Alarma::Exit(Enemy* enemigo){
     EntityMgr->crearGuardia(enemigo->getPatrulla());
-    PatrolRoute* ruta = enemigo->getPatrulla();
+    /*PatrolRoute* ruta = enemigo->getPatrulla();
     ruta->setInicial(enemigo->getPatrulla()->getInicial()->getNext());
-    EntityMgr->crearGuardia(ruta);
+    EntityMgr->crearGuardia(ruta);*/
 }
 bool Alarma::OnMessage(Enemy* enemigo, const Mensaje& msg){
 

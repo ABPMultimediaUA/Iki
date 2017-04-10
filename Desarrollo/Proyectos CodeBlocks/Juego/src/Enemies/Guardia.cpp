@@ -27,8 +27,8 @@ void Guardia::investigar(){
 }
 void Guardia::perseguir(){
     toProtaPosition = posicionProta - posicion;
-    toProtaPosition.Normalize();
     mirandoHacia = toProtaPosition;
+    toProtaPosition.Normalize();
     posicion = posicion + toProtaPosition*(avMovement*2);
     calcularAngulo(posicionProta);
     setPosition();
@@ -50,7 +50,7 @@ void Guardia::cargarAtaque(){
 
 
         input2.p1.Set(posicion.X, posicion.Z);	//	Punto	inicial	del	rayo
-        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*5), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
+        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
 
         distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
 
@@ -84,7 +84,4 @@ void Guardia::ejecutarAtaque(){
                 ataquePreparado = false;
             }
         }
-
-
-
 }

@@ -15,6 +15,7 @@ Patrullar* Patrullar::Instance()
 }
 
 void Patrullar::Enter(Enemy* enemigo){
+    enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
 }
 
 void Patrullar::Execute(Enemy* enemigo){
@@ -29,12 +30,8 @@ void Patrullar::Execute(Enemy* enemigo){
 
     enemigo->patrullar();
 
-    if(enemigo->getDistanciaPlayer() < 25){
-        //std::cout<<"Escaneando..."<<std::endl;
-        if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
-            //std::cout<<"Te he visto!..."<<std::endl;
+    if(enemigo->getDistanciaPlayer() < 25 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
-        }
     }
 
     if(enemigo->getPatrulla()->getInicial()->getNext()->getPunto() == enemigo->getPosition()){
