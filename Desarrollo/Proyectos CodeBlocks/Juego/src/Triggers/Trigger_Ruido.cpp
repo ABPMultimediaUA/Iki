@@ -1,6 +1,10 @@
 #include "Trigger_Ruido.h"
 #include "Fachada/GraphicsFacade.h"
 #include "Player.h"
+#include "Enemy.h"
+
+#include "Escuchar.h"
+#include "Patrullar.h"
 
 #include <iostream>
 
@@ -17,29 +21,24 @@ Trigger_Ruido::~Trigger_Ruido()
 
 void Trigger_Ruido::Try(GameEntity* ent)
 {
-    if (ent->isPlayer()){
-        posicion = ent->getPosition();
-        speed = static_cast<Player*>(ent)->getSpeed();
-    }
-
-    //std::cout << "ARREGLA ESTO " << std::endl;
-
     if (isActive() && !ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
+        //show interrogante
 
         if (speed == 1){
             // se mueve lento y me detectan
-            //std::cout << "me ven despasico" << std::endl;
         }else{
-            // static_cast<Enemigo*>(ent)->Sospechar();
-            //std::cout << "me ven MUCHO" << std::endl;
+            Enemy* enemigo = static_cast<Enemy*>(ent);
+            if (enemigo->GetFSM()->CurrentState() == Patrullar::Instance()){
+                enemigo->GetFSM()->ChangeState(Escuchar::Instance());
+            }
+            //else
         }
     }
-    else{}
-        //std::cout << "    " << std::endl;
-
 }
 
 void Trigger_Ruido::Update()
 {
-
+    GameEntity* ent = EntityMgr->getEntityByID(0);
+    posicion = ent->getPosition();
+    speed = static_cast<Player*>(ent)->getSpeed();
 }

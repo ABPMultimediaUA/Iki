@@ -21,6 +21,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             body->SetActive(false);
             SoundMgr->cargarSonido("Triggers/tarjeta");
             SoundMgr->playSonido("Triggers/puerta_abrir");
+            this->SetInactive();
         }else{
             static_cast<Player*>(ent)->NecesitoLlave();
         }

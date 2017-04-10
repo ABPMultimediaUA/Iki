@@ -43,6 +43,7 @@ class Enemy : public GameEntity
         void patrullar();
         void vigilar();
         void escanear();
+        void escuchar();
         void muerto();
         void volverALaPatrulla();
         ///METODOS
