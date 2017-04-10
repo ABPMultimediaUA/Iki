@@ -9,6 +9,8 @@ void Dron::inicializar_enemigo(Map* m)
     init(m);
     tipo = 3;
     vida = 1;
-    Structs::TColor color = {0,255,255,0};
-    modelo->cambiarColor(color);
+    Structs::TColor color = {0,255,150,150};
+    aniMesh = new AnimatedMesh("resources/Modelos/Drone.obj", color, posicion, 0);
+    aniMesh->setScale(5);
+   // modelo->cambiarColor(color);
 }

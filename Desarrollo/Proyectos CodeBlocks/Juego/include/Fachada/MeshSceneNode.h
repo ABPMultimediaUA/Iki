@@ -8,7 +8,6 @@ class MeshSceneNode
     public:
         MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicion, Structs::TColor color);
         virtual ~MeshSceneNode();
-
         void setScale(Structs::TMedida);
         void setPosition(Structs::TPosicion);
         void setRotation(float);

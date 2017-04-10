@@ -6,16 +6,24 @@
 class AnimatedMesh
 {
     public:
-        AnimatedMesh(const char* f, Structs::TColor color, Structs::TPosicion, float rotacion);
+        AnimatedMesh(const char* f, Structs::TColor color, Structs::TPosicion, float);
         virtual ~AnimatedMesh();
 
-        void setVisible(bool visible);
+        void setScale(Structs::TMedida);
+        void setScale(float);
+        void setPosition(Structs::TPosicion);
+        void setRotation(float);
+        void setVisible(bool);
+        Structs::TPosicion getPosition(){return posicion;}
+        void cambiarColor(Structs::TColor color);
 
     protected:
 
     private:
         IAnimatedMesh *mesh;
         IAnimatedMeshSceneNode *modelo;
+        Structs::TPosicion posicion;
+        float rotacion;
 };
 
 #endif // ANIMATEDMESH_H

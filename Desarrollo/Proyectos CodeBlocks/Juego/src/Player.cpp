@@ -33,14 +33,15 @@ void Player::inicializar_player(Map* m){
     path2 = new PathPlanner(grafo,this);
 
     Structs::TPosicion posicionInicial (170,0,50);
-    Structs::TColor color = {0,0,0,0};
+    Structs::TColor color = {121,85,61,0};
 
     aniMesh = new AnimatedMesh("resources/Modelos/Prota.obj", color, posicionInicial, 0);
+    aniMesh->setScale(4);
 
-    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
-    modelo->cambiarColor(color);
+    /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
+    modelo->cambiarColor(color);*/
 
-    posicion = modelo->getPosition();
+    posicion = aniMesh->getPosition();
 
     radio = 1.0;
 
@@ -65,7 +66,7 @@ void Player::inicializar_player(Map* m){
 
 
     ruido = new Trigger_Ruido();
-    ruido->AddCircularRegion(posicion, 90);
+    ruido->AddCircularRegion(posicion, 20);
     isMoving = false;
 }
 
@@ -154,7 +155,7 @@ void Player::update(Camera* camara){
             SoundMgr->playSonido("Player/error");
             HUD::getInstance()->activateNotMunicion();
         }
-    }
+
     TriggerRuido();
 
         if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
@@ -204,9 +205,9 @@ void Player::update(Camera* camara){
         { //CUANDO AUN NO HA LLEGADO A UN NODO
             MoverPlayer((*it2).getDestination(),toNextNodo);
         }
+        sonidosMovimiento();
     }
 
-    sonidosMovimiento();
 
 }
 
@@ -281,10 +282,10 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     angulo = atan2f((p1.Z-posicion.Z) ,
                           -(p1.X-posicion.X)) * 180.f / irr::core::PI;
     body->SetTransform(body->GetPosition(), angulo);
-    modelo->setRotation(body->GetAngle());
+    aniMesh->setRotation(body->GetAngle());
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-    modelo->setPosition(posicion);
+    aniMesh->setPosition(posicion);
 
 }
 

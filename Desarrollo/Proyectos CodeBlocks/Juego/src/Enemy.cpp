@@ -27,7 +27,7 @@ void Enemy::init(Map* m){
     direccion = 0;
     posVigilando = 0;
     //creo un cubo
-    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
+    //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
     posinit = pRuta->getPunto()-posaux;
@@ -128,8 +128,8 @@ void Enemy::crearPath(Structs::TPosicion destino){
 }
 void Enemy::setPosition(){
     body->SetTransform(b2Vec2(posicion.X, posicion.Z), angulo);
-    modelo->setRotation(body->GetAngle());
-    modelo->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    aniMesh->setRotation(body->GetAngle());
+    aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
 }
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
    //mover medico con la lista de edges creada
@@ -156,7 +156,7 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
     }
 }
 void Enemy::cambiarColor(Structs::TColor c){
-    modelo->cambiarColor(c);
+    aniMesh->cambiarColor(c);
 }
 void Enemy::calcularAngulo(Structs::TPosicion p1){
     angulo = atan2f((p1.Z-posicion.Z) ,
@@ -191,8 +191,8 @@ void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
     body->SetTransform(body->GetPosition(), angulo);
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-    modelo->setPosition(posicion);
-    modelo->setRotation(body->GetAngle());
+    aniMesh->setPosition(posicion);
+    aniMesh->setRotation(body->GetAngle());
 }
 void Enemy::quitarVida(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 0.8){
@@ -238,9 +238,6 @@ void Enemy::patrullar()
         calcularAngulo(pRuta->getPunto());
     }
     setPosition();
-     if(getTipo() == 3){
-        std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
-    }
 }
 
 void Enemy::vigilar(){
@@ -272,11 +269,6 @@ void Enemy::escanear(){
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);
     setPosition();
-    //if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<15)
-    //{
-    //    sospecha=sospecha+1;
-        //std::cout<<"Sospecha: "<<sospecha<<std::endl;
-    //}
 }
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());

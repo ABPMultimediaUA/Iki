@@ -16,6 +16,8 @@ Alarma* Alarma::Instance()
 
 void Alarma::Enter(Enemy* enemigo){
     enemigo->resetTime();
+    Structs::TColor color = {0,255,0,0};
+    enemigo->cambiarColor(color);
 }
 
 void Alarma::Execute(Enemy* enemigo){

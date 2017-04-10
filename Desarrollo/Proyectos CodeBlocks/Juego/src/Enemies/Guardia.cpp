@@ -10,8 +10,10 @@ void Guardia::inicializar_enemigo(Map* m)
     init(m);
     tipo = 1;
     vida = 4;
-    Structs::TColor color = {0,0,255,0};
-    modelo->cambiarColor(color);
+    Structs::TColor color = {255,255,255,0};
+    aniMesh = new AnimatedMesh("resources/Modelos/Enemigo.obj", color,posicion, 90);
+    aniMesh->setScale(3);
+    //modelo->cambiarColor(color);
     ataquePreparado = false;
     solounaveh = false;
     atacando = false;

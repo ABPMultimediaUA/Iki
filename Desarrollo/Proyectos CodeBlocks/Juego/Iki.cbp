@@ -101,7 +101,6 @@
 		<Unit filename="include/Enemies/StateMachine/Congelado.h" />
 		<Unit filename="include/Enemies/StateMachine/EnviarMensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Escanear.h" />
-		<Unit filename="include/Enemies/StateMachine/Escuchar.h" />
 		<Unit filename="include/Enemies/StateMachine/Huir.h" />
 		<Unit filename="include/Enemies/StateMachine/Investigar.h" />
 		<Unit filename="include/Enemies/StateMachine/Mensaje.h" />
@@ -157,6 +156,7 @@
 		<Unit filename="include/Triggers/Trigger_PuertaLlave.h" />
 		<Unit filename="include/Triggers/Trigger_Respawning.h" />
 		<Unit filename="include/Triggers/Trigger_Ruido.h" />
+		<Unit filename="include/Triggers/Trigger_Torreta.h" />
 		<Unit filename="include/Vector2D.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
@@ -177,7 +177,6 @@
 		<Unit filename="src/Enemies/StateMachine/Congelado.cpp" />
 		<Unit filename="src/Enemies/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Escanear.cpp" />
-		<Unit filename="src/Enemies/StateMachine/Escuchar.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Huir.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Investigar.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Mensaje.cpp" />
@@ -234,6 +233,7 @@
 		<Unit filename="src/Triggers/Trigger_PuertaLlave.cpp" />
 		<Unit filename="src/Triggers/Trigger_Respawning.cpp" />
 		<Unit filename="src/Triggers/Trigger_Ruido.cpp" />
+		<Unit filename="src/Triggers/Trigger_Torreta.cpp" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/tinyxml2.cpp" />
 		<Extensions>

@@ -12,11 +12,11 @@ Atacar* Atacar::Instance()
 }
 
 void Atacar::Enter(Enemy* enemigo){
+    Structs::TColor color = {0,255,0,0};
+    enemigo->cambiarColor(color);
 }
 
 void Atacar::Execute(Enemy* enemigo){
-    Structs::TColor color = {0,255,0,0};
-    enemigo->cambiarColor(color);
 
 
     /*if(!enemigo->isEnemySeeing(enemigo->getPosicionProta())){

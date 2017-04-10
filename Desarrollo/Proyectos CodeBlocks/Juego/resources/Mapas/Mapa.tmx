@@ -673,13 +673,13 @@
     <property name="Tipo" value="1"/>
    </properties>
   </object>
-  <object id="2466" x="112.5" y="116.625" width="2" height="2">
+  <object id="2466" x="105.227" y="112.443" width="2" height="2">
    <properties>
     <property name="Enemigo" value="3"/>
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2467" x="124.75" y="111.75" width="2" height="2">
+  <object id="2467" x="121.659" y="116.114" width="2" height="2">
    <properties>
     <property name="Enemigo" value="3"/>
     <property name="Next" value="0"/>
