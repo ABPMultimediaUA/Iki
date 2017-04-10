@@ -33,14 +33,11 @@ void Escuchar::Execute(Enemy* enemigo)
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
         }
         if(play->getPosition().Distance(enemigo->getPosition()) >= 20){
-            if (enemigo->getSospecha() > 100){
+            //std::cout << "aqui" << std::endl;
+            //if (enemigo->getSospecha() > 100){
                 enemigo->setPosicionInteres(enemigo->getPosicionProta());
                 enemigo->GetFSM()->ChangeState(Investigar::Instance());
-            }
-        }else{
-            std::cout << "he sido yo " << std::endl;
-            enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
-            enemigo->GetFSM()->ChangeState(Patrullar::Instance());
+            //}
         }
     }else{
         if (enemigo->getTiempo() - tiempo > 3){

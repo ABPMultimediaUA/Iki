@@ -30,10 +30,10 @@ void Trigger_Ruido::Try(GameEntity* ent)
 
         //    if (enemigo->GetFSM()->PreviousState() != Escuchar::Instance())
 
-        //    if (   enemigo->GetFSM()->CurrentState() == Patrullar::Instance()
-        //        || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
-        //        enemigo->GetFSM()->ChangeState(Escuchar::Instance());
-        //    }
+            if (   enemigo->GetFSM()->CurrentState() == Patrullar::Instance()
+                || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
+                enemigo->GetFSM()->ChangeState(Escuchar::Instance());
+            }
         }
     }
 }
