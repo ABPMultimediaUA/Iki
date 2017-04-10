@@ -29,8 +29,8 @@ void Medico::pedirAyuda(){
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
         //MoverEnemigo((*it).getDestination(),toNextNodo);
-        toNextNodo.Normalize();
         mirandoHacia=toNextNodo;
+        toNextNodo.Normalize();
         posicion=posicion+toNextNodo*(avMovement*2.5);
         calcularAngulo((*it).getDestination());
     }
@@ -41,12 +41,12 @@ void Medico::proteger(){
     toProtegido = protegido->getPosition() - posicion;
     if(toProtegido.Length()> 5){
         //MoverEnemigo(protegido->getPosition(),toProtegido);
-        toProtegido.Normalize();
         mirandoHacia=toProtegido;
+        toProtegido.Normalize();
         posicion=posicion+toProtegido*(avMovement*2.5);
         calcularAngulo(protegido->getPosition());
     }
-    else if (protegido->getVida()<4 && tiempoEnEstado>8){
+    else if (protegido->getVida()<4 && tiempoEnEstado>2){
         curar();
         resetTime();
     }

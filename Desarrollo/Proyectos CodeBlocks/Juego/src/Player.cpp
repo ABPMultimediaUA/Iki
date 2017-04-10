@@ -34,8 +34,12 @@ void Player::inicializar_player(Map* m){
 
     Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {0,0,0,0};
+
+    aniMesh = new AnimatedMesh("resources/Modelos/Prota.obj", color, posicionInicial, 0);
+
     modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);
+
     posicion = modelo->getPosition();
 
     radio = 1.0;

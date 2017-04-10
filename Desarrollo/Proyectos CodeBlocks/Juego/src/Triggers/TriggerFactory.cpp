@@ -8,6 +8,7 @@
 #include "Trigger_Llave.h"
 #include "Trigger_Municion.h"
 #include "Trigger_Aceite.h"
+#include "Trigger_Torreta.h"
 
 
 #include "../Fachada/AnimatedMesh.h"
@@ -90,9 +91,26 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //region
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
-        modelo = new AnimatedMesh("resources/Modelos/objeto.obj", {0,0,0,0}, centro, r);
+        modelo = new AnimatedMesh("resources/Modelos/lubricante.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
     }
+    else if (tipo == 8){
+        trigger = new Trigger_Torreta();
+        //Region
+        trigger->AddCircularRegion(centro,7);
+        //modelo
+        modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,0,0}, centro, r);
+        trigger->setMesh(modelo);
+        //b2body
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_staticBody;
+        b2PolygonShape bodyShape;
+        bodyDef.position.Set(x,z);
+        trigger->setBody(bodyDef);
+        bodyShape.SetAsBox(1.f,1.f);
+        trigger->getBody()->CreateFixture(&bodyShape, 1.f);
+    }
+
     /*else if (tipo == 7){
         trigger = new Trigger_Torreta();
         //Region

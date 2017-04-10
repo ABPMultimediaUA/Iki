@@ -149,8 +149,8 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
         //MoverEnemigo((*it).getDestination(),toNextNodo);
-        toNextNodo.Normalize();
         mirandoHacia=toNextNodo;
+        toNextNodo.Normalize();
         posicion=posicion+toNextNodo*(avMovement*velocidad);
         calcularAngulo((*it).getDestination());
     }
@@ -233,11 +233,14 @@ void Enemy::patrullar()
         }
 
         posinit = pRuta->getPunto() - posicion;
-        posinit.Normalize();
         mirandoHacia=posinit;
+        posinit.Normalize();
         calcularAngulo(pRuta->getPunto());
     }
     setPosition();
+     if(getTipo() == 3){
+        std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
+    }
 }
 
 void Enemy::vigilar(){
@@ -257,13 +260,14 @@ void Enemy::vigilar(){
     setPosition();
 }
 void Enemy::escanear(){
-    calcularAngulo(posicionProta);
-    setPosition();
-    if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<40 && isEnemySeeing(posicionProta))
+    if(sospecha < 100 && distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
+        calcularAngulo(posicionProta);
         sospecha=sospecha+1;
+        posicionInteres = posicionProta;
         //std::cout<<"Sospecha: "<<sospecha<<std::endl;
     }
+     setPosition();
 }
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);

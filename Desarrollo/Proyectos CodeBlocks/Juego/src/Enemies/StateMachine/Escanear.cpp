@@ -5,6 +5,7 @@
 #include "Enemies/StateMachine/PedirAyuda.h"
 #include "Enemies/StateMachine/Atacar.h"
 #include "Enemies/StateMachine/Alarma.h"
+#include "Enemies/StateMachine/Investigar.h"
 
 
 
@@ -21,7 +22,7 @@ void Escanear::Enter(Enemy* enemigo){
 
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
-    if(enemigo->getSospecha()==99){
+    if(enemigo->getSospecha()>=99){
         ///COMBATEEE
         switch(enemigo->getTipo()){
         case 1:
@@ -37,9 +38,11 @@ void Escanear::Execute(Enemy* enemigo){
             break;
         }
     }
-    else if(enemigo->getTiempo()>1.5)
+    else if(enemigo->getTiempo()>1.5 && enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta()))
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
-
+    else if(enemigo->getTiempo()>1.5 && enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        enemigo->GetFSM()->ChangeState(Investigar::Instance());
+    }
 }
 
 void Escanear::Exit(Enemy* enemigo){}
