@@ -20,7 +20,7 @@ void Vigilar::Enter(Enemy* enemigo){
 
 void Vigilar::Execute(Enemy* enemigo){
     enemigo->vigilar();
-    if(enemigo->getDistanciaPlayer() < 20){
+    if(enemigo->getDistanciaPlayer() < 40){
         if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
         //std::cout<<"Escaneando..."<<std::endl;
             enemigo->GetFSM()->ChangeState(Escanear::Instance());

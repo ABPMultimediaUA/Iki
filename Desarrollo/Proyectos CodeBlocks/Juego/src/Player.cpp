@@ -173,8 +173,8 @@ void Player::update(Camera* camara){
                     }
                     else{
                         enemies[i]->quitarVida();
+                        //std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
                     }
-                    //std::cout<<"Vida: "<<enemies[i]->getVida()<<std::endl;
                 }
             }
         }

@@ -44,8 +44,15 @@ void EntityManager::borrarEnemigo(Enemy* enemigo){
         }
     }
 Enemy* EntityManager::getGuardiaCerca(Structs::TPosicion posicion){
-    Enemy* aux = enemigos.at(0);
-    float distanciaAUX = aux->getPosition().Distance(posicion);
+    Enemy* aux;
+    float distanciaAUX;
+    for (std::vector<Enemy*>::iterator it = enemigos.begin() ; it != enemigos.end(); ++it){
+        if((*it)->isGuardia()){
+            aux = (*it);
+            distanciaAUX = aux->getPosition().Distance(posicion);
+            break;
+            }
+        }
     for (std::vector<Enemy*>::iterator it = enemigos.begin() ; it != enemigos.end(); ++it){
         if((*it)->ID() != aux->ID() && (*it)->isGuardia()){
             if(posicion.Distance((*it)->getPosition()) < distanciaAUX ){
@@ -55,6 +62,14 @@ Enemy* EntityManager::getGuardiaCerca(Structs::TPosicion posicion){
         }
     }
     return aux;
+}
+bool EntityManager::hayGuardia(){
+    for (std::vector<Enemy*>::iterator it = enemigos.begin() ; it != enemigos.end(); ++it){
+        if((*it)->isGuardia()){
+            return true;
+            }
+        }
+    return false;
 }
 void EntityManager::crearGuardia(PatrolRoute* ruta){
     world->crearEnemigo(1,nextID,ruta);

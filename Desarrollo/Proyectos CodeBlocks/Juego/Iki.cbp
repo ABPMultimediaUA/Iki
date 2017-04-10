@@ -102,6 +102,7 @@
 		<Unit filename="include/Enemies/StateMachine/EnviarMensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Escanear.h" />
 		<Unit filename="include/Enemies/StateMachine/Escuchar.h" />
+		<Unit filename="include/Enemies/StateMachine/Huir.h" />
 		<Unit filename="include/Enemies/StateMachine/Investigar.h" />
 		<Unit filename="include/Enemies/StateMachine/Mensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Muerto.h" />
@@ -150,7 +151,6 @@
 		<Unit filename="include/Triggers/TriggerRegion_Circle.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Rectangle.h" />
 		<Unit filename="include/Triggers/TriggerSystem.h" />
-		<Unit filename="include/Triggers/Trigger_Aceite.h" />
 		<Unit filename="include/Triggers/Trigger_Llave.h" />
 		<Unit filename="include/Triggers/Trigger_Municion.h" />
 		<Unit filename="include/Triggers/Trigger_Puerta.h" />
@@ -178,6 +178,7 @@
 		<Unit filename="src/Enemies/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Escanear.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Escuchar.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Huir.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Investigar.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Mensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Muerto.cpp" />

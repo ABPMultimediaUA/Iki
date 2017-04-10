@@ -33,8 +33,8 @@ class Enemy : public GameEntity
         float getDistanciaPlayer(){ return distanciaPlayer;}
         Structs::TPosicion getPosicionProta(){return posicionProta;}
         Structs::TPosicion getPosicionInteres(){return posicionInteres;}
-        Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
-        //Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
+        //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
+        Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getGuardiaCerca(posicion);}
         ///SETTERS
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
@@ -64,6 +64,7 @@ class Enemy : public GameEntity
         bool isGuardia();
         void girarVista(float giro,int posV);
         void quitarVida();
+        bool hayGuardias();
 
         float getAngulo(){return angulo;}
 
@@ -79,6 +80,7 @@ class Enemy : public GameEntity
         f32 tiempoEnEstado, time_since_hitted;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
+        Structs::TPosicion vectorProta;
         Structs::TPosicion posicionProta;
         Structs::TPosicion posicionInteres;
         State<Enemy>* actualState;
