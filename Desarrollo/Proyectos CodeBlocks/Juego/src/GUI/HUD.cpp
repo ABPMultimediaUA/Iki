@@ -165,7 +165,7 @@ void HUD::comprobarAvisos(){
 }
 
 void HUD::actualizarVidas(){
-    Structs::TRectangulo rec = {10 + (110 *(player->getVida()-1)), 0, 115 + (110 *(player->getVida()-1)), 250};
+    Structs::TRectangulo rec = {10 + (110 * player->getVida()), 0, 115 + (110 * player->getVida()), 250};
     Vida->cambiarRect(rec);
 }
 

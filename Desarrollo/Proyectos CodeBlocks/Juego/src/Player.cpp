@@ -147,14 +147,12 @@ void Player::update(Camera* camara){
                     SoundMgr->playSonido("Player/disparoprota");
                 }
             }
-            else
+            else{
+                SoundMgr->playSonido("Player/error");
                 HUD::getInstance()->activateNotMunicion();
+            }
         }
-        else{
-            SoundMgr->playSonido("Player/error");
-            HUD::getInstance()->activateNotMunicion();
-        }
-    }
+
     TriggerRuido();
 
         if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
@@ -204,9 +202,10 @@ void Player::update(Camera* camara){
         { //CUANDO AUN NO HA LLEGADO A UN NODO
             MoverPlayer((*it2).getDestination(),toNextNodo);
         }
+
+        sonidosMovimiento();
     }
 
-    sonidosMovimiento();
 
 }
 

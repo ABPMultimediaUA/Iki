@@ -15,8 +15,8 @@ GUI::~GUI()
 {
 }
 
-void GUI::anyadirmenu(int x, int y){
-    componentes.push_back(new GUI_Menu(x, y));
+void GUI::anyadirmenu(int x, int y, int t){
+    componentes.push_back(new GUI_Menu(x, y, t));
 }
 
 void GUI::anyadirboton(int x, int y, std::string nombre){
@@ -39,25 +39,27 @@ void GUI::draw(int draw_type){
 
     if(draw_type == 0)
         HUD::getInstance()->draw();
-    else
+    else{
         componentes[0]->draw();
-    if(draw_type == 1){
         componentes[1]->draw();
+    }
+    if(draw_type == 1){
         componentes[2]->draw();
         componentes[3]->draw();
+        componentes[4]->draw();
     }
     else if(draw_type == 2 || draw_type == 3 || draw_type == 4){
-        componentes[5]->draw();
-        componentes[10]->draw();
         componentes[6]->draw();
-        componentes[4]->draw();
+        componentes[11]->draw();
+        componentes[7]->draw();
+        componentes[5]->draw();
         if(draw_type == 2)
-            componentes[7]->draw();
-        else if(draw_type == 3)
-            componentes[9]->draw();
-        else if(draw_type == 4){
-            componentes[7]->draw();
             componentes[8]->draw();
+        else if(draw_type == 3)
+            componentes[10]->draw();
+        else if(draw_type == 4){
+            componentes[8]->draw();
+            componentes[9]->draw();
         }
     }
 }
