@@ -265,6 +265,15 @@ void Enemy::escanear(){
         //std::cout<<"Sospecha: "<<sospecha<<std::endl;
     }
 }
+void Enemy::escuchar(){
+    calcularAngulo(posicionProta);
+    setPosition();
+    //if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<15)
+    //{
+    //    sospecha=sospecha+1;
+        //std::cout<<"Sospecha: "<<sospecha<<std::endl;
+    //}
+}
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());
     setPosition();

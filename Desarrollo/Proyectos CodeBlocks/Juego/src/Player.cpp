@@ -76,18 +76,21 @@ void Player::moverBody(Structs::TPosicion vec){
         speed = 0;
     }else{
         isMoving = true;
-        speed = 1;
+        speed = 2;
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
-        speed++;
+        speed = 1;
         velocidad = 0.5;
         HUD::getInstance()->sigiloUsed();
     }
-    else
+    else if(velocidad == 0.5){
+        velocidad = 0.75;
         HUD::getInstance()->sigiloNotUsed();
-    if(velocidad > 0.75)
+    }
+    if(velocidad > 0.75){
         comprobarVelocidad();
-
+        speed = 3;
+    }
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
@@ -143,7 +146,12 @@ void Player::update(Camera* camara){
             else
                 HUD::getInstance()->activateNotMunicion();
         }
-        TriggerRuido();
+        else{
+            SoundMgr->playSonido("Player/error");
+            HUD::getInstance()->activateNotMunicion();
+        }
+    }
+    TriggerRuido();
 
         if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 
@@ -194,6 +202,43 @@ void Player::update(Camera* camara){
         }
     }
 
+    sonidosMovimiento();
+
+}
+
+void Player::sonidosMovimiento()
+{
+    switch(speed){
+        case 0:
+            SoundMgr->soundStop("Player/andarsigiloso");
+            SoundMgr->soundStop("Player/pasosnormales");
+            SoundMgr->soundStop("Player/articulacion2");
+        break;
+        case 1:
+            SoundMgr->soundStop("Player/pasosnormales");
+            SoundMgr->soundStop("Player/articulacion2");
+            if (!SoundMgr->isPlaying("Player/andarsigiloso")){
+                 SoundMgr->playSonido("Player/andarsigiloso");
+            }
+        break;
+        case 2:
+            SoundMgr->soundStop("Player/andarsigiloso");
+            if (!SoundMgr->isPlaying("Player/pasosnormales")){
+                 SoundMgr->playSonido("Player/pasosnormales");
+            }
+            if (!SoundMgr->isPlaying("Player/articulacion2")){
+                 SoundMgr->playSonido("Player/articulacion2");
+            }
+        break;
+        case 3:
+            SoundMgr->soundStop("Player/andarsigiloso");
+            SoundMgr->soundStop("Player/pasosnormales");
+            SoundMgr->soundStop("Player/articulacion2");
+            if(!SoundMgr->isPlaying("Player/correr")){
+                 SoundMgr->playSonido("Player/correr");
+            }
+        break;
+    }
 }
 
 void Player::CogerMunicion()

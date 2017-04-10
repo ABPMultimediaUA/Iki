@@ -29,7 +29,7 @@ class Player : public GameEntity{
         void NecesitoLlave();
         int  GetLlaves(){return llaves;}
 
-
+        void sonidosMovimiento();
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
         bool HandleMessage(const Mensaje& msg){return true;}
         bool isPathObstructured(Structs::TPosicion destino);

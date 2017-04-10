@@ -27,7 +27,7 @@ Scene::~Scene()
 
 void Scene::cargarSonidos()
 {
-    SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
+    //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
     //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
     //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
 
@@ -39,8 +39,13 @@ void Scene::cargarSonidos()
     SoundMgr->cargarSonido("Triggers/puerta_cerrar");
 
     SoundMgr->cargarSonido("Player/disparoprota");
+    SoundMgr->cargarSonido("Player/correr");
+    SoundMgr->cargarSonido("Player/error");
     SoundMgr->cargarSonido("Player/metal1");
     SoundMgr->cargarSonido("Player/metal2");
+    SoundMgr->cargarSonido("Player/pasosnormales");
+    SoundMgr->cargarSonido("Player/articulacion2");
+    SoundMgr->cargarSonido("Player/andarsigiloso");
 }
 
 void Scene::inicializar_escena(){

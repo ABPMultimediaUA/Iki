@@ -43,11 +43,14 @@ class Enemy : public GameEntity
         void patrullar();
         void vigilar();
         void escanear();
+        void escuchar();
         void muerto();
         void volverALaPatrulla();
         ///METODOS
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
+        void subirSospecha() {sospecha++;}
+        void resetSospecha() {sospecha=0;}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
         bool isPathObstructured(Structs::TPosicion destino);
