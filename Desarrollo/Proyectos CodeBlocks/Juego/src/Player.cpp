@@ -38,6 +38,8 @@ void Player::inicializar_player(Map* m){
     modelo->cambiarColor(color);
     posicion = modelo->getPosition();
 
+    radio = 1.0;
+
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(170, 50);
@@ -59,7 +61,7 @@ void Player::inicializar_player(Map* m){
 
 
     ruido = new Trigger_Ruido();
-    ruido->AddCircularRegion(posicion, 20);
+    ruido->AddCircularRegion(posicion, 90);
     isMoving = false;
 }
 
@@ -68,14 +70,6 @@ void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
     float movx = vec.X * avMovement * velocidad;
     float movy = vec.Z * avMovement * velocidad;
-
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_X)){
-        movx *= 0.5;
-        movy *= 0.5;
-        speed = 1;
-    }else{
-        speed = 2;
-    }
 
     if (vec == quietoParado){
         isMoving = false;
@@ -114,14 +108,16 @@ bool Player::getMoving(){
 
 void Player::TriggerRuido(){
     if (isMoving){
-        //if (!ruido->isActive()){
+        if (!ruido->isActive()){
             //std::cout << "creamos el triggersito" << std::endl;
-            ruido->MoveRegion(this->posicion);
+            ruido->AddCircularRegion(this->posicion, 20);
             ruido->activar();
-        //}
+        }
     }else{
-        //std::cout << "borramos el triggersito" << std::endl;
-        ruido->desactivar();
+        if (ruido->isActive()){
+            //std::cout << "borramos el triggersito" << std::endl;
+            ruido->desactivar();
+        }
     }
 }
 
