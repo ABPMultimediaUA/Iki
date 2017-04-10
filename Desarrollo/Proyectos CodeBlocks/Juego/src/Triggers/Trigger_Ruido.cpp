@@ -2,9 +2,13 @@
 #include "Fachada/GraphicsFacade.h"
 #include "Player.h"
 #include "Enemy.h"
+<<<<<<< HEAD
+#include "EntityManager.h"
+=======
 
 #include "Escuchar.h"
 #include "Patrullar.h"
+>>>>>>> refs/remotes/origin/master
 
 #include <iostream>
 
