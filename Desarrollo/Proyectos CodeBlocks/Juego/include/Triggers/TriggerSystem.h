@@ -9,7 +9,10 @@
 class TriggerSystem
 {
     public:
-        TriggerSystem();
+        static TriggerSystem* getInstance() {
+            static TriggerSystem singleton;
+            return &singleton;
+        }
         virtual ~TriggerSystem();
 
         typedef std::vector<Trigger*> TriggerList;
@@ -28,7 +31,7 @@ class TriggerSystem
 
         void Update();
         void Render();
-        const TriggerList& GetTriggers()const{return triggers;}
+        TriggerList GetTriggers()const{return triggers;}
 
 };
 

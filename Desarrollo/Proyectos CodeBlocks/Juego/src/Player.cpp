@@ -106,23 +106,16 @@ void Player::comprobarVelocidad(){
     }
 }
 
-
 bool Player::getMoving(){
     return isMoving;
 }
 
 void Player::TriggerRuido(){
     if (isMoving){
-        if (!ruido->isActive()){
-            //std::cout << "creamos el triggersito" << std::endl;
-            ruido->AddCircularRegion(this->posicion, 20);
-            ruido->activar();
-        }
+        ruido->activar();
+        ruido->MoveRegion(this->posicion);
     }else{
-        if (ruido->isActive()){
-            //std::cout << "borramos el triggersito" << std::endl;
-            ruido->desactivar();
-        }
+        ruido->desactivar();
     }
 }
 
@@ -148,12 +141,10 @@ void Player::update(Camera* camara){
                     SoundMgr->playSonido("Player/disparoprota");
                 }
             }
-            else
+            else{
+                SoundMgr->playSonido("Player/error");
                 HUD::getInstance()->activateNotMunicion();
-        }
-        else{
-            SoundMgr->playSonido("Player/error");
-            HUD::getInstance()->activateNotMunicion();
+            }
         }
 
     TriggerRuido();

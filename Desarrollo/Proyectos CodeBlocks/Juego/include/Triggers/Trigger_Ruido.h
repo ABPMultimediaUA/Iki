@@ -17,6 +17,7 @@ class Trigger_Ruido : public Trigger
 
     private:
         int speed = 0;
+        Structs::TPosicion post;
 };
 
 #endif // TRIGGER_RUIDO_H

@@ -14,7 +14,7 @@ class GUI
 
         std::vector<GUI_Component*> getComponentes(){return componentes;}
 
-        void anyadirmenu   (int, int);
+        void anyadirmenu   (int, int, int);
         void anyadirboton  (int, int, std::string);
         void anyadirtitulo (int, int, std::string);
         void anyadircontrol(int, int, std::string, std::string);

@@ -16,6 +16,8 @@ class Escuchar : public State<Enemy>
         bool OnMessage(Enemy*, const Mensaje&);
 
     private:
+        f32 tiempo;
+
         Escuchar(){};
         Escuchar(const Escuchar&);
         Escuchar& operator=(const Escuchar&);

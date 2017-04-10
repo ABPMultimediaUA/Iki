@@ -101,6 +101,7 @@
 		<Unit filename="include/Enemies/StateMachine/Congelado.h" />
 		<Unit filename="include/Enemies/StateMachine/EnviarMensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Escanear.h" />
+		<Unit filename="include/Enemies/StateMachine/Escuchar.h" />
 		<Unit filename="include/Enemies/StateMachine/Huir.h" />
 		<Unit filename="include/Enemies/StateMachine/Investigar.h" />
 		<Unit filename="include/Enemies/StateMachine/Mensaje.h" />
@@ -177,6 +178,7 @@
 		<Unit filename="src/Enemies/StateMachine/Congelado.cpp" />
 		<Unit filename="src/Enemies/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Escanear.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Escuchar.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Huir.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Investigar.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Mensaje.cpp" />
