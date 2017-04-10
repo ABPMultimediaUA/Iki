@@ -83,7 +83,7 @@ void Player::moverBody(Structs::TPosicion vec){
         velocidad = 0.5;
         HUD::getInstance()->sigiloUsed();
     }
-    else{
+    else if(velocidad == 0.5){
         velocidad = 0.75;
         HUD::getInstance()->sigiloNotUsed();
     }
@@ -227,7 +227,9 @@ void Player::sonidosMovimiento()
             SoundMgr->soundStop("Player/andarsigiloso");
             SoundMgr->soundStop("Player/pasosnormales");
             SoundMgr->soundStop("Player/articulacion2");
-            SoundMgr->playSonido("Player/correr");
+            if(!SoundMgr->isPlaying("Player/correr")){
+                 SoundMgr->playSonido("Player/correr");
+            }
         break;
     }
 }
