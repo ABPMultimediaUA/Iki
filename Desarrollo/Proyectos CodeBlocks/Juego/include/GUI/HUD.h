@@ -20,14 +20,22 @@ class HUD
 
         void actualizarBalas();
         void actualizarVidas();
+        void comprobarAvisos();
 
         void rayoUsed();
         void rayoNotUsed();
+
+        void sigiloUsed();
+        void sigiloNotUsed();
 
         void activateTarjeta();
         void desactivateTarjeta();
 
         void activateMunicion();
+        void activateAceite();
+
+        void activateNotMunicion();
+        void activateNotTarjeta();
 
     protected:
 
@@ -38,10 +46,17 @@ class HUD
         HUD_Element* Vida;
         HUD_Element* Balas;
         HUD_Element* Leyenda;
+        HUD_Element* LeyendaQ;
+        HUD_Element* LeyendaShift;
         HUD_Element* Rayo;
+        HUD_Element* Golpe;
+        HUD_Element* Sigilo;
         HUD_Element* Tarjeta;
         HUD_Element* AvisoTarjeta;
         HUD_Element* AvisoMunicion;
+        HUD_Element* AvisoAceite;
+        HUD_Element* AvisoNotTarjeta;
+        HUD_Element* AvisoNotMunicion;
 
         Player* player;
 

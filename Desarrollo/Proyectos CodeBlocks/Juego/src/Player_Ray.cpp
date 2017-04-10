@@ -13,7 +13,7 @@ Player_Ray::Player_Ray()
     Structs::TColor color       = {0,128,128,128};
     modelo = new MeshSceneNode(medida,posicion,color);
     modelo->setVisible(false);
-    balas = 5;
+    balas = 4;
     vida = 0;
     input.maxFraction	=	1.0f;
 }

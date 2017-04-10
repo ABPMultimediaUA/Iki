@@ -9,6 +9,8 @@
 #include "../lib/irrKlang/conio.h"
 #include "Structs.h"
 
+#define SoundMgr SoundManager::getInstance()
+
 class SoundManager
 {
     public:

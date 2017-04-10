@@ -19,13 +19,23 @@ Menu::~Menu()
     //dtor
 }
 
+void Menu::cargarSonidos()
+{
+    SoundMgr->cargarSonido("Menu/menu_alante");
+    SoundMgr->cargarSonido("Menu/menu_alante2");
+    SoundMgr->cargarSonido("Menu/menu_atras");
+
+    SoundMgr->cargarMusica("Musica/menu_musica");
+}
+
 void Menu::inicializar_menu(int menu){
 
     GraphicsFacade::getInstance().inicializar_gui(menu);
     GUI* gui = GraphicsFacade::getInstance().getGUI();
 
-    SoundManager::getInstance()->cargarMusica("menu_musica");
-    SoundManager::getInstance()->playMusica("menu_musica");
+    cargarSonidos();
+
+    SoundMgr->playMusica("Musica/menu_musica");
 
     ///MENU
     //gui->anyadirmenu (400, 60);
@@ -99,7 +109,7 @@ bool Menu::run(){
                     if(NuevaPartida->getActivo()){
                         NuevaPartida->reproducir_click(0);
                         GraphicsFacade::getInstance().vaciar_gui();
-                        SoundManager::getInstance()->soundStop("menu_musica");
+                        SoundMgr->soundStop("Musica/menu_musica");
                         return true;
                     }
                     else if(Opciones->getActivo()){
