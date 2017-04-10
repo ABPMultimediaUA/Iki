@@ -10,12 +10,12 @@ Muerto* Muerto::Instance()
 }
 
 void Muerto::Enter(Enemy* enemigo){
-
+    ///MATAR ENEMIGO
+    enemigo->muerto();
 }
 
 void Muerto::Execute(Enemy* enemigo){
- ///MATAR ENEMIGO
-    enemigo->muerto();
+
 }
 
 void Muerto::Exit(Enemy* enemigo){

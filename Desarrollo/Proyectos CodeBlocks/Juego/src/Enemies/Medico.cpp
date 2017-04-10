@@ -46,7 +46,19 @@ void Medico::proteger(){
         posicion=posicion+toProtegido*(avMovement*2.5);
         calcularAngulo(protegido->getPosition());
     }
+    else if (protegido->getVida()<4 && tiempoEnEstado>8){
+        curar();
+        resetTime();
+    }
     //else
         //moverBody(quietoParado);
     setPosition();
+}
+void Medico::huir(){
+    andarPath(2,posHuida);
+    setPosition();
+}
+void Medico::curar(){
+    if(protegido->getVida()>4)
+        protegido->sumarVida();
 }

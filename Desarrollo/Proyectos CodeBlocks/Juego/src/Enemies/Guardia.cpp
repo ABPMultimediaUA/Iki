@@ -28,6 +28,7 @@ void Guardia::investigar(){
 void Guardia::perseguir(){
     toProtaPosition = posicionProta - posicion;
     toProtaPosition.Normalize();
+    mirandoHacia = toProtaPosition;
     posicion = posicion + toProtaPosition*(avMovement*2);
     calcularAngulo(posicionProta);
     setPosition();
@@ -40,8 +41,6 @@ void Guardia::ataque(){
     else{
         ejecutarAtaque();
     }
-    //float mostrar = EntityMgr->getEntityByID(0)->getVida();
-    //std::cout<<"Vida player: "<<mostrar<<std::endl;
 }
 void Guardia::cargarAtaque(){
         atacando = true;
@@ -69,8 +68,14 @@ void Guardia::ejecutarAtaque(){
             modeloAtaque->setVisible(true);
             if(distanciaPlayer <= distanciaAtaque && !solounaveh) // y si no te veo;
             {
-                EntityMgr->getEntityByID(0)->quitarVida();;
-                solounaveh = true;
+                vectorProta = posicionProta - posicion;
+                float anguloProta = atan2f((vectorProta.Z) , -(vectorProta.X)) * 180.f / PI;
+                //std::cout << "angulo ataque: "<< anguloAtaque <<" anguloProta: "<<anguloProta<<std::endl;
+
+                if(abs(anguloAtaque) - abs(anguloProta) < 45){
+                    EntityMgr->getEntityByID(0)->quitarVida();;
+                    solounaveh = true;
+                }
             }
             if(tiempoEnEstado > 1.2){
                 modeloAtaque->setVisible(false);

@@ -12,7 +12,7 @@ class MeshSceneNode;
 class Guardia : public Enemy
 {
     private:
-        bool ataquePreparado,solounaveh,atacando;
+        bool ataquePreparado,solounaveh,atacando,solounpath;
         float anguloAtaque, distanciaAtaque;
         b2Body *bodyAtaque;
         Structs::TPosicion vectorAtaque;
@@ -45,7 +45,9 @@ class Guardia : public Enemy
         void ataque();
         void cargarAtaque();
         void ejecutarAtaque();
+        void buscarProta();
         bool getAtacando(){return atacando;}
+        void setModeloVisible(bool b){modeloAtaque->setVisible(b);}
 
 
 };

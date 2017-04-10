@@ -29,7 +29,7 @@ void Patrullar::Execute(Enemy* enemigo){
 
     enemigo->patrullar();
 
-    if(enemigo->getDistanciaPlayer() < 15){
+    if(enemigo->getDistanciaPlayer() < 25){
         //std::cout<<"Escaneando..."<<std::endl;
         if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
             //std::cout<<"Te he visto!..."<<std::endl;

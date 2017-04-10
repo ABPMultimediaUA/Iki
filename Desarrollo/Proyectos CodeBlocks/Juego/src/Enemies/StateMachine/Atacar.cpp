@@ -1,4 +1,5 @@
 #include "Enemies/StateMachine/Atacar.h"
+#include "Enemies/StateMachine/Investigar.h"
 #include "Enemy.h"
 #include "Enemies/Guardia.h"
 
@@ -17,6 +18,10 @@ void Atacar::Execute(Enemy* enemigo){
     Structs::TColor color = {0,255,0,0};
     enemigo->cambiarColor(color);
 
+
+    /*if(!enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        enemigo->setPosicionInteres(enemigo->getPosicionProta());
+    }*/
     if(enemigo->getDistanciaPlayer()> 5 && !static_cast<Guardia*>(enemigo)->getAtacando()){
         //if(enemigo->isPathObstructured(enemigo->getPosicionProta()))
         static_cast<Guardia*>(enemigo)->perseguir();
