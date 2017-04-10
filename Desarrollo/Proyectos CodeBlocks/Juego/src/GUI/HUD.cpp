@@ -109,6 +109,15 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(1190, 625, rec, "faltamunicion", false));
     AvisoNotMunicion = elementos[14];
 
+    ///Pantalla Game Over
+
+    rec = {0, 0, 1360, 768};
+    elementos.push_back(new HUD_Element(0, 0, rec, "GAMEOVER", false));
+    GOver = elementos[15];
+
+    rec = {0, 0, 240, 120};
+    elementos.push_back(new HUD_Element(560, 350, rec, "salirrojo", false));
+    BotonFinJuego = elementos[16];
 
 
 }
@@ -209,4 +218,9 @@ void HUD::activateNotMunicion(){
 void HUD::activateNotTarjeta(){
     AvisoNotTarjeta->setActive(true);
     tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+}
+
+void HUD::GameOver(){
+    GOver->setActive(true);
+    BotonFinJuego->setActive(true);
 }
