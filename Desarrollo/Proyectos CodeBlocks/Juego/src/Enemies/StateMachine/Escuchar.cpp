@@ -15,38 +15,44 @@ Escuchar* Escuchar::Instance()
 
 void Escuchar::Enter(Enemy* enemigo)
 {
-    enemigo->resetTime();
+    tiempo = enemigo->getTiempo();
 }
 
 void Escuchar::Execute(Enemy* enemigo)
 {
-    enemigo->escuchar();
-    if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+    if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
         enemigo->GetFSM()->ChangeState(Escanear::Instance());
-    }else{
 
-        Player* play = static_cast<Player*>(EntityMgr->getEntityByID(0));
+    Player* play = static_cast<Player*>(EntityMgr->getEntityByID(0));
 
-        if(play->getSpeed() == 2){
-            enemigo->subirSospecha();
-            if (enemigo->getSospecha() > 150){
-                enemigo->resetSospecha();
+    if(play->getSpeed() == 2){
+        enemigo->escuchar();
+        enemigo->subirSospecha();
+        if (enemigo->getSospecha() > 150){
+            enemigo->setPosicionInteres(enemigo->getPosicionProta());
+            enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        }
+        if(play->getPosition().Distance(enemigo->getPosition()) >= 20){
+            if (enemigo->getSospecha() > 100){
                 enemigo->setPosicionInteres(enemigo->getPosicionProta());
                 enemigo->GetFSM()->ChangeState(Investigar::Instance());
             }
         }else{
-            if (enemigo->getTiempo() > 3){
-                enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
-                enemigo->GetFSM()->ChangeState(Patrullar::Instance());
-            }
+            std::cout << "he sido yo " << std::endl;
+            enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
+            enemigo->GetFSM()->ChangeState(Patrullar::Instance());
+        }
+    }else{
+        if (enemigo->getTiempo() - tiempo > 3){
+            enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
+            enemigo->GetFSM()->ChangeState(Patrullar::Instance());
         }
     }
-
 }
 
 void Escuchar::Exit(Enemy* enemigo)
 {
-
+    enemigo->resetSospecha();
 }
 
 bool Escuchar::OnMessage(Enemy* enemigo, const Mensaje& msg)

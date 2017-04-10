@@ -2,10 +2,12 @@
 #include "TriggerFactory.h"
 #include "EntityManager.h"
 
+/*
 TriggerSystem::TriggerSystem()
 {
     //ctor
 }
+*/
 
 TriggerSystem::~TriggerSystem()
 {

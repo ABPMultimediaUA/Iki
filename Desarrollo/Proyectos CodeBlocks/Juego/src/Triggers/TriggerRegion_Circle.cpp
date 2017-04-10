@@ -19,3 +19,8 @@ bool TriggerRegion_Circle::isTouching(Structs::TPosicion EntityPos, float Entity
     }
     return false;
 }
+
+void TriggerRegion_Circle::moveCenter(Structs::TPosicion pos)
+{
+    center = pos;
+}

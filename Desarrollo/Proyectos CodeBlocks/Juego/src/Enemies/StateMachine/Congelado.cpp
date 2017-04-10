@@ -12,7 +12,7 @@ void Congelado::Enter(Enemy* enemigo){
 }
 
 void Congelado::Execute(Enemy* enemigo){
-    std::cout<<"holi"<<std::endl;
+    //std::cout<<"holi"<<std::endl;
     if(enemigo->getTiempo() > 4){
             enemigo->GetFSM()->RevertToPreviousState();
     }
