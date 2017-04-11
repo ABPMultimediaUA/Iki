@@ -37,6 +37,9 @@ void AnimatedMesh::setScale(float scale){
 }
 void AnimatedMesh::cambiarColor(Structs::TColor color){
     //std::cout << "Opacidad: " << color.opacity << std::endl;
-    modelo->setMaterialFlag(video::EMF_LIGHTING, false);
     GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(), SColor(color.opacity, color.r, color.g, color.b));
+}
+void AnimatedMesh::setTexture(const char* file){
+    modelo->setMaterialTexture( 0, GraphicsFacade::getInstance().driver->getTexture(file) );
+    modelo->setMaterialType( video::EMT_SOLID );
 }

@@ -16,6 +16,7 @@ class AnimatedMesh
         void setVisible(bool);
         Structs::TPosicion getPosition(){return posicion;}
         void cambiarColor(Structs::TColor color);
+        void setTexture(const char* f);
 
     protected:
 

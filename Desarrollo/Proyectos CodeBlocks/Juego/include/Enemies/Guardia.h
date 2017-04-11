@@ -19,7 +19,7 @@ class Guardia : public Enemy
         MeshSceneNode* modeloAtaque;
         Structs::TMedida medidaAtaque     = {10,0.5,0.5};
         Structs::TPosicion posicionAtaque = {0,0,0};
-        Structs::TColor colorAtaque       = {0,128,128,128};
+        Structs::TColor colorAtaque       = {0,255,140,0};
         b2RayCastInput input2;
         b2RayCastOutput	output2;
 
