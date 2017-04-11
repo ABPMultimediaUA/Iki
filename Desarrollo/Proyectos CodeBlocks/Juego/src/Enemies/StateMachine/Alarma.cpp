@@ -16,11 +16,15 @@ Alarma* Alarma::Instance()
 
 void Alarma::Enter(Enemy* enemigo){
     enemigo->resetTime();
+    SoundMgr->playSonido("AccionesRobots/alarma_sintetizada");
 }
 
 void Alarma::Execute(Enemy* enemigo){
-    if(enemigo->getTiempo() > 3)
+    if(enemigo->getTiempo() > 3){
+        SoundMgr->soundStop("AccionesRobots/alarma_sintetizada");
+        SoundMgr->playSonido("AccionesRobots/capsulas_aterrizando");
         enemigo->GetFSM()->ChangeState(Muerto::Instance());
+    }
 }
 
 void Alarma::Exit(Enemy* enemigo){
@@ -28,6 +32,7 @@ void Alarma::Exit(Enemy* enemigo){
     /*PatrolRoute* ruta = enemigo->getPatrulla();
     ruta->setInicial(enemigo->getPatrulla()->getInicial()->getNext());
     EntityMgr->crearGuardia(ruta);*/
+
 }
 bool Alarma::OnMessage(Enemy* enemigo, const Mensaje& msg){
 

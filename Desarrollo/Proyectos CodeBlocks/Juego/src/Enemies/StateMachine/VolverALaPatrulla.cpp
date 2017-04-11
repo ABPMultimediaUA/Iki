@@ -14,6 +14,18 @@ VolverALaPatrulla* VolverALaPatrulla::Instance()
 
 void VolverALaPatrulla::Enter(Enemy* enemigo){
     enemigo->crearPath(enemigo->getPPatrulla()->getPunto());
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->playSonido("VocesRobots/Guardia/area_despejada_fin");
+        break;
+        case 2:
+            SoundMgr->playSonido("VocesRobots/Medico/area_despejada_medico");
+        break;
+        case 3:
+            SoundMgr->playSonido("VocesRobots/Dron/beepaliviado");
+        break;
+    }
 }
 
 void VolverALaPatrulla::Execute(Enemy* enemigo){

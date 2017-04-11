@@ -19,14 +19,20 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             static_cast<Player*>(ent)->UsarLlave();
             aniMesh->setVisible(false);
             body->SetActive(false);
-            SoundMgr->cargarSonido("Triggers/tarjeta");
             SoundMgr->playSonido("Triggers/puerta_abrir");
+            SoundMgr->playSonido("Triggers/acceso_confirmado");
             this->SetInactive();
         }else{
-            static_cast<Player*>(ent)->NecesitoLlave();
+            if (!fired){
+                SoundMgr->playSonido("Triggers/acceso_denegado");
+                static_cast<Player*>(ent)->NecesitoLlave();
+                fired = true;
+            }
         }
     }
-    else{
+
+    if (ent->isPlayer() && !isTouchingTrigger(ent->getPosition(), ent->getRadio())){
+        fired = false;
         //aniMesh->setVisible(true);
         //body->SetActive(true);
     }

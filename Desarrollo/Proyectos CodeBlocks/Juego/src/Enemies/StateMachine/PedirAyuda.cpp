@@ -18,6 +18,8 @@ void PedirAyuda::Enter(Enemy* enemigo){
         enemigo->getGuardiaMasCercano()->setPosicionInteres(enemigo->getPosition());
         enemigo->crearPath(enemigo->getGuardiaMasCercano()->getPosition());
     }
+
+    SoundMgr->playSonido("VocesRobots/Medico/intruso_detectado_medico");
 }
 
 void PedirAyuda::Execute(Enemy* enemigo){

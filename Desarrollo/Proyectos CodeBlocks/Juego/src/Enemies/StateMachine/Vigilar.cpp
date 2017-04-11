@@ -16,6 +16,18 @@ Vigilar* Vigilar::Instance()
 
 void Vigilar::Enter(Enemy* enemigo){
     enemigo->resetTime();
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->playSonido("VocesRobots/Guardia/diagnostico_terreno");
+        break;
+        case 2:
+            SoundMgr->playSonido("VocesRobots/Medico/diagnostico_terreno_medico");
+        break;
+        case 3:
+            SoundMgr->playSonido("VocesRobots/Dron/beepvigilar");
+        break;
+    }
 }
 
 void Vigilar::Execute(Enemy* enemigo){

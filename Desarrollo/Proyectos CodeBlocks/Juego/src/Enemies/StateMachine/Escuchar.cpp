@@ -15,7 +15,7 @@ Escuchar* Escuchar::Instance()
 
 void Escuchar::Enter(Enemy* enemigo)
 {
-    tiempo = enemigo->getTiempo();
+    enemigo->resetTime();
 }
 
 void Escuchar::Execute(Enemy* enemigo)
@@ -28,22 +28,17 @@ void Escuchar::Execute(Enemy* enemigo)
     if(play->getSpeed() == 2){
         enemigo->escuchar();
         enemigo->subirSospecha();
-        if (enemigo->getSospecha() > 150){
-            enemigo->setPosicionInteres(enemigo->getPosicionProta());
-            enemigo->GetFSM()->ChangeState(Investigar::Instance());
-        }
-        if(play->getPosition().Distance(enemigo->getPosition()) >= 20){
-            //std::cout << "aqui" << std::endl;
-            //if (enemigo->getSospecha() > 100){
-                enemigo->setPosicionInteres(enemigo->getPosicionProta());
-                enemigo->GetFSM()->ChangeState(Investigar::Instance());
-            //}
-        }
-    }else{
-        if (enemigo->getTiempo() - tiempo > 3){
-            enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
-            enemigo->GetFSM()->ChangeState(Patrullar::Instance());
-        }
+    }
+
+    if (enemigo->getSospecha() > 80){
+  //std::cout << "sospechando tete" << std::endl;
+    //    enemigo->setPosicionInteres(enemigo->getPosicionProta());
+      //  enemigo->GetFSM()->ChangeState(Investigar::Instance());
+    }
+
+    if (enemigo->getTiempo() > 2.5){
+        enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
+        enemigo->GetFSM()->ChangeState(Patrullar::Instance());
     }
 }
 

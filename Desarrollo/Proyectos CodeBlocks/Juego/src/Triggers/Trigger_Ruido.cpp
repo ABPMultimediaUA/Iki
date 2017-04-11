@@ -23,19 +23,20 @@ Trigger_Ruido::~Trigger_Ruido()
 
 void Trigger_Ruido::Try(GameEntity* ent)
 {
-    if (isActive() && !ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
-        //show interrogante
-        if (speed == 2){
-            Enemy* enemigo = static_cast<Enemy*>(ent);
+    if (respawn)
+        if (isActive() && !ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
+            //show interrogante
+            if (speed == 2){
+                Enemy* enemigo = static_cast<Enemy*>(ent);
 
-        //    if (enemigo->GetFSM()->PreviousState() != Escuchar::Instance())
+                if (   enemigo->GetFSM()->CurrentState() == Patrullar::Instance()
+                    || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
 
-            if (   enemigo->GetFSM()->CurrentState() == Patrullar::Instance()
-                || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
-                enemigo->GetFSM()->ChangeState(Escuchar::Instance());
+                    enemigo->GetFSM()->ChangeState(Escuchar::Instance());
+                    respawn = false;
+                }
             }
         }
-    }
 }
 
 void Trigger_Ruido::Update()

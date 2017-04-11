@@ -16,6 +16,7 @@ class Trigger_PuertaLlave : public Trigger
     protected:
 
     private:
+        bool fired = false;
 };
 
 #endif // TRIGGER_PUERTALLAVE_H

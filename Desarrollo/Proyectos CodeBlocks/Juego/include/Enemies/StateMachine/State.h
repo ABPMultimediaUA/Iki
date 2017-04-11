@@ -1,6 +1,7 @@
 #ifndef STATE
 #define STATE
 #include "Structs.h"
+#include "SoundManager.h"
 
 struct Mensaje;
 

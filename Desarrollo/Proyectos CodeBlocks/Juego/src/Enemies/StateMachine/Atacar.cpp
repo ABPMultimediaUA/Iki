@@ -12,6 +12,19 @@ Atacar* Atacar::Instance()
 }
 
 void Atacar::Enter(Enemy* enemigo){
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->playSonido("VocesRobots/Guardia/protocolo_combate");
+        break;
+        case 2:
+
+        break;
+        case 3:
+
+        break;
+    }
+
 }
 
 void Atacar::Execute(Enemy* enemigo){
@@ -31,5 +44,18 @@ void Atacar::Execute(Enemy* enemigo){
 
 }
 
-void Atacar::Exit(Enemy* enemigo){}
+void Atacar::Exit(Enemy* enemigo){
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->soundStop("VocesRobots/Guardia/protocolo_combate");
+        break;
+        case 2:
+
+        break;
+        case 3:
+
+        break;
+    }
+}
 bool Atacar::OnMessage(Enemy*, const Mensaje&){}

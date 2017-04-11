@@ -2,7 +2,7 @@
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
 #include "Fachada/MeshSceneNode.h"
-
+#include "SoundManager.h"
 
 void Guardia::inicializar_enemigo(Map* m)
 {
@@ -63,7 +63,7 @@ void Guardia::cargarAtaque(){
 }
 void Guardia::ejecutarAtaque(){
 
-        if(tiempoEnEstado > 0.7 && EntityMgr->getEntityByID(0)->getVida() > 0)
+        if(tiempoEnEstado > 0.8 && EntityMgr->getEntityByID(0)->getVida() > 0)
         {
             modeloAtaque->setVisible(true);
             if(distanciaPlayer <= distanciaAtaque && !solounaveh) // y si no te veo;
@@ -75,8 +75,12 @@ void Guardia::ejecutarAtaque(){
                 if(abs(anguloAtaque) - abs(anguloProta) < 45){
                     EntityMgr->getEntityByID(0)->quitarVida();;
                     solounaveh = true;
+                    SoundMgr->playSonido("AccionesRobots/conoelectrico");
+                }else{
+                    //SoundMgr->playSonido("AccionesRobots/conoelectrico2");
                 }
             }
+
             if(tiempoEnEstado > 1.2){
                 modeloAtaque->setVisible(false);
                 solounaveh = false;

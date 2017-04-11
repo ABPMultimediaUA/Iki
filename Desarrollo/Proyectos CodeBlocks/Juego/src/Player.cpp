@@ -120,9 +120,10 @@ void Player::TriggerRuido(){
 
 void Player::update(Camera* camara){
 
-    if(vida == 0)
+    if(vida == 0){
+        SoundMgr->stopAll();
         HUD::getInstance()->GameOver();
-    else{
+    }else{
         deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000.f;
         avMovement = deltaTime * 700;
 
@@ -209,16 +210,19 @@ void Player::sonidosMovimiento()
             SoundMgr->soundStop("Player/andarsigiloso");
             SoundMgr->soundStop("Player/pasosnormales");
             SoundMgr->soundStop("Player/articulacion2");
+            SoundMgr->soundStop("Player/correr");
         break;
         case 1:
             SoundMgr->soundStop("Player/pasosnormales");
             SoundMgr->soundStop("Player/articulacion2");
+            SoundMgr->soundStop("Player/correr");
             if (!SoundMgr->isPlaying("Player/andarsigiloso")){
                  SoundMgr->playSonido("Player/andarsigiloso");
             }
         break;
         case 2:
             SoundMgr->soundStop("Player/andarsigiloso");
+            SoundMgr->soundStop("Player/correr");
             if (!SoundMgr->isPlaying("Player/pasosnormales")){
                  SoundMgr->playSonido("Player/pasosnormales");
             }

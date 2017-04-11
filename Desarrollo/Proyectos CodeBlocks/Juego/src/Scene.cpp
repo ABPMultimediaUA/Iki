@@ -28,16 +28,18 @@ Scene::~Scene()
 
 void Scene::cargarSonidos()
 {
-    //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
-    //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
-    //SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
+    SoundMgr->cargarMusica("Ambientes/ambiente_desierto");
+    SoundMgr->cargarMusica("Musica/musica_general");
 
-    //SoundMgr->cargarSonido("Triggers/ambiente_desierto");
+    SoundMgr->cargarSonido("Triggers/agua");
+    SoundMgr->cargarSonido("Triggers/engranaje");
     SoundMgr->cargarSonido("Triggers/cargadelarma");
     SoundMgr->cargarSonido("Triggers/tarjeta");
     SoundMgr->cargarSonido("Triggers/agua");
     SoundMgr->cargarSonido("Triggers/puerta_abrir");
     SoundMgr->cargarSonido("Triggers/puerta_cerrar");
+    SoundMgr->cargarSonido("Triggers/acceso_denegado");
+    SoundMgr->cargarSonido("Triggers/acceso_confirmado");
 
     SoundMgr->cargarSonido("Player/disparoprota");
     SoundMgr->cargarSonido("Player/correr");
@@ -47,6 +49,32 @@ void Scene::cargarSonidos()
     SoundMgr->cargarSonido("Player/pasosnormales");
     SoundMgr->cargarSonido("Player/articulacion2");
     SoundMgr->cargarSonido("Player/andarsigiloso");
+
+    //SoundMgr->cargarSonido("AccionesRobots/muertedron");
+    SoundMgr->cargarSonido("AccionesRobots/muertemedico");
+    SoundMgr->cargarSonido("AccionesRobots/muertedron");
+    SoundMgr->cargarSonido("AccionesRobots/conoelectrico");
+    SoundMgr->cargarSonido("AccionesRobots/conoelectrico2");
+    SoundMgr->cargarSonido("AccionesRobots/capsulas_aterrizando");
+    SoundMgr->cargarSonido("AccionesRobots/alarma_sintetizada");
+
+    SoundMgr->cargarSonido("VocesRobots/Guardia/protocolo_combate");
+    SoundMgr->cargarSonido("VocesRobots/Guardia/escaneando");
+    SoundMgr->cargarSonido("VocesRobots/Guardia/investigando");
+    SoundMgr->cargarSonido("VocesRobots/Guardia/area_despejada_fin");
+    //SoundMgr->cargarSonido("VocesRobots/Guardia/diagnostico_terreno");
+
+    //SoundMgr->cargarSonido("VocesRobots/Medico/diagnostico_terreno_medico");
+    SoundMgr->cargarSonido("VocesRobots/Medico/intruso_detectado_medico");
+    SoundMgr->cargarSonido("VocesRobots/Medico/investigando_medico");
+    SoundMgr->cargarSonido("VocesRobots/Medico/escaneando_medico");
+    SoundMgr->cargarSonido("VocesRobots/Medico/area_despejada_medico");
+
+    SoundMgr->cargarSonido("VocesRobots/Dron/beepaliviado");
+    SoundMgr->cargarSonido("VocesRobots/Dron/beepenfadado");
+    SoundMgr->cargarSonido("VocesRobots/Dron/beepinvestigar");
+    SoundMgr->cargarSonido("VocesRobots/Dron/beepveralgo");
+    //SoundMgr->cargarSonido("VocesRobots/Dron/beepvigilar");
 }
 
 void Scene::inicializar_escena(){
@@ -71,6 +99,7 @@ void Scene::inicializar_escena(){
 
     cargarSonidos();
     SoundMgr->playMusica("Ambientes/ambiente_desierto");
+    SoundMgr->playMusica("Musica/musica_general");
 
     bucle_juego();
 }

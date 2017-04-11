@@ -239,7 +239,7 @@ void Enemy::patrullar()
     }
     setPosition();
      if(getTipo() == 3){
-        std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
+        //std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
     }
 }
 
@@ -263,8 +263,7 @@ void Enemy::escanear(){
     if(sospecha < 100 && distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
         calcularAngulo(posicionProta);
-        sospecha=sospecha+1;
-        posicionInteres = posicionProta;
+        sospecha++;;
         //std::cout<<"Sospecha: "<<sospecha<<std::endl;
     }
      setPosition();
