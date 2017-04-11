@@ -37,7 +37,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //region
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
-        modelo = new AnimatedMesh("resources/Modelos/Tarjeta.obj", {0,0,0,0}, centro, r);
+        modelo = new AnimatedMesh("resources/Modelos/Tarjeta.obj", {0,100,149,237}, centro, r);
         trigger->setMesh(modelo);
     }
     else if (tipo == 4){

@@ -51,6 +51,8 @@ void Scene::cargarSonidos()
 
 void Scene::inicializar_escena(){
 
+
+    f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
     Structs::TPosicion posicionCamara (190,30,40);
     Structs::TPosicion targetCamara (70,-10,40);
     Structs::TPosicion rayPos (170,0,50);
@@ -72,6 +74,7 @@ void Scene::inicializar_escena(){
     cargarSonidos();
     SoundMgr->playMusica("Ambientes/ambiente_desierto");
 
+    GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
     bucle_juego();
 }
 
