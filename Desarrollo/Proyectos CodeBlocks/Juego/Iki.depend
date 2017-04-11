@@ -8147,7 +8147,7 @@
 	<Box2D/Box2D.h>
 	"Fachada/MeshSceneNode.h"
 
-1491911461 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
+1491914085 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
 	"Enemies/Guardia.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -8457,7 +8457,7 @@
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1491911461 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1491914515 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
@@ -8496,7 +8496,7 @@
 	"GameEntity.h"
 	"PhisicsWorld.h"
 
-1491911461 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
+1491914609 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
 	"GUI/GUI.h"
 	"GUI/GUI_Button.h"
 	"GUI/GUI_Menu.h"
@@ -8579,7 +8579,7 @@
 	"Fachada/AnimatedMesh.h"
 	"PhisicsWorld.h"
 
-1491911461 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
+1491914550 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
 	"Menu.h"
 	"GUI/GUI.h"
 	"GUI/GUI_Button.h"
@@ -8603,7 +8603,7 @@
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1491912616 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1491914081 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -8711,7 +8711,7 @@
 1488379527 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
 	"Trigger_Respawning.h"
 
-1491913528 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
+1491914081 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
 	"Trigger_Ruido.h"
 	"Fachada/GraphicsFacade.h"
 	"Player.h"
@@ -8772,7 +8772,7 @@
 	"Enemies/Dron.h"
 	"EntityManager.h"
 
-1491911951 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
+1491914081 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
 	"GUI/HUD.h"
 	"Fachada/Image.h"
 	"EntityManager.h"

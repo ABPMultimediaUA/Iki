@@ -27,8 +27,7 @@ void GraphicsFacade::inicializar_gui(int menu){
         gui->inicializar_hd();
 
     ///MENU
-    if(menu == 0)
-        gui->anyadirmenu (0, 0, 1);
+
     gui->anyadirmenu (400, 60, 0);
 
     ///BOTONES
@@ -59,6 +58,9 @@ void GraphicsFacade::inicializar_gui(int menu){
     ///CONTROL VOLUMEN
 
     gui->anyadirvolumen(540, 175);
+
+    if(menu == 0)
+        gui->anyadirmenu (0, 0, 1);
 
 }
 

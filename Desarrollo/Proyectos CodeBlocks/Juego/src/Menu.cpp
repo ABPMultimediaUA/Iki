@@ -45,38 +45,38 @@ void Menu::inicializar_menu(int menu){
     //    gui->anyadirboton(540, 160, "nuevapartidaboton");
     //else
     //    gui->anyadirboton(540, 160, "botoncontinuar");
-    NuevaPartida = static_cast<GUI_Button*>(gui->getComponentes()[2]);
+    NuevaPartida = static_cast<GUI_Button*>(gui->getComponentes()[1]);
 
     //gui->anyadirboton(540, 440, "salirboton");
-    Salir        = static_cast<GUI_Button*>(gui->getComponentes()[3]);
+    Salir        = static_cast<GUI_Button*>(gui->getComponentes()[2]);
 
     //gui->anyadirboton(540, 300, "botonopciones");
-    Opciones     = static_cast<GUI_Button*>(gui->getComponentes()[4]);
+    Opciones     = static_cast<GUI_Button*>(gui->getComponentes()[3]);
 
     //gui->anyadirboton(540, 540, "botonatras");
-    Atras        = static_cast<GUI_Button*>(gui->getComponentes()[5]);
+    Atras        = static_cast<GUI_Button*>(gui->getComponentes()[4]);
 
     ///TITULOS
     //gui->anyadirtitulo(570, 125, "titulovolumen");
 
     //gui->anyadirtitulo(570, 270, "resolucionboton");
-    Resolucion        = static_cast<GUI_Title*>(gui->getComponentes()[7]);
+    Resolucion        = static_cast<GUI_Title*>(gui->getComponentes()[6]);
 
     //gui->anyadirtitulo(570, 340, "controlestitulo");
-    Control_Tit       = static_cast<GUI_Title*>(gui->getComponentes()[8]);
+    Control_Tit       = static_cast<GUI_Title*>(gui->getComponentes()[7]);
 
     //gui->anyadirtitulo(565, 390, "controlespanel");
-    gui->getComponentes()[9]->setRect(214, 145);
+    gui->getComponentes()[8]->setRect(214, 145);
 
     ///CONTROLES
 
     //gui->anyadircontrol(565, 320, "resoluciondentro", "checklleno");
-    Controles         = static_cast<GUI_Control*>(gui->getComponentes()[10]);
+    Controles         = static_cast<GUI_Control*>(gui->getComponentes()[9]);
 
     ///CONTROL VOLUMEN
 
     //gui->anyadirvolumen(540, 175);
-    Volumen           = static_cast<GUI_VolumeControl*>(gui->getComponentes()[11]);
+    Volumen           = static_cast<GUI_VolumeControl*>(gui->getComponentes()[10]);
 
 }
 
