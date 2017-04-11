@@ -33,7 +33,7 @@ void Trigger_Ruido::Try(GameEntity* ent)
                     || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
 
                     enemigo->GetFSM()->ChangeState(Escuchar::Instance());
-                    respawn = false;
+                    //respawn = false;
                 }
             }
         }

@@ -22,7 +22,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    velocidad = 0.75;
+    velocidad = 0.3;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
@@ -85,14 +85,14 @@ void Player::moverBody(Structs::TPosicion vec){
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
         speed = 1;
-        velocidad = 0.5;
+        velocidad = 0.15;
         HUD::getInstance()->sigiloUsed();
     }
-    else if(velocidad == 0.5){
-        velocidad = 0.75;
+    else if(velocidad == 0.15f){
+        velocidad = 0.3;
         HUD::getInstance()->sigiloNotUsed();
     }
-    if(velocidad > 0.75){
+    if(velocidad > 0.3){
         comprobarVelocidad();
         speed = 3;
     }
@@ -101,7 +101,7 @@ void Player::moverBody(Structs::TPosicion vec){
 
 void Player::comprobarVelocidad(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2){
-        velocidad = 0.75;
+        velocidad = 0.3;
         tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     }
 }
