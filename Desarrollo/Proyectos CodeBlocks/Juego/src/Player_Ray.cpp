@@ -10,7 +10,7 @@ Player_Ray::Player_Ray()
 {
     Structs::TMedida medida     = {10,0.5,0.5};
     Structs::TPosicion posicion = {0,0,0};
-    Structs::TColor color       = {0,128,128,128};
+    Structs::TColor color       = {0,30,144,255};
     modelo = new MeshSceneNode(medida,posicion,color);
     modelo->setVisible(false);
     balas = 4;
@@ -37,12 +37,12 @@ void Player_Ray::lanzar_rayo(Structs::TPosicion pos_prota){
 
     input.p1.Set(pos_prota.X, pos_prota.Z);
     float modulo = sqrt((vec_distancia.X*vec_distancia.X) + (vec_distancia.Z*vec_distancia.Z));
-    input.p2.Set(pos_prota.X+((vec_distancia.X/modulo)*30), pos_prota.Z+((vec_distancia.Z/modulo)*30));
+    input.p2.Set(pos_prota.X+((vec_distancia.X/modulo)*20), pos_prota.Z+((vec_distancia.Z/modulo)*20));
 
     distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));
     angulo = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
 
-    Structs::TMedida med = {distancia/10, 0.5, 0.5};
+    Structs::TMedida med = {distancia/10, 0.5, 1};
     Structs::TPosicion pos = {(input.p1.x+input.p2.x)/2, 0, (input.p1.y+input.p2.y)/2};
 
     modelo->setScale(med);

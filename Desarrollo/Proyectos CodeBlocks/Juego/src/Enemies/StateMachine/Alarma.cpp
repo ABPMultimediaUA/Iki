@@ -6,6 +6,7 @@
 #include "EntityManager.h"
 #include "PatrolRoute.h"
 #include "Enemies/StateMachine/Muerto.h"
+#include "Enemies/StateMachine/Investigar.h"
 
 Alarma* Alarma::Instance()
 {
@@ -17,6 +18,8 @@ Alarma* Alarma::Instance()
 void Alarma::Enter(Enemy* enemigo){
     enemigo->resetTime();
     SoundMgr->playSonido("AccionesRobots/alarma_sintetizada");
+    Structs::TColor color = {0,255,0,0};
+    enemigo->cambiarColor(color);
 }
 
 void Alarma::Execute(Enemy* enemigo){
@@ -29,6 +32,10 @@ void Alarma::Execute(Enemy* enemigo){
 
 void Alarma::Exit(Enemy* enemigo){
     EntityMgr->crearGuardia(enemigo->getPatrulla());
+    int id = EntityMgr->getNextID()-1;
+    Enemy* guardia = static_cast<Enemy*>(EntityMgr->getEntityByID(id));
+    guardia->setPosicionInteres(enemigo->getPosition());
+    guardia->GetFSM()->ChangeState(Investigar::Instance());
     /*PatrolRoute* ruta = enemigo->getPatrulla();
     ruta->setInicial(enemigo->getPatrulla()->getInicial()->getNext());
     EntityMgr->crearGuardia(ruta);*/

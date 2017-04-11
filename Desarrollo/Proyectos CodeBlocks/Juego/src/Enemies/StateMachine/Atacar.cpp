@@ -12,6 +12,7 @@ Atacar* Atacar::Instance()
 }
 
 void Atacar::Enter(Enemy* enemigo){
+<<<<<<< HEAD
 
     switch (enemigo->getTipo()){
         case 1:
@@ -25,11 +26,13 @@ void Atacar::Enter(Enemy* enemigo){
         break;
     }
 
+=======
+    Structs::TColor color = {0,255,0,0};
+    enemigo->cambiarColor(color);
+>>>>>>> origin/master
 }
 
 void Atacar::Execute(Enemy* enemigo){
-    Structs::TColor color = {0,255,0,0};
-    enemigo->cambiarColor(color);
 
 
     /*if(!enemigo->isEnemySeeing(enemigo->getPosicionProta())){
