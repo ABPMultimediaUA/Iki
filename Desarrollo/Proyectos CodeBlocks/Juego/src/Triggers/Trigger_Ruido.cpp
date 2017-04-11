@@ -23,7 +23,7 @@ Trigger_Ruido::~Trigger_Ruido()
 
 void Trigger_Ruido::Try(GameEntity* ent)
 {
-    if (respawn)
+    //if (respawn)
         if (isActive() && !ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
             //show interrogante
             if (speed == 2){
@@ -41,6 +41,7 @@ void Trigger_Ruido::Try(GameEntity* ent)
 
 void Trigger_Ruido::Update()
 {
+    //respawn =
     GameEntity* ent = EntityMgr->getEntityByID(0);
     posicion = ent->getPosition();
     speed = static_cast<Player*>(ent)->getSpeed();
