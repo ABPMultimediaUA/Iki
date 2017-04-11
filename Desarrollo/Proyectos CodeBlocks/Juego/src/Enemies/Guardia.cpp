@@ -73,8 +73,11 @@ void Guardia::ejecutarAtaque(){
                 vectorProta = posicionProta - posicion;
                 float anguloProta = atan2f((vectorProta.Z) , -(vectorProta.X)) * 180.f / PI;
                 //std::cout << "angulo ataque: "<< anguloAtaque <<" anguloProta: "<<anguloProta<<std::endl;
-
-                if(abs(anguloAtaque) - abs(anguloProta) < 45){
+                if(anguloAtaque < 0)
+                    anguloAtaque+360;
+                if(anguloProta < 0)
+                    anguloProta+360;
+                if(abs(anguloAtaque - anguloProta) < 45){
                     EntityMgr->getEntityByID(0)->quitarVida();;
                     solounaveh = true;
                     SoundMgr->playSonido("AccionesRobots/conoelectrico");
