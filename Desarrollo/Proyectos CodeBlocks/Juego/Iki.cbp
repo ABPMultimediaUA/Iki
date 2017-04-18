@@ -31,6 +31,7 @@
 					<Add directory="include/StateMachine" />
 					<Add directory="include/FuzzyLogic" />
 					<Add directory="include/SoundEngine" />
+					<Add directory="include/Enemies/StateMachine" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -57,6 +58,7 @@
 					<Add directory="include/StateMachine" />
 					<Add directory="include/FuzzyLogic" />
 					<Add directory="include/SoundEngine" />
+					<Add directory="include/Enemies/StateMachine" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -89,17 +91,20 @@
 		<Unit filename="include/Enemies/Path/Algoritmo.h" />
 		<Unit filename="include/Enemies/Path/Edge.h" />
 		<Unit filename="include/Enemies/Path/Heuristic_Euclid.h" />
-		<Unit filename="include/Enemies/Path/NavGraph.h" />
 		<Unit filename="include/Enemies/Path/Nodo.h" />
 		<Unit filename="include/Enemies/Path/PathEdge.h" />
 		<Unit filename="include/Enemies/Path/PathFinding.h" />
 		<Unit filename="include/Enemies/Path/PathPlanner.h" />
+		<Unit filename="include/Enemies/Path/PreCalculated.h" />
 		<Unit filename="include/Enemies/Path/PriorityQueue.h" />
 		<Unit filename="include/Enemies/Path/SparseGraph.h" />
 		<Unit filename="include/Enemies/StateMachine/Alarma.h" />
 		<Unit filename="include/Enemies/StateMachine/Atacar.h" />
+		<Unit filename="include/Enemies/StateMachine/Congelado.h" />
 		<Unit filename="include/Enemies/StateMachine/EnviarMensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Escanear.h" />
+		<Unit filename="include/Enemies/StateMachine/Escuchar.h" />
+		<Unit filename="include/Enemies/StateMachine/Huir.h" />
 		<Unit filename="include/Enemies/StateMachine/Investigar.h" />
 		<Unit filename="include/Enemies/StateMachine/Mensaje.h" />
 		<Unit filename="include/Enemies/StateMachine/Muerto.h" />
@@ -136,7 +141,6 @@
 		<Unit filename="include/GUI/HUD_Element.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameEntity.h" />
-		<Unit filename="include/Game_Entity.h" />
 		<Unit filename="include/LevelData.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapComponent.h" />
@@ -162,6 +166,7 @@
 		<Unit filename="include/Triggers/Trigger_PuertaLlave.h" />
 		<Unit filename="include/Triggers/Trigger_Respawning.h" />
 		<Unit filename="include/Triggers/Trigger_Ruido.h" />
+		<Unit filename="include/Triggers/Trigger_Torreta.h" />
 		<Unit filename="include/Vector2D.h" />
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
@@ -172,7 +177,6 @@
 		<Unit filename="src/Enemies/Path/Algoritmo.cpp" />
 		<Unit filename="src/Enemies/Path/Edge.cpp" />
 		<Unit filename="src/Enemies/Path/Heuristic_Euclid.cpp" />
-		<Unit filename="src/Enemies/Path/NavGraph.cpp" />
 		<Unit filename="src/Enemies/Path/Nodo.cpp" />
 		<Unit filename="src/Enemies/Path/PathEdge.cpp" />
 		<Unit filename="src/Enemies/Path/PathFinding.cpp" />
@@ -180,8 +184,11 @@
 		<Unit filename="src/Enemies/Path/SparseGraph.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Alarma.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Atacar.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Congelado.cpp" />
 		<Unit filename="src/Enemies/StateMachine/EnviarMensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Escanear.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Escuchar.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Huir.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Investigar.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Mensaje.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Muerto.cpp" />
@@ -218,7 +225,6 @@
 		<Unit filename="src/GUI/HUD_Element.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameEntity.cpp" />
-		<Unit filename="src/Game_Entity.cpp" />
 		<Unit filename="src/LevelData.cpp" />
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapComponent.cpp" />
@@ -238,12 +244,14 @@
 		<Unit filename="src/Triggers/TriggerRegion_Circle.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion_Rectangle.cpp" />
 		<Unit filename="src/Triggers/TriggerSystem.cpp" />
+		<Unit filename="src/Triggers/Trigger_Aceite.cpp" />
 		<Unit filename="src/Triggers/Trigger_Llave.cpp" />
 		<Unit filename="src/Triggers/Trigger_Municion.cpp" />
 		<Unit filename="src/Triggers/Trigger_Puerta.cpp" />
 		<Unit filename="src/Triggers/Trigger_PuertaLlave.cpp" />
 		<Unit filename="src/Triggers/Trigger_Respawning.cpp" />
 		<Unit filename="src/Triggers/Trigger_Ruido.cpp" />
+		<Unit filename="src/Triggers/Trigger_Torreta.cpp" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/tinyxml2.cpp" />
 		<Extensions>

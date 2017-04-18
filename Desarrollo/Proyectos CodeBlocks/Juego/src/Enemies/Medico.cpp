@@ -7,9 +7,12 @@ void Medico::inicializar_enemigo(Map* m)
 {
     //De momento todos tienen el mismo body y cosas en comun asi que las inicializo para los tres en init
     init(m);
-    Structs::TColor color = {0,0,0,255};
-    modelo->cambiarColor(color);
+    Structs::TColor color = {255,160,160,160};
+    //modelo->cambiarColor(color);
+    aniMesh = new AnimatedMesh("resources/Modelos/Medica.obj", color, posicion, 0);
+    aniMesh->setScale(3);
     tipo = 2;
+    vida = 2;
 }
 void Medico::pedirAyuda(){
     //mover medico con la lista de edges creada
@@ -28,8 +31,8 @@ void Medico::pedirAyuda(){
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
         //MoverEnemigo((*it).getDestination(),toNextNodo);
-        toNextNodo.Normalize();
         mirandoHacia=toNextNodo;
+        toNextNodo.Normalize();
         posicion=posicion+toNextNodo*(avMovement*2.5);
         calcularAngulo((*it).getDestination());
     }
@@ -40,12 +43,24 @@ void Medico::proteger(){
     toProtegido = protegido->getPosition() - posicion;
     if(toProtegido.Length()> 5){
         //MoverEnemigo(protegido->getPosition(),toProtegido);
-        toProtegido.Normalize();
         mirandoHacia=toProtegido;
+        toProtegido.Normalize();
         posicion=posicion+toProtegido*(avMovement*2.5);
         calcularAngulo(protegido->getPosition());
+    }
+    else if (protegido->getVida()<4 && tiempoEnEstado>2){
+        curar();
+        resetTime();
     }
     //else
         //moverBody(quietoParado);
     setPosition();
+}
+void Medico::huir(){
+    andarPath(2,posHuida);
+    setPosition();
+}
+void Medico::curar(){
+    if(protegido->getVida()>4)
+        protegido->sumarVida();
 }

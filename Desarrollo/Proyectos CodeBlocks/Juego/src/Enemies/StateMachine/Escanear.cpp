@@ -5,6 +5,7 @@
 #include "Enemies/StateMachine/PedirAyuda.h"
 #include "Enemies/StateMachine/Atacar.h"
 #include "Enemies/StateMachine/Alarma.h"
+#include "Enemies/StateMachine/Investigar.h"
 
 
 
@@ -17,11 +18,23 @@ Escanear* Escanear::Instance()
 
 void Escanear::Enter(Enemy* enemigo){
     enemigo->resetTime();
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->playSonido("VocesRobots/Guardia/escaneando");
+        break;
+        case 2:
+            SoundMgr->playSonido("VocesRobots/Medico/escaneando_medico");
+        break;
+        case 3:
+            SoundMgr->playSonido("VocesRobots/Dron/beepveralgo");
+        break;
+    }
 }
 
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
-    if(enemigo->getSospecha()==99){
+    if(enemigo->getSospecha()>=99){
         ///COMBATEEE
         switch(enemigo->getTipo()){
         case 1:
@@ -37,10 +50,27 @@ void Escanear::Execute(Enemy* enemigo){
             break;
         }
     }
-    else if(enemigo->getTiempo()>1.5)
+    else if(enemigo->getTiempo()>1.5 && enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
-
+    }else if(enemigo->getTiempo()>1.5 && enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        enemigo->setPosicionInteres(enemigo->getPosicionProta());
+        enemigo->GetFSM()->ChangeState(Investigar::Instance());
+    }
 }
 
-void Escanear::Exit(Enemy* enemigo){}
+void Escanear::Exit(Enemy* enemigo){
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->soundStop("VocesRobots/Guardia/escaneando");
+        break;
+        case 2:
+            SoundMgr->soundStop("VocesRobots/Medico/escaneando_medico");
+        break;
+        case 3:
+            SoundMgr->soundStop("VocesRobots/Dron/beepveralgo");
+        break;
+    }
+}
 bool Escanear::OnMessage(Enemy*, const Mensaje&){}

@@ -9,6 +9,8 @@
 #include "Map.h"
 #include "Enemies/StateMachine/Mensaje.h"
 #include "EntityManager.h"
+#include "SoundManager.h"
+
 #include <vector>
 #include <fstream>
 #include <string>
@@ -36,8 +38,8 @@ class GameEntity
         virtual bool               HandleMessage(const Mensaje& msg)=0;
         virtual bool               isPathObstructured(Structs::TPosicion)=0;
         virtual bool               canWalkBetween(Structs::TPosicion ,Structs::TPosicion)=0;
-        void                       quitarVida(){if(vida>0)
-                                                    vida=vida-1;}
+        virtual void               quitarVida(){if(vida>0) vida=vida-1;}
+        virtual void               sumarVida(){vida=vida+1;}
 
 
     protected:
@@ -49,7 +51,7 @@ class GameEntity
         int id,nextID;
         float vida;
         Structs::TPosicion posicion;
-        float radio;
+        float radio = 1.0;
 
 };
 

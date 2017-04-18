@@ -43,6 +43,8 @@ public:
     void registrarWorld(World* w);
     void crearGuardia(PatrolRoute* ruta);
     void setNextValidID(int i){nextID=i;}
+    bool hayGuardia();
+    int getNextID(){return nextID;}
 
     void registrarEnemigo(Enemy* newEnemigo);
     void borrarEnemigo(Enemy* enemigo);

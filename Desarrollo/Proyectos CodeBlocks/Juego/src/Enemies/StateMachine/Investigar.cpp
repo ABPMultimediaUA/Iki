@@ -16,12 +16,24 @@ Investigar* Investigar::Instance()
 void Investigar::Enter(Enemy* enemigo){
     std::cout<<"a investigar se ha dicho"<<std::endl;
     enemigo->crearPath(enemigo->getPosicionInteres());
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->playSonido("VocesRobots/Guardia/investigando");
+        break;
+        case 2:
+            SoundMgr->playSonido("VocesRobots/Medico/investigando_medico");
+        break;
+        case 3:
+            SoundMgr->playSonido("VocesRobots/Dron/beepinvestigar");
+        break;
+    }
+
 }
 
 void Investigar::Execute(Enemy* enemigo){
-    if(enemigo->getDistanciaPlayer()<10){
+    if(enemigo->getDistanciaPlayer()<30 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
-            //static_cast<Guardia*>(enemigo)->atacar();
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
     }
     if(enemigo->getPosition() == enemigo->getPosicionInteres()){
@@ -32,6 +44,18 @@ void Investigar::Execute(Enemy* enemigo){
 }
 
 void Investigar::Exit(Enemy* enemigo){
+
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->soundStop("VocesRobots/Guardia/investigando");
+        break;
+        case 2:
+            SoundMgr->soundStop("VocesRobots/Medico/investigando_medico");
+        break;
+        case 3:
+            SoundMgr->soundStop("VocesRobots/Dron/beepinvestigar");
+        break;
+    }
 
 }
 bool Investigar::OnMessage(Enemy*, const Mensaje&){}

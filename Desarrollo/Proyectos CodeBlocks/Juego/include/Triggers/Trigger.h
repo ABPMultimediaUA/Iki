@@ -14,10 +14,14 @@ class Trigger : public GameEntity
         virtual void Update() = 0;
 
         void AddCircularRegion(Structs::TPosicion center, double radius);
-        void AddRectangularRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight);
+        //void AddRectangularRegion(Structs::TPosicion TopLeft, Structs::TPosicion BottomRight);
+        void MoveRegion(Structs::TPosicion center);
 
         bool isToBeRemoved()const{return removeFromGame;}
         bool isActive(){return active;}
+
+        bool noHayNingunaEntidad();
+
         bool HandleMessage(const Mensaje& msg){return false;}
         bool isPathObstructured(Structs::TPosicion){};
         bool canWalkBetween(Structs::TPosicion ,Structs::TPosicion){};

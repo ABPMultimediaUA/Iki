@@ -4,6 +4,8 @@
 #include "Enemies/StateMachine/Patrullar.h"
 #include "Enemies/Medico.h"
 #include "Enemies/StateMachine/VolverALaPatrulla.h"
+#include "Enemies/StateMachine/Huir.h"
+#include "Enemies/StateMachine/Muerto.h"
 
 
 Proteger* Proteger::Instance()
@@ -14,12 +16,18 @@ Proteger* Proteger::Instance()
 
 void Proteger::Enter(Enemy* enemigo){
     static_cast<Medico*>(enemigo)->setProtegido(enemigo->getGuardiaMasCercano());
+    enemigo->resetTime();
 }
 
 void Proteger::Execute(Enemy* enemigo){
-    static_cast<Medico*>(enemigo)->proteger();
-    if(enemigo->getGuardiaMasCercano()->GetFSM()->isInState(*VolverALaPatrulla::Instance()))
-        enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+    if(enemigo->hayGuardias()){
+        if(enemigo->getGuardiaMasCercano()->GetFSM()->isInState(*VolverALaPatrulla::Instance()))
+            enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+        static_cast<Medico*>(enemigo)->proteger();
+    }
+    else{
+        enemigo->GetFSM()->ChangeState(Huir::Instance());
+    }
 }
 
 void Proteger::Exit(Enemy* enemigo){}

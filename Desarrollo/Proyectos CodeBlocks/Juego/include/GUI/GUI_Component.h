@@ -15,11 +15,12 @@ class GUI_Component
         virtual void draw();
         virtual int comprobarmouse(float, float);
         void setRect(int,int);
+        void reproducir_click(int);
 
     protected:
         Image* image;
         int posicionX, posicionY;
-        bool estaencima;
+        bool estaencima, sound_fired;
         Structs::TRectangulo rec;
 
     private:

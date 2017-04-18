@@ -24,11 +24,12 @@ class Player : public GameEntity{
         bool isPlayer(){return true;};
 
         void CogerMunicion();
-        void CogerLlave(){llaves++;}
-        void UsarLlave(){llaves--;}
+        void CogerLlave();
+        void UsarLlave();
+        void NecesitoLlave();
         int  GetLlaves(){return llaves;}
 
-
+        void sonidosMovimiento();
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
         bool HandleMessage(const Mensaje& msg){return true;}
         bool isPathObstructured(Structs::TPosicion destino);
@@ -40,6 +41,12 @@ class Player : public GameEntity{
         void TriggerRuido();
         Trigger *getRuido(){return ruido;}
 
+        bool imSeeingThisEnemy(Enemy*);
+        void calcularMirarHacia(Structs::TPosicion);
+
+        void subirVelocidad();
+        void comprobarVelocidad();
+
     protected:
 
     private:
@@ -49,10 +56,12 @@ class Player : public GameEntity{
         Structs::TPosicion toNextPosition;
         Structs::TPosicion mousePosition = {170,0,50};
         Structs::TPosicion quietoParado = {0,0,0};
+        Structs::TPosicion mirarHacia = {0,0,0};
 
         Trigger_Ruido* ruido;
         bool isMoving,moverse;
         int speed;
+        float velocidad;
         int llaves = 0;
 
         Player_Ray* rayo;
@@ -61,6 +70,8 @@ class Player : public GameEntity{
 
         b2RayCastInput input2;
         b2RayCastOutput	output2;
+
+        f32 tiempo_con_mas_speed;
 
         float distancia,angulo,avMovement,deltaTime;
         ///PATHFINDING

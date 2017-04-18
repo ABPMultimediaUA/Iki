@@ -5,6 +5,8 @@
 #include "PhisicsWorld.h"
 #include "Enemies/Path/PathPlanner.h"
 #include "MapComponent.h"
+#include "Muerto.h"
+#include "Enemies/Guardia.h"
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
@@ -25,7 +27,7 @@ void Enemy::init(Map* m){
     direccion = 0;
     posVigilando = 0;
     //creo un cubo
-    modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
+    //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
     posinit = pRuta->getPunto()-posaux;
@@ -37,6 +39,8 @@ void Enemy::init(Map* m){
     path = new PathPlanner(grafo,this);
      //Para los ray!
     input.maxFraction	=	1.0f;
+
+    time_since_hitted = 0;
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
@@ -86,7 +90,7 @@ bool Enemy::vectorIsInFOV(Structs::TPosicion p){
 }
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,15.0) && !isPathObstructured(posicionProta))
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
         return true;
     else
         return false;
@@ -96,12 +100,22 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
      input.p1.Set(desde.X, desde.Z);	//	Punto	inicial	del	rayo
      input.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
-      ///colision con paredes
+        ///colision con paredes
     for (int i = 0; i < Mapa->muros.size(); i++) {
         if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
             return false;
         }
     }
+
+    /*    ///colision con triggers con body
+    std::vector<*Trigger> triggers = TriggerSystem.GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->getBody()){
+            if (triggers.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+                return false;
+            }
+        }
+    }*/
 
     return true;
 }
@@ -114,8 +128,8 @@ void Enemy::crearPath(Structs::TPosicion destino){
 }
 void Enemy::setPosition(){
     body->SetTransform(b2Vec2(posicion.X, posicion.Z), angulo);
-    modelo->setRotation(body->GetAngle());
-    modelo->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    aniMesh->setRotation(body->GetAngle());
+    aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
 }
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
    //mover medico con la lista de edges creada
@@ -135,14 +149,14 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
         //MoverEnemigo((*it).getDestination(),toNextNodo);
-        toNextNodo.Normalize();
         mirandoHacia=toNextNodo;
+        toNextNodo.Normalize();
         posicion=posicion+toNextNodo*(avMovement*velocidad);
         calcularAngulo((*it).getDestination());
     }
 }
 void Enemy::cambiarColor(Structs::TColor c){
-    modelo->cambiarColor(c);
+    aniMesh->cambiarColor(c);
 }
 void Enemy::calcularAngulo(Structs::TPosicion p1){
     angulo = atan2f((p1.Z-posicion.Z) ,
@@ -161,6 +175,11 @@ void Enemy::girarVista(float giro, int posV){
     double radianes = (-giro) * DegToRad;
     mirandoHacia.rotarVector(radianes);
 }
+bool Enemy::hayGuardias(){
+    if(EntityMgr->hayGuardia())
+        return true;
+    return false;
+}
 ///PARA MOVER CON IMPULSOS?¿
 void Enemy::moverBody(Structs::TPosicion vec){
     vec.Normalize();
@@ -172,8 +191,21 @@ void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
     body->SetTransform(body->GetPosition(), angulo);
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-    modelo->setPosition(posicion);
-    modelo->setRotation(body->GetAngle());
+    aniMesh->setPosition(posicion);
+    aniMesh->setRotation(body->GetAngle());
+}
+void Enemy::quitarVida(){
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 0.8){
+        if(vida > 0){
+            SoundMgr->playSonido("Player/metal2");
+            vida--;
+            time_since_hitted = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        }
+        else{
+            SoundMgr->playSonido("Player/metal1");
+            GetFSM()->ChangeState(Muerto::Instance());
+        }
+    }
 }
 ///ESTADOS
 
@@ -183,8 +215,6 @@ void Enemy::patrullar()
    if(posicion.Distance(pRuta->getPunto()) >0.5) //AVANZAR
     {
         //MoverEnemigo(pRuta->getPunto(),posinit);
-        posinit.Normalize();
-        mirandoHacia=posinit;
         posicion = posicion + posinit * avMovement;
     }
     else //CUANDO LLEGA A UN PUNTO PATRULLA
@@ -203,9 +233,15 @@ void Enemy::patrullar()
         }
 
         posinit = pRuta->getPunto() - posicion;
+        mirandoHacia=posinit;
+        posinit.Normalize();
         calcularAngulo(pRuta->getPunto());
     }
     setPosition();
+
+    if(getTipo() == 3){
+        //std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
+    }
 }
 
 void Enemy::vigilar(){
@@ -225,13 +261,17 @@ void Enemy::vigilar(){
     setPosition();
 }
 void Enemy::escanear(){
-    calcularAngulo(posicionProta);
-    setPosition();
-    if(tiempoEnEstado < 1.5 && sospecha < 99 && distanciaPlayer<15)
+    if(sospecha < 100 && distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
-        sospecha=sospecha+1;
+        calcularAngulo(posicionProta);
+        sospecha++;;
         //std::cout<<"Sospecha: "<<sospecha<<std::endl;
     }
+     setPosition();
+}
+void Enemy::escuchar(){
+    calcularAngulo(posicionProta);
+    setPosition();
 }
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());
@@ -240,4 +280,8 @@ void Enemy::volverALaPatrulla(){
 void Enemy::muerto(){
     posicion = {1000,0,1000};
     setPosition();
+    if(this->isGuardia())
+        static_cast<Guardia*>(this)->setModeloVisible(false);
+    EntityMgr->borrarEnemigo(this);
+
 }

@@ -2,7 +2,6 @@
 #define SCENE_H
 
 #include "Structs.h"
-#include "TriggerSystem.h"
 
 class Camera;
 class Player;
@@ -15,16 +14,15 @@ class Scene
     public:
         Scene();
         ~Scene();
+        void cargarSonidos();
         void inicializar_escena();
         void bucle_juego();
 
     protected:
 
     private:
-
         Camera *camara;
         World *world;
-        TriggerSystem triggersystem;
         Player *player;
         Menu* menu_ingame;
         Map* Mapa;

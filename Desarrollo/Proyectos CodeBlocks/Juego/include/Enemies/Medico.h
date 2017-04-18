@@ -11,6 +11,7 @@ class Medico : public Enemy
     private:
         Enemy* protegido;
         Structs::TPosicion toProtegido;
+        Structs::TPosicion posHuida = {50,0,120};
 
     public:
         Medico(int ID,PatrolRoute* rutita)
@@ -28,10 +29,14 @@ class Medico : public Enemy
         ~Medico(){delete G_stateMachine;}
         void pedirAyuda();
         void proteger();
+        void huir();
+        void curar();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}
         void setProtegido(Enemy* e){protegido=e;}
+        void setPosHuida(Structs::TPosicion p){posHuida=p;}
+        Structs::TPosicion getPosHuida(){return posHuida;}
 
 
 };

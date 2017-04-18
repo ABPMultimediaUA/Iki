@@ -9,16 +9,14 @@
 
 GUI::GUI()
 {
-    hud = new HUD();
 }
 
 GUI::~GUI()
 {
-    delete hud;
 }
 
-void GUI::anyadirmenu(int x, int y){
-    componentes.push_back(new GUI_Menu(x, y));
+void GUI::anyadirmenu(int x, int y, int t){
+    componentes.push_back(new GUI_Menu(x, y, t));
 }
 
 void GUI::anyadirboton(int x, int y, std::string nombre){
@@ -40,9 +38,11 @@ void GUI::anyadirvolumen(int x, int y){
 void GUI::draw(int draw_type){
 
     if(draw_type == 0)
-        hud->draw();
-    else
+        HUD::getInstance()->draw();
+    else{
+        componentes[11]->draw();
         componentes[0]->draw();
+    }
     if(draw_type == 1){
         componentes[1]->draw();
         componentes[2]->draw();
@@ -69,5 +69,5 @@ void GUI::clean(){
 }
 
 void GUI::inicializar_hd(){
-    hud->inicializar_HUD();
+    HUD::getInstance()->inicializar_HUD();
 }

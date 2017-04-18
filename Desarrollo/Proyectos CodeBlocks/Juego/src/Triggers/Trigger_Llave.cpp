@@ -18,6 +18,7 @@ void Trigger_Llave::Try(GameEntity* ent)
         static_cast<Player*>(ent)->CogerLlave();
         Deactivate();
         aniMesh->setVisible(false);
+        SoundMgr->playSonido("Triggers/tarjeta");
     }
 }
 

@@ -31,13 +31,11 @@ void HUD_Element::cambiarRect(Structs::TRectangulo rect){
 bool HUD_Element::comprobarEncima(){
 
     if(   (MyEventReceiver::getInstance().GetMouseState().Position.X > posicionX
-       && MyEventReceiver::getInstance().GetMouseState().Position.X < posicionX + 110)
+       && MyEventReceiver::getInstance().GetMouseState().Position.X < posicionX + 79)
        && (MyEventReceiver::getInstance().GetMouseState().Position.Y > posicionY
-       && MyEventReceiver::getInstance().GetMouseState().Position.Y < posicionY + 109)){
+       && MyEventReceiver::getInstance().GetMouseState().Position.Y < posicionY + 79))
 
-       color = {255,125,125,125};
         return true;
-       }
     else
         return false;
 }
@@ -49,5 +47,9 @@ void HUD_Element::setActive(bool act){
 void HUD_Element::setPosition(int x, int y){
     posicionX = x;
     posicionY = y;
+}
+
+void HUD_Element::changeColor(Structs::TColor col){
+    color = col;
 }
 

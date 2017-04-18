@@ -17,6 +17,8 @@ class Trigger_Ruido : public Trigger
 
     private:
         int speed = 0;
+        bool respawn = true;
+        Structs::TPosicion post;
 };
 
 #endif // TRIGGER_RUIDO_H

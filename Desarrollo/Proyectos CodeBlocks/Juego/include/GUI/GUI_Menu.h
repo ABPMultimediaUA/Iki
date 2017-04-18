@@ -6,7 +6,7 @@
 class GUI_Menu : public GUI_Component
 {
     public:
-        GUI_Menu(int, int);
+        GUI_Menu(int, int, int);
         ~GUI_Menu();
 
     protected:

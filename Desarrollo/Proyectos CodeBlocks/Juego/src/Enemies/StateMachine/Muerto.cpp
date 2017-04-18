@@ -10,12 +10,25 @@ Muerto* Muerto::Instance()
 }
 
 void Muerto::Enter(Enemy* enemigo){
+    ///MATAR ENEMIGO
 
+    switch (enemigo->getTipo()){
+        case 1:
+            SoundMgr->playSonido("AccionesRobots/muertedron");
+        break;
+        case 2:
+            SoundMgr->playSonido("AccionesRobots/muertemedico");
+        break;
+        case 3:
+            SoundMgr->playSonido("AccionesRobots/muertedron");
+        break;
+    }
+
+    enemigo->muerto();
 }
 
 void Muerto::Execute(Enemy* enemigo){
- ///MATAR ENEMIGO
-    enemigo->muerto();
+
 }
 
 void Muerto::Exit(Enemy* enemigo){

@@ -33,8 +33,8 @@ class Enemy : public GameEntity
         float getDistanciaPlayer(){ return distanciaPlayer;}
         Structs::TPosicion getPosicionProta(){return posicionProta;}
         Structs::TPosicion getPosicionInteres(){return posicionInteres;}
-        Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
-        //Enemy* getGuardiaMasCercano(){return EntityMgr->getGuardiaCerca(posicion);}
+        //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
+        Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getGuardiaCerca(posicion);}
         ///SETTERS
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
@@ -43,11 +43,14 @@ class Enemy : public GameEntity
         void patrullar();
         void vigilar();
         void escanear();
+        void escuchar();
         void muerto();
         void volverALaPatrulla();
         ///METODOS
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
+        void subirSospecha() {sospecha++;}
+        void resetSospecha() {sospecha=0;}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
         bool isPathObstructured(Structs::TPosicion destino);
@@ -62,6 +65,10 @@ class Enemy : public GameEntity
         void calcularAngulo(Structs::TPosicion p1);
         bool isGuardia();
         void girarVista(float giro,int posV);
+        void quitarVida();
+        bool hayGuardias();
+
+        float getAngulo(){return angulo;}
 
 
     protected:
@@ -72,9 +79,10 @@ class Enemy : public GameEntity
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-        f32 tiempoEnEstado;
+        f32 tiempoEnEstado, time_since_hitted;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
+        Structs::TPosicion vectorProta;
         Structs::TPosicion posicionProta;
         Structs::TPosicion posicionInteres;
         State<Enemy>* actualState;

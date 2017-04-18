@@ -7,6 +7,9 @@
 
 #include <irrKlang.h>
 #include "../lib/irrKlang/conio.h"
+#include "Structs.h"
+
+#define SoundMgr SoundManager::getInstance()
 
 class SoundManager
 {
@@ -36,6 +39,8 @@ class SoundManager
         bool soundIsFinished(std::string s);
         void soundStop(std::string s);
         void stopAll(){ engine->stopAllSounds(); }
+
+        float getVolumen(){return engine->getSoundVolume();}
 
         void Update();
 

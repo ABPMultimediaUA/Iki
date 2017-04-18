@@ -18,6 +18,7 @@ void Trigger_Municion::Try(GameEntity* ent)
         static_cast<Player*>(ent)->CogerMunicion();
         Deactivate();
         aniMesh->setVisible(false);
+        SoundMgr->playSonido("Triggers/cargadelarma");
     }
 }
 

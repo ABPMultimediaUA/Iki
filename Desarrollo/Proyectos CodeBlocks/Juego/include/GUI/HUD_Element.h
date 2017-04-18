@@ -17,6 +17,7 @@ class HUD_Element
         void setActive(bool);
         bool isActive(){return active;}
         void setPosition(int, int);
+        void changeColor(Structs::TColor);
 
     protected:
 
