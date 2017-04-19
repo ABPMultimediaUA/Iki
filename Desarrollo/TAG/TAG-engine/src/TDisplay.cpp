@@ -16,6 +16,7 @@ TDisplay::TDisplay(int width, int height, const std::string &title)
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	m_window = SDL_CreateWindow(title.c_str(),SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,width,height, SDL_WINDOW_OPENGL);
+	SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN);
 	m_glContext = SDL_GL_CreateContext(m_window);
 
 	GLenum status = glewInit();
@@ -38,7 +39,10 @@ bool TDisplay::IsClosed()
 	return m_isClosed;
 }
 
-
+/*TDisplay::setResolucion(int x, int y)
+{
+    SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN);
+}*/
 TDisplay::~TDisplay()
 {
 	SDL_GL_DeleteContext(m_glContext);

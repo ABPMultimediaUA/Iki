@@ -48,6 +48,8 @@ class TMotorTAG
         vector<TNodo*> luces;
         vector<TNodo*> camaras;
 
+
+
         //Atributos para mantenimiento de las camaras, luces y viewports.
 };
 

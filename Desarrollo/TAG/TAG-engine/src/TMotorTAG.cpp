@@ -4,6 +4,7 @@
 TMotorTAG::TMotorTAG()
 {
     //ctor
+//    display(800, 600)
     escena = new TNodo();
 }
 
