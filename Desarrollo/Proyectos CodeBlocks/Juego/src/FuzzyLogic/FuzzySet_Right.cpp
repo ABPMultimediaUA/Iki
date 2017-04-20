@@ -32,9 +32,10 @@ float FuzzySet_Right::CalculateDOM(float val)const
         return 1.0;
     }
 
+    //out of range of this FLV, return zero
     else
     {
-        return 0;
+        return 0.0;
     }
 
 }

@@ -11,24 +11,18 @@ class FuzzyModule
 {
     private:
 
-        std::map<std::string, FuzzyVariable*> varMap;;
+        std::map<std::string, FuzzyVariable*> varMap;
         std::vector<FuzzyRule*> rules;
 
-        //zeros the DOMs of the consequents of each rule. Used by Defuzzify()
         inline void SetConfidencesOfConsequentsToZero();
 
     public:
         FuzzyModule();
         virtual ~FuzzyModule();
 
-        //creates a new "empty" fuzzy variable and returns a reference to it.
         FuzzyVariable& CreateFLV(const std::string& VarName);
-        //adds a rule to the module
         void AddRule(FuzzySet& antecedent, FuzzySet& consequence);
-        //this method calls the Fuzzify method of the named FLV
         inline void Fuzzify(const std::string& NameOfFLV, double val);
-        //given a fuzzy variable and a defuzzification method this returns a
-        //crisp value
         inline float DeFuzzify(const std::string& key);
 
 };
@@ -43,7 +37,6 @@ FuzzyVariable& AmmoStatus   = fm.CreateFLV("AmmoStatus");
 */
 /*
 FuzzyModule fm;
-FuzzyVariable& DistToTarget = fm.CreateFLV("DistToTarget");
 FzSet Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close",
                                                             0,
                                                             25,
@@ -59,12 +52,6 @@ FzSet Target_Far = DistToTarget.AddRightShoulderSet("Target_Far",
 */
 /*
 fm.AddRule(FzAND(Target_Far, Ammo_Low), Undesirable);
-
-void FuzzyModule::AddRule(FuzzyTerm& antecedent, FuzzyTerm& consequence)
-{
-    m_Rules.push_back(new FuzzyRule(antecedent, consequence)));
-}
-
 */
 /*
 double CalculateDesirability(FuzzyModule& fm, double dist, double ammo)

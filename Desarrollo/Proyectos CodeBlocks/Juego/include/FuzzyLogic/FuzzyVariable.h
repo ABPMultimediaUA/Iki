@@ -13,16 +13,12 @@ class FuzzyVariable
         FuzzyVariable(const FuzzyVariable&);
         FuzzyVariable& operator=(const FuzzyVariable&);
     private:
-        //a map of the fuzzy sets that comprise this variable
-        MemberSets m_MemberSets;
+        MemberSets fvMembers;
 
-        //the minimum and maximum value of the range of this variable
-        double m_dMinRange;
-        double m_dMaxRange;
+        float m_dMinRange;
+        float m_dMaxRange;
 
-        //this method is called with the upper and lower bound of a set each time a
-        //new set is added to adjust the upper and lower range values accordingly
-        void AdjustRangeToFit(double min, double max);
+        void AdjustRangeToFit(float min, float max);
 
         //a client retrieves a reference to a fuzzy variable when an instance is
         //created via FuzzyModule::CreateFLV(). To prevent the client from deleting
@@ -41,25 +37,22 @@ class FuzzyVariable
         //added the m_dMinRange and m_dMaxRange are adjusted accordingly. All of the
         //methods return a proxy class representing the newly created instance. This
         //proxy set can be used as an operand when creating the rule base.
-        /*
-        FzSet AddLeftShoulderSet(std::string name,
-                                 double minBound,
-                                 double peak,
-                                 double maxBound);
-        FzSet AddRightShoulderSet(std::string name,
-                                 double minBound,
-                                 double peak,
-                                 double maxBound);
-        FzSet AddTriangularSet(std::string name,
-                              double minBound,
-                              double peak,
-                              double maxBound);
-        */
-        //fuzzify a value by calculating its DOM in each of this variable's subsets
-        void Fuzzify(double val);
 
-        //defuzzify the variable using the MaxAv method
-        double DeFuzzifyMaxAv()const;
+        FzSet AddLeftShoulderSet(std::string name,
+                                 float minBound,
+                                 float peak,
+                                 float maxBound);
+        FzSet AddRightShoulderSet(std::string name,
+                                  float minBound,
+                                  float peak,
+                                  float maxBound);
+        FzSet AddTriangularSet(std::string name,
+                               float minBound,
+                               float peak,
+                               float maxBound);
+
+        void Fuzzify(float val);
+        float DeFuzzifyMaxAv()const;
 
 };
 

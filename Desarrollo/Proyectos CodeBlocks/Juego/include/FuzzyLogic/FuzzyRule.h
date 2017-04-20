@@ -14,10 +14,10 @@ class FuzzyRule
         FuzzyRule(const FuzzyRule&);
         FuzzyRule& operator=(const FuzzyRule&);
     public:
-       // FuzzyRule(FuzzySet& ant,
-       // FuzzySet& con):m_pAntecedent(ant.Clone()),
-       // m_pConsequence(con.Clone())
-       // {}
+        FuzzyRule(FuzzySet& ant,
+                  FuzzySet& con):m_pAntecedent(ant.Clone()),
+                                 m_pConsequence(con.Clone())
+                                                        {}
         ~FuzzyRule(){delete m_pAntecedent; delete m_pConsequence;}
         void SetConfidenceOfConsequentToZero(){m_pConsequence->ClearDOM();}
         //this method updates the DOM (the confidence) of the consequent term with
