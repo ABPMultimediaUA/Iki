@@ -1,4 +1,4 @@
-#include "TAG/TCamara.h"
+#include "TCamara.h"
 
 TCamara::TCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej)
 {

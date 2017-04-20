@@ -2,7 +2,7 @@
 #define TLUZ_H
 
 #include <iostream>
-#include <TAG/TEntidad.h>
+#include <TEntidad.h>
 
 
 class TLuz : public TEntidad

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include <TAG/TEntidad.h>
+#include <TEntidad.h>
 
 
 class TCamara : public TEntidad

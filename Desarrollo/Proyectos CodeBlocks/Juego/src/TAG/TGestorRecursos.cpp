@@ -1,4 +1,4 @@
-#include "TAG/TGestorRecursos.h"
+#include "TGestorRecursos.h"
 
 TGestorRecursos::TGestorRecursos()
 {

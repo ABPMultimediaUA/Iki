@@ -1,9 +1,9 @@
-#include "TAG/TMalla.h"
-#include "TAG/TTransform.h"
+#include "TMalla.h"
+#include "TTransform.h"
 
 
-#include "TAG/TGestorRecursos.h"
-#include "TAG/TMotorTAG.h"
+#include "TGestorRecursos.h"
+#include "TMotorTAG.h"
 
 #include <glm/gtx/string_cast.hpp>
 #include <iostream>

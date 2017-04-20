@@ -56,7 +56,7 @@ If your name should be here but isn't, let Sean know.
 // or create stb_image.h, #define STBI_HEADER_FILE_ONLY, and
 // then include stb_image.c from it.
 
-#include "TAG/stb_image.h"
+#include "stb_image.h"
 
 #endif // STBI_INCLUDE_STB_IMAGE_H
 

@@ -1,7 +1,7 @@
-#include "TAG/TRecursoMalla.h"
-#include "TAG/TGestorRecursos.h"
-#include "TAG/TMalla.h"
-#include "TAG/TMotorTAG.h"
+#include "TRecursoMalla.h"
+#include "TGestorRecursos.h"
+#include "TMalla.h"
+#include "TMotorTAG.h"
 
 #define INVALID_OGL_VALUE 0xffffffff
 

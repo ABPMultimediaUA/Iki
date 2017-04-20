@@ -1,4 +1,4 @@
-#include "TAG/TAnimacion.h"
+#include "TAnimacion.h"
 #define SAFE_DELETE(p) if (p) { delete p; p = NULL; }
 #include <sstream>
 

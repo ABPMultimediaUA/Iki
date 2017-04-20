@@ -1,7 +1,7 @@
 #ifndef TANIMACION_H
 #define TANIMACION_H
 
-#include <TAG/TEntidad.h>
+#include <TEntidad.h>
 #include "TMalla.h"
 #include <iostream>
 

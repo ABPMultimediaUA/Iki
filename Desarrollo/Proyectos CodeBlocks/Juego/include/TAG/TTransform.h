@@ -2,7 +2,7 @@
 #define TTRANSFORM_H
 
 #include <iostream>
-#include <TAG/TEntidad.h>
+#include <TEntidad.h>
 
 #include <GL/gl.h>
 

@@ -1,4 +1,4 @@
-#include "TAG/TTextura.h"
+#include "TTextura.h"
 
 TTextura::TTextura(const std::string& FileName)
 {

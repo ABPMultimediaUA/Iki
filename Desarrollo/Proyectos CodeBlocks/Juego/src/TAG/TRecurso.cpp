@@ -1,4 +1,4 @@
-#include "TAG/TRecurso.h"
+#include "TRecurso.h"
 
 TRecurso::TRecurso()
 {

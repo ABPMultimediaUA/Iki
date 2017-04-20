@@ -1,4 +1,4 @@
-#include "TAG/TDisplay.h"
+#include "TDisplay.h"
 
 
 
@@ -15,7 +15,8 @@ TDisplay::TDisplay(int width, int height, const std::string &title)
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	m_window = SDL_CreateWindow(title.c_str(),SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,width,height, SDL_WINDOW_OPENGL);
+	m_window = SDL_CreateWindow(title.c_str(),0,0,0,0, SDL_WINDOW_OPENGL);
+    SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	m_glContext = SDL_GL_CreateContext(m_window);
 
 	GLenum status = glewInit();
@@ -37,7 +38,21 @@ bool TDisplay::IsClosed()
 {
 	return m_isClosed;
 }
+void TDisplay::setModoVentana()
+{
+    SDL_SetWindowFullscreen(m_window, 0);
+    SDL_SetWindowSize(m_window, 1360, 768);
+}
 
+void TDisplay::setFullScreen()
+{
+   SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+}
+
+Uint32 TDisplay::getTimer()
+{
+    return SDL_GetTicks();
+}
 
 TDisplay::~TDisplay()
 {

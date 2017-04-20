@@ -1,4 +1,4 @@
-#include "TAG/TLuz.h"
+#include "TLuz.h"
 
 TLuz::TLuz()
 {

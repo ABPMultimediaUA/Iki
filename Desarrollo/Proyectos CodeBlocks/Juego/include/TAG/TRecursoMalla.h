@@ -5,8 +5,8 @@
 #include <glew.h>
 
 #include <glm\glm.hpp>
-#include <TAG/TEntidad.h>
-#include <TAG/TTextura.h>
+#include <TEntidad.h>
+#include <TTextura.h>
 #include "TRecursoMaterial.h"
 
 #include <assimp/Importer.hpp>      // C++ importer interface
