@@ -31,6 +31,11 @@
 					<Add directory="include/StateMachine" />
 					<Add directory="include/SoundEngine" />
 					<Add directory="include/Enemies/StateMachine" />
+					<Add directory="include/assimp" />
+					<Add directory="include/GL" />
+					<Add directory="include/glm" />
+					<Add directory="include/SDL2" />
+					<Add directory="include/TAG" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -76,9 +81,16 @@
 			<Add directory="../Box2D" />
 		</Compiler>
 		<Linker>
+			<Add option="-Llib -lmingw32 -lSDL2main -lSDL2" />
+			<Add library="lib/glew32s.lib" />
 			<Add library="Irrlicht" />
 			<Add library="lib/libbox2d.a" />
 			<Add library="lib/libirrKlang.a" />
+			<Add library="lib/libassimp.dll.a" />
+			<Add library="lib/glew32.lib" />
+			<Add library="lib/libopenal32.a" />
+			<Add library="lib/libopengl32.a" />
+			<Add library="lib/libSDL2.dll.a" />
 			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>
@@ -145,6 +157,25 @@
 		<Unit filename="include/Scene.h" />
 		<Unit filename="include/SoundEngine/SoundManager.h" />
 		<Unit filename="include/Structs.h" />
+		<Unit filename="include/TAG/TAnimacion.h" />
+		<Unit filename="include/TAG/TCamara.h" />
+		<Unit filename="include/TAG/TDisplay.h" />
+		<Unit filename="include/TAG/TEntidad.h" />
+		<Unit filename="include/TAG/TGestorRecursos.h" />
+		<Unit filename="include/TAG/TLuz.h" />
+		<Unit filename="include/TAG/TMalla.h" />
+		<Unit filename="include/TAG/TMallaCache.h" />
+		<Unit filename="include/TAG/TMatriz.h" />
+		<Unit filename="include/TAG/TMotorTAG.h" />
+		<Unit filename="include/TAG/TNodo.h" />
+		<Unit filename="include/TAG/TRecurso.h" />
+		<Unit filename="include/TAG/TRecursoMalla.h" />
+		<Unit filename="include/TAG/TRecursoMaterial.h" />
+		<Unit filename="include/TAG/TShader.h" />
+		<Unit filename="include/TAG/TTextura.h" />
+		<Unit filename="include/TAG/TTexturaCache.h" />
+		<Unit filename="include/TAG/TTransform.h" />
+		<Unit filename="include/TAG/stb_image.h" />
 		<Unit filename="include/Triggers/Trigger.h" />
 		<Unit filename="include/Triggers/TriggerFactory.h" />
 		<Unit filename="include/Triggers/TriggerRegion.h" />
@@ -222,6 +253,25 @@
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/SoundEngine/SoundManager.cpp" />
 		<Unit filename="src/Structs.cpp" />
+		<Unit filename="src/TAG/TAnimacion.cpp" />
+		<Unit filename="src/TAG/TCamara.cpp" />
+		<Unit filename="src/TAG/TDisplay.cpp" />
+		<Unit filename="src/TAG/TEntidad.cpp" />
+		<Unit filename="src/TAG/TGestorRecursos.cpp" />
+		<Unit filename="src/TAG/TLuz.cpp" />
+		<Unit filename="src/TAG/TMalla.cpp" />
+		<Unit filename="src/TAG/TMallaCache.cpp" />
+		<Unit filename="src/TAG/TMatriz.cpp" />
+		<Unit filename="src/TAG/TMotorTAG.cpp" />
+		<Unit filename="src/TAG/TNodo.cpp" />
+		<Unit filename="src/TAG/TRecurso.cpp" />
+		<Unit filename="src/TAG/TRecursoMalla.cpp" />
+		<Unit filename="src/TAG/TRecursoMaterial.cpp" />
+		<Unit filename="src/TAG/TShader.cpp" />
+		<Unit filename="src/TAG/TTextura.cpp" />
+		<Unit filename="src/TAG/TTexturaCache.cpp" />
+		<Unit filename="src/TAG/TTransform.cpp" />
+		<Unit filename="src/TAG/stb_image.cpp" />
 		<Unit filename="src/Triggers/Trigger.cpp" />
 		<Unit filename="src/Triggers/TriggerFactory.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion.cpp" />

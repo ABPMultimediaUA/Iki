@@ -4,6 +4,7 @@
 //#include "GraphicsFacade.h"
 #include "Structs.h"
 
+
 class Camera
 {
     public:

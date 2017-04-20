@@ -3,6 +3,7 @@
 
 GraphicsFacade::GraphicsFacade()
 {
+
     crearDevice();
 
 	driver = device->getVideoDriver();

@@ -67,6 +67,8 @@ class GraphicsFacade
         plane3df plane;
         line3df ray;
 
+        //TMotorTAG* motor;
+
         int resolucionX = 1360, resolucionY = 768;
 };
 
