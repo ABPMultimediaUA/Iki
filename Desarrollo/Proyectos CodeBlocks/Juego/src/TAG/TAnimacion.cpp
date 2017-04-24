@@ -43,18 +43,19 @@ void TAnimacion::cargarAnimacion(const std::string& fileName)
 				finalPath = fileName + "000" + Result + ".obj";
 			}
 
-			cout << "Animacion: " << finalPath << endl;
+			//cout << "Animacion: " << finalPath << endl;
 
 			TMalla* malla = new TMalla();
 			malla->loadMesh(finalPath);
 			animacion[i] = malla;
 		}
+		cout << "Animacion cargada" <<endl;
 
 }
 
 void TAnimacion::beginDraw()
 {
-   // animacion[frames]->beginDraw();
+    animacion[frames]->beginDraw();
 }
 
 void TAnimacion::endDraw()

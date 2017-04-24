@@ -11,16 +11,21 @@
 //#include <irrKlang.h>
 //#include "lib/irrKlang/conio.h"
 #include "Game.h"
+#include <iostream>
 
-#include "TAG/TDisplay.h"
-#include "TAG/TMotorTAG.h"
-#include "TAG/TShader.h"
 
-//using namespace irrklang;
+#include "TDisplay.h"
+#include "TMotorTAG.h"
+#include "TShader.h"
+
+#include "TEventReceiver.h"
+
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
-    /*TDisplay display(800, 600,"Motor grafico");
+    TDisplay display(800, 600,"Motor grafico");
 
     TMotorTAG  *motor   = new TMotorTAG();
 
@@ -31,20 +36,54 @@ int main(int argc, char *argv[])
     int iCamara = motor->registrarCamara(nCamara);
     motor->setCamaraActiva(iCamara);
 
-    TShader shader = motor->cargarShader("resources/res/basicShader");
-    TNodo *nodoAnimacion = motor->cargarAnimacion("resources/res/animacion/mini_knight_fem_",20);
 
+    ///Escena
+    ///     |---nodoTransf1---nodoLuz1
+    ///     |
+    ///     |---nodoTransf2---nodoTransf5--nodoMalla1
+    ///     |             |---nodoTransf6
+    ///     |
+    ///     |---nodoTransf3---nodoTransf4---nodoCamara1
+
+
+    TNodo *nodoMalla = motor->crearMalla("./resources/res/cube2.obj");
+    TShader shader = motor->cargarShader("./resources/res/basicShader");
+    TNodo *nodoAnimacion = motor->cargarAnimacion("./resources/res/animacion/mini_knight_fem_",20);
+
+
+    //EVENTO evnt;
+
+
+
+/*
     while(!display.IsClosed())
     {
         display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+
+      //  while(ON_EVENT(&evnt))
+        {
+            switch(evnt.type)
+            {
+                case KPULSADA:
+                    std::cout<<"Pulso la tecla tt "<<std::endl;
+                break;
+
+                case KNO_PULSADA:
+                    std::cout<<"No pulsada"<<std::endl;
+                break;
+
+                default:
+                break;
+            }
+        //}
 
         shader.Bind();
         motor->draw();
         shader.Update(cCamara);
 
 		display.Update();
-    }*/
-
+    }
+*/
     Game* game = new Game();
     game->start_game();
 

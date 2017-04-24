@@ -85,6 +85,7 @@ TNodo *TMotorTAG::crearMalla(const std::string& filename)
     nEscalado->addHijo(nTraslacion);
     nTraslacion->addHijo(nRotacion);
     nRotacion->addHijo(nMalla);
+    std::cout<<"Malla cargada"<<std::endl;
 
     return nMalla;
 }
@@ -273,6 +274,25 @@ void TMotorTAG::drawCamaras()
 
 void TMotorTAG::draw()
 {
+    EVENTO evnt;
+
+        while(ON_EVENT(&evnt))
+        {
+            switch(evnt.type)
+            {
+                case KPULSADA:
+                    std::cout<<"Pulso la tecla tt "<<std::endl;
+                break;
+
+                case KNO_PULSADA:
+                    std::cout<<"No pulsada"<<std::endl;
+                break;
+
+                default:
+                break;
+            }
+        }
+
     //std::cout << "Iniciando dibujado de la escena" << std::endl;
     //std::cout << std::endl;
     drawLuces();

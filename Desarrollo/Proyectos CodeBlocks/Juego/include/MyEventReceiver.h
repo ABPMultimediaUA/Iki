@@ -79,3 +79,6 @@ class MyEventReceiver : public IEventReceiver
 };
 
 #endif // MYEVENTRECEIVER_H
+
+
+
