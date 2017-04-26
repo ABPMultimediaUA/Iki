@@ -15,7 +15,7 @@ Trigger_Puerta::~Trigger_Puerta()
 void Trigger_Puerta::triggerDisparado()
 {
     aniMesh->setVisible(false);
-    body->SetActive(false);
+    body->SetTransform(b2Vec2(0,0),0);
     if (!fired){
         //if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
         SoundMgr->soundStop("Triggers/puerta_cerrar");
@@ -32,7 +32,7 @@ void Trigger_Puerta::triggerFuera()
     }
     fired = false;
     aniMesh->setVisible(true);
-    body->SetActive(true);
+    body->SetTransform(b2Vec2(posicion.X,posicion.Z),0);
 }
 
 void Trigger_Puerta::Try(GameEntity* ent)

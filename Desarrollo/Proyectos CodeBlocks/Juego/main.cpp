@@ -24,7 +24,7 @@
 using namespace std;
 
 int main(int argc, char *argv[])
-{
+{/*
     TDisplay display(800, 600,"Motor grafico");
 
     TMotorTAG  *motor   = new TMotorTAG();

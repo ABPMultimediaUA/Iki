@@ -57,14 +57,12 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         trigger->setMesh(modelo);
         //b2body
         b2BodyDef bodyDef;
-        bodyDef.type = b2_staticBody;
+        bodyDef.type = b2_kinematicBody;
         b2PolygonShape bodyShape;
         bodyDef.position.Set(x,z);
         trigger->setBody(bodyDef);
-        if (r==90)
-            bodyShape.SetAsBox(5.f,1.f);
-        else
-            bodyShape.SetAsBox(1.f,5.f);
+        if (r==90) bodyShape.SetAsBox(5.f,1.f);
+        else bodyShape.SetAsBox(1.f,5.f);
         trigger->getBody()->CreateFixture(&bodyShape, 1.f);
     }
     else if (tipo == 6){
@@ -76,14 +74,12 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         trigger->setMesh(modelo);
         //b2body
         b2BodyDef bodyDef;
-        bodyDef.type = b2_staticBody;
+        bodyDef.type = b2_kinematicBody;
         b2PolygonShape bodyShape;
         bodyDef.position.Set(x,z);
         trigger->setBody(bodyDef);
-        if (r==90)
-            bodyShape.SetAsBox(5.f,1.f);
-        else
-            bodyShape.SetAsBox(1.f,5.f);
+        if (r==90) bodyShape.SetAsBox(5.f,1.f);
+        else bodyShape.SetAsBox(1.f,5.f);
         trigger->getBody()->CreateFixture(&bodyShape, 1.f);
     }
     else if (tipo == 7){
