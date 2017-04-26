@@ -1,10 +1,14 @@
 #include "FuzzyVariable.h"
 
+#include "FuzzySet_Left.h"
+#include "FuzzySet_Right.h"
+#include "FuzzySet_Triangle.h"
+
 FuzzyVariable::~FuzzyVariable()
 {
     //dtor
     MemberSets::iterator it;
-    for (it = m_MemberSets.begin(); it != m_MemberSets.end(); ++it)
+    for (it = fvMembers.begin(); it != fvMembers.end(); ++it)
     {
         delete it->second;
     }
@@ -13,7 +17,7 @@ FuzzyVariable::~FuzzyVariable()
 void FuzzyVariable::Fuzzify(float val)
 {
     MemberSets::const_iterator curSet;
-    for (curSet = m_MemberSets.begin(); curSet != m_MemberSets.end(); ++curSet)
+    for (curSet = fvMembers.begin(); curSet != fvMembers.end(); ++curSet)
     {
         curSet->second->SetDOM(curSet->second->CalculateDOM(val));
     }
@@ -26,7 +30,7 @@ float FuzzyVariable::DeFuzzifyMaxAv()const
     float top    = 0.0;
 
     MemberSets::const_iterator curSet;
-    for (curSet = m_MemberSets.begin(); curSet != m_MemberSets.end(); ++curSet)
+    for (curSet = fvMembers.begin(); curSet != fvMembers.end(); ++curSet)
     {
         bottom += curSet->second->GetDOM();
         top += curSet->second->GetRepv() * curSet->second->GetDOM();
@@ -39,24 +43,27 @@ float FuzzyVariable::DeFuzzifyMaxAv()const
 
 FzSet FuzzyVariable::AddTriangularSet(std::string name, float minBound, float peak, float maxBound)
 {
-  m_MemberSets[name] = new FuzzySet_Triangle(peak, peak-minBound, maxBound-peak);
+    FuzzySet* fzset = new FuzzySet_Triangle(peak, peak-minBound, maxBound-peak);
+    fvMembers[name] = fzset;
 
-  AdjustRangeToFit(minBound, maxBound);
-  return FzSet(*m_MemberSets[name]);
+    AdjustRangeToFit(minBound, maxBound);
+    return FzSet(*fvMembers[name]);
 }
 
 FzSet FuzzyVariable::AddLeftShoulderSet(std::string name, float minBound, float peak, float maxBound)
 {
-  m_MemberSets[name] = new FuzzySet_LeftShoulder(peak, peak-minBound, maxBound-peak);
+    FuzzySet* fzset = new FuzzySet_Left(peak, peak-minBound, maxBound-peak);
+    fvMembers[name] = fzset;
 
-  AdjustRangeToFit(minBound, maxBound);
-  return FzSet(*m_MemberSets[name]);
+    AdjustRangeToFit(minBound, maxBound);
+    return FzSet(*fvMembers[name]);
 }
 
 FzSet FuzzyVariable::AddRightShoulderSet(std::string name, float minBound, float peak, float maxBound)
 {
-  m_MemberSets[name] = new FuzzySet_RightShoulder(peak, peak-minBound, maxBound-peak);
+    FuzzySet* fzset = new FuzzySet_Right(peak, peak-minBound, maxBound-peak);
+    fvMembers[name] = fzset;
 
-  AdjustRangeToFit(minBound, maxBound);
-  return FzSet(*m_MemberSets[name]);
+    AdjustRangeToFit(minBound, maxBound);
+    return FzSet(*fvMembers[name]);
 }

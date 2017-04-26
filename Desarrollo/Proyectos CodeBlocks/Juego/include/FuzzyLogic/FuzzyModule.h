@@ -21,7 +21,7 @@ class FuzzyModule
         virtual ~FuzzyModule();
 
         FuzzyVariable& CreateFLV(const std::string& VarName);
-        void AddRule(FuzzySet& antecedent, FuzzySet& consequence);
+        void AddRule(FuzzyTerm& antecedent, FuzzyTerm& consequence);
         inline void Fuzzify(const std::string& NameOfFLV, double val);
         inline float DeFuzzify(const std::string& key);
 

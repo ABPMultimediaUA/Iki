@@ -2,7 +2,7 @@
 #define FUZZYVARIABLE_H
 
 #include <map>
-#include <FuzzySet.h>
+#include "FzSet.h"
 
 class FuzzyVariable
 {

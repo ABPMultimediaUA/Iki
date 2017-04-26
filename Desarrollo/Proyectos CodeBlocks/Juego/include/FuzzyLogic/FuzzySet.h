@@ -28,7 +28,7 @@ class FuzzySet
         //then this method sets the DOM (in this context, the DOM represents a
         //confidence level) to the maximum of the parameter value or the set's
         //existing m_dDOM value
-        void ORwithDOM(float val);
+        void ORwithDOM(float val){if (val > dom) dom = val;}
         //accessor methods
         float GetRepv()const{return repv;}
         float GetDOM()const {return dom; }

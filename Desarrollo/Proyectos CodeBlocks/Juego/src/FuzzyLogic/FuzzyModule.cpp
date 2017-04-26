@@ -31,7 +31,7 @@ FuzzyVariable& FuzzyModule::CreateFLV(const std::string& VarName)
     varMap[VarName] = new FuzzyVariable();;
     return *varMap[VarName];
 }
-
+/*
 std::ostream& FuzzyModule::WriteAllDOMs(std::ostream& os)
 {
     os << "\n\n";
@@ -44,7 +44,7 @@ std::ostream& FuzzyModule::WriteAllDOMs(std::ostream& os)
     }
     return os;
 }
-
+*/
 inline void FuzzyModule::Fuzzify(const std::string& NameOfFLV, double val)
 {
     //assert ( (varMap.find(NameOfFLV) != varMap.end()) &&
@@ -56,8 +56,8 @@ inline void FuzzyModule::Fuzzify(const std::string& NameOfFLV, double val)
 inline float FuzzyModule::DeFuzzify(const std::string& NameOfFLV)
 {
     //first make sure the key exists
-    assert ( (varMap.find(NameOfFLV) != varMap.end()) &&
-            "<FuzzyModule::DeFuzzifyMaxAv>:key not found");
+    //assert ( (varMap.find(NameOfFLV) != varMap.end()) &&
+    //        "<FuzzyModule::DeFuzzifyMaxAv>:key not found");
 
     //clear the DOMs of all the consequents of all the rules
     SetConfidencesOfConsequentsToZero();
