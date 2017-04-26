@@ -7,11 +7,13 @@
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 
-1492687046 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1493201133 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"Game.h"
-	"TAG/TDisplay.h"
-	"TAG/TMotorTAG.h"
-	"TAG/TShader.h"
+	<iostream>
+	"TDisplay.h"
+	"TMotorTAG.h"
+	"TShader.h"
+	"TEventReceiver.h"
 
 1490711716 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
 	"ik_irrKlangTypes.h"
@@ -354,11 +356,10 @@
 	<iostream>
 	"Player_Ray.h"
 
-1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1493219686 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Enemies/Path/PathEdge.h"
 	"Fachada/AnimatedMesh.h"
-	"Fachada/SceneNode.h"
 	"MyEventReceiver.h"
 	"Map.h"
 	"Enemies/StateMachine/Mensaje.h"
@@ -1310,7 +1311,7 @@
 1491243212 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
 	"Map.h"
 
-1491243211 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
+1493220230 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
 	<vector>
 	"tinyxml2.h"
 	"Structs.h"
@@ -1319,6 +1320,8 @@
 	"Enemies/Path/SparseGraph.h"
 	"Enemies/Path/Edge.h"
 	"Enemies/Path/Nodo.h"
+	"Muros.h"
+	"Fachada/AnimatedMesh.h"
 
 1491836864 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
 	"GameEntity.h"
@@ -1327,7 +1330,7 @@
 	"PatrolPoint.h"
 	"Enemies/Path/PathEdge.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1493215339 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -1342,11 +1345,11 @@
 	"GameEntity.h"
 	"PhisicsWorld.h"
 
-1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1493220491 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1493218201 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -1392,7 +1395,7 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
 	<irrlicht.h>
 
 1491320247 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
@@ -1560,7 +1563,7 @@
 	<android/log.h>
 	<assert.h>
 
-1490711682 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
+1493206611 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
 	"Structs.h"
 	"Fachada/AnimatedMesh.h"
 
@@ -1577,7 +1580,7 @@
 1487066267 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\files.cpp
 	"Files.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
+1493206646 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
 	"MapComponent.h"
 	"Fachada/AnimatedMesh.h"
 	"PhisicsWorld.h"
@@ -3089,35 +3092,34 @@
 	"Structs.h"
 	<iostream>
 
-1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
+1493220187 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
 	"Structs.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
+1493220264 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
 	"Fachada/AnimatedMesh.h"
 	"Fachada/GraphicsFacade.h"
 
 1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animatedmesh.h
 	"Structs.h"
 
-1492702506 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1493219712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
-	"SceneNode.h"
 	"Structs.h"
 
 1491402287 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\camera.cpp
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1492622946 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1493219733 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
-1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
+1493221681 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
 
-1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\scenenode.cpp
+1493220208 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\scenenode.cpp
 	"Fachada/SceneNode.h"
 	"Fachada/GraphicsFacade.h"
 	"World.h"
@@ -6077,7 +6079,7 @@
 	"Fachada/Image.h"
 	"Fachada/GraphicsFacade.h"
 
-1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
 	"Structs.h"
 
 1492685119 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
@@ -8828,7 +8830,7 @@
 1491823837 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\huir.h
 	"Enemies/StateMachine/State.h"
 
-1492687027 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
 	<glew.h>
 	<SDL2\SDL.h>
 	<string>
@@ -8843,7 +8845,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_assert.h"
@@ -8874,12 +8876,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_main.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_stdinc.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -8907,34 +8909,41 @@
 	<stdlib.h>
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config.h
 	"SDL_platform.h"
+	"SDL_config_windows.h"
+	"SDL_config_winrt.h"
+	"SDL_config_macosx.h"
+	"SDL_config_iphoneos.h"
+	"SDL_config_android.h"
+	"SDL_config_psp.h"
+	"SDL_config_minimal.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_platform.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_platform.h
 	"AvailabilityMacros.h"
 	"TargetConditionals.h"
 	<winapifamily.h>
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\begin_code.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\begin_code.h
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\close_code.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\close_code.h
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_assert.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_assert.h
 	"SDL_config.h"
 	"begin_code.h"
 	<signal.h>
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_atomic.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_atomic.h
 	"SDL_stdinc.h"
 	"SDL_platform.h"
 	"begin_code.h"
 	<mbarrier.h>
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_audio.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -8944,24 +8953,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_error.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_endian.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_mutex.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_thread.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_atomic.h"
@@ -8970,18 +8979,18 @@
 	<process.h>
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_rwops.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_clipboard.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_clipboard.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_cpuinfo.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	<intrin.h>
 	<intrin.h>
@@ -8990,10 +8999,11 @@
 	<mm3dnow.h>
 	<xmmintrin.h>
 	<emmintrin.h>
+	<pmmintrin.h>
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_events.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -9007,7 +9017,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_video.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -9015,13 +9025,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_pixels.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_pixels.h
 	"SDL_stdinc.h"
 	"SDL_endian.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_rect.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_rect.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_pixels.h"
@@ -9029,7 +9039,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_surface.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_surface.h
 	"SDL_stdinc.h"
 	"SDL_pixels.h"
 	"SDL_rect.h"
@@ -9038,11 +9048,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_blendmode.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_blendmode.h
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_keyboard.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keycode.h"
@@ -9050,27 +9060,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_keycode.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_keycode.h
 	"SDL_stdinc.h"
 	"SDL_scancode.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_scancode.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_scancode.h
 	"SDL_stdinc.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_mouse.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_joystick.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_gamecontroller.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_gamecontroller.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
@@ -9078,11 +9088,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_quit.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_gesture.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_gesture.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
@@ -9090,60 +9100,60 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_touch.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_touch.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_filesystem.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_filesystem.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_haptic.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_haptic.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_joystick.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_hints.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_hints.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_loadso.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_log.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_log.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_messagebox.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_messagebox.h
 	"SDL_stdinc.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_power.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_power.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_render.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_render.h
 	"SDL_stdinc.h"
 	"SDL_rect.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_system.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_system.h
 	"SDL_stdinc.h"
 	"SDL_keyboard.h"
 	"SDL_render.h"
@@ -9151,18 +9161,18 @@
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_timer.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_timer.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_version.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
 	"TShader.h"
 	"TNodo.h"
 	"TTransform.h"
@@ -9171,6 +9181,7 @@
 	"TMalla.h"
 	"TGestorRecursos.h"
 	"TAnimacion.h"
+	"TEventReceiver.h"
 
 1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
 	<glew.h>
@@ -9938,15 +9949,15 @@
 	<assert.h>
 	<stdarg.h>
 
-1491422702 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tanimacion.cpp
+1493056712 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tanimacion.cpp
 	"TAnimacion.h"
 	<sstream>
 
 1491422703 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
 	"TCamara.h"
 
-1492685382 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
-	"TAG/TDisplay.h"
+1493056712 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
+	"TDisplay.h"
 
 1491422703 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
 	"TEntidad.h"
@@ -9975,7 +9986,7 @@
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
+1493056712 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
 	"TMotorTAG.h"
 	"TShader.h"
 
@@ -9997,7 +10008,7 @@
 	"TRecursoMaterial.h"
 	"TMotorTAG.h"
 
-1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
+1493056712 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
 	"TShader.h"
 
 1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttextura.cpp
@@ -11232,4 +11243,40 @@
 
 1489707930 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_minimal.h
 	"SDL_platform.h"
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_windows.h
+	"SDL_platform.h"
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_winrt.h
+	"SDL_platform.h"
+	<sdkddkver.h>
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_iphoneos.h
+	"SDL_platform.h"
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_android.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_psp.h
+	"SDL_platform.h"
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_minimal.h
+	"SDL_platform.h"
+
+1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\teventreceiver.h
+	<SDL2\SDL.h>
+
+1493222371 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\muros.h
+	"Structs.h"
+
+1493227515 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\muros.cpp
+	"Muros.h"
+	"MapComponent.h"
+	"PhisicsWorld.h"
+	"Fachada/AnimatedMesh.h"
 

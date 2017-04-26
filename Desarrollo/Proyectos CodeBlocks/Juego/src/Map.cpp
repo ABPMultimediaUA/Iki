@@ -1,7 +1,6 @@
 #include "Map.h"
 #include "MapComponent.h"
 
-
 Map::Map()
 {
 //    muros = new vector<MapComponent*>();
@@ -18,21 +17,37 @@ Map::~Map()
 
 }
 
-void Map::crearComponente(int tipo){
+void Map::crearComponente(){
 
-    float x, z, r;
+    int name;
+    float x, z, r = 0;
     Structs::TPosicion pos;
     if (objectGroup->FirstChildElement("object")){
 
         object = objectGroup->FirstChildElement("object");
 
         while (object){
+            object->QueryAttribute("name", &name);
             object->QueryFloatAttribute("x", &z);
             object->QueryFloatAttribute("y", &x);
             pos = {x,0,z};
-            object->QueryFloatAttribute("rotation", &r);
-            muros.push_back(new MapComponent(r, pos, tipo));
+            //object->QueryFloatAttribute("rotation", &r);
+            if(object->FirstChildElement("properties")){
+                property = object->FirstChildElement("properties")->FirstChildElement("property");
+                if(property->Attribute("name", "Fin"))
+                    r = atoi(property->Attribute("value"));
+            }
+
+            nodo_muro.push_back(new MapComponent(pos, name, r));
             object = object->NextSiblingElement("object");
+        }
+    }
+}
+
+void Map::inicializar_muros(){
+    for(size_t i = 0; i < nodo_muro.size(); i++){
+        if(nodo_muro[i]->getConecta() != 0){
+            muros.push_back(new Muros(nodo_muro[i], nodo_muro[i+1]));
         }
     }
 }
@@ -44,11 +59,13 @@ void Map::inicializar_mapa(){
     Structs::TColor col = {0,255,255,255};
     int cont = 0;
 
+    primera_sala = new MeshSceneNode("resources/Modelos/prueba_primera_sala.obj");
+
     suelo = new MeshSceneNode(med, pos, col);
 
     docFile = new XMLDocument; //Se crea el objeto del documento
 
-    docFile->LoadFile("resources/Mapas/Mapa.tmx"); //Se carga el archivo xml
+    docFile->LoadFile("resources/Mapas/Mapa3.tmx"); //Se carga el archivo xml
 
     mapElement = docFile->FirstChildElement("map"); //Se enlaza el elemento mapa
 
@@ -70,11 +87,7 @@ void Map::inicializar_mapa(){
         int name;
 
         //Paredes
-        if      (objectGroup->Attribute("name", "Pared"))      crearComponente(1);
-        //else if (objectGroup->Attribute("name", "Puertas"))    crearComponente(2);
-        //else if (objectGroup->Attribute("name", "Palancas"))   crearComponente(3);
-        //else if (objectGroup->Attribute("name", "Objetos"))    crearComponente(4);
-        //else if (objectGroup->Attribute("name", "Apisonadora"))crearComponente(5);
+        if      (objectGroup->Attribute("name", "Pared2"))      crearComponente();
 
         else if (objectGroup->Attribute("name", "Patrol"))
         {
@@ -173,5 +186,6 @@ void Map::inicializar_mapa(){
 
         objectGroup = objectGroup->NextSiblingElement("objectgroup");
     }
+    inicializar_muros();
 
 }

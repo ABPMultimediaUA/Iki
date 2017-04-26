@@ -1,9 +1,4 @@
 #ifdef _MSC_VER
-<<<<<<< HEAD
-
-=======
-// We'll define this to stop MSVC complaining about sprintf().
->>>>>>> refs/remotes/origin/master
 #define _CRT_SECURE_NO_WARNINGS
 #pragma comment(lib, "Irrlicht.lib")
 #endif
@@ -20,12 +15,11 @@
 
 #include "TEventReceiver.h"
 
-
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    TDisplay display(800, 600,"Motor grafico");
+    /*TDisplay display(800, 600,"Motor grafico");
 
     TMotorTAG  *motor   = new TMotorTAG();
 
@@ -48,7 +42,7 @@ int main(int argc, char *argv[])
 
     TNodo *nodoMalla = motor->crearMalla("./resources/res/cube2.obj");
     TShader shader = motor->cargarShader("./resources/res/basicShader");
-    TNodo *nodoAnimacion = motor->cargarAnimacion("./resources/res/animacion/mini_knight_fem_",20);
+    TNodo *nodoAnimacion = motor->cargarAnimacion("./resources/res/animacion/mini_knight_fem_",20);*/
 
 
     //EVENTO evnt;
