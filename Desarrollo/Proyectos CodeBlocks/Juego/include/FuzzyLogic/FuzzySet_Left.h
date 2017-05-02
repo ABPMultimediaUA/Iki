@@ -7,9 +7,6 @@
 class FuzzySet_Left : public FuzzySet
 {
     public:
-        FuzzySet_Left();
-        virtual ~FuzzySet_Left();
-
         FuzzySet_Left(float peak, float LeftOffset, float RightOffset):
             FuzzySet( ((peak - RightOffset) + peak) / 2),
             m_dPeakPoint(peak),

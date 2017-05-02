@@ -1,6 +1,8 @@
 #ifndef FUZZYRULE_H
 #define FUZZYRULE_H
 
+#include "FuzzyTerm.h"
+
 
 class FuzzyRule
 {

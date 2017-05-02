@@ -7,9 +7,6 @@
 class FuzzySet_Triangle : public FuzzySet
 {
     public:
-        FuzzySet_Triangle();
-        virtual ~FuzzySet_Triangle();
-
         FuzzySet_Triangle(float mid, float lft, float rgt):
             FuzzySet(mid),
             m_dPeakPoint(mid),

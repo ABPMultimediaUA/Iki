@@ -3,6 +3,7 @@
 #include "FuzzySet_Left.h"
 #include "FuzzySet_Right.h"
 #include "FuzzySet_Triangle.h"
+#include "FzSet.h"
 
 FuzzyVariable::~FuzzyVariable()
 {
@@ -46,7 +47,7 @@ FzSet FuzzyVariable::AddTriangularSet(std::string name, float minBound, float pe
     FuzzySet* fzset = new FuzzySet_Triangle(peak, peak-minBound, maxBound-peak);
     fvMembers[name] = fzset;
 
-    AdjustRangeToFit(minBound, maxBound);
+    this->AdjustRangeToFit(minBound, maxBound);
     return FzSet(*fvMembers[name]);
 }
 
@@ -67,3 +68,25 @@ FzSet FuzzyVariable::AddRightShoulderSet(std::string name, float minBound, float
     AdjustRangeToFit(minBound, maxBound);
     return FzSet(*fvMembers[name]);
 }
+
+void FuzzyVariable::AdjustRangeToFit(float min, float max)
+{
+    if (min < fMinRange) fMinRange = min;
+    if (max > fMaxRange) fMaxRange = max;
+}
+/*
+//---------------------------- WriteDOMs --------------------------------------
+std::ostream& FuzzyVariable::WriteDOMs(std::ostream& os)
+{
+  MemberSets::iterator it;
+  for (it = m_MemberSets.begin(); it != m_MemberSets.end(); ++it)
+  {
+
+    os << "\n" << it->first << " is " << it->second->GetDOM();
+  }
+
+  os << "\nMin Range: " << m_dMinRange << "\nMax Range: " << m_dMaxRange;
+
+    return os;
+
+}*/

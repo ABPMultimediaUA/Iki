@@ -1,5 +1,5 @@
 #include "FuzzySet_Right.h"
-
+/*
 FuzzySet_Right::FuzzySet_Right()
 {
     //ctor
@@ -9,7 +9,7 @@ FuzzySet_Right::~FuzzySet_Right()
 {
     //dtor
 }
-
+*/
 float FuzzySet_Right::CalculateDOM(float val)const
 {
     //test for the case where the left or right offsets are zero

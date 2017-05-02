@@ -15,8 +15,6 @@ class FuzzySet
         float repv;
 
     public:
-        FuzzySet();
-        virtual ~FuzzySet();
 
         FuzzySet(float RepVal):dom(0.0), repv(RepVal){}
         //return the degree of membership in this set of the given value. NOTE:
@@ -32,7 +30,7 @@ class FuzzySet
         //accessor methods
         float GetRepv()const{return repv;}
         float GetDOM()const {return dom; }
-        void SetDOM(float val){dom = val;}
+        void SetDOM(float val){if ((val<=1) && (val>=0)) dom = val;}
         void ClearDOM(){dom = 0.0;}
 };
 

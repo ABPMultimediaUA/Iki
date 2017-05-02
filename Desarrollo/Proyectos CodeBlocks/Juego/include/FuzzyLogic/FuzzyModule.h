@@ -4,8 +4,11 @@
 #include <vector>
 #include <string>
 #include <map>
+
+#include "FuzzySet.h"
 #include "FuzzyVariable.h"
 #include "FuzzyRule.h"
+#include "FzSet.h"
 
 class FuzzyModule
 {
@@ -17,8 +20,7 @@ class FuzzyModule
         inline void SetConfidencesOfConsequentsToZero();
 
     public:
-        FuzzyModule();
-        virtual ~FuzzyModule();
+        ~FuzzyModule();
 
         FuzzyVariable& CreateFLV(const std::string& VarName);
         void AddRule(FuzzyTerm& antecedent, FuzzyTerm& consequence);
@@ -31,30 +33,22 @@ class FuzzyModule
 
 /*
 FuzzyModule fm;
+
 FuzzyVariable& DistToTarget = fm.CreateFLV("DistToTarget");
 FuzzyVariable& Desirability = fm.CreateFLV("Desirability");
 FuzzyVariable& AmmoStatus   = fm.CreateFLV("AmmoStatus");
-*/
-/*
-FuzzyModule fm;
-FzSet Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close",
-                                                            0,
-                                                            25,
-                                                            150);
-FzSet Target_Medium = DistToTarget.AddTriangularSet("Target_Medium",
-                                                                25,
-                                                                50,
-                                                                300);
-FzSet Target_Far = DistToTarget.AddRightShoulderSet("Target_Far",
-                                                            150,
-                                                            300,
-                                                            500);
-*/
-/*
-fm.AddRule(FzAND(Target_Far, Ammo_Low), Undesirable);
-*/
-/*
-double CalculateDesirability(FuzzyModule& fm, double dist, double ammo)
+...
+
+FzSet Target_Close = DistToTarget.AddLeftShoulderSet("Target_Close", 0, 25, 150);
+FzSet Target_Medium = DistToTarget.AddTriangularSet("Target_Medium", 25, 50, 300);
+FzSet Target_Far = DistToTarget.AddRightShoulderSet("Target_Far", 150, 300, 500);
+...
+
+/// fm.AddRule(FzAND(Target_Far, Ammo_Low), Undesirable);
+fm.AddRule(Target_Far, Undesirable);
+...
+
+float Enemy::CalculateDesirability(FuzzyModule& fm, double dist, double ammo)
 {
     //fuzzify the inputs
     fm.Fuzzify("DistToTarget", dist);

@@ -2,7 +2,10 @@
 #define FUZZYVARIABLE_H
 
 #include <map>
-#include "FzSet.h"
+
+class FuzzySet;
+class FzSet;
+class FuzzyModule;
 
 class FuzzyVariable
 {
@@ -15,8 +18,8 @@ class FuzzyVariable
     private:
         MemberSets fvMembers;
 
-        float m_dMinRange;
-        float m_dMaxRange;
+        float fMinRange;
+        float fMaxRange;
 
         void AdjustRangeToFit(float min, float max);
 
@@ -30,11 +33,11 @@ class FuzzyVariable
 
     public:
 
-        FuzzyVariable():m_dMinRange(0.0),m_dMaxRange(0.0){}
+        FuzzyVariable():fMinRange(0.0),fMaxRange(0.0){}
 
         //the following methods create instances of the sets named in the method
         //name and adds them to the member set map. Each time a set of any type is
-        //added the m_dMinRange and m_dMaxRange are adjusted accordingly. All of the
+        //added the fMinRange and fMaxRange are adjusted accordingly. All of the
         //methods return a proxy class representing the newly created instance. This
         //proxy set can be used as an operand when creating the rule base.
 
@@ -54,6 +57,7 @@ class FuzzyVariable
         void Fuzzify(float val);
         float DeFuzzifyMaxAv()const;
 
+        //std::ostream& WriteDOMs(std::ostream& os);
 };
 
 #endif // FUZZYVARIABLE_H

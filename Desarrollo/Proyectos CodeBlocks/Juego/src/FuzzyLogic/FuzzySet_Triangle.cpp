@@ -1,5 +1,5 @@
 #include "FuzzySet_Triangle.h"
-
+/*
 FuzzySet_Triangle::FuzzySet_Triangle()
 {
     //ctor
@@ -9,7 +9,7 @@ FuzzySet_Triangle::~FuzzySet_Triangle()
 {
     //dtor
 }
-
+*/
 float FuzzySet_Triangle::CalculateDOM(float val)const
 {
     //test for the case where the triangle's left or right offsets are zero
