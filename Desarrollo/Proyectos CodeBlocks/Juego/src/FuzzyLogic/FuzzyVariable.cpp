@@ -7,7 +7,6 @@
 
 FuzzyVariable::~FuzzyVariable()
 {
-    //dtor
     MemberSets::iterator it;
     for (it = fvMembers.begin(); it != fvMembers.end(); ++it)
     {
@@ -74,19 +73,3 @@ void FuzzyVariable::AdjustRangeToFit(float min, float max)
     if (min < fMinRange) fMinRange = min;
     if (max > fMaxRange) fMaxRange = max;
 }
-/*
-//---------------------------- WriteDOMs --------------------------------------
-std::ostream& FuzzyVariable::WriteDOMs(std::ostream& os)
-{
-  MemberSets::iterator it;
-  for (it = m_MemberSets.begin(); it != m_MemberSets.end(); ++it)
-  {
-
-    os << "\n" << it->first << " is " << it->second->GetDOM();
-  }
-
-  os << "\nMin Range: " << m_dMinRange << "\nMax Range: " << m_dMaxRange;
-
-    return os;
-
-}*/

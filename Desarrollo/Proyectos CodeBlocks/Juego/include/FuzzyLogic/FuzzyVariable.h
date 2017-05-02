@@ -32,7 +32,6 @@ class FuzzyVariable
         friend class FuzzyModule;
 
     public:
-
         FuzzyVariable():fMinRange(0.0),fMaxRange(0.0){}
 
         //the following methods create instances of the sets named in the method
@@ -40,24 +39,12 @@ class FuzzyVariable
         //added the fMinRange and fMaxRange are adjusted accordingly. All of the
         //methods return a proxy class representing the newly created instance. This
         //proxy set can be used as an operand when creating the rule base.
-
-        FzSet AddLeftShoulderSet(std::string name,
-                                 float minBound,
-                                 float peak,
-                                 float maxBound);
-        FzSet AddRightShoulderSet(std::string name,
-                                  float minBound,
-                                  float peak,
-                                  float maxBound);
-        FzSet AddTriangularSet(std::string name,
-                               float minBound,
-                               float peak,
-                               float maxBound);
+        FzSet AddLeftShoulderSet(std::string name, float minBound, float peak, float maxBound);
+        FzSet AddRightShoulderSet(std::string name, float minBound, float peak, float maxBound);
+        FzSet AddTriangularSet(std::string name, float minBound, float peak, float maxBound);
 
         void Fuzzify(float val);
         float DeFuzzifyMaxAv()const;
-
-        //std::ostream& WriteDOMs(std::ostream& os);
 };
 
 #endif // FUZZYVARIABLE_H

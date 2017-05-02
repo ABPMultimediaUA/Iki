@@ -14,11 +14,9 @@ class FuzzySet_Right : public FuzzySet
             m_dRightOffset(RightOffset)
         {}
 
-        //this method calculates the degree of membership for a particular value
         float CalculateDOM(float val)const;
 
     private:
-        //the values that define the shape of this FLV
         float m_dPeakPoint;
         float m_dLeftOffset;
         float m_dRightOffset;

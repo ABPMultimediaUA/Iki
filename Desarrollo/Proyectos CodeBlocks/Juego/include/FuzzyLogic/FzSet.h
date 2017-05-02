@@ -7,11 +7,6 @@
 class FzSet : public FuzzyTerm
 {
     private:
-        //let the hedge classes be friends
-        //friend class FzVery;
-        //friend class FzFairly;
-
-    private:
         //a reference to the fuzzy set this proxy represents
         FuzzySet& fSet;
 

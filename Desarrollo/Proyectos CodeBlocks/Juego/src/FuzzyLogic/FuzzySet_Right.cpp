@@ -1,15 +1,6 @@
 #include "FuzzySet_Right.h"
-/*
-FuzzySet_Right::FuzzySet_Right()
-{
-    //ctor
-}
 
-FuzzySet_Right::~FuzzySet_Right()
-{
-    //dtor
-}
-*/
+
 float FuzzySet_Right::CalculateDOM(float val)const
 {
     //test for the case where the left or right offsets are zero
@@ -19,7 +10,6 @@ float FuzzySet_Right::CalculateDOM(float val)const
     {
         return 1.0;
     }
-
     //find DOM if left of center
     else if ( (val <= m_dPeakPoint) && (val > (m_dPeakPoint - m_dLeftOffset)) )
     {
@@ -31,7 +21,6 @@ float FuzzySet_Right::CalculateDOM(float val)const
     {
         return 1.0;
     }
-
     //out of range of this FLV, return zero
     else
     {
