@@ -48,6 +48,7 @@ FzSet Target_Far = DistToTarget.AddRightShoulderSet("Target_Far", 150, 300, 500)
 fm.AddRule(Target_Far, Undesirable);
 ...
 
+  Patrullar::
 float Enemy::CalculateDesirability(FuzzyModule& fm, double dist, double ammo)
 {
     //fuzzify the inputs

@@ -57,8 +57,9 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         trigger->setMesh(modelo);
         //b2body
         b2BodyDef bodyDef;
-        bodyDef.type = b2_staticBody;
+
         b2PolygonShape bodyShape;
+        bodyDef.type = b2_kinematicBody;
         bodyDef.position.Set(x,z);
         trigger->setBody(bodyDef);
         if (r==90)

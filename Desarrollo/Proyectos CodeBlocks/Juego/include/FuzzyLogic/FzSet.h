@@ -19,7 +19,7 @@ class FzSet : public FuzzyTerm
         FzSet(FuzzySet& fs):fSet(fs){}
 
         FuzzyTerm* Clone()const{return new FzSet(*this);}
-        float     GetDOM()const {return fSet.GetDOM();}
+        float      GetDOM()const {return fSet.GetDOM();}
         void       ClearDOM(){fSet.ClearDOM();}
         void       ORwithDOM(float val){fSet.ORwithDOM(val);}
 };
