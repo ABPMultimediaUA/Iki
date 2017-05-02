@@ -8,14 +8,13 @@ Muros::Muros(MapComponent* inicio, MapComponent* fin)
     float x = (fin->getPosition().X + inicio->getPosition().X) / 2;
     float y = (fin->getPosition().Z + inicio->getPosition().Z) / 2;
 
-    //float angulo = calcularAngulo(fin->getPosition(), inicio->getPosition());
+    float distancia = inicio->getPosition().Distance(fin->getPosition());
+
+    float angulo = calcularAngulo(fin->getPosition(), inicio->getPosition());
 
     Structs::TColor holi = {0,0,0,0};
     Structs::TMedida med = {fin->getPosition().X - inicio->getPosition().X + 1.f, 1.f, fin->getPosition().Z - inicio->getPosition().Z + 1.f};
 
-    std::cout<<"Medida ancho: "<<med.ancho<<std::endl;
-    std::cout<<"Medida profundo: "<<med.profundo<<std::endl;
-    std::cout<<"Medida alto: "<<med.alto<<std::endl;
     //modelo = new MeshSceneNode(med, Structs::TPosicion(x,0,y), holi);
 
     b2BodyDef bodyDef;
@@ -24,7 +23,8 @@ Muros::Muros(MapComponent* inicio, MapComponent* fin)
     bodyDef.position.Set(x, y);
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
-    bodyShape.SetAsBox(abs(fin->getPosition().X - inicio->getPosition().X + 1.f), abs(fin->getPosition().Z - inicio->getPosition().Z + 1.f));
+    //bodyShape.SetAsBox(abs(fin->getPosition().X - inicio->getPosition().X + 1.f), abs(fin->getPosition().Z - inicio->getPosition().Z + 1.f));
+    bodyShape.SetAsBox(distancia / 2, 1.f);
     body->CreateFixture(&bodyShape, 1.0f);
 
     b2FixtureDef fixtureDef;
@@ -34,11 +34,7 @@ Muros::Muros(MapComponent* inicio, MapComponent* fin)
     fixtureDef.restitution  = -100.f;
     body->CreateFixture(&fixtureDef);
 
-    //body->SetTransform(body->GetPosition(), angulo);
-
-    std::cout<<"Posicion X: "<<body->GetPosition().x<<std::endl;
-    std::cout<<"Posicion Y: "<<body->GetPosition().y<<std::endl;
-    std::cout<<"Angulo: "<<body->GetAngle()<<std::endl;
+    body->SetTransform(body->GetPosition(), angulo - (PI/2));
 
 }
 

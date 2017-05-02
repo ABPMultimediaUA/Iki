@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2611">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2618">
  <objectgroup color="#000000" name="Pared" opacity="0.97">
   <object id="405" x="127.252" y="67.3556" width="2" height="2" rotation="55.669"/>
   <object id="411" x="126.153" y="65.7474" width="2" height="2" rotation="55.669"/>
@@ -24,7 +24,6 @@
   <object id="543" x="35.1303" y="101.454" width="2" height="2"/>
   <object id="545" x="31.2354" y="101.454" width="2" height="2"/>
   <object id="546" x="33.1829" y="101.454" width="2" height="2"/>
-  <object id="1294" x="38.6792" y="155.361" width="2" height="2"/>
   <object id="1707" x="14.2193" y="109.751" width="2" height="2" rotation="180"/>
   <object id="1708" x="25.7362" y="128.787" width="2" height="2" rotation="-134.53"/>
   <object id="1710" x="14.2193" y="101.971" width="2" height="2" rotation="180"/>
@@ -78,7 +77,6 @@
   <object id="1790" x="118.863" y="89.217" width="2" height="2" rotation="180"/>
   <object id="1791" x="118.863" y="87.272" width="2" height="2" rotation="180"/>
   <object id="1792" x="57.8614" y="130.122" width="2" height="2" rotation="-180.011"/>
-  <object id="1793" x="42.1664" y="130.126" width="2" height="2" rotation="-180.011"/>
   <object id="1794" x="118.863" y="100.886" width="2" height="2" rotation="180"/>
   <object id="1795" x="44.1106" y="130.126" width="2" height="2" rotation="-180.011"/>
   <object id="1796" x="46.0561" y="130.126" width="2" height="2" rotation="-180.011"/>
@@ -101,56 +99,6 @@
   <object id="1858" x="130.321" y="102.674" width="2" height="2"/>
   <object id="1864" x="132.384" y="100.847" width="2" height="2" rotation="180"/>
   <object id="1865" x="132.384" y="85.2878" width="2" height="2" rotation="180"/>
-  <object id="1868" x="26.8055" y="190.108" width="2" height="2" rotation="-180.011"/>
-  <object id="1871" x="39" y="188.386" width="2" height="2"/>
-  <object id="1899" x="38.675" y="137.746" width="2" height="2"/>
-  <object id="1900" x="40.1208" y="130.132" width="2" height="2" rotation="-180.011"/>
-  <object id="1901" x="38.675" y="151.36" width="2" height="2"/>
-  <object id="1902" x="38.675" y="129.966" width="2" height="2"/>
-  <object id="1903" x="38.675" y="131.911" width="2" height="2"/>
-  <object id="1906" x="38.675" y="153.306" width="2" height="2"/>
-  <object id="1908" x="38.675" y="149.416" width="2" height="2"/>
-  <object id="1909" x="38.675" y="145.526" width="2" height="2"/>
-  <object id="1911" x="38.675" y="139.691" width="2" height="2"/>
-  <object id="1915" x="31.0621" y="130.228" width="2" height="2" rotation="-180.011"/>
-  <object id="1917" x="38.675" y="141.636" width="2" height="2"/>
-  <object id="1918" x="38.675" y="135.801" width="2" height="2"/>
-  <object id="1919" x="38.675" y="133.856" width="2" height="2"/>
-  <object id="1920" x="29.1176" y="130.228" width="2" height="2" rotation="-180.011"/>
-  <object id="1922" x="38.675" y="147.47" width="2" height="2"/>
-  <object id="1926" x="38.0997" y="130.133" width="2" height="2" rotation="-180.011"/>
-  <object id="1928" x="38.675" y="143.58" width="2" height="2"/>
-  <object id="1946" x="27.2183" y="186.467" width="2" height="2"/>
-  <object id="1947" x="27.2183" y="184.522" width="2" height="2"/>
-  <object id="1948" x="27.2183" y="176.743" width="2" height="2"/>
-  <object id="1949" x="27.2183" y="167.017" width="2" height="2"/>
-  <object id="1950" x="27.2183" y="161.183" width="2" height="2"/>
-  <object id="1951" x="27.2183" y="165.073" width="2" height="2"/>
-  <object id="1952" x="27.2183" y="170.907" width="2" height="2"/>
-  <object id="1953" x="27.2183" y="188.412" width="2" height="2"/>
-  <object id="1954" x="27.2183" y="174.797" width="2" height="2"/>
-  <object id="1955" x="27.2183" y="168.963" width="2" height="2"/>
-  <object id="1957" x="27.2183" y="182.577" width="2" height="2"/>
-  <object id="1958" x="27.2183" y="178.687" width="2" height="2"/>
-  <object id="1959" x="27.2183" y="180.632" width="2" height="2"/>
-  <object id="1960" x="27.2183" y="172.853" width="2" height="2"/>
-  <object id="1961" x="27.2183" y="163.128" width="2" height="2"/>
-  <object id="1962" x="27.2183" y="155.397" width="2" height="2"/>
-  <object id="1963" x="27.2183" y="153.452" width="2" height="2"/>
-  <object id="1964" x="27.2183" y="145.673" width="2" height="2"/>
-  <object id="1965" x="27.2183" y="135.947" width="2" height="2"/>
-  <object id="1966" x="27.2183" y="130.113" width="2" height="2"/>
-  <object id="1967" x="27.2183" y="134.003" width="2" height="2"/>
-  <object id="1968" x="27.2183" y="139.837" width="2" height="2"/>
-  <object id="1969" x="27.2183" y="157.342" width="2" height="2"/>
-  <object id="1970" x="27.2183" y="143.727" width="2" height="2"/>
-  <object id="1971" x="27.2183" y="137.893" width="2" height="2"/>
-  <object id="1972" x="27.2183" y="159.287" width="2" height="2"/>
-  <object id="1973" x="27.2183" y="151.507" width="2" height="2"/>
-  <object id="1974" x="27.2183" y="147.617" width="2" height="2"/>
-  <object id="1975" x="27.2183" y="149.562" width="2" height="2"/>
-  <object id="1976" x="27.2183" y="141.783" width="2" height="2"/>
-  <object id="1977" x="27.2183" y="132.058" width="2" height="2"/>
   <object id="1978" x="34.1215" y="103.36" width="2" height="2"/>
   <object id="1979" x="39.9638" y="105.307" width="2" height="2"/>
   <object id="1980" x="38.0164" y="105.307" width="2" height="2"/>
@@ -551,7 +499,6 @@
   <object id="2447" x="124.125" y="65.375" width="2" height="2" rotation="55.669"/>
   <object id="2448" x="122.125" y="64.5" width="2" height="2" rotation="55.669"/>
   <object id="2449" x="112.125" y="66.625" width="2" height="2" rotation="-46.0777"/>
-  <object id="2450" x="28.9375" y="190.125" width="2" height="2" rotation="-180.011"/>
  </objectgroup>
  <objectgroup name="Pared2">
   <object id="2607" name="1" x="39" y="157" width="2" height="2">
@@ -570,6 +517,41 @@
    </properties>
   </object>
   <object id="2610" name="4" x="39" y="181" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2611" name="5" x="37" y="128" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2612" name="6" x="39" y="128" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2613" name="7" x="39" y="162" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2614" name="8" x="39" y="172" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2615" name="9" x="39" y="188" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2616" name="9" x="27" y="188" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2617" name="10" x="27" y="128" width="2" height="2">
    <properties>
     <property name="Fin" type="int" value="1"/>
    </properties>
@@ -761,8 +743,8 @@
    <property name="PuertaLlave" value="6"/>
    <property name="Torreta" type="int" value="8"/>
   </properties>
-  <object id="2595" type="5" x="39.15" y="167.09" width="2" height="2" rotation="90"/>
-  <object id="2597" type="6" x="34.8182" y="129.909" width="2" height="2" rotation="360"/>
+  <object id="2595" type="5" x="39" y="167" width="2" height="2" rotation="90"/>
+  <object id="2597" type="6" x="32" y="128" width="2" height="2" rotation="360"/>
   <object id="2598" type="3" x="30.3636" y="184.909" width="2" height="2"/>
   <object id="2599" type="4" x="63.6364" y="159.273" width="2" height="2"/>
   <object id="2602" type="7" x="38.8182" y="95.3636" width="2" height="2" rotation="360"/>

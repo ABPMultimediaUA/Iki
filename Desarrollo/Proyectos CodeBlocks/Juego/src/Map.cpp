@@ -59,9 +59,11 @@ void Map::inicializar_mapa(){
     Structs::TColor col = {0,255,255,255};
     int cont = 0;
 
-    primera_sala = new MeshSceneNode("resources/Modelos/prueba_primera_sala.obj");
+    primera_sala = new MeshSceneNode("resources/Modelos/primera_sala.obj");
+    segunda_sala = new MeshSceneNode("resources/Modelos/segunda_sala.obj");
+    tercera_sala = new MeshSceneNode("resources/Modelos/tercera_sala.obj");
 
-    suelo = new MeshSceneNode(med, pos, col);
+    //suelo = new MeshSceneNode(med, pos, col);
 
     docFile = new XMLDocument; //Se crea el objeto del documento
 
