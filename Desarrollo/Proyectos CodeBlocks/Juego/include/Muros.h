@@ -4,7 +4,7 @@
 #include "Structs.h"
 
 class MapComponent;
-class AnimatedMesh;
+class MeshSceneNode;
 
 class Muros
 {
@@ -19,7 +19,7 @@ class Muros
 
     private:
         b2Body* body;
-        AnimatedMesh* modelo;
+        MeshSceneNode* modelo;
 };
 
 #endif // MUROS_H

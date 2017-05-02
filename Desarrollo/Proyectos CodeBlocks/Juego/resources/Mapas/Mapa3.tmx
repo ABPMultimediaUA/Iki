@@ -24,17 +24,7 @@
   <object id="543" x="35.1303" y="101.454" width="2" height="2"/>
   <object id="545" x="31.2354" y="101.454" width="2" height="2"/>
   <object id="546" x="33.1829" y="101.454" width="2" height="2"/>
-  <object id="1284" x="38.6792" y="170.921" width="2" height="2"/>
-  <object id="1285" x="38.6792" y="161.196" width="2" height="2"/>
-  <object id="1286" x="38.6792" y="163.141" width="2" height="2"/>
-  <object id="1287" x="38.6792" y="159.251" width="2" height="2"/>
-  <object id="1290" x="38.6792" y="174.81" width="2" height="2"/>
-  <object id="1291" x="38.6792" y="172.865" width="2" height="2"/>
-  <object id="1292" x="38.6792" y="176.755" width="2" height="2"/>
   <object id="1294" x="38.6792" y="155.361" width="2" height="2"/>
-  <object id="1295" x="38.6792" y="178.7" width="2" height="2"/>
-  <object id="1296" x="38.6792" y="157.307" width="2" height="2"/>
-  <object id="1668" x="40.7876" y="157.332" width="2" height="2" rotation="-180.011"/>
   <object id="1707" x="14.2193" y="109.751" width="2" height="2" rotation="180"/>
   <object id="1708" x="25.7362" y="128.787" width="2" height="2" rotation="-134.53"/>
   <object id="1710" x="14.2193" y="101.971" width="2" height="2" rotation="180"/>
@@ -112,14 +102,7 @@
   <object id="1864" x="132.384" y="100.847" width="2" height="2" rotation="180"/>
   <object id="1865" x="132.384" y="85.2878" width="2" height="2" rotation="180"/>
   <object id="1868" x="26.8055" y="190.108" width="2" height="2" rotation="-180.011"/>
-  <object id="1870" x="38.7595" y="186.441" width="2" height="2"/>
-  <object id="1871" x="38.7595" y="188.386" width="2" height="2"/>
-  <object id="1875" x="32.853" y="190.104" width="2" height="2" rotation="-180.011"/>
-  <object id="1878" x="38.7595" y="182.552" width="2" height="2"/>
-  <object id="1881" x="30.97" y="190.104" width="2" height="2" rotation="-180.011"/>
-  <object id="1882" x="38.7595" y="180.606" width="2" height="2"/>
-  <object id="1894" x="34.7975" y="190.104" width="2" height="2" rotation="-180.011"/>
-  <object id="1897" x="38.7595" y="184.496" width="2" height="2"/>
+  <object id="1871" x="39" y="188.386" width="2" height="2"/>
   <object id="1899" x="38.675" y="137.746" width="2" height="2"/>
   <object id="1900" x="40.1208" y="130.132" width="2" height="2" rotation="-180.011"/>
   <object id="1901" x="38.675" y="151.36" width="2" height="2"/>
@@ -137,7 +120,6 @@
   <object id="1922" x="38.675" y="147.47" width="2" height="2"/>
   <object id="1926" x="38.0997" y="130.133" width="2" height="2" rotation="-180.011"/>
   <object id="1928" x="38.675" y="143.58" width="2" height="2"/>
-  <object id="1945" x="40.7269" y="180.726" width="2" height="2" rotation="-180.011"/>
   <object id="1946" x="27.2183" y="186.467" width="2" height="2"/>
   <object id="1947" x="27.2183" y="184.522" width="2" height="2"/>
   <object id="1948" x="27.2183" y="176.743" width="2" height="2"/>
@@ -545,8 +527,6 @@
   <object id="2394" x="121.555" y="123.199" width="2" height="2" rotation="110.765"/>
   <object id="2395" x="123.374" y="123.889" width="2" height="2" rotation="110.765"/>
   <object id="2396" x="119.737" y="122.51" width="2" height="2" rotation="110.765"/>
-  <object id="2406" x="38.6141" y="190.095" width="2" height="2" rotation="-180.011"/>
-  <object id="2407" x="36.6686" y="190.096" width="2" height="2" rotation="-180.011"/>
   <object id="2415" x="14.2374" y="112.3" width="2" height="2" rotation="-102.773"/>
   <object id="2416" x="16.042" y="120.025" width="2" height="2" rotation="-102.773"/>
   <object id="2417" x="15.5275" y="117.991" width="2" height="2" rotation="-102.773"/>
@@ -574,22 +554,22 @@
   <object id="2450" x="28.9375" y="190.125" width="2" height="2" rotation="-180.011"/>
  </objectgroup>
  <objectgroup name="Pared2">
-  <object id="2607" name="1" x="43" y="157" width="2" height="2" rotation="-180.011">
+  <object id="2607" name="1" x="39" y="157" width="2" height="2">
    <properties>
     <property name="Fin" type="int" value="0"/>
    </properties>
   </object>
-  <object id="2608" name="2" x="70" y="157" width="2" height="2" rotation="180">
+  <object id="2608" name="2" x="70" y="157" width="2" height="2">
    <properties>
     <property name="Fin" type="int" value="0"/>
    </properties>
   </object>
-  <object id="2609" name="3" x="70" y="181" width="2" height="2" rotation="180">
+  <object id="2609" name="3" x="70" y="181" width="2" height="2">
    <properties>
     <property name="Fin" type="int" value="0"/>
    </properties>
   </object>
-  <object id="2610" name="4" x="43" y="181" width="2" height="2" rotation="-180.011">
+  <object id="2610" name="4" x="39" y="181" width="2" height="2">
    <properties>
     <property name="Fin" type="int" value="1"/>
    </properties>
@@ -781,7 +761,7 @@
    <property name="PuertaLlave" value="6"/>
    <property name="Torreta" type="int" value="8"/>
   </properties>
-  <object id="2595" type="5" x="38.9091" y="167.09" width="2" height="2" rotation="90"/>
+  <object id="2595" type="5" x="39.15" y="167.09" width="2" height="2" rotation="90"/>
   <object id="2597" type="6" x="34.8182" y="129.909" width="2" height="2" rotation="360"/>
   <object id="2598" type="3" x="30.3636" y="184.909" width="2" height="2"/>
   <object id="2599" type="4" x="63.6364" y="159.273" width="2" height="2"/>
