@@ -52,7 +52,7 @@ void Enemy::init(Map* m){
     inicializarFL();
 }
 
-void Enemy::incializarFL()
+void Enemy::inicializarFL()
 {
     ///Create FLV
     //FuzzyVariable& GdSospecha = fm.CreateFLV("GradoDeSospecha");
