@@ -1556,7 +1556,7 @@
 	<cstddef>
 	<cstdarg>
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"Game.h"
 
 1491423159 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
@@ -2710,7 +2710,7 @@
 	"Structs.h"
 	<iostream>
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
 	<irrlicht.h>
 
 1491423055 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\box2d.h
@@ -2931,7 +2931,7 @@
 	"PatrolPoint.h"
 	"Enemies/Path/PathEdge.h"
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -2953,7 +2953,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1492513085 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3151,13 +3151,13 @@
 	"Structs.h"
 	<iostream>
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"SceneNode.h"
 	"Structs.h"
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\camera.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\camera.h
 	"Structs.h"
 
 1492513085 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
@@ -3171,7 +3171,7 @@
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
@@ -3214,7 +3214,7 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
@@ -3228,7 +3228,7 @@
 1491423748 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1492513085 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1493746720 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
 	"TriggerFactory.h"
 	"EntityManager.h"
@@ -3278,7 +3278,7 @@
 1489082530 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -5219,23 +5219,25 @@
 	<vector>
 	<cassert>
 
-1493206104 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzymodule.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzymodule.cpp
 	"FuzzyModule.h"
 
-1493206028 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzymodule.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzymodule.h
 	<vector>
 	<string>
 	<map>
+	"FuzzySet.h"
 	"FuzzyVariable.h"
 	"FuzzyRule.h"
-
-1493205960 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyvariable.h
-	<map>
 	"FzSet.h"
 
-1493205693 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyvariable.h
+	<map>
 
-1493205909 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyrule.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset.h
+
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyrule.h
+	"FuzzyTerm.h"
 
 1490031711 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyrule.cpp
 	"FuzzyRule.h"
@@ -5243,26 +5245,30 @@
 1489694447 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset.cpp
 	"FuzzySet.h"
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_left.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_left.cpp
 	"FuzzySet_Left.h"
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_left.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_left.h
 	<FuzzySet.h>
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_right.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_right.cpp
 	"FuzzySet_Right.h"
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_right.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_right.h
 	<FuzzySet.h>
 
-1493203323 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_triangle.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyset_triangle.cpp
 	"FuzzySet_Triangle.h"
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_triangle.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyset_triangle.h
 	<FuzzySet.h>
 
-1490032417 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyvariable.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzyvariable.cpp
 	"FuzzyVariable.h"
+	"FuzzySet_Left.h"
+	"FuzzySet_Right.h"
+	"FuzzySet_Triangle.h"
+	"FzSet.h"
 
 1489660659 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\path\edge.cpp
 	"Path/Edge.h"
@@ -5471,7 +5477,7 @@
 	"Map.h"
 	"Algoritmo.h"
 
-1492513072 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_ruido.h
+1493742529 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_ruido.h
 	<Trigger.h>
 
 1492513085 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\path\pathplanner.cpp
@@ -5657,7 +5663,7 @@
 	"Fachada/Image.h"
 	"Fachada/GraphicsFacade.h"
 
-1493203323 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
 	"Structs.h"
 
 1492513085 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
@@ -5786,7 +5792,7 @@
 1493203063 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
 	<Trigger.h>
 
-1492513085 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
 	"Trigger_Ruido.h"
 	"Fachada/GraphicsFacade.h"
 	"Player.h"
@@ -5804,9 +5810,9 @@
 1492513072 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_torreta.h
 	<Trigger.h>
 
-1493205917 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fzset.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fzset.h
 	<FuzzyTerm.h>
 	"FuzzySet.h"
 
-1493205917 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyterm.h
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzylogic\fuzzyterm.h
 

@@ -8,6 +8,9 @@
 #include "Muerto.h"
 #include "Enemies/Guardia.h"
 
+#include "FuzzyVariable.h"
+#include "FzSet.h"
+
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
@@ -44,7 +47,74 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
+
+    ///Logica Difusa
+    inicializarFL();
 }
+
+void Enemy::incializarFL()
+{
+    ///Create FLV
+    //FuzzyVariable& GdSospecha = fm.CreateFLV("GradoDeSospecha");
+    //FuzzyVariable& DistanciaJ = fm.CreateFLV("DistanciaJugador");
+    FuzzyVariable& Bateria    = fm.CreateFLV("Bateria");
+    FuzzyVariable& VidaJ      = fm.CreateFLV("VidaJugador");
+    //FuzzyVariable& NivelInvs  = fm.CreateFLV("NivelDeInvestigacion");
+    //FuzzyVariable& Velocidad = fm.CreateFLV("Velocidad");
+    FuzzyVariable& Potencia   = fm.CreateFLV("Potencia");
+
+    ///AddSetsToFLV
+    //FzSet GdSospecha_Low   = GdSospecha.AddLeftShoulderSet();
+    //FzSet GdSospecha_Med   = GdSospecha.AddRightShoulderSet();
+    //FzSet GdSospecha_High  = GdSospecha.AddTriangularSet();
+
+    //FzSet DistanciaJ_Low  = DistanciaJ.AddLeftShoulderSet();
+    //FzSet DistanciaJ_Med  = DistanciaJ.AddRightShoulderSet();
+    //FzSet DistanciaJ_High = DistanciaJ.AddTriangularSet();
+
+    FzSet Bateria_Low  = Bateria.AddLeftShoulderSet();
+    FzSet Bateria_Med  = Bateria.AddRightShoulderSet();
+    FzSet Bateria_High = Bateria.AddTriangularSet();
+
+    FzSet VidaJ_Low  = VidaJ.AddLeftShoulderSet();
+    FzSet VidaJ_Med  = VidaJ.AddRightShoulderSet();
+    FzSet VidaJ_High = VidaJ.AddTriangularSet();
+
+    //FzSet NivelInvs_Low  = NivelInvs.AddLeftShoulderSet();
+    //FzSet NivelInvs_Med  = NivelInvs.AddRightShoulderSet();
+    //FzSet NivelInvs_High = NivelInvs.AddTriangularSet();
+
+    //FzSet Velocidad_Low  = Velocidad.AddLeftShoulderSet();
+    //FzSet Velocidad_Med  = Velocidad.AddRightShoulderSet();
+    //FzSet Velocidad_High = Velocidad.AddTriangularSet();
+
+    FzSet Potencia_Low  = Potencia.AddLeftShoulderSet();
+    FzSet Potencia_Med  = Potencia.AddRightShoulderSet();
+    FzSet Potencia_High = Potencia.AddTriangularSet();
+
+    ///AddRules Using Sets
+    //fm.AddRule(GdSospecha_Low  , NivelInvs_Low);
+    //fm.AddRule(GdSospecha_Med  , NivelInvs_Med);
+    //fm.AddRule(GdSospecha_High , NivelInvs_High);
+    //fm.AddRule(DistanciaJ_Low  , NivelInvs_Low);
+    //fm.AddRule(DistanciaJ_Med  , NivelInvs_Med);
+    //fm.AddRule(DistanciaJ_High , NivelInvs_High);
+
+    //fm.AddRule(Bateria_Low     , Velocidad_Low);
+    //fm.AddRule(Bateria_Med     , Velocidad_Med);
+    //fm.AddRule(Bateria_High    , Velocidad_High);
+    //fm.AddRule(DistanciaJ_Low  , Velocidad_Low);
+    //fm.AddRule(DistanciaJ_Med  , Velocidad_Med);
+    //fm.AddRule(DistanciaJ_High , Velocidad_High);
+
+    fm.AddRule(Bateria_Low , Potencia_Low);
+    fm.AddRule(Bateria_Med , Potencia_Med);
+    fm.AddRule(Bateria_High, Potencia_High);
+    fm.AddRule(VidaJ_Low   , Potencia_Low);
+    fm.AddRule(VidaJ_Med   , Potencia_Med);
+    fm.AddRule(VidaJ_High  , Potencia_High);
+}
+
 void Enemy::crearBody(){
     b2BodyDef bodyDef;
     bodyDef.type = b2_kinematicBody;

@@ -7,6 +7,7 @@
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
 #include "Enemies/Path/PathEdge.h"
+#include "FuzzyModule.h"
 
 class PathPlanner;
 
@@ -48,6 +49,7 @@ class Enemy : public GameEntity
         void volverALaPatrulla();
         ///METODOS
         void init(Map* m);
+        void inicializarFL();
         void resetTime() { tiempoEnEstado = 0;}
         void subirSospecha() {sospecha++;}
         void resetSospecha() {sospecha=0;}
@@ -73,6 +75,7 @@ class Enemy : public GameEntity
 
     protected:
 
+        FuzzyModule fm;
         int tipo,direccion,posVigilando;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
