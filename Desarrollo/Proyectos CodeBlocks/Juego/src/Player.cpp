@@ -22,9 +22,9 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    velocidad = 1.3;
+    velocidad = 0.3;
     id = 0;
-    vida = 1000;
+    vida = 5;
     EntityMgr->registrarEntity(this);
 
     Mapa=m;

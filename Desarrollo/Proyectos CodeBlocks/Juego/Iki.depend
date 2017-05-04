@@ -7,7 +7,7 @@
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 
-1493201133 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1493907591 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"Game.h"
 	<iostream>
 	"TDisplay.h"
@@ -356,7 +356,7 @@
 	<iostream>
 	"Player_Ray.h"
 
-1493219686 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1493907591 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Enemies/Path/PathEdge.h"
 	"Fachada/AnimatedMesh.h"
@@ -1311,7 +1311,7 @@
 1491243212 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
 	"Map.h"
 
-1493741853 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
+1493907591 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
 	<vector>
 	"tinyxml2.h"
 	"Structs.h"
@@ -1330,7 +1330,7 @@
 	"PatrolPoint.h"
 	"Enemies/Path/PathEdge.h"
 
-1493215339 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -1345,11 +1345,11 @@
 	"GameEntity.h"
 	"PhisicsWorld.h"
 
-1493741861 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
-1493218201 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -1360,7 +1360,7 @@
 	"Muerto.h"
 	"GUI/HUD.h"
 
-1492684854 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1493907565 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -1563,7 +1563,7 @@
 	<android/log.h>
 	<assert.h>
 
-1493206611 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
+1493907591 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
 	"Structs.h"
 	"Fachada/AnimatedMesh.h"
 
@@ -1580,7 +1580,7 @@
 1487066267 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\files.cpp
 	"Files.h"
 
-1493206646 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
 	"MapComponent.h"
 	"Fachada/AnimatedMesh.h"
 	"PhisicsWorld.h"
@@ -3092,7 +3092,7 @@
 	"Structs.h"
 	<iostream>
 
-1493220187 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
+1493907591 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
 	"Structs.h"
 
 1493220264 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
@@ -3102,7 +3102,7 @@
 1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animatedmesh.h
 	"Structs.h"
 
-1493219712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1493907591 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"Structs.h"
@@ -3111,11 +3111,11 @@
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1493219733 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
-1493221681 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
 
@@ -3163,7 +3163,7 @@
 1490711682 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
@@ -3418,7 +3418,7 @@
 1491243212 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\patrullar.h
 	"Enemies/StateMachine/State.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -6151,7 +6151,7 @@
 	"GUI/GUI_Control.h"
 	"Fachada/Image.h"
 
-1491853156 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_menu.cpp
+1493828576 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_menu.cpp
 	"GUI/GUI_Menu.h"
 	"Fachada/Image.h"
 
@@ -6204,7 +6204,7 @@
 1491915733 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
 	<Trigger.h>
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
 	"Trigger_Ruido.h"
 	"Fachada/GraphicsFacade.h"
 	"Player.h"
@@ -11271,10 +11271,10 @@
 1493056712 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\teventreceiver.h
 	<SDL2\SDL.h>
 
-1493724251 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\muros.h
+1493907591 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\muros.h
 	"Structs.h"
 
-1493735060 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\muros.cpp
+1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\muros.cpp
 	"Muros.h"
 	"MapComponent.h"
 	"PhisicsWorld.h"
