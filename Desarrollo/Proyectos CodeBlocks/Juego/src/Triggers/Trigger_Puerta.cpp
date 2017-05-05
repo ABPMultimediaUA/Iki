@@ -1,9 +1,31 @@
 #include "Trigger_Puerta.h"
 #include "GameEntity.h"
 #include "SoundManager.h"
+#include "PhisicsWorld.h"
 
-Trigger_Puerta::Trigger_Puerta()
+Trigger_Puerta::Trigger_Puerta(float x, float z, float r)
 {
+//b2body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_kinematicBody;
+    bodyDef.position.Set(x,z);
+    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
+
+    b2PolygonShape bodyShape;
+    if (r==90)                  bodyShape.SetAsBox(5.f,1.f);
+    else                        bodyShape.SetAsBox(1.f,5.f);
+    body->CreateFixture(&bodyShape, 1.0f);
+
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &bodyShape;
+    body->CreateFixture(&fixtureDef);
+    /*b2BodyDef bodyDef;
+    b2PolygonShape bodyShape;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(x, z);
+    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
+    bodyShape.SetAsBox(1,1);
+    body->CreateFixture(&bodyShape, 1.0f);*/
 
 }
 
@@ -15,7 +37,7 @@ Trigger_Puerta::~Trigger_Puerta()
 void Trigger_Puerta::triggerDisparado()
 {
     aniMesh->setVisible(false);
-    body->SetTransform(b2Vec2(0,0),0);
+    body->SetActive(false);
     if (!fired){
         //if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
         SoundMgr->soundStop("Triggers/puerta_cerrar");
@@ -32,7 +54,7 @@ void Trigger_Puerta::triggerFuera()
     }
     fired = false;
     aniMesh->setVisible(true);
-    body->SetTransform(b2Vec2(posicion.X,posicion.Z),0);
+    body->SetActive(true);
 }
 
 void Trigger_Puerta::Try(GameEntity* ent)

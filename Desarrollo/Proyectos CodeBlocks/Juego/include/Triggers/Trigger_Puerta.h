@@ -7,7 +7,7 @@
 class Trigger_Puerta : public Trigger
 {
     public:
-        Trigger_Puerta();
+        Trigger_Puerta(float x, float z, float r);
         virtual ~Trigger_Puerta();
 
         void Try(GameEntity*);
@@ -15,6 +15,7 @@ class Trigger_Puerta : public Trigger
 
         void triggerDisparado();
         void triggerFuera();
+        bool isPuerta(){return true;}
 
     protected:
 
