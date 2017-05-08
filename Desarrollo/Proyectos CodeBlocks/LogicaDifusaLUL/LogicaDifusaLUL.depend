@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1494153865 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzymodule.cpp
+	"FuzzyModule.h"
+
+1494182959 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzymodule.h
+	<vector>
+	<string>
+	<map>
+	"FuzzySet.h"
+	"FuzzyVariable.h"
+	"FuzzyRule.h"
+	"FzSet.h"
+
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset.h
+
+1494183223 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyvariable.h
+	<map>
+	<string>
+
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyrule.h
+	"FuzzyTerm.h"
+
+1493805245 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyterm.h
+
+1493907839 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fzset.h
+	"FuzzyTerm.h"
+	"FuzzySet.h"
+
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset_left.cpp
+	"FuzzySet_Left.h"
+
+1493907845 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset_left.h
+	"FuzzySet.h"
+
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset_right.cpp
+	"FuzzySet_Right.h"
+
+1493907850 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset_right.h
+	"FuzzySet.h"
+
+1493805245 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset_triangle.cpp
+	"FuzzySet_Triangle.h"
+
+1493907853 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyset_triangle.h
+	"FuzzySet.h"
+
+1494183223 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\fuzzylogic\fuzzyvariable.cpp
+	"FuzzyVariable.h"
+	"FuzzySet_Left.h"
+	"FuzzySet_Right.h"
+	"FuzzySet_Triangle.h"
+	"FzSet.h"
+
+1494238945 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\logicadifusalul\main.cpp
+	<iostream>
+	"FuzzyLogic/FuzzyModule.h"
+

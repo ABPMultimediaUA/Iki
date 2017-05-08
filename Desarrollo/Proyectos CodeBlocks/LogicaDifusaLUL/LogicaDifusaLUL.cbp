@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LogicaDifusaLUL" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/LogicaDifusaLUL" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/LogicaDifusaLUL" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="FuzzyLogic/FuzzyModule.cpp" />
+		<Unit filename="FuzzyLogic/FuzzyModule.h" />
+		<Unit filename="FuzzyLogic/FuzzyRule.h" />
+		<Unit filename="FuzzyLogic/FuzzySet.h" />
+		<Unit filename="FuzzyLogic/FuzzySet_Left.cpp" />
+		<Unit filename="FuzzyLogic/FuzzySet_Left.h" />
+		<Unit filename="FuzzyLogic/FuzzySet_Right.cpp" />
+		<Unit filename="FuzzyLogic/FuzzySet_Right.h" />
+		<Unit filename="FuzzyLogic/FuzzySet_Triangle.cpp" />
+		<Unit filename="FuzzyLogic/FuzzySet_Triangle.h" />
+		<Unit filename="FuzzyLogic/FuzzyTerm.h" />
+		<Unit filename="FuzzyLogic/FuzzyVariable.cpp" />
+		<Unit filename="FuzzyLogic/FuzzyVariable.h" />
+		<Unit filename="FuzzyLogic/FzSet.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
