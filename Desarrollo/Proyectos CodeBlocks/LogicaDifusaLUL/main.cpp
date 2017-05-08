@@ -71,10 +71,14 @@ void testFL()
 
 
     ///Test
-    fm.Fuzzify("DistanciaJugador", 30.f);
-    fm.Fuzzify("GradoDeSospecha", 50.f);
 
-    float fl = fm.DeFuzzify("NivelDeInvestigacion");
+    float x, y;
+    std::cin >> x >> y ;
+
+    fm.Fuzzify("VidaJugador", x);
+    fm.Fuzzify("Bateria", y);
+
+    float fl = fm.DeFuzzify("Potencia");
 
     std::cout << fl << std::endl;
 
