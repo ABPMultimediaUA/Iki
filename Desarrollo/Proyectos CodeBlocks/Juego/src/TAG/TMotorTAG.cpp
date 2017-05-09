@@ -271,7 +271,7 @@ void TMotorTAG::drawCamaras()
         //std::cout << std::endl;
     }
 }
-
+/*
 void TMotorTAG::draw()
 {
     EVENTO evnt;
@@ -304,3 +304,4 @@ void TMotorTAG::draw()
     //std::cout << "Dibujando mallas" << std::endl;
     escena->draw();
 }
+*/
