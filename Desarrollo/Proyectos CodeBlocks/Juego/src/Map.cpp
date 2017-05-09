@@ -89,7 +89,7 @@ void Map::inicializar_mapa(){
         int name;
 
         //Paredes
-        if      (objectGroup->Attribute("name", "Pared2"))      crearComponente();
+        if      (objectGroup->Attribute("name", "Pared"))      crearComponente();
 
         else if (objectGroup->Attribute("name", "Patrol"))
         {
