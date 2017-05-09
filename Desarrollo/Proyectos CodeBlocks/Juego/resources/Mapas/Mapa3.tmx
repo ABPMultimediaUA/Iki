@@ -281,14 +281,14 @@
  <objectgroup color="#ffaa7f" name="Patrol">
   <object id="2457" x="33.1818" y="185.42" width="2" height="2">
    <properties>
-    <property name="Enemigo" value="0"/>
+    <property name="Enemigo" value="2"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="1"/>
    </properties>
   </object>
   <object id="2458" x="32.8864" y="135.307" width="2" height="2">
    <properties>
-    <property name="Enemigo" value="0"/>
+    <property name="Enemigo" value="2"/>
     <property name="Next" value="0"/>
    </properties>
   </object>

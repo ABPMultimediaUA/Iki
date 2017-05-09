@@ -1345,11 +1345,11 @@
 	"GameEntity.h"
 	"PhisicsWorld.h"
 
-1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1494255470 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
-1493907592 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1494255639 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -6221,12 +6221,12 @@
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
+1494255460 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
 	"Enemies/Dron.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
+1494255003 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
 	"Enemies/Guardia.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"

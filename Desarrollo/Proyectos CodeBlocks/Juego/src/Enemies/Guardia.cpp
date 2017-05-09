@@ -12,6 +12,7 @@ void Guardia::inicializar_enemigo(Map* m)
     vida = 4;
     Structs::TColor color = {255,255,255,0};
     aniMesh = new AnimatedMesh("resources/Modelos/Enemigo.obj", color,posicion, 90);
+    //aniMesh->setTexture("resources/Texturas/palguadia.png");
     aniMesh->setScale(3);
     //modelo->cambiarColor(color);
     ataquePreparado = false;
