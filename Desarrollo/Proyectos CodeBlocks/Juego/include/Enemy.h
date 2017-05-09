@@ -57,7 +57,7 @@ class Enemy : public GameEntity
         bool isEnemySeeing(Structs::TPosicion destino);
         bool canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta);
         void moverBody(Structs::TPosicion vec);
-        void MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2);
+        void MoverEnemigo(Structs::TPosicion p);
         void andarPath(float velocidad,Structs::TPosicion posFinal);
         bool isWithinFOV(Structs::TPosicion p, float distanceFOV);
         bool vectorIsInFOV(Structs::TPosicion p);
@@ -86,6 +86,7 @@ class Enemy : public GameEntity
         Structs::TPosicion vectorProta;
         Structs::TPosicion posicionProta;
         Structs::TPosicion posicionInteres;
+        Structs::TPosicion posBody;
         State<Enemy>* actualState;
         State<Enemy>* oldState;
         State<Enemy>* globalState;

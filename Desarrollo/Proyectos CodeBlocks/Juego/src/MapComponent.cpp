@@ -7,18 +7,19 @@ MapComponent::MapComponent(float a, Structs::TPosicion b, int i)
     Structs::TColor color = {0,0,0,0};
 
     b2BodyDef bodyDef;
-    b2PolygonShape bodyShape;
     bodyDef.type = b2_staticBody;
     bodyDef.position.Set(b.X, b.Z);
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
+
+    b2PolygonShape bodyShape;
     bodyShape.SetAsBox(1,1);
     body->CreateFixture(&bodyShape, 1.0f);
 
     /*b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.density  = 100.f;
-    fixtureDef.friction = 100.f;
-    fixtureDef.restitution  = -100.f;
+    fixtureDef.density  = 1.f;
+    fixtureDef.friction = 0.f;
+    fixtureDef.restitution  = 0.f;
     body->CreateFixture(&fixtureDef);*/
 
     body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265358979323846 * a);

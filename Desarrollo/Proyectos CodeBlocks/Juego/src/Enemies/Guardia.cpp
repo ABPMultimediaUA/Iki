@@ -28,14 +28,17 @@ void Guardia::investigar(){
 
 }
 void Guardia::perseguir(){
+    //moverBody(quietoParado);
     toProtaPosition = posicionProta - posicion;
     mirandoHacia = toProtaPosition;
-    toProtaPosition.Normalize();
-    posicion = posicion + toProtaPosition*(avMovement*2);
+    //toProtaPosition.Normalize();
+    //posicion = posicion + toProtaPosition*(avMovement*2);
     calcularAngulo(posicionProta);
-    setPosition();
+    MoverEnemigo(toProtaPosition);
+    //setPosition();
 }
 void Guardia::ataque(){
+    moverBody(quietoParado);
     if(!ataquePreparado)
     {
         cargarAtaque();

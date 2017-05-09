@@ -29,4 +29,3 @@ private:
 	SDL_GLContext m_glContext;
 	bool m_isClosed;
 };
-

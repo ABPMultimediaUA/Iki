@@ -39,7 +39,7 @@ class Guardia : public Enemy
         ~Guardia(){delete G_stateMachine;}
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
-        bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);};
+        bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}
         void investigar();
         void perseguir();
         void ataque();

@@ -30,7 +30,6 @@ void Atacar::Enter(Enemy* enemigo){
 
 void Atacar::Execute(Enemy* enemigo){
 
-
     /*if(!enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
     }*/

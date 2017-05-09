@@ -19,13 +19,6 @@ Trigger_Puerta::Trigger_Puerta(float x, float z, float r)
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
     body->CreateFixture(&fixtureDef);
-    /*b2BodyDef bodyDef;
-    b2PolygonShape bodyShape;
-    bodyDef.type = b2_staticBody;
-    bodyDef.position.Set(x, z);
-    body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
-    bodyShape.SetAsBox(1,1);
-    body->CreateFixture(&bodyShape, 1.0f);*/
 
 }
 

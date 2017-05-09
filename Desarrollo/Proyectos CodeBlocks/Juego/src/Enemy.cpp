@@ -14,6 +14,7 @@
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
+    //toProtaPosition=posicionProta-posicion;
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 9.5; //9.5 es la velocidad
@@ -60,9 +61,9 @@ void Enemy::crearBody(){
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 0.f;
-    fixtureDef.restitution  = -1.f;
     fixtureDef.density  = 1.f;
+    fixtureDef.friction = 0.f;
+    fixtureDef.restitution  = 0.f;
     body->CreateFixture(&fixtureDef);
 }
 
@@ -203,20 +204,6 @@ bool Enemy::hayGuardias(){
         return true;
     return false;
 }
-///PARA MOVER CON IMPULSOS?¿
-void Enemy::moverBody(Structs::TPosicion vec){
-    vec.Normalize();
-    float movx = vec.X * avMovement *40;
-    float movy = vec.Z * avMovement *40;
-    body->SetLinearVelocity(b2Vec2(movx, movy));
-}
-void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
-    body->SetTransform(body->GetPosition(), angulo);
-    moverBody(p2);
-    posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-    aniMesh->setPosition(posicion);
-    aniMesh->setRotation(body->GetAngle());
-}
 void Enemy::quitarVida(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 0.8){
         if(vida > 0){
@@ -230,6 +217,20 @@ void Enemy::quitarVida(){
         }
     }
 }
+///PARA MOVER CON IMPULSOS?¿
+void Enemy::moverBody(Structs::TPosicion vec){
+    vec.Normalize();
+    float movx = vec.X * avMovement*5;
+    float movy = vec.Z * avMovement*5;
+    body->SetLinearVelocity(b2Vec2(movx, movy));
+}
+void Enemy::MoverEnemigo(Structs::TPosicion p){
+    body->SetTransform(body->GetPosition(), angulo);
+    moverBody(p);
+    posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+    aniMesh->setPosition(posicion);
+    aniMesh->setRotation(body->GetAngle());
+}
 ///ESTADOS
 
 void Enemy::patrullar()
@@ -237,7 +238,7 @@ void Enemy::patrullar()
 
    if(posicion.Distance(pRuta->getPunto()) >0.5) //AVANZAR
     {
-        //MoverEnemigo(pRuta->getPunto(),posinit);
+        //MoverEnemigo(posinit);
         posicion = posicion + posinit * avMovement;
     }
     else //CUANDO LLEGA A UN PUNTO PATRULLA
@@ -261,10 +262,6 @@ void Enemy::patrullar()
         calcularAngulo(pRuta->getPunto());
     }
     setPosition();
-
-    if(getTipo() == 3){
-        //std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
-    }
 }
 
 void Enemy::vigilar(){
@@ -306,5 +303,4 @@ void Enemy::muerto(){
     if(this->isGuardia())
         static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
-
 }

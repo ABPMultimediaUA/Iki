@@ -42,8 +42,7 @@ void EnviarMensaje::Envio(  double       delay,
 
     else
     {
-
-        double CurrentTime = PhisicsWorld::getInstance()->getTimeStamp();
+        double CurrentTime = PhisicsWorld::getInstance()->getTimeStamp()/1000;
         Mensaje.TiempoEnvio = CurrentTime + delay;
         PriorityQ.insert(Mensaje);
     }
