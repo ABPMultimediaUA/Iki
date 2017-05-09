@@ -148,6 +148,7 @@
 		<Unit filename="include/LevelData.h" />
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/MapComponent.h" />
+		<Unit filename="include/MemoryRecord.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PatrolPoint.h" />
@@ -156,6 +157,7 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Player_Ray.h" />
 		<Unit filename="include/Scene.h" />
+		<Unit filename="include/SensorMemory.h" />
 		<Unit filename="include/SoundEngine/SoundManager.h" />
 		<Unit filename="include/Structs.h" />
 		<Unit filename="include/TAG/TAnimacion.h" />
@@ -253,6 +255,7 @@
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Player_Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/SensorMemory.cpp" />
 		<Unit filename="src/SoundEngine/SoundManager.cpp" />
 		<Unit filename="src/Structs.cpp" />
 		<Unit filename="src/TAG/TAnimacion.cpp" />

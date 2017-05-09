@@ -16,6 +16,8 @@ void Enemy::update(){
     distanciaPlayer = posicionProta.Distance(posicion);
     //toProtaPosition=posicionProta-posicion;
 
+    if (bateria<100.0) bateria += 0.1;
+
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 9.5; //9.5 es la velocidad
     tiempoEnEstado =  tiempoEnEstado + PhisicsWorld::getInstance()->getDeltaTime()/1000;
@@ -30,6 +32,7 @@ void Enemy::init(Map* m){
     pRuta = ruta->getInicial()->getNext();
     direccion = 0;
     posVigilando = 0;
+    bateria = 100;
     //creo un cubo
     //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
