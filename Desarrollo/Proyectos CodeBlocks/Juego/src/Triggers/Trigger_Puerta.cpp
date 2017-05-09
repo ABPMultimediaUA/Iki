@@ -5,6 +5,7 @@
 
 Trigger_Puerta::Trigger_Puerta(float x, float z, float r)
 {
+    mx=x;mz=z;ma=r;
 //b2body
     b2BodyDef bodyDef;
     bodyDef.type = b2_kinematicBody;
@@ -30,6 +31,7 @@ Trigger_Puerta::~Trigger_Puerta()
 void Trigger_Puerta::triggerDisparado()
 {
     aniMesh->setVisible(false);
+    body->SetTransform(b2Vec2(mx,mz+5),ma);
     body->SetActive(false);
     if (!fired){
         //if (!(SoundManager::getInstance()->isPlaying("alarma_sintetizada2"))){
@@ -47,6 +49,7 @@ void Trigger_Puerta::triggerFuera()
     }
     fired = false;
     aniMesh->setVisible(true);
+    body->SetTransform(b2Vec2(mx,mz),ma);
     body->SetActive(true);
 }
 

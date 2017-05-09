@@ -22,6 +22,7 @@ class Trigger_Puerta : public Trigger
     private:
 
         bool fired = false;
+        float mx,mz,ma;
 };
 
 #endif // TRIGGER_PUERTA_H
