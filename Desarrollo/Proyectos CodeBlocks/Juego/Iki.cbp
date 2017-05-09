@@ -167,12 +167,14 @@
 		<Unit filename="include/TAG/TEntidad.h" />
 		<Unit filename="include/TAG/TEventReceiver.h" />
 		<Unit filename="include/TAG/TGestorRecursos.h" />
+		<Unit filename="include/TAG/TLinea.h" />
 		<Unit filename="include/TAG/TLuz.h" />
 		<Unit filename="include/TAG/TMalla.h" />
 		<Unit filename="include/TAG/TMallaCache.h" />
 		<Unit filename="include/TAG/TMatriz.h" />
 		<Unit filename="include/TAG/TMotorTAG.h" />
 		<Unit filename="include/TAG/TNodo.h" />
+		<Unit filename="include/TAG/TPlano.h" />
 		<Unit filename="include/TAG/TRecurso.h" />
 		<Unit filename="include/TAG/TRecursoMalla.h" />
 		<Unit filename="include/TAG/TRecursoMaterial.h" />
@@ -180,6 +182,7 @@
 		<Unit filename="include/TAG/TTextura.h" />
 		<Unit filename="include/TAG/TTexturaCache.h" />
 		<Unit filename="include/TAG/TTransform.h" />
+		<Unit filename="include/TAG/TVector.h" />
 		<Unit filename="include/TAG/stb_image.h" />
 		<Unit filename="include/Triggers/Trigger.h" />
 		<Unit filename="include/Triggers/TriggerFactory.h" />
@@ -263,12 +266,14 @@
 		<Unit filename="src/TAG/TDisplay.cpp" />
 		<Unit filename="src/TAG/TEntidad.cpp" />
 		<Unit filename="src/TAG/TGestorRecursos.cpp" />
+		<Unit filename="src/TAG/TLinea.cpp" />
 		<Unit filename="src/TAG/TLuz.cpp" />
 		<Unit filename="src/TAG/TMalla.cpp" />
 		<Unit filename="src/TAG/TMallaCache.cpp" />
 		<Unit filename="src/TAG/TMatriz.cpp" />
 		<Unit filename="src/TAG/TMotorTAG.cpp" />
 		<Unit filename="src/TAG/TNodo.cpp" />
+		<Unit filename="src/TAG/TPlano.cpp" />
 		<Unit filename="src/TAG/TRecurso.cpp" />
 		<Unit filename="src/TAG/TRecursoMalla.cpp" />
 		<Unit filename="src/TAG/TRecursoMaterial.cpp" />
@@ -276,6 +281,7 @@
 		<Unit filename="src/TAG/TTextura.cpp" />
 		<Unit filename="src/TAG/TTexturaCache.cpp" />
 		<Unit filename="src/TAG/TTransform.cpp" />
+		<Unit filename="src/TAG/TVector.cpp" />
 		<Unit filename="src/TAG/stb_image.cpp" />
 		<Unit filename="src/Triggers/Trigger.cpp" />
 		<Unit filename="src/Triggers/TriggerFactory.cpp" />
