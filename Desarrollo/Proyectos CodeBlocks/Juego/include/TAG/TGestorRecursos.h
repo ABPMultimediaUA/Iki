@@ -12,13 +12,13 @@ class TGestorRecursos
         TGestorRecursos();
         virtual ~TGestorRecursos();
 
-        static TRecursoMalla* getRecursoMalla(const std::string& fileName);
-		static TTextura* getRecursoTextura(const std::string& fileName);
+        TRecursoMalla* getRecursoMalla(const std::string& fileName);
+		TTextura* getRecursoTextura(const std::string& fileName);
     protected:
 
     private:
-        static TMallaCache m_MallaCache;
-		static TTexturaCache m_TexturaCache;
+        TMallaCache m_MallaCache;
+		TTexturaCache m_TexturaCache;
 };
 
 #endif // TGESTORRECURSOS_H
