@@ -75,6 +75,7 @@ class Enemy : public GameEntity
     protected:
 
         int tipo,direccion,posVigilando;
+        float bateria;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
