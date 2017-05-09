@@ -67,6 +67,7 @@ class Enemy : public GameEntity
         void girarVista(float giro,int posV);
         void quitarVida();
         bool hayGuardias();
+        bool colisionPuertas(Structs::TPosicion destino);
 
         float getAngulo(){return angulo;}
 
@@ -90,6 +91,7 @@ class Enemy : public GameEntity
         State<Enemy>* globalState;
         b2RayCastInput input;
         b2RayCastOutput	output;
+        b2RayCastOutput	output2;
         const float DegToRad = PI/180;
 
         ///PATHPLANNING

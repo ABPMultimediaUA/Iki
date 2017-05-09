@@ -8,6 +8,9 @@
 #include "Muerto.h"
 #include "Enemies/Guardia.h"
 
+#include "Trigger.h"
+#include "TriggerSystem.h"
+
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
@@ -62,19 +65,7 @@ void Enemy::crearBody(){
     fixtureDef.density  = 1.f;
     body->CreateFixture(&fixtureDef);
 }
-bool Enemy::isPathObstructured(Structs::TPosicion destino){
-    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
-    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
 
-    ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
-            return true;
-        }
-    }
-
-    return false;
-}
 bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
     if(posicion.Distance(p) < distanceFOV ){
         if(vectorIsInFOV(p))
@@ -95,6 +86,50 @@ bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     else
         return false;
 }
+bool Enemy::isPathObstructured(Structs::TPosicion destino){
+    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
+    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
+
+    ///colision con paredes
+    for (int i = 0; i < Mapa->muros.size(); i++) {
+        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+            return true;
+        }
+    }
+
+    ///colision con triggers con body
+    std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->isPuerta()){
+                if(triggers.at(i)->getBody()->GetFixtureList())
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
+                return true;
+            }
+        }
+    }
+
+    //if(colisionPuertas(destino))
+        //return true;
+    return false;
+}
+bool Enemy::colisionPuertas(Structs::TPosicion destino){
+    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
+    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
+    ///colision con triggers con body
+    std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->isPuerta()){
+                //std::cout<<i<<std::endl;
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
+                std::cout<<"entraaaa"<<std::endl;
+                return true;
+            }
+        }
+    }
+
+    return false;
+
+}
 bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
 
      input.p1.Set(desde.X, desde.Z);	//	Punto	inicial	del	rayo
@@ -106,24 +141,12 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
             return false;
         }
     }
-
-    /*    ///colision con triggers con body
-    std::vector<*Trigger> triggers = TriggerSystem.GetTriggers();
-    for (int i = 0; i < triggers.size(); i++) {
-        if (triggers.at(i)->getBody()){
-            if (triggers.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
-                return false;
-            }
-        }
-    }*/
-
     return true;
 }
 
 void Enemy::crearPath(Structs::TPosicion destino){
     listaEjes.clear();
     if(path->crearPath(destino,listaEjes))
-        std::cout<<"Path creado"<<std::endl;
     it=listaEjes.begin();
 }
 void Enemy::setPosition(){

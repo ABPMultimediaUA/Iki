@@ -64,7 +64,6 @@ void Player::inicializar_player(Map* m){
     input.maxFraction	=	1.0f;
     input2.maxFraction  =   1.0f;
 
-
     ruido = new Trigger_Ruido();
     ruido->AddCircularRegion(posicion, 20);
     isMoving = false;
@@ -128,6 +127,8 @@ void Player::update(Camera* camara){
         deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000.f;
         avMovement = deltaTime * 700;
 
+        TriggerRuido();
+
         rayo->borrar_rayo();
 
         if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
@@ -147,8 +148,6 @@ void Player::update(Camera* camara){
                 HUD::getInstance()->activateNotMunicion();
             }
         }
-
-    TriggerRuido();
 
         if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
 

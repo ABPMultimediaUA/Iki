@@ -6,7 +6,7 @@
 class Image
 {
     public:
-        Image(const char*);
+        Image(const char* cadena);
         ~Image();
         void draw(int,int, Structs::TRectangulo, Structs::TColor);
 

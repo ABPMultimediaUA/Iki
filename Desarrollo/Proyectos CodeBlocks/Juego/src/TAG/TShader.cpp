@@ -24,6 +24,7 @@ TShader::TShader(const string& FileName)
 	CheckShaderError(m_programa, GL_VALIDATE_STATUS, true, "Error: Program is invalid");
 
 	m_uniforms[TRANSFORM_U] = glGetUniformLocation(m_programa, "transform");
+	std::cout<<"Shader cargado"<<std::endl;
 }
 
 TShader::~TShader()

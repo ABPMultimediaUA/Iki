@@ -62,6 +62,7 @@
 					<Add directory="include/StateMachine" />
 					<Add directory="include/SoundEngine" />
 					<Add directory="include/Enemies/StateMachine" />
+					<Add directory="include/TAG" />
 				</Compiler>
 				<Linker>
 					<Add library="Xxf86vm" />
@@ -161,6 +162,7 @@
 		<Unit filename="include/TAG/TCamara.h" />
 		<Unit filename="include/TAG/TDisplay.h" />
 		<Unit filename="include/TAG/TEntidad.h" />
+		<Unit filename="include/TAG/TEventReceiver.h" />
 		<Unit filename="include/TAG/TGestorRecursos.h" />
 		<Unit filename="include/TAG/TLuz.h" />
 		<Unit filename="include/TAG/TMalla.h" />

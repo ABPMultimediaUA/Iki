@@ -16,7 +16,7 @@ public:
 	void Clear(float r,float g,float b,float a);
 	void Update();
 	bool IsClosed();
-	void setModoVentana();
+    void setModoVentana();
 	void setFullScreen();
 	Uint32 getTimer();
 	virtual ~TDisplay();
