@@ -10,6 +10,7 @@ class TVector
 
         float dotProduct(TVector other){return X*other.X + Y*other.Y + Z*other.Z;};
 
+
         float X, Y, Z;
 
         // operators

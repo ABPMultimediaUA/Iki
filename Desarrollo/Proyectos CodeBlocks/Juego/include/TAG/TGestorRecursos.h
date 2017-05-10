@@ -10,7 +10,7 @@ class TGestorRecursos
 {
     public:
         TGestorRecursos();
-        virtual ~TGestorRecursos();
+        ~TGestorRecursos();
 
         static TRecursoMalla* getRecursoMalla(const std::string& fileName);
 		static TTextura* getRecursoTextura(const std::string& fileName);
