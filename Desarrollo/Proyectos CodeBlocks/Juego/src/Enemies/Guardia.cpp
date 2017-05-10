@@ -139,8 +139,8 @@ void Guardia::perseguir(){
         //MoverEnemigo(toProtaPosition);
         setPosition();
     }else{
-        posicionInteres = posicionProta;
-        this->GetFSM()->ChangeState(Investigar::Instance());
+        //posicionInteres = posicionProta;
+       //this->GetFSM()->ChangeState(Investigar::Instance());
     }
 }
 void Guardia::ataque(){
