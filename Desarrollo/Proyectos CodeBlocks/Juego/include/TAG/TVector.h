@@ -5,12 +5,12 @@
 class TVector
 {
     public:
-        TVector(T,T,T);
+        TVector(float x1,float y1,float z1) : X(x1), Y(y1), Z(z1) {}
         ~TVector();
 
-        T dotProduct(TVector);
+        float dotProduct(TVector other){return X*other.X + Y*other.Y + Z*other.Z;};
 
-        T x, y, z;
+        float X, Y, Z;
 
         // operators
 
@@ -20,23 +20,23 @@ class TVector
 
         TVector operator+(const TVector& other) const { return TVector(X + other.X, Y + other.Y, Z + other.Z); }
         TVector& operator+=(const TVector& other) { X+=other.X; Y+=other.Y; Z+=other.Z; return *this; }
-        TVector operator+(const T val) const { return TVector(X + val, Y + val, Z + val); }
-        TVector& operator+=(const T val) { X+=val; Y+=val; Z+=val; return *this; }
+        TVector operator+(const float val) const { return TVector(X + val, Y + val, Z + val); }
+        TVector& operator+=(const float val) { X+=val; Y+=val; Z+=val; return *this; }
 
         TVector operator-(const TVector& other) const { return TVector(X - other.X, Y - other.Y, Z - other.Z); }
         TVector& operator-=(const TVector& other) { X-=other.X; Y-=other.Y; Z-=other.Z; return *this; }
-        TVector operator-(const T val) const { return TVector(X - val, Y - val, Z - val); }
-        TVector& operator-=(const T val) { X-=val; Y-=val; Z-=val; return *this; }
+        TVector operator-(const float val) const { return TVector(X - val, Y - val, Z - val); }
+        TVector& operator-=(const float val) { X-=val; Y-=val; Z-=val; return *this; }
 
         TVector operator*(const TVector& other) const { return TVector(X * other.X, Y * other.Y, Z * other.Z); }
         TVector& operator*=(const TVector& other) { X*=other.X; Y*=other.Y; Z*=other.Z; return *this; }
-        TVector operator*(const T v) const { return TVector(X * v, Y * v, Z * v); }
-        TVector& operator*=(const T v) { X*=v; Y*=v; Z*=v; return *this; }
+        TVector operator*(const float v) const { return TVector(X * v, Y * v, Z * v); }
+        TVector& operator*=(const float v) { X*=v; Y*=v; Z*=v; return *this; }
 
         TVector operator/(const TVector& other) const { return TVector(X / other.X, Y / other.Y, Z / other.Z); }
         TVector& operator/=(const TVector& other) { X/=other.X; Y/=other.Y; Z/=other.Z; return *this; }
-        TVector operator/(const T v) const { T i=(T)1.0/v; return TVector(X * i, Y * i, Z * i); }
-        TVector& operator/=(const T v) { T i=(T)1.0/v; X*=i; Y*=i; Z*=i; return *this; }
+        TVector operator/(const float v) const { float i=(float)1.0/v; return TVector(X * i, Y * i, Z * i); }
+        TVector& operator/=(const float v) { float i=(float)1.0/v; X*=i; Y*=i; Z*=i; return *this; }
 
     protected:
 
