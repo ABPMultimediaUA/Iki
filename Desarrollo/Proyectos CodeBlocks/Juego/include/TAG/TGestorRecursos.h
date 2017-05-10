@@ -10,15 +10,15 @@ class TGestorRecursos
 {
     public:
         TGestorRecursos();
-        virtual ~TGestorRecursos();
+        ~TGestorRecursos();
 
         TRecursoMalla* getRecursoMalla(const std::string& fileName);
 		TTextura* getRecursoTextura(const std::string& fileName);
     protected:
 
     private:
-        TMallaCache m_MallaCache;
-		TTexturaCache m_TexturaCache;
+        static TMallaCache m_MallaCache;
+		static TTexturaCache m_TexturaCache;
 };
 
 #endif // TGESTORRECURSOS_H
