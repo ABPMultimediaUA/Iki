@@ -5,6 +5,7 @@
 #include "Enemies/Guardia.h"
 #include "Enemies/StateMachine/Escanear.h"
 #include "Enemies/StateMachine/VolverALaPatrulla.h"
+#include "Enemies/StateMachine/Atacar.h"
 
 Investigar* Investigar::Instance()
 {
@@ -33,8 +34,11 @@ void Investigar::Enter(Enemy* enemigo){
 
 void Investigar::Execute(Enemy* enemigo){
     if(enemigo->getDistanciaPlayer()<30 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
-        if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
+        if(enemigo->GetFSM()->PreviousState() == Atacar::Instance()){
+            enemigo->GetFSM()->ChangeState(Atacar::Instance());
+        }else{
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
+        }
     }
     if(enemigo->getPosition() == enemigo->getPosicionInteres()){
             enemigo->GetFSM()->ChangeState(Vigilar::Instance());

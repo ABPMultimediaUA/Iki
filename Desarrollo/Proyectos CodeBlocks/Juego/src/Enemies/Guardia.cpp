@@ -1,7 +1,8 @@
 #include "FuzzyLogic/FuzzyModule.h"
+#include "Investigar.h"
 
 
-float testFL(float x, float y)
+float testFL(float x, float y, int type)
 {
     FuzzyModule fm;
 
@@ -28,8 +29,8 @@ float testFL(float x, float y)
     FzSet Bateria_Med  = Bateria.AddTriangularSet("Bateria_Med",25,50,75);
     FzSet Bateria_High = Bateria.AddRightShoulderSet("Bateria_High",50,75,100);
 
-    FzSet VidaJ_Low  = VidaJ.AddLeftShoulderSet("VidaJ_Low",0,1,3);
-    FzSet VidaJ_Med  = VidaJ.AddTriangularSet("VidaJ_Med",1,3,4);
+    FzSet VidaJ_Low  = VidaJ.AddLeftShoulderSet("VidaJ_Low",0,1,2);
+    FzSet VidaJ_Med  = VidaJ.AddTriangularSet("VidaJ_Med",2,3,4);
     FzSet VidaJ_High = VidaJ.AddRightShoulderSet("VidaJ_High",3,4,5);
 
     FzSet NivelInvs_Low  = NivelInvs.AddLeftShoulderSet("Invs_Low",0,0,1);
@@ -69,13 +70,21 @@ float testFL(float x, float y)
 
 
     ///Test
+    if (type == 1){
+        fm.Fuzzify("DistanciaJugador", x);
+        fm.Fuzzify("Bateria", y);
 
-    fm.Fuzzify("DistanciaJugador", x);
-    fm.Fuzzify("Bateria", y);
+        float fl = fm.DeFuzzify("Velocidad");
 
-    float fl = fm.DeFuzzify("Velocidad");
+        return fl;
+    }else{
+        fm.Fuzzify("VidaJugador", x);
+        fm.Fuzzify("Bateria", y);
 
-    return fl;
+        float fl = fm.DeFuzzify("Potencia");
+
+        return fl;
+    }
 }
 
 
@@ -110,24 +119,29 @@ void Guardia::investigar(){
 
 }
 void Guardia::perseguir(){
-    //moverBody(quietoParado);
-    toProtaPosition = posicionProta - posicion;
-    mirandoHacia = toProtaPosition;
-    //toProtaPosition.Normalize();
-    //posicion = posicion + toProtaPosition*(avMovement*2);
+    if (isEnemySeeing(posicionProta)){
+        //moverBody(quietoParado);
+        toProtaPosition = posicionProta - posicion;
+        mirandoHacia = toProtaPosition;
+        //toProtaPosition.Normalize();
+        //posicion = posicion + toProtaPosition*(avMovement*2);
 
-    float disancia = posicion.Distance(posicionProta);
-    float vel = testFL(disancia, bateria);
-    if (bateria >= 1) bateria-=0.5;
+        float disancia = posicion.Distance(posicionProta);
+        float vel = testFL(disancia, bateria, 1);
+        if (bateria >= 0) bateria-=vel/100;
 
-    //std::cout << bateria << std::endl;
-    //std::cout << vel/25 << std::endl;
+        //std::cout << bateria << std::endl;
+        //std::cout << vel/25 << std::endl;
 
-    toProtaPosition.Normalize();
-    posicion = posicion + toProtaPosition*(avMovement*vel/25);
-    calcularAngulo(posicionProta);
-    MoverEnemigo(toProtaPosition);
-    //setPosition();
+        toProtaPosition.Normalize();
+        posicion = posicion + toProtaPosition*(avMovement*vel/25);
+        calcularAngulo(posicionProta);
+        //MoverEnemigo(toProtaPosition);
+        setPosition();
+    }else{
+        posicionInteres = posicionProta;
+        this->GetFSM()->ChangeState(Investigar::Instance());
+    }
 }
 void Guardia::ataque(){
     moverBody(quietoParado);
@@ -141,6 +155,13 @@ void Guardia::ataque(){
 }
 void Guardia::cargarAtaque(){
         atacando = true;
+
+        float vidaj = 3;
+        float pot = testFL(vidaj, bateria, 2);
+
+        std::cout << bateria << "%   " << pot << "/10" << std::endl;
+
+        if (bateria >= 1) bateria-=pot;
 
         vectorAtaque = posicionProta - posicion;
         anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
