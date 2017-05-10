@@ -1,6 +1,6 @@
 #pragma once
 
-#define GLEW_STATIC
+/*#define GLEW_STATIC
 #include <glew.h>
 
 #include <SDL2\SDL.h>
@@ -30,3 +30,4 @@ private:
 	bool m_isClosed;
 };
 
+*/

@@ -34,10 +34,12 @@
 					<Add directory="include/assimp" />
 					<Add directory="include/GL" />
 					<Add directory="include/glm" />
-					<Add directory="include/SDL2" />
 					<Add directory="include/TAG" />
 				</Compiler>
 				<Linker>
+					<Add library="lib/SFML-2.4.2/lib/libsfml-graphics-d.a" />
+					<Add library="lib/SFML-2.4.2/lib/libsfml-window-d.a" />
+					<Add library="lib/SFML-2.4.2/lib/libsfml-system-d.a" />
 					<Add directory="../../lib/Win32-gcc" />
 				</Linker>
 				<MakeCommands>
@@ -80,9 +82,10 @@
 			<Add directory="../irrlicht-1.8.4/include" />
 			<Add directory="../irrKlang-1.5.0/include" />
 			<Add directory="../Box2D" />
+			<Add directory="lib/SFML-2.4.2/include" />
 		</Compiler>
 		<Linker>
-			<Add option="-Llib -lmingw32 -lSDL2main -lSDL2" />
+			<Add option="-Llib" />
 			<Add library="lib/glew32s.lib" />
 			<Add library="Irrlicht" />
 			<Add library="lib/libbox2d.a" />
@@ -91,9 +94,9 @@
 			<Add library="lib/glew32.lib" />
 			<Add library="lib/libopenal32.a" />
 			<Add library="lib/libopengl32.a" />
-			<Add library="lib/libSDL2.dll.a" />
 			<Add directory="../irrlicht-1.8.4/lib/Win32-gcc" />
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
+			<Add directory="lib/SFML-2.4.2/lib" />
 		</Linker>
 		<Unit filename="Makefile" />
 		<Unit filename="include/Enemies/Dron.h" />

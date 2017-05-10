@@ -1,4 +1,4 @@
-#include "TDisplay.h"
+/*#include "TDisplay.h"
 
 
 
@@ -84,4 +84,4 @@ void TDisplay::Update()
 			m_isClosed = true;
 		}
 	}
-}
+}*/
