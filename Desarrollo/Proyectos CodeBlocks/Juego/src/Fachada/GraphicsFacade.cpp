@@ -140,14 +140,6 @@ float GraphicsFacade::calcularDistancia(Structs::TPosicion position){
     return toCalculate.getLength();
 }
 
-
-SceneNode* GraphicsFacade::createCubeSceneNode(float tam, Structs::TPosicion posicionInicial){
-
-    SceneNode* nodo = new SceneNode(tam, posicionInicial);
-
-	return nodo;
-}
-
 Camera* GraphicsFacade::createCamera(Structs::TPosicion position, Structs::TPosicion lookAt){
 
     Camera* cam = new Camera(position, lookAt);

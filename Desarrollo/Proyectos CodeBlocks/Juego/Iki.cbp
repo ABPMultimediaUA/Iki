@@ -36,6 +36,7 @@
 					<Add directory="include/glm" />
 					<Add directory="include/SDL2" />
 					<Add directory="include/TAG" />
+					<Add directory="include/FuzzyLogic" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -159,6 +160,7 @@
 		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/MemoryRecord.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/Muros.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
@@ -262,6 +264,7 @@
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapComponent.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/Muros.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />

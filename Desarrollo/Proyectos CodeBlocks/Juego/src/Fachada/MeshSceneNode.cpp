@@ -11,6 +11,16 @@ MeshSceneNode::MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicio
     node->setMaterialFlag(video::EMF_LIGHTING, false);
 }
 
+MeshSceneNode::MeshSceneNode(const char* file)
+{
+    mesh = GraphicsFacade::getInstance().smgr->getMesh(file);
+    node = GraphicsFacade::getInstance().smgr->addMeshSceneNode(mesh);
+    //node->setPosition(vector3df(168.5, 0, 56.5));
+
+    GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(),irr::video::SColor(0,0,0,0));
+    node->setMaterialFlag(video::EMF_LIGHTING, false);
+}
+
 MeshSceneNode::~MeshSceneNode()
 {
     //dtor

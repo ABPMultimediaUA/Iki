@@ -22,7 +22,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    velocidad = 0.3;
+    velocidad = 1.3;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
@@ -98,10 +98,10 @@ void Player::moverBody(Structs::TPosicion vec){
         velocidad = 0.3;
         HUD::getInstance()->sigiloNotUsed();
     }
-    if(velocidad > 0.3){
+    /*if(velocidad > 0.3){
         comprobarVelocidad();
         speed = 3;
-    }
+    }*/
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
@@ -173,8 +173,8 @@ bool Player::isPathObstructured(Structs::TPosicion destino){
     input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
 
     ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
             return true;
         }
     }
@@ -187,8 +187,8 @@ bool Player::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
      input2.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
      ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output2,input2,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output2,input2,0)){
             return false;
         }
     }

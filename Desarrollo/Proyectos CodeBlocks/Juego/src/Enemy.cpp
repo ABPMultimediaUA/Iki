@@ -70,6 +70,18 @@ void Enemy::crearBody(){
     body->CreateFixture(&fixtureDef);
 }
 
+bool Enemy::isPathObstructured(Structs::TPosicion destino){
+    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
+    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
+
+    ///colision con paredes
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
+            return true;
+        }
+    }
+}    
+
 bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
     if(posicion.Distance(p) < distanceFOV ){
         if(vectorIsInFOV(p))
@@ -140,8 +152,8 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
      input.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
         ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
             return false;
         }
     }
