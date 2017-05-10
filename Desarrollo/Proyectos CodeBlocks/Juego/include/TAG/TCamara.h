@@ -6,6 +6,7 @@
 
 #include <TEntidad.h>
 
+class TLinea;
 
 class TCamara : public TEntidad
 {
@@ -18,6 +19,8 @@ class TCamara : public TEntidad
         mat4 getMatrizProyeccion() const;
         void beginDraw();
         void endDraw();
+
+        TLinea getRayFromScreenCoordinates(float, float);
 
     protected:
 

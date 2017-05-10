@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+/*#include <SFML/Graphics.hpp>
 
 int main()
 {
@@ -21,16 +21,15 @@ int main()
     }
 
     return 0;
-}
+}*/
 
 
 
-/*#ifdef _MSC_VER
+#ifdef _MSC_VER
 <<<<<<< HEAD
 
 =======
 // We'll define this to stop MSVC complaining about sprintf().
->>>>>>> refs/remotes/origin/master
 #define _CRT_SECURE_NO_WARNINGS
 #pragma comment(lib, "Irrlicht.lib")
 #endif
@@ -51,7 +50,7 @@ int main()
 using namespace std;
 
 int main(int argc, char *argv[])
-{/*
+{}/*
     TDisplay display(800, 600,"Motor grafico");
 
     TMotorTAG  *motor   = new TMotorTAG();
