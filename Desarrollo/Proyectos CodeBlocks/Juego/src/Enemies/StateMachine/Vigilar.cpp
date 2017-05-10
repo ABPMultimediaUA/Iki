@@ -37,8 +37,9 @@ void Vigilar::Execute(Enemy* enemigo){
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
     }
     if(enemigo->getTiempo() > 6){
-        //std::cout<<"Patrullando..."<<std::endl;
-        if(enemigo->GetFSM()->PreviousState() == Investigar::Instance()){
+            //if(enemigo->GetFSM()->PreviousState())
+        if(enemigo->GetFSM()->wasInState(*Investigar::Instance())){
+            std::cout<<"aqui entra mq"<<std::endl;
             enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
         }
         else

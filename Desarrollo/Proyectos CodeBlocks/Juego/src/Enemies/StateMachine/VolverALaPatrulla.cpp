@@ -13,6 +13,7 @@ VolverALaPatrulla* VolverALaPatrulla::Instance()
 }
 
 void VolverALaPatrulla::Enter(Enemy* enemigo){
+    std::cout<<"voviendo a la patrulla"<<std::endl;
     enemigo->crearPath(enemigo->getPPatrulla()->getPunto());
 
     switch (enemigo->getTipo()){

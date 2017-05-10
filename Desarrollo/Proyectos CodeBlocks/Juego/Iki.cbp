@@ -36,6 +36,7 @@
 					<Add directory="include/glm" />
 					<Add directory="include/SDL2" />
 					<Add directory="include/TAG" />
+					<Add directory="include/FuzzyLogic" />
 				</Compiler>
 				<Linker>
 					<Add directory="../../lib/Win32-gcc" />
@@ -134,6 +135,15 @@
 		<Unit filename="include/Fachada/Image.h" />
 		<Unit filename="include/Fachada/MeshSceneNode.h" />
 		<Unit filename="include/Fachada/SceneNode.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyModule.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyRule.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet_Left.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet_Right.h" />
+		<Unit filename="include/FuzzyLogic/FuzzySet_Triangle.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyTerm.h" />
+		<Unit filename="include/FuzzyLogic/FuzzyVariable.h" />
+		<Unit filename="include/FuzzyLogic/FzSet.h" />
 		<Unit filename="include/GUI/GUI.h" />
 		<Unit filename="include/GUI/GUI_Button.h" />
 		<Unit filename="include/GUI/GUI_Component.h" />
@@ -233,6 +243,11 @@
 		<Unit filename="src/Fachada/Image.cpp" />
 		<Unit filename="src/Fachada/MeshSceneNode.cpp" />
 		<Unit filename="src/Fachada/SceneNode.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzyModule.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet_Left.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet_Right.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzySet_Triangle.cpp" />
+		<Unit filename="src/FuzzyLogic/FuzzyVariable.cpp" />
 		<Unit filename="src/GUI/GUI.cpp" />
 		<Unit filename="src/GUI/GUI_Button.cpp" />
 		<Unit filename="src/GUI/GUI_Component.cpp" />

@@ -33,6 +33,7 @@ void Enemy::init(Map* m){
     direccion = 0;
     posVigilando = 0;
     bateria = 100;
+    fieldOfView = 120*DegToRad;
     //creo un cubo
     //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
@@ -44,6 +45,8 @@ void Enemy::init(Map* m){
     //Pathplanning
     grafo = Mapa->getGrafo();
     path = new PathPlanner(grafo,this);
+    //SensorMemory
+    memory = new SensorMemory(this,10);
      //Para los ray!
     input.maxFraction	=	1.0f;
 
@@ -85,7 +88,7 @@ bool Enemy::vectorIsInFOV(Structs::TPosicion p){
 }
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,fieldOfView) && !isPathObstructured(posicionProta))
         return true;
     else
         return false;
@@ -163,15 +166,19 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
     if(!listaEjes.empty() && it != listaEjes.end())
         toNextNodo = (*it).getDestination() - posicion;
     else
-        toNextNodo=quietoParado;
+        toNextNodo = quietoParado;
 
     if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
     {
         //moverBody(quietoParado);
         if(it != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
             it++;
-        else
-            posicion = posFinal;
+        else{
+            posicion=posFinal;
+            // posFinal.Normalize();
+           //toPosicionFinal= posFinal - posicion;
+           //posicion = posicion+toPosicionFinal *(avMovement*velocidad);
+        }
     }
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
@@ -284,13 +291,25 @@ void Enemy::vigilar(){
     setPosition();
 }
 void Enemy::escanear(){
-    if(sospecha < 100 && distanciaPlayer<30 && isEnemySeeing(posicionProta))
+
+    if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
+        std::cout<<"sospecha"<<sospecha<<std::endl;
+        memory->updateVision(EntityMgr->getEntityByID(0));
         calcularAngulo(posicionProta);
-        sospecha++;;
-        //std::cout<<"Sospecha: "<<sospecha<<std::endl;
+        if(sospecha < 100 )
+            sospecha++;;
     }
      setPosition();
+}
+float Enemy::getTimePlayerHasBeenOutOfView(){
+    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
+    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
+    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
+
+}
+void Enemy::borrarMemoria(){
+    memory->removeMemory(this);
 }
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);

@@ -17,6 +17,10 @@ Escanear* Escanear::Instance()
 }
 
 void Escanear::Enter(Enemy* enemigo){
+    if(enemigo->getTimePlayerHasBeenOutOfView() >10){
+        enemigo->resetSospecha();
+        enemigo->borrarMemoria();
+    }
     enemigo->resetTime();
 
     switch (enemigo->getTipo()){
@@ -60,7 +64,6 @@ void Escanear::Execute(Enemy* enemigo){
 }
 
 void Escanear::Exit(Enemy* enemigo){
-
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->soundStop("VocesRobots/Guardia/escaneando");

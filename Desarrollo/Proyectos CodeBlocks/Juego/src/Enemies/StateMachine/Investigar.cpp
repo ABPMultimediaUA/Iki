@@ -14,7 +14,7 @@ Investigar* Investigar::Instance()
 }
 
 void Investigar::Enter(Enemy* enemigo){
-    //std::cout<<"a investigar se ha dicho"<<std::endl;
+    std::cout<<"a investigar se ha dicho"<<std::endl;
     enemigo->crearPath(enemigo->getPosicionInteres());
 
     switch (enemigo->getTipo()){

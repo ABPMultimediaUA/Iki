@@ -45,6 +45,11 @@ class StateMachine
         State<entity_type>* CurrentState() const{return actualState;}
         State<entity_type>* GlobalState() const{return globalState;}
         State<entity_type>* PreviousState() const{return previoState;}
+        bool wasInState(const State<entity_type>& st)const{
+            if (typeid(*previoState) == typeid(st))
+                return true;
+            return false;
+        }
         bool isInState(const State<entity_type>& st)const{
             if (typeid(*actualState) == typeid(st))
                 return true;

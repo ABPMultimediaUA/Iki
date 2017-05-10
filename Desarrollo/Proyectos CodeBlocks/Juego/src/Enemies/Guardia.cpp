@@ -107,7 +107,6 @@ void Guardia::inicializar_enemigo(Map* m)
 void Guardia::investigar(){
     andarPath(2,posicionInteres);
     setPosition();
-
 }
 void Guardia::perseguir(){
     //moverBody(quietoParado);

@@ -705,7 +705,7 @@
   </object>
   <object id="2519" name="2" x="32.8182" y="167.182" width="2" height="2">
    <properties>
-    <property name="Conecta" value="1,23"/>
+    <property name="Conecta" value="1,22,23"/>
    </properties>
   </object>
   <object id="2520" name="3" x="32.4546" y="123.182" width="2" height="2">
