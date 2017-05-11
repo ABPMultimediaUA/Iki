@@ -6,6 +6,8 @@ TCamara::TCamara(const vec3& pos, float grad, int anch, int alt, float cer, floa
     v_posicion = pos;
 
     setPerspectiva(grad, anch, alt, cer, lej);
+
+    calculateOthers();
 }
 
 TCamara::~TCamara()
@@ -34,6 +36,17 @@ void TCamara::setParalela(float izq, float dch, float inf, float sup, float cer,
     m_paralela= ortho(izq, dch, inf, sup, cer, lej);
 
     esPerspectiva = false;
+}
+
+void TCamara::calculateOthers(){
+    if(esPerspectiva){
+        //near   = m34/(m33-1);
+        //far    = m34/(m33+1);
+        inferior  = cercano * (m_perspectiva[2][3] - 1) / m_perspectiva[2][2];
+        superior  = cercano * (m_perspectiva[2][3] + 1) / m_perspectiva[2][2];
+        izquierda = cercano * (m_perspectiva[1][3] - 1) / m_perspectiva[1][1];
+        derecha   = cercano * (m_perspectiva[1][3] + 1) / m_perspectiva[1][1];
+    }
 }
 
 mat4 TCamara::getMatrizProyeccion() const
