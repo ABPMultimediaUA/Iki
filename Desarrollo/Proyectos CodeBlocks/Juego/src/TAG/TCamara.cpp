@@ -1,19 +1,13 @@
 #include "TCamara.h"
+#include "TLinea.h"
 
 TCamara::TCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej)
 {
-    cercano   = cer;
-    lejano    = lej;
     v_posicion = pos;
 
-    ancho = anch;
-    alto = alt; //comprobar
+    setPerspectiva(grad, anch, alt, cer, lej);
 
-    viewpoint= ancho/alto;
-
-    m_perspectiva= perspective((float) radians(grad), viewpoint, cer, lej);
-
-    esPerspectiva = true;
+    calculateOthers();
 }
 
 TCamara::~TCamara()
@@ -34,6 +28,7 @@ void TCamara::setPerspectiva(float grad, int anch, int alt, float cer, float lej
 
     esPerspectiva = true;
 }
+
 void TCamara::setParalela(float izq, float dch, float inf, float sup, float cer, float lej)
 {
 
@@ -41,6 +36,17 @@ void TCamara::setParalela(float izq, float dch, float inf, float sup, float cer,
     m_paralela= ortho(izq, dch, inf, sup, cer, lej);
 
     esPerspectiva = false;
+}
+
+void TCamara::calculateOthers(){
+    if(esPerspectiva){
+        //near   = m34/(m33-1);
+        //far    = m34/(m33+1);
+        inferior  = cercano * (m_perspectiva[2][3] - 1) / m_perspectiva[2][2];
+        superior  = cercano * (m_perspectiva[2][3] + 1) / m_perspectiva[2][2];
+        izquierda = cercano * (m_perspectiva[1][3] - 1) / m_perspectiva[1][1];
+        derecha   = cercano * (m_perspectiva[1][3] + 1) / m_perspectiva[1][1];
+    }
 }
 
 mat4 TCamara::getMatrizProyeccion() const
@@ -59,4 +65,11 @@ void TCamara::beginDraw()
 void TCamara::endDraw()
 {
 
+}
+
+TLinea TCamara::getRayFromScreenCoordinates(float x, float y){
+    float x2 = ((derecha  - izquierda) * x) / ancho;
+    float y2 = ((inferior - superior)  * x) / alto;
+
+    return TLinea(0,0,0,x2,y2,cercano);
 }
