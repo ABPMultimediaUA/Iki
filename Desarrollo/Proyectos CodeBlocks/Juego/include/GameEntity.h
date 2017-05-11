@@ -5,7 +5,6 @@
 #include "Enemies/Path/PathEdge.h"
 #include "Fachada/AnimatedMesh.h"
 #include "Fachada/SceneNode.h"
-#include "MyEventReceiver.h"
 #include "Map.h"
 #include "Enemies/StateMachine/Mensaje.h"
 #include "EntityManager.h"

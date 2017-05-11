@@ -34,7 +34,6 @@ TShader::~TShader()
 		glDetachShader(m_programa, m_shaders[i]);
 		glDeleteShader(m_shaders[i]);
 	}
-
 	glDeleteProgram(m_programa);
 }
 

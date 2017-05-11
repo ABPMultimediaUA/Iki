@@ -165,7 +165,6 @@
 		<Unit filename="include/TAG/TCamara.h" />
 		<Unit filename="include/TAG/TDisplay.h" />
 		<Unit filename="include/TAG/TEntidad.h" />
-		<Unit filename="include/TAG/TEventReceiver.h" />
 		<Unit filename="include/TAG/TGestorRecursos.h" />
 		<Unit filename="include/TAG/TLinea.h" />
 		<Unit filename="include/TAG/TLuz.h" />

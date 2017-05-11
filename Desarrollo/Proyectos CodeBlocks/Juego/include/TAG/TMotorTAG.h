@@ -9,7 +9,6 @@
 #include "TMalla.h"
 #include "TGestorRecursos.h"
 #include "TAnimacion.h"
-#include "TEventReceiver.h"
 
 
 class TMotorTAG
