@@ -80,7 +80,22 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
             return true;
         }
     }
-}    
+
+    ///colision con triggers con body
+    std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->isPuerta()){
+                if(triggers.at(i)->getBody()->GetFixtureList())
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
+                return true;
+            }
+        }
+    }
+
+    //if(colisionPuertas(destino))
+        //return true;
+    return false;
+}
 
 bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
     if(posicion.Distance(p) < distanceFOV ){
@@ -101,32 +116,6 @@ bool Enemy::isEnemySeeing(Structs::TPosicion destino){
         return true;
     else
         return false;
-}
-bool Enemy::isPathObstructured(Structs::TPosicion destino){
-    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
-    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
-
-    ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
-            return true;
-        }
-    }
-
-    ///colision con triggers con body
-    std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
-    for (int i = 0; i < triggers.size(); i++) {
-        if (triggers.at(i)->isPuerta()){
-                if(triggers.at(i)->getBody()->GetFixtureList())
-            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
-                return true;
-            }
-        }
-    }
-
-    //if(colisionPuertas(destino))
-        //return true;
-    return false;
 }
 bool Enemy::colisionPuertas(Structs::TPosicion destino){
     input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
