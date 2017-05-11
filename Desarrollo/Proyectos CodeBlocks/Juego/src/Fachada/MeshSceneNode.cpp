@@ -17,7 +17,7 @@ MeshSceneNode::MeshSceneNode(const char* file)
     node = GraphicsFacade::getInstance().smgr->addMeshSceneNode(mesh);
     //node->setPosition(vector3df(168.5, 0, 56.5));
 
-    GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(),irr::video::SColor(0,0,0,0));
+    GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(),irr::video::SColor(0,255,255,255));
     node->setMaterialFlag(video::EMF_LIGHTING, false);
 }
 
@@ -40,4 +40,14 @@ void MeshSceneNode::setScale(Structs::TMedida scale){
 
 void MeshSceneNode::setVisible(bool visible){
     node->setVisible(visible);
+}
+
+void MeshSceneNode::setTexture(const char* file){
+    node->setMaterialTexture( 0, GraphicsFacade::getInstance().driver->getTexture(file) );
+    node->setMaterialType( video::EMT_SOLID );
+}
+
+void MeshSceneNode::cambiarColor(Structs::TColor color){
+    //std::cout << "Opacidad: " << color.opacity << std::endl;
+    GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(), SColor(color.opacity, color.r, color.g, color.b));
 }

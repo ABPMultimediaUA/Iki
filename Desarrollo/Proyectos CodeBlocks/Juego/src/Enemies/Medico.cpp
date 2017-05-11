@@ -10,6 +10,7 @@ void Medico::inicializar_enemigo(Map* m)
     Structs::TColor color = {255,160,160,160};
     //modelo->cambiarColor(color);
     aniMesh = new AnimatedMesh("resources/Modelos/Medica.obj", color, posicion, 0);
+    aniMesh->setTexture("resources/Texturas/medico.png");
     aniMesh->setScale(3);
     tipo = 2;
     vida = 2;
