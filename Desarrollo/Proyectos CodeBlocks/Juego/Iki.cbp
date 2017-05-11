@@ -164,6 +164,8 @@
 		<Unit filename="include/TAG/TAnimacion.h" />
 		<Unit filename="include/TAG/TCamara.h" />
 		<Unit filename="include/TAG/TDisplay.h" />
+		<Unit filename="include/TAG/TDraw2D.cpp" />
+		<Unit filename="include/TAG/TDraw2D.h" />
 		<Unit filename="include/TAG/TEntidad.h" />
 		<Unit filename="include/TAG/TGestorRecursos.h" />
 		<Unit filename="include/TAG/TLinea.h" />

@@ -3,7 +3,7 @@
 TDisplay::TDisplay(int width, int height, const std::string &title)
 {
 
-	m_window.create(sf::VideoMode(width, height), title);
+	m_window.create(sf::VideoMode(width, height), title/*, sf::Style::Fullscreen*/);
 
     running= true;
 
@@ -42,6 +42,13 @@ void TDisplay::Update()
             running = false;
 
             break;
+        case sf::Event::KeyPressed:
+            if(event.key.code == sf::Keyboard::Escape)
+                running = false;
+            else if(event.key.code == sf::Keyboard::F11)
+                setModoVentana();
+
+        break;
 
         }
     }
@@ -57,23 +64,32 @@ void TDisplay::Display()
 {
     m_window.display();
 }
-/*
-void TDisplay::setModoVentana()
+
+void TDisplay::Draw(sf::Sprite s)
 {
-    SDL_SetWindowFullscreen(m_window, 0);
-    SDL_SetWindowSize(m_window, 1360, 768);
-}
-/*
-void TDisplay::setFullScreen()
-{
-   SDL_SetWindowFullscreen(m_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+    std::cout<<"entra"<<std::endl;
+    m_window.draw(s);
 }
 
-Uint32 TDisplay::getTimer()
+
+void TDisplay::setModoVentana()
 {
-    return SDL_GetTicks();
+    m_window.clear();
+    m_window.create(sf::VideoMode(1280 , 720), "IKIGAI");
+
 }
-*/
+
+void TDisplay::setFullScreen()
+{
+   m_window.create(sf::VideoMode(1920 , 1080), "IKIGAI", sf::Style::Fullscreen);
+}
+
+
+sf::Time TDisplay::getClocks()
+{
+    return clock.getElapsedTime();
+}
+
 
 
 

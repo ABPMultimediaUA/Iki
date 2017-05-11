@@ -14,6 +14,7 @@ class TCamara : public TEntidad
         TCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej);
         virtual ~TCamara();
 
+        void calculateOthers();
         void setPerspectiva(float grad, int anch, int alt, float cer, float lej);
         void setParalela(float izq, float dch, float inf, float sup, float cer, float lej);
         mat4 getMatrizProyeccion() const;
