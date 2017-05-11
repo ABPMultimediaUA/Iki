@@ -47,6 +47,7 @@ class Guardia : public Enemy
         void ejecutarAtaque();
         void buscarProta();
         bool getAtacando(){return atacando;}
+        bool isGuardia(){return true;}
         void setModeloVisible(bool b){modeloAtaque->setVisible(b);}
 
 

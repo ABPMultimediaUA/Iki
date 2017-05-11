@@ -7,6 +7,7 @@
 #include "MapComponent.h"
 #include "Muerto.h"
 #include "Enemies/Guardia.h"
+#include "Investigar.h"
 
 #include "Trigger.h"
 #include "TriggerSystem.h"
@@ -17,6 +18,12 @@ void Enemy::update(){
     //toProtaPosition=posicionProta-posicion;
 
     if (bateria<100.0) bateria += 0.1;
+    if (guessing){
+        guessing = false;
+        toProtaPosition = posicion;
+        posicionInteres = posicionProta;
+        G_stateMachine->ChangeState(Investigar::Instance());
+    }
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 9.5; //9.5 es la velocidad
@@ -189,13 +196,6 @@ void Enemy::cambiarColor(Structs::TColor c){
 void Enemy::calcularAngulo(Structs::TPosicion p1){
     angulo = atan2f((p1.Z-posicion.Z) ,
                 -(p1.X-posicion.X)) * 180.f / irr::core::PI;
-}
-bool Enemy::isGuardia(){
-    if(this->getTipo() == 1){
-        return true;
-    }
-    else
-        return false;
 }
 void Enemy::girarVista(float giro, int posV){
     angulo = angulo + giro;
