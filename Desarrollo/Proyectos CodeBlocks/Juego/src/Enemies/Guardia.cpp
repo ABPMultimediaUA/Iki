@@ -122,22 +122,17 @@ void Guardia::investigar(){
 }
 void Guardia::perseguir(){
     if (isEnemySeeing(posicionProta)){
-        //moverBody(quietoParado);
+        calcularAngulo(posicionProta);
         toProtaPosition = posicionProta - posicion;
+        toProtaPosition.Normalize();
         mirandoHacia = toProtaPosition;
-        //toProtaPosition.Normalize();
-        //posicion = posicion + toProtaPosition*(avMovement*2);
 
         float disancia = posicion.Distance(posicionProta);
         float vel = testFL(disancia, bateria, 1);
         if (bateria >= 0) bateria-=vel/100;
 
-        //std::cout << bateria << std::endl;
-        //std::cout << vel/25 << std::endl;
-
-        toProtaPosition.Normalize();
         posicion = posicion + toProtaPosition*(avMovement*vel/25);
-        calcularAngulo(posicionProta);
+
         //MoverEnemigo(toProtaPosition);
         setPosition();
     }else{
