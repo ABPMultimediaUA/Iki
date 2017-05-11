@@ -13,6 +13,8 @@ class MeshSceneNode
         void setPosition(Structs::TPosicion);
         void setRotation(float);
         void setVisible(bool);
+        void setTexture(const char*);
+        void cambiarColor(Structs::TColor);
 
     protected:
 

@@ -61,7 +61,8 @@ void Map::inicializar_mapa(){
 
     primera_sala = new MeshSceneNode("resources/Modelos/primera_sala.obj");
     segunda_sala = new MeshSceneNode("resources/Modelos/segunda_sala.obj");
-    tercera_sala = new MeshSceneNode("resources/Modelos/tercera_sala.obj");
+    tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");
+    tercera_sala->setTexture("resources/Texturas/mapa.png");
 
     //suelo = new MeshSceneNode(med, pos, col);
 
