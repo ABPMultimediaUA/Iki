@@ -164,7 +164,6 @@
 		<Unit filename="include/TAG/TAnimacion.h" />
 		<Unit filename="include/TAG/TCamara.h" />
 		<Unit filename="include/TAG/TDisplay.h" />
-		<Unit filename="include/TAG/TDraw2D.cpp" />
 		<Unit filename="include/TAG/TDraw2D.h" />
 		<Unit filename="include/TAG/TEntidad.h" />
 		<Unit filename="include/TAG/TGestorRecursos.h" />
@@ -265,6 +264,7 @@
 		<Unit filename="src/TAG/TAnimacion.cpp" />
 		<Unit filename="src/TAG/TCamara.cpp" />
 		<Unit filename="src/TAG/TDisplay.cpp" />
+		<Unit filename="src/TAG/TDraw2D.cpp" />
 		<Unit filename="src/TAG/TEntidad.cpp" />
 		<Unit filename="src/TAG/TGestorRecursos.cpp" />
 		<Unit filename="src/TAG/TLinea.cpp" />

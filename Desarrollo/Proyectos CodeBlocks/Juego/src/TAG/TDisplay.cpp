@@ -67,8 +67,9 @@ void TDisplay::Display()
 
 void TDisplay::Draw(sf::Sprite s)
 {
-    std::cout<<"entra"<<std::endl;
+    std::cout<<"Dibuja Sprite"<<std::endl;
     m_window.draw(s);
+
 }
 
 
@@ -89,7 +90,6 @@ sf::Time TDisplay::getClocks()
 {
     return clock.getElapsedTime();
 }
-
 
 
 

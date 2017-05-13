@@ -46,6 +46,8 @@ void TShader::Update(TCamara* camera)
 {
     glm::mat4 model = camera->getMatrizProyeccion() * TShader::viewMatrix ;
 	glUniformMatrix4fv(m_uniforms[TRANSFORM_U], 1, GL_FALSE, &model[0][0]);
+
+	glUseProgram(0);
 }
 
 void TShader::CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const string& errorMessage)

@@ -3,6 +3,8 @@
 
 #include <irrlicht.h>
 
+#include <SFML/Window.hpp>
+
 using namespace irr;
 
 using namespace core; //namespace fundamentales;
@@ -11,7 +13,7 @@ using namespace video; //namespace de vídeo;
 using namespace io; //namespace io;
 using namespace gui; //namespace gui;
 
-class MyEventReceiver : public IEventReceiver
+class MyEventReceiver : public IEventReceiver //sf::Event
 {
     public:
         static MyEventReceiver& getInstance() {

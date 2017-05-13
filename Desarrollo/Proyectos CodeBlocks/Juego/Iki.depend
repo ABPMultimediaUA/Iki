@@ -6745,12 +6745,11 @@
 1491853244 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_torreta.h
 	<Trigger.h>
 
-1494510926 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1494695832 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"Game.h"
 	<iostream>
-	<SFML/Graphics.hpp>
-	<SFML/Window.hpp>
 	"TDisplay.h"
+	"TDraw2D.h"
 	"TMotorTAG.h"
 	"TShader.h"
 
@@ -6774,7 +6773,7 @@
 	"PatrolPoint.h"
 	"Enemies/Path/PathEdge.h"
 
-1494502332 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1494512266 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Enemies/Path/PathEdge.h"
 	"Fachada/AnimatedMesh.h"
@@ -7962,8 +7961,9 @@
 	"Structs.h"
 	<iostream>
 
-1494325385 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
+1494698402 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
 	<irrlicht.h>
+	<SFML/Window.hpp>
 
 1491148234 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
 	<vector>
@@ -10020,12 +10020,11 @@
 	"Trigger_Torreta.h"
 	"Fachada/GraphicsFacade.h"
 
-1494510867 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
+1494697443 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
 	<glew.h>
 	<string>
 	<iostream>
 	<SFML/Graphics.hpp>
-	<SFML/Window.hpp>
 
 1492687283 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gl\glew.h
 	<stddef.h>
@@ -10363,7 +10362,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1494501435 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
+1494638614 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
 	"TShader.h"
 	"TNodo.h"
 	"TTransform.h"
@@ -10372,8 +10371,9 @@
 	"TMalla.h"
 	"TGestorRecursos.h"
 	"TAnimacion.h"
+	<SFML/Graphics.hpp>
 
-1491333561 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
+1494690697 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
 	<glew.h>
 	"TTransform.h"
 	"TCamara.h"
@@ -10854,7 +10854,7 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tcamara.h
+1494513077 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tcamara.h
 	<iostream>
 	<vector>
 	<TEntidad.h>
@@ -11143,10 +11143,11 @@
 	"TAnimacion.h"
 	<sstream>
 
-1491326383 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
+1494512286 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
 	"TCamara.h"
+	"TLinea.h"
 
-1494509852 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
+1494691971 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
 	"TDisplay.h"
 
 1489662322 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
@@ -11176,7 +11177,7 @@
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1494501495 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
+1494512266 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
 	"TMotorTAG.h"
 	"TShader.h"
 
@@ -11188,7 +11189,7 @@
 
 1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecurso.h
 
-1494503365 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
+1494694943 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
 	"TRecursoMalla.h"
 	"TGestorRecursos.h"
 	"TMalla.h"
@@ -11198,10 +11199,10 @@
 	"TRecursoMaterial.h"
 	"TMotorTAG.h"
 
-1494503951 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
+1494694416 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
 	"TShader.h"
 
-1491328561 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttextura.cpp
+1494693880 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttextura.cpp
 	"TTextura.h"
 
 1491325127 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttexturacache.cpp
@@ -11210,11 +11211,11 @@
 1491326359 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
 	"TTransform.h"
 
-1492792248 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\teventreceiver.cpp
+1494696361 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\teventreceiver.cpp
 	"TEventReceiver.h"
 
-1494325385 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\teventreceiver.h
-	<SDL2\SDL.h>
+1494698001 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\teventreceiver.h
+	<SFML/Window.hpp>
 
 1494325385 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sdl2\sdl_config_windows.h
 	"SDL_platform.h"
@@ -11646,4 +11647,15 @@
 	"TVector.h"
 
 1494357712 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tvector.h
+
+1494523414 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdraw2d.cpp
+	"TDraw2D.h"
+
+1494633121 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdraw2d.h
+	<SFML/Graphics.hpp>
+	<string>
+	<iostream>
+
+1494695086 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdraw2d.cpp
+	"TDraw2D.h"
 

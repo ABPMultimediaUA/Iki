@@ -27,6 +27,9 @@ void TRecursoMalla::MeshEntry::Init(const std::vector<Vertex>& Vertices,const st
     glGenBuffers(1, &IB);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IB);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * NumIndices, &Indices[0], GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 TRecursoMalla::TRecursoMalla()
@@ -128,11 +131,13 @@ void TRecursoMalla::Render()
     glEnableVertexAttribArray(1);
     glEnableVertexAttribArray(2);
 
-    for (unsigned int i = 0 ; i < m_Entries.size() ; i++) {
+    for (unsigned int i = 0 ; i < m_Entries.size() ; i++)
+    {
         glBindBuffer(GL_ARRAY_BUFFER, m_Entries[i].VB);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
         glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
+
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_Entries[i].IB);
 
@@ -144,7 +149,14 @@ void TRecursoMalla::Render()
         }
 
         glDrawElements(GL_TRIANGLES, m_Entries[i].NumIndices, GL_UNSIGNED_INT, 0);
+
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     }
+
+
 
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);

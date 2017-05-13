@@ -6,8 +6,6 @@
 #include <string>
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-
 
 class TDisplay
 {
@@ -20,6 +18,8 @@ public:
 	void Clear(float r,float g,float b,float a);
 	void Update();
 	void Draw(sf::Sprite s);
+	void Draw2(){m_window.pushGLStates();};
+	void Draw3(){m_window.popGLStates();};
     void setModoVentana();
 	void setFullScreen();
 	sf::Time getClocks();

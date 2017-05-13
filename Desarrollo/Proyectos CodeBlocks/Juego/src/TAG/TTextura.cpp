@@ -27,6 +27,8 @@ TTextura::TTextura(const std::string& FileName)
 
 	stbi_image_free(imageData);
 
+	glBindTexture(GL_TEXTURE_2D, 0);
+
 }
 
 /*bool TTextura::Load()

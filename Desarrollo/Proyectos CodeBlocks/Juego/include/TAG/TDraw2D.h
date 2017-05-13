@@ -7,7 +7,7 @@
 class TDraw2D
 {
     public:
-        TDraw2D(const std::string filename);
+        TDraw2D(const std::string filename, sf::Vector2i rectam);
         virtual ~TDraw2D();
 
         sf::Sprite getSprite();
@@ -18,6 +18,7 @@ class TDraw2D
     private:
         sf::Texture m_texture;
         sf::Sprite m_sprite;
+        sf::IntRect m_rectangle;
 
 };
 

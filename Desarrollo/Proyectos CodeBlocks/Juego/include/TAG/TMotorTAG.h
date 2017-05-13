@@ -9,6 +9,7 @@
 #include "TMalla.h"
 #include "TGestorRecursos.h"
 #include "TAnimacion.h"
+#include <SFML/Graphics.hpp>
 
 
 class TMotorTAG
