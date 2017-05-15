@@ -7,11 +7,13 @@
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 
-1492687046 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1494844753 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"Game.h"
-	"TAG/TDisplay.h"
-	"TAG/TMotorTAG.h"
-	"TAG/TShader.h"
+	<iostream>
+	"TDisplay.h"
+	"TDraw2D.h"
+	"TMotorTAG.h"
+	"TShader.h"
 
 1490711716 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\irrklang-1.5.0\include\irrklang.h
 	"ik_irrKlangTypes.h"
@@ -354,12 +356,11 @@
 	<iostream>
 	"Player_Ray.h"
 
-1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Enemies/Path/PathEdge.h"
 	"Fachada/AnimatedMesh.h"
 	"Fachada/SceneNode.h"
-	"MyEventReceiver.h"
 	"Map.h"
 	"Enemies/StateMachine/Mensaje.h"
 	"EntityManager.h"
@@ -1310,7 +1311,7 @@
 1491243212 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
 	"Map.h"
 
-1491243211 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
 	<vector>
 	"tinyxml2.h"
 	"Structs.h"
@@ -1320,14 +1321,14 @@
 	"Enemies/Path/Edge.h"
 	"Enemies/Path/Nodo.h"
 
-1491836864 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
+1494843083 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
 	"GameEntity.h"
 	"Enemies/StateMachine/StateMachine.h"
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 	"Enemies/Path/PathEdge.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -1337,16 +1338,18 @@
 	"MapComponent.h"
 	"Muerto.h"
 	"Enemies/Guardia.h"
+	"Trigger.h"
+	"TriggerSystem.h"
 
-1490711890 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gameentity.cpp
 	"GameEntity.h"
 	"PhisicsWorld.h"
 
-1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -1357,7 +1360,7 @@
 	"Muerto.h"
 	"GUI/HUD.h"
 
-1492684854 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1493907565 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -1392,8 +1395,9 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
+1494843176 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
 	<irrlicht.h>
+	<SFML/Window.hpp>
 
 1491320247 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
 	<irrlicht.h>
@@ -1560,7 +1564,7 @@
 	<android/log.h>
 	<assert.h>
 
-1490711682 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\mapcomponent.h
 	"Structs.h"
 	"Fachada/AnimatedMesh.h"
 
@@ -1577,7 +1581,7 @@
 1487066267 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\files.cpp
 	"Files.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
 	"MapComponent.h"
 	"Fachada/AnimatedMesh.h"
 	"PhisicsWorld.h"
@@ -3089,17 +3093,17 @@
 	"Structs.h"
 	<iostream>
 
-1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\meshscenenode.h
 	"Structs.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animatedmesh.cpp
 	"Fachada/AnimatedMesh.h"
 	"Fachada/GraphicsFacade.h"
 
 1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animatedmesh.h
 	"Structs.h"
 
-1492702506 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1494843083 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"SceneNode.h"
@@ -3109,15 +3113,15 @@
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1492622946 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
-1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
 
-1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\scenenode.cpp
+1493220208 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\scenenode.cpp
 	"Fachada/SceneNode.h"
 	"Fachada/GraphicsFacade.h"
 	"World.h"
@@ -3127,7 +3131,7 @@
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
 
-1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger.h
+1494843085 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger.h
 	<GameEntity.h>
 	"TriggerRegion.h"
 
@@ -3161,12 +3165,13 @@
 1490711682 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
+	"PhisicsWorld.h"
 
-1490803659 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1494843085 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1490711687 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
@@ -3416,7 +3421,7 @@
 1491243212 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\patrullar.h
 	"Enemies/StateMachine/State.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -5813,7 +5818,7 @@
 
 1492685127 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\game.h
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
+1494843094 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
 	"Enemies/Medico.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -5950,7 +5955,7 @@
 1491243211 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\muerto.h
 	"Enemies/StateMachine/State.h"
 
-1491243212 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\enviarmensaje.cpp
+1494410372 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\enviarmensaje.cpp
 	"Enemies/StateMachine/EnviarMensaje.h"
 	"GameEntity.h"
 	"PhisicsWorld.h"
@@ -5976,7 +5981,7 @@
 1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\atacar.h
 	"Enemies/StateMachine/State.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\investigar.cpp
+1494410372 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\investigar.cpp
 	"Enemies/StateMachine/Investigar.h"
 	"Enemies/StateMachine/Vigilar.h"
 	"Enemy.h"
@@ -5991,7 +5996,7 @@
 1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\vigilar.h
 	"Enemies/StateMachine/State.h"
 
-1491909938 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
+1494410368 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Vigilar.h"
@@ -6009,7 +6014,7 @@
 	"EntityManager.h"
 	"Enemies/StateMachine/Muerto.h"
 
-1491853152 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\patrullar.cpp
+1494410372 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\patrullar.cpp
 	"Enemies/StateMachine/Patrullar.h"
 	"Enemies/StateMachine/Vigilar.h"
 	"Enemies/StateMachine/PedirAyuda.h"
@@ -6018,7 +6023,7 @@
 	"Enemy.h"
 	"Enemies/StateMachine/Mensaje.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\pedirayuda.cpp
+1494410372 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\pedirayuda.cpp
 	"Enemies/StateMachine/PedirAyuda.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -6047,7 +6052,7 @@
 1490715534 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\statemachine.cpp
 	"Enemies/StateMachine/StateMachine.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\vigilar.cpp
+1494410372 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\vigilar.cpp
 	"Enemies/StateMachine/Vigilar.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -6077,7 +6082,7 @@
 	"Fachada/Image.h"
 	"Fachada/GraphicsFacade.h"
 
-1490715533 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
+1494325150 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
 	"Structs.h"
 
 1492685119 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
@@ -6149,7 +6154,7 @@
 	"GUI/GUI_Control.h"
 	"Fachada/Image.h"
 
-1491853156 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_menu.cpp
+1493828576 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui_menu.cpp
 	"GUI/GUI_Menu.h"
 	"Fachada/Image.h"
 
@@ -6195,14 +6200,15 @@
 1490711890 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
 	<Trigger_Respawning.h>
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
 	"Trigger_PuertaLlave.h"
 	"Player.h"
+	"PhisicsWorld.h"
 
-1491915733 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
+1494843085 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
 	<Trigger.h>
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_ruido.cpp
 	"Trigger_Ruido.h"
 	"Fachada/GraphicsFacade.h"
 	"Player.h"
@@ -6219,19 +6225,19 @@
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
-1491909940 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
+1494843094 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
 	"Enemies/Dron.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
+1494843094 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
 	"Enemies/Guardia.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 	"Fachada/MeshSceneNode.h"
 	"SoundManager.h"
 
-1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\atacar.cpp
+1494410372 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\atacar.cpp
 	"Enemies/StateMachine/Atacar.h"
 	"Enemies/StateMachine/Investigar.h"
 	"Enemy.h"
@@ -6247,7 +6253,7 @@
 1491243212 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\muerto.h
 	"Enemies/StateMachine/State.h"
 
-1491853151 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_torreta.h
+1494843085 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_torreta.h
 	<Trigger.h>
 
 1491915735 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_aceite.cpp
@@ -8835,11 +8841,11 @@
 1491823837 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\huir.h
 	"Enemies/StateMachine/State.h"
 
-1492687027 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
+1494843176 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
 	<glew.h>
-	<SDL2\SDL.h>
 	<string>
 	<iostream>
+	<SFML/Graphics.hpp>
 
 1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gl\glew.h
 	<stddef.h>
@@ -9169,7 +9175,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
+1494844773 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
 	"TShader.h"
 	"TNodo.h"
 	"TTransform.h"
@@ -9178,8 +9184,9 @@
 	"TMalla.h"
 	"TGestorRecursos.h"
 	"TAnimacion.h"
+	<SFML/Graphics.hpp>
 
-1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
+1494843176 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
 	<glew.h>
 	"TTransform.h"
 	"TCamara.h"
@@ -9660,7 +9667,7 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tcamara.h
+1494843176 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tcamara.h
 	<iostream>
 	<vector>
 	<TEntidad.h>
@@ -9918,7 +9925,7 @@
 1492687044 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\assimp\postprocess.h
 	"types.h"
 
-1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tgestorrecursos.h
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tgestorrecursos.h
 	"TTexturaCache.h"
 	"TMallaCache.h"
 
@@ -9945,20 +9952,21 @@
 	<assert.h>
 	<stdarg.h>
 
-1491422702 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tanimacion.cpp
+1494325150 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tanimacion.cpp
 	"TAnimacion.h"
 	<sstream>
 
-1491422703 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
 	"TCamara.h"
+	"TLinea.h"
 
-1492685382 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
-	"TAG/TDisplay.h"
+1494844737 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
+	"TDisplay.h"
 
 1491422703 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
 	"TEntidad.h"
 
-1491422703 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tgestorrecursos.cpp
+1494407252 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tgestorrecursos.cpp
 	"TGestorRecursos.h"
 
 1491422703 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tluz.cpp
@@ -9982,7 +9990,7 @@
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
 	"TMotorTAG.h"
 	"TShader.h"
 
@@ -9994,7 +10002,7 @@
 
 1491422694 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecurso.h
 
-1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
+1494843176 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
 	"TRecursoMalla.h"
 	"TGestorRecursos.h"
 	"TMalla.h"
@@ -10004,10 +10012,10 @@
 	"TRecursoMaterial.h"
 	"TMotorTAG.h"
 
-1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
+1494843176 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
 	"TShader.h"
 
-1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttextura.cpp
+1494843176 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttextura.cpp
 	"TTextura.h"
 
 1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttexturacache.cpp
@@ -10016,9 +10024,10 @@
 1491422704 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
 	"TTransform.h"
 
-1491853153 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_torreta.cpp
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_torreta.cpp
 	"Trigger_Torreta.h"
 	"Fachada/GraphicsFacade.h"
+	"PhisicsWorld.h"
 
 1494697443 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdisplay.h
 	<glew.h>
@@ -11658,4 +11667,419 @@
 
 1494695086 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdraw2d.cpp
 	"TDraw2D.h"
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window.hpp
+	<SFML/System.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+	<SFML/Window/Touch.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\config.hpp
+	"TargetConditionals.h"
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\fileinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\memoryinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<iterator>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\utf.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\string.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\thread.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\threadlocalptr.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\vector2.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\system\vector3.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\context.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\export.hpp
+	<SFML/Config.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\glresource.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\contextsettings.hpp
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\event.hpp
+	<SFML/Config.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\joystick.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/String.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\keyboard.hpp
+	<SFML/Window/Export.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\mouse.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\sensor.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/System/Time.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\touch.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\videomode.hpp
+	<SFML/Window/Export.hpp>
+	<vector>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\window.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/String.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\window\windowstyle.hpp
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/View.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\blendmode.hpp
+	<SFML/Graphics/Export.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\export.hpp
+	<SFML/Config.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\circleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\shape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/Vector2.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\drawable.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\renderstates.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/Transform.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\transform.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\rect.hpp
+	<SFML/System/Vector2.hpp>
+	<algorithm>
+	<SFML/Graphics/Rect.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\rect.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\transformable.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Transform.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\vertexarray.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<vector>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\vertex.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/System/Vector2.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\color.hpp
+	<SFML/Graphics/Export.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\primitivetype.hpp
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\convexshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<vector>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\font.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/String.hpp>
+	<map>
+	<string>
+	<vector>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\glyph.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\texture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/GlResource.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\image.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+	<vector>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\rectangleshape.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Shape.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\rendertarget.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\view.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/System/Vector2.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\rendertexture.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\renderwindow.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/Window.hpp>
+	<string>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\shader.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Glsl.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<map>
+	<string>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\glsl.hpp
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/Graphics/Glsl.inl>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\glsl.inl
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\sprite.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1494843091 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\lib\sfml-2.4.2\include\sfml\graphics\text.hpp
+	<SFML/Graphics/Export.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/System/String.hpp>
+	<string>
+	<vector>
+
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tlinea.h
+	"TVector.h"
+
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tvector.h
+
+1494843176 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdraw2d.cpp
+	"TDraw2D.h"
+
+1494843176 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tdraw2d.h
+	<SFML/Graphics.hpp>
+	<string>
+	<iostream>
+
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tlinea.cpp
+	"TLinea.h"
+
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tplano.cpp
+	"TPlano.h"
+
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tplano.h
+	"TVector.h"
+
+1494843095 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tvector.cpp
+	"TVector.h"
+
+1494843084 c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tvector.h
 

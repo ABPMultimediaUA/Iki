@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
     // create the window
-    TDisplay window(1280, 720, "IKIGAI");
+    //TDisplay window(1360, 768, "IKIGAI");
 
 
     TMotorTAG  *motor   = new TMotorTAG();
@@ -30,7 +30,7 @@ int main()
     TDraw2D hud("./resources/res/tuerca.png", tam);
 
     TNodo *nodoMalla = motor->crearMalla("./resources/res/cube2.obj");
-    TShader shader = motor->cargarShader("./resources/res/basicShader");
+    //TShader shader = motor->cargarShader("./resources/res/basicShader");
     TNodo *nodoAnimacion = motor->cargarAnimacion("./resources/res/animacion/mini_knight_fem_",20);
 
     hud.setPosition(20, 20);
@@ -40,7 +40,7 @@ int main()
     // run the program as long as the window is open
     while (window.isOpen())
     {
-        window.Draw3(); //m_window.popGLStates();
+        window.Draw3(); ///m_window.popGLStates();
 
         window.Clear(0.0f, 0.15f, 0.3f, 1.0f);
         window.Update();
@@ -50,7 +50,7 @@ int main()
         motor->draw();
         shader.Update(cCamara);
 
-        window.Draw2(); //m_window.pushGLStates();
+        window.Draw2(); ///m_window.pushGLStates();
 
         window.Draw(hud.getSprite());
 

@@ -2,7 +2,7 @@
 #include "TShader.h"
 
 
-TMotorTAG::TMotorTAG()
+TMotorTAG::TMotorTAG() : window(1360, 768, "IKIGAI"), shader = cargarShader("resources/res/basicShader")
 {
     //ctor
     escena = new TNodo();
@@ -284,5 +284,30 @@ void TMotorTAG::draw()
     //std::cout << std::endl;
     //std::cout << "Dibujando mallas" << std::endl;
     escena->draw();
+}
+
+bool TMotorTAG::run(){
+
+   if( window.isOpen()){
+        window.Draw3(); ///m_window.popGLStates();
+
+        window.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+        window.Update();
+
+        shader.Bind();
+
+        motor->draw();
+        shader.Update(cCamara);
+
+        window.Draw2(); ///m_window.pushGLStates();
+
+        window.Draw(hud.getSprite());
+
+        //window.Draw3(); //m_window.popGLStates();
+
+        window.Display();
+        return true;
+   }else
+        return false;
 }
 

@@ -3,15 +3,16 @@
 
 GraphicsFacade::GraphicsFacade()
 {
-
-    crearDevice();
+    motor = new TMotorTAG();
+    gui = new GUI();
+    /*crearDevice();
 
 	driver = device->getVideoDriver();
 	smgr = device->getSceneManager();
-	gui = new GUI();
+
 	//guienv = device->getGUIEnvironment();
 
-	timer      = device->getTimer();
+	timer      = device->getTimer();*/
 
 
 	//cout << "Graphics Engine inicializado" << endl;
@@ -93,7 +94,7 @@ void GraphicsFacade::draw(int draw_type){
 
 bool GraphicsFacade::run(){
 
-    return device->run();
+    return motor->run();
 }
 
 void GraphicsFacade::close(){

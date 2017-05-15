@@ -58,14 +58,15 @@ class GraphicsFacade
     private:
 
         GraphicsFacade();
-        void crearDevice();
+        TMotorTAG* motor;
         GUI* gui;
+        /*void crearDevice();
         IrrlichtDevice* device;
         IVideoDriver* driver;
         ISceneManager* smgr;
         ITimer* timer;
         plane3df plane;
-        line3df ray;
+        line3df ray;*/
 
         //TMotorTAG* motor;
 

@@ -69,7 +69,9 @@ void TCamara::endDraw()
 
 TLinea TCamara::getRayFromScreenCoordinates(float x, float y){
     float x2 = ((derecha  - izquierda) * x) / ancho;
+    x2 = x2 - ((derecha - izquierda) / 2);
     float y2 = ((inferior - superior)  * x) / alto;
+    y2 = y2 - ((inferior - superior) / 2);
 
     return TLinea(0,0,0,x2,y2,cercano);
 }

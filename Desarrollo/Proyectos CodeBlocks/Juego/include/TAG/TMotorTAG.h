@@ -29,7 +29,7 @@ class TMotorTAG
         TNodo *getEscena(){return escena;}
         TNodo *getCamaraActiva();
 
-
+        bool run();
 
         int registrarLuz(TNodo* nod);
         int registrarCamara(TNodo* nod);
@@ -47,7 +47,9 @@ class TMotorTAG
 
     private:
         TNodo* escena;
-        TGestorRecursos *gestorRecursos;
+        TGestorRecursos* gestorRecursos;
+        TDisplay window;
+        TShader shader;
 
         vector<bool> l_activa, c_activa;
         vector<TNodo*> luces;
