@@ -22,7 +22,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    velocidad = 0.3;
+    velocidad = 0.5;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
@@ -91,14 +91,14 @@ void Player::moverBody(Structs::TPosicion vec){
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
         speed = 1;
-        velocidad = 0.15;
+        velocidad = 0.25;
         HUD::getInstance()->sigiloUsed();
     }
-    else if(velocidad == 0.15f){
-        velocidad = 0.3;
+    else if(velocidad == 0.25f){
+        velocidad = 0.4;
         HUD::getInstance()->sigiloNotUsed();
     }
-    if(velocidad > 0.3){
+    if(velocidad > 0.5){
         comprobarVelocidad();
         speed = 3;
     }
@@ -107,7 +107,7 @@ void Player::moverBody(Structs::TPosicion vec){
 
 void Player::comprobarVelocidad(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2){
-        velocidad = 0.3;
+        velocidad = 0.5;
         tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     }
 }
@@ -173,8 +173,8 @@ bool Player::isPathObstructured(Structs::TPosicion destino){
     input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
 
     ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
             return true;
         }
     }
@@ -187,8 +187,8 @@ bool Player::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
      input2.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
      ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output2,input2,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output2,input2,0)){
             return false;
         }
     }

@@ -4,7 +4,6 @@
 #include "MyEventReceiver.h"
 
 #include "Camera.h"
-#include "SceneNode.h"
 #include "Structs.h"
 
 class GUI;
@@ -48,7 +47,6 @@ class GraphicsFacade
         GUI* getGUI() { return gui; }
         ITimer* getTimer()  { return timer; };
 
-        SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
 
         void setTiempo(f32);

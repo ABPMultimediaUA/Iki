@@ -7,11 +7,14 @@ class MeshSceneNode
 {
     public:
         MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicion, Structs::TColor color);
+        MeshSceneNode(const char*);
         virtual ~MeshSceneNode();
         void setScale(Structs::TMedida);
         void setPosition(Structs::TPosicion);
         void setRotation(float);
         void setVisible(bool);
+        void setTexture(const char*);
+        void cambiarColor(Structs::TColor);
 
     protected:
 

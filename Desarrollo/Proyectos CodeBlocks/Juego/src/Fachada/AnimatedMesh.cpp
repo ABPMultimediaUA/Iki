@@ -5,7 +5,7 @@ AnimatedMesh::AnimatedMesh(const char* file, Structs::TColor color, Structs::TPo
 {
     mesh = GraphicsFacade::getInstance().smgr->getMesh(file);
     modelo = GraphicsFacade::getInstance().smgr->addAnimatedMeshSceneNode(mesh);
-    GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(color.opacity, color.r, color.g, color.b));
+    //GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(color.opacity, color.r, color.g, color.b));
     posicion = p;
     rotacion = r;
     modelo->setPosition(vector3df(posicion.X, posicion.Y, posicion.Z));

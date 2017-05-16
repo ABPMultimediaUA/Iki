@@ -69,7 +69,7 @@ class Enemy : public GameEntity
         bool vectorIsInFOV(Structs::TPosicion p);
         void cambiarColor(Structs::TColor c);
         void calcularAngulo(Structs::TPosicion p1);
-        bool isGuardia();
+        bool isGuardia(){return false;}
         void girarVista(float giro,int posV);
         void quitarVida();
         bool hayGuardias();
@@ -80,6 +80,7 @@ class Enemy : public GameEntity
 
     protected:
 
+        MeshSceneNode* modeloAtaque;
         int tipo,direccion,posVigilando;
         float bateria;
         PatrolRoute* ruta;
@@ -101,6 +102,7 @@ class Enemy : public GameEntity
         b2RayCastOutput	output;
         b2RayCastOutput	output2;
         const float DegToRad = PI/180;
+        bool guessing = false;
         float fieldOfView;
 
         ///PATHPLANNING

@@ -7,14 +7,20 @@
 class MapComponent
 {
     public:
-        MapComponent(float, Structs::TPosicion, int);
+        MapComponent(Structs::TPosicion, int, int);
         ~MapComponent();
-        b2Body *body;
+
+        int getName()   { return name;}
+        int getConecta(){ return conecta;}
+        Structs::TPosicion getPosition(){ return pos;}
 
     protected:
 
     private:
-        AnimatedMesh *modelo;
+        //b2Body *body;
+        int name, conecta;
+        Structs::TPosicion pos;
+        //AnimatedMesh *modelo;
 };
 
 #endif // MAPCOMPONENT_H

@@ -7,6 +7,8 @@
 #include "MapComponent.h"
 #include "Muerto.h"
 #include "Enemies/Guardia.h"
+#include "Investigar.h"
+#include "Atacar.h"
 
 #include "Trigger.h"
 #include "TriggerSystem.h"
@@ -15,8 +17,21 @@ void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
     //toProtaPosition=posicionProta-posicion;
+    //std::cout << bateria << "%   " << std::endl;
+    if (   G_stateMachine->CurrentState() != Atacar::Instance()
+        && G_stateMachine->CurrentState() != Investigar::Instance() ){
 
-    if (bateria<100.0) bateria += 0.1;
+        if (bateria < 100.0){
+            bateria += 0.2;
+        }
+    }
+
+    if (guessing){
+        guessing = false;
+        toProtaPosition = posicion;
+        posicionInteres = posicionProta;
+        G_stateMachine->ChangeState(Investigar::Instance());
+    }
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 9.5; //9.5 es la velocidad
@@ -71,33 +86,13 @@ void Enemy::crearBody(){
     body->CreateFixture(&fixtureDef);
 }
 
-bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
-    if(posicion.Distance(p) < distanceFOV ){
-        if(vectorIsInFOV(p))
-            return true;
-    }
-    return false;
-
-}
-bool Enemy::vectorIsInFOV(Structs::TPosicion p){
-    Structs::TPosicion target = posicion - p;
-    float angle = (float)atan2(target.Y,target.Z);
-    //continua...
-}
-bool Enemy::isEnemySeeing(Structs::TPosicion destino){
-    Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,fieldOfView) && !isPathObstructured(posicionProta))
-        return true;
-    else
-        return false;
-}
 bool Enemy::isPathObstructured(Structs::TPosicion destino){
     input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
     input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
 
     ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
             return true;
         }
     }
@@ -115,6 +110,26 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
     //if(colisionPuertas(destino))
         //return true;
     return false;
+}
+bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
+    if(posicion.Distance(p) < distanceFOV ){
+        if(vectorIsInFOV(p))
+            return true;
+    }
+    return false;
+
+}
+bool Enemy::vectorIsInFOV(Structs::TPosicion p){
+    Structs::TPosicion target = posicion - p;
+    float angle = (float)atan2(target.Y,target.Z);
+    //continua...
+}
+bool Enemy::isEnemySeeing(Structs::TPosicion destino){
+    Structs::TPosicion p;
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
+        return true;
+    else
+        return false;
 }
 bool Enemy::colisionPuertas(Structs::TPosicion destino){
     input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
@@ -140,8 +155,8 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
      input.p2.Set(hasta.X, hasta.Z);	//	Punto	final	del	rayo
 
         ///colision con paredes
-    for (int i = 0; i < Mapa->muros.size(); i++) {
-        if (Mapa->muros.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
+    for (int i = 0; i < Mapa->getMuros().size(); i++) {
+        if (Mapa->getMuros().at(i)->getBody()->GetFixtureList()->RayCast(&output,input,0)){
             return false;
         }
     }
@@ -190,13 +205,6 @@ void Enemy::cambiarColor(Structs::TColor c){
 void Enemy::calcularAngulo(Structs::TPosicion p1){
     angulo = atan2f((p1.Z-posicion.Z) ,
                 -(p1.X-posicion.X)) * 180.f / irr::core::PI;
-}
-bool Enemy::isGuardia(){
-    if(this->getTipo() == 1){
-        return true;
-    }
-    else
-        return false;
 }
 void Enemy::girarVista(float giro, int posV){
     angulo = angulo + giro;

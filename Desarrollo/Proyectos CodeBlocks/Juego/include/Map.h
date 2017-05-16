@@ -11,11 +11,13 @@
 #include "Enemies/Path/SparseGraph.h"
 #include "Enemies/Path/Edge.h"
 #include "Enemies/Path/Nodo.h"
+#include "Muros.h"
+
+#include "Fachada/AnimatedMesh.h"
 
 using namespace tinyxml2;
 using namespace std;
 
-class MapComponent;
 class Nodo;
 
 class Map
@@ -23,21 +25,27 @@ class Map
     public:
         Map();
         ~Map();
-        void crearComponente(int tipo);
+        void crearComponente();
         void inicializar_mapa();
+        void inicializar_muros();
 
-        vector<PatrolPoint*> getPatrullas() { return patrullas; }
-        vector<int>          getTiposEnemigos()     { return tipos;   }
-        SparseGraph*         getGrafo()     { return Grafo;     }
-        vector<MapComponent*> muros;
+        vector<Muros*>       getMuros()        { return muros; }
+        vector<PatrolPoint*> getPatrullas()    { return patrullas; }
+        vector<int>          getTiposEnemigos(){ return tipos; }
+        SparseGraph*         getGrafo()        { return Grafo; }
+
 
     protected:
 
     private:
 
         MeshSceneNode *suelo;
+        MeshSceneNode* primera_sala;
+        MeshSceneNode* segunda_sala;
+        MeshSceneNode* tercera_sala;
 
-
+        vector<MapComponent*> nodo_muro;
+        vector<Muros*> muros;
         vector<PatrolPoint*>  patrullas;
         vector<int>           tipos;
 

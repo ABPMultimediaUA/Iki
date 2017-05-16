@@ -13,11 +13,10 @@ class MeshSceneNode;
 class Guardia : public Enemy
 {
     private:
-        bool ataquePreparado,solounaveh,atacando,solounpath;
+        bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque;
         float anguloAtaque, distanciaAtaque;
         b2Body *bodyAtaque;
         Structs::TPosicion vectorAtaque;
-        MeshSceneNode* modeloAtaque;
         Structs::TMedida medidaAtaque     = {10,0.5,0.5};
         Structs::TPosicion posicionAtaque = {0,0,0};
         Structs::TColor colorAtaque       = {0,255,140,0};
@@ -48,6 +47,7 @@ class Guardia : public Enemy
         void ejecutarAtaque();
         void buscarProta();
         bool getAtacando(){return atacando;}
+        bool isGuardia(){return true;}
         void setModeloVisible(bool b){modeloAtaque->setVisible(b);}
 
 
