@@ -11,13 +11,13 @@ class Camera
         Camera(Structs::TPosicion position, Structs::TPosicion lookAt);
         ~Camera();
         void render(Structs::TPosicion positionPlayer);
-        ICameraSceneNode* getCamera(){return camera;};
+        TCamara* getCamera(){return camera;};
 
     protected:
 
     private:
         Structs::TPosicion positionInitial;
-        ICameraSceneNode* camera;
+        TCamara* camera;
 };
 
 #endif // CAMERA_H

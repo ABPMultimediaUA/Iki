@@ -296,18 +296,47 @@ bool TMotorTAG::run(){
 
         shader.Bind();
 
-        motor->draw();
+        draw();
         shader.Update(cCamara);
 
         window.Draw2(); ///m_window.pushGLStates();
 
-        window.Draw(hud.getSprite());
+        //window.Draw(hud.getSprite());
 
         //window.Draw3(); //m_window.popGLStates();
 
-        window.Display();
+        //window.Display();
         return true;
    }else
         return false;
+}
+
+void TMotorTAG::doDisplay(){
+    window.Display();
+}
+
+void TMotorTAG::cambiarRay(TCamara* camara){
+    ray = camara->getRayFromScreenCoordinates(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+}
+
+bool TMotorTAG::interseccionRayPlano(Structs::TPosicion &mousePosition){
+
+    TVector out;
+
+    if(plane.getIntersectionWithLine(ray.getStart(), ray.getEnd(), out)){
+        mousePosition.X = out.X;
+        mousePosition.Y = out.Y;
+        mousePosition.Z = out.Z;
+
+        return true;
+    }
+    else
+        return false;
+
+}
+
+void TMotorTAG::draw2D(int posX, int posY, TDraw2D* img){
+    img->setPosition(float(posX), float(posY));
+    window.Draw(img->getSprite());
 }
 

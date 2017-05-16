@@ -23,7 +23,11 @@ public:
     void setModoVentana();
 	void setFullScreen();
 	sf::Time getClocks();
-	virtual ~TDisplay();
+	~TDisplay();
+
+	int getWidth() { return m_window.getSize().x; }
+	int getHeigth(){ return m_window.getSize().y; }
+
 protected:
 
 

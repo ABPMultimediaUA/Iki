@@ -42,6 +42,13 @@ class TMotorTAG
         void drawLuces();
         void drawCamaras();
         void draw();
+        void draw2D(int, int, TDraw2D*);
+
+        int getWindowWidth() { return window.getWidth(); }
+        int getWindowHeigth(){ return window.getHeigth(); }
+
+        void cambiarRay(TCamara*);
+        bool interseccionRayPlano(Structs::TPosicion &mousePosition);
 
     protected:
 
@@ -50,6 +57,8 @@ class TMotorTAG
         TGestorRecursos* gestorRecursos;
         TDisplay window;
         TShader shader;
+        TLinea ray;
+        TPlano plane;
 
         vector<bool> l_activa, c_activa;
         vector<TNodo*> luces;

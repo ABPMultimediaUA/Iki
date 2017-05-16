@@ -4,14 +4,12 @@
 #include "MyEventReceiver.h"
 
 #include "Camera.h"
-#include "SceneNode.h"
 #include "Structs.h"
 
 class GUI;
 
 class GraphicsFacade
 {
-    friend class SceneNode;
     friend class MeshSceneNode;
     friend class AnimatedMesh;
     friend class Camera;
@@ -27,31 +25,33 @@ class GraphicsFacade
         void inicializar_gui(int);
         void vaciar_gui();
 
-        void beginScene();
-        void endScene();
+        //void beginScene();
+        //void endScene();
 
-        void draw(int);
-        bool run();
+        //void draw(int);
+        bool run(int);
+        void doDisplay();
         void close();
         void drop();
 
-        void setWindowCaption();
         void iniciarRay(Structs::TPosicion rayPos);
         void cambiarRay(Camera* camara);
         void changeResolution(int);
         //void reSizeWindow();
         bool interseccionRayPlano(Structs::TPosicion &mousePosition);
-        float calcularDistancia(Structs::TPosicion position);
-        ISceneManager* getScene() { return smgr; }
+        /*ISceneManager* getScene() { return smgr; }
         IrrlichtDevice* getDevice() { return device; }
-        IVideoDriver* getDriver() { return driver; }
+        IVideoDriver* getDriver() { return driver; }*/
+        TMotorTAG* getMotor(){ return motor; }
         GUI* getGUI() { return gui; }
-        ITimer* getTimer()  { return timer; };
+        //ITimer* getTimer()  { return timer; };
 
-        SceneNode* createCubeSceneNode(float tam, Structs::TPosicion posicionInicial);
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
 
         void setTiempo(f32);
+
+        int getWindowWidth() { return motor->getWindowWidth();}
+        int getWindowHeigth(){ return motor->getWindowHeigth();}
 
     protected:
 

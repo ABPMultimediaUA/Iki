@@ -136,7 +136,6 @@
 		<Unit filename="include/Fachada/GraphicsFacade.h" />
 		<Unit filename="include/Fachada/Image.h" />
 		<Unit filename="include/Fachada/MeshSceneNode.h" />
-		<Unit filename="include/Fachada/SceneNode.h" />
 		<Unit filename="include/GUI/GUI.h" />
 		<Unit filename="include/GUI/GUI_Button.h" />
 		<Unit filename="include/GUI/GUI_Component.h" />
@@ -236,7 +235,6 @@
 		<Unit filename="src/Fachada/GraphicsFacade.cpp" />
 		<Unit filename="src/Fachada/Image.cpp" />
 		<Unit filename="src/Fachada/MeshSceneNode.cpp" />
-		<Unit filename="src/Fachada/SceneNode.cpp" />
 		<Unit filename="src/GUI/GUI.cpp" />
 		<Unit filename="src/GUI/GUI_Button.cpp" />
 		<Unit filename="src/GUI/GUI_Component.cpp" />

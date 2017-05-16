@@ -4,7 +4,6 @@
 #include "Structs.h"
 #include "Enemies/Path/PathEdge.h"
 #include "Fachada/AnimatedMesh.h"
-#include "Fachada/SceneNode.h"
 #include "Map.h"
 #include "Enemies/StateMachine/Mensaje.h"
 #include "EntityManager.h"
@@ -44,7 +43,6 @@ class GameEntity
     protected:
 
         AnimatedMesh *aniMesh;
-        SceneNode *modelo;
         b2Body *body;
 
         int id,nextID;

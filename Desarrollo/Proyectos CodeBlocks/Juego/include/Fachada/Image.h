@@ -6,14 +6,14 @@
 class Image
 {
     public:
-        Image(const char* cadena);
+        Image(std::string, Structs::TRectangulo);
         ~Image();
-        void draw(int,int, Structs::TRectangulo, Structs::TColor);
+        void draw(int,int);
 
     protected:
 
     private:
-        ITexture* image;
+        TDraw2D* image;
 };
 
 #endif // IMAGE_H

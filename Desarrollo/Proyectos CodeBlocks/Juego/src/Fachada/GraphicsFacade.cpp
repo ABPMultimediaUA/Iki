@@ -70,7 +70,7 @@ void GraphicsFacade::vaciar_gui(){
     gui->clean();
 }
 
-void GraphicsFacade::beginScene(){
+/*void GraphicsFacade::beginScene(){
     driver->beginScene(true, true, SColor(255,113,133,133));
 }
 
@@ -81,20 +81,24 @@ void GraphicsFacade::crearDevice(){
 
 void GraphicsFacade::endScene(){
     driver->endScene();
-}
+}*/
 
-void GraphicsFacade::draw(int draw_type){
+/*void GraphicsFacade::draw(int draw_type){
 	//Dibujamos los nodos y los cuadros de texto del entorno
+
 	beginScene();
 	smgr->drawAll();
     gui->draw(draw_type);
 	endScene();
 
-}
+}*/
 
-bool GraphicsFacade::run(){
+bool GraphicsFacade::run(int draw_type){
 
-    return motor->run();
+    bool holi = motor->run();
+    gui->draw(draw_type);
+    motor->doDisplay();
+    return holi;
 }
 
 void GraphicsFacade::close(){
@@ -107,24 +111,20 @@ void GraphicsFacade::drop(){
 
 }
 
-/*void GraphicsEngine::setWindowCaption(){
-
-	device->setWindowCaption(L"IKI");
-
-}*/
-
 void GraphicsFacade::iniciarRay(Structs::TPosicion rayPos){
     ray = line3df(vector3df(rayPos.X,rayPos.Y,rayPos.Z), vector3df(rayPos.X,rayPos.Y,rayPos.Z));
 }
 
 void GraphicsFacade::cambiarRay(Camera* camara){
-    ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
-          MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());
+    /*ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+          MyEventReceiver::getInstance().GetMouseState().Position, camara->getCamera());*/
+    motor->cambiarRay(camara->getCamera());
 }
 
 bool GraphicsFacade::interseccionRayPlano(Structs::TPosicion &mousePosition){
 
-    vector3df mousePosition2;
+    return motor->interseccionRayPlano(mousePosition);
+    /*TVector mousePosition2;
 
     if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition2)){
         mousePosition.X = mousePosition2.X;
@@ -133,25 +133,12 @@ bool GraphicsFacade::interseccionRayPlano(Structs::TPosicion &mousePosition){
         return true;
     }
     else
-        return false;
-}
-
-float GraphicsFacade::calcularDistancia(Structs::TPosicion position){
-    vector3df toCalculate(position.X, position.Y, position.Z);
-    return toCalculate.getLength();
-}
-
-
-SceneNode* GraphicsFacade::createCubeSceneNode(float tam, Structs::TPosicion posicionInicial){
-
-    SceneNode* nodo = new SceneNode(tam, posicionInicial);
-
-	return nodo;
+        return false;*/
 }
 
 Camera* GraphicsFacade::createCamera(Structs::TPosicion position, Structs::TPosicion lookAt){
 
-    Camera* cam = new Camera(position, lookAt);
+    Camera* cam = new Camera(position);
 
 	return cam;
 }

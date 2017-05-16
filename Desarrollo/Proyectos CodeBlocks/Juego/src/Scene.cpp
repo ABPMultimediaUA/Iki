@@ -109,7 +109,7 @@ void Scene::inicializar_escena(){
 
 void Scene::bucle_juego(){
 
-    while(GraphicsFacade::getInstance().run()){
+    while(GraphicsFacade::getInstance().run(0)){
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
             f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
@@ -122,7 +122,7 @@ void Scene::bucle_juego(){
         camara->render(player->getPosition());
         PhisicsWorld::getInstance()->Step();
 
-        GraphicsFacade::getInstance().draw(0);
+        //GraphicsFacade::getInstance().draw(0);
     }
 
     GraphicsFacade::getInstance().drop();
