@@ -2971,7 +2971,7 @@
 	"PatrolPoint.h"
 	"Enemies/Path/PathEdge.h"
 
-1494502763 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1494516336 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -2981,6 +2981,7 @@
 	"MapComponent.h"
 	"Muerto.h"
 	"Enemies/Guardia.h"
+	"Investigar.h"
 	"Trigger.h"
 	"TriggerSystem.h"
 
@@ -2995,7 +2996,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1494515584 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1494842132 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
