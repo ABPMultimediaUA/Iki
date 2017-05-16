@@ -4,6 +4,7 @@
 #include "Enemies/StateMachine/Escanear.h"
 #include "Enemies/StateMachine/Mensaje.h"
 #include "Enemies/StateMachine/Investigar.h"
+#include "Enemies/StateMachine/Atacar.h"
 #include "Enemies/StateMachine/VolverALaPatrulla.h"
 
 
@@ -34,12 +35,16 @@ void Vigilar::Execute(Enemy* enemigo){
     enemigo->vigilar();
     if(enemigo->getDistanciaPlayer() < 30 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         //std::cout<<"Escaneando..."<<std::endl;
+        if(enemigo->GetFSM()->wasInState(*Investigar::Instance())){
+            enemigo->GetFSM()->ChangeState(Atacar::Instance());
+        }
+        else{
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
+        }
     }
     if(enemigo->getTiempo() > 6){
             //if(enemigo->GetFSM()->PreviousState())
         if(enemigo->GetFSM()->wasInState(*Investigar::Instance())){
-            std::cout<<"aqui entra mq"<<std::endl;
             enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
         }
         else

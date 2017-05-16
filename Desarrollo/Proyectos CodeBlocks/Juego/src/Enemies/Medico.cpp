@@ -7,12 +7,12 @@ void Medico::inicializar_enemigo(Map* m)
 {
     //De momento todos tienen el mismo body y cosas en comun asi que las inicializo para los tres en init
     init(m);
-    Structs::TColor color = {255,160,160,160};
-    //modelo->cambiarColor(color);
-    aniMesh = new AnimatedMesh("resources/Modelos/Medica.obj", color, posicion, 0);
-    aniMesh->setScale(3);
     tipo = 2;
     vida = 2;
+    Structs::TColor color = {255,160,160,160};
+    aniMesh = new AnimatedMesh("resources/Modelos/Medica.obj", color, posicion, 0);
+    aniMesh->setScale(3);
+
 }
 void Medico::pedirAyuda(){
     //mover medico con la lista de edges creada

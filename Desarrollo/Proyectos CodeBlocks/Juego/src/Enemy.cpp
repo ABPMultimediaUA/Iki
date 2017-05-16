@@ -34,8 +34,6 @@ void Enemy::init(Map* m){
     posVigilando = 0;
     bateria = 100;
     fieldOfView = 120*DegToRad;
-    //creo un cubo
-    //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
     posinit = pRuta->getPunto()-posaux;
@@ -103,7 +101,6 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
             return true;
         }
     }
-
     ///colision con triggers con body
     std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
     for (int i = 0; i < triggers.size(); i++) {
@@ -165,8 +162,6 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
    //mover medico con la lista de edges creada
     if(!listaEjes.empty() && it != listaEjes.end())
         toNextNodo = (*it).getDestination() - posicion;
-    else
-        toNextNodo = quietoParado;
 
     if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
     {
@@ -294,7 +289,7 @@ void Enemy::escanear(){
 
     if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
-        std::cout<<"sospecha"<<sospecha<<std::endl;
+        //std::cout<<"sospecha"<<sospecha<<std::endl;
         memory->updateVision(EntityMgr->getEntityByID(0));
         calcularAngulo(posicionProta);
         if(sospecha < 100 )
@@ -320,9 +315,12 @@ void Enemy::volverALaPatrulla(){
     setPosition();
 }
 void Enemy::muerto(){
-    posicion = {1000,0,1000};
-    setPosition();
-    if(this->isGuardia())
-        static_cast<Guardia*>(this)->setModeloVisible(false);
+    //posicion = {1000,0,1000};
+    //setPosition();
+    aniMesh->setRotationXYZ(0.0,0.0,90.0);
+    aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    EntityMgr->borrarEntity(this);
+    //if(this->isGuardia())
+        //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
 }

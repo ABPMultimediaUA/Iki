@@ -13,7 +13,7 @@ VolverALaPatrulla* VolverALaPatrulla::Instance()
 }
 
 void VolverALaPatrulla::Enter(Enemy* enemigo){
-    std::cout<<"voviendo a la patrulla"<<std::endl;
+    //std::cout<<"voviendo a la patrulla"<<std::endl;
     enemigo->crearPath(enemigo->getPPatrulla()->getPunto());
 
     switch (enemigo->getTipo()){
@@ -31,6 +31,9 @@ void VolverALaPatrulla::Enter(Enemy* enemigo){
 
 void VolverALaPatrulla::Execute(Enemy* enemigo){
     enemigo->volverALaPatrulla();
+    if(enemigo->getDistanciaPlayer() < 25 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+            enemigo->GetFSM()->ChangeState(Escanear::Instance());
+    }
     if(enemigo->getPosition() == enemigo->getPPatrulla()->getPunto()){
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
     }

@@ -111,14 +111,13 @@ void Guardia::inicializar_enemigo(Map* m)
     input2.maxFraction  =   1.0f;
     modeloAtaque = new MeshSceneNode(medidaAtaque,posicionAtaque,colorAtaque);
     modeloAtaque->setVisible(false);
-
 }
 void Guardia::investigar(){
     andarPath(2,posicionInteres);
     setPosition();
 }
 void Guardia::perseguir(){
-    if (isEnemySeeing(posicionProta)){
+    //if (isEnemySeeing(posicionProta)){
         //moverBody(quietoParado);
         toProtaPosition = posicionProta - posicion;
         mirandoHacia = toProtaPosition;
@@ -137,10 +136,10 @@ void Guardia::perseguir(){
         calcularAngulo(posicionProta);
         //MoverEnemigo(toProtaPosition);
         setPosition();
-    }else{
-        //posicionInteres = posicionProta;
-       //this->GetFSM()->ChangeState(Investigar::Instance());
-    }
+    /*}else{
+        posicionInteres = posicionProta;
+        this->GetFSM()->ChangeState(Investigar::Instance());
+    }*/
 }
 void Guardia::ataque(){
     moverBody(quietoParado);

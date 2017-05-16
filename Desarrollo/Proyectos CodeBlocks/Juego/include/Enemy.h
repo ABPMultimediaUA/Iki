@@ -25,6 +25,7 @@ class Enemy : public GameEntity
         virtual void update();
         virtual StateMachine<Enemy>* GetFSM()const=0;
         virtual bool HandleMessage(const Mensaje& msg)=0;
+        virtual bool isEnemy(){return true;}
         ///GETTERS
         int getTipo(){return tipo;}
         float getSospecha(){return sospecha;}
@@ -38,6 +39,8 @@ class Enemy : public GameEntity
         Structs::TPosicion getMirandoHacia(){return mirandoHacia;}
         //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
         Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getGuardiaCerca(posicion);}
+        float getTimePlayerHasBeenOutOfView();
+        float getAngulo(){return angulo;}
         ///SETTERS
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
@@ -72,8 +75,7 @@ class Enemy : public GameEntity
         bool hayGuardias();
         bool colisionPuertas(Structs::TPosicion destino);
         void borrarMemoria();
-        float getTimePlayerHasBeenOutOfView();
-        float getAngulo(){return angulo;}
+
 
 
     protected:

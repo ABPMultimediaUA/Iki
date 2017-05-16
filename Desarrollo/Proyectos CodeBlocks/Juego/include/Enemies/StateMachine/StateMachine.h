@@ -28,7 +28,8 @@ class StateMachine
         //call this to update the FSM
         void Update()const
         {
-            if (globalState) globalState->Execute(propietario);
+            if(propietario->getVida()>0)
+                if (globalState) globalState->Execute(propietario);
             if (actualState) actualState->Execute(propietario);
         }
         void ChangeState(State<entity_type>* pNewState){

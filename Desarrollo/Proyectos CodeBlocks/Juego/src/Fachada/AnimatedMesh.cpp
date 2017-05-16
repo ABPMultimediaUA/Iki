@@ -28,6 +28,9 @@ void AnimatedMesh::setPosition(Structs::TPosicion pos){
 void AnimatedMesh::setRotation(float rot){
     modelo->setRotation(vector3df(0, rot, 0));
 }
+void AnimatedMesh::setRotationXYZ(float x, float y,float z){
+    modelo->setRotation(vector3df(x,y,z));
+}
 
 void AnimatedMesh::setScale(Structs::TMedida scale){
     modelo->setScale(vector3df(scale.ancho, scale.alto, scale.profundo));

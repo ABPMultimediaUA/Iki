@@ -58,7 +58,7 @@ void SensorMemory::updateSoundSource(GameEntity* ruidoso)
 }
 
 void SensorMemory::updateVision(GameEntity* cantoso){
-   /* comprobarRecord(cantoso);
+   comprobarRecord(cantoso);
     //get a reference to this bot's data
     MemoryRecord& info = memoryMap[cantoso];
     //test if there is LOS between bots
@@ -90,15 +90,15 @@ void SensorMemory::updateVision(GameEntity* cantoso){
     {
         info.sinObstaculos = false;
         info.estaFOV = false;
-    }*/
-    comprobarRecord(cantoso);
+    }
+    /*comprobarRecord(cantoso);
     MemoryRecord& info = memoryMap[cantoso];
     if(info.primeraVista == -999){
         info.primeraVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
     }
     info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
     info.ultimaPosicion = cantoso->getPosition();
-    info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;*/
 }
 
 //------------------------ GetListOfRecentlySensedOpponents -------------------

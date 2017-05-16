@@ -13,6 +13,7 @@ class AnimatedMesh
         void setScale(float);
         void setPosition(Structs::TPosicion);
         void setRotation(float);
+        void setRotationXYZ(float,float,float);
         void setVisible(bool);
         Structs::TPosicion getPosition(){return posicion;}
         void cambiarColor(Structs::TColor color);
