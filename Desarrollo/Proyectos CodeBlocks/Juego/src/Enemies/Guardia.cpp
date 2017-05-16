@@ -22,7 +22,7 @@ void Guardia::inicializar_enemigo(Map* m)
     solounaveh = false;
     atacando = false;
     input2.maxFraction  =   1.0f;
-    modeloAtaque = new MeshSceneNode(medidaAtaque,posicionAtaque,colorAtaque);
+    modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
     modeloAtaque->setVisible(false);
 
 }
@@ -32,7 +32,9 @@ void Guardia::investigar(){
 
 }
 void Guardia::perseguir(){
+
     if (isEnemySeeing(posicionProta)){
+
         calcularAngulo(posicionProta);
         toProtaPosition = posicionProta - posicion;
         toProtaPosition.Normalize();
@@ -41,7 +43,7 @@ void Guardia::perseguir(){
         FuzzyQuery query;
         float disancia = posicion.Distance(posicionProta);
         float vel = query.Query(disancia, bateria, 1);
-        if (bateria >= 0) bateria-=vel/250;
+        //if (bateria >= 0) bateria-=vel/250;
         //std::cout << bateria << "%   " << vel/25 << std::endl;
 
         posicion = posicion + toProtaPosition*(avMovement*vel/25);
@@ -51,7 +53,6 @@ void Guardia::perseguir(){
     }else{
         guessing = true;
         toProtaPosition = posicion;
-        //posicionInteres = posicionProta;
         //this->GetFSM()->ChangeState(Investigar::Instance());
     }
 }
@@ -68,6 +69,7 @@ void Guardia::ataque(){
 void Guardia::cargarAtaque(){
         atacando = true;
         ataquePreparado = true;
+        sonidoataque = true;
 
         FuzzyQuery query;
         float vidaj = EntityMgr->getEntityByID(0)->getVida();
@@ -80,11 +82,11 @@ void Guardia::cargarAtaque(){
             bateria += 5;
             //std::cout << bateria << std::endl;
         }else{
-            std::cout << bateria << "%   " << vidaj << "   " << pot << "/10" << std::endl;
+            //std::cout << bateria << "%   " << vidaj << "   " << pot << "/10" << std::endl;
             bateria -= pot/2;
         }
 
-        modeloAtaque->setScale({2,2,2});
+        modeloAtaque->setScale({1,1,1});
 
         vectorAtaque = posicionProta - posicion;
         anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
@@ -93,7 +95,7 @@ void Guardia::cargarAtaque(){
         input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
 
         distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
-        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 0 , (input2.p2.y + input2.p1.y)/2};
+        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
 
         modeloAtaque->setPosition(posicionAtaque);
         modeloAtaque->setRotation(anguloAtaque);
@@ -101,8 +103,9 @@ void Guardia::cargarAtaque(){
 }
 void Guardia::ejecutarAtaque(){
 
-        if(tiempoEnEstado > 0.5 && EntityMgr->getEntityByID(0)->getVida() > 0)
+        if(tiempoEnEstado > 0.6 && EntityMgr->getEntityByID(0)->getVida() > 0)
         {
+            if (sonidoataque) { sonidoataque=false; SoundMgr->playSonido("AccionesRobots/conoelectrico");}
 
             modeloAtaque->setVisible(true);
             if(distanciaPlayer <= distanciaAtaque && !solounaveh) // y si no te veo;
@@ -118,9 +121,8 @@ void Guardia::ejecutarAtaque(){
                 if(abs(anguloAtaque - anguloProta) < 45){
                     EntityMgr->getEntityByID(0)->quitarVida();;
                     solounaveh = true;
-                    SoundMgr->playSonido("AccionesRobots/conoelectrico");
                 }else{
-                    //SoundMgr->playSonido("AccionesRobots/conoelectrico2");
+
                 }
             }
 
@@ -131,6 +133,7 @@ void Guardia::ejecutarAtaque(){
                 solounaveh = false;
                 atacando = false;
                 ataquePreparado = false;
+
             }
         }
 }

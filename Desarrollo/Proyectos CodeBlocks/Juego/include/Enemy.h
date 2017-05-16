@@ -74,6 +74,7 @@ class Enemy : public GameEntity
 
     protected:
 
+        MeshSceneNode* modeloAtaque;
         int tipo,direccion,posVigilando;
         float bateria;
         PatrolRoute* ruta;

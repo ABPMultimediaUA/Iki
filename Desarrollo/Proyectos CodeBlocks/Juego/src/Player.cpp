@@ -22,7 +22,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    velocidad = 0.6;
+    velocidad = 0.5;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
@@ -91,23 +91,23 @@ void Player::moverBody(Structs::TPosicion vec){
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
         speed = 1;
-        velocidad = 0.3;
+        velocidad = 0.25;
         HUD::getInstance()->sigiloUsed();
     }
-    else if(velocidad == 0.3f){
-        velocidad = 0.6;
+    else if(velocidad == 0.25f){
+        velocidad = 0.4;
         HUD::getInstance()->sigiloNotUsed();
     }
-    /*if(velocidad > 0.3){
+    if(velocidad > 0.5){
         comprobarVelocidad();
         speed = 3;
-    }*/
+    }
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
 void Player::comprobarVelocidad(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2){
-        velocidad = 0.3;
+        velocidad = 0.5;
         tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     }
 }
