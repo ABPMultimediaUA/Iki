@@ -29,6 +29,7 @@ class GameEntity
         virtual float              getVida()     { return vida;     };
         virtual float              getRadio()    { return radio;    };
         virtual bool               isPlayer()    { return false;    };
+        virtual bool               isEnemy()     { return false;    };
         virtual int                ID()          { return id;       };
 
         virtual b2Body*            getBody(){return body;};
@@ -39,6 +40,7 @@ class GameEntity
         virtual bool               canWalkBetween(Structs::TPosicion ,Structs::TPosicion)=0;
         virtual void               quitarVida(){if(vida>0) vida=vida-1;}
         virtual void               sumarVida(){vida=vida+1;}
+        virtual void               setVida(float v){vida=v;}
 
 
     protected:

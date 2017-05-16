@@ -13,5 +13,4 @@ void Dron::inicializar_enemigo(Map* m)
     aniMesh = new AnimatedMesh("resources/Modelos/dronbueno.obj", color, posicion, 0);
     aniMesh->setTexture("resources/Texturas/dron.png");
     aniMesh->setScale(5);
-   // modelo->cambiarColor(color);
 }

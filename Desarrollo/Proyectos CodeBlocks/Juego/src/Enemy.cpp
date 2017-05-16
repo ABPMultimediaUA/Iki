@@ -48,8 +48,7 @@ void Enemy::init(Map* m){
     direccion = 0;
     posVigilando = 0;
     bateria = 100;
-    //creo un cubo
-    //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
+    fieldOfView = 120*DegToRad;
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
     posinit = pRuta->getPunto()-posaux;
@@ -59,6 +58,8 @@ void Enemy::init(Map* m){
     //Pathplanning
     grafo = Mapa->getGrafo();
     path = new PathPlanner(grafo,this);
+    //SensorMemory
+    memory = new SensorMemory(this,10);
      //Para los ray!
     input.maxFraction	=	1.0f;
 
@@ -95,7 +96,6 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
             return true;
         }
     }
-
     ///colision con triggers con body
     std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
     for (int i = 0; i < triggers.size(); i++) {
@@ -111,7 +111,6 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
         //return true;
     return false;
 }
-
 bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
     if(posicion.Distance(p) < distanceFOV ){
         if(vectorIsInFOV(p))
@@ -178,16 +177,18 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
    //mover medico con la lista de edges creada
     if(!listaEjes.empty() && it != listaEjes.end())
         toNextNodo = (*it).getDestination() - posicion;
-    else
-        toNextNodo=quietoParado;
 
     if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
     {
         //moverBody(quietoParado);
         if(it != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
             it++;
-        else
-            posicion = posFinal;
+        else{
+            posicion=posFinal;
+            // posFinal.Normalize();
+           //toPosicionFinal= posFinal - posicion;
+           //posicion = posicion+toPosicionFinal *(avMovement*velocidad);
+        }
     }
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
@@ -293,13 +294,25 @@ void Enemy::vigilar(){
     setPosition();
 }
 void Enemy::escanear(){
-    if(sospecha < 100 && distanciaPlayer<30 && isEnemySeeing(posicionProta))
+
+    if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
+        //std::cout<<"sospecha"<<sospecha<<std::endl;
+        memory->updateVision(EntityMgr->getEntityByID(0));
         calcularAngulo(posicionProta);
-        sospecha++;;
-        //std::cout<<"Sospecha: "<<sospecha<<std::endl;
+        if(sospecha < 100 )
+            sospecha++;;
     }
      setPosition();
+}
+float Enemy::getTimePlayerHasBeenOutOfView(){
+    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
+    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
+    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
+
+}
+void Enemy::borrarMemoria(){
+    memory->removeMemory(this);
 }
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);
@@ -310,9 +323,12 @@ void Enemy::volverALaPatrulla(){
     setPosition();
 }
 void Enemy::muerto(){
-    posicion = {1000,0,1000};
-    setPosition();
-    if(this->isGuardia())
-        static_cast<Guardia*>(this)->setModeloVisible(false);
+    //posicion = {1000,0,1000};
+    //setPosition();
+    aniMesh->setRotationXYZ(0.0,0.0,90.0);
+    aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    EntityMgr->borrarEntity(this);
+    //if(this->isGuardia())
+        //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
 }

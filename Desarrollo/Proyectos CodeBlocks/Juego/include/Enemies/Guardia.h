@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "StateMachine/Patrullar.h"
 #include "StateMachine/Vigilar.h"
+#include "StateMachine/Percibir.h"
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
 
@@ -29,7 +30,7 @@ class Guardia : public Enemy
             //set up state machine
             G_stateMachine = new StateMachine<Enemy>(this);
             G_stateMachine->SetCurrentState(Patrullar::Instance());
-            //G_stateMachine->SetGlobalState(Patrullar::Instance());
+            G_stateMachine->SetGlobalState(Percibir::Instance());
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;

@@ -17,6 +17,10 @@ Escanear* Escanear::Instance()
 }
 
 void Escanear::Enter(Enemy* enemigo){
+    if(enemigo->getTimePlayerHasBeenOutOfView() >10){
+        enemigo->resetSospecha();
+        enemigo->borrarMemoria();
+    }
     enemigo->resetTime();
 
     switch (enemigo->getTipo()){
@@ -50,17 +54,16 @@ void Escanear::Execute(Enemy* enemigo){
             break;
         }
     }
-    else if(enemigo->getTiempo()>1.5 && enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+    else if(enemigo->getTiempo()>1 && enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
-    }else if(enemigo->getTiempo()>1.5 && enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+    }else if(enemigo->getTiempo()>1 && enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
         enemigo->GetFSM()->ChangeState(Investigar::Instance());
     }
 }
 
 void Escanear::Exit(Enemy* enemigo){
-
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->soundStop("VocesRobots/Guardia/escaneando");
