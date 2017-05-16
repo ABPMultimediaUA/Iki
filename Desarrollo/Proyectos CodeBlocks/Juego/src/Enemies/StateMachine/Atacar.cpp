@@ -24,8 +24,8 @@ void Atacar::Enter(Enemy* enemigo){
 
         break;
     }
-    Structs::TColor color = {0,255,0,0};
-    enemigo->cambiarColor(color);
+    //Structs::TColor color = {0,255,0,0};
+    //enemigo->cambiarColor(color);
 }
 
 void Atacar::Execute(Enemy* enemigo){
