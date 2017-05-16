@@ -22,7 +22,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m){
 
-    velocidad = 1.3;
+    velocidad = 0.6;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
@@ -79,8 +79,8 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 }
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
-    float movx = vec.X * avMovement * velocidad *0.75;
-    float movy = vec.Z * avMovement * velocidad *0.75;
+    float movx = vec.X * avMovement * velocidad ;
+    float movy = vec.Z * avMovement * velocidad ;
 
     if (vec == quietoParado){
         isMoving = false;
@@ -91,11 +91,11 @@ void Player::moverBody(Structs::TPosicion vec){
     }
     if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
         speed = 1;
-        velocidad = 0.15;
+        velocidad = 0.3;
         HUD::getInstance()->sigiloUsed();
     }
-    else if(velocidad == 0.15f){
-        velocidad = 0.3;
+    else if(velocidad == 0.3f){
+        velocidad = 0.6;
         HUD::getInstance()->sigiloNotUsed();
     }
     /*if(velocidad > 0.3){

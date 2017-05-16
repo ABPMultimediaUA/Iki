@@ -8,6 +8,7 @@
 #include "Muerto.h"
 #include "Enemies/Guardia.h"
 #include "Investigar.h"
+#include "Atacar.h"
 
 #include "Trigger.h"
 #include "TriggerSystem.h"
@@ -16,8 +17,15 @@ void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
     //toProtaPosition=posicionProta-posicion;
+    //std::cout << bateria << "%   " << std::endl;
+    if (   G_stateMachine->CurrentState() != Atacar::Instance()
+        && G_stateMachine->CurrentState() != Investigar::Instance() ){
 
-    if (bateria<100.0) bateria += 0.1;
+        if (bateria < 100.0){
+            bateria += 0.2;
+        }
+    }
+
     if (guessing){
         guessing = false;
         toProtaPosition = posicion;

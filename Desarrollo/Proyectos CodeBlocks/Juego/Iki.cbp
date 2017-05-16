@@ -144,6 +144,7 @@
 		<Unit filename="include/FuzzyLogic/FuzzyTerm.h" />
 		<Unit filename="include/FuzzyLogic/FuzzyVariable.h" />
 		<Unit filename="include/FuzzyLogic/FzSet.h" />
+		<Unit filename="include/FuzzyQuery.h" />
 		<Unit filename="include/GUI/GUI.h" />
 		<Unit filename="include/GUI/GUI_Button.h" />
 		<Unit filename="include/GUI/GUI_Component.h" />
@@ -249,6 +250,7 @@
 		<Unit filename="src/FuzzyLogic/FuzzySet_Right.cpp" />
 		<Unit filename="src/FuzzyLogic/FuzzySet_Triangle.cpp" />
 		<Unit filename="src/FuzzyLogic/FuzzyVariable.cpp" />
+		<Unit filename="src/FuzzyQuery.cpp" />
 		<Unit filename="src/GUI/GUI.cpp" />
 		<Unit filename="src/GUI/GUI_Button.cpp" />
 		<Unit filename="src/GUI/GUI_Component.cpp" />
