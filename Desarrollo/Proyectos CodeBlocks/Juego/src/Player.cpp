@@ -35,8 +35,9 @@ void Player::inicializar_player(Map* m){
     Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {121,85,61,0};
 
-    aniMesh = new AnimatedMesh("resources/Modelos/Prota.obj", color, posicionInicial, 0);
-    aniMesh->setScale(4);
+    aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);
+    aniMesh->setTexture("resources/Texturas/Protatextura.png");
+    aniMesh->setScale(2.3);
 
     /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);*/
