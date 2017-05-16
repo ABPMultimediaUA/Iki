@@ -22,14 +22,15 @@ class EntityManager
 {
 private:
     typedef std::map<int, GameEntity*> EntityMap;
+    std::vector<Enemy*> enemigos;
+    std::vector<GameEntity*> entities;
     EntityMap entityMap;
+    World* world;
+    int nextID;
+
     EntityManager(){}
     EntityManager(const EntityManager&);
     EntityManager& operator=(const EntityManager&);
-    std::vector<Enemy*> enemigos;
-    std::vector<GameEntity*> entities;
-    World* world;
-    int nextID;
 
 public:
     //es SINGLETON

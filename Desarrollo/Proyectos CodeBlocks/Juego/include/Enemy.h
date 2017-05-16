@@ -26,6 +26,9 @@ class Enemy : public GameEntity
         virtual StateMachine<Enemy>* GetFSM()const=0;
         virtual bool HandleMessage(const Mensaje& msg)=0;
         virtual bool isEnemy(){return true;}
+        virtual bool isGuardia(){return false;}
+        virtual bool isMedico(){return false;}
+        virtual bool isDron(){return false;}
         ///GETTERS
         int getTipo(){return tipo;}
         float getSospecha(){return sospecha;}
@@ -69,7 +72,6 @@ class Enemy : public GameEntity
         bool vectorIsInFOV(Structs::TPosicion p);
         void cambiarColor(Structs::TColor c);
         void calcularAngulo(Structs::TPosicion p1);
-        bool isGuardia(){return false;}
         void girarVista(float giro,int posV);
         void quitarVida();
         bool hayGuardias();

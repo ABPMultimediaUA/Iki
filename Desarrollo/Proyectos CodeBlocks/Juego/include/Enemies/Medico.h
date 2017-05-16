@@ -38,6 +38,7 @@ class Medico : public Enemy
         void setProtegido(Enemy* e){protegido=e;}
         void setPosHuida(Structs::TPosicion p){posHuida=p;}
         Structs::TPosicion getPosHuida(){return posHuida;}
+        bool isMedico(){return true;}
 
 
 };

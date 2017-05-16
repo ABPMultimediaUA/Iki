@@ -145,7 +145,6 @@
 		<Unit filename="include/FuzzyLogic/FuzzyTerm.h" />
 		<Unit filename="include/FuzzyLogic/FuzzyVariable.h" />
 		<Unit filename="include/FuzzyLogic/FzSet.h" />
-		<Unit filename="include/FuzzyQuery.h" />
 		<Unit filename="include/GUI/GUI.h" />
 		<Unit filename="include/GUI/GUI_Button.h" />
 		<Unit filename="include/GUI/GUI_Component.h" />
@@ -162,7 +161,6 @@
 		<Unit filename="include/MapComponent.h" />
 		<Unit filename="include/MemoryRecord.h" />
 		<Unit filename="include/Menu.h" />
-		<Unit filename="include/Muros.h" />
 		<Unit filename="include/MyEventReceiver.h" />
 		<Unit filename="include/PatrolPoint.h" />
 		<Unit filename="include/PatrolRoute.h" />
@@ -252,7 +250,6 @@
 		<Unit filename="src/FuzzyLogic/FuzzySet_Right.cpp" />
 		<Unit filename="src/FuzzyLogic/FuzzySet_Triangle.cpp" />
 		<Unit filename="src/FuzzyLogic/FuzzyVariable.cpp" />
-		<Unit filename="src/FuzzyQuery.cpp" />
 		<Unit filename="src/GUI/GUI.cpp" />
 		<Unit filename="src/GUI/GUI_Button.cpp" />
 		<Unit filename="src/GUI/GUI_Component.cpp" />
@@ -268,7 +265,6 @@
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/MapComponent.cpp" />
 		<Unit filename="src/Menu.cpp" />
-		<Unit filename="src/Muros.cpp" />
 		<Unit filename="src/MyEventReceiver.cpp" />
 		<Unit filename="src/PatrolPoint.cpp" />
 		<Unit filename="src/PatrolRoute.cpp" />

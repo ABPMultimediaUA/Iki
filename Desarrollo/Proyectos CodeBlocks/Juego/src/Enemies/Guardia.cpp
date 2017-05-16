@@ -22,8 +22,7 @@ void Guardia::inicializar_enemigo(Map* m)
     solounaveh = false;
     atacando = false;
     input2.maxFraction  =   1.0f;
-    modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
-    modeloAtaque->setVisible(false);
+
 }
 void Guardia::investigar(){
     andarPath(2,posicionInteres);
