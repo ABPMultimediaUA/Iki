@@ -59,8 +59,10 @@ void Map::inicializar_mapa(){
     Structs::TColor col = {0,255,255,255};
     int cont = 0;
 
-    primera_sala = new MeshSceneNode("resources/Modelos/primera_sala.obj");
-    segunda_sala = new MeshSceneNode("resources/Modelos/segunda_sala.obj");
+    primera_sala = new MeshSceneNode("resources/Modelos/salita1.obj");
+    primera_sala->setTexture("resources/Texturas/sala1.png");
+    segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
+    segunda_sala->setTexture("resources/Texturas/sala2.png");
     tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");
     tercera_sala->setTexture("resources/Texturas/mapa.png");
 
