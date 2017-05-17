@@ -78,6 +78,7 @@ class Enemy : public GameEntity
         bool colisionPuertas(Structs::TPosicion destino);
         void borrarMemoria();
         void activeHoloScan(bool b){holoScan->setVisible(b);}
+        void activeAtaque(bool b){modeloAtaque->setVisible(b);}
 
 
 
