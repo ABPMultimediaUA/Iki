@@ -52,25 +52,33 @@ void Map::inicializar_muros(){
     }
 }
 
-void Map::inicializar_mapa(){
+void Map::inicializar_mapa(int tipo){
 
     Structs::TMedida med = {600,-5,600};
     Structs::TPosicion pos(0,0,0);
     Structs::TColor col = {0,255,255,255};
     int cont = 0;
 
-    primera_sala = new MeshSceneNode("resources/Modelos/salita1.obj");
-    primera_sala->setTexture("resources/Texturas/sala1.png");
-    segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
-    segunda_sala->setTexture("resources/Texturas/sala2.png");
-    tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");
-    tercera_sala->setTexture("resources/Texturas/mapa.png");
+
 
     //suelo = new MeshSceneNode(med, pos, col);
 
     docFile = new XMLDocument; //Se crea el objeto del documento
 
-    docFile->LoadFile("resources/Mapas/Mapa3.tmx"); //Se carga el archivo xml
+    if(tipo == 1){
+        docFile->LoadFile("resources/Mapas/Mapa3.tmx"); //Se carga el archivo xml
+        primera_sala = new MeshSceneNode("resources/Modelos/salita1.obj");
+        primera_sala->setTexture("resources/Texturas/sala1.png");
+        segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
+        segunda_sala->setTexture("resources/Texturas/sala2.png");
+        tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");
+        tercera_sala->setTexture("resources/Texturas/mapa.png");
+    }
+    else{
+        docFile->LoadFile("resources/Mapas/Mapa3.tmx");
+        primera_sala = new MeshSceneNode("resources/Modelos/mapa2.obj");
+        primera_sala->setTexture("resources/Texturas/mapa2.png");
+    }
 
     mapElement = docFile->FirstChildElement("map"); //Se enlaza el elemento mapa
 

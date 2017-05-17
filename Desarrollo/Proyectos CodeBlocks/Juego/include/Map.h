@@ -26,7 +26,7 @@ class Map
         Map();
         ~Map();
         void crearComponente();
-        void inicializar_mapa();
+        void inicializar_mapa(int);
         void inicializar_muros();
 
         vector<Muros*>       getMuros()        { return muros; }

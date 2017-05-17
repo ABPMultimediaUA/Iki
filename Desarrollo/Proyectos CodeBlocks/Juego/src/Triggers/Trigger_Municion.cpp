@@ -1,9 +1,9 @@
 #include "Trigger_Municion.h"
 #include "Player.h"
 
-
 Trigger_Municion::Trigger_Municion()
 {
+
 
 }
 
@@ -24,5 +24,5 @@ void Trigger_Municion::Try(GameEntity* ent)
 
 void Trigger_Municion::Update()
 {
-
+    Rotate();
 }

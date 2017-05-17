@@ -34,7 +34,7 @@ class GameEntity
         virtual int                ID()          { return id;       };
 
         virtual b2Body*            getBody(){return body;};
-        virtual void               setBody(b2BodyDef bodyDef);
+        //virtual void               setBody(b2BodyDef bodyDef);
         virtual void               setMesh(AnimatedMesh* m){ aniMesh = m;};
         virtual bool               HandleMessage(const Mensaje& msg)=0;
         virtual bool               isPathObstructured(Structs::TPosicion)=0;

@@ -1,7 +1,5 @@
 #include "Trigger_Aceite.h"
-
 #include "Player.h"
-#include "SoundManager.h"
 
 Trigger_Aceite::Trigger_Aceite()
 {
@@ -25,5 +23,5 @@ void Trigger_Aceite::Try(GameEntity* ent)
 
 void Trigger_Aceite::Update()
 {
-
+    Rotate();
 }

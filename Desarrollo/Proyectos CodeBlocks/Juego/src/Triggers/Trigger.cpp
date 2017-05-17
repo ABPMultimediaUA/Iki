@@ -2,6 +2,8 @@
 #include "TriggerRegion_Circle.h"
 #include "TriggerRegion_Rectangle.h"
 
+#include "Fachada/GraphicsFacade.h"
+
 Trigger::Trigger()
 {
     //ctor
@@ -39,6 +41,16 @@ void Trigger::MoveRegion(Structs::TPosicion center)
 {
   if (region)
         region->moveCenter(center);
+}
+
+void Trigger::Rotate()
+{
+    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    if (tiempo - timer > 0.05){
+        timer = tiempo;
+        angulo += 2.5;
+    }
+    aniMesh->setRotation(angulo);
 }
 
 bool Trigger::noHayNingunaEntidad()
