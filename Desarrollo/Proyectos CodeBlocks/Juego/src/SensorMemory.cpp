@@ -39,6 +39,9 @@ void SensorMemory::updateSoundSource(GameEntity* ruidoso)
 
     MemoryRecord& info = memoryMap[ruidoso];
 
+    info.ultimaPosicion = ruidoso->getPosition();
+    info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    /*
     //test if there is LOS between bots
     //if (enemigo->GetWorld()->isLOSOkay(enemigo->Pos(), ruidoso->Pos()))
     if (enemigo->canWalkBetween(enemigo->getPosition(), ruidoso->getPosition()))
@@ -54,6 +57,7 @@ void SensorMemory::updateSoundSource(GameEntity* ruidoso)
 
     //record the time it was sensed
     info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    */
   }
 }
 
@@ -200,7 +204,7 @@ float  SensorMemory::GetTimeSinceLastSensed(GameEntity* entidad)const
 {
   MemoryMap::const_iterator it = memoryMap.find(entidad);
 
-  if (it != memoryMap.end() && it->second.entraEnFOV)
+  if (it != memoryMap.end())
   {
     return PhisicsWorld::getInstance()->getTimeStamp()/1000 - it->second.ultimaPercepcion;
   }

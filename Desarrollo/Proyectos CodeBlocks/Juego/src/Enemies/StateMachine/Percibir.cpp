@@ -24,7 +24,7 @@ void Percibir::Execute(Enemy* enemigo){
     for(int i=0; i < entities.size(); i++){
         if( enemigo->ID() != entities[i]->ID() && enemigo->getPosition().Distance(entities[i]->getPosition())<10
                                                             && enemigo->isEnemySeeing(entities[i]->getPosition())){
-            //std::cout << "soy " << enemigo->ID() << "y estoy viendo a: " << entities[i]->ID()<< "su vida es: "<<entities[i]->getVida()<<std::endl;
+            std::cout << "soy " << enemigo->ID() << "y estoy viendo a: " << entities[i]->ID()<< "su vida es: "<<entities[i]->getVida()<<std::endl;
             enemigo->actualizarMemoria(entities[i]); //crea un recuerdo,si ya esta creado lo actualiza
             if(enemigo->getEstadoEntity(entities[i]) == 2 ){ //si el estado del enemigo es muerto
                 enemigo->setPosicionInteres(entities[i]->getPosition());

@@ -64,10 +64,10 @@ void Trigger_Torreta::Update()
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
         if (tiempo - timer > 1.f){
             //timer = tiempo;
-            std::cout << "disparando" << std::endl;
+           // std::cout << "disparando" << std::endl;
 
         }else{
-            std::cout << "cargando" << std::endl;
+            //std::cout << "cargando" << std::endl;
         }
     }
 }

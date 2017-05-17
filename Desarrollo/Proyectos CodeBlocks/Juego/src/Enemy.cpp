@@ -229,7 +229,9 @@ float Enemy::getTimePlayerHasBeenOutOfView(){
     //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
     //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
     return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
-
+}
+float Enemy::getTimeSinceLastSensed(){
+    return memory->GetTimeSinceLastSensed(EntityMgr->getEntityByID(0));
 }
 void Enemy::borrarMemoria(){
     memory->removeMemory(this);
@@ -313,8 +315,11 @@ void Enemy::actualizarMemoria(GameEntity* entity){
     memory->updateVision(entity);
 }
 void Enemy::escuchar(){
+    memory->updateSoundSource(EntityMgr->getEntityByID(0));
     calcularAngulo(posicionProta);
     setPosition();
+    if(sospecha < 100 )
+        sospecha++;;
 }
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());

@@ -43,6 +43,7 @@ class Enemy : public GameEntity
         //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
         Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getGuardiaCerca(posicion);}
         float getTimePlayerHasBeenOutOfView();
+        float getTimeSinceLastSensed();
         float getAngulo(){return angulo;}
         int getEstadoEntity(GameEntity* entity){return memory->getEstadoEntity(entity);}
         ///SETTERS
@@ -60,7 +61,6 @@ class Enemy : public GameEntity
         void actualizarMemoria(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
-        void subirSospecha() {sospecha++;}
         void resetSospecha() {sospecha=0;}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
