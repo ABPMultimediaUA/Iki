@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "StateMachine/Patrullar.h"
 #include "StateMachine/Vigilar.h"
+#include "StateMachine/Percibir.h"
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
 
@@ -12,11 +13,10 @@ class MeshSceneNode;
 class Guardia : public Enemy
 {
     private:
-        bool ataquePreparado,solounaveh,atacando,solounpath;
+        bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque;
         float anguloAtaque, distanciaAtaque;
         b2Body *bodyAtaque;
         Structs::TPosicion vectorAtaque;
-        MeshSceneNode* modeloAtaque;
         Structs::TMedida medidaAtaque     = {10,0.5,0.5};
         Structs::TPosicion posicionAtaque = {0,0,0};
         Structs::TColor colorAtaque       = {0,255,140,0};
@@ -30,7 +30,7 @@ class Guardia : public Enemy
             //set up state machine
             G_stateMachine = new StateMachine<Enemy>(this);
             G_stateMachine->SetCurrentState(Patrullar::Instance());
-            //G_stateMachine->SetGlobalState(Patrullar::Instance());
+            G_stateMachine->SetGlobalState(Percibir::Instance());
             ruta = rutita;
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;
@@ -39,7 +39,7 @@ class Guardia : public Enemy
         ~Guardia(){delete G_stateMachine;}
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
-        bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);};
+        bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}
         void investigar();
         void perseguir();
         void ataque();
@@ -47,6 +47,7 @@ class Guardia : public Enemy
         void ejecutarAtaque();
         void buscarProta();
         bool getAtacando(){return atacando;}
+        bool isGuardia(){return true;}
         void setModeloVisible(bool b){modeloAtaque->setVisible(b);}
 
 

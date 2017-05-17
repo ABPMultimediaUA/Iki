@@ -1,3 +1,5 @@
+#include "FuzzyQuery.h"
+#include "Investigar.h"
 #include "Enemies/Guardia.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
@@ -19,25 +21,40 @@ void Guardia::inicializar_enemigo(Map* m)
     ataquePreparado = false;
     solounaveh = false;
     atacando = false;
-    input2.maxFraction	=	1.0f;
-    modeloAtaque = new MeshSceneNode(medidaAtaque,posicionAtaque,colorAtaque);
-    modeloAtaque->setVisible(false);
+    input2.maxFraction  =   1.0f;
 
 }
 void Guardia::investigar(){
     andarPath(2,posicionInteres);
     setPosition();
-
 }
 void Guardia::perseguir(){
-    toProtaPosition = posicionProta - posicion;
-    mirandoHacia = toProtaPosition;
-    toProtaPosition.Normalize();
-    posicion = posicion + toProtaPosition*(avMovement*2);
-    calcularAngulo(posicionProta);
-    setPosition();
+
+    if (isEnemySeeing(posicionProta)){
+
+        calcularAngulo(posicionProta);
+        toProtaPosition = posicionProta - posicion;
+        toProtaPosition.Normalize();
+        mirandoHacia = toProtaPosition;
+
+        FuzzyQuery query;
+        float disancia = posicion.Distance(posicionProta);
+        float vel = query.Query(disancia, bateria, 1);
+        //if (bateria >= 0) bateria-=vel/250;
+        //std::cout << bateria << "%   " << vel/25 << std::endl;
+
+        posicion = posicion + toProtaPosition*(avMovement*vel/25);
+
+        //MoverEnemigo(toProtaPosition);
+        setPosition();
+    }else{
+        guessing = true;
+        toProtaPosition = posicion;
+        //this->GetFSM()->ChangeState(Investigar::Instance());
+    }
 }
 void Guardia::ataque(){
+    moverBody(quietoParado);
     if(!ataquePreparado)
     {
         cargarAtaque();
@@ -48,30 +65,49 @@ void Guardia::ataque(){
 }
 void Guardia::cargarAtaque(){
         atacando = true;
+        ataquePreparado = true;
+        sonidoataque = true;
+
+        FuzzyQuery query;
+        float vidaj = EntityMgr->getEntityByID(0)->getVida();
+        float pot = query.Query(vidaj, bateria, 2);
+
+
+        if (bateria - pot < 5){
+            atacando = false;
+            ataquePreparado = false;
+            bateria += 5;
+            //std::cout << bateria << std::endl;
+        }else{
+            //std::cout << bateria << "%   " << vidaj << "   " << pot << "/10" << std::endl;
+            bateria -= pot/2;
+        }
+
+        modeloAtaque->setScale({1,1,1});
 
         vectorAtaque = posicionProta - posicion;
         anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
 
-
-        input2.p1.Set(posicion.X, posicion.Z);	//	Punto	inicial	del	rayo
+        input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
         input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
 
         distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
-
-        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 0 , (input2.p2.y + input2.p1.y)/2};
+        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
 
         modeloAtaque->setPosition(posicionAtaque);
         modeloAtaque->setRotation(anguloAtaque);
-        ataquePreparado = true;
         resetTime();
 }
 void Guardia::ejecutarAtaque(){
 
-        if(tiempoEnEstado > 0.8 && EntityMgr->getEntityByID(0)->getVida() > 0)
+        if(tiempoEnEstado > 0.6 && EntityMgr->getEntityByID(0)->getVida() > 0)
         {
+            if (sonidoataque) { sonidoataque=false; SoundMgr->playSonido("AccionesRobots/conoelectrico");}
+
             modeloAtaque->setVisible(true);
             if(distanciaPlayer <= distanciaAtaque && !solounaveh) // y si no te veo;
             {
+
                 vectorProta = posicionProta - posicion;
                 float anguloProta = atan2f((vectorProta.Z) , -(vectorProta.X)) * 180.f / PI;
                 //std::cout << "angulo ataque: "<< anguloAtaque <<" anguloProta: "<<anguloProta<<std::endl;
@@ -82,17 +118,19 @@ void Guardia::ejecutarAtaque(){
                 if(abs(anguloAtaque - anguloProta) < 45){
                     EntityMgr->getEntityByID(0)->quitarVida();;
                     solounaveh = true;
-                    SoundMgr->playSonido("AccionesRobots/conoelectrico");
                 }else{
-                    //SoundMgr->playSonido("AccionesRobots/conoelectrico2");
+
                 }
             }
 
-            if(tiempoEnEstado > 1.2){
+            if(tiempoEnEstado > 1.0){
+                calcularAngulo(posicionProta);
+                setPosition();
                 modeloAtaque->setVisible(false);
                 solounaveh = false;
                 atacando = false;
                 ataquePreparado = false;
+
             }
         }
 }

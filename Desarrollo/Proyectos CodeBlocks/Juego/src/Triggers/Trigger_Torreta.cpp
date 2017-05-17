@@ -1,9 +1,22 @@
 #include "Trigger_Torreta.h"
 #include "Fachada/GraphicsFacade.h"
+#include "PhisicsWorld.h"
 
-Trigger_Torreta::Trigger_Torreta()
+Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
 {
-    //ctor
+//b2body
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_staticBody;
+        bodyDef.position.Set(x,z);
+        body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
+
+        b2PolygonShape bodyShape;
+        bodyShape.SetAsBox(1.f,1.f);
+        body->CreateFixture(&bodyShape, 1.0f);
+
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &bodyShape;
+        body->CreateFixture(&fixtureDef);
 }
 
 Trigger_Torreta::~Trigger_Torreta()

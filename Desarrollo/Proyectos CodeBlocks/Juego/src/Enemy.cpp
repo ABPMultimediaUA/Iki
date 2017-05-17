@@ -7,10 +7,31 @@
 #include "MapComponent.h"
 #include "Muerto.h"
 #include "Enemies/Guardia.h"
+#include "Investigar.h"
+#include "Atacar.h"
+
+#include "Trigger.h"
+#include "TriggerSystem.h"
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
+    //toProtaPosition=posicionProta-posicion;
+    //std::cout << bateria << "%   " << std::endl;
+    if (   G_stateMachine->CurrentState() != Atacar::Instance()
+        && G_stateMachine->CurrentState() != Investigar::Instance() ){
+
+        if (bateria < 100.0){
+            bateria += 0.2;
+        }
+    }
+
+    if (guessing){
+        guessing = false;
+        toProtaPosition = posicion;
+        posicionInteres = posicionProta;
+        G_stateMachine->ChangeState(Investigar::Instance());
+    }
 
     deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000;
     avMovement = deltaTime * 9.5; //9.5 es la velocidad
@@ -26,8 +47,8 @@ void Enemy::init(Map* m){
     pRuta = ruta->getInicial()->getNext();
     direccion = 0;
     posVigilando = 0;
-    //creo un cubo
-    //modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicion);
+    bateria = 100;
+    fieldOfView = 120*DegToRad;
     //inicializo una posicion auxiliar y una posicion inicial para darle un angulo al enemigo
     posaux = Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y};
     posinit = pRuta->getPunto()-posaux;
@@ -37,6 +58,8 @@ void Enemy::init(Map* m){
     //Pathplanning
     grafo = Mapa->getGrafo();
     path = new PathPlanner(grafo,this);
+    //SensorMemory
+    memory = new SensorMemory(this,10);
      //Para los ray!
     input.maxFraction	=	1.0f;
 
@@ -44,6 +67,9 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
+
+    modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
+    modeloAtaque->setVisible(false);
 }
 void Enemy::crearBody(){
     b2BodyDef bodyDef;
@@ -57,11 +83,12 @@ void Enemy::crearBody(){
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
-    fixtureDef.friction = 0.f;
-    fixtureDef.restitution  = -1.f;
     fixtureDef.density  = 1.f;
+    fixtureDef.friction = 0.f;
+    fixtureDef.restitution  = 0.f;
     body->CreateFixture(&fixtureDef);
 }
+
 bool Enemy::isPathObstructured(Structs::TPosicion destino){
     input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
     input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
@@ -72,7 +99,19 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
             return true;
         }
     }
+    ///colision con triggers con body
+    std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->isPuerta()){
+                if(triggers.at(i)->getBody()->GetFixtureList())
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
+                return true;
+            }
+        }
+    }
 
+    //if(colisionPuertas(destino))
+        //return true;
     return false;
 }
 bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
@@ -95,6 +134,24 @@ bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     else
         return false;
 }
+bool Enemy::colisionPuertas(Structs::TPosicion destino){
+    input.p1.Set(this->getBody()->GetPosition().x, this->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo (la posicion del prota)
+    input.p2.Set(destino.X, destino.Z);	//	Punto final del	rayo (la posicion que le paso)
+    ///colision con triggers con body
+    std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
+    for (int i = 0; i < triggers.size(); i++) {
+        if (triggers.at(i)->isPuerta()){
+                //std::cout<<i<<std::endl;
+            if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
+                std::cout<<"entraaaa"<<std::endl;
+                return true;
+            }
+        }
+    }
+
+    return false;
+
+}
 bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
 
      input.p1.Set(desde.X, desde.Z);	//	Punto	inicial	del	rayo
@@ -106,24 +163,12 @@ bool Enemy::canWalkBetween(Structs::TPosicion desde, Structs::TPosicion hasta){
             return false;
         }
     }
-
-    /*    ///colision con triggers con body
-    std::vector<*Trigger> triggers = TriggerSystem.GetTriggers();
-    for (int i = 0; i < triggers.size(); i++) {
-        if (triggers.at(i)->getBody()){
-            if (triggers.at(i)->body->GetFixtureList()->RayCast(&output,input,0)){
-                return false;
-            }
-        }
-    }*/
-
     return true;
 }
 
 void Enemy::crearPath(Structs::TPosicion destino){
     listaEjes.clear();
     if(path->crearPath(destino,listaEjes))
-        std::cout<<"Path creado"<<std::endl;
     it=listaEjes.begin();
 }
 void Enemy::setPosition(){
@@ -135,16 +180,18 @@ void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
    //mover medico con la lista de edges creada
     if(!listaEjes.empty() && it != listaEjes.end())
         toNextNodo = (*it).getDestination() - posicion;
-    else
-        toNextNodo=quietoParado;
 
     if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
     {
         //moverBody(quietoParado);
         if(it != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
             it++;
-        else
-            posicion = posFinal;
+        else{
+            posicion=posFinal;
+            // posFinal.Normalize();
+           //toPosicionFinal= posFinal - posicion;
+           //posicion = posicion+toPosicionFinal *(avMovement*velocidad);
+        }
     }
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO
@@ -162,13 +209,6 @@ void Enemy::calcularAngulo(Structs::TPosicion p1){
     angulo = atan2f((p1.Z-posicion.Z) ,
                 -(p1.X-posicion.X)) * 180.f / irr::core::PI;
 }
-bool Enemy::isGuardia(){
-    if(this->getTipo() == 1){
-        return true;
-    }
-    else
-        return false;
-}
 void Enemy::girarVista(float giro, int posV){
     angulo = angulo + giro;
     posVigilando = posV ;
@@ -176,23 +216,10 @@ void Enemy::girarVista(float giro, int posV){
     mirandoHacia.rotarVector(radianes);
 }
 bool Enemy::hayGuardias(){
-    if(EntityMgr->hayGuardia())
+    if(EntityMgr->hayGuardia()){
         return true;
+    }
     return false;
-}
-///PARA MOVER CON IMPULSOS?¿
-void Enemy::moverBody(Structs::TPosicion vec){
-    vec.Normalize();
-    float movx = vec.X * avMovement *40;
-    float movy = vec.Z * avMovement *40;
-    body->SetLinearVelocity(b2Vec2(movx, movy));
-}
-void Enemy::MoverEnemigo(Structs::TPosicion p1,Structs::TPosicion p2){
-    body->SetTransform(body->GetPosition(), angulo);
-    moverBody(p2);
-    posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-    aniMesh->setPosition(posicion);
-    aniMesh->setRotation(body->GetAngle());
 }
 void Enemy::quitarVida(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_hitted > 0.8){
@@ -207,6 +234,20 @@ void Enemy::quitarVida(){
         }
     }
 }
+///PARA MOVER CON IMPULSOS?¿
+void Enemy::moverBody(Structs::TPosicion vec){
+    vec.Normalize();
+    float movx = vec.X * avMovement*5;
+    float movy = vec.Z * avMovement*5;
+    body->SetLinearVelocity(b2Vec2(movx, movy));
+}
+void Enemy::MoverEnemigo(Structs::TPosicion p){
+    body->SetTransform(body->GetPosition(), angulo);
+    moverBody(p);
+    posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+    aniMesh->setPosition(posicion);
+    aniMesh->setRotation(body->GetAngle());
+}
 ///ESTADOS
 
 void Enemy::patrullar()
@@ -214,7 +255,7 @@ void Enemy::patrullar()
 
    if(posicion.Distance(pRuta->getPunto()) >0.5) //AVANZAR
     {
-        //MoverEnemigo(pRuta->getPunto(),posinit);
+        //MoverEnemigo(posinit);
         posicion = posicion + posinit * avMovement;
     }
     else //CUANDO LLEGA A UN PUNTO PATRULLA
@@ -238,10 +279,6 @@ void Enemy::patrullar()
         calcularAngulo(pRuta->getPunto());
     }
     setPosition();
-
-    if(getTipo() == 3){
-        //std::cout<<"vector: "<<mirandoHacia.X<<", "<<mirandoHacia.Z<<std::endl;
-    }
 }
 
 void Enemy::vigilar(){
@@ -261,13 +298,25 @@ void Enemy::vigilar(){
     setPosition();
 }
 void Enemy::escanear(){
-    if(sospecha < 100 && distanciaPlayer<30 && isEnemySeeing(posicionProta))
+
+    if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
+        //std::cout<<"sospecha"<<sospecha<<std::endl;
+        memory->updateVision(EntityMgr->getEntityByID(0));
         calcularAngulo(posicionProta);
-        sospecha++;;
-        //std::cout<<"Sospecha: "<<sospecha<<std::endl;
+        if(sospecha < 100 )
+            sospecha++;;
     }
      setPosition();
+}
+float Enemy::getTimePlayerHasBeenOutOfView(){
+    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
+    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
+    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
+
+}
+void Enemy::borrarMemoria(){
+    memory->removeMemory(this);
 }
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);
@@ -278,10 +327,13 @@ void Enemy::volverALaPatrulla(){
     setPosition();
 }
 void Enemy::muerto(){
-    posicion = {1000,0,1000};
-    setPosition();
-    if(this->isGuardia())
-        static_cast<Guardia*>(this)->setModeloVisible(false);
+    //posicion = {1000,0,1000};
+    //setPosition();
+    aniMesh->setRotationXYZ(0.0,0.0,90.0);
+    aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    EntityMgr->borrarEntity(this);
+    //if(this->isGuardia())
+        //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
-
+    modeloAtaque->setVisible(false);
 }

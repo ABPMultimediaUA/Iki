@@ -7,7 +7,7 @@
 class Trigger_Torreta : public Trigger
 {
     public:
-        Trigger_Torreta();
+        Trigger_Torreta(float x, float y, float z);
         virtual ~Trigger_Torreta();
         void calcularAngulo(Structs::TPosicion);
         void triggerDisparado();

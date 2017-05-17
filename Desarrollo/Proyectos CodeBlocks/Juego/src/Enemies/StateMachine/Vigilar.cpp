@@ -4,6 +4,7 @@
 #include "Enemies/StateMachine/Escanear.h"
 #include "Enemies/StateMachine/Mensaje.h"
 #include "Enemies/StateMachine/Investigar.h"
+#include "Enemies/StateMachine/Atacar.h"
 #include "Enemies/StateMachine/VolverALaPatrulla.h"
 
 
@@ -34,11 +35,16 @@ void Vigilar::Execute(Enemy* enemigo){
     enemigo->vigilar();
     if(enemigo->getDistanciaPlayer() < 30 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         //std::cout<<"Escaneando..."<<std::endl;
+        if(enemigo->GetFSM()->wasInState(*Investigar::Instance())){
+            enemigo->GetFSM()->ChangeState(Atacar::Instance());
+        }
+        else{
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
+        }
     }
     if(enemigo->getTiempo() > 6){
-        //std::cout<<"Patrullando..."<<std::endl;
-        if(enemigo->GetFSM()->PreviousState() == Investigar::Instance()){
+            //if(enemigo->GetFSM()->PreviousState())
+        if(enemigo->GetFSM()->wasInState(*Investigar::Instance())){
             enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
         }
         else
@@ -66,8 +72,10 @@ bool Vigilar::OnMessage(Enemy* enemigo, const Mensaje& msg){
     {
         case Msg_NeedHelp:
         {
-            std::cout<<"recibo el mensajeee"<<std::endl;
+            //std::cout<<"recibo el mensajeee"<<std::endl;
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
+            return true;
         }
     }
+    return false;
 }

@@ -25,6 +25,7 @@ class Trigger : public GameEntity
         bool HandleMessage(const Mensaje& msg){return false;}
         bool isPathObstructured(Structs::TPosicion){};
         bool canWalkBetween(Structs::TPosicion ,Structs::TPosicion){};
+        virtual bool isPuerta(){return false;}
 
     protected:
         void SetToBeRemoved(){removeFromGame = true;}
