@@ -203,6 +203,7 @@
 		<Unit filename="include/Triggers/Trigger_Municion.h" />
 		<Unit filename="include/Triggers/Trigger_Puerta.h" />
 		<Unit filename="include/Triggers/Trigger_PuertaLlave.h" />
+		<Unit filename="include/Triggers/Trigger_PuertaNivel.h" />
 		<Unit filename="include/Triggers/Trigger_Respawning.h" />
 		<Unit filename="include/Triggers/Trigger_Ruido.h" />
 		<Unit filename="include/Triggers/Trigger_Torreta.h" />
@@ -309,6 +310,7 @@
 		<Unit filename="src/Triggers/Trigger_Municion.cpp" />
 		<Unit filename="src/Triggers/Trigger_Puerta.cpp" />
 		<Unit filename="src/Triggers/Trigger_PuertaLlave.cpp" />
+		<Unit filename="src/Triggers/Trigger_PuertaNivel.cpp" />
 		<Unit filename="src/Triggers/Trigger_Respawning.cpp" />
 		<Unit filename="src/Triggers/Trigger_Ruido.cpp" />
 		<Unit filename="src/Triggers/Trigger_Torreta.cpp" />

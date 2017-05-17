@@ -9,6 +9,7 @@
 #include "Trigger_Municion.h"
 #include "Trigger_Aceite.h"
 #include "Trigger_Torreta.h"
+#include "Trigger_PuertaNivel.h"
 
 
 #include "../Fachada/AnimatedMesh.h"
@@ -81,6 +82,14 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, 270);
         trigger->setMesh(modelo);
+    }
+    else if (tipo == 9){
+        trigger = new Trigger_PuertaNivel(x,z,r);
+        //Region
+        trigger->AddCircularRegion(centro,3.5);
+        //modelo
+        //modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, 270);
+        //trigger->setMesh(modelo);
     }
     /*else if (tipo == 7){
         trigger = new Trigger_Torreta();
