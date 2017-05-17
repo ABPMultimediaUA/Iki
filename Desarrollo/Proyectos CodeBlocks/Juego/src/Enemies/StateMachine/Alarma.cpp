@@ -18,8 +18,8 @@ Alarma* Alarma::Instance()
 void Alarma::Enter(Enemy* enemigo){
     enemigo->resetTime();
     SoundMgr->playSonido("AccionesRobots/alarma_sintetizada");
-    Structs::TColor color = {0,255,0,0};
-    enemigo->cambiarColor(color);
+    //Structs::TColor color = {0,255,0,0};
+    //enemigo->cambiarColor(color);
 }
 
 void Alarma::Execute(Enemy* enemigo){

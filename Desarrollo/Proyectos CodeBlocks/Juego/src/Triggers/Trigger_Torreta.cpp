@@ -17,6 +17,9 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &bodyShape;
     body->CreateFixture(&fixtureDef);
+
+    modeloDisparo = new MeshSceneNode("resources/Modelos/rayitoPlayer.obj");
+    modeloDisparo->setVisible(false);
 }
 
 Trigger_Torreta::~Trigger_Torreta()
@@ -25,15 +28,14 @@ Trigger_Torreta::~Trigger_Torreta()
 }
 
 void Trigger_Torreta::calcularAngulo(Structs::TPosicion p1){
-    //angulo = atan2f((p1.Z-posicion.Z) ,
-    //            -(p1.X-posicion.X)) * 180.f / irr::core::PI;
+    //angulo = atan2f((p1.Z-posicion.Z) , -(p1.X-posicion.X)) * 180.f / irr::core::PI;
+    //aniMesh->setRotation(angulo);
 }
 
 void Trigger_Torreta::triggerDisparado()
 {
-    /*if((GraphicsFacade::getInstance().getTimer()->getTime/1000.f - time_fired) > 2){
-
-    }*/
+    fired = true;
+    timer = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
 }
 
 void Trigger_Torreta::disparo(){
@@ -47,12 +49,8 @@ void Trigger_Torreta::Try(GameEntity* ent)
 {
     if (ent->isPlayer())
         if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
-            //if(true) //Aqui va el calculo del angulo
-            //calcularAngulo(ent->getPosition());
             if(!fired){
-                timer = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
                 triggerDisparado();
-                fired = true;
             }
         }else{
             fired = false;
@@ -62,9 +60,14 @@ void Trigger_Torreta::Try(GameEntity* ent)
 
 void Trigger_Torreta::Update()
 {
-    //Rotate();
-/*    setPosition();
-    if (fired && GraphicsFacade::getInstance().getTimer()->getTime/1000.f - time_fired > 2){
-        disparo();
-    }*/
+    if (fired){
+        f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        if (tiempo - timer > 1.f){
+            //timer = tiempo;
+            std::cout << "disparando" << std::endl;
+
+        }else{
+            std::cout << "cargando" << std::endl;
+        }
+    }
 }

@@ -21,6 +21,7 @@ class Trigger_Torreta : public Trigger
 
     private:
         bool fired;
+        MeshSceneNode* modeloDisparo;
 };
 
 #endif // TRIGGER_TORRETA_H

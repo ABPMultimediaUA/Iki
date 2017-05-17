@@ -8,10 +8,10 @@
 
 Player_Ray::Player_Ray()
 {
-    Structs::TMedida medida     = {10,0.5,0.5};
-    Structs::TPosicion posicion = {0,0,0};
-    Structs::TColor color       = {0,30,144,255};
-    modelo = new MeshSceneNode(medida,posicion,color);
+    //Structs::TMedida medida     = {10,0.5,0.5};
+    //Structs::TPosicion posicion = {0,0,0};
+    //Structs::TColor color       = {0,30,144,255};
+    modelo = new MeshSceneNode("resources/Modelos/rayitoPlayer.obj");
     modelo->setVisible(false);
     balas = 4;
     vida = 0;
