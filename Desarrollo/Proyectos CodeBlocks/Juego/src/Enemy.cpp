@@ -220,8 +220,9 @@ void Enemy::girarVista(float giro, int posV){
     mirandoHacia.rotarVector(radianes);
 }
 bool Enemy::hayGuardias(){
-    if(EntityMgr->hayGuardia())
+    if(EntityMgr->hayGuardia()){
         return true;
+    }
     return false;
 }
 void Enemy::quitarVida(){
@@ -338,4 +339,5 @@ void Enemy::muerto(){
     //if(this->isGuardia())
         //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
+    modeloAtaque->setVisible(false);
 }

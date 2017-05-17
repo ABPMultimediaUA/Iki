@@ -28,6 +28,7 @@ class Dron : public Enemy
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);};
+        bool isDron(){return true;}
 
 
 };

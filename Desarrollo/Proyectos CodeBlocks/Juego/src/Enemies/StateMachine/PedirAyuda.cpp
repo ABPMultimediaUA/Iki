@@ -30,8 +30,9 @@ void PedirAyuda::Execute(Enemy* enemigo){
             enemigo->GetFSM()->ChangeState(Proteger::Instance());
         }
    }
-    else
+    else{
         enemigo->GetFSM()->ChangeState(Huir::Instance());
+    }
 }
 void PedirAyuda::Exit(Enemy* enemigo){}
 bool PedirAyuda::OnMessage(Enemy*, const Mensaje&){}
