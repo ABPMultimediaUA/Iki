@@ -116,7 +116,7 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
 }
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(destino))
         return true;
     else
         return false;
@@ -305,6 +305,9 @@ void Enemy::escanear(){
     }
      setPosition();
 }
+void Enemy::actualizarMemoria(GameEntity* entity){
+    memory->updateVision(entity);
+}
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);
     setPosition();
@@ -318,7 +321,7 @@ void Enemy::muerto(){
     //setPosition();
     aniMesh->setRotationXYZ(0.0,0.0,90.0);
     aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
-    EntityMgr->borrarEntity(this);
+    //EntityMgr->borrarEntity(this);
     //if(this->isGuardia())
         //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);

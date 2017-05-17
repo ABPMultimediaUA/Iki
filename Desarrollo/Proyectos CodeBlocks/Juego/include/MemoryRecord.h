@@ -9,6 +9,7 @@ enum EstadoEntity
             sospechoso,
             muerto,
             abierta,
+            yaLoSabia
         };
 
 class MemoryRecord

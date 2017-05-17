@@ -71,12 +71,20 @@ void SensorMemory::updateVision(GameEntity* cantoso){
         info.entraEnFOV  = true;
         info.primeraVista = info.ultimaPercepcion;
     }
-    if(cantoso->isEnemy())
-        info.estado = muerto;
-    else if(cantoso->isPlayer())
-        info.estado = sospechoso;
-    else if(cantoso->isTrigger())
-        info.estado = abierta;
+    if(info.estado == todoCorrecto){
+        if(cantoso->isEnemy() && cantoso->getVida() == 0)
+            info.estado = muerto;
+        else if(cantoso->isPlayer())
+            info.estado = sospechoso;
+        else if(cantoso->isTrigger())
+            info.estado = abierta;
+    }
+    else{
+        if(cantoso->isEnemy() && cantoso->getVida() == 0)
+            info.estado = yaLoSabia;
+        else if(cantoso->isTrigger())
+            info.estado = yaLoSabia;
+    }
 
     /*//test if there is LOS between bots
     if(enemigo->canWalkBetween(enemigo->getPosition(),(cantoso)->getPosition()))

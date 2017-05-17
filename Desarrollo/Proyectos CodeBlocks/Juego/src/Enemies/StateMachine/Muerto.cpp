@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "EntityManager.h"
 #include "Enemies/StateMachine/Muerto.h"
+#include "Enemies/StateMachine/Vigilar.h"
 
 Muerto* Muerto::Instance()
 {
@@ -28,7 +29,8 @@ void Muerto::Enter(Enemy* enemigo){
 }
 
 void Muerto::Execute(Enemy* enemigo){
-
+    if(enemigo->getVida()>0)
+        enemigo->GetFSM()->ChangeState(Vigilar::Instance());
 }
 
 void Muerto::Exit(Enemy* enemigo){

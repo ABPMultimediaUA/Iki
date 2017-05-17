@@ -4880,7 +4880,7 @@
 1491865013 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
 	"Structs.h"
 
-1495023490 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1495047077 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -4895,7 +4895,7 @@
 	"Trigger.h"
 	"TriggerSystem.h"
 
-1495023519 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
+1495041883 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
 	"GameEntity.h"
 	"Enemies/StateMachine/StateMachine.h"
 	"PatrolRoute.h"
@@ -5000,7 +5000,7 @@
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1495036445 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1495037345 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -5451,7 +5451,7 @@
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1494961927 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\dron.h
+1495045588 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\dron.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Percibir.h"
@@ -5505,7 +5505,7 @@
 	"Fachada/MeshSceneNode.h"
 	"SoundManager.h"
 
-1494953274 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
+1495045595 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Vigilar.h"
@@ -5516,12 +5516,12 @@
 1490986860 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\vigilar.h
 	"Enemies/StateMachine/State.h"
 
-1494953276 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
+1495047077 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
 	"Enemies/Medico.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1494961944 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\medico.h
+1495046021 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\medico.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Percibir.h"
@@ -5660,10 +5660,11 @@
 1490986857 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\mensaje.cpp
 	"Enemies/StateMachine/Mensaje.h"
 
-1491910776 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\muerto.cpp
+1495045216 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\muerto.cpp
 	"Enemy.h"
 	"EntityManager.h"
 	"Enemies/StateMachine/Muerto.h"
+	"Enemies/StateMachine/Vigilar.h"
 
 1494332674 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\patrullar.cpp
 	"Enemies/StateMachine/Patrullar.h"
@@ -5687,7 +5688,7 @@
 1490986860 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\proteger.h
 	"Enemies/StateMachine/State.h"
 
-1491771810 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\proteger.cpp
+1495044660 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\proteger.cpp
 	"Enemies/StateMachine/Proteger.h"
 	"Enemies/StateMachine/PedirAyuda.h"
 	"Enemy.h"
@@ -5703,7 +5704,7 @@
 1490986857 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\statemachine.cpp
 	"Enemies/StateMachine/StateMachine.h"
 
-1494945771 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\vigilar.cpp
+1495046520 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\vigilar.cpp
 	"Enemies/StateMachine/Vigilar.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -5712,8 +5713,9 @@
 	"Enemies/StateMachine/Investigar.h"
 	"Enemies/StateMachine/Atacar.h"
 	"Enemies/StateMachine/VolverALaPatrulla.h"
+	"Enemies/StateMachine/Muerto.h"
 
-1494938152 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\volveralapatrulla.cpp
+1495046412 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\volveralapatrulla.cpp
 	"Enemies/StateMachine/VolverALaPatrulla.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -12618,7 +12620,7 @@
 	<map>
 	<list>
 
-1495023730 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\memoryrecord.h
+1495041535 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\memoryrecord.h
 	"Structs.h"
 
 1494945131 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\percibir.h
@@ -12651,11 +12653,14 @@
 1491771810 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\huir.h
 	"Enemies/StateMachine/State.h"
 
-1495018200 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\percibir.cpp
+1495046143 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\percibir.cpp
 	"Enemies/StateMachine/Percibir.h"
+	"Enemies/StateMachine/Investigar.h"
+	"Enemies/StateMachine/Revivir.h"
 	"Enemy.h"
 	"EntityManager.h"
 	"GameEntity.h"
+	"Enemies/Medico.h"
 
 1494333423 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fuzzylogic\fuzzymodule.cpp
 	"FuzzyModule.h"
@@ -12709,7 +12714,7 @@
 	"FuzzySet_Triangle.h"
 	"FzSet.h"
 
-1495032857 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\sensormemory.cpp
+1495041670 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\sensormemory.cpp
 	"SensorMemory.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -13963,4 +13968,23 @@
 	"MapComponent.h"
 	"PhisicsWorld.h"
 	"Fachada/MeshSceneNode.h"
+
+1495044974 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\curar.cpp
+	"Enemy.h"
+	"EntityManager.h"
+	"Enemies/StateMachine/Curar.h"
+	"Enemies/StateMachine/Vigilar.h"
+
+1495044816 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\curar.h
+	"Enemies/StateMachine/State.h"
+
+1495045320 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\revivir.h
+	"Enemies/StateMachine/State.h"
+
+1495046194 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\revivir.cpp
+	"Enemy.h"
+	"EntityManager.h"
+	"Enemies/StateMachine/Revivir.h"
+	"Enemies/StateMachine/Vigilar.h"
+	"Enemies/Medico.h"
 
