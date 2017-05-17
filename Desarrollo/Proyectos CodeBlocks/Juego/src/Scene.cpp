@@ -77,27 +77,29 @@ void Scene::cargarSonidos()
     //SoundMgr->cargarSonido("VocesRobots/Dron/beepvigilar");
 }
 
-void Scene::inicializar_escena(){
+void Scene::inicializar_escena(int nivel){
 
 
     f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
-    Structs::TPosicion posicionCamara (190,30,40);
-    Structs::TPosicion targetCamara (70,-10,40);
-    Structs::TPosicion rayPos (170,0,50);
+    if(nivel == 1){
+        Structs::TPosicion posicionCamara (190,30,40);
+        Structs::TPosicion targetCamara (70,-10,40);
+        Structs::TPosicion rayPos (170,0,50);
+    }
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
 
-    world->inicializar_mundo();
+    world->inicializar_mundo(nivel);
 
     Mapa = world->getMapa();
-    player->inicializar_player(Mapa);
+    player->inicializar_player(Mapa, nivel);
     //GraphicsFacade::getInstance().inicializar_gui(1);
     menu_ingame->inicializar_menu(1);
 
     Trigger* ruido = player->getRuido();
     TriggerSystem::getInstance()->Register(ruido);
-    TriggerSystem::getInstance()->LeerMapa();
+    TriggerSystem::getInstance()->LeerMapa(nivel);
 
     cargarSonidos();
     SoundMgr->playMusica("Ambientes/ambiente_desierto");
