@@ -34,6 +34,10 @@ void MeshSceneNode::setRotation(float rot){
     node->setRotation(vector3df(0, rot, 0));
 }
 
+void MeshSceneNode::setRotationXYZ(float x, float y,float z){
+    node->setRotation(vector3df(x,y,z));
+}
+
 void MeshSceneNode::setScale(Structs::TMedida scale){
     node->setScale(vector3df(scale.ancho, scale.alto, scale.profundo));
 }

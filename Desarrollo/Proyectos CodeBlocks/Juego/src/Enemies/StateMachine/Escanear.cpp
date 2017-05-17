@@ -19,6 +19,8 @@ Escanear* Escanear::Instance()
 void Escanear::Enter(Enemy* enemigo){
 
     //enemigo->activeHoloScan(true);
+    enemigo->scanTimerToZero();
+    //enemigo->scanRotation();
 
     if(enemigo->getTimePlayerHasBeenOutOfView() >10){
         enemigo->resetSospecha();

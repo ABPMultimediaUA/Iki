@@ -308,7 +308,16 @@ void Enemy::vigilar(){
 }
 void Enemy::escanear(){
 
-    holoScan->setRotation(angulo);
+    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    if (tiempo - scanT > 0.01){
+        scanAngle -= 0.1;
+        if (tiempo - scanT < 0.2){
+            scanT = tiempo;
+            scanAngle += 0.1;
+        }
+    }
+    holoScan->setRotationXYZ(0,angulo,scanAngle);
+    //holoScan->setRotation(angulo);
     holoScan->setPosition(posicion);
     activeHoloScan(true);
 
