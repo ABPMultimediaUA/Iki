@@ -21,8 +21,8 @@ void Percibir::Execute(Enemy* enemigo){
     for(int i=0; i < entities.size(); i++){
         if( enemigo->ID() != entities[i]->ID() && entities[i]->isEnemy() && enemigo->getPosition().Distance(entities[i]->getPosition())<10 && enemigo->isEnemySeeing(entities[i]->getPosition())){
                // std::cout<<"vida:"<<entities[i]->getVida()<<std::endl;
-                //if(entities[i]->getVida() == 0.0)
-                //std::cout<<"Esta muertooo lcoooo"<<std::endl;
+                if(entities[i]->getVida() == 0.0)
+                    std::cout<<"Esta muertooo locoooo"<<std::endl;
         }
     }
 

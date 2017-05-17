@@ -68,8 +68,6 @@ class Enemy : public GameEntity
         void moverBody(Structs::TPosicion vec);
         void MoverEnemigo(Structs::TPosicion p);
         void andarPath(float velocidad,Structs::TPosicion posFinal);
-        bool isWithinFOV(Structs::TPosicion p, float distanceFOV);
-        bool vectorIsInFOV(Structs::TPosicion p);
         void cambiarColor(Structs::TColor c);
         void calcularAngulo(Structs::TPosicion p1);
         void girarVista(float giro,int posV);

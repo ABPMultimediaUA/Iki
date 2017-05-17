@@ -31,16 +31,15 @@ public:
     //this method iterates through all the opponents in the game world and
     //updates the records of those that are in the owner's FOV
     void updateVision(GameEntity* cantoso);
-    bool isEntityVisible(GameEntity* entidad)const;
-    bool isEntityInFOV(GameEntity* entidad)const;
     Structs::TPosicion GetLastRecordedPositionOfEntity(GameEntity* entidad)const;
     float GetTimeEntityHasBeenVisible(GameEntity* entidad)const;
     float GetTimeSinceLastSensed(GameEntity* entidad)const;
     float GetTimeEntityHasBeenOutOfView(GameEntity* entidad)const;
+    EstadoEntity getEstadoEntity(GameEntity* entidad)const;
 
     //this method returns a list of all the opponents that have had their
     //records updated within the last memorySpan seconds.
-    std::list<GameEntity*> GetListOfRecentlySensedOpponents()const;
+    std::list<GameEntity*> GetListOfRecentlySensedEntitites()const;
 };
 
 #endif // SENSOR_H

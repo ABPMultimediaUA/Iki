@@ -114,19 +114,6 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
         //return true;
     return false;
 }
-bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
-    if(posicion.Distance(p) < distanceFOV ){
-        if(vectorIsInFOV(p))
-            return true;
-    }
-    return false;
-
-}
-bool Enemy::vectorIsInFOV(Structs::TPosicion p){
-    Structs::TPosicion target = posicion - p;
-    float angle = (float)atan2(target.Y,target.Z);
-    //continua...
-}
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
     if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
@@ -234,6 +221,15 @@ void Enemy::quitarVida(){
         }
     }
 }
+float Enemy::getTimePlayerHasBeenOutOfView(){
+    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
+    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
+    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
+
+}
+void Enemy::borrarMemoria(){
+    memory->removeMemory(this);
+}
 ///PARA MOVER CON IMPULSOS?¿
 void Enemy::moverBody(Structs::TPosicion vec){
     vec.Normalize();
@@ -308,15 +304,6 @@ void Enemy::escanear(){
             sospecha++;;
     }
      setPosition();
-}
-float Enemy::getTimePlayerHasBeenOutOfView(){
-    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
-    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
-    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
-
-}
-void Enemy::borrarMemoria(){
-    memory->removeMemory(this);
 }
 void Enemy::escuchar(){
     calcularAngulo(posicionProta);

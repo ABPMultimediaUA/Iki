@@ -17,6 +17,7 @@ Escanear* Escanear::Instance()
 }
 
 void Escanear::Enter(Enemy* enemigo){
+
     if(enemigo->getTimePlayerHasBeenOutOfView() >10){
         enemigo->resetSospecha();
         enemigo->borrarMemoria();
