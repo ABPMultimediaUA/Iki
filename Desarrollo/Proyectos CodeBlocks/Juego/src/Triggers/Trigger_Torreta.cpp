@@ -19,7 +19,9 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
     body->CreateFixture(&fixtureDef);
 
     modeloDisparo = new MeshSceneNode("resources/Modelos/rayitoPlayer.obj");
-    modeloDisparo->setVisible(false);
+    modeloDisparo->setVisible(true);
+
+    x = 1; y = 1; z = 1;
 }
 
 Trigger_Torreta::~Trigger_Torreta()
@@ -36,24 +38,41 @@ void Trigger_Torreta::triggerDisparado()
 {
     fired = true;
     timer = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    aniMesh->setScale({1,1,1});
 }
 
-void Trigger_Torreta::disparo(){
-  /*  input.p1.Set(enemigos[5]->getBody()->GetPosition().x, enemigos[5]->getBody()->GetPosition().y);	//	Punto	inicial	del	rayo
-            input.p2.Set(prota->getBody()->GetPosition().x, prota->getBody()->GetPosition().y);	//	Punto	final	del	rayo
+void Trigger_Torreta::Disparar()
+{
+    x = 1; y = 1; z = 1;
 
-    distancia = sqrt(pow(input.p2.x-input.p1.x, 2)+pow(input.p2.y-input.p1.y, 2));*/
+        //Structs::TPosicion vectorAtaque = pProta - posicion;
+        //float anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
+
+        //b2RayCastInput input2;
+        //input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
+        //input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
+
+        //Structs::TPosicion posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
+        //float distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
+
+        modeloDisparo->setPosition(posicion);
+        //modeloDisparo->setRotation(anguloAtaque);
+
+    modeloDisparo->setVisible(true);
 }
 
 void Trigger_Torreta::Try(GameEntity* ent)
 {
     if (ent->isPlayer())
         if (isActive() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
+            pProta = ent->getPosition();
             if(!fired){
                 triggerDisparado();
             }
         }else{
             fired = false;
+            x = 1; y = 1; z = 1;
+            aniMesh->setScale({1,1,1});
         }
 
 }
@@ -62,12 +81,12 @@ void Trigger_Torreta::Update()
 {
     if (fired){
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-        if (tiempo - timer > 1.f){
-            //timer = tiempo;
-            std::cout << "disparando" << std::endl;
-
+        if (tiempo - timer > 1.5){
+            timer = tiempo;
+            Disparar();
         }else{
-            std::cout << "cargando" << std::endl;
+            x += 0.001; y += 0.001; z += 0.001;
+            aniMesh->setScale({x,y,z});
         }
     }
 }

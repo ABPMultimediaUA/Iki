@@ -77,11 +77,13 @@ class Enemy : public GameEntity
         bool hayGuardias();
         bool colisionPuertas(Structs::TPosicion destino);
         void borrarMemoria();
+        void activeHoloScan(bool b){holoScan->setVisible(b);}
 
 
 
     protected:
 
+        MeshSceneNode* holoScan;
         MeshSceneNode* modeloAtaque;
         int tipo,direccion,posVigilando;
         float bateria;

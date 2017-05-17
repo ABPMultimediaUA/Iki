@@ -17,6 +17,9 @@ Escanear* Escanear::Instance()
 }
 
 void Escanear::Enter(Enemy* enemigo){
+
+    //enemigo->activeHoloScan(true);
+
     if(enemigo->getTimePlayerHasBeenOutOfView() >10){
         enemigo->resetSospecha();
         enemigo->borrarMemoria();
@@ -64,6 +67,8 @@ void Escanear::Execute(Enemy* enemigo){
 }
 
 void Escanear::Exit(Enemy* enemigo){
+
+    enemigo->activeHoloScan(false);
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->soundStop("VocesRobots/Guardia/escaneando");

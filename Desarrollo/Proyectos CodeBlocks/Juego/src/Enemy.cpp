@@ -69,6 +69,8 @@ void Enemy::init(Map* m){
     EntityMgr->registrarEnemigo(this);
     modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
     modeloAtaque->setVisible(false);
+    holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
+    holoScan->setVisible(false);
 }
 void Enemy::crearBody(){
     b2BodyDef bodyDef;
@@ -303,6 +305,10 @@ void Enemy::vigilar(){
 }
 void Enemy::escanear(){
 
+    holoScan->setRotation(angulo+90);
+    holoScan->setPosition(posicion);
+    activeHoloScan(true);
+
     if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
         //std::cout<<"sospecha"<<sospecha<<std::endl;
@@ -311,7 +317,8 @@ void Enemy::escanear(){
         if(sospecha < 100 )
             sospecha++;;
     }
-     setPosition();
+    //holoScan->setVisible(false);
+    setPosition();
 }
 float Enemy::getTimePlayerHasBeenOutOfView(){
     //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
