@@ -18,6 +18,8 @@ Player::Player()
 Player::~Player()
 {
     delete rayo;
+    delete aniMesh;
+    body->GetWorld()->DestroyBody(body);
 }
 
 void Player::inicializar_player(Map* m, int nivel){
@@ -35,7 +37,7 @@ void Player::inicializar_player(Map* m, int nivel){
     Structs::TPosicion posicionInicial;
 
     if(nivel == 1) posicionInicial = {170,0,50};
-
+    if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
     aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);
@@ -51,7 +53,8 @@ void Player::inicializar_player(Map* m, int nivel){
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(170, 50);
+    if(nivel == 1) bodyDef.position.Set(170, 50);
+    if(nivel == 2) bodyDef.position.Set(190, 50);
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;

@@ -6,6 +6,21 @@
 #include "Fachada/MeshSceneNode.h"
 #include "SoundManager.h"
 
+Guardia::~Guardia(){
+    delete aniMesh;
+    body->GetWorld()->DestroyBody(body);
+    delete modeloAtaque;
+    ruta = nullptr;
+    pRuta = nullptr;
+    Mapa = nullptr;
+    delete G_stateMachine;
+    actualState = nullptr;
+    oldState = nullptr;
+    globalState = nullptr;
+    grafo = nullptr;
+    path = nullptr;
+    delete memory;
+}
 void Guardia::inicializar_enemigo(Map* m)
 {
     //De momento todos tienen el mismo body y cosas en comun asi que las inicializo para los tres en init

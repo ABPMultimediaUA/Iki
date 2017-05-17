@@ -16,7 +16,7 @@ class Scene
         ~Scene();
         void cargarSonidos();
         void inicializar_escena(int);
-        void bucle_juego();
+        void bucle_juego(int);
         void cleanScene();
 
     protected:

@@ -18,6 +18,7 @@ void Game::start_game(){
     menu->inicializar_menu(0);
     if(menu->run()){
         escena->inicializar_escena(1);
+        escena = new Scene();
         escena->inicializar_escena(2);
     }
 }

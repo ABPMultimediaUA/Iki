@@ -48,6 +48,7 @@ class Player : public GameEntity{
         void comprobarVelocidad();
 
         bool isNivelFinished(){ return nivel_acabado; }
+        void setNivelFinished(bool holi){ nivel_acabado = holi; }
 
     protected:
 

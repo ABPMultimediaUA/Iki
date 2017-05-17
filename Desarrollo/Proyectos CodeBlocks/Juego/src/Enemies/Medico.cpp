@@ -2,6 +2,22 @@
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
 
+Medico::~Medico(){
+    delete aniMesh;
+    body->GetWorld()->DestroyBody(body);
+    delete modeloAtaque;
+    ruta = nullptr;
+    pRuta = nullptr;
+    Mapa = nullptr;
+    delete G_stateMachine;
+    actualState = nullptr;
+    oldState = nullptr;
+    globalState = nullptr;
+    grafo = nullptr;
+    path = nullptr;
+    delete memory;
+    protegido = nullptr;
+}
 
 void Medico::inicializar_enemigo(Map* m)
 {

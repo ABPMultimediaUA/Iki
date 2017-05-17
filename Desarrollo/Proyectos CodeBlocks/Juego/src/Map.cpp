@@ -75,7 +75,7 @@ void Map::inicializar_mapa(int tipo){
         tercera_sala->setTexture("resources/Texturas/mapa.png");
     }
     else{
-        docFile->LoadFile("resources/Mapas/Mapa3.tmx");
+        docFile->LoadFile("resources/Mapas/Mapita.tmx");
         primera_sala = new MeshSceneNode("resources/Modelos/mapa2.obj");
         primera_sala->setTexture("resources/Texturas/mapa2.png");
     }

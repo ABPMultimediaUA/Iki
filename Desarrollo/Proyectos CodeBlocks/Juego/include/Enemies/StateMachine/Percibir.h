@@ -16,6 +16,7 @@ public:
     void Enter(Enemy* enemigo);
     void Execute(Enemy* enemigo);
     void Exit(Enemy* enemigo);
+    void Salgo();
     bool OnMessage(Enemy*, const Mensaje&){};
 
 private:

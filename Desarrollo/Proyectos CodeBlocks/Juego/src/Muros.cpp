@@ -40,7 +40,6 @@ Muros::Muros(MapComponent* inicio, MapComponent* fin)
 
 Muros::~Muros()
 {
-    delete modelo;
     body->GetWorld()->DestroyBody(body);
 }
 

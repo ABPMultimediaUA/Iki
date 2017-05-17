@@ -88,4 +88,7 @@ void EntityManager::Clear(){
     }
 
     entities.clear();
+    enemigos.clear();
+    entityMap.clear();
+    nextID = 1;
 }

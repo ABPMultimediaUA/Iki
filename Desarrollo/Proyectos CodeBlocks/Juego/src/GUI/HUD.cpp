@@ -8,15 +8,22 @@
 
 HUD::HUD()
 {
-    Vida          = nullptr;
-    Balas         = nullptr;
-    Leyenda       = nullptr;
-    Rayo          = nullptr;
-    Sigilo        = nullptr;
-    Tarjeta       = nullptr;
-    AvisoTarjeta  = nullptr;
-    AvisoMunicion = nullptr;
-    AvisoAceite   = nullptr;
+    Vida             = nullptr;
+    Balas            = nullptr;
+    Leyenda          = nullptr;
+    LeyendaQ         = nullptr;
+    LeyendaShift     = nullptr;
+    Rayo             = nullptr;
+    Golpe            = nullptr;
+    Sigilo           = nullptr;
+    Tarjeta          = nullptr;
+    AvisoTarjeta     = nullptr;
+    AvisoMunicion    = nullptr;
+    AvisoAceite      = nullptr;
+    AvisoNotTarjeta  = nullptr;
+    AvisoNotMunicion = nullptr;
+    GOver            = nullptr;
+    BotonFinJuego    = nullptr;
 
     player  = nullptr;
     //player  = static_cast<Player*>(EntityManager::Instance()->getEntities()[0]);
@@ -24,17 +31,24 @@ HUD::HUD()
 
 HUD::~HUD()
 {
-    delete Vida;
-    delete Balas;
-    delete Leyenda;
-    delete Rayo;
-    delete Sigilo;
-    delete Tarjeta;
-    delete AvisoTarjeta;
-    delete AvisoMunicion;
-    delete AvisoAceite;
+    Vida             = nullptr;
+    Balas            = nullptr;
+    Leyenda          = nullptr;
+    LeyendaQ         = nullptr;
+    LeyendaShift     = nullptr;
+    Rayo             = nullptr;
+    Golpe            = nullptr;
+    Sigilo           = nullptr;
+    Tarjeta          = nullptr;
+    AvisoTarjeta     = nullptr;
+    AvisoMunicion    = nullptr;
+    AvisoAceite      = nullptr;
+    AvisoNotTarjeta  = nullptr;
+    AvisoNotMunicion = nullptr;
+    GOver            = nullptr;
+    BotonFinJuego    = nullptr;
 
-    delete player;
+    player  = nullptr;
 }
 
 void HUD::inicializar_HUD(){
@@ -46,7 +60,7 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(0, -8, rec, "Overlay", true));
 
     ///Vida del prota
-    rec = {450, 0, 605, 250};
+    rec = {560, 0, 675, 230};
     elementos.push_back(new HUD_Element(10, 2, rec, "vidaprota", true));
     Vida = elementos[1];
 

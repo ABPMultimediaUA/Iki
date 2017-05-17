@@ -22,7 +22,7 @@ class GameEntity
 {
     public:
         GameEntity();
-        ~GameEntity();
+        virtual ~GameEntity();
 
         //Getters
         virtual Structs::TPosicion getPosition() { return posicion; };

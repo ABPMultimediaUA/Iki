@@ -11,6 +11,7 @@ Percibir* Percibir::Instance()
 }
 
 void Percibir::Enter(Enemy* enemigo){
+    std::cout<<"ID entity 0 al entrar en percibir: "<<EntityMgr->getEntities()[0]->ID()<<std::endl;
     entities = EntityMgr->getEntities();
     enter = true;
 }
@@ -28,3 +29,7 @@ void Percibir::Execute(Enemy* enemigo){
 
 }
 void Percibir::Exit(Enemy* enemigo){}
+
+void Percibir::Salgo(){
+    enter = false;
+}

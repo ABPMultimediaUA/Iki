@@ -9,6 +9,7 @@
 #include "EntityManager.h"
 #include "SoundManager.h"
 #include "TriggerSystem.h"
+#include "Percibir.h"
 
 Scene::Scene()
 {
@@ -92,7 +93,9 @@ void Scene::inicializar_escena(int nivel){
         rayPos         = {170,0,50};
 
     }else{
-
+        posicionCamara = {190,30,40};
+        targetCamara   = {70,-10,40};
+        rayPos         = {190,0,50};
     }
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
@@ -114,12 +117,14 @@ void Scene::inicializar_escena(int nivel){
     SoundMgr->playMusica("Musica/musica_general");
 
     GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
-    bucle_juego();
+    bucle_juego(nivel);
 }
 
-void Scene::bucle_juego(){
+void Scene::bucle_juego(int nivel){
 
     while(isGameActive){
+
+        GraphicsFacade::getInstance().run();
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
             f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
@@ -139,7 +144,8 @@ void Scene::bucle_juego(){
         }
     }
 
-    GraphicsFacade::getInstance().drop();
+    if(nivel == 2)
+        GraphicsFacade::getInstance().drop();
 
 }
 
@@ -150,4 +156,7 @@ void Scene::cleanScene(){
     TriggerSystem::getInstance()->Clear();
     world->cleanWorld();
     delete camara;
+    Percibir::Instance()->Salgo();
+    GraphicsFacade::getInstance().clearEscena();
+    GraphicsFacade::getInstance().vaciar_gui();
 }
