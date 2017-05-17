@@ -32,8 +32,8 @@ void Player::inicializar_player(Map* m, int nivel){
     //path = new PathFinding(grafo,this);
     path2 = new PathPlanner(grafo,this);
 
-    if(nivel == 1)
-        Structs::TPosicion posicionInicial (170,0,50);
+    Structs::TPosicion posicionInicial;
+    if(nivel == 1) posicionInicial = {170,0,50};
     Structs::TColor color = {121,85,61,0};
 
     aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);

@@ -7,12 +7,11 @@
 class Trigger_PuertaNivel : public Trigger
 {
     public:
-        Trigger_PuertaNivel(float x, float z, float r);
+        Trigger_PuertaNivel();
         virtual ~Trigger_PuertaNivel();
 
         void Try(GameEntity*);
         void Update();
-        bool isPuerta(){return true;}
 
     protected:
 

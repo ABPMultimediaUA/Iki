@@ -20,6 +20,7 @@ class Trigger : public GameEntity
         bool isToBeRemoved()const{return removeFromGame;}
         bool isActive(){return active;}
 
+        void Rotate();
         bool noHayNingunaEntidad();
 
         bool HandleMessage(const Mensaje& msg){return false;}
@@ -33,6 +34,10 @@ class Trigger : public GameEntity
         void SetActive(){active = true;}
 
         bool isTouchingTrigger(Structs::TPosicion EntityPos, double EntityRadius)const;
+
+        bool animation = false;
+        float angulo = 0;
+        f32 timer = 0;
 
     private:
         TriggerRegion* region = nullptr;

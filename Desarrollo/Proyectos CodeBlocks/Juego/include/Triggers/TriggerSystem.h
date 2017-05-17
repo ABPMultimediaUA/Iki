@@ -27,7 +27,7 @@ class TriggerSystem
         void Clear();
         void Register(Trigger* trigger);
         void CrearTipoTrigger(tinyxml2::XMLElement* objectGroup);
-        void LeerMapa();
+        void LeerMapa(int);
 
         void Update();
         void Render();

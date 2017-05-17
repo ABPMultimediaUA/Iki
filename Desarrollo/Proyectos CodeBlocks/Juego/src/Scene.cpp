@@ -81,11 +81,11 @@ void Scene::inicializar_escena(int nivel){
 
 
     f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
-    if(nivel == 1){
+    //if(nivel == 1){
         Structs::TPosicion posicionCamara (190,30,40);
         Structs::TPosicion targetCamara (70,-10,40);
         Structs::TPosicion rayPos (170,0,50);
-    }
+    //}
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
