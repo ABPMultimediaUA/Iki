@@ -16,8 +16,10 @@ Escuchar* Escuchar::Instance()
 void Escuchar::Enter(Enemy* enemigo)
 {
     enemigo->resetTime();
-    if(enemigo->getTimeSinceLastSensed() > 5)
+    if(enemigo->getTimeSinceLastSensed() > 5 && enemigo->getTimePlayerHasBeenOutOfView() > 10){
         enemigo->resetSospecha();
+        enemigo->borrarMemoria();
+    }
 }
 
 void Escuchar::Execute(Enemy* enemigo)
