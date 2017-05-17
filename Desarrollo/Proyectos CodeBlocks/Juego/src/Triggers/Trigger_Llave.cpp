@@ -1,7 +1,6 @@
 #include "Trigger_Llave.h"
 #include "Player.h"
 
-
 Trigger_Llave::Trigger_Llave()
 {
 
@@ -24,5 +23,5 @@ void Trigger_Llave::Try(GameEntity* ent)
 
 void Trigger_Llave::Update()
 {
-
+    Rotate();
 }

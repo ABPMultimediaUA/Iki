@@ -34,8 +34,8 @@ void Player::inicializar_player(Map* m, int nivel){
 
     Structs::TPosicion posicionInicial;
 
-    if(nivel == 1)
-        Structs::TPosicion posicionInicial (170,0,50);
+    if(nivel == 1) posicionInicial = {170,0,50};
+
     Structs::TColor color = {121,85,61,0};
 
     aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);

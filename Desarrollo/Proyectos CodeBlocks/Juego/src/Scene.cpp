@@ -85,6 +85,7 @@ void Scene::inicializar_escena(int nivel){
     Structs::TPosicion rayPos;
 
     f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
+
     if(nivel == 1){
         posicionCamara = {190,30,40};
         targetCamara   = {70,-10,40};

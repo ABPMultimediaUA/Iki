@@ -28,11 +28,11 @@ void Trigger_Ruido::Try(GameEntity* ent)
             if (speed == 2){
                 Enemy* enemigo = static_cast<Enemy*>(ent);
 
-                //if (   enemigo->GetFSM()->CurrentState() == Patrullar::Instance()
-                //    || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
+                if (   enemigo->GetFSM()->CurrentState() == Patrullar::Instance()
+                     || enemigo->GetFSM()->CurrentState() == Vigilar::Instance()){
 
-                //    enemigo->GetFSM()->ChangeState(Escuchar::Instance());
-                //}
+                    enemigo->GetFSM()->ChangeState(Escuchar::Instance());
+                }
             }
         }
 }

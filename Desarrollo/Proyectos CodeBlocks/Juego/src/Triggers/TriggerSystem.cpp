@@ -118,6 +118,7 @@ void TriggerSystem::LeerMapa(int nivel)
     //Se lee el fichero .tmx
     tinyxml2::XMLDocument* docFile;
     docFile = new tinyxml2::XMLDocument;
+
     if(nivel == 1)
         docFile->LoadFile("resources/Mapas/Mapa3.tmx");
     else

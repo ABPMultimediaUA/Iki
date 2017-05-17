@@ -67,7 +67,6 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
-
     modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
     modeloAtaque->setVisible(false);
 }
@@ -177,29 +176,34 @@ void Enemy::setPosition(){
     aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
 }
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
-   //mover medico con la lista de edges creada
-    if(!listaEjes.empty() && it != listaEjes.end())
-        toNextNodo = (*it).getDestination() - posicion;
 
-    if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
-    {
-        //moverBody(quietoParado);
-        if(it != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
-            it++;
-        else{
-            posicion=posFinal;
-            // posFinal.Normalize();
-           //toPosicionFinal= posFinal - posicion;
-           //posicion = posicion+toPosicionFinal *(avMovement*velocidad);
+    if (listaEjes.empty()){
+        G_stateMachine->ChangeState(Atacar::Instance());
+    }else{
+       //mover medico con la lista de edges creada
+        if(!listaEjes.empty() && it != listaEjes.end())
+            toNextNodo = (*it).getDestination() - posicion;
+
+        if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
+        {
+            //moverBody(quietoParado);
+            if(it != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+                it++;
+            else{
+                posicion=posFinal;
+                // posFinal.Normalize();
+               //toPosicionFinal= posFinal - posicion;
+               //posicion = posicion+toPosicionFinal *(avMovement*velocidad);
+            }
         }
-    }
-    else
-    { //CUANDO AUN NO HA LLEGADO A UN NODO
-        //MoverEnemigo((*it).getDestination(),toNextNodo);
-        mirandoHacia=toNextNodo;
-        toNextNodo.Normalize();
-        posicion=posicion+toNextNodo*(avMovement*velocidad);
-        calcularAngulo((*it).getDestination());
+        else
+        { //CUANDO AUN NO HA LLEGADO A UN NODO
+            //MoverEnemigo((*it).getDestination(),toNextNodo);
+            mirandoHacia=toNextNodo;
+            toNextNodo.Normalize();
+            posicion=posicion+toNextNodo*(avMovement*velocidad);
+            calcularAngulo((*it).getDestination());
+        }
     }
 }
 void Enemy::cambiarColor(Structs::TColor c){
