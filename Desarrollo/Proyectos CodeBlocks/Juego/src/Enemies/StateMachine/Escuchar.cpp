@@ -30,10 +30,10 @@ void Escuchar::Execute(Enemy* enemigo)
         enemigo->subirSospecha();
     }
 
-    if (enemigo->getSospecha() > 80){
+    if (enemigo->getSospecha() > 90){
   //std::cout << "sospechando tete" << std::endl;
-    //    enemigo->setPosicionInteres(enemigo->getPosicionProta());
-      //  enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        enemigo->setPosicionInteres(enemigo->getPosicionProta());
+        enemigo->GetFSM()->ChangeState(Investigar::Instance());
     }
 
     if (enemigo->getTiempo() > 2.5){

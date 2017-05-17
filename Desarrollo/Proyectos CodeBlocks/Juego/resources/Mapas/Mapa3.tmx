@@ -297,7 +297,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ffff00" name="Patrol" visible="0">
+ <objectgroup color="#ffff00" name="Patrol">
   <object id="2457" x="32.9091" y="182.602" width="2" height="2">
    <properties>
     <property name="Enemigo" value="2"/>
@@ -522,7 +522,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ff0000" name="Triggers" visible="0">
+ <objectgroup color="#ff0000" name="Triggers">
   <properties>
    <property name="Aceite" value="7"/>
    <property name="Apisonadora" value="1"/>
