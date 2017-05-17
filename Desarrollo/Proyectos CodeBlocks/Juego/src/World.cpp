@@ -61,9 +61,9 @@ void World::crearRutas(){ ///REVISAR SI ES POSIBLE OPTIMIZAR
     }
 }
 
-void World::inicializar_mundo(){
+void World::inicializar_mundo(int nivel){
     //inicializar mapa
-    mapa->inicializar_mapa();
+    mapa->inicializar_mapa(nivel);
     //crear e inicializar rutas
     crearRutas();
     //crear e inicializar enemigos

@@ -20,23 +20,25 @@ Player::~Player()
     delete rayo;
 }
 
-void Player::inicializar_player(Map* m){
+void Player::inicializar_player(Map* m, int nivel){
 
     velocidad = 0.5;
     id = 0;
     vida = 5;
     EntityMgr->registrarEntity(this);
 
-    Mapa=m;
+    Mapa = m;
     grafo = Mapa->getGrafo();
     //path = new PathFinding(grafo,this);
     path2 = new PathPlanner(grafo,this);
 
-    Structs::TPosicion posicionInicial (170,0,50);
+    if(nivel == 1)
+        Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {121,85,61,0};
 
-    aniMesh = new AnimatedMesh("resources/Modelos/Prota.obj", color, posicionInicial, 0);
-    aniMesh->setScale(4);
+    aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);
+    aniMesh->setTexture("resources/Texturas/Protatextura.png");
+    aniMesh->setScale(2.3);
 
     /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);*/

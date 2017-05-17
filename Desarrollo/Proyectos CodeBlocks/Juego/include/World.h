@@ -12,7 +12,7 @@ class World
         World();
         virtual ~World();
         void crearRutas();
-        void inicializar_mundo();
+        void inicializar_mundo(int);
         void update_mundo();
         void crearEnemigos();
         void crearEnemigo(int tipo, int id, PatrolRoute* ruta);

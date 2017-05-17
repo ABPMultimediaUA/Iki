@@ -18,7 +18,7 @@ class Player : public GameEntity{
     public:
         Player();
         ~Player();
-        void inicializar_player(Map* m);
+        void inicializar_player(Map* m, int);
         void moverBody(Structs::TPosicion vec);
         void update(Camera* camara);
         bool isPlayer(){return true;};
