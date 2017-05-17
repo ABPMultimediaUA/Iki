@@ -31,7 +31,7 @@ void Escanear::Enter(Enemy* enemigo){
             SoundMgr->playSonido("VocesRobots/Guardia/escaneando");
         break;
         case 2:
-            SoundMgr->playSonido("VocesRobots/Medico/escaneando_medico");
+            SoundMgr->playSonido("VocesRobots/Medico/escanea                                                                                                                ndo_medico");
         break;
         case 3:
             SoundMgr->playSonido("VocesRobots/Dron/beepveralgo");

@@ -18,7 +18,8 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
     fixtureDef.shape = &bodyShape;
     body->CreateFixture(&fixtureDef);
 
-    modeloDisparo = new MeshSceneNode("resources/Modelos/rayitoPlayer.obj");
+    modeloDisparo = new MeshSceneNode("resources/Modelos/disptorre.obj");
+    //modeloDisparo->setTexture("resources/Texturas/scan.png");
     modeloDisparo->setVisible(true);
 
     x = 1; y = 1; z = 1;
@@ -55,7 +56,7 @@ void Trigger_Torreta::Disparar()
         //Structs::TPosicion posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
         //float distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
 
-        modeloDisparo->setPosition(posicion);
+    modeloDisparo->setPosition(posicion);
         //modeloDisparo->setRotation(anguloAtaque);
 
     modeloDisparo->setVisible(true);

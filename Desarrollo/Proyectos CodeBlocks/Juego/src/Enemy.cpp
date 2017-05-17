@@ -67,10 +67,13 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
-    modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
+    modeloAtaque = new MeshSceneNode("resources/Modelos/conorayo.obj");
+    modeloAtaque->setTexture("resources/Texturas/scan.png");
     modeloAtaque->setVisible(false);
     holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
+    holoScan->setTexture("resources/Texturas/scan.png");
     holoScan->setVisible(false);
+    holoScan->setScale({2,2,2});
 }
 void Enemy::crearBody(){
     b2BodyDef bodyDef;
@@ -305,7 +308,7 @@ void Enemy::vigilar(){
 }
 void Enemy::escanear(){
 
-    holoScan->setRotation(angulo+90);
+    holoScan->setRotation(angulo);
     holoScan->setPosition(posicion);
     activeHoloScan(true);
 
