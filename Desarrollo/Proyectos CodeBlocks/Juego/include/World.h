@@ -18,7 +18,9 @@ class World
         void crearEnemigo(int tipo, int id, PatrolRoute* ruta);
 
         Map* getMapa(){return mapa;};
-        std::vector<Enemy*> getEnemies(){return enemigos;};
+        std::vector<Enemy*> getEnemies(){return enemigos;}
+
+        void cleanWorld();
 
     protected:
 

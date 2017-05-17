@@ -17,6 +17,7 @@ class Scene
         void cargarSonidos();
         void inicializar_escena(int);
         void bucle_juego();
+        void cleanScene();
 
     protected:
 
@@ -26,6 +27,7 @@ class Scene
         Player *player;
         Menu* menu_ingame;
         Map* Mapa;
+        bool isGameActive;
 
 };
 

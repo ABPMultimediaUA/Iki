@@ -79,12 +79,19 @@ void Scene::cargarSonidos()
 
 void Scene::inicializar_escena(int nivel){
 
+    isGameActive = true;
+    Structs::TPosicion posicionCamara;
+    Structs::TPosicion targetCamara;
+    Structs::TPosicion rayPos;
 
     f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
     if(nivel == 1){
-        Structs::TPosicion posicionCamara (190,30,40);
-        Structs::TPosicion targetCamara (70,-10,40);
-        Structs::TPosicion rayPos (170,0,50);
+        posicionCamara = {190,30,40};
+        targetCamara   = {70,-10,40};
+        rayPos         = {170,0,50};
+
+    }else{
+
     }
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
@@ -94,8 +101,8 @@ void Scene::inicializar_escena(int nivel){
 
     Mapa = world->getMapa();
     player->inicializar_player(Mapa, nivel);
-    //GraphicsFacade::getInstance().inicializar_gui(1);
     menu_ingame->inicializar_menu(1);
+    //GraphicsFacade::getInstance().inicializar_gui(1);
 
     Trigger* ruido = player->getRuido();
     TriggerSystem::getInstance()->Register(ruido);
@@ -111,7 +118,7 @@ void Scene::inicializar_escena(int nivel){
 
 void Scene::bucle_juego(){
 
-    while(GraphicsFacade::getInstance().run()){
+    while(isGameActive){
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
             f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
@@ -125,8 +132,21 @@ void Scene::bucle_juego(){
         PhisicsWorld::getInstance()->Step();
 
         GraphicsFacade::getInstance().draw(0);
+        if(player->isNivelFinished()){
+            cleanScene();
+            isGameActive = false;
+        }
     }
 
     GraphicsFacade::getInstance().drop();
 
+}
+
+void Scene::cleanScene(){
+    Mapa = nullptr;
+    player = nullptr;
+    EntityManager::Instance()->Clear();
+    TriggerSystem::getInstance()->Clear();
+    world->cleanWorld();
+    delete camara;
 }

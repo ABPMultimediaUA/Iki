@@ -49,6 +49,8 @@ public:
 
     void registrarEnemigo(Enemy* newEnemigo);
     void borrarEnemigo(Enemy* enemigo);
+
+    void Clear();
 };
 
 

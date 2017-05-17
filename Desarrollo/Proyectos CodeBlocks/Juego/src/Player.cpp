@@ -32,6 +32,8 @@ void Player::inicializar_player(Map* m, int nivel){
     //path = new PathFinding(grafo,this);
     path2 = new PathPlanner(grafo,this);
 
+    Structs::TPosicion posicionInicial;
+
     if(nivel == 1)
         Structs::TPosicion posicionInicial (170,0,50);
     Structs::TColor color = {121,85,61,0};
@@ -69,6 +71,7 @@ void Player::inicializar_player(Map* m, int nivel){
     ruido = new Trigger_Ruido();
     ruido->AddCircularRegion(posicion, 20);
     isMoving = false;
+    nivel_acabado = false;
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     angulo = atan2f((p1.Z-posicion.Z) ,

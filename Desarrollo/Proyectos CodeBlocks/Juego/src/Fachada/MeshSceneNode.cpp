@@ -23,7 +23,8 @@ MeshSceneNode::MeshSceneNode(const char* file)
 
 MeshSceneNode::~MeshSceneNode()
 {
-    //dtor
+    mesh = nullptr;
+    node = nullptr;
 }
 
 void MeshSceneNode::setPosition(Structs::TPosicion pos){

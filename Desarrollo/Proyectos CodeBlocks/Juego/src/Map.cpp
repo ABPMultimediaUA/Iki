@@ -202,3 +202,45 @@ void Map::inicializar_mapa(int tipo){
     inicializar_muros();
 
 }
+
+void Map::cleanMap(){
+
+    ///eliminar modelos
+    delete primera_sala;
+    delete segunda_sala;
+    delete tercera_sala;
+
+    ///eliminar nodos
+    std::vector<MapComponent*>::iterator curTrg;
+    for (curTrg = nodo_muro.begin(); curTrg != nodo_muro.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
+
+    nodo_muro.clear();
+
+    ///eliminar fisicas muros
+    std::vector<Muros*>::iterator curTrg2;
+    for (curTrg2 = muros.begin(); curTrg2 != muros.end(); ++curTrg2)
+    {
+        delete *curTrg2;
+    }
+
+    muros.clear();
+
+    ///limpiar vector de tipos
+    tipos.clear();
+
+    ///apuntando a null los files que leen tiled
+    /*docFile     = nullptr;
+    mapElement  = nullptr;
+    objectGroup = nullptr;
+    object      = nullptr;
+    property    = nullptr;*/
+
+    ///limpiando ultimas cosas
+    delete Grafo;
+    fila.clear();
+
+
+}

@@ -113,12 +113,15 @@ void TriggerSystem::CrearTipoTrigger(tinyxml2::XMLElement* objectGroup)
     }
 }
 
-void TriggerSystem::LeerMapa()
+void TriggerSystem::LeerMapa(int nivel)
 {
     //Se lee el fichero .tmx
     tinyxml2::XMLDocument* docFile;
     docFile = new tinyxml2::XMLDocument;
-    docFile->LoadFile("resources/Mapas/Mapa.tmx");
+    if(nivel == 1)
+        docFile->LoadFile("resources/Mapas/Mapa3.tmx");
+    else
+        docFile->LoadFile("resources/Mapas/Mapita.tmx");
 
     tinyxml2::XMLElement* mapElement = docFile->FirstChildElement("map");
     //Se recorre la cada capa de Objects
