@@ -28,6 +28,7 @@ class Map
         void crearComponente();
         void inicializar_mapa(int);
         void inicializar_muros();
+        void cleanMap();
 
         vector<Muros*>       getMuros()        { return muros; }
         vector<PatrolPoint*> getPatrullas()    { return patrullas; }
@@ -39,7 +40,6 @@ class Map
 
     private:
 
-        MeshSceneNode *suelo;
         MeshSceneNode* primera_sala;
         MeshSceneNode* segunda_sala;
         MeshSceneNode* tercera_sala;

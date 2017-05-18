@@ -19,7 +19,6 @@ class Muros
 
     private:
         b2Body* body;
-        MeshSceneNode* modelo;
 };
 
 #endif // MUROS_H

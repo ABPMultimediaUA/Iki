@@ -40,7 +40,7 @@ Muros::Muros(MapComponent* inicio, MapComponent* fin)
 
 Muros::~Muros()
 {
-    //dtor
+    body->GetWorld()->DestroyBody(body);
 }
 
 float Muros::calcularAngulo(Structs::TPosicion p1, Structs::TPosicion p2){

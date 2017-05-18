@@ -36,7 +36,7 @@ class Guardia : public Enemy
             sospecha = 0.0;
             tiempoEnEstado = 0;
         }
-        ~Guardia(){delete G_stateMachine;}
+        ~Guardia();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}

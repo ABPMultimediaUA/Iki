@@ -15,6 +15,7 @@
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
+    //posicionProta = EntityMgr->getEntities().back()->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
     //toProtaPosition=posicionProta-posicion;
     //std::cout << bateria << "%   " << std::endl;

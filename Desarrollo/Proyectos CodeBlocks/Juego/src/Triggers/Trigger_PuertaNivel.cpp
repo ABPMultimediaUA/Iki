@@ -18,7 +18,7 @@ void Trigger_PuertaNivel::Try(GameEntity* ent)
 
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
 
-        //std::cout << "fin del nivel" << std::endl;
+        static_cast<Player*>(ent)->setNivelFinished(true);
 
     }
 

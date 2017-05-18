@@ -79,3 +79,16 @@ void EntityManager::registrarWorld(World* w){
     world = w;
     nextID = world->getEnemies().back()->ID() + 1;
 }
+
+void EntityManager::Clear(){
+    std::vector<GameEntity*>::iterator curTrg;
+    for (curTrg = entities.begin(); curTrg != entities.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
+
+    entities.clear();
+    enemigos.clear();
+    entityMap.clear();
+    nextID = 1;
+}
