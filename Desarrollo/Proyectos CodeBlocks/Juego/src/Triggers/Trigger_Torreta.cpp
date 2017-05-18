@@ -1,6 +1,7 @@
 #include "Trigger_Torreta.h"
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
+#include "SoundManager.h"
 
 Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
 {
@@ -18,11 +19,13 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
     fixtureDef.shape = &bodyShape;
     body->CreateFixture(&fixtureDef);
 
-    modeloDisparo = new MeshSceneNode("resources/Modelos/disptorre.obj");
-    //modeloDisparo->setTexture("resources/Texturas/scan.png");
-    modeloDisparo->setVisible(true);
+    posicion = {x,0,z};
 
-    x = 1; y = 1; z = 1;
+    modeloDisparo = new MeshSceneNode("resources/Modelos/disptorre2.obj");
+    modeloDisparo->setTexture("resources/Texturas/disptorre2.png");
+    modeloDisparo->setVisible(false);
+
+    a = 1; b = 1; c = 1;
 }
 
 Trigger_Torreta::~Trigger_Torreta()
@@ -31,8 +34,8 @@ Trigger_Torreta::~Trigger_Torreta()
 }
 
 void Trigger_Torreta::calcularAngulo(Structs::TPosicion p1){
-    //angulo = atan2f((p1.Z-posicion.Z) , -(p1.X-posicion.X)) * 180.f / irr::core::PI;
-    //aniMesh->setRotation(angulo);
+    angulo = atan2f((p1.Z-posicion.Z) , -(p1.X-posicion.X)) * 180.f / irr::core::PI;
+    aniMesh->setRotation(angulo);
 }
 
 void Trigger_Torreta::triggerDisparado()
@@ -44,22 +47,40 @@ void Trigger_Torreta::triggerDisparado()
 
 void Trigger_Torreta::Disparar()
 {
-    x = 1; y = 1; z = 1;
+    a = 1; b = 1; c = 1;
 
-        //Structs::TPosicion vectorAtaque = pProta - posicion;
-        //float anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
+    Structs::TPosicion vectorAtaque = pProta - posicion;
+    float anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
 
-        //b2RayCastInput input2;
-        //input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
-        //input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
+    b2RayCastInput input2;
+    input2.p1.Set(posicion.X + 2, posicion.Z + 2);  //  Punto   inicial del rayo
+    input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
 
-        //Structs::TPosicion posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
-        //float distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
+    Structs::TPosicion posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
+    float distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
 
     modeloDisparo->setPosition(posicion);
-        //modeloDisparo->setRotation(anguloAtaque);
+    modeloDisparo->setRotation(anguloAtaque);
+    modeloDisparo->setScale({2,1,1});
+    //modeloDisparo->setRotation(anguloAtaque + 180);
 
     modeloDisparo->setVisible(true);
+    SoundMgr->playSonido("AccionesRobots/conoelectrico");
+
+    if(!solounaveh) // y si no te veo;
+    {
+        vectorProta = pProta - posicion;
+        float anguloProta = atan2f((vectorProta.Z) , -(vectorProta.X)) * 180.f / PI;
+        //std::cout << "angulo ataque: "<< anguloAtaque <<" anguloProta: "<<anguloProta<<std::endl;
+        if(anguloAtaque < 0)
+            anguloAtaque+360;
+        if(anguloProta < 0)
+            anguloProta+360;
+        if(abs(anguloAtaque - anguloProta) < 15){
+            EntityMgr->getEntityByID(0)->quitarVida();;
+            solounaveh = true;
+        }
+    }
 }
 
 void Trigger_Torreta::Try(GameEntity* ent)
@@ -71,8 +92,10 @@ void Trigger_Torreta::Try(GameEntity* ent)
                 triggerDisparado();
             }
         }else{
+            modeloDisparo->setVisible(false);
             fired = false;
-            x = 1; y = 1; z = 1;
+            disparado = false;
+            a = 1; b = 1; c = 1;
             aniMesh->setScale({1,1,1});
         }
 
@@ -81,13 +104,21 @@ void Trigger_Torreta::Try(GameEntity* ent)
 void Trigger_Torreta::Update()
 {
     if (fired){
+        calcularAngulo(pProta);
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-        if (tiempo - timer > 1.5){
-            timer = tiempo;
-            Disparar();
+        if (tiempo - timer > 2){
+            if (!disparado)
+                Disparar();
+            disparado = true;
+            if (tiempo - timer > 2.25){
+                timer = tiempo;
+                disparado = false;
+                solounaveh = false;
+            }
         }else{
-            x += 0.001; y += 0.001; z += 0.001;
-            aniMesh->setScale({x,y,z});
+            modeloDisparo->setVisible(false);
+            a += 0.001; b += 0.001; c += 0.001;
+            aniMesh->setScale({a,b,c});
         }
     }
 }

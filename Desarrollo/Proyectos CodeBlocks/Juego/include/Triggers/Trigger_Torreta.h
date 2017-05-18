@@ -20,10 +20,11 @@ class Trigger_Torreta : public Trigger
     protected:
 
     private:
-        float x,y,z;
+        float a,b,c;
         bool fired;
+        bool disparado = false, solounaveh = false;
         MeshSceneNode* modeloDisparo;
-        Structs::TPosicion pProta;
+        Structs::TPosicion pProta, vectorAtaque, vectorProta;
 };
 
 #endif // TRIGGER_TORRETA_H
