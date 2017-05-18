@@ -13,11 +13,13 @@ class Trigger_PuertaLlave : public Trigger
         void Try(GameEntity*);
         void Update();
         bool isPuerta(){return true;}
+        bool isPuertaAbierta();
 
     protected:
 
     private:
         bool fired = false;
+        bool abierta= false;
         float mx,mz,ma;
 };
 

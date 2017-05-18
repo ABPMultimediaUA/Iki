@@ -32,6 +32,7 @@ class GameEntity
         virtual bool               isEnemy()     { return false;    };
         virtual bool               isTrigger()   { return false;    };
         virtual int                ID()          { return id;       };
+        virtual bool               isPuertaAbierta(){return false;  };
 
         virtual b2Body*            getBody(){return body;};
         //virtual void               setBody(b2BodyDef bodyDef);

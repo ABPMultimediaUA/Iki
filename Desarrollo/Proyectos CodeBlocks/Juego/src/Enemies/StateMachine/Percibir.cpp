@@ -53,9 +53,11 @@ void Percibir::Execute(Enemy* enemigo){
         }
         else if(entities[i]->isTrigger() && enemigo->getPosition().Distance(entities[i]->getPosition())<10){
                 enemigo->actualizarMemoria(entities[i]);
-               /* if(enemigo->getEstadoEntity(entities[i]) == 3) //si la puerta esta abierta
-                    enemigo->GetFSM()->ChangeState(Investigar::Instance());*/
-                std::cout<<"esto es un puto trigger"<<entities[i]->getPosition().X<<std::endl;
+               if(enemigo->getEstadoEntity(entities[i]) == 3){
+                    std::cout<<"veo una puerta abierta locoooo"<<std::endl;//si la puerta esta abierta
+                    //enemigo->GetFSM()->ChangeState(Investigar::Instance());
+               }
+               // std::cout<<"esto es un puto trigger"<<entities[i]->getPosition().X<<std::endl;
         }
     }
 }

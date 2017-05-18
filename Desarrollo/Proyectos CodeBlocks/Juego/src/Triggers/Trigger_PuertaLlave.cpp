@@ -39,6 +39,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             SoundMgr->playSonido("Triggers/puerta_abrir");
             SoundMgr->playSonido("Triggers/acceso_confirmado");
             this->SetInactive();
+            abierta=true;
         }else{
             if (!fired){
                 SoundMgr->playSonido("Triggers/acceso_denegado");
@@ -54,6 +55,12 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
         //body->SetActive(true);
     }
 }
+bool Trigger_PuertaLlave::isPuertaAbierta(){
+    if(abierta)
+        return true;
+    return false;
+}
+
 
 void Trigger_PuertaLlave::Update()
 {

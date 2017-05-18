@@ -80,8 +80,9 @@ void SensorMemory::updateVision(GameEntity* cantoso){
             info.estado = muerto;
         else if(cantoso->isPlayer())
             info.estado = sospechoso;
-        else if(cantoso->isTrigger()) // y la puerta esta abierta
-            info.estado = abierta;
+        else if(cantoso->isTrigger() && cantoso->isPuertaAbierta() )
+                info.estado = abierta;
+
     }
     else{
         if(cantoso->isEnemy() && cantoso->getVida() == 0)
