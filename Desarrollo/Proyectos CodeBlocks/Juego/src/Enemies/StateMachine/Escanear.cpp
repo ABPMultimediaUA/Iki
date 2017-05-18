@@ -38,7 +38,7 @@ void Escanear::Enter(Enemy* enemigo){
 
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
-    std::cout<<"escanear sospecha: "<<enemigo->getSospecha()<<std::endl;
+    //std::cout<<"escanear sospecha: "<<enemigo->getSospecha()<<std::endl;
     if(enemigo->getSospecha()>=99){
         ///COMBATEEE
         switch(enemigo->getTipo()){

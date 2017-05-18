@@ -16,22 +16,18 @@ Escuchar* Escuchar::Instance()
 void Escuchar::Enter(Enemy* enemigo)
 {
     enemigo->resetTime();
-    enemigo->calcularAngulo(enemigo->getPosicionProta());
 }
 
 void Escuchar::Execute(Enemy* enemigo)
 {
+    enemigo->escuchar();
 
-    Player* play = static_cast<Player*>(EntityMgr->getEntityByID(0));
-
-    if(play->getSpeed() == 2){
-        enemigo->escuchar();
-    }
-    if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
+    if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         enemigo->GetFSM()->ChangeState(Escanear::Instance());
+        std::cout << "te he visto tete" << std::endl;
+    }
 
     else if (enemigo->getSospecha() > 90){
-  //std::cout << "sospechando tete" << std::endl;
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
     }

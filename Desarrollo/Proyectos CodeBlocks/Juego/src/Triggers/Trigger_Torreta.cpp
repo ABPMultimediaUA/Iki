@@ -21,8 +21,8 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
 
     posicion = {x,0,z};
 
-    modeloDisparo = new MeshSceneNode("resources/Modelos/disptorre2.obj");
-    modeloDisparo->setTexture("resources/Texturas/disptorre2.png");
+    modeloDisparo = new MeshSceneNode("resources/Modelos/disptorre.obj");
+    modeloDisparo->setTexture("resources/Texturas/rayo_rojo.png");
     modeloDisparo->setVisible(false);
 
     a = 1; b = 1; c = 1;
