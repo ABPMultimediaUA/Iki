@@ -8,15 +8,23 @@
 
 HUD::HUD()
 {
-    Vida          = nullptr;
-    Balas         = nullptr;
-    Leyenda       = nullptr;
-    Rayo          = nullptr;
-    Sigilo        = nullptr;
-    Tarjeta       = nullptr;
-    AvisoTarjeta  = nullptr;
-    AvisoMunicion = nullptr;
-    AvisoAceite   = nullptr;
+    Vida             = nullptr;
+    Balas            = nullptr;
+    Leyenda          = nullptr;
+    LeyendaQ         = nullptr;
+    LeyendaShift     = nullptr;
+    Rayo             = nullptr;
+    Golpe            = nullptr;
+    Sigilo           = nullptr;
+    Tarjeta          = nullptr;
+    AvisoTarjeta     = nullptr;
+    AvisoMunicion    = nullptr;
+    AvisoAceite      = nullptr;
+    AvisoNotTarjeta  = nullptr;
+    AvisoNotMunicion = nullptr;
+    GOver            = nullptr;
+    BotonReintentar  = nullptr;
+    BotonFinJuego    = nullptr;
 
     player  = nullptr;
     //player  = static_cast<Player*>(EntityManager::Instance()->getEntities()[0]);
@@ -24,17 +32,25 @@ HUD::HUD()
 
 HUD::~HUD()
 {
-    delete Vida;
-    delete Balas;
-    delete Leyenda;
-    delete Rayo;
-    delete Sigilo;
-    delete Tarjeta;
-    delete AvisoTarjeta;
-    delete AvisoMunicion;
-    delete AvisoAceite;
+    Vida             = nullptr;
+    Balas            = nullptr;
+    Leyenda          = nullptr;
+    LeyendaQ         = nullptr;
+    LeyendaShift     = nullptr;
+    Rayo             = nullptr;
+    Golpe            = nullptr;
+    Sigilo           = nullptr;
+    Tarjeta          = nullptr;
+    AvisoTarjeta     = nullptr;
+    AvisoMunicion    = nullptr;
+    AvisoAceite      = nullptr;
+    AvisoNotTarjeta  = nullptr;
+    AvisoNotMunicion = nullptr;
+    GOver            = nullptr;
+    BotonReintentar  = nullptr;
+    BotonFinJuego    = nullptr;
 
-    delete player;
+    player  = nullptr;
 }
 
 void HUD::inicializar_HUD(){
@@ -46,7 +62,7 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(0, -8, rec, "Overlay", true));
 
     ///Vida del prota
-    rec = {450, 0, 605, 250};
+    rec = {560, 0, 675, 230};
     elementos.push_back(new HUD_Element(10, 2, rec, "vidaprota", true));
     Vida = elementos[1];
 
@@ -116,8 +132,12 @@ void HUD::inicializar_HUD(){
     GOver = elementos[15];
 
     rec = {0, 0, 240, 120};
-    elementos.push_back(new HUD_Element(560, 350, rec, "salirrojo", false));
-    BotonFinJuego = elementos[16];
+    elementos.push_back(new HUD_Element(560, 350, rec, "reintentar", false));
+    BotonReintentar = elementos[16];
+
+    rec = {0, 0, 240, 120};
+    elementos.push_back(new HUD_Element(560, 480, rec, "salirrojo", false));
+    BotonFinJuego = elementos[17];
 
 
 }
@@ -222,5 +242,10 @@ void HUD::activateNotTarjeta(){
 
 void HUD::GameOver(){
     GOver->setActive(true);
+    BotonReintentar->setActive(true);
     BotonFinJuego->setActive(true);
+}
+
+bool HUD::comprobarReintentar(){
+    return BotonReintentar->comprobarEncima();
 }

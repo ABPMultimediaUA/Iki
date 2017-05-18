@@ -50,6 +50,7 @@ class GraphicsFacade
         Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
 
         void setTiempo(f32);
+        void clearEscena();
 
     protected:
 

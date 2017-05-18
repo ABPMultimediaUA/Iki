@@ -75,7 +75,7 @@ void Map::inicializar_mapa(int tipo){
         tercera_sala->setTexture("resources/Texturas/mapa.png");
     }
     else{
-        docFile->LoadFile("resources/Mapas/Mapa3.tmx");
+        docFile->LoadFile("resources/Mapas/Mapita.tmx");
         primera_sala = new MeshSceneNode("resources/Modelos/mapa2.obj");
         primera_sala->setTexture("resources/Texturas/mapa2.png");
     }
@@ -200,5 +200,45 @@ void Map::inicializar_mapa(int tipo){
         objectGroup = objectGroup->NextSiblingElement("objectgroup");
     }
     inicializar_muros();
+
+}
+
+void Map::cleanMap(){
+
+    ///eliminar modelos
+    delete primera_sala;
+    delete segunda_sala;
+    delete tercera_sala;
+
+    ///eliminar nodos
+    std::vector<MapComponent*>::iterator curTrg;
+    for (curTrg = nodo_muro.begin(); curTrg != nodo_muro.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
+
+    nodo_muro.clear();
+
+    ///eliminar fisicas muros
+    std::vector<Muros*>::iterator curTrg2;
+    for (curTrg2 = muros.begin(); curTrg2 != muros.end(); ++curTrg2)
+    {
+        delete *curTrg2;
+    }
+
+    muros.clear();
+
+    ///limpiar vector de tipos
+    tipos.clear();
+
+    ///limpiando ultimas cosas
+    Grafo->clean();
+    fila.clear();
+    for(size_t i = 0; i < conectaCon.size(); i++){
+        conectaCon[i].clear();
+    }
+    conectaCon.clear();
+
+
 
 }

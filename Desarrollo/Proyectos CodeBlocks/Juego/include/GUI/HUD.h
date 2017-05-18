@@ -38,6 +38,7 @@ class HUD
         void activateNotTarjeta();
 
         void GameOver();
+        bool comprobarReintentar();
 
     protected:
 
@@ -60,6 +61,7 @@ class HUD
         HUD_Element* AvisoNotTarjeta;
         HUD_Element* AvisoNotMunicion;
         HUD_Element* GOver;
+        HUD_Element* BotonReintentar;
         HUD_Element* BotonFinJuego;
 
         Player* player;

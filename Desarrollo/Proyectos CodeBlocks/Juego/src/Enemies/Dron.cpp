@@ -2,6 +2,21 @@
 #include "Fachada/GraphicsFacade.h"
 #include "PhisicsWorld.h"
 
+Dron::~Dron(){
+    delete aniMesh;
+    body->GetWorld()->DestroyBody(body);
+    delete modeloAtaque;
+    ruta = nullptr;
+    pRuta = nullptr;
+    Mapa = nullptr;
+    delete G_stateMachine;
+    actualState = nullptr;
+    oldState = nullptr;
+    globalState = nullptr;
+    grafo = nullptr;
+    path = nullptr;
+    delete memory;
+}
 
 void Dron::inicializar_enemigo(Map* m)
 {

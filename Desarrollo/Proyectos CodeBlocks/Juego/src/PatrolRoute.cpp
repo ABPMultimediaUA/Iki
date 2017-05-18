@@ -11,7 +11,8 @@ PatrolRoute::PatrolRoute(PatrolPoint* inicio)
 
 PatrolRoute::~PatrolRoute()
 {
-    //dtor
+    inicial = nullptr;
+    enemigo = 0;
 }
 
 
