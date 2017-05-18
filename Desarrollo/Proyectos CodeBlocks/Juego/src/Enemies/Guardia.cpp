@@ -111,7 +111,7 @@ void Guardia::cargarAtaque(){
 
         modeloAtaque->setRotation(0);
         modeloAtaque->setPosition(posicionAtaque);
-        modeloAtaque->setRotation(anguloAtaque);
+        modeloAtaque->setRotationXYZ(0,anguloAtaque,0);
         resetTime();
 }
 void Guardia::ejecutarAtaque(){
