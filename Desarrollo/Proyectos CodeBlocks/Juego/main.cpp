@@ -4,7 +4,7 @@
 #endif
 
 //#include <irrKlang.h>
-//#include "lib/irrKlang/conio.h"
+#include "lib/irrKlang/conio.h"
 #include "Game.h"
 #include <iostream>
 

@@ -376,9 +376,6 @@ void Enemy::escuchar(){
     mirandoHacia= posicionProta;
     setPosition();
 
-
-    resetTime();
-
 }
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());
