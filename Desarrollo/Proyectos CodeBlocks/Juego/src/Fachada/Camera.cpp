@@ -16,6 +16,7 @@ Camera::Camera(Structs::TPosicion position, Structs::TPosicion lookAt)
 }
 
 Camera::~Camera(){
+    camera = nullptr;
 }
 
 void Camera::render(Structs::TPosicion positionPlayer){

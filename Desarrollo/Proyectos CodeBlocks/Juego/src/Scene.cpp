@@ -9,6 +9,7 @@
 #include "EntityManager.h"
 #include "SoundManager.h"
 #include "TriggerSystem.h"
+#include "Percibir.h"
 
 Scene::Scene()
 {
@@ -79,13 +80,24 @@ void Scene::cargarSonidos()
 
 void Scene::inicializar_escena(int nivel){
 
+    isGameActive = true;
+    reintentar = true;
+    Structs::TPosicion posicionCamara;
+    Structs::TPosicion targetCamara;
+    Structs::TPosicion rayPos;
 
     f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
-    //if(nivel == 1){
-        Structs::TPosicion posicionCamara (190,30,40);
-        Structs::TPosicion targetCamara (70,-10,40);
-        Structs::TPosicion rayPos (170,0,50);
-    //}
+
+    if(nivel == 1){
+        posicionCamara = {190,30,40};
+        targetCamara   = {70,-10,40};
+        rayPos         = {170,0,50};
+
+    }else{
+        posicionCamara = {190,30,40};
+        targetCamara   = {70,-10,40};
+        rayPos         = {190,0,50};
+    }
 
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
@@ -94,8 +106,8 @@ void Scene::inicializar_escena(int nivel){
 
     Mapa = world->getMapa();
     player->inicializar_player(Mapa, nivel);
-    //GraphicsFacade::getInstance().inicializar_gui(1);
     menu_ingame->inicializar_menu(1);
+    //GraphicsFacade::getInstance().inicializar_gui(1);
 
     Trigger* ruido = player->getRuido();
     TriggerSystem::getInstance()->Register(ruido);
@@ -106,12 +118,14 @@ void Scene::inicializar_escena(int nivel){
     SoundMgr->playMusica("Musica/musica_general");
 
     GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
-    bucle_juego();
+    bucle_juego(nivel);
 }
 
-void Scene::bucle_juego(){
+void Scene::bucle_juego(int nivel){
 
-    while(GraphicsFacade::getInstance().run()){
+    while(isGameActive){
+
+        GraphicsFacade::getInstance().run();
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
             f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
@@ -125,8 +139,35 @@ void Scene::bucle_juego(){
         PhisicsWorld::getInstance()->Step();
 
         GraphicsFacade::getInstance().draw(0);
+
+        /*if(player->wantReintentar()){
+            cleanScene();
+            isGameActive = false;
+            reintentar = true;
+        }*/
+        if(player != nullptr){
+            if(player->isNivelFinished()){
+                cleanScene();
+                isGameActive = false;
+            }
+        }
     }
 
-    GraphicsFacade::getInstance().drop();
+    /*if(reintentar)
+        inicializar_escena(nivel);*/
+    if(nivel == 2)
+        GraphicsFacade::getInstance().drop();
 
+}
+
+void Scene::cleanScene(){
+    Mapa = nullptr;
+    player = nullptr;
+    EntityManager::Instance()->Clear();
+    TriggerSystem::getInstance()->Clear();
+    world->cleanWorld();
+    delete camara;
+    Percibir::Instance()->Salgo();
+    GraphicsFacade::getInstance().clearEscena();
+    GraphicsFacade::getInstance().vaciar_gui();
 }

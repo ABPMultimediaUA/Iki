@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2617">
+ <properties>
+  <property name="Fin" type="int" value="0"/>
+ </properties>
+ <objectgroup color="#000000" name="Pared">
+  <properties>
+   <property name="Fin" type="int" value="0"/>
+  </properties>
+  <object id="2494" name="1" x="44.35" y="198.39" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2496" name="2" x="36.02" y="199.1" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2498" name="3" x="7.63" y="177.98" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2499" name="4" x="55.63" y="156.54" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2500" name="5" x="54.78" y="123.07" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2501" name="6" x="43.09" y="111.18" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2502" name="7" x="43.78" y="102.82" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2503" name="8" x="53.89" y="89.54" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2504" name="9" x="52.74" y="45.32" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2505" name="10" x="57.21" y="40.31" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2506" name="11" x="56.23" y="34.5" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2507" name="12" x="69.72" y="17.25" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2508" name="13" x="94.26" y="14.12" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2509" name="14" x="109.46" y="25.54" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2510" name="15" x="106.71" y="31.98" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2511" name="16" x="118.18" y="38.28" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2512" name="17" x="118.18" y="31.98" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2513" name="18" x="183.8" y="81.24" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2514" name="19" x="125.36" y="133.14" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2515" name="20" x="117.51" y="134.13" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2516" name="21" x="116.5" y="140.97" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2517" name="22" x="107.15" y="144.79" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2518" name="23" x="107.08" y="147.31" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2519" name="24" x="101.81" y="163.13" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2520" name="25" x="91.52" y="163.85" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2521" name="26" x="90.62" y="137.45" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2522" name="27" x="99.24" y="136.71" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2523" name="28" x="99.55" y="131.07" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2524" name="29" x="104.13" y="130.96" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2525" name="30" x="104.13" y="122.51" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2526" name="31" x="70.6" y="122.51" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2527" name="32" x="70.6" y="130.64" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2528" name="33" x="71.66" y="152.68" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2529" name="34" x="64.93" y="161.8" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2530" name="35" x="67.88" y="164.37" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2531" name="36" x="62.13" y="172.7" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2532" name="37" x="73.08" y="180.85" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2533" name="38" x="67.39" y="188.27" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2534" name="39" x="64.92" y="190.86" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2535" name="40" x="62.15" y="192.75" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2536" name="41" x="58" y="195.48" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2537" name="42" x="38.29" y="181.71" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2538" name="43" x="40.93" y="187.22" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2539" name="44" x="43.62" y="185.46" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2540" name="45" x="39.65" y="180.01" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2541" name="46" x="33.11" y="175.01" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2542" name="47" x="22.46" y="188.96" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2543" name="48" x="18.75" y="186.21" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2544" name="49" x="24.4" y="178.46" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2545" name="50" x="15.13" y="171.19" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2546" name="51" x="21.42" y="159.38" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2547" name="52" x="30.88" y="166.36" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2548" name="53" x="36.69" y="163.36" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2549" name="54" x="50.98" y="169.26" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2550" name="55" x="56.66" y="157.48" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2551" name="56" x="55.63" y="156.54" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2552" name="57" x="61" y="114.19" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2553" name="58" x="53.88" y="114.19" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2554" name="59" x="53.93" y="98.63" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2555" name="60" x="61" y="98.63" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2556" name="61" x="61" y="114.19" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2557" name="62" x="71.32" y="112.68" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2558" name="63" x="95.66" y="112.21" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2559" name="64" x="95.28" y="89.43" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2560" name="65" x="70.89" y="89.84" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2561" name="66" x="71.32" y="112.68" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2562" name="67" x="72.84" y="80.86" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2563" name="68" x="93.23" y="80.45" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2564" name="69" x="93.04" y="59.98" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2565" name="70" x="72.5" y="60.16" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2566" name="71" x="72.84" y="80.86" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2567" name="72" x="78.78" y="51.53" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2568" name="73" x="70.94" y="45.3" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2569" name="74" x="83.33" y="29.05" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2570" name="75" x="99.65" y="41.86" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2571" name="76" x="93.38" y="49.78" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2572" name="77" x="85.2" y="43.62" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2573" name="78" x="78.78" y="51.53" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2574" name="79" x="106.26" y="50.7" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2575" name="80" x="116.3" y="50.48" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2576" name="81" x="116.53" y="71.06" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2577" name="82" x="106.56" y="71.32" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2578" name="83" x="106.26" y="50.7" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2579" name="84" x="110.2" y="78.5" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2580" name="85" x="102.66" y="79.77" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2581" name="86" x="100.91" y="85.78" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2582" name="87" x="103.17" y="94.22" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2583" name="88" x="109.42" y="92.91" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2584" name="89" x="112" y="84.28" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2585" name="90" x="110.2" y="78.5" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2586" name="91" x="123.7" y="70.74" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2587" name="92" x="123.65" y="53.89" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2588" name="93" x="131.85" y="53.89" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2589" name="94" x="131.85" y="68.86" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2590" name="95" x="148.62" y="68.86" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2591" name="96" x="148.62" y="77.23" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2592" name="97" x="131.85" y="77.24" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2593" name="98" x="131.85" y="70.74" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2594" name="99" x="123.7" y="70.74" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2595" name="100" x="158.62" y="75.96" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2596" name="101" x="149.62" y="84.85" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2597" name="102" x="158.58" y="94.15" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2598" name="103" x="167.58" y="84.74" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2599" name="104" x="158.62" y="75.96" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2600" name="105" x="123.74" y="80.41" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2601" name="106" x="148.76" y="94.8182" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2602" name="107" x="140.43" y="109.18" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2603" name="108" x="135.13" y="114.2" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2605" name="109" x="130.02" y="114.2" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2606" name="110" x="133.62" y="105.77" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2607" name="111" x="126.44" y="101.69" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2608" name="112" x="116.09" y="119.77" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2609" name="113" x="104.77" y="113.08" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2610" name="114" x="123.74" y="80.41" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="2611" name="114" x="29.23" y="194.01" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2612" name="115" x="38.29" y="181.71" width="2" height="2">
+   <properties>
+    <property name="Fin" type="int" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Triggers"/>
+ <objectgroup color="#0000ff" name="WayPoints">
+  <object id="2615" name="0" x="51.9091" y="183.727" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="1"/>
+   </properties>
+  </object>
+  <object id="2616" name="1" x="56.8182" y="170.455" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ffff00" name="Patrol">
+  <object id="2613" x="64.4545" y="138.455" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="1"/>
+   </properties>
+  </object>
+  <object id="2614" x="58.4545" y="163.909" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -27,7 +27,7 @@ class Medico : public Enemy
             sospecha = 0.0;
             tiempoEnEstado = 0;
         }
-        ~Medico(){delete G_stateMachine;}
+        ~Medico();
         void pedirAyuda();
         void proteger();
         void huir();

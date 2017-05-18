@@ -195,6 +195,10 @@ void GraphicsFacade::changeResolution(int number){
 void GraphicsFacade::setTiempo(f32 tiempo){
     timer->setTime(tiempo);
 }
+
+void GraphicsFacade::clearEscena(){
+    smgr->clear();
+}
 /*void GraphicsFacade::pararTiempo(int time){
     if(time == 0)
         timer->stop();

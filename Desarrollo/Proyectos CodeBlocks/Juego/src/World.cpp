@@ -71,6 +71,7 @@ void World::inicializar_mundo(int nivel){
     //registro el world
     EntityMgr->registrarWorld(this);
 }
+
 void World::crearEnemigos(){
     for(int i = 0; i < rutas.size(); i++){
         switch(mapa->getTiposEnemigos()[i]){
@@ -108,4 +109,18 @@ void World::update_mundo(){
     for(int i = 0; i < enemigos.size(); i++){
         enemigos[i]->update();
     }
+}
+
+void World::cleanWorld(){
+    enemigos.clear();
+
+    std::vector<PatrolRoute*>::iterator curTrg;
+    for (curTrg = rutas.begin(); curTrg != rutas.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
+
+    rutas.clear();
+
+    mapa->cleanMap();
 }

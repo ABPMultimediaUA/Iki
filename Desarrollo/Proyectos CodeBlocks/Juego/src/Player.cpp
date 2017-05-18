@@ -18,6 +18,8 @@ Player::Player()
 Player::~Player()
 {
     delete rayo;
+    delete aniMesh;
+    body->GetWorld()->DestroyBody(body);
 }
 
 void Player::inicializar_player(Map* m, int nivel){
@@ -33,7 +35,9 @@ void Player::inicializar_player(Map* m, int nivel){
     path2 = new PathPlanner(grafo,this);
 
     Structs::TPosicion posicionInicial;
+
     if(nivel == 1) posicionInicial = {170,0,50};
+    if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
     aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);
@@ -49,7 +53,8 @@ void Player::inicializar_player(Map* m, int nivel){
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
-    bodyDef.position.Set(170, 50);
+    if(nivel == 1) bodyDef.position.Set(170, 50);
+    if(nivel == 2) bodyDef.position.Set(190, 50);
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;
@@ -69,6 +74,8 @@ void Player::inicializar_player(Map* m, int nivel){
     ruido = new Trigger_Ruido();
     ruido->AddCircularRegion(posicion, 20);
     isMoving = false;
+    nivel_acabado = false;
+    reintentar = false;
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     angulo = atan2f((p1.Z-posicion.Z) ,
@@ -236,6 +243,9 @@ void Player::update(Camera* camara){
     if(vida == 0){
         SoundMgr->stopAll();
         HUD::getInstance()->GameOver();
+        if(MyEventReceiver::getInstance().GetMouseState().LeftButtonDown){
+            reintentar = HUD::getInstance()->comprobarReintentar();
+        }
     }else{
         deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000.f;
         avMovement = deltaTime * 600;

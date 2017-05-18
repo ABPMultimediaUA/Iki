@@ -19,7 +19,7 @@ class Enemy : public GameEntity
 
     public:
         Enemy(){}
-        ~Enemy(){}
+        virtual ~Enemy(){};
         ///VIRTUALS
         virtual void inicializar_enemigo(Map* m)=0;
         virtual void update();
