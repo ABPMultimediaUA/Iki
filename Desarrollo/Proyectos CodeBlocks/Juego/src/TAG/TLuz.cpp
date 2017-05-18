@@ -1,9 +1,9 @@
 #include "TLuz.h"
 
-TLuz::TLuz()
+TLuz::TLuz(/*const glm::vec3& intensity*/)
 {
-    posicion= vec3(0.0f, 0.0f, 0.0f);
-    intensidad= vec3(0.0f, 0.0f, 0.0f);
+
+    //intensidad= intensity;
 }
 
 TLuz::~TLuz()
@@ -21,9 +21,16 @@ void TLuz::setPosicion(vec3 pos)
     posicion = pos;
 }
 
+/*void TLuz::Intensidad()
+{
+    //TShader::getShader() programLightingMap
+
+}
+*/
 void TLuz::beginDraw()
 {
-  //  std::cout << "  Luz detected " << std::endl;
+
+
 }
 
 void TLuz::endDraw()

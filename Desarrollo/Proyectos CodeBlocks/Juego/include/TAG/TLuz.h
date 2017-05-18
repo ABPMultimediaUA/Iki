@@ -4,11 +4,12 @@
 #include <iostream>
 #include <TEntidad.h>
 
+#include "TShader.h"
 
 class TLuz : public TEntidad
 {
     public:
-        TLuz();
+        TLuz(/*const glm::vec3& intensity*/);
         virtual ~TLuz();
         vec3 getPoscion(){return posicion;};
         vec3 getIntensidad(){return intensidad;};
@@ -24,6 +25,7 @@ class TLuz : public TEntidad
     private:
         vec3 intensidad;
         vec3 posicion;
+
 };
 
 #endif // TLUZ_H

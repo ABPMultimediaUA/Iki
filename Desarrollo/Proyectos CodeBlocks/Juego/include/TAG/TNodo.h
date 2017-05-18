@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "TEntidad.h"
+#include "TVector.h"
+#include "TTransform.h"
 #include <vector>
 
 using namespace std;
@@ -19,7 +21,10 @@ class TNodo
         TEntidad *getEntidad();
         void setPadre(TNodo* padre);
         TNodo *getPadre();
-
+        void Trasladar(TVector vec);
+        void Rotar(float ang, TVector vec);
+        void EscalarAbs(float num);
+        void EscalarRel(TVector vec);
         void draw();
 
     protected:

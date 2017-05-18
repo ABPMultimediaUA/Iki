@@ -84,3 +84,25 @@ void TNodo::draw()
         entidad->endDraw();
     }
 }
+
+void TNodo::Trasladar(TVector vec)
+{
+    static_cast<TTransform*>(padre->getPadre()->getEntidad())->trasladar(vec.X, vec.Y, vec.Z);
+}
+
+void TNodo::Rotar(float ang, TVector vec)
+{
+    static_cast<TTransform*>(padre->getPadre()->getEntidad())->rotar(ang, vec.X, vec.Y, vec.Z);
+}
+
+void TNodo::EscalarAbs(float num)
+{
+    static_cast<TTransform*>(padre->getPadre()->getEntidad())->escalarAbs(num);
+}
+
+void TNodo::EscalarRel(TVector vec)
+{
+    static_cast<TTransform*>(padre->getPadre()->getEntidad())->escalarRel(vec.X, vec.Y, vec.Z);
+}
+
+

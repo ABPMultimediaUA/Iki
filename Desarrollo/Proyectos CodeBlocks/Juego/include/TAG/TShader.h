@@ -20,6 +20,7 @@ class TShader
         TShader(const string& FileName);
         void Bind();
         void DesBind();
+        GLuint getShader(){return m_programa;};
         void Update(TCamara* camara);
         void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const string& errorMessage);
         string LoadShader(const string& fileName);
