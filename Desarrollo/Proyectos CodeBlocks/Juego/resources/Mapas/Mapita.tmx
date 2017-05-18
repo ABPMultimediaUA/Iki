@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2751">
-
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2754">
  <properties>
   <property name="Fin" value="0"/>
  </properties>
@@ -64,7 +62,7 @@
    <polyline points="0,0 25.2727,15.2727 16.7273,29.2727 11.6364,33.8182 6.72727,34 10,26 2.90909,21.8182 -7.45455,39.8182 -19.6364,32.7273 -0.181818,0.181818"/>
   </object>
  </objectgroup>
- <objectgroup color="#ffffff" name="Pared" visible="0">
+ <objectgroup color="#ffffff" name="Pared">
   <properties>
    <property name="Fin" value="0"/>
   </properties>
@@ -644,9 +642,215 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup color="#0000ff" name="WayPoints">
+  <object id="2615" name="0" x="49" y="190.636" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="1,0"/>
+   </properties>
+  </object>
+  <object id="2616" name="1" x="37.5455" y="189.728" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="0"/>
+   </properties>
+  </object>
+  <object id="2648" name="2" x="52.7955" y="177.011" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="0,3,6"/>
+   </properties>
+  </object>
+  <object id="2649" name="3" x="35.375" y="168.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,4,5"/>
+   </properties>
+  </object>
+  <object id="2650" name="5" x="19.25" y="165.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="3,4"/>
+   </properties>
+  </object>
+  <object id="2651" name="4" x="28.75" y="174.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="3,5"/>
+   </properties>
+  </object>
+  <object id="2652" name="6" x="61.125" y="159.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,7"/>
+   </properties>
+  </object>
+  <object id="2653" name="7" x="63.25" y="119.625" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,6,8,11,35"/>
+   </properties>
+  </object>
+  <object id="2654" name="8" x="50.875" y="116" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="7,9"/>
+   </properties>
+  </object>
+  <object id="2655" name="9" x="48.25" y="106" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="8,10"/>
+   </properties>
+  </object>
+  <object id="2656" name="10" x="52.875" y="95.375" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="9,11,12"/>
+   </properties>
+  </object>
+  <object id="2657" name="11" x="65.25" y="95.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="7,10,12"/>
+   </properties>
+  </object>
+  <object id="2658" name="12" x="67" y="85.125" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="10,11,13,14"/>
+   </properties>
+  </object>
+  <object id="2659" name="13" x="69.75" y="55.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="12,15,16"/>
+   </properties>
+  </object>
+  <object id="2660" name="14" x="96.5" y="85.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="12,22"/>
+   </properties>
+  </object>
+  <object id="2661" name="16" x="85.125" y="54" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="13,17"/>
+   </properties>
+  </object>
+  <object id="2662" name="17" x="99.75" y="54.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="16,20,22"/>
+   </properties>
+  </object>
+  <object id="2663" name="15" x="65.875" y="40.125" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="13,18"/>
+   </properties>
+  </object>
+  <object id="2664" name="18" x="81.875" y="25.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="15,19"/>
+   </properties>
+  </object>
+  <object id="2665" name="19" x="96.625" y="29.625" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="18,20"/>
+   </properties>
+  </object>
+  <object id="2666" name="20" x="106.875" y="41.625" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="19,17,21"/>
+   </properties>
+  </object>
+  <object id="2667" name="21" x="119.625" y="44.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="20,24,26"/>
+   </properties>
+  </object>
+  <object id="2668" name="22" x="100" y="73.625" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="14,17,23"/>
+   </properties>
+  </object>
+  <object id="2669" name="23" x="116.5" y="77.125" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="22,24,25"/>
+   </properties>
+  </object>
+  <object id="2670" name="24" x="120.125" y="68.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="21,23,25"/>
+   </properties>
+  </object>
+  <object id="2671" name="25" x="125.625" y="77.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="23,24,30"/>
+   </properties>
+  </object>
+  <object id="2672" name="26" x="136.375" y="52.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="21,27"/>
+   </properties>
+  </object>
+  <object id="2673" name="27" x="148.125" y="63.375" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="26,28"/>
+   </properties>
+  </object>
+  <object id="2674" name="28" x="157" y="70.375" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="27,29,30"/>
+   </properties>
+  </object>
+  <object id="2675" name="29" x="172.625" y="84.375" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="28,31"/>
+   </properties>
+  </object>
+  <object id="2676" name="30" x="143.375" y="85.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="25,28,31"/>
+   </properties>
+  </object>
+  <object id="2677" name="31" x="156.375" y="99.75" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="29,30,32"/>
+   </properties>
+  </object>
+  <object id="2678" name="33" x="99.875" y="97.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="14,34,35"/>
+   </properties>
+  </object>
+  <object id="2679" name="34" x="110.875" y="96.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="23,33,35"/>
+   </properties>
+  </object>
+  <object id="2680" name="35" x="98.875" y="116.125" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="7,33,34,36"/>
+   </properties>
+  </object>
+  <object id="2681" name="36" x="108.875" y="123.625" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="35,39,37"/>
+   </properties>
+  </object>
+  <object id="2682" name="32" x="131.125" y="121" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="31,37,38"/>
+   </properties>
+  </object>
+  <object id="2685" name="39" x="108.125" y="136.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="36,40"/>
+   </properties>
+  </object>
+  <object id="2686" name="40" x="99.125" y="144.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="39"/>
+   </properties>
+  </object>
+  <object id="2752" name="38" x="124.875" y="113.625" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="37,32"/>
+   </properties>
+  </object>
+  <object id="2753" name="37" x="121.875" y="124.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="32,36,39,38"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup color="#ffff00" name="Patrol">
   <object id="2613" x="62.9545" y="134.705" width="2" height="2">
-
    <properties>
     <property name="Enemigo" value="1"/>
     <property name="Next" value="0"/>
@@ -951,213 +1155,6 @@
    <properties>
     <property name="Enemigo" value="6"/>
     <property name="Next" value="1"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup color="#0000ff" name="WayPoints">
-  <object id="2615" name="0" x="49" y="190.636" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="1,0"/>
-   </properties>
-  </object>
-  <object id="2616" name="1" x="37.5455" y="189.728" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="0"/>
-   </properties>
-  </object>
-  <object id="2648" name="2" x="52.7955" y="177.011" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="0,3,6"/>
-   </properties>
-  </object>
-  <object id="2649" name="3" x="35.375" y="168.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="2,4,5"/>
-   </properties>
-  </object>
-  <object id="2650" name="5" x="19.25" y="165.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="3,4"/>
-   </properties>
-  </object>
-  <object id="2651" name="4" x="28.75" y="174.25" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="3,5"/>
-   </properties>
-  </object>
-  <object id="2652" name="6" x="61.125" y="159.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="2,7"/>
-   </properties>
-  </object>
-  <object id="2653" name="7" x="63.25" y="119.625" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="2,6,8,11,35"/>
-   </properties>
-  </object>
-  <object id="2654" name="8" x="50.875" y="116" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="7,9"/>
-   </properties>
-  </object>
-  <object id="2655" name="9" x="48.25" y="106" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="8,10"/>
-   </properties>
-  </object>
-  <object id="2656" name="10" x="52.875" y="95.375" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="9,11,12"/>
-   </properties>
-  </object>
-  <object id="2657" name="11" x="65.25" y="95.5" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="7,10,12"/>
-   </properties>
-  </object>
-  <object id="2658" name="12" x="67" y="85.125" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="10,11,13,14"/>
-   </properties>
-  </object>
-  <object id="2659" name="13" x="69.75" y="55.25" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="12,15,16"/>
-   </properties>
-  </object>
-  <object id="2660" name="14" x="96.5" y="85.25" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="12,22"/>
-   </properties>
-  </object>
-  <object id="2661" name="16" x="85.125" y="54" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="13,17"/>
-   </properties>
-  </object>
-  <object id="2662" name="17" x="99.75" y="54.25" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="16,20,22"/>
-   </properties>
-  </object>
-  <object id="2663" name="15" x="65.875" y="40.125" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="13,18"/>
-   </properties>
-  </object>
-  <object id="2664" name="18" x="81.875" y="25.25" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="15,19"/>
-   </properties>
-  </object>
-  <object id="2665" name="19" x="96.625" y="29.625" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="18,20"/>
-   </properties>
-  </object>
-  <object id="2666" name="20" x="106.875" y="41.625" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="19,17,21"/>
-   </properties>
-  </object>
-  <object id="2667" name="21" x="119.625" y="44.25" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="20,24,26"/>
-   </properties>
-  </object>
-  <object id="2668" name="22" x="100" y="73.625" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="14,17,23"/>
-   </properties>
-  </object>
-  <object id="2669" name="23" x="116.5" y="77.125" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="22,24,25"/>
-   </properties>
-  </object>
-  <object id="2670" name="24" x="120.125" y="68.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="21,23,25"/>
-   </properties>
-  </object>
-  <object id="2671" name="25" x="125.625" y="77.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="23,24,30"/>
-   </properties>
-  </object>
-  <object id="2672" name="26" x="136.375" y="52.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="21,27"/>
-   </properties>
-  </object>
-  <object id="2673" name="27" x="148.125" y="63.375" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="26,28"/>
-   </properties>
-  </object>
-  <object id="2674" name="28" x="157" y="70.375" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="27,29,30"/>
-   </properties>
-  </object>
-  <object id="2675" name="29" x="172.625" y="84.375" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="28,31"/>
-   </properties>
-  </object>
-  <object id="2676" name="30" x="143.375" y="85.5" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="25,28,31"/>
-   </properties>
-  </object>
-  <object id="2677" name="31" x="156.375" y="99.75" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="29,30,32"/>
-   </properties>
-  </object>
-  <object id="2678" name="33" x="99.875" y="97.5" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="14,34,35"/>
-   </properties>
-  </object>
-  <object id="2679" name="34" x="110.875" y="96.5" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="23,33,35"/>
-   </properties>
-  </object>
-  <object id="2680" name="35" x="98.875" y="116.125" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="7,33,34,36"/>
-   </properties>
-  </object>
-  <object id="2681" name="36" x="108.875" y="123.625" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="35,37,39"/>
-   </properties>
-  </object>
-  <object id="2682" name="32" x="127.75" y="122" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="31,38,37"/>
-   </properties>
-  </object>
-  <object id="2683" name="37" x="119.375" y="123" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="36,39,32,38"/>
-   </properties>
-  </object>
-  <object id="2684" name="38" x="125.5" y="111.5" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="37,32"/>
-   </properties>
-  </object>
-  <object id="2685" name="39" x="108.125" y="136.5" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="36,37,40"/>
-   </properties>
-  </object>
-  <object id="2686" name="40" x="99.125" y="144.875" width="2" height="2">
-   <properties>
-    <property name="Conecta" value="39"/>
    </properties>
   </object>
  </objectgroup>

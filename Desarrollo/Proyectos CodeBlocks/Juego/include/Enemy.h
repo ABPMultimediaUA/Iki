@@ -81,11 +81,8 @@ class Enemy : public GameEntity
         void activeHoloScan(bool b){holoScan->setVisible(b);}
         void activeAtaque(bool b){modeloAtaque->setVisible(b);}
         void scanTimerToZero(){scanAngle=0;scanT=0;}
-<<<<<<< HEAD
         void matar();
-=======
         void subirSospecha();
->>>>>>> origin/master
 
     protected:
 

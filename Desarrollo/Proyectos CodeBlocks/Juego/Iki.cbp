@@ -200,8 +200,10 @@
 		<Unit filename="include/Triggers/TriggerRegion_Circle.h" />
 		<Unit filename="include/Triggers/TriggerRegion_Rectangle.h" />
 		<Unit filename="include/Triggers/TriggerSystem.h" />
+		<Unit filename="include/Triggers/Trigger_Apisonadora.h" />
 		<Unit filename="include/Triggers/Trigger_Llave.h" />
 		<Unit filename="include/Triggers/Trigger_Municion.h" />
+		<Unit filename="include/Triggers/Trigger_Palanca.h" />
 		<Unit filename="include/Triggers/Trigger_Puerta.h" />
 		<Unit filename="include/Triggers/Trigger_PuertaLlave.h" />
 		<Unit filename="include/Triggers/Trigger_PuertaNivel.h" />
@@ -308,8 +310,10 @@
 		<Unit filename="src/Triggers/TriggerRegion_Rectangle.cpp" />
 		<Unit filename="src/Triggers/TriggerSystem.cpp" />
 		<Unit filename="src/Triggers/Trigger_Aceite.cpp" />
+		<Unit filename="src/Triggers/Trigger_Apisonadora.cpp" />
 		<Unit filename="src/Triggers/Trigger_Llave.cpp" />
 		<Unit filename="src/Triggers/Trigger_Municion.cpp" />
+		<Unit filename="src/Triggers/Trigger_Palanca.cpp" />
 		<Unit filename="src/Triggers/Trigger_Puerta.cpp" />
 		<Unit filename="src/Triggers/Trigger_PuertaLlave.cpp" />
 		<Unit filename="src/Triggers/Trigger_PuertaNivel.cpp" />
