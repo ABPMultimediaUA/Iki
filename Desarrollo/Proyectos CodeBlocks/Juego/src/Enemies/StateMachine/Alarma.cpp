@@ -26,6 +26,7 @@ void Alarma::Execute(Enemy* enemigo){
     if(enemigo->getTiempo() > 3){
         SoundMgr->soundStop("AccionesRobots/alarma_sintetizada");
         SoundMgr->playSonido("AccionesRobots/capsulas_aterrizando");
+        enemigo->setVida(0);
         enemigo->GetFSM()->ChangeState(Muerto::Instance());
     }
 }

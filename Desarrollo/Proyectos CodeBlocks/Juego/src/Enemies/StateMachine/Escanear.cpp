@@ -21,12 +21,6 @@ void Escanear::Enter(Enemy* enemigo){
     //enemigo->activeHoloScan(true);
     enemigo->scanTimerToZero();
     //enemigo->scanRotation();
-    
-    if(enemigo->getTimePlayerHasBeenOutOfView() > 10 && enemigo->getTimeSinceLastSensed() > 5){
-
-        enemigo->resetSospecha();
-        enemigo->borrarMemoria();
-    }
     enemigo->resetTime();
 
     switch (enemigo->getTipo()){

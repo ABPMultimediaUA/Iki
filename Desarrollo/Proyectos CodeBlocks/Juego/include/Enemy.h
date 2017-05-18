@@ -61,7 +61,7 @@ class Enemy : public GameEntity
         void actualizarMemoria(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
-        void resetSospecha() {sospecha=0;}
+        void resetSospecha() {sospecha=0; questionMark->setVisible(false);}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
         bool isPathObstructured(Structs::TPosicion destino);
@@ -80,10 +80,12 @@ class Enemy : public GameEntity
         void activeHoloScan(bool b){holoScan->setVisible(b);}
         void activeAtaque(bool b){modeloAtaque->setVisible(b);}
         void scanTimerToZero(){scanAngle=0;scanT=0;}
+        void subirSospecha();
 
     protected:
 
         MeshSceneNode* holoScan;
+        MeshSceneNode* questionMark;
         MeshSceneNode* modeloAtaque;
         int tipo,direccion,posVigilando;
         float bateria;
