@@ -43,7 +43,9 @@ class Enemy : public GameEntity
         //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
         Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getGuardiaCerca(posicion);}
         float getTimePlayerHasBeenOutOfView();
+        float getTimeSinceLastSensed();
         float getAngulo(){return angulo;}
+        int getEstadoEntity(GameEntity* entity){return memory->getEstadoEntity(entity);}
         ///SETTERS
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
@@ -56,9 +58,9 @@ class Enemy : public GameEntity
         void muerto();
         void volverALaPatrulla();
         ///METODOS
+        void actualizarMemoria(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
-        void subirSospecha() {sospecha++;}
         void resetSospecha() {sospecha=0;}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
@@ -68,8 +70,6 @@ class Enemy : public GameEntity
         void moverBody(Structs::TPosicion vec);
         void MoverEnemigo(Structs::TPosicion p);
         void andarPath(float velocidad,Structs::TPosicion posFinal);
-        bool isWithinFOV(Structs::TPosicion p, float distanceFOV);
-        bool vectorIsInFOV(Structs::TPosicion p);
         void cambiarColor(Structs::TColor c);
         void calcularAngulo(Structs::TPosicion p1);
         void girarVista(float giro,int posV);
@@ -77,11 +77,13 @@ class Enemy : public GameEntity
         bool hayGuardias();
         bool colisionPuertas(Structs::TPosicion destino);
         void borrarMemoria();
-
-
+        void activeHoloScan(bool b){holoScan->setVisible(b);}
+        void activeAtaque(bool b){modeloAtaque->setVisible(b);}
+        void scanTimerToZero(){scanAngle=0;scanT=0;}
 
     protected:
 
+        MeshSceneNode* holoScan;
         MeshSceneNode* modeloAtaque;
         int tipo,direccion,posVigilando;
         float bateria;
@@ -90,13 +92,14 @@ class Enemy : public GameEntity
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-        f32 tiempoEnEstado, time_since_hitted;
+        f32 tiempoEnEstado, time_since_hitted, scanT;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
         Structs::TPosicion vectorProta;
         Structs::TPosicion posicionProta;
         Structs::TPosicion posicionInteres;
         Structs::TPosicion posBody;
+        float scanAngle;
         State<Enemy>* actualState;
         State<Enemy>* oldState;
         State<Enemy>* globalState;

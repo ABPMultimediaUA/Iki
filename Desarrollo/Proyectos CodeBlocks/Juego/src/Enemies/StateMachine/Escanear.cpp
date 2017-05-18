@@ -17,7 +17,13 @@ Escanear* Escanear::Instance()
 }
 
 void Escanear::Enter(Enemy* enemigo){
-    if(enemigo->getTimePlayerHasBeenOutOfView() >10){
+
+    //enemigo->activeHoloScan(true);
+    enemigo->scanTimerToZero();
+    //enemigo->scanRotation();
+    
+    if(enemigo->getTimePlayerHasBeenOutOfView() > 10 && enemigo->getTimeSinceLastSensed() > 5){
+
         enemigo->resetSospecha();
         enemigo->borrarMemoria();
     }
@@ -38,6 +44,7 @@ void Escanear::Enter(Enemy* enemigo){
 
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
+    std::cout<<"escanear sospecha: "<<enemigo->getSospecha()<<std::endl;
     if(enemigo->getSospecha()>=99){
         ///COMBATEEE
         switch(enemigo->getTipo()){
@@ -64,6 +71,8 @@ void Escanear::Execute(Enemy* enemigo){
 }
 
 void Escanear::Exit(Enemy* enemigo){
+
+    enemigo->activeHoloScan(false);
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->soundStop("VocesRobots/Guardia/escaneando");

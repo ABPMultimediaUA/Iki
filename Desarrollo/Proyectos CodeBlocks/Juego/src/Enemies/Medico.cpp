@@ -65,10 +65,11 @@ void Medico::proteger(){
         posicion=posicion+toProtegido*(avMovement*2.5);
         calcularAngulo(protegido->getPosition());
     }
-    else if (protegido->getVida()<4 && tiempoEnEstado>2){
+    else if(tiempoEnEstado>2){
         curar();
         resetTime();
     }
+
     //else
         //moverBody(quietoParado);
     setPosition();
@@ -76,6 +77,12 @@ void Medico::proteger(){
 void Medico::huir(){
     andarPath(2,posHuida);
     setPosition();
+}
+void Medico::revivir(){
+    if(protegido->getVida() == 0){
+        protegido->sumarVida();
+        EntityMgr->registrarEnemigo(protegido);
+    }
 }
 void Medico::curar(){
     if(protegido->getVida()>4)

@@ -15,12 +15,16 @@ class Trigger_Torreta : public Trigger
 
         void triggerDisparado();
         void calcularAngulo(Structs::TPosicion);
-        void disparo();
+        void Disparar();
 
     protected:
 
     private:
+        float a,b,c;
         bool fired;
+        bool disparado = false, solounaveh = false;
+        MeshSceneNode* modeloDisparo;
+        Structs::TPosicion pProta, vectorAtaque, vectorProta;
 };
 
 #endif // TRIGGER_TORRETA_H

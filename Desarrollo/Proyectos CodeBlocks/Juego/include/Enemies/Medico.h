@@ -32,6 +32,7 @@ class Medico : public Enemy
         void proteger();
         void huir();
         void curar();
+        void revivir();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}

@@ -6,6 +6,7 @@
 #include "Enemies/StateMachine/Investigar.h"
 #include "Enemies/StateMachine/Atacar.h"
 #include "Enemies/StateMachine/VolverALaPatrulla.h"
+#include "Enemies/StateMachine/Muerto.h"
 
 
 Vigilar* Vigilar::Instance()
@@ -44,7 +45,7 @@ void Vigilar::Execute(Enemy* enemigo){
     }
     if(enemigo->getTiempo() > 6){
             //if(enemigo->GetFSM()->PreviousState())
-        if(enemigo->GetFSM()->wasInState(*Investigar::Instance())){
+        if(enemigo->GetFSM()->wasInState(*Investigar::Instance()) || enemigo->GetFSM()->wasInState(*Muerto::Instance())){
             enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
         }
         else

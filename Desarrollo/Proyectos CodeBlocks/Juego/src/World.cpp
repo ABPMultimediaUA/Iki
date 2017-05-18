@@ -94,15 +94,12 @@ void World::crearEnemigo(int tipo, int id, PatrolRoute* ruta){
     switch(tipo){
         case 1:
             enemigos.push_back(new Guardia(id,ruta));
-            std::cout<<"creo guardia"<<id<<std::endl;
             break;
         case 2:
             enemigos.push_back(new Medico(id,ruta));
-            std::cout<<"creo medico"<<id<<std::endl;
             break;
         case 3:
             enemigos.push_back(new Dron(id,ruta));
-            std::cout<<"creo dron"<<id<<std::endl;
             break;
 
     }

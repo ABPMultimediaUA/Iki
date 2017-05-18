@@ -16,6 +16,10 @@ Escuchar* Escuchar::Instance()
 void Escuchar::Enter(Enemy* enemigo)
 {
     enemigo->resetTime();
+    if(enemigo->getTimeSinceLastSensed() > 5 && enemigo->getTimePlayerHasBeenOutOfView() > 10){
+        enemigo->resetSospecha();
+        enemigo->borrarMemoria();
+    }
 }
 
 void Escuchar::Execute(Enemy* enemigo)
@@ -27,7 +31,7 @@ void Escuchar::Execute(Enemy* enemigo)
 
     if(play->getSpeed() == 2){
         enemigo->escuchar();
-        enemigo->subirSospecha();
+        std::cout<<"sospecha: "<<enemigo->getSospecha()<<std::endl;
     }
 
     if (enemigo->getSospecha() > 90){
@@ -44,7 +48,6 @@ void Escuchar::Execute(Enemy* enemigo)
 
 void Escuchar::Exit(Enemy* enemigo)
 {
-    enemigo->resetSospecha();
 }
 
 bool Escuchar::OnMessage(Enemy* enemigo, const Mensaje& msg)

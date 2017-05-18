@@ -68,8 +68,13 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
-    modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
+    modeloAtaque = new MeshSceneNode("resources/Modelos/conorayo.obj");
+    modeloAtaque->setTexture("resources/Texturas/rayocono.png");
     modeloAtaque->setVisible(false);
+    holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
+    holoScan->setTexture("resources/Texturas/scan.png");
+    holoScan->setVisible(false);
+    holoScan->setScale({2,2,2});
 }
 void Enemy::crearBody(){
     b2BodyDef bodyDef;
@@ -114,22 +119,9 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
         //return true;
     return false;
 }
-bool Enemy::isWithinFOV(Structs::TPosicion p, float distanceFOV){
-    if(posicion.Distance(p) < distanceFOV ){
-        if(vectorIsInFOV(p))
-            return true;
-    }
-    return false;
-
-}
-bool Enemy::vectorIsInFOV(Structs::TPosicion p){
-    Structs::TPosicion target = posicion - p;
-    float angle = (float)atan2(target.Y,target.Z);
-    //continua...
-}
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
     Structs::TPosicion p;
-    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(posicionProta))
+    if(p.isSecondInFOVOfFirst(posicion,mirandoHacia,destino,120*DegToRad) && !isPathObstructured(destino))
         return true;
     else
         return false;
@@ -239,6 +231,17 @@ void Enemy::quitarVida(){
         }
     }
 }
+float Enemy::getTimePlayerHasBeenOutOfView(){
+    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
+    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
+    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
+}
+float Enemy::getTimeSinceLastSensed(){
+    return memory->GetTimeSinceLastSensed(EntityMgr->getEntityByID(0));
+}
+void Enemy::borrarMemoria(){
+    memory->removeMemory(this);
+}
 ///PARA MOVER CON IMPULSOS?¿
 void Enemy::moverBody(Structs::TPosicion vec){
     vec.Normalize();
@@ -304,6 +307,19 @@ void Enemy::vigilar(){
 }
 void Enemy::escanear(){
 
+    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    if (tiempo - scanT > 0.01){
+        scanAngle -= 0.1;
+        if (tiempo - scanT < 0.2){
+            scanT = tiempo;
+            scanAngle += 0.1;
+        }
+    }
+    holoScan->setRotationXYZ(0,angulo,scanAngle);
+    //holoScan->setRotation(angulo);
+    holoScan->setPosition(posicion);
+    activeHoloScan(true);
+
     if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
         //std::cout<<"sospecha"<<sospecha<<std::endl;
@@ -312,20 +328,18 @@ void Enemy::escanear(){
         if(sospecha < 100 )
             sospecha++;;
     }
-     setPosition();
+    //holoScan->setVisible(false);
+    setPosition();
 }
-float Enemy::getTimePlayerHasBeenOutOfView(){
-    //std::cout<< "tiempo que ha estado fuera de vista: " << memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0)) << std::endl;
-    //tiempo desde la ultima vez que vio al prota, si es mayor que diez olvido el recuerdo y pongo la sospecha a 0
-    return memory->GetTimeEntityHasBeenOutOfView(EntityMgr->getEntityByID(0));
-
-}
-void Enemy::borrarMemoria(){
-    memory->removeMemory(this);
+void Enemy::actualizarMemoria(GameEntity* entity){
+    memory->updateVision(entity);
 }
 void Enemy::escuchar(){
+    memory->updateSoundSource(EntityMgr->getEntityByID(0));
     calcularAngulo(posicionProta);
     setPosition();
+    if(sospecha < 100 )
+        sospecha++;;
 }
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());
@@ -336,7 +350,7 @@ void Enemy::muerto(){
     //setPosition();
     aniMesh->setRotationXYZ(0.0,0.0,90.0);
     aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
-    EntityMgr->borrarEntity(this);
+    //EntityMgr->borrarEntity(this);
     //if(this->isGuardia())
         //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
