@@ -12,6 +12,7 @@ Player_Ray::Player_Ray()
     //Structs::TPosicion posicion = {0,0,0};
     //Structs::TColor color       = {0,30,144,255};
     modelo = new MeshSceneNode("resources/Modelos/disptorre.obj");
+    modelo->setTexture("resources/Texturas/disptorre1.png");
     modelo->setVisible(false);
     balas = 4;
     vida = 0;

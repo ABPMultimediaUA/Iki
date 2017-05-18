@@ -68,7 +68,7 @@ void Enemy::init(Map* m){
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
     modeloAtaque = new MeshSceneNode("resources/Modelos/conorayo.obj");
-    modeloAtaque->setTexture("resources/Texturas/scan.png");
+    modeloAtaque->setTexture("resources/Texturas/rayocono.png");
     modeloAtaque->setVisible(false);
     holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
     holoScan->setTexture("resources/Texturas/scan.png");
