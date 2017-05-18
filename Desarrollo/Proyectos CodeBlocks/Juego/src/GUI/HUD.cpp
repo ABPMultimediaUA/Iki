@@ -139,6 +139,9 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(560, 480, rec, "salirrojo", false));
     BotonFinJuego = elementos[17];
 
+    rec = {0, 0, 20, 20};
+    elementos.push_back(new HUD_Element(665, 295, rec, "E", false));
+    Palanca = elementos[18];
 
 }
 
@@ -238,6 +241,14 @@ void HUD::activateNotMunicion(){
 void HUD::activateNotTarjeta(){
     AvisoNotTarjeta->setActive(true);
     tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+}
+
+void HUD::activatePalanca(){
+    Palanca->setActive(true);
+}
+
+void HUD::desactivatePalanca(){
+    Palanca->setActive(false);
 }
 
 void HUD::GameOver(){

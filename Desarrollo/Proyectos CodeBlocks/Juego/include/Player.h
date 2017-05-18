@@ -51,6 +51,9 @@ class Player : public GameEntity{
         bool wantReintentar() { return reintentar; }
         void setNivelFinished(bool holi){ nivel_acabado = holi; }
 
+        bool mostrarMensajePalanca();
+        void desmostrarMensajePalanca();
+
     protected:
 
     private:

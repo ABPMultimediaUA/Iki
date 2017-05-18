@@ -10,6 +10,8 @@
 #include "Trigger_Aceite.h"
 #include "Trigger_Torreta.h"
 #include "Trigger_PuertaNivel.h"
+#include "Trigger_Apisonadora.h"
+#include "Trigger_Palanca.h"
 
 
 #include "../Fachada/AnimatedMesh.h"
@@ -33,7 +35,16 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     AnimatedMesh* modelo;
 
 
-    if (tipo == 3){
+    if (tipo == 1){
+        trigger = new Trigger_Apisonadora(x,z,r);
+        //Region
+        trigger->AddCircularRegion(centro,5.f);
+        //modelo
+        modelo = new AnimatedMesh("resources/Modelos/apisonadora-soporte.obj", {0,0,128,128}, centro, r);
+        trigger->setMesh(modelo);
+        static_cast<Trigger_Apisonadora*>(trigger)->setPosicionPlancha();
+    }
+    else if (tipo == 3){
         trigger = new Trigger_Llave();
         //region
         trigger->AddCircularRegion(centro,1.f);
@@ -96,6 +107,16 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         trigger->AddCircularRegion(centro,20);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, r);
+        trigger->setMesh(modelo);
+    }
+    else if (tipo == 10){
+        trigger = new Trigger_Palanca();
+        //Region
+        trigger->AddCircularRegion(centro,2);
+        //modelo
+        modelo = new AnimatedMesh("resources/Modelos/palanca.obj", {0,0,128,128}, centro, r);
+        modelo->setTexture("resources/Texturas/palanca.png");
+        modelo->setScale(3);
         trigger->setMesh(modelo);
     }
 
