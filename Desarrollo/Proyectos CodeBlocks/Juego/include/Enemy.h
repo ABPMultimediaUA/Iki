@@ -61,6 +61,7 @@ class Enemy : public GameEntity
         void actualizarMemoria(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
+        void restarSospecha(float s){sospecha=sospecha-s;}
         void resetSospecha() {sospecha=0; questionMark->setVisible(false);}
         void crearBody();
         void crearPath(Structs::TPosicion destino);

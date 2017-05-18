@@ -3836,7 +3836,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1495047590 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
 	"Structs.h"
 
 1491314848 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
@@ -4790,14 +4790,14 @@
 1493906923 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\camera.h
 	"Structs.h"
 
-1495047590 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Trigger_Ruido.h"
 	"Fachada/Camera.h"
 	<iostream>
 	"Player_Ray.h"
 
-1495072537 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gameentity.h
 	"Structs.h"
 	"Enemies/Path/PathEdge.h"
 	"Fachada/AnimatedMesh.h"
@@ -4823,7 +4823,7 @@
 1493906923 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\myeventreceiver.h
 	<irrlicht.h>
 
-1495047590 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
 	<vector>
 	"tinyxml2.h"
 	"Structs.h"
@@ -4877,7 +4877,7 @@
 1489078063 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\path\edge.h
 	<Structs.h>
 
-1495047590 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
 	"Map.h"
 
 1495047590 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggersystem.h
@@ -4892,7 +4892,7 @@
 1491865013 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\triggerregion.h
 	"Structs.h"
 
-1495083364 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1495083988 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -4907,7 +4907,7 @@
 	"Trigger.h"
 	"TriggerSystem.h"
 
-1495080468 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
+1495085570 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemy.h
 	"GameEntity.h"
 	"Enemies/StateMachine/StateMachine.h"
 	"PatrolRoute.h"
@@ -4915,7 +4915,7 @@
 	"Enemies/Path/PathEdge.h"
 	"SensorMemory.h"
 
-1495068053 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"Structs.h"
@@ -4929,15 +4929,15 @@
 	"Fachada/AnimatedMesh.h"
 	"Fachada/GraphicsFacade.h"
 
-1490986836 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\camera.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\camera.cpp
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1494953276 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
-1495076863 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\meshscenenode.cpp
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
 
@@ -4958,7 +4958,7 @@
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 
-1495047590 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
@@ -4966,7 +4966,7 @@
 	"Structs.h"
 	"Fachada/AnimatedMesh.h"
 
-1494953276 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\mapcomponent.cpp
 	"MapComponent.h"
 	"Fachada/AnimatedMesh.h"
 	"PhisicsWorld.h"
@@ -5002,7 +5002,7 @@
 1488458264 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\patrolpoint.cpp
 	"PatrolPoint.h"
 
-1488458264 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\patrolroute.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\patrolroute.cpp
 	"PatrolRoute.h"
 	"PatrolPoint.h"
 
@@ -5012,7 +5012,7 @@
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1495076863 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -5046,7 +5046,7 @@
 	"Enemy.h"
 	"Congelado.h"
 
-1495047590 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -5058,6 +5058,7 @@
 	"EntityManager.h"
 	"SoundManager.h"
 	"TriggerSystem.h"
+	"Percibir.h"
 
 1488458258 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\state.cpp
 	"StateMachine/State.h"
@@ -5105,7 +5106,7 @@
 1488982753 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1495062660 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1495086132 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
@@ -5144,12 +5145,12 @@
 1490711194 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerregion_rectangle.cpp
 	"TriggerRegion_Rectangle.h"
 
-1495047590 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggersystem.cpp
 	"TriggerSystem.h"
 	"TriggerFactory.h"
 	"EntityManager.h"
 
-1495047590 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"Enemies/Guardia.h"
@@ -5384,13 +5385,13 @@
 1489501192 source:c:\users\pablo\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\mensaje.cpp
 	"Mensaje.h"
 
-1494961091 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\entitymanager.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\entitymanager.h
 	<map>
 	<cassert>
 	<string>
 	"Structs.h"
 
-1494963429 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
 	"EntityManager.h"
 	"GameEntity.h"
 	"Enemy.h"
@@ -5460,12 +5461,12 @@
 
 1490986856 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\game.h
 
-1494953276 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
 	"Enemies/Dron.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1495045588 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\dron.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\dron.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Percibir.h"
@@ -5475,7 +5476,7 @@
 1490993989 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\path\pathedge.h
 	"Structs.h"
 
-1490993989 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\path\sparsegraph.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\path\sparsegraph.h
 	<list>
 	<cstdlib>
 	<iostream>
@@ -5510,7 +5511,7 @@
 1490986860 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\patrullar.h
 	"Enemies/StateMachine/State.h"
 
-1495071190 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
 	"FuzzyQuery.h"
 	"Investigar.h"
 	"Enemies/Guardia.h"
@@ -5519,7 +5520,7 @@
 	"Fachada/MeshSceneNode.h"
 	"SoundManager.h"
 
-1495045595 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Vigilar.h"
@@ -5530,12 +5531,12 @@
 1490986860 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\vigilar.h
 	"Enemies/StateMachine/State.h"
 
-1495047582 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
 	"Enemies/Medico.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1495047581 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\medico.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\medico.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Percibir.h"
@@ -5603,7 +5604,7 @@
 1490993989 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\path\sparsegraph.cpp
 	"Enemies/Path/SparseGraph.h"
 
-1495078251 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\alarma.cpp
+1495083509 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\alarma.cpp
 	"Enemies/StateMachine/Alarma.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -5643,7 +5644,7 @@
 	<string>
 	"Mensaje.h"
 
-1495080062 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escanear.cpp
+1495083509 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escanear.cpp
 	"Enemies/StateMachine/Escanear.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -5752,7 +5753,7 @@
 1493906923 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
 	"Structs.h"
 
-1495047590 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
 	"Game.h"
 	"Scene.h"
 	"Menu.h"
@@ -5793,7 +5794,7 @@
 1491314852 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui_volumecontrol.h
 	"GUI_Component.h"
 
-1491837740 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud.h
 	"HUD_Element.h"
 
 1491487814 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\hud_element.h
@@ -5826,7 +5827,7 @@
 	"Fachada/Image.h"
 	"SoundManager.h"
 
-1492107663 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\hud.cpp
 	"GUI/HUD.h"
 	"Fachada/Image.h"
 	"EntityManager.h"
@@ -5867,7 +5868,7 @@
 1490711194 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
 	<Trigger_Respawning.h>
 
-1495072683 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
+1495086113 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
 	"Trigger_PuertaLlave.h"
 	"Player.h"
 	"PhisicsWorld.h"
@@ -13922,7 +13923,7 @@
 1493906925 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\teventreceiver.h
 	<SDL2\SDL.h>
 
-1494953274 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\muros.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\muros.h
 	"Structs.h"
 
 1495047581 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\sensormemory.h
@@ -13933,12 +13934,12 @@
 1495047581 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\memoryrecord.h
 	"Structs.h"
 
-1494945131 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\percibir.h
+1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\percibir.h
 	"Enemies/StateMachine/State.h"
 
 1494953274 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fuzzyquery.h
 
-1495083175 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escuchar.cpp
+1495083509 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escuchar.cpp
 	"Escuchar.h"
 	"Enemy.h"
 	"Escanear.h"
@@ -13958,7 +13959,7 @@
 1491771810 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\huir.h
 	"Enemies/StateMachine/State.h"
 
-1495082577 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\percibir.cpp
+1495085810 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\percibir.cpp
 	"Enemies/StateMachine/Percibir.h"
 	"Enemies/StateMachine/Investigar.h"
 	"Enemies/StateMachine/Revivir.h"
@@ -14036,13 +14037,13 @@
 	"FuzzyQuery.h"
 	"FuzzyModule.h"
 
-1494953276 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\muros.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\muros.cpp
 	"Muros.h"
 	"MapComponent.h"
 	"PhisicsWorld.h"
 	"Fachada/MeshSceneNode.h"
 
-1495080282 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\sensormemory.cpp
+1495083509 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\sensormemory.cpp
 	"SensorMemory.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -14137,7 +14138,7 @@
 1491771817 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_aceite.h
 	<Trigger_Respawning.h>
 
-1495047590 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertanivel.cpp
+1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertanivel.cpp
 	"Trigger_PuertaNivel.h"
 	"Player.h"
 	"PhisicsWorld.h"

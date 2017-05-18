@@ -64,9 +64,9 @@ void Percibir::Execute(Enemy* enemigo){
                // std::cout<<"esto es un puto trigger"<<entities[i]->getPosition().X<<std::endl;
         }
     }
-     if(enemigo->getTimeSinceLastSensed() > 10 && enemigo->getTimePlayerHasBeenOutOfView() > 8){
-        enemigo->resetSospecha();
-        enemigo->borrarMemoria();
+     if(enemigo->getTimeSinceLastSensed() > 8 && enemigo->getTimePlayerHasBeenOutOfView() > 10){
+                enemigo->resetSospecha();
+                enemigo->borrarMemoria();
     }
 }
 void Percibir::Exit(Enemy* enemigo){}
