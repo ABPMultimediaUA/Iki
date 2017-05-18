@@ -27,6 +27,7 @@ class Trigger : public GameEntity
         bool isPathObstructured(Structs::TPosicion){};
         bool canWalkBetween(Structs::TPosicion ,Structs::TPosicion){};
         virtual bool isPuerta(){return false;}
+        virtual bool isApisonadora(){return false;}
         bool isTrigger(){return true;}
 
     protected:

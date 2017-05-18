@@ -238,6 +238,19 @@ void Player::subirVelocidad(){
     tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     HUD::getInstance()->activateAceite();
 }
+
+bool Player::mostrarMensajePalanca(){
+    HUD::getInstance()->activatePalanca();
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_E)){
+        return true;
+    }
+    return false;
+}
+
+void Player::desmostrarMensajePalanca(){
+    HUD::getInstance()->desactivatePalanca();
+}
+
 void Player::update(Camera* camara){
 
     if(vida == 0){

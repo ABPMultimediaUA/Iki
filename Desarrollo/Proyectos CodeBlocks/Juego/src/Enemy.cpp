@@ -396,3 +396,8 @@ void Enemy::muerto(){
     modeloAtaque->setVisible(false);
     questionMark->setVisible(false);
 }
+
+void Enemy::matar(){
+    vida = 0;
+    G_stateMachine->ChangeState(Muerto::Instance());
+}
