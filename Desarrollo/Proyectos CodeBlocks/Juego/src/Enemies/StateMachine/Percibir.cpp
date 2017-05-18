@@ -1,7 +1,7 @@
 #include "Enemies/StateMachine/Percibir.h"
 #include "Enemies/StateMachine/Investigar.h"
 #include "Enemies/StateMachine/Revivir.h"
-#include "Enemies/StateMachine/Alarma.h"
+#include "Enemies/StateMachine/Vigilar.h"
 #include "Enemy.h"
 #include "EntityManager.h"
 #include "GameEntity.h"
@@ -47,7 +47,10 @@ void Percibir::Execute(Enemy* enemigo){
                         enemigo->GetFSM()->ChangeState(Revivir::Instance());
                         break;
                     case 3:
-                        enemigo->GetFSM()->ChangeState(Alarma::Instance());
+                        enemigo->calcularAngulo(entities[i]->getPosition());
+                        enemigo->GetFSM()->ChangeState(Vigilar::Instance());
+                        break;
+                        //enemigo->GetFSM()->ChangeState(Alarma::Instance());
 
                 }
             }
@@ -60,6 +63,10 @@ void Percibir::Execute(Enemy* enemigo){
                }
                // std::cout<<"esto es un puto trigger"<<entities[i]->getPosition().X<<std::endl;
         }
+    }
+     if(enemigo->getTimeSinceLastSensed() > 8 && enemigo->getTimePlayerHasBeenOutOfView() > 10){
+                enemigo->resetSospecha();
+                enemigo->borrarMemoria();
     }
 }
 void Percibir::Exit(Enemy* enemigo){}

@@ -68,9 +68,16 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
+    questionMark = new MeshSceneNode("resources/Modelos/Interrogacion.obj");
+    questionMark->setTexture("resources/Texturas/texturaNarajna.png");
+    questionMark->cambiarColor({255,128,0,0});
+    questionMark->setPosition({posicion.X,6,posicion.Z});
+    questionMark->setVisible(false);
+
     modeloAtaque = new MeshSceneNode("resources/Modelos/conorayo.obj");
     modeloAtaque->setTexture("resources/Texturas/rayocono.png");
     modeloAtaque->setVisible(false);
+
     holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
     holoScan->setTexture("resources/Texturas/scan.png");
     holoScan->setVisible(false);
@@ -167,6 +174,8 @@ void Enemy::setPosition(){
     body->SetTransform(b2Vec2(posicion.X, posicion.Z), angulo);
     aniMesh->setRotation(body->GetAngle());
     aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    questionMark->setPosition({posicion.X,6,posicion.Z});
+    questionMark->setRotation(90);
 }
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
 
@@ -305,6 +314,25 @@ void Enemy::vigilar(){
     }
     setPosition();
 }
+void Enemy::actualizarMemoria(GameEntity* entity){
+    memory->updateVision(entity);
+}
+void Enemy::subirSospecha(){
+    if(sospecha < 100 )
+        sospecha++;;
+    if(sospecha > 0){
+        questionMark->setVisible(true);
+        if(sospecha>0 && sospecha<25)
+            questionMark->setScale({1,1,1});
+        else if(sospecha>=25 && sospecha<=50)
+            questionMark->setScale({1.5,1.5,1.5});
+        else if(sospecha>50 && sospecha<75)
+            questionMark->setScale({2,2,2});
+        else if(sospecha>=75)
+            questionMark->setScale({2.5,2.5,2.5});
+
+    }
+}
 void Enemy::escanear(){
 
     f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
@@ -325,21 +353,18 @@ void Enemy::escanear(){
         //std::cout<<"sospecha"<<sospecha<<std::endl;
         memory->updateVision(EntityMgr->getEntityByID(0));
         calcularAngulo(posicionProta);
-        if(sospecha < 100 )
-            sospecha++;;
+        subirSospecha();
     }
     //holoScan->setVisible(false);
     setPosition();
 }
-void Enemy::actualizarMemoria(GameEntity* entity){
-    memory->updateVision(entity);
-}
 void Enemy::escuchar(){
     memory->updateSoundSource(EntityMgr->getEntityByID(0));
+    subirSospecha();
+    resetTime();
     calcularAngulo(posicionProta);
     setPosition();
-    if(sospecha < 100 )
-        sospecha++;;
+
 }
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());
@@ -355,6 +380,7 @@ void Enemy::muerto(){
         //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
     modeloAtaque->setVisible(false);
+    questionMark->setVisible(false);
 }
 
 void Enemy::matar(){

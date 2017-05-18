@@ -16,31 +16,27 @@ Escuchar* Escuchar::Instance()
 void Escuchar::Enter(Enemy* enemigo)
 {
     enemigo->resetTime();
-    if(enemigo->getTimeSinceLastSensed() > 5 && enemigo->getTimePlayerHasBeenOutOfView() > 10){
-        enemigo->resetSospecha();
-        enemigo->borrarMemoria();
-    }
+    enemigo->calcularAngulo(enemigo->getPosicionProta());
 }
 
 void Escuchar::Execute(Enemy* enemigo)
 {
-    if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
-        enemigo->GetFSM()->ChangeState(Escanear::Instance());
 
     Player* play = static_cast<Player*>(EntityMgr->getEntityByID(0));
 
     if(play->getSpeed() == 2){
         enemigo->escuchar();
-        std::cout<<"sospecha: "<<enemigo->getSospecha()<<std::endl;
     }
+    if(enemigo->isEnemySeeing(enemigo->getPosicionProta()))
+        enemigo->GetFSM()->ChangeState(Escanear::Instance());
 
-    if (enemigo->getSospecha() > 90){
+    else if (enemigo->getSospecha() > 90){
   //std::cout << "sospechando tete" << std::endl;
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
-        enemigo->GetFSM()->ChangeState(Investigar::Instance());
+            enemigo->GetFSM()->ChangeState(Investigar::Instance());
     }
-
-    if (enemigo->getTiempo() > 2.5){
+    //si ha pasado mas de 2,5seg y aun no ha subido la sospecha a mas de 90, sigue su camino
+    else if (enemigo->getTiempo() > 2.5){
         enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
     }
