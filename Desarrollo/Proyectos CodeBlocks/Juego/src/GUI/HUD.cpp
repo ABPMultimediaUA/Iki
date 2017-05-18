@@ -260,3 +260,33 @@ void HUD::GameOver(){
 bool HUD::comprobarReintentar(){
     return BotonReintentar->comprobarEncima();
 }
+
+void HUD::clean(){
+        Vida             = nullptr;
+    Balas            = nullptr;
+    Leyenda          = nullptr;
+    LeyendaQ         = nullptr;
+    LeyendaShift     = nullptr;
+    Rayo             = nullptr;
+    Golpe            = nullptr;
+    Sigilo           = nullptr;
+    Tarjeta          = nullptr;
+    AvisoTarjeta     = nullptr;
+    AvisoMunicion    = nullptr;
+    AvisoAceite      = nullptr;
+    AvisoNotTarjeta  = nullptr;
+    AvisoNotMunicion = nullptr;
+    GOver            = nullptr;
+    BotonReintentar  = nullptr;
+    BotonFinJuego    = nullptr;
+
+    player = nullptr;
+
+    std::vector<HUD_Element*>::iterator curTrg;
+    for (curTrg = elementos.begin(); curTrg != elementos.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
+
+    elementos.clear();
+}

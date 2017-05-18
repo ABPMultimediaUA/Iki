@@ -24,8 +24,8 @@ GraphicsFacade::~GraphicsFacade()
 
 void GraphicsFacade::inicializar_gui(int menu){
 
-    if(menu != 0)
-        gui->inicializar_hd();
+    /*if(menu != 0)
+        gui->inicializar_hd();*/
 
     ///MENU
 
