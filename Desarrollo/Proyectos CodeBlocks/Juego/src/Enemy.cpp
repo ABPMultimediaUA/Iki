@@ -67,8 +67,13 @@ void Enemy::init(Map* m){
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
-    modeloAtaque = new MeshSceneNode("resources/Modelos/rayito2.obj");
+    modeloAtaque = new MeshSceneNode("resources/Modelos/conorayo.obj");
+    modeloAtaque->setTexture("resources/Texturas/rayocono.png");
     modeloAtaque->setVisible(false);
+    holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
+    holoScan->setTexture("resources/Texturas/scan.png");
+    holoScan->setVisible(false);
+    holoScan->setScale({2,2,2});
 }
 void Enemy::crearBody(){
     b2BodyDef bodyDef;
@@ -301,6 +306,19 @@ void Enemy::vigilar(){
 }
 void Enemy::escanear(){
 
+    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    if (tiempo - scanT > 0.01){
+        scanAngle -= 0.1;
+        if (tiempo - scanT < 0.2){
+            scanT = tiempo;
+            scanAngle += 0.1;
+        }
+    }
+    holoScan->setRotationXYZ(0,angulo,scanAngle);
+    //holoScan->setRotation(angulo);
+    holoScan->setPosition(posicion);
+    activeHoloScan(true);
+
     if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
         //std::cout<<"sospecha"<<sospecha<<std::endl;
@@ -309,7 +327,8 @@ void Enemy::escanear(){
         if(sospecha < 100 )
             sospecha++;;
     }
-     setPosition();
+    //holoScan->setVisible(false);
+    setPosition();
 }
 void Enemy::actualizarMemoria(GameEntity* entity){
     memory->updateVision(entity);

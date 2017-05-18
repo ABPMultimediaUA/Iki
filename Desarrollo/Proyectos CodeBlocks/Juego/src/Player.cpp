@@ -257,7 +257,8 @@ void Player::update(Camera* camara){
                 }
             }
             else{
-                SoundMgr->playSonido("Player/error");
+                if (!SoundMgr->isPlaying("Player/error"))
+                    SoundMgr->playSonido("Player/error");
                 HUD::getInstance()->activateNotMunicion();
             }
         }

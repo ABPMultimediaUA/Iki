@@ -9,6 +9,7 @@ Congelado* Congelado::Instance()
 }
 
 void Congelado::Enter(Enemy* enemigo){
+    enemigo->activeAtaque(false);
 }
 
 void Congelado::Execute(Enemy* enemigo){

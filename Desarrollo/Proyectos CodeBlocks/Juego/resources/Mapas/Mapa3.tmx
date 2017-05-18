@@ -540,6 +540,5 @@
   <object id="2599" type="4" x="63.6364" y="159.273" width="2" height="2"/>
   <object id="2602" type="7" x="38.5682" y="90.8636" width="2" height="2" rotation="360"/>
   <object id="2747" type="8" x="110.07" y="78.73" width="2" height="2" rotation="2.98"/>
-  <object id="2749" type="9" x="67.9091" y="180.091" width="2" height="2" rotation="45"/>
  </objectgroup>
 </map>

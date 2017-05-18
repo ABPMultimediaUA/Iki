@@ -77,11 +77,13 @@ class Enemy : public GameEntity
         bool hayGuardias();
         bool colisionPuertas(Structs::TPosicion destino);
         void borrarMemoria();
-
-
+        void activeHoloScan(bool b){holoScan->setVisible(b);}
+        void activeAtaque(bool b){modeloAtaque->setVisible(b);}
+        void scanTimerToZero(){scanAngle=0;scanT=0;}
 
     protected:
 
+        MeshSceneNode* holoScan;
         MeshSceneNode* modeloAtaque;
         int tipo,direccion,posVigilando;
         float bateria;
@@ -90,13 +92,14 @@ class Enemy : public GameEntity
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-        f32 tiempoEnEstado, time_since_hitted;
+        f32 tiempoEnEstado, time_since_hitted, scanT;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
         Structs::TPosicion vectorProta;
         Structs::TPosicion posicionProta;
         Structs::TPosicion posicionInteres;
         Structs::TPosicion posBody;
+        float scanAngle;
         State<Enemy>* actualState;
         State<Enemy>* oldState;
         State<Enemy>* globalState;
