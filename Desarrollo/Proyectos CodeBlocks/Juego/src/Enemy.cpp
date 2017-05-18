@@ -380,4 +380,5 @@ void Enemy::muerto(){
         //static_cast<Guardia*>(this)->setModeloVisible(false);
     EntityMgr->borrarEnemigo(this);
     modeloAtaque->setVisible(false);
+    questionMark->setVisible(false);
 }
