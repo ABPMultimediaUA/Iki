@@ -10,6 +10,7 @@ Trigger_PuertaLlave::Trigger_PuertaLlave(float x, float z, float r)
         bodyDef.type = b2_kinematicBody;
         bodyDef.position.Set(x,z);
         body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
+        posicion = {body->GetPosition().x,0,body->GetPosition().y};
 
         b2PolygonShape bodyShape;
         if (r==90)                  bodyShape.SetAsBox(5.f,1.f);
@@ -38,6 +39,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             SoundMgr->playSonido("Triggers/puerta_abrir");
             SoundMgr->playSonido("Triggers/acceso_confirmado");
             this->SetInactive();
+            abierta=true;
         }else{
             if (!fired){
                 SoundMgr->playSonido("Triggers/acceso_denegado");
@@ -53,6 +55,12 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
         //body->SetActive(true);
     }
 }
+bool Trigger_PuertaLlave::isPuertaAbierta(){
+    if(abierta)
+        return true;
+    return false;
+}
+
 
 void Trigger_PuertaLlave::Update()
 {

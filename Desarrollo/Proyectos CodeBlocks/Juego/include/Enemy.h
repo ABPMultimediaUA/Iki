@@ -43,7 +43,9 @@ class Enemy : public GameEntity
         //Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getEntityByID(4);}
         Enemy* getGuardiaMasCercano(){return (Enemy*)EntityMgr->getGuardiaCerca(posicion);}
         float getTimePlayerHasBeenOutOfView();
+        float getTimeSinceLastSensed();
         float getAngulo(){return angulo;}
+        int getEstadoEntity(GameEntity* entity){return memory->getEstadoEntity(entity);}
         ///SETTERS
         void setPosition();
         Structs::TPosicion setPosicionInteres(Structs::TPosicion p){ posicionInteres = p;}
@@ -56,9 +58,9 @@ class Enemy : public GameEntity
         void muerto();
         void volverALaPatrulla();
         ///METODOS
+        void actualizarMemoria(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
-        void subirSospecha() {sospecha++;}
         void resetSospecha() {sospecha=0;}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
@@ -68,8 +70,6 @@ class Enemy : public GameEntity
         void moverBody(Structs::TPosicion vec);
         void MoverEnemigo(Structs::TPosicion p);
         void andarPath(float velocidad,Structs::TPosicion posFinal);
-        bool isWithinFOV(Structs::TPosicion p, float distanceFOV);
-        bool vectorIsInFOV(Structs::TPosicion p);
         void cambiarColor(Structs::TColor c);
         void calcularAngulo(Structs::TPosicion p1);
         void girarVista(float giro,int posV);

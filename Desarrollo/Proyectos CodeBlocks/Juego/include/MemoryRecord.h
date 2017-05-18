@@ -3,6 +3,15 @@
 
 #include "Structs.h"
 
+enum EstadoEntity
+        {
+            todoCorrecto,
+            sospechoso,
+            muerto,
+            abierta,
+            yaLoSabia
+        };
+
 class MemoryRecord
 {
 public:
@@ -14,15 +23,18 @@ public:
   float       ultimaPercepcion;
   //ultima posicion en ver el player
   Structs::TPosicion    ultimaPosicion;
-  //si esta en el fieldOfView
-  bool        estaFOV;
-  //Si es shootable
+  //estado de la ultima vez que lo vio
+  EstadoEntity estado;
+  //si esta en el fieldOfView sin obstaculos
+  bool        entraEnFOV;
+  //si no hay obstaculos
   bool        sinObstaculos;
 
   MemoryRecord():ultimaVista(-999),
             primeraVista(-999),
             ultimaPercepcion(0),
-            estaFOV(false),
+            estado(todoCorrecto),
+            entraEnFOV(false),
             sinObstaculos(false)
   {}
 };

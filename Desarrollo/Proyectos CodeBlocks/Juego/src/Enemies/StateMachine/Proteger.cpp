@@ -23,7 +23,12 @@ void Proteger::Execute(Enemy* enemigo){
     if(enemigo->hayGuardias()){
         if(enemigo->getGuardiaMasCercano()->GetFSM()->isInState(*VolverALaPatrulla::Instance()))
             enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+
         static_cast<Medico*>(enemigo)->proteger();
+       /* if (enemigo->getProtegido()->getVida()<4 && enemigo->getTiempo()>2){
+            enemigo->resetTime();
+            enemigo->GetFSM()->ChangeState(Curar::Instance);
+        }*/
     }
     else{
         enemigo->GetFSM()->ChangeState(Huir::Instance());

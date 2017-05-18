@@ -11,6 +11,7 @@ Trigger_Puerta::Trigger_Puerta(float x, float z, float r)
     bodyDef.type = b2_kinematicBody;
     bodyDef.position.Set(x,z);
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
+    posicion = {body->GetPosition().x,0,body->GetPosition().y};
 
     b2PolygonShape bodyShape;
     if (r==90)                  bodyShape.SetAsBox(5.f,1.f);

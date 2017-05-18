@@ -39,6 +39,9 @@ void SensorMemory::updateSoundSource(GameEntity* ruidoso)
 
     MemoryRecord& info = memoryMap[ruidoso];
 
+    info.ultimaPosicion = ruidoso->getPosition();
+    info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    /*
     //test if there is LOS between bots
     //if (enemigo->GetWorld()->isLOSOkay(enemigo->Pos(), ruidoso->Pos()))
     if (enemigo->canWalkBetween(enemigo->getPosition(), ruidoso->getPosition()))
@@ -54,14 +57,41 @@ void SensorMemory::updateSoundSource(GameEntity* ruidoso)
 
     //record the time it was sensed
     info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    */
   }
 }
 
 void SensorMemory::updateVision(GameEntity* cantoso){
-   comprobarRecord(cantoso);
+    comprobarRecord(cantoso);
     //get a reference to this bot's data
     MemoryRecord& info = memoryMap[cantoso];
-    //test if there is LOS between bots
+
+    info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    info.ultimaPosicion = cantoso->getPosition();
+    info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+
+    if (info.entraEnFOV == false)
+    {
+        info.entraEnFOV  = true;
+        info.primeraVista = info.ultimaPercepcion;
+    }
+    if(info.estado == todoCorrecto){
+        if(cantoso->isEnemy() && cantoso->getVida() == 0)
+            info.estado = muerto;
+        else if(cantoso->isPlayer())
+            info.estado = sospechoso;
+        else if(cantoso->isTrigger() && cantoso->isPuertaAbierta() )
+                info.estado = abierta;
+
+    }
+    else{
+        if(cantoso->isEnemy() && cantoso->getVida() == 0)
+            info.estado = yaLoSabia;
+        else if(cantoso->isTrigger())
+            info.estado = yaLoSabia;
+    }
+
+    /*//test if there is LOS between bots
     if(enemigo->canWalkBetween(enemigo->getPosition(),(cantoso)->getPosition()))
     {
         info.sinObstaculos = true;
@@ -73,42 +103,34 @@ void SensorMemory::updateVision(GameEntity* cantoso){
             info.ultimaPosicion = cantoso->getPosition();
             info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
 
-            if (info.estaFOV == false)
+            if (info.entraEnFOV == false)
             {
-                info.estaFOV  = true;
+                info.entraEnFOV  = true;
                 info.primeraVista = info.ultimaPercepcion;
             }
         }
 
         else
         {
-            info.estaFOV = false;
+            info.entraEnFOV = false;
         }
     }
 
     else
     {
         info.sinObstaculos = false;
-        info.estaFOV = false;
-    }
-    /*comprobarRecord(cantoso);
-    MemoryRecord& info = memoryMap[cantoso];
-    if(info.primeraVista == -999){
-        info.primeraVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
-    }
-    info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
-    info.ultimaPosicion = cantoso->getPosition();
-    info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;*/
+        info.entraEnFOV = false;
+    }*/
 }
 
-//------------------------ GetListOfRecentlySensedOpponents -------------------
+//------------------------ GetListOfRecentlySensedEntities -------------------
 //
 //  returns a vector of the bots that have been sensed recently
 //-----------------------------------------------------------------------------
-std::list<GameEntity*> SensorMemory::GetListOfRecentlySensedOpponents()const
+std::list<GameEntity*> SensorMemory::GetListOfRecentlySensedEntitites()const
 {
-  //this will store all the opponents the bot can remember
-  std::list<GameEntity*> opponents;
+  //this will store all the entities the bot can remember
+  std::list<GameEntity*> entities;
 
   float CurrentTime = PhisicsWorld::getInstance()->getTimeStamp();
 
@@ -118,44 +140,11 @@ std::list<GameEntity*> SensorMemory::GetListOfRecentlySensedOpponents()const
     //if this bot has been updated in the memory recently, add to list
     if ( (CurrentTime - curRecord->second.ultimaPercepcion) <= memorySpan)
     {
-      opponents.push_back(curRecord->first);
+      entities.push_back(curRecord->first);
     }
   }
 
-  return opponents;
-}
-
-//----------------------------- isOpponentShootable --------------------------------
-//
-//  returns true if the bot given as a parameter can be shot (ie. its not
-//  obscured by walls)
-//-----------------------------------------------------------------------------
-bool SensorMemory::isEntityVisible(GameEntity* entidad)const
-{
-  MemoryMap::const_iterator it = memoryMap.find(entidad);
-
-  if (it != memoryMap.end())
-  {
-    return it->second.sinObstaculos;
-  }
-
-  return false;
-}
-
-//----------------------------- isOpponentWithinFOV --------------------------------
-//
-//  returns true if the bot given as a parameter is within FOV
-//-----------------------------------------------------------------------------
-bool  SensorMemory::isEntityInFOV(GameEntity* entidad)const
-{
-  MemoryMap::const_iterator it = memoryMap.find(entidad);
-
-  if (it != memoryMap.end())
-  {
-    return it->second.estaFOV;
-  }
-
-  return false;
+  return entities;
 }
 
 //---------------------------- GetLastRecordedPositionOfOpponent -------------------
@@ -182,7 +171,7 @@ float  SensorMemory::GetTimeEntityHasBeenVisible(GameEntity* entidad)const
 {
   MemoryMap::const_iterator it = memoryMap.find(entidad);
 
-  if (it != memoryMap.end() && it->second.estaFOV)
+  if (it != memoryMap.end() && it->second.entraEnFOV)
   {
     return PhisicsWorld::getInstance()->getTimeStamp()/1000 - it->second.primeraVista;
   }
@@ -216,69 +205,21 @@ float  SensorMemory::GetTimeSinceLastSensed(GameEntity* entidad)const
 {
   MemoryMap::const_iterator it = memoryMap.find(entidad);
 
-  if (it != memoryMap.end() && it->second.estaFOV)
+  if (it != memoryMap.end())
   {
     return PhisicsWorld::getInstance()->getTimeStamp()/1000 - it->second.ultimaPercepcion;
   }
 
   return 0;
 }
-
-/*//---------------------- UpdateVision ----------------------
+//------------------------ GetEstadoEntity----------------------
 //
-//  Hace un update de la vision, comprueba todas las entities
+//  returns the state of the Entity
 //-----------------------------------------------------------------------------
-void SensorMemory::updateVision()
-{
-  //for each bot in the world test to see if it is visible to the owner of
-  //this class
-  const std::vector<GameEntity*>& bots = EntityMgr->getEntities();
-  std::vector<GameEntity*>::const_iterator curBot;
-  for (curBot = bots.begin(); curBot!=bots.end(); ++curBot)
-  {
-    //make sure the bot being examined is not this bot
-    if (enemigo != *curBot)
+EstadoEntity SensorMemory::getEstadoEntity(GameEntity* entidad)const{
+    MemoryMap::const_iterator it = memoryMap.find(entidad);
+    if (it != memoryMap.end())
     {
-      //make sure it is part of the memory map
-      comprobarRecord(*curBot);
-
-      //get a reference to this bot's data
-      MemoryRecord& info = memoryMap[*curBot];
-
-      //test if there is LOS between bots
-      //if (enemigo->GetWorld()->isLOSOkay(enemigo->Pos(), (*curBot)->Pos()))
-      if(enemigo->canWalkBetween(enemigo->getPosition(),(*curBot)->getPosition()))
-      {
-        info.sinObstaculos = true;
-
-        Structs::TPosicion p;
-        //test if the bot is within FOV
-        if (p.isSecondInFOVOfFirst(enemigo->getPosition(),enemigo->getMirandoHacia(),(*curBot)->getPosition(),enemigo->FieldOfView()))
-        {
-          info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
-          info.ultimaPosicion = (*curBot)->getPosition();
-          info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
-
-          if (info.estaFOV == false)
-          {
-            info.estaFOV           = true;
-            info.primeraVista    = info.ultimaPercepcion;
-
-          }
-        }
-
-        else
-        {
-          info.estaFOV = false;
-        }
-      }
-
-      else
-      {
-        info.sinObstaculos = false;
-        info.estaFOV = false;
-      }
+    return it->second.estado;
     }
-  }//next bot
 }
-*/

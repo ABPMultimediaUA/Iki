@@ -124,6 +124,7 @@
 		<Unit filename="include/Enemies/StateMachine/PedirAyuda.h" />
 		<Unit filename="include/Enemies/StateMachine/Percibir.h" />
 		<Unit filename="include/Enemies/StateMachine/Proteger.h" />
+		<Unit filename="include/Enemies/StateMachine/Revivir.h" />
 		<Unit filename="include/Enemies/StateMachine/State.h" />
 		<Unit filename="include/Enemies/StateMachine/StateMachine.h" />
 		<Unit filename="include/Enemies/StateMachine/Vigilar.h" />
@@ -236,6 +237,7 @@
 		<Unit filename="src/Enemies/StateMachine/PedirAyuda.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Percibir.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Proteger.cpp" />
+		<Unit filename="src/Enemies/StateMachine/Revivir.cpp" />
 		<Unit filename="src/Enemies/StateMachine/State.cpp" />
 		<Unit filename="src/Enemies/StateMachine/StateMachine.cpp" />
 		<Unit filename="src/Enemies/StateMachine/Vigilar.cpp" />

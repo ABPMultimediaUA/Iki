@@ -21,8 +21,9 @@ void Escanear::Enter(Enemy* enemigo){
     //enemigo->activeHoloScan(true);
     enemigo->scanTimerToZero();
     //enemigo->scanRotation();
+    
+    if(enemigo->getTimePlayerHasBeenOutOfView() > 10 && enemigo->getTimeSinceLastSensed() > 5){
 
-    if(enemigo->getTimePlayerHasBeenOutOfView() >10){
         enemigo->resetSospecha();
         enemigo->borrarMemoria();
     }
@@ -43,6 +44,7 @@ void Escanear::Enter(Enemy* enemigo){
 
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
+    std::cout<<"escanear sospecha: "<<enemigo->getSospecha()<<std::endl;
     if(enemigo->getSospecha()>=99){
         ///COMBATEEE
         switch(enemigo->getTipo()){

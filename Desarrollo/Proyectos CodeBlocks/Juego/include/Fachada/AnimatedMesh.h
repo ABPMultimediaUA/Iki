@@ -24,6 +24,7 @@ class AnimatedMesh
     private:
         IAnimatedMesh *mesh;
         IAnimatedMeshSceneNode *modelo;
+
         Structs::TPosicion posicion;
         float rotacion;
 };

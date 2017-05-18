@@ -11,6 +11,7 @@ AnimatedMesh::AnimatedMesh(const char* file, Structs::TColor color, Structs::TPo
     modelo->setPosition(vector3df(posicion.X, posicion.Y, posicion.Z));
     modelo->setRotation(vector3df(0, rotacion, 0));
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);
+
 }
 
 AnimatedMesh::~AnimatedMesh()
