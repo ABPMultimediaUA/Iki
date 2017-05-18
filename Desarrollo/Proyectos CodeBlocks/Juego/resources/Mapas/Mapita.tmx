@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2617">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2620">
  <properties>
   <property name="Fin" type="int" value="0"/>
  </properties>
@@ -588,7 +588,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Triggers"/>
+ <objectgroup color="#ff0000" name="Triggers">
+  <object id="2617" type="1" x="63.2" y="76" width="2" height="2" rotation="90"/>
+  <object id="2618" type="10" x="71" y="81" width="2" height="2" rotation="90"/>
+  <object id="2619" type="10" x="56" y="68" width="2" height="2" rotation="90"/>
+ </objectgroup>
  <objectgroup color="#0000ff" name="WayPoints">
   <object id="2615" name="0" x="51.9091" y="183.727" width="2" height="2">
    <properties>

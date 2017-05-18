@@ -40,6 +40,9 @@ class HUD
         void GameOver();
         bool comprobarReintentar();
 
+        void activatePalanca();
+        void desactivatePalanca();
+
     protected:
 
     private:
@@ -63,6 +66,7 @@ class HUD
         HUD_Element* GOver;
         HUD_Element* BotonReintentar;
         HUD_Element* BotonFinJuego;
+        HUD_Element* Palanca;
 
         Player* player;
 

@@ -16,6 +16,7 @@ class MeshSceneNode
         void setVisible(bool);
         void setTexture(const char*);
         void cambiarColor(Structs::TColor);
+        Structs::TPosicion getPosition(){return Structs::TPosicion(node->getPosition().X, node->getPosition().Y, node->getPosition().Z); }
 
     protected:
 

@@ -356,3 +356,8 @@ void Enemy::muerto(){
     EntityMgr->borrarEnemigo(this);
     modeloAtaque->setVisible(false);
 }
+
+void Enemy::matar(){
+    vida = 0;
+    G_stateMachine->ChangeState(Muerto::Instance());
+}
