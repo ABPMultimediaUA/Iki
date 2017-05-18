@@ -35,7 +35,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             static_cast<Player*>(ent)->UsarLlave();
             aniMesh->setVisible(false);
             body->SetActive(false);
-            body->SetTransform(b2Vec2(mx+5,mz),ma);
+            body->SetTransform(b2Vec2(mx+5,mz),0);
             SoundMgr->playSonido("Triggers/puerta_abrir");
             SoundMgr->playSonido("Triggers/acceso_confirmado");
             this->SetInactive();

@@ -39,8 +39,10 @@ void SensorMemory::updateSoundSource(GameEntity* ruidoso)
 
     MemoryRecord& info = memoryMap[ruidoso];
 
-    info.ultimaPosicion = ruidoso->getPosition();
-    info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    if(ruidoso->isPlayer()){
+        info.ultimaPosicion = ruidoso->getPosition();
+        info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    }
     /*
     //test if there is LOS between bots
     //if (enemigo->GetWorld()->isLOSOkay(enemigo->Pos(), ruidoso->Pos()))
@@ -66,20 +68,21 @@ void SensorMemory::updateVision(GameEntity* cantoso){
     //get a reference to this bot's data
     MemoryRecord& info = memoryMap[cantoso];
 
-    info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
-    info.ultimaPosicion = cantoso->getPosition();
-    info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+    if(cantoso->isPlayer()){
+        info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+        info.ultimaPosicion = cantoso->getPosition();
+        info.ultimaVista = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+        info.estado = sospechoso;
 
-    if (info.entraEnFOV == false)
-    {
-        info.entraEnFOV  = true;
-        info.primeraVista = info.ultimaPercepcion;
+        if (info.entraEnFOV == false)
+        {
+            info.entraEnFOV  = true;
+            info.primeraVista = info.ultimaPercepcion;
+        }
     }
     if(info.estado == todoCorrecto){
         if(cantoso->isEnemy() && cantoso->getVida() == 0)
             info.estado = muerto;
-        else if(cantoso->isPlayer())
-            info.estado = sospechoso;
         else if(cantoso->isTrigger() && cantoso->isPuertaAbierta() )
                 info.estado = abierta;
 
