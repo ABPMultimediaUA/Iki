@@ -48,6 +48,7 @@ class Player : public GameEntity{
         void comprobarVelocidad();
 
         bool isNivelFinished(){ return nivel_acabado; }
+        bool wantReintentar() { return reintentar; }
         void setNivelFinished(bool holi){ nivel_acabado = holi; }
 
     protected:
@@ -62,7 +63,7 @@ class Player : public GameEntity{
         Structs::TPosicion mirarHacia = {0,0,0};
 
         Trigger_Ruido* ruido;
-        bool isMoving,moverse,nivel_acabado;
+        bool isMoving, moverse, nivel_acabado, reintentar;
         int speed;
         float velocidad;
         int llaves = 0;

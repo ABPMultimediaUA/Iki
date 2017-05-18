@@ -27,7 +27,7 @@ class Scene
         Player *player;
         Menu* menu_ingame;
         Map* Mapa;
-        bool isGameActive;
+        bool isGameActive, reintentar;
 
 };
 

@@ -23,6 +23,7 @@ HUD::HUD()
     AvisoNotTarjeta  = nullptr;
     AvisoNotMunicion = nullptr;
     GOver            = nullptr;
+    BotonReintentar  = nullptr;
     BotonFinJuego    = nullptr;
 
     player  = nullptr;
@@ -46,6 +47,7 @@ HUD::~HUD()
     AvisoNotTarjeta  = nullptr;
     AvisoNotMunicion = nullptr;
     GOver            = nullptr;
+    BotonReintentar  = nullptr;
     BotonFinJuego    = nullptr;
 
     player  = nullptr;
@@ -130,8 +132,12 @@ void HUD::inicializar_HUD(){
     GOver = elementos[15];
 
     rec = {0, 0, 240, 120};
-    elementos.push_back(new HUD_Element(560, 350, rec, "salirrojo", false));
-    BotonFinJuego = elementos[16];
+    elementos.push_back(new HUD_Element(560, 350, rec, "reintentar", false));
+    BotonReintentar = elementos[16];
+
+    rec = {0, 0, 240, 120};
+    elementos.push_back(new HUD_Element(560, 480, rec, "salirrojo", false));
+    BotonFinJuego = elementos[17];
 
 
 }
@@ -236,5 +242,10 @@ void HUD::activateNotTarjeta(){
 
 void HUD::GameOver(){
     GOver->setActive(true);
+    BotonReintentar->setActive(true);
     BotonFinJuego->setActive(true);
+}
+
+bool HUD::comprobarReintentar(){
+    return BotonReintentar->comprobarEncima();
 }

@@ -81,6 +81,7 @@ void Scene::cargarSonidos()
 void Scene::inicializar_escena(int nivel){
 
     isGameActive = true;
+    reintentar = true;
     Structs::TPosicion posicionCamara;
     Structs::TPosicion targetCamara;
     Structs::TPosicion rayPos;
@@ -138,12 +139,22 @@ void Scene::bucle_juego(int nivel){
         PhisicsWorld::getInstance()->Step();
 
         GraphicsFacade::getInstance().draw(0);
-        if(player->isNivelFinished()){
+
+        /*if(player->wantReintentar()){
             cleanScene();
             isGameActive = false;
+            reintentar = true;
+        }*/
+        if(player != nullptr){
+            if(player->isNivelFinished()){
+                cleanScene();
+                isGameActive = false;
+            }
         }
     }
 
+    /*if(reintentar)
+        inicializar_escena(nivel);*/
     if(nivel == 2)
         GraphicsFacade::getInstance().drop();
 

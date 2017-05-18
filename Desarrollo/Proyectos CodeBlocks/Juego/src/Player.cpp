@@ -75,6 +75,7 @@ void Player::inicializar_player(Map* m, int nivel){
     ruido->AddCircularRegion(posicion, 20);
     isMoving = false;
     nivel_acabado = false;
+    reintentar = false;
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     angulo = atan2f((p1.Z-posicion.Z) ,
@@ -242,6 +243,9 @@ void Player::update(Camera* camara){
     if(vida == 0){
         SoundMgr->stopAll();
         HUD::getInstance()->GameOver();
+        if(MyEventReceiver::getInstance().GetMouseState().LeftButtonDown){
+            reintentar = HUD::getInstance()->comprobarReintentar();
+        }
     }else{
         deltaTime = PhisicsWorld::getInstance()->getDeltaTime()/1000.f;
         avMovement = deltaTime * 600;

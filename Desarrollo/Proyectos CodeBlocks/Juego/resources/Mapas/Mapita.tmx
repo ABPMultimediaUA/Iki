@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2615">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2617">
  <properties>
   <property name="Fin" type="int" value="0"/>
  </properties>
@@ -589,7 +589,18 @@
   </object>
  </objectgroup>
  <objectgroup name="Triggers"/>
- <objectgroup name="WayPoints"/>
+ <objectgroup color="#0000ff" name="WayPoints">
+  <object id="2615" name="0" x="51.9091" y="183.727" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="1"/>
+   </properties>
+  </object>
+  <object id="2616" name="1" x="56.8182" y="170.455" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup color="#ffff00" name="Patrol">
   <object id="2613" x="64.4545" y="138.455" width="2" height="2">
    <properties>

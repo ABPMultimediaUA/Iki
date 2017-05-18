@@ -52,7 +52,7 @@ class SparseGraph
         int nodeMoreClose(Structs::TPosicion p);
         void setEdgeCost(int from, int to, double NewCost);
 
-        void clear(){nextNodeIndex = 0; nodos.clear(); aristas.clear();}
+        void clean(){nextNodeIndex = 0; nodos.clear(); aristas.clear(); lista.clear();}
         void RemoveEdges()
           {
             for (EdgeListVector::iterator it = aristas.begin(); it != aristas.end(); ++it)

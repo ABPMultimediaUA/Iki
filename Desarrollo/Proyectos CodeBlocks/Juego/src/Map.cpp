@@ -231,16 +231,14 @@ void Map::cleanMap(){
     ///limpiar vector de tipos
     tipos.clear();
 
-    ///apuntando a null los files que leen tiled
-    /*docFile     = nullptr;
-    mapElement  = nullptr;
-    objectGroup = nullptr;
-    object      = nullptr;
-    property    = nullptr;*/
-
     ///limpiando ultimas cosas
-    delete Grafo;
+    Grafo->clean();
     fila.clear();
+    for(size_t i = 0; i < conectaCon.size(); i++){
+        conectaCon[i].clear();
+    }
+    conectaCon.clear();
+
 
 
 }
