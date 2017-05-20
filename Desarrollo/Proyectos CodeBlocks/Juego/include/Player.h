@@ -30,6 +30,10 @@ class Player : public GameEntity{
         void NecesitoLlave();
         int  GetLlaves(){return llaves;}
 
+        void UpdateRayo(Camera* camara);
+        void UpdateAtaque();
+        void UpdateMov(Camera* camara);
+
         void sonidosMovimiento();
         void MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2);
         bool HandleMessage(const Mensaje& msg){return true;}
@@ -44,6 +48,8 @@ class Player : public GameEntity{
 
         bool imSeeingThisEnemy(Enemy*);
         void calcularMirarHacia(Structs::TPosicion);
+
+        void calcularAngulo(Structs::TPosicion p1);
 
         void subirVelocidad();
         void comprobarVelocidad();

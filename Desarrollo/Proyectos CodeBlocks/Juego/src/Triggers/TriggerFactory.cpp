@@ -52,7 +52,9 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //modelo;
         modelo = new AnimatedMesh("resources/Modelos/engranaje.obj", {0,0,0,140}, centro, r);
         modelo->setTexture("resources/Texturas/engranaje.png");
+        modelo->setScale({1,1,1});
         modelo->setPosition({x, 0.5, z});
+        //modelo->setRotationXYZ(90,90,1);
         trigger->setMesh(modelo);
     }
     else if (tipo == 3){
@@ -63,6 +65,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         modelo = new AnimatedMesh("resources/Modelos/Tarjeta.obj", {0,100,149,237}, centro, r);
         modelo->setTexture("resources/Texturas/tarjetaTex.png");
         modelo->setPosition({x, 0.5, z});
+        //modelo->setRotationXYZ(180,180,180);
         trigger->setMesh(modelo);
     }
     else if (tipo == 4){
