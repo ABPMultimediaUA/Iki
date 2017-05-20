@@ -42,6 +42,8 @@ void TShader::Bind()
 	glUseProgram(m_programa);
 }
 
+
+
 void TShader::Update(TCamara* camera)
 {
     glm::mat4 model = camera->getMatrizProyeccion() * TShader::viewMatrix ;

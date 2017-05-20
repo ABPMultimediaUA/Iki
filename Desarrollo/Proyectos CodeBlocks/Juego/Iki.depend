@@ -10382,7 +10382,7 @@
 	"TAnimacion.h"
 	<SFML/Graphics.hpp>
 
-1494690697 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
+1495119979 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
 	<glew.h>
 	"TTransform.h"
 	"TCamara.h"
@@ -10868,14 +10868,17 @@
 	<vector>
 	<TEntidad.h>
 
-1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
+1495122635 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
 	<iostream>
 	"TEntidad.h"
+	"TVector.h"
+	"TTransform.h"
 	<vector>
 
-1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tluz.h
+1495122595 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tluz.h
 	<iostream>
 	<TEntidad.h>
+	"TShader.h"
 
 1491325255 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmalla.h
 	"TEntidad.h"
@@ -11165,7 +11168,7 @@
 1494357985 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tgestorrecursos.cpp
 	"TGestorRecursos.h"
 
-1491326391 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tluz.cpp
+1495122602 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tluz.cpp
 	"TLuz.h"
 
 1491324987 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
