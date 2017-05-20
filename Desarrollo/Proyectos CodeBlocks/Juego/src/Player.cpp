@@ -313,6 +313,8 @@ void Player::update(Camera* camara){
                         }
                         else{
                             enemies[i]->quitarVida();
+                            if(enemies[i]->getVida() == 0)
+                                enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
                         }
                     }
                 }
