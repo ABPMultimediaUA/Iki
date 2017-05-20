@@ -43,6 +43,8 @@ class HUD
         void activatePalanca();
         void desactivatePalanca();
 
+        void clean();
+
     protected:
 
     private:

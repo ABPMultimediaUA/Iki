@@ -76,6 +76,8 @@ void Player::inicializar_player(Map* m, int nivel){
     isMoving = false;
     nivel_acabado = false;
     reintentar = false;
+
+    HUD::getInstance()->inicializar_HUD();
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     angulo = atan2f((p1.Z-posicion.Z) ,
