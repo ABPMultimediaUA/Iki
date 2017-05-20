@@ -11,10 +11,10 @@ void GUI_Component::draw(){
     Structs::TColor      color = {235, 190, 190, 190};
 
     if(!estaencima)
-        image->draw(posicionX, posicionY, rec, color);
+        image->draw(posicionX, posicionY);
     else{
         color = {255, 255, 255, 255};
-        image->draw(posicionX, posicionY, rec, color);
+        image->draw(posicionX, posicionY);
     }
 }
 

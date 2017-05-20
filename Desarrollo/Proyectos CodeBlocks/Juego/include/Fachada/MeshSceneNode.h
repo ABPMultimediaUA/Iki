@@ -7,6 +7,7 @@ class MeshSceneNode
 {
     public:
         MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicion, Structs::TColor color);
+        MeshSceneNode(const char*);
         virtual ~MeshSceneNode();
         void setScale(Structs::TMedida);
         void setPosition(Structs::TPosicion);
@@ -17,8 +18,7 @@ class MeshSceneNode
 
     private:
 
-        IMesh* mesh;
-        IMeshSceneNode* node;
+        TNodo* node;
 };
 
 #endif // MESHSCENENODE_H

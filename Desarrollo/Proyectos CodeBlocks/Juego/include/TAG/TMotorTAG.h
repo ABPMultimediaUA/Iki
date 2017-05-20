@@ -10,6 +10,10 @@
 #include "TGestorRecursos.h"
 #include "TAnimacion.h"
 #include <SFML/Graphics.hpp>
+#include "TLinea.h"
+#include "TPlano.h"
+#include "TDraw2D.h"
+#include "TDisplay.h"
 
 
 class TMotorTAG
@@ -29,7 +33,7 @@ class TMotorTAG
         TNodo *getEscena(){return escena;}
         TNodo *getCamaraActiva();
 
-        bool run();
+        bool run(TNodo*);
 
         int registrarLuz(TNodo* nod);
         int registrarCamara(TNodo* nod);
@@ -47,8 +51,11 @@ class TMotorTAG
         int getWindowWidth() { return window.getWidth(); }
         int getWindowHeigth(){ return window.getHeigth(); }
 
-        void cambiarRay(TCamara*);
-        bool interseccionRayPlano(Structs::TPosicion &mousePosition);
+        void cambiarRay(TNodo*);
+        bool interseccionRayPlano(TVector &mousePosition);
+
+        void doDisplay();
+        int getTime();
 
     protected:
 

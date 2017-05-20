@@ -23,6 +23,7 @@ class TNodo
         TNodo *getPadre();
         void Trasladar(TVector vec);
         void Rotar(float ang, TVector vec);
+        void Rotar(float ang);
         void EscalarAbs(float num);
         void EscalarRel(TVector vec);
         void draw();

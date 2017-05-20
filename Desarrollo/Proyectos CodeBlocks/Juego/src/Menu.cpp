@@ -10,7 +10,7 @@
 Menu::Menu()
 {
     //gui = new GUI();
-    time_since_clicked = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    time_since_clicked = GraphicsFacade::getInstance().getTime()/1000.f;
     draw_type = 1;
 }
 
@@ -97,14 +97,14 @@ bool Menu::run(){
 
     draw_type = 1;
 
-    while(GraphicsFacade::getInstance().run()){
+    while(GraphicsFacade::getInstance().run(draw_type, nullptr)){
 
-        GraphicsFacade::getInstance().draw(draw_type);
+        //GraphicsFacade::getInstance().draw(draw_type);
 
         comprobarBotones(draw_type);
 
         if(MyEventReceiver::getInstance().GetMouseState().LeftButtonDown){
-            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - time_since_clicked > 0.2){
+            if(GraphicsFacade::getInstance().getTime()/1000.f - time_since_clicked > 0.2){
                 if(draw_type == 1){
                     if(NuevaPartida->getActivo()){
                         NuevaPartida->reproducir_click(0);
@@ -153,7 +153,7 @@ bool Menu::run(){
                         draw_type = 2;
                     }
                 }
-                time_since_clicked = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+                time_since_clicked = GraphicsFacade::getInstance().getTime()/1000.f;
             }
         }
     }

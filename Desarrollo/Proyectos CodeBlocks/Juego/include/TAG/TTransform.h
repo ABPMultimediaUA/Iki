@@ -20,6 +20,7 @@ class TTransform : public TEntidad
         void trasponer();
         void trasladar(float x, float y, float z);
         void rotar(float angulo, float x, float y, float z);
+        void rotar(float angulo);
         void escalarRel(float x, float y, float z);
         void escalarAbs(float eje);
         mat4 getMatriz(){return matriz;};

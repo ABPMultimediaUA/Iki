@@ -22,7 +22,7 @@ public:
 	void Draw3(){m_window.popGLStates();};
     void setModoVentana();
 	void setFullScreen();
-	sf::Time getClocks();
+	sf::Time getTimer();
 	~TDisplay();
 
 	int getWidth() { return m_window.getSize().x; }

@@ -4,21 +4,22 @@
 GUI_Menu::GUI_Menu(int x, int y, int t)
 {
     if(t == 0){
-        image = new Image("resources/texturas/menu.png");
-
-        posicionX = x;
-        posicionY = y;
-        estaencima = false;
-
         rec = {0, 0, 460, 670};
-    }else{
-        image = new Image("resources/texturas/ikifondo.png");
+        image = new Image("resources/texturas/menu.png", rec);
 
         posicionX = x;
         posicionY = y;
         estaencima = false;
 
+    }else{
         rec = {0, 0, 1360, 768};
+        image = new Image("resources/texturas/ikifondo.png", rec);
+
+        posicionX = x;
+        posicionY = y;
+        estaencima = false;
+
+
     }
 }
 

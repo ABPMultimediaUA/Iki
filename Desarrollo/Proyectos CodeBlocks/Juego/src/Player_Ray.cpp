@@ -28,7 +28,7 @@ void Player_Ray::lanzar_rayo(Structs::TPosicion pos_prota){
     Structs::TPosicion mousePosition = {0,0,0};
     float angulo, distancia;
     balas--;
-    vida = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    vida = GraphicsFacade::getInstance().getTime()/1000.f;
 
     GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
     vec_distancia.X = mousePosition.X - pos_prota.X;
@@ -54,7 +54,7 @@ void Player_Ray::lanzar_rayo(Structs::TPosicion pos_prota){
 }
 
 void Player_Ray::borrar_rayo(){
-    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - vida > 0.2)
+    if(GraphicsFacade::getInstance().getTime()/1000.f - vida > 0.2)
         modelo->setVisible(false);
 }
 

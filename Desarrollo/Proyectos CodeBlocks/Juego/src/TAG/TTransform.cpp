@@ -66,6 +66,10 @@ void TTransform::rotar(float angulo, float x, float y, float z)
 
 }
 
+void TTransform::rotar(float angulo){
+    matriz = rotate(matriz, (float) radians(angulo), vec3(0, 1, 0));
+}
+
 void TTransform::escalarRel(float x, float y, float z)
 {
     matriz = scale(matriz, vec3(x, y, z));

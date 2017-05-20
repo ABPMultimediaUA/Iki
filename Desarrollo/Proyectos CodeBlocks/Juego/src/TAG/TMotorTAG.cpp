@@ -2,7 +2,7 @@
 #include "TShader.h"
 
 
-TMotorTAG::TMotorTAG() : window(1360, 768, "IKIGAI"), shader = cargarShader("resources/res/basicShader")
+TMotorTAG::TMotorTAG() : window(1360, 768, "IKIGAI"), shader(cargarShader("resources/res/basicShader")), ray(0,0,0,0,0,0)
 {
     //ctor
     escena = new TNodo();
@@ -286,7 +286,7 @@ void TMotorTAG::draw()
     escena->draw();
 }
 
-bool TMotorTAG::run(){
+bool TMotorTAG::run(TNodo* cCamara){
 
    if( window.isOpen()){
         window.Draw3(); ///m_window.popGLStates();
@@ -297,7 +297,8 @@ bool TMotorTAG::run(){
         shader.Bind();
 
         draw();
-        shader.Update(cCamara);
+        if(cCamara != nullptr)
+            shader.Update(static_cast<TCamara*>(cCamara->getEntidad()));
 
         window.Draw2(); ///m_window.pushGLStates();
 
@@ -315,13 +316,13 @@ void TMotorTAG::doDisplay(){
     window.Display();
 }
 
-void TMotorTAG::cambiarRay(TCamara* camara){
-    ray = camara->getRayFromScreenCoordinates(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+void TMotorTAG::cambiarRay(TNodo* camara){
+    ray = static_cast<TCamara*>(camara->getEntidad())->getRayFromScreenCoordinates(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
 }
 
-bool TMotorTAG::interseccionRayPlano(Structs::TPosicion &mousePosition){
+bool TMotorTAG::interseccionRayPlano(TVector &mousePosition){
 
-    TVector out;
+    TVector out(0,0,0);
 
     if(plane.getIntersectionWithLine(ray.getStart(), ray.getEnd(), out)){
         mousePosition.X = out.X;
@@ -338,5 +339,9 @@ bool TMotorTAG::interseccionRayPlano(Structs::TPosicion &mousePosition){
 void TMotorTAG::draw2D(int posX, int posY, TDraw2D* img){
     img->setPosition(float(posX), float(posY));
     window.Draw(img->getSprite());
+}
+
+int TMotorTAG::getTime(){
+    return window.getTimer().asMilliseconds();
 }
 

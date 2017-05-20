@@ -4,8 +4,11 @@
 
 GUI_VolumeControl::GUI_VolumeControl(int x, int y)
 {
-    image  = new Image("resources/texturas/botonvolumen.png");
-    image2 = new Image("resources/texturas/verde.png");
+    rec       = {0, 0, 265, 90};
+    rec2      = {0, 0, 22 * (volumen * 10.f) , 70 };
+
+    image  = new Image("resources/texturas/botonvolumen.png", rec);
+    image2 = new Image("resources/texturas/verde.png", rec2);
 
     posicionX = x;
     posicionY = y;
@@ -14,10 +17,6 @@ GUI_VolumeControl::GUI_VolumeControl(int x, int y)
     posicionY2 = posicionY + 9;
 
     volumen   = SoundMgr->getVolumen();
-
-    rec       = {0, 0, 265, 90};
-    rec2      = {0, 0, 22 * (volumen * 10.f) , 70 };
-
 }
 
 GUI_VolumeControl::~GUI_VolumeControl()
@@ -44,8 +43,8 @@ void GUI_VolumeControl::bajarVolumen(){
 
 void GUI_VolumeControl::draw(){
     Structs::TColor color = {255, 255, 255, 255};
-    image2->draw(posicionX2, posicionY2, rec2, color);
-    image->draw(posicionX, posicionY, rec, color);
+    image2->draw(posicionX2, posicionY2);
+    image->draw(posicionX, posicionY);
 }
 
 int GUI_VolumeControl::comprobarmouse(float x, float y){

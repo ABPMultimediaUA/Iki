@@ -155,7 +155,7 @@ void HUD::draw(){
 }
 
 void HUD::comprobarAvisos(){
-    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_aviso > 1.5){
+    if(GraphicsFacade::getInstance().getTime()/1000.f - tiempo_con_aviso > 1.5){
         AvisoTarjeta->setActive(false);
         AvisoMunicion->setActive(false);
         AvisoAceite->setActive(false);
@@ -193,7 +193,7 @@ void HUD::sigiloNotUsed(){
 void HUD::activateTarjeta(){
     Tarjeta->setActive(true);
     AvisoTarjeta->setActive(true);
-    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTime()/1000.f;
 }
 
 void HUD::desactivateTarjeta(){
@@ -202,22 +202,22 @@ void HUD::desactivateTarjeta(){
 
 void HUD::activateMunicion(){
     AvisoMunicion->setActive(true);
-    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTime()/1000.f;
 }
 
 void HUD::activateAceite(){
     AvisoAceite->setActive(true);
-    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTime()/1000.f;
 }
 
 void HUD::activateNotMunicion(){
     AvisoNotMunicion->setActive(true);
-    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTime()/1000.f;
 }
 
 void HUD::activateNotTarjeta(){
     AvisoNotTarjeta->setActive(true);
-    tiempo_con_aviso = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    tiempo_con_aviso = GraphicsFacade::getInstance().getTime()/1000.f;
 }
 
 void HUD::GameOver(){

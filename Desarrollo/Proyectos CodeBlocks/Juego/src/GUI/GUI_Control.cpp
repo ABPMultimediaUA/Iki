@@ -5,11 +5,13 @@ GUI_Control::GUI_Control(int x, int y, std::string cadena, std::string cadena2)
 {
     cadena = "resources/texturas/"+cadena+".png";
     const char * c = cadena.c_str();
-    image = new Image(c);
+    rec       = {0, 0, 214, 145};
+    image = new Image(c, rec);
 
     cadena2 = "resources/texturas/"+cadena2+".png";
     const char * c2 = cadena2.c_str();
-    image2 = new Image(c2);
+    rec2      = {0, 0, 23 , 23 };
+    image2 = new Image(c2, rec2);
 
     posicionX = x;
     posicionY = y;
@@ -17,8 +19,8 @@ GUI_Control::GUI_Control(int x, int y, std::string cadena, std::string cadena2)
     posicionX2 = posicionX + 168;
     posicionY2 = posicionY + 15;
 
-    rec       = {0, 0, 214, 145};
-    rec2      = {0, 0, 23 , 23 };
+
+
 }
 
 GUI_Control::~GUI_Control()
@@ -29,8 +31,8 @@ GUI_Control::~GUI_Control()
 
 void GUI_Control::draw(){
     Structs::TColor color = {255, 255, 255, 255};
-    image->draw(posicionX, posicionY, rec, color);
-    image2->draw(posicionX2, posicionY2, rec2, color);
+    image->draw(posicionX, posicionY);
+    image2->draw(posicionX2, posicionY2);
 }
 
 int GUI_Control::comprobarmouse(float x, float y){

@@ -17,7 +17,7 @@ int main()
     //TDisplay window(1360, 768, "IKIGAI");
 
 
-    TMotorTAG  *motor   = new TMotorTAG();
+    /*TMotorTAG  *motor   = new TMotorTAG();
 
     TNodo *nCamara = motor->crearCamara(glm::vec3(0, 0, 10), 45.0f, 800, 600, 0.1f, 1000.0f);
     TCamara *cCamara = dynamic_cast<TCamara*>(nCamara->getEntidad());
@@ -60,11 +60,11 @@ int main()
     }
 
     return 0;
-}
+}*/
 
-/*
+
     Game* game = new Game();
     game->start_game();
 
 }
-*/
+

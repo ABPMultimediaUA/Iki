@@ -21,8 +21,8 @@ class AnimatedMesh
     protected:
 
     private:
-        IAnimatedMesh *mesh;
-        IAnimatedMeshSceneNode *modelo;
+        /*IAnimatedMesh *mesh;
+        IAnimatedMeshSceneNode *modelo;*/
         Structs::TPosicion posicion;
         float rotacion;
 };

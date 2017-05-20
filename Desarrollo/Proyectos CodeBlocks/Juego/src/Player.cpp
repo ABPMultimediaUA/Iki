@@ -99,9 +99,9 @@ void Player::moverBody(Structs::TPosicion vec){
 }
 
 void Player::comprobarVelocidad(){
-    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2){
+    if(GraphicsFacade::getInstance().getTime()/1000.f - tiempo_con_mas_speed > 2){
         velocidad = 0.3;
-        tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        tiempo_con_mas_speed = GraphicsFacade::getInstance().getTime()/1000.f;
     }
 }
 
@@ -131,12 +131,12 @@ void Player::update(Camera* camara){
 
         rayo->borrar_rayo();
 
-        if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
+        if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTime()/1000.f - rayo->getVidaRayo() > 1.5){
             HUD::getInstance()->rayoNotUsed();
         }
         if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
             if(rayo->getBalas() > 0){
-                if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
+                if(GraphicsFacade::getInstance().getTime()/1000.f - rayo->getVidaRayo() > 1.5){
                     HUD::getInstance()->rayoUsed();
                     GraphicsFacade::getInstance().cambiarRay(camara);
                     rayo->lanzar_rayo(posicion);
@@ -313,6 +313,6 @@ void Player::NecesitoLlave(){
 
 void Player::subirVelocidad(){
     velocidad *= 2;
-    tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    tiempo_con_mas_speed = GraphicsFacade::getInstance().getTime()/1000.f;
     HUD::getInstance()->activateAceite();
 }

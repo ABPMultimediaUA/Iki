@@ -10,7 +10,7 @@ PhisicsWorld::PhisicsWorld()
     gravity.x = 0.0f;
     gravity.y = 0.0f;
 
-    TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();
+    TimeStamp = GraphicsFacade::getInstance().getTime();
     DeltaTime = 0;
 
     phisics_world = new b2World(gravity);
@@ -22,7 +22,7 @@ PhisicsWorld::~PhisicsWorld()
 }
 
 void PhisicsWorld::Step(){
-    DeltaTime = GraphicsFacade::getInstance().getTimer()->getTime() - TimeStamp;
-    TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();
+    DeltaTime = GraphicsFacade::getInstance().getTime() - TimeStamp;
+    TimeStamp = GraphicsFacade::getInstance().getTime();
     phisics_world->Step(DeltaTime * TIMESTEP, VELITER, POSITER);
 }

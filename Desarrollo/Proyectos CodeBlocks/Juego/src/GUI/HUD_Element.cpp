@@ -6,9 +6,9 @@ HUD_Element::HUD_Element(int x, int y, Structs::TRectangulo rect, std::string ca
 {
     cadena = "resources/Texturas/"+cadena+".png";
     const char * c = cadena.c_str();
-    imagen = new Image(c);
-
     rec = rect;
+    imagen = new Image(c, rec);
+
     posicionX = x;
     posicionY = y;
     color = {255,255,255,255};
@@ -21,7 +21,7 @@ HUD_Element::~HUD_Element()
 }
 
 void HUD_Element::draw(){
-    imagen->draw(posicionX, posicionY, rec, color);
+    imagen->draw(posicionX, posicionY);
 }
 
 void HUD_Element::cambiarRect(Structs::TRectangulo rect){

@@ -1,7 +1,8 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
-#include <irrlicht.h>
+#include "TMotorTAG.h"
+//#include <irrlicht.h>
 #include <iostream>
 #include <stdio.h>
 #include "vector"
@@ -13,16 +14,22 @@
 
 #include <Box2D/Box2D.h>
 
-using namespace irr;
+#define PI 3.14159265f;
+
+#include "TNodo.h"
+
+/*using namespace irr;
 
 using namespace core; //namespace fundamentales;
 using namespace scene; //namespace de escena;
 using namespace video; //namespace de vídeo;
 using namespace io; //namespace io;
-using namespace gui; //namespace gui;
+using namespace gui; //namespace gui;*/
 
 class Structs
 {
+    friend class TMotorTAG;
+
     public:
         Structs();
         virtual ~Structs();

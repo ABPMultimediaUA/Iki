@@ -7,6 +7,7 @@
 #include "Structs.h"
 
 class GUI;
+class MeshSceneNode;
 
 class GraphicsFacade
 {
@@ -29,7 +30,7 @@ class GraphicsFacade
         //void endScene();
 
         //void draw(int);
-        bool run(int);
+        bool run(int, TNodo*);
         void doDisplay();
         void close();
         void drop();
@@ -44,11 +45,14 @@ class GraphicsFacade
         IVideoDriver* getDriver() { return driver; }*/
         TMotorTAG* getMotor(){ return motor; }
         GUI* getGUI() { return gui; }
+        float getTime(){ return tiempo_actual; }
         //ITimer* getTimer()  { return timer; };
 
-        Camera* createCamera(Structs::TPosicion position, Structs::TPosicion lookAt);
+        Camera* createCamera(Structs::TPosicion position);
+        MeshSceneNode* createMalla(const char*);
 
-        void setTiempo(f32);
+        void setTiempo(float);
+        void updateTiempo();
 
         int getWindowWidth() { return motor->getWindowWidth();}
         int getWindowHeigth(){ return motor->getWindowHeigth();}
@@ -69,6 +73,7 @@ class GraphicsFacade
         line3df ray;*/
 
         //TMotorTAG* motor;
+        float tiempo_quitado, tiempo_actual;
 
         int resolucionX = 1360, resolucionY = 768;
 };

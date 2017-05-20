@@ -95,6 +95,11 @@ void TNodo::Rotar(float ang, TVector vec)
     static_cast<TTransform*>(padre->getPadre()->getEntidad())->rotar(ang, vec.X, vec.Y, vec.Z);
 }
 
+void TNodo::Rotar(float ang)
+{
+    static_cast<TTransform*>(padre->getPadre()->getEntidad())->rotar(ang);
+}
+
 void TNodo::EscalarAbs(float num)
 {
     static_cast<TTransform*>(padre->getPadre()->getEntidad())->escalarAbs(num);

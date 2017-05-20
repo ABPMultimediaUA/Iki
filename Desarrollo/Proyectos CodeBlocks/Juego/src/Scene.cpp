@@ -80,12 +80,12 @@ void Scene::cargarSonidos()
 void Scene::inicializar_escena(){
 
 
-    f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
+    float tiempo_anterior = GraphicsFacade::getInstance().getTime();
     Structs::TPosicion posicionCamara (190,30,40);
     Structs::TPosicion targetCamara (70,-10,40);
     Structs::TPosicion rayPos (170,0,50);
 
-    camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
+    camara = GraphicsFacade::getInstance().createCamera(posicionCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
 
     world->inicializar_mundo();
@@ -109,10 +109,10 @@ void Scene::inicializar_escena(){
 
 void Scene::bucle_juego(){
 
-    while(GraphicsFacade::getInstance().run(0)){
+    while(GraphicsFacade::getInstance().run(0, camara->getCamera())){
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
-            f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
+            float tiempo_anterior = GraphicsFacade::getInstance().getTime();
             menu_ingame->run();
             GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
         }

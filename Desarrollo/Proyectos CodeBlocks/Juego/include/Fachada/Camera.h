@@ -3,21 +3,22 @@
 
 //#include "GraphicsFacade.h"
 #include "Structs.h"
+#include "TCamara.h"
 
 
 class Camera
 {
     public:
-        Camera(Structs::TPosicion position, Structs::TPosicion lookAt);
+        Camera(Structs::TPosicion position);
         ~Camera();
         void render(Structs::TPosicion positionPlayer);
-        TCamara* getCamera(){return camera;};
+        TNodo* getCamera(){return camera;};
 
     protected:
 
     private:
         Structs::TPosicion positionInitial;
-        TCamara* camera;
+        TNodo* camera;
 };
 
 #endif // CAMERA_H

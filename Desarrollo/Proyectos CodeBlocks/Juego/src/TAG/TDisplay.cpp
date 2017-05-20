@@ -18,6 +18,8 @@ TDisplay::TDisplay(int width, int height, const std::string &title)
 
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
+
+	clock.restart();
 }
 
 TDisplay::~TDisplay()
@@ -86,7 +88,7 @@ void TDisplay::setFullScreen()
 }
 
 
-sf::Time TDisplay::getClocks()
+sf::Time TDisplay::getTimer()
 {
     return clock.getElapsedTime();
 }

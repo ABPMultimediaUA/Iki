@@ -17,14 +17,14 @@ using namespace std;
 class TShader
 {
     public:
-        TShader(const string& FileName);
+        TShader(const std::string& FileName);
         void Bind();
         void DesBind();
         GLuint getShader(){return m_programa;};
         void Update(TCamara* camara);
-        void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const string& errorMessage);
-        string LoadShader(const string& fileName);
-        GLuint CreateShader(const string& text, GLenum shaderType);
+        void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const std::string& errorMessage);
+        std::string LoadShader(const std::string& fileName);
+        GLuint CreateShader(const std::string& text, GLenum shaderType);
         virtual ~TShader();
         static mat4 viewMatrix;
 

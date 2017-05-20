@@ -19,7 +19,7 @@ Camera::~Camera(){
 
 void Camera::render(Structs::TPosicion positionPlayer){
 
-	camera->setTarget(vector3df(positionPlayer.X, positionPlayer.Y, positionPlayer.Z));
-	camera->setPosition(vector3df(positionPlayer.X + 20, positionPlayer.Y + 40, positionPlayer.Z));
+	//camera->setTarget(vector3df(positionPlayer.X, positionPlayer.Y, positionPlayer.Z));
+	//camera->setPosition(vector3df(positionPlayer.X + 20, positionPlayer.Y + 40, positionPlayer.Z));
 
 }

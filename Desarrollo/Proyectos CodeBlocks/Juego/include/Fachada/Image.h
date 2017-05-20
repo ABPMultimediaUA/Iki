@@ -6,7 +6,7 @@
 class Image
 {
     public:
-        Image(std::string, Structs::TRectangulo);
+        Image(const char*, Structs::TRectangulo);
         ~Image();
         void draw(int,int);
 

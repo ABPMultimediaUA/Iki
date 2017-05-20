@@ -3,12 +3,19 @@
 
 MeshSceneNode::MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicion, Structs::TColor color)
 {
-    mesh = GraphicsFacade::getInstance().smgr->getGeometryCreator()->createCubeMesh(vector3df(medida.ancho, medida.alto, medida.profundo));
-    node = GraphicsFacade::getInstance().smgr->addMeshSceneNode(mesh);
+    //mesh = GraphicsFacade::getInstance().smgr->getGeometryCreator()->createCubeMesh(vector3df(medida.ancho, medida.alto, medida.profundo));
+    /*node = GraphicsFacade::getInstance().smgr->addMeshSceneNode(mesh);
 
     node->setPosition(core::vector3df(posicion.X, posicion.Y, posicion.Z));
     GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(),irr::video::SColor(color.opacity, color.r, color.g, color.b));
-    node->setMaterialFlag(video::EMF_LIGHTING, false);
+    node->setMaterialFlag(video::EMF_LIGHTING, false);*/
+}
+
+MeshSceneNode::MeshSceneNode(const char* file){
+    node = GraphicsFacade::getInstance().motor->crearMalla(file);
+
+    /*GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(),irr::video::SColor(color.opacity, color.r, color.g, color.b));
+    node->setMaterialFlag(video::EMF_LIGHTING, false);*/
 }
 
 MeshSceneNode::~MeshSceneNode()
@@ -17,17 +24,17 @@ MeshSceneNode::~MeshSceneNode()
 }
 
 void MeshSceneNode::setPosition(Structs::TPosicion pos){
-    node->setPosition(vector3df(pos.X, pos.Y, pos.Z));
+    node->Trasladar(TVector(pos.X,pos.Y,pos.Z));
 }
 
 void MeshSceneNode::setRotation(float rot){
-    node->setRotation(vector3df(0, rot, 0));
+    node->Rotar(rot);
 }
 
 void MeshSceneNode::setScale(Structs::TMedida scale){
-    node->setScale(vector3df(scale.ancho, scale.alto, scale.profundo));
+    node->EscalarRel(TVector(scale.alto,scale.ancho,scale.profundo));
 }
 
 void MeshSceneNode::setVisible(bool visible){
-    node->setVisible(visible);
+    //node->setVisible(visible);
 }

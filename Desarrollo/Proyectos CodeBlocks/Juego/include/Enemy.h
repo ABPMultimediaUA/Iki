@@ -92,7 +92,7 @@ class Enemy : public GameEntity
         b2RayCastInput input;
         b2RayCastOutput	output;
         b2RayCastOutput	output2;
-        const float DegToRad = PI/180;
+        const float DegToRad = 3.14/180;
 
         ///PATHPLANNING
         SparseGraph* grafo;
