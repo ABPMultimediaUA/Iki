@@ -24,6 +24,7 @@ class Player : public GameEntity{
         bool isPlayer(){return true;};
 
         void CogerMunicion();
+        void CogerVida();
         void CogerLlave();
         void UsarLlave();
         void NecesitoLlave();

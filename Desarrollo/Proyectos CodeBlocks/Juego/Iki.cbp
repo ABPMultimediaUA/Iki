@@ -194,6 +194,7 @@
 		<Unit filename="include/TAG/TTexturaCache.h" />
 		<Unit filename="include/TAG/TTransform.h" />
 		<Unit filename="include/TAG/stb_image.h" />
+		<Unit filename="include/Trigger_Engranaje.h" />
 		<Unit filename="include/Triggers/Trigger.h" />
 		<Unit filename="include/Triggers/TriggerFactory.h" />
 		<Unit filename="include/Triggers/TriggerRegion.h" />
@@ -303,6 +304,7 @@
 		<Unit filename="src/TAG/TTexturaCache.cpp" />
 		<Unit filename="src/TAG/TTransform.cpp" />
 		<Unit filename="src/TAG/stb_image.cpp" />
+		<Unit filename="src/Trigger_Engranaje.cpp" />
 		<Unit filename="src/Triggers/Trigger.cpp" />
 		<Unit filename="src/Triggers/TriggerFactory.cpp" />
 		<Unit filename="src/Triggers/TriggerRegion.cpp" />

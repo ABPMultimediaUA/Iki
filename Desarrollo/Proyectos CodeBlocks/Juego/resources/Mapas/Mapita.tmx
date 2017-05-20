@@ -1161,8 +1161,8 @@
  <objectgroup color="#ff0000" name="Triggers">
   <object id="2741" type="4" x="58.625" y="50.875" width="2" height="2"/>
   <object id="2742" type="4" x="57.25" y="47.75" width="2" height="2"/>
-  <object id="2743" type="4" x="60.375" y="46.625" width="2" height="2"/>
-  <object id="2744" type="4" x="127.5" y="108.625" width="2" height="2"/>
+  <object id="2743" type="2" x="60.375" y="46.625" width="2" height="2"/>
+  <object id="2744" type="2" x="127.5" y="108.625" width="2" height="2"/>
   <object id="2745" type="4" x="96.125" y="158.375" width="2" height="2"/>
   <object id="2746" type="7" x="99.25" y="68.25" width="2" height="2"/>
   <object id="2747" type="7" x="177.25" y="80" width="2" height="2"/>

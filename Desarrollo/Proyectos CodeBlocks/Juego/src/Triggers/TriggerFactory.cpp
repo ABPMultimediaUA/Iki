@@ -6,6 +6,7 @@
 #include "Trigger_Puerta.h"
 #include "Trigger_PuertaLlave.h"
 #include "Trigger_Llave.h"
+#include "Trigger_Engranaje.h"
 #include "Trigger_Municion.h"
 #include "Trigger_Aceite.h"
 #include "Trigger_Torreta.h"
@@ -43,6 +44,16 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         modelo = new AnimatedMesh("resources/Modelos/apisonadora-soporte.obj", {0,0,128,128}, centro, r);
         trigger->setMesh(modelo);
         static_cast<Trigger_Apisonadora*>(trigger)->setPosicionPlancha();
+    }
+    else if (tipo == 2){
+        trigger = new Trigger_Engranaje();
+        //region
+        trigger->AddCircularRegion(centro,1.f);
+        //modelo;
+        modelo = new AnimatedMesh("resources/Modelos/engranaje.obj", {0,0,0,140}, centro, r);
+        modelo->setTexture("resources/Texturas/engranaje.png");
+        modelo->setPosition({x, 0.5, z});
+        trigger->setMesh(modelo);
     }
     else if (tipo == 3){
         trigger = new Trigger_Llave();

@@ -219,6 +219,11 @@ void Player::calcularMirarHacia(Structs::TPosicion mousePos){
     mirarHacia = mousePos - getPosition();
 }
 
+void Player::CogerVida(){
+    vida++;
+    //HUD::getInstance()->activateTarjeta();
+}
+
 void Player::CogerLlave(){
     llaves++;
     HUD::getInstance()->activateTarjeta();
