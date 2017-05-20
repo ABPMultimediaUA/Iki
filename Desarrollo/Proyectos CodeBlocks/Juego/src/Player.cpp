@@ -272,22 +272,22 @@ void Player::UpdateRayo(Camera* camara){
     if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
         if(rayo->getBalas() > 0){
             if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
-                moverBody(quietoParado);
-                listaEjes.clear();
-
-                GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
-                Structs::TPosicion vec_distancia;
-                vec_distancia.X = mousePosition.X - posicion.X;
-                vec_distancia.Y = mousePosition.Y - posicion.Y;
-                vec_distancia.Z = mousePosition.Z - posicion.Z;
-                input.p1.Set(posicion.X, posicion.Z);
-                float modulo = sqrt((vec_distancia.X*vec_distancia.X) + (vec_distancia.Z*vec_distancia.Z));
-                input.p2.Set(posicion.X+((vec_distancia.X/modulo)*20), posicion.Z+((vec_distancia.Z/modulo)*20));
-                angulo = atan2f((input.p2.y-input.p1.y) , -(input.p2.x-input.p1.x)) * 180.f / irr::core::PI;
-                aniMesh->setRotation(angulo);
 
                 HUD::getInstance()->rayoUsed();
                 GraphicsFacade::getInstance().cambiarRay(camara);
+                GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
+                angulo = atan2f((mousePosition.Z-posicion.Z) , -(mousePosition.X-posicion.X)) * 180.f / irr::core::PI;
+                body->SetTransform(body->GetPosition(), angulo);
+
+                posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+                //aniMesh->setPosition(posicion);
+                //aniMesh->setRotation(body->GetAngle());
+                std::cout << angulo << std::endl;
+                aniMesh->setRotation(angulo);
+                moverBody(quietoParado);
+                listaEjes.clear();
+
+
                 rayo->lanzar_rayo(posicion);
                 SoundMgr->playSonido("Player/disparoprota");
             }
@@ -370,8 +370,8 @@ void Player::update(Camera* camara){
         TriggerRuido();
         sonidosMovimiento();
 
-        UpdateMov(camara);
-        UpdateRayo(camara);
         UpdateAtaque();
+        UpdateRayo(camara);
+        UpdateMov(camara);
     }
 }
