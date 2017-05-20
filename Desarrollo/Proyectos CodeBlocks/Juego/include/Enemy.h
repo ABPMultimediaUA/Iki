@@ -58,7 +58,8 @@ class Enemy : public GameEntity
         void muerto();
         void volverALaPatrulla();
         ///METODOS
-        void actualizarMemoria(GameEntity*);
+        void actualizarMemoriaVision(GameEntity*);
+        void actualizarMemoriaOido(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
         void restarSospecha(float s){sospecha=sospecha-s;}

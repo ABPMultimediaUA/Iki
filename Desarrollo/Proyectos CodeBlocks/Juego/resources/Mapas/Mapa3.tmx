@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2750">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2755">
  <objectgroup color="#000000" name="Capa de Objetos 5">
   <object id="2676" x="27.8182" y="128.909">
    <polyline points="0,0 -10.3636,-10.7273 -11.8182,-18.5455 -11.4545,-32.5455 8.54545,-46.7273 58,-56.7273 73.2727,-49.8182 94.5455,-47.6364 97.6364,-38.5455 97.8182,-21.8182 85.6364,0 73.4545,0 44.7273,-17.6364 39.6364,-10.5455 36.1818,-2.36364 29.8182,0.181818 10.7273,0.181818"/>
@@ -116,7 +116,7 @@
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2632" name="22" x="71.17" y="110.22" width="2" height="2">
+  <object id="2632" name="22" x="71.4427" y="109.129" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
@@ -376,14 +376,14 @@
   </object>
  </objectgroup>
  <objectgroup color="#0055ff" name="WayPoints">
-  <object id="2516" name="0" x="61.5455" y="167" width="2" height="2">
+  <object id="2516" name="0" x="66.8182" y="159.636" width="2" height="2">
    <properties>
-    <property name="Conecta" value="1"/>
+    <property name="Conecta" value="1,28,29,30"/>
    </properties>
   </object>
   <object id="2517" name="1" x="45.1818" y="167.092" width="2" height="2">
    <properties>
-    <property name="Conecta" value="0,2"/>
+    <property name="Conecta" value="1,29,30,0"/>
    </properties>
   </object>
   <object id="2519" name="2" x="33.9091" y="167" width="2" height="2">
@@ -426,7 +426,7 @@
     <property name="Conecta" value="6,7,8,10"/>
    </properties>
   </object>
-  <object id="2692" name="10" x="62.9091" y="102.909" width="2" height="2">
+  <object id="2692" name="10" x="60.5455" y="105.273" width="2" height="2">
    <properties>
     <property name="Conecta" value="9,11,20"/>
    </properties>
@@ -476,7 +476,7 @@
     <property name="Conecta" value="18,26"/>
    </properties>
   </object>
-  <object id="2733" name="20" x="81.875" y="102.25" width="2" height="2">
+  <object id="2733" name="20" x="75.3295" y="103.795" width="2" height="2">
    <properties>
     <property name="Conecta" value="10,13,12,24,16"/>
    </properties>
@@ -521,6 +521,26 @@
     <property name="Conecta" value="7,15"/>
    </properties>
   </object>
+  <object id="2751" name="1" x="45.7273" y="166.636" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,28,29,30,0"/>
+   </properties>
+  </object>
+  <object id="2752" name="29" x="41.9091" y="158.909" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="1,28,0"/>
+   </properties>
+  </object>
+  <object id="2753" name="30" x="41.4545" y="178.636" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="1,28,0"/>
+   </properties>
+  </object>
+  <object id="2754" name="31" x="66.7273" y="167.545" width="2" height="2">
+   <properties>
+    <property name="Conecta" value=""/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#ff0000" name="Triggers">
   <properties>
@@ -534,7 +554,7 @@
    <property name="PuertaLlave" value="6"/>
    <property name="Torreta" value="9"/>
   </properties>
-  <object id="2595" type="5" x="39" y="167" width="2" height="2" rotation="90"/>
+  <object id="2595" type="5" x="40" y="166.636" width="2" height="2" rotation="90"/>
   <object id="2597" type="6" x="30.5455" y="128" width="2" height="2" rotation="360"/>
   <object id="2598" type="3" x="30.3636" y="184.909" width="2" height="2"/>
   <object id="2599" type="4" x="63.6364" y="159.273" width="2" height="2"/>

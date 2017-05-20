@@ -97,6 +97,7 @@
 			<Add directory="../irrKlang-1.5.0/lib/Win32-gcc" />
 		</Linker>
 		<Unit filename="Makefile" />
+		<Unit filename="include/BarraCarga.h" />
 		<Unit filename="include/Enemies/Dron.h" />
 		<Unit filename="include/Enemies/Guardia.h" />
 		<Unit filename="include/Enemies/Medico.h" />
@@ -215,6 +216,7 @@
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/BarraCarga.cpp" />
 		<Unit filename="src/Enemies/Dron.cpp" />
 		<Unit filename="src/Enemies/Guardia.cpp" />
 		<Unit filename="src/Enemies/Medico.cpp" />

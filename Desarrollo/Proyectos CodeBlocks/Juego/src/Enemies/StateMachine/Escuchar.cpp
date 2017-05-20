@@ -29,11 +29,11 @@ void Escuchar::Execute(Enemy* enemigo)
 
     else if (enemigo->getSospecha() > 90){
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
-            enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        enemigo->GetFSM()->ChangeState(Investigar::Instance());
     }
     //si ha pasado mas de 2,5seg y aun no ha subido la sospecha a mas de 90, sigue su camino
     else if (enemigo->getTiempo() > 2.5){
-        enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
+        //enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
         enemigo->GetFSM()->ChangeState(Patrullar::Instance());
     }
 }

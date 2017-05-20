@@ -32,12 +32,10 @@ void Guardia::inicializar_enemigo(Map* m)
     aniMesh->setTexture("resources/Texturas/palguardia.png");
     aniMesh->setScale(3);
     aniMesh->setRotation(90);
-    //modelo->cambiarColor(color);
     ataquePreparado = false;
     solounaveh = false;
     atacando = false;
     input2.maxFraction  =   1.0f;
-
 }
 void Guardia::investigar(){
     andarPath(2,posicionInteres);
@@ -64,7 +62,7 @@ void Guardia::perseguir(){
         setPosition();
     }else{
         guessing = true;
-        toProtaPosition = posicion;
+        //toProtaPosition = posicion;
         //this->GetFSM()->ChangeState(Investigar::Instance());
     }
 }
@@ -121,9 +119,9 @@ void Guardia::ejecutarAtaque(){
             if (sonidoataque) { sonidoataque=false; SoundMgr->playSonido("AccionesRobots/conoelectrico");}
 
             modeloAtaque->setVisible(true);
+
             if(distanciaPlayer <= distanciaAtaque && !solounaveh) // y si no te veo;
             {
-
                 vectorProta = posicionProta - posicion;
                 float anguloProta = atan2f((vectorProta.Z) , -(vectorProta.X)) * 180.f / PI;
                 //std::cout << "angulo ataque: "<< anguloAtaque <<" anguloProta: "<<anguloProta<<std::endl;
@@ -141,6 +139,7 @@ void Guardia::ejecutarAtaque(){
 
             if(tiempoEnEstado > 1.0){
                 calcularAngulo(posicionProta);
+                mirandoHacia= toProtaPosition;
                 setPosition();
                 modeloAtaque->setVisible(false);
                 solounaveh = false;

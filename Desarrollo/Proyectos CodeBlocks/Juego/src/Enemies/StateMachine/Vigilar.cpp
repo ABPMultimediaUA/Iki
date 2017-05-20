@@ -73,7 +73,6 @@ bool Vigilar::OnMessage(Enemy* enemigo, const Mensaje& msg){
     {
         case Msg_NeedHelp:
         {
-            //std::cout<<"recibo el mensajeee"<<std::endl;
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
             return true;
         }

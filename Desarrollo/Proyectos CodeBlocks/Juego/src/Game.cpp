@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Scene.h"
 #include "Menu.h"
+#include "../lib/irrKlang/conio.h"
 
 Game::Game()
 {

@@ -26,6 +26,7 @@ class PhisicsWorld
         b2World* getWorld(){return phisics_world;};
         float getDeltaTime(){return (float)DeltaTime;}
         float getTimeStamp(){return (float)TimeStamp;}
+        void  setTimeStamp();
 
     protected:
 

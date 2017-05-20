@@ -16,10 +16,9 @@
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
-    //posicionProta = EntityMgr->getEntities().back()->getPosition();
     distanciaPlayer = posicionProta.Distance(posicion);
-    //toProtaPosition=posicionProta-posicion;
-    //std::cout << bateria << "%   " << std::endl;
+    toProtaPosition=posicionProta-posicion;
+    ///SE RECARGA LA BATERIA POCO A POCO
     if (   G_stateMachine->CurrentState() != Atacar::Instance()
         && G_stateMachine->CurrentState() != Investigar::Instance() ){
 
@@ -27,10 +26,8 @@ void Enemy::update(){
             bateria += 0.2;
         }
     }
-
     if (guessing){
         guessing = false;
-        toProtaPosition = posicion;
         posicionInteres = posicionProta;
         G_stateMachine->ChangeState(Investigar::Instance());
     }
@@ -120,9 +117,6 @@ bool Enemy::isPathObstructured(Structs::TPosicion destino){
             }
         }
     }
-
-    //if(colisionPuertas(destino))
-        //return true;
     return false;
 }
 bool Enemy::isEnemySeeing(Structs::TPosicion destino){
@@ -179,7 +173,11 @@ void Enemy::setPosition(){
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
 
     if (listaEjes.empty()){
-        G_stateMachine->ChangeState(Atacar::Instance());
+        //G_stateMachine->ChangeState(Atacar::Instance());
+            mirandoHacia=toProtaPosition;
+            toProtaPosition.Normalize();
+            posicion=posicion+toProtaPosition*(avMovement*velocidad);
+            calcularAngulo(posicionProta);
     }else{
        //mover medico con la lista de edges creada
         if(!listaEjes.empty() && it != listaEjes.end())
@@ -313,8 +311,11 @@ void Enemy::vigilar(){
     }
     setPosition();
 }
-void Enemy::actualizarMemoria(GameEntity* entity){
+void Enemy::actualizarMemoriaVision(GameEntity* entity){
     memory->updateVision(entity);
+}
+void Enemy::actualizarMemoriaOido(GameEntity* entity){
+    memory->updateSoundSource(entity);
 }
 void Enemy::subirSospecha(){
     if(sospecha < 100 )
@@ -351,33 +352,28 @@ void Enemy::escanear(){
         }
     }
     holoScan->setRotationXYZ(0,angulo,scanAngle);
-    //holoScan->setRotation(angulo);
     holoScan->setPosition(posicion);
     activeHoloScan(true);
 
     if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
     {
-        //std::cout<<"sospecha"<<sospecha<<std::endl;
         memory->updateVision(EntityMgr->getEntityByID(0));
-        mirandoHacia = posicionProta;
         calcularAngulo(posicionProta);
+        toProtaPosition = posicionProta - posicion;
+        mirandoHacia = toProtaPosition;
         subirSospecha();
     }
-    //holoScan->setVisible(false);
     setPosition();
 }
 void Enemy::escuchar(){
     if(static_cast<Player*>(EntityMgr->getEntityByID(0))->getSpeed() == 2){
         subirSospecha();
         memory->updateSoundSource(EntityMgr->getEntityByID(0));
-        calcularAngulo(posicionProta);
-
     }
-    mirandoHacia= posicionProta;
+    calcularAngulo(posicionProta);
+    toProtaPosition = posicionProta - posicion;
+    mirandoHacia= toProtaPosition;
     setPosition();
-
-
-    resetTime();
 
 }
 void Enemy::volverALaPatrulla(){

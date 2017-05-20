@@ -24,6 +24,7 @@ void Atacar::Enter(Enemy* enemigo){
 
         break;
     }
+    std::cout<<"entra en atacar"<<std::endl;
     //Structs::TColor color = {0,255,0,0};
     //enemigo->cambiarColor(color);
 }
