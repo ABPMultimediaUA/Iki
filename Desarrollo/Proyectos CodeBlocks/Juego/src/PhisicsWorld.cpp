@@ -20,7 +20,7 @@ PhisicsWorld::~PhisicsWorld()
 {
     //dtor
 }
-
+void PhisicsWorld::setTimeStamp(){TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();}
 void PhisicsWorld::Step(){
     DeltaTime = GraphicsFacade::getInstance().getTimer()->getTime() - TimeStamp;
     TimeStamp = GraphicsFacade::getInstance().getTimer()->getTime();

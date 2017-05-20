@@ -119,6 +119,7 @@ void Scene::inicializar_escena(int nivel){
 
     GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
     bucle_juego(nivel);
+    PhisicsWorld::getInstance()->setTimeStamp();
 }
 
 void Scene::bucle_juego(int nivel){

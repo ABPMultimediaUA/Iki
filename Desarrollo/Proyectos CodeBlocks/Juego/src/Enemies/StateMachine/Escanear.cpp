@@ -6,6 +6,7 @@
 #include "Enemies/StateMachine/Atacar.h"
 #include "Enemies/StateMachine/Alarma.h"
 #include "Enemies/StateMachine/Investigar.h"
+#include "Enemies/StateMachine/VolverALaPatrulla.h"
 
 
 
@@ -38,29 +39,36 @@ void Escanear::Enter(Enemy* enemigo){
 
 void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
-    //std::cout<<"escanear sospecha: "<<enemigo->getSospecha()<<std::endl;
-    if(enemigo->getSospecha()>=99){
-        ///COMBATEEE
-        switch(enemigo->getTipo()){
-        case 1:
-            enemigo->GetFSM()->ChangeState(Atacar::Instance());
-            break;
-        case 2:
-            enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());
-            break;
-        case 3:
-            enemigo->GetFSM()->ChangeState(Alarma::Instance());
-            break;
-        default:
-            break;
+
+    if(enemigo->getTiempo()>2){
+        std::cout<<"ID: "<< enemigo->ID()<<"sospecha: "<<enemigo->getSospecha()<<std::endl;
+        if(enemigo->getSospecha()>=99){
+            ///COMBATEEE
+            switch(enemigo->getTipo()){
+            case 1:
+                enemigo->GetFSM()->ChangeState(Atacar::Instance());
+                break;
+            case 2:
+                enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());
+                break;
+            case 3:
+                enemigo->GetFSM()->ChangeState(Alarma::Instance());
+                break;
+            default:
+                break;
+            }
         }
-    }
-    else if(enemigo->getTiempo()>1 && enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
-        enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
-        enemigo->GetFSM()->ChangeState(Patrullar::Instance());
-    }else if(enemigo->getTiempo()>1 && enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
-        enemigo->setPosicionInteres(enemigo->getPosicionProta());
-        enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        else if( enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+            enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
+            if(enemigo->GetFSM()->wasInState(*Investigar::Instance()))
+                enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
+            else
+                enemigo->GetFSM()->ChangeState(Patrullar::Instance());
+        }
+        else if(enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+            enemigo->setPosicionInteres(enemigo->getPosicionProta());
+            enemigo->GetFSM()->ChangeState(Investigar::Instance());
+        }
     }
 }
 

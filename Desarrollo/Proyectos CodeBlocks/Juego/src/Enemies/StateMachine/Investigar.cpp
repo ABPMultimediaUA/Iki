@@ -17,31 +17,32 @@ Investigar* Investigar::Instance()
 void Investigar::Enter(Enemy* enemigo){
     //std::cout<<"a investigar se ha dicho"<<std::endl;
     enemigo->crearPath(enemigo->getPosicionInteres());
-
-    switch (enemigo->getTipo()){
-        case 1:
-            SoundMgr->playSonido("VocesRobots/Guardia/investigando");
-        break;
-        case 2:
-            SoundMgr->playSonido("VocesRobots/Medico/investigando_medico");
-        break;
-        case 3:
-            SoundMgr->playSonido("VocesRobots/Dron/beepinvestigar");
-        break;
+    if(enemigo->GetFSM()->wasInState(*Atacar::Instance())){
+        switch (enemigo->getTipo()){
+            case 1:
+                SoundMgr->playSonido("VocesRobots/Guardia/investigando");
+            break;
+            case 2:
+                SoundMgr->playSonido("VocesRobots/Medico/investigando_medico");
+            break;
+            case 3:
+                SoundMgr->playSonido("VocesRobots/Dron/beepinvestigar");
+            break;
+        }
     }
-
+     std::cout<<"entra en investigarr"<<std::endl;
 }
 
 void Investigar::Execute(Enemy* enemigo){
-    if(enemigo->getDistanciaPlayer()<30 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
-        if(enemigo->GetFSM()->PreviousState() == Atacar::Instance()){
+    if(enemigo->getDistanciaPlayer()<15 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        if(enemigo->isGuardia() && enemigo->GetFSM()->PreviousState() == Atacar::Instance()){
             enemigo->GetFSM()->ChangeState(Atacar::Instance());
         }else{
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
         }
     }
     if(enemigo->getPosition() == enemigo->getPosicionInteres()){
-            enemigo->GetFSM()->ChangeState(Vigilar::Instance());
+        enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
     static_cast<Guardia*>(enemigo)->investigar();
 

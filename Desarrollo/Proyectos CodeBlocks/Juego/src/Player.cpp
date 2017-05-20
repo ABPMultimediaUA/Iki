@@ -88,8 +88,8 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 }
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
-    float movx = vec.X * avMovement * velocidad ;
-    float movy = vec.Z * avMovement * velocidad ;
+    float movx = vec.X * velocidad *4 ;
+    float movy = vec.Z * velocidad *4;
 
     if (vec == quietoParado){
         isMoving = false;

@@ -35,7 +35,7 @@ void Percibir::Execute(Enemy* enemigo){
         if( enemigo->ID() != entities[i]->ID() && enemigo->getPosition().Distance(entities[i]->getPosition())<10
                                                             && enemigo->isEnemySeeing(entities[i]->getPosition())){
             //std::cout << "soy " << enemigo->ID() << "y estoy viendo a: " << entities[i]->ID()<< "su vida es: "<<entities[i]->getVida()<<std::endl;
-            enemigo->actualizarMemoria(entities[i]); //crea un recuerdo,si ya esta creado lo actualiza
+            enemigo->actualizarMemoriaVision(entities[i]); //crea un recuerdo,si ya esta creado lo actualiza
             if(enemigo->getEstadoEntity(entities[i]) == 2 ){ //si el estado del enemigo es muerto
                 enemigo->setPosicionInteres(entities[i]->getPosition());
                 switch(enemigo->getTipo()){
@@ -56,7 +56,7 @@ void Percibir::Execute(Enemy* enemigo){
             }
         }
         else if(entities[i]->isTrigger() && enemigo->getPosition().Distance(entities[i]->getPosition())<10){
-                enemigo->actualizarMemoria(entities[i]);
+                enemigo->actualizarMemoriaVision(entities[i]);
                if(enemigo->getEstadoEntity(entities[i]) == 3){
                     std::cout<<"veo una puerta abierta locoooo"<<std::endl;//si la puerta esta abierta
                     //enemigo->GetFSM()->ChangeState(Investigar::Instance());
