@@ -4,11 +4,11 @@
 Camera::Camera(Structs::TPosicion position)
 {
 	camera = GraphicsFacade::getInstance().motor->crearCamara(glm::vec3(position.X, position.Y, position.Z)
-                                                            , 18.5f
+                                                            , 1.25664f
                                                             , GraphicsFacade::getInstance().getWindowWidth()
                                                             , GraphicsFacade::getInstance().getWindowHeigth()
-                                                            , 0.1f
-                                                            , 1000.f);
+                                                            , 1.f
+                                                            , 3000.f);
 	positionInitial = position;
 
 
