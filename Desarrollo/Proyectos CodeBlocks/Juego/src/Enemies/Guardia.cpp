@@ -92,19 +92,19 @@ void Guardia::cargarAtaque(){
             bateria -= pot/2;
         }
 
-        modeloAtaque->setScale({1,1,1});
+        modeloAtaque->setScale({2,1,1});
 
         vectorAtaque = posicionProta - posicion;
         anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
 
         input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
-        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*7.5), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*7.5));
+        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())* 15), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())* 5));
 
         distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
-        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 1.5 , (input2.p2.y + input2.p1.y)/2};
+        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 1 , (input2.p2.y + input2.p1.y)/2};
 
-        modeloAtaque->setRotation(0);
-        modeloAtaque->setPosition(posicionAtaque);
+        //bnmodeloAtaque->setRotation(0);
+        modeloAtaque->setPosition(posicion);
         modeloAtaque->setRotationXYZ(0,anguloAtaque,0);
         resetTime();
 }

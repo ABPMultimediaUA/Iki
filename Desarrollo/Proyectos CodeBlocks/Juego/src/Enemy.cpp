@@ -70,11 +70,11 @@ void Enemy::init(Map* m){
     questionMark->setPosition({posicion.X,6,posicion.Z});
     questionMark->setVisible(false);
 
-    modeloAtaque = new MeshSceneNode("resources/Modelos/conorayo.obj");
+    modeloAtaque = new MeshSceneNode("resources/Modelos/conoray2.obj");
     modeloAtaque->setTexture("resources/Texturas/rojo.png");
     modeloAtaque->setVisible(false);
 
-    holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
+    holoScan = new MeshSceneNode("resources/Modelos/holoscan2.obj");
     holoScan->setTexture("resources/Texturas/textura_verde.png");
     holoScan->setVisible(false);
     holoScan->setScale({2,2,2});
@@ -344,15 +344,16 @@ void Enemy::subirSospecha(){
 void Enemy::escanear(){
 
     f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-    if (tiempo - scanT > 0.01){
-        scanAngle -= 0.1;
-        if (tiempo - scanT < 0.2){
-            scanT = tiempo;
-            scanAngle += 0.1;
-        }
+    if (tiempo - scanT < 0.75){
+        scanAngle -= 0.5;
+    }else if (tiempo - scanT < 1.5){
+        scanAngle += 0.5;
+    }else{
+        scanT = tiempo;
     }
-    holoScan->setRotationXYZ(0,angulo,scanAngle);
+    holoScan->setRotationXYZ(0,angulo,0);
     holoScan->setPosition(posicion);
+
     activeHoloScan(true);
 
     if(distanciaPlayer<30 && isEnemySeeing(posicionProta))

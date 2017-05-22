@@ -118,7 +118,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     else if (tipo == 9){
         trigger = new Trigger_Torreta(x,z,r);
         //Region
-        trigger->AddCircularRegion(centro,20);
+        trigger->AddCircularRegion(centro,15);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, r);
         trigger->setMesh(modelo);
