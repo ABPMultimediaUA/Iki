@@ -180,7 +180,7 @@ void Map::inicializar_mapa(int tipo){
                     conectaCon.push_back(fila);
                     object = object->NextSiblingElement("object");
                 }
-                 cout<<"Numero de Nodos Totales "<<Grafo->numNodes()<<endl;
+                // cout<<"Numero de Nodos Totales "<<Grafo->numNodes()<<endl;
 
                 for (int i=0; i < conectaCon.size();i++){
                     for(int j=0; j < conectaCon[i].size();j++){

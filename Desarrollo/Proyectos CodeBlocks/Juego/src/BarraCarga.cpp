@@ -1,12 +1,5 @@
-/*#include "BarraCarga.h"
+#include "BarraCarga.h"
 
-
-BarraCarga::BarraCarga()
-{
-}
-BarraCarga::~BarraCarga()
-{
-}
 void BarraCarga::Inicia( BITMAP* _imagen, int _x, int _y, int _total_partes )
 {
      imagen = create_bitmap(_imagen->w, _imagen->h);
@@ -14,7 +7,7 @@ void BarraCarga::Inicia( BITMAP* _imagen, int _x, int _y, int _total_partes )
      x = _x;
      y = _y;
      total_partes = _total_partes;
-};
+}
 
 void BarraCarga::Progreso( int c )
 {
@@ -25,5 +18,5 @@ void BarraCarga::Progreso( int c )
 
        blit ( imagen, screen , 0,0,0,0, imagen->w, imagen->h );
 
-};
-*/
+}
+

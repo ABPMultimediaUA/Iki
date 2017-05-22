@@ -215,6 +215,7 @@
 		<Unit filename="include/World.h" />
 		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="resources/Texturas/carga.bmp" />
 		<Unit filename="src/BarraCarga.cpp" />
 		<Unit filename="src/Enemies/Dron.cpp" />
 		<Unit filename="src/Enemies/Guardia.cpp" />

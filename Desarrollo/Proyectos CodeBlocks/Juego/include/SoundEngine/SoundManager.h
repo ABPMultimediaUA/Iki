@@ -25,6 +25,7 @@ class SoundManager
         typedef std::map<std::string, irrklang::ISound*> SoundChannels;
 
         bool isCargado(std::string s);
+        bool isCargado2(std::string s);
         void cargarSonido(std::string s);
         void cargarMusica(std::string s);
 

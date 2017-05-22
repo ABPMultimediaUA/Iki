@@ -18,7 +18,7 @@ Percibir* Percibir::Instance()
 }
 
 void Percibir::Enter(Enemy* enemigo){
-    std::cout<<"ID entity 0 al entrar en percibir: "<<EntityMgr->getEntities()[0]->ID()<<std::endl;
+   // std::cout<<"ID entity 0 al entrar en percibir: "<<EntityMgr->getEntities()[0]->ID()<<std::endl;
     entities = EntityMgr->getEntities();
     std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
     for(int i=0;i < triggers.size();i++){

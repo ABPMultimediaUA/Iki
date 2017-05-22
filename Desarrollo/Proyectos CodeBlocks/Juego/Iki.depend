@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1495103776 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1495308099 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"lib/irrKlang/conio.h"
 	"Game.h"
 	<iostream>
@@ -1146,7 +1146,7 @@
 1493906925 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\teventreceiver.h
 	<SDL2\SDL.h>
 
-1495292098 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
+1495293654 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\dron.cpp
 	"Enemies/Dron.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -2420,7 +2420,7 @@
 	<string>
 	"Structs.h"
 
-1491771817 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\soundengine\soundmanager.h
+1495453546 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\soundengine\soundmanager.h
 	<map>
 	<vector>
 	<string>
@@ -2575,7 +2575,7 @@
 	<Box2D/Box2D.h>
 	"Fachada/MeshSceneNode.h"
 
-1495289555 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
+1495293642 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
 	"FuzzyQuery.h"
 	"Investigar.h"
 	"Enemies/Guardia.h"
@@ -2783,7 +2783,7 @@
 1491771810 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\huir.h
 	"Enemies/StateMachine/State.h"
 
-1495290838 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\investigar.cpp
+1495293624 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\investigar.cpp
 	"Enemies/StateMachine/Investigar.h"
 	"Enemies/StateMachine/Vigilar.h"
 	"Enemy.h"
@@ -2827,7 +2827,7 @@
 1490986860 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\proteger.h
 	"Enemies/StateMachine/State.h"
 
-1495291805 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\percibir.cpp
+1495311511 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\percibir.cpp
 	"Enemies/StateMachine/Percibir.h"
 	"Enemies/StateMachine/Investigar.h"
 	"Enemies/StateMachine/Revivir.h"
@@ -3086,7 +3086,7 @@
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 
-1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1495311562 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
@@ -3099,7 +3099,7 @@
 	"Fachada/AnimatedMesh.h"
 	"PhisicsWorld.h"
 
-1492107663 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
+1495453297 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
 	"Menu.h"
 	"GUI/GUI.h"
 	"GUI/GUI_Button.h"
@@ -3152,7 +3152,7 @@
 	"Enemy.h"
 	"Congelado.h"
 
-1495124699 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1495312171 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -3165,6 +3165,7 @@
 	"SoundManager.h"
 	"TriggerSystem.h"
 	"Percibir.h"
+	<iostream>
 
 1495083509 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\sensormemory.cpp
 	"SensorMemory.h"
@@ -3173,7 +3174,7 @@
 	"EntityManager.h"
 	"Enemy.h"
 
-1491771819 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\soundengine\soundmanager.cpp
+1495453528 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\soundengine\soundmanager.cpp
 	"SoundManager.h"
 	<iostream>
 
@@ -3400,7 +3401,7 @@
 	"Enemies/Dron.h"
 	"EntityManager.h"
 
-1495288975 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1495293700 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -3419,7 +3420,8 @@
 1490993989 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\atacar.h
 	"Enemies/StateMachine/State.h"
 
-1495107789 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\barracarga.cpp
+1495304831 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\barracarga.cpp
+	"BarraCarga.h"
 
 1495093375 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_apisonadora.h
 	<Trigger.h>
@@ -3437,4 +3439,7 @@
 	"Player.h"
 	"TriggerSystem.h"
 	"Trigger_Apisonadora.h"
+
+1495309967 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\barracarga.h
+	<allegro.h>
 
