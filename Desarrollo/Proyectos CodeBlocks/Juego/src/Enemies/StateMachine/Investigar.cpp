@@ -30,21 +30,22 @@ void Investigar::Enter(Enemy* enemigo){
             break;
         }
     }
-     std::cout<<"entra en investigarr"<<std::endl;
+    // std::cout<<"entra en investigarr"<<std::endl;
 }
 
 void Investigar::Execute(Enemy* enemigo){
     if(enemigo->getDistanciaPlayer()<15 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         if(enemigo->isGuardia() && enemigo->GetFSM()->PreviousState() == Atacar::Instance()){
             enemigo->GetFSM()->ChangeState(Atacar::Instance());
-        }else{
+        }
+        else{
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
         }
     }
     if(enemigo->getPosition() == enemigo->getPosicionInteres()){
         enemigo->GetFSM()->ChangeState(Vigilar::Instance());
     }
-    static_cast<Guardia*>(enemigo)->investigar();
+    enemigo->investigar();
 
 }
 

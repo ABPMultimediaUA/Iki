@@ -47,8 +47,8 @@ void Percibir::Execute(Enemy* enemigo){
                         enemigo->GetFSM()->ChangeState(Revivir::Instance());
                         break;
                     case 3:
-                        enemigo->calcularAngulo(entities[i]->getPosition());
-                        enemigo->GetFSM()->ChangeState(Vigilar::Instance());
+                        //enemigo->calcularAngulo(entities[i]->getPosition());
+                        enemigo->GetFSM()->ChangeState(Investigar::Instance());
                         break;
                         //enemigo->GetFSM()->ChangeState(Alarma::Instance());
 

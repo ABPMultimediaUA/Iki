@@ -376,6 +376,10 @@ void Enemy::escuchar(){
     setPosition();
 
 }
+void Enemy::investigar(){
+    andarPath(2,posicionInteres);
+    setPosition();
+}
 void Enemy::volverALaPatrulla(){
     andarPath(1,pRuta->getPunto());
     setPosition();

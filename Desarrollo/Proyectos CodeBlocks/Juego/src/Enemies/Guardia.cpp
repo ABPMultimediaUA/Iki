@@ -37,10 +37,6 @@ void Guardia::inicializar_enemigo(Map* m)
     atacando = false;
     input2.maxFraction  =   1.0f;
 }
-void Guardia::investigar(){
-    andarPath(2,posicionInteres);
-    setPosition();
-}
 void Guardia::perseguir(){
 
     if (isEnemySeeing(posicionProta)){

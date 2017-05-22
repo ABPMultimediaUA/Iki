@@ -57,6 +57,7 @@ class Enemy : public GameEntity
         void escuchar();
         void muerto();
         void volverALaPatrulla();
+        void investigar();
         ///METODOS
         void actualizarMemoriaVision(GameEntity*);
         void actualizarMemoriaOido(GameEntity*);

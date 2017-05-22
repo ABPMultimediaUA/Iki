@@ -29,3 +29,4 @@ void Dron::inicializar_enemigo(Map* m)
     aniMesh->setTexture("resources/Texturas/dron.png");
     aniMesh->setScale(5);
 }
+
