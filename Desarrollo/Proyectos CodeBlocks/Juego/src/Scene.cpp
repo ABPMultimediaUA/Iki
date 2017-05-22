@@ -111,7 +111,7 @@ void Scene::bucle_juego(){
 
     while(GraphicsFacade::getInstance().run(0, camara->getCamera())){
 
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
             float tiempo_anterior = GraphicsFacade::getInstance().getTime();
             menu_ingame->run();
             GraphicsFacade::getInstance().setTiempo(tiempo_anterior);

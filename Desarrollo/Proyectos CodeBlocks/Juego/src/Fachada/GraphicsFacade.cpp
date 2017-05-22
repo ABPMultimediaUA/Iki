@@ -96,11 +96,15 @@ void GraphicsFacade::endScene(){
 
 bool GraphicsFacade::run(int draw_type, TNodo* camara){
 
-    bool holi = motor->run(camara);
-    gui->draw(draw_type);
-    updateTiempo();
-    motor->doDisplay();
-    return holi;
+//    if(motor->Evented()){
+        bool holi = motor->run(camara);
+        gui->draw(draw_type);
+        updateTiempo();
+        motor->doDisplay();
+        return holi;
+   /* }
+    else
+        return false;*/
 }
 
 void GraphicsFacade::close(){

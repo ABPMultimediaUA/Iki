@@ -82,7 +82,7 @@ void Player::moverBody(Structs::TPosicion vec){
         isMoving = true;
         speed = 2;
     }
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)){
         speed = 1;
         velocidad = 0.15;
         HUD::getInstance()->sigiloUsed();
@@ -134,7 +134,7 @@ void Player::update(Camera* camara){
         if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTime()/1000.f - rayo->getVidaRayo() > 1.5){
             HUD::getInstance()->rayoNotUsed();
         }
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
             if(rayo->getBalas() > 0){
                 if(GraphicsFacade::getInstance().getTime()/1000.f - rayo->getVidaRayo() > 1.5){
                     HUD::getInstance()->rayoUsed();
@@ -149,7 +149,7 @@ void Player::update(Camera* camara){
             }
         }
 
-        if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 
             GraphicsFacade::getInstance().cambiarRay(camara);
             //listaNodos.clear();
@@ -164,7 +164,7 @@ void Player::update(Camera* camara){
 
         }
 
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q)){
             std::vector<Enemy*> enemies = EntityManager::Instance()->getEnemigos();
             for(size_t i = 0; i < enemies.size(); i++){
                 if(enemies[i]->getPosition().Distance(this->getPosition()) < 8.f){

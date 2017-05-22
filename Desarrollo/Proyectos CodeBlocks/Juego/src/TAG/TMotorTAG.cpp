@@ -1,6 +1,6 @@
 #include "TMotorTAG.h"
 #include "TShader.h"
-
+#include "MyEventReceiver.h"
 
 TMotorTAG::TMotorTAG() : window(1360, 768, "IKIGAI"), shader(cargarShader("resources/res/basicShader")), ray(0,0,0,0,0,0)
 {
@@ -43,8 +43,8 @@ TNodo *TMotorTAG::crearCamara(const vec3& pos, float grad, int anch,int alt, flo
     TTransform *tTraslacion = new TTransform();
     TTransform *tRotacion = new TTransform();
 
-    tTraslacion->trasladar (0.0f, 0.0f, 10.0f);
-    tRotacion->rotar(45.0f, 0.0f, 30.0f, 0.0f);
+    tTraslacion->trasladar (pos.x,pos.y,pos.z);
+    tRotacion->rotar(90.0f, 0.0f, 1.0f, 0.0f);
 
     TNodo *nTraslacion = new TNodo();
     TNodo *nRotacion = new TNodo();
@@ -63,7 +63,7 @@ TNodo *TMotorTAG::crearCamara(const vec3& pos, float grad, int anch,int alt, flo
 
 TNodo *TMotorTAG::crearMalla(const std::string& filename)
 {
-
+    std::cout<<"Malla creada"<<std::endl;
     TMalla* mMalla= new TMalla();
     mMalla->loadMesh(filename);
 
@@ -345,3 +345,7 @@ int TMotorTAG::getTime(){
     return window.getTimer().asMilliseconds();
 }
 
+/*bool TMotorTAG::Evented(){
+    return window.Evented();
+}
+*/

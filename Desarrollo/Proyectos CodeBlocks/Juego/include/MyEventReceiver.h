@@ -1,7 +1,7 @@
 #ifndef MYEVENTRECEIVER_H
 #define MYEVENTRECEIVER_H
 
-#include <irrlicht.h>
+/*#include <irrlicht.h>
 
 #include <SFML/Window.hpp>
 
@@ -11,24 +11,22 @@ using namespace core; //namespace fundamentales;
 using namespace scene; //namespace de escena;
 using namespace video; //namespace de vídeo;
 using namespace io; //namespace io;
-using namespace gui; //namespace gui;
+using namespace gui; //namespace gui;*/
+#include "Structs.h"
 
-class MyEventReceiver : public IEventReceiver //sf::Event
+class MyEventReceiver
 {
     public:
+
         static MyEventReceiver& getInstance() {
             static MyEventReceiver singleton;
             return singleton;
         }
         ~MyEventReceiver();
 
-        MyEventReceiver(){
-            for(int i=0; i<KEY_KEY_CODES_COUNT; i++){
-                KeyDown[i] = false;
-            }
-        }
+        sf::Event getEvent(){ return evento;}
 
-        struct SMouseState{
+        /*struct SMouseState{
             position2di Position;
             bool RightButtonDown;
             bool LeftButtonDown;
@@ -72,12 +70,14 @@ class MyEventReceiver : public IEventReceiver //sf::Event
         };
         virtual bool isKeyDown(EKEY_CODE keyCode) const { return KeyDown[keyCode]; }
         virtual bool isKeyUp(EKEY_CODE keyCode) const { return !KeyDown[keyCode]; }
-        const SMouseState & GetMouseState(void) const { return MouseState; }
+        const SMouseState & GetMouseState(void) const { return MouseState; }*/
 
     protected:
 
     private:
-        bool KeyDown[KEY_KEY_CODES_COUNT];
+        //bool KeyDown[KEY_KEY_CODES_COUNT];
+        sf::Event evento;
+        MyEventReceiver(){}
 };
 
 #endif // MYEVENTRECEIVER_H

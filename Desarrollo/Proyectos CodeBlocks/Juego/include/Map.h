@@ -36,6 +36,9 @@ class Map
     private:
 
         MeshSceneNode *suelo;
+        MeshSceneNode *primera_sala;
+        MeshSceneNode *segunda_sala;
+        MeshSceneNode *tercera_sala;
 
 
         vector<PatrolPoint*>  patrullas;

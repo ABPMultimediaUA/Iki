@@ -82,14 +82,14 @@ void Menu::inicializar_menu(int menu){
 
 void Menu::comprobarBotones(int draw_type){
     if(draw_type == 1){
-        NuevaPartida->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
-        Opciones->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
-        Salir->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+        NuevaPartida->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+        Opciones->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+        Salir->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
     }else if(draw_type == 2)
-        Atras->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+        Atras->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
     if(draw_type == 2 || draw_type == 3 || draw_type == 4){
-        Resolucion->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
-        Control_Tit->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+        Resolucion->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+        Control_Tit->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
     }
 }
 
@@ -103,7 +103,7 @@ bool Menu::run(){
 
         comprobarBotones(draw_type);
 
-        if(MyEventReceiver::getInstance().GetMouseState().LeftButtonDown){
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
             if(GraphicsFacade::getInstance().getTime()/1000.f - time_since_clicked > 0.2){
                 if(draw_type == 1){
                     if(NuevaPartida->getActivo()){
@@ -124,7 +124,7 @@ bool Menu::run(){
                     }
                 }
                 else if(draw_type == 2){
-                    Volumen->comprobarmouse(MyEventReceiver::getInstance().GetMouseState().Position.X, MyEventReceiver::getInstance().GetMouseState().Position.Y);
+                    Volumen->comprobarmouse(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
 
                     if(Resolucion->getActivo()){
                         Resolucion->reproducir_click(0);

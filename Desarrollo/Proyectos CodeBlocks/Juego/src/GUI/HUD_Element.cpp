@@ -30,10 +30,10 @@ void HUD_Element::cambiarRect(Structs::TRectangulo rect){
 
 bool HUD_Element::comprobarEncima(){
 
-    if(   (MyEventReceiver::getInstance().GetMouseState().Position.X > posicionX
-       && MyEventReceiver::getInstance().GetMouseState().Position.X < posicionX + 79)
-       && (MyEventReceiver::getInstance().GetMouseState().Position.Y > posicionY
-       && MyEventReceiver::getInstance().GetMouseState().Position.Y < posicionY + 79))
+    if(   (sf::Mouse::getPosition().x > posicionX
+       && sf::Mouse::getPosition().x < posicionX + 79)
+       && (sf::Mouse::getPosition().y > posicionY
+       && sf::Mouse::getPosition().y< posicionY + 79))
 
         return true;
     else

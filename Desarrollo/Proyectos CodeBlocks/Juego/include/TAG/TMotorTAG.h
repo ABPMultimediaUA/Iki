@@ -56,6 +56,7 @@ class TMotorTAG
 
         void doDisplay();
         int getTime();
+        //bool Evented();
 
     protected:
 

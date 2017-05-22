@@ -1,4 +1,5 @@
 #include "TDisplay.h"
+#include "MyEventReceiver.h"
 
 TDisplay::TDisplay(int width, int height, const std::string &title)
 {
@@ -69,7 +70,7 @@ void TDisplay::Display()
 
 void TDisplay::Draw(sf::Sprite s)
 {
-    std::cout<<"Dibuja Sprite"<<std::endl;
+    //std::cout<<"Dibuja Sprite"<<std::endl;
     m_window.draw(s);
 
 }
@@ -93,7 +94,7 @@ sf::Time TDisplay::getTimer()
     return clock.getElapsedTime();
 }
 
-
+//bool TDisplay::Evented(){ return m_window.pollEvent(MyEventReceiver::getInstance().getEvent());}
 
 
 
