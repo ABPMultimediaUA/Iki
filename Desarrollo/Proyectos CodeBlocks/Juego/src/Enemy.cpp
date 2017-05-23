@@ -19,13 +19,17 @@ void Enemy::update(){
     distanciaPlayer = posicionProta.Distance(posicion);
     toProtaPosition=posicionProta-posicion;
     ///SE RECARGA LA BATERIA POCO A POCO
-    if (   G_stateMachine->CurrentState() != Atacar::Instance()
+    /*if (   G_stateMachine->CurrentState() != Atacar::Instance()
         && G_stateMachine->CurrentState() != Investigar::Instance() ){
 
-        if (bateria < 100){
-            bateria += 1;
+        f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        if (tiempo - bateriaT > 0.1){
+            //std::cout << bateria << std::endl;
+            bateriaT = tiempo;
+            if (bateria < 100) bateria += 1;
         }
-    }
+    }*/
+
     if (guessing){
         guessing = false;
         posicionInteres = posicionProta;

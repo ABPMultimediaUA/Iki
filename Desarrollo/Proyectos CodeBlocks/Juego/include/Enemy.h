@@ -99,7 +99,7 @@ class Enemy : public GameEntity
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-        f32 tiempoEnEstado, time_since_hitted, scanT, sTime;
+        f32 tiempoEnEstado, time_since_hitted, scanT, sTime, bateriaT;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
         Structs::TPosicion vectorProta;

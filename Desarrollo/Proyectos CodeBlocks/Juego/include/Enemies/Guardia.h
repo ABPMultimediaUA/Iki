@@ -13,8 +13,10 @@ class MeshSceneNode;
 class Guardia : public Enemy
 {
     private:
-        bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque;
+        bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque, cargarBateria;
+        int danyo;
         float anguloAtaque, distanciaAtaque;
+        f32 tiempoCarga, bateriaT;
         b2Body *bodyAtaque;
         Structs::TPosicion vectorAtaque;
         Structs::TMedida medidaAtaque     = {10,0.5,0.5};

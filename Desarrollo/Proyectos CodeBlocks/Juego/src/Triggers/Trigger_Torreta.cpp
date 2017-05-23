@@ -77,7 +77,7 @@ void Trigger_Torreta::Disparar()
         if(anguloProta < 0)
             anguloProta+360;
         if(abs(anguloAtaque - anguloProta) < 15){
-            EntityMgr->getEntityByID(0)->quitarVida();;
+            EntityMgr->getEntityByID(0)->quitarVida(20);;
             solounaveh = true;
         }
     }
