@@ -4,6 +4,7 @@
 #include "GameEntity.h"
 #include "Trigger_Ruido.h"
 #include "Fachada/Camera.h"
+#include "Fachada/Animaciones.h"
 #include <iostream>
 
 class PathFinding;
@@ -65,11 +66,14 @@ class Player : public GameEntity{
         Structs::TPosicion quietoParado = {0,0,0};
         Structs::TPosicion mirarHacia = {0,0,0};
 
+        Animaciones *animacion;
+        std::vector <IAnimatedMeshSceneNode*> modelos;
+
         Trigger_Ruido* ruido;
         bool isMoving, moverse, nivel_acabado, reintentar;
         int speed;
         float velocidad;
-        int llaves = 0;
+        int llaves = 0, j=0;
 
         Player_Ray* rayo;
         b2RayCastInput input;

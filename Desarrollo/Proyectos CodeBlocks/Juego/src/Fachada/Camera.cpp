@@ -20,6 +20,10 @@ Camera::~Camera(){
 }
 
 void Camera::render(Structs::TPosicion positionPlayer){
+    /*std::cout<<"Far: "<< camera->getFarValue()<<std::endl;
+    std::cout<<"Near: "<< camera->getNearValue()<<std::endl;
+    std::cout<<"FOV: "<< camera->getFOV()<<std::endl;
+    std::cout<<"Apect: "<< camera->getAspectRatio()<<std::endl;*/
 
 	camera->setTarget(vector3df(positionPlayer.X, positionPlayer.Y, positionPlayer.Z));
 	camera->setPosition(vector3df(positionPlayer.X + 20, positionPlayer.Y + 40, positionPlayer.Z));

@@ -2562,7 +2562,7 @@
 1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\percibir.h
 	"Enemies/StateMachine/State.h"
 
-1495083515 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1495504640 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"Structs.h"
@@ -2660,10 +2660,11 @@
 	"Map.h"
 	"Algoritmo.h"
 
-1495093375 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1495516775 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Trigger_Ruido.h"
 	"Fachada/Camera.h"
+	"Fachada/Animaciones.h"
 	<iostream>
 	"Player_Ray.h"
 
@@ -2901,7 +2902,7 @@
 	"Fachada/AnimatedMesh.h"
 	"Fachada/GraphicsFacade.h"
 
-1495083516 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\camera.cpp
+1495494180 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\camera.cpp
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
@@ -3129,7 +3130,7 @@
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1495290798 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1495520491 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3152,7 +3153,7 @@
 	"Enemy.h"
 	"Congelado.h"
 
-1495312171 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1495512093 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -3442,4 +3443,16 @@
 
 1495309967 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\barracarga.h
 	<allegro.h>
+
+1495495191 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animatedmesh2.h
+	"Structs.h"
+
+1495512614 c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animaciones.h
+	"Structs.h"
+
+1495520610 source:c:\users\mateobernal\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animaciones.cpp
+	"Fachada/Animaciones.h"
+	"Fachada/GraphicsFacade.h"
+	<string>
+	<sstream>
 

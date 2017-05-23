@@ -40,14 +40,22 @@ void Player::inicializar_player(Map* m, int nivel){
     if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
-    aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS.obj", color, posicionInicial, 0);
+     animacion = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48,"resources/Texturas/Protatextura.png",1.5f);
+     modelos = animacion->getModelosAnimacion();
+    //animacion->setTexture("resources/Texturas/Protatextura.png");
+    //animacion->setScale(2.3);
+
+    /*aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS", color, posicionInicial, 0);
     aniMesh->setTexture("resources/Texturas/Protatextura.png");
-    aniMesh->setScale(2.3);
+    aniMesh->setScale(2.3);*/
 
     /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);*/
 
-    posicion = aniMesh->getPosition();
+    //posicion = aniMesh->getPosition();
+    posicion = posicionInicial;
+    //animacion->setPosition(posicion);
+    //animacion->setRotation(90);
 
     radio = 1.0;
 
@@ -55,6 +63,7 @@ void Player::inicializar_player(Map* m, int nivel){
     bodyDef.type = b2_dynamicBody;
     if(nivel == 1) bodyDef.position.Set(170, 50);
     if(nivel == 2) bodyDef.position.Set(190, 50);
+    //bodyDef.position.Set(posicion.X,posicion.Z);
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;
@@ -83,8 +92,18 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     body->SetTransform(body->GetPosition(), angulo);
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-    aniMesh->setPosition(posicion);
-    aniMesh->setRotation(body->GetAngle());
+
+    //aniMesh2->setPosition(posicion);
+    //aniMesh2->setRotation(body->GetAngle());
+
+    animacion->setActual(modelos[j]);
+    animacion->setPosition(posicion);
+    animacion->setRotation(body->GetAngle());
+
+    j++;
+    if(j>=modelos.size())
+        j=0;
+
 }
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
