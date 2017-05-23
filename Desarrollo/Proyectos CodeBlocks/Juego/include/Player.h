@@ -55,6 +55,8 @@ class Player : public GameEntity{
         bool mostrarMensajePalanca();
         void desmostrarMensajePalanca();
 
+        void runAnimacion(int);
+
     protected:
 
     private:
@@ -85,7 +87,7 @@ class Player : public GameEntity{
 
         f32 tiempo_con_mas_speed;
 
-        float distancia,angulo,avMovement,deltaTime;
+        float distancia,angulo,avMovement,deltaTime,tiempoAnimacion,tiempoJuego;
         ///PATHFINDING
         Map* Mapa;
         SparseGraph* grafo;

@@ -95,15 +95,20 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 
     //aniMesh2->setPosition(posicion);
     //aniMesh2->setRotation(body->GetAngle());
-
-    animacionAndar->setActual(modelos[j]);
-    animacionAndar->setPosition(posicion);
-    animacionAndar->setRotation(body->GetAngle());
-
-    j++;
+    runAnimacion(1);
+}
+void Player::runAnimacion(int numeroAnimacion){
+    tiempoJuego = PhisicsWorld::getInstance()->getTimeStamp()/1000.f;
+    tiempoAnimacion = tiempoJuego - tiempoAnimacion;
+    if(numeroAnimacion == 1){//Andar
+        animacionAndar->setActual(modelos[j]);
+        animacionAndar->setPosition(posicion);
+        animacionAndar->setRotation(body->GetAngle());
+    if( tiempoAnimacion > 0.025f)
+        j++;
     if(j>=modelos.size())
         j=0;
-
+    }
 }
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();

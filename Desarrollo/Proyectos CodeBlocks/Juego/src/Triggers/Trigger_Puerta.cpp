@@ -14,8 +14,8 @@ Trigger_Puerta::Trigger_Puerta(float x, float z, float r)
     posicion = {body->GetPosition().x,0,body->GetPosition().y};
 
     b2PolygonShape bodyShape;
-    if (r==90)                  bodyShape.SetAsBox(5.f,1.f);
-    else                        bodyShape.SetAsBox(1.f,5.f);
+    if (r==90)                  bodyShape.SetAsBox(7.f,1.f);
+    else                        bodyShape.SetAsBox(1.f,7.f);
     body->CreateFixture(&bodyShape, 1.0f);
 
     b2FixtureDef fixtureDef;
