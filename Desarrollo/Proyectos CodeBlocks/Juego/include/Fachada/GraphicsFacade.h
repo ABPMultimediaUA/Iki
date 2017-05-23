@@ -31,7 +31,7 @@ class GraphicsFacade
 
         //void draw(int);
         bool run(int, TNodo*);
-        void doDisplay();
+        void doDisplay() {motor->doDisplay();};
         void close();
         void drop();
 
@@ -49,13 +49,16 @@ class GraphicsFacade
         //ITimer* getTimer()  { return timer; };
 
         Camera* createCamera(Structs::TPosicion position);
-        MeshSceneNode* createMalla(const char*);
+        MeshSceneNode* createMalla(const std::string&);
 
         void setTiempo(float);
         void updateTiempo();
 
         int getWindowWidth() { return motor->getWindowWidth();}
         int getWindowHeigth(){ return motor->getWindowHeigth();}
+
+        void pushStates();
+        void drawGUI(int);
 
     protected:
 

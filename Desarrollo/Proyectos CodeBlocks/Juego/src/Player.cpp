@@ -32,10 +32,10 @@ void Player::inicializar_player(Map* m){
     //path = new PathFinding(grafo,this);
     path2 = new PathPlanner(grafo,this);
 
-    Structs::TPosicion posicionInicial (170,0,50);
+    Structs::TPosicion posicionInicial (-170,0,0);
     Structs::TColor color = {121,85,61,0};
 
-    aniMesh = new AnimatedMesh("resources/Modelos/Prota.obj", color, posicionInicial, 0);
+    aniMesh = new AnimatedMesh("./resources/res/animacion/mini_knight_fem_", color, posicionInicial, 0);
     aniMesh->setScale(4);
 
     /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
@@ -120,7 +120,7 @@ void Player::TriggerRuido(){
 
 void Player::update(Camera* camara){
 
-    if(vida == 0){
+    /*if(vida == 0){
         SoundMgr->stopAll();
         HUD::getInstance()->GameOver();
     }else{
@@ -197,7 +197,7 @@ void Player::update(Camera* camara){
             MoverPlayer((*it2).getDestination(),toNextNodo);
         }
         sonidosMovimiento();
-    }
+    }*/
 
 
 }

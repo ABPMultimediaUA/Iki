@@ -28,6 +28,8 @@ public:
 	int getWidth() { return m_window.getSize().x; }
 	int getHeigth(){ return m_window.getSize().y; }
 
+	void close(){ m_window.close(); }
+
 	//bool Evented();
 
 protected:

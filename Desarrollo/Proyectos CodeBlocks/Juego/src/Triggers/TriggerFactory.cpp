@@ -37,24 +37,24 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //region
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
-        modelo = new AnimatedMesh("resources/Modelos/Tarjeta.obj", {0,100,149,237}, centro, r);
-        trigger->setMesh(modelo);
+        //modelo = new AnimatedMesh("resources/Modelos/Tarjeta.obj", {0,100,149,237}, centro, r);
+        //trigger->setMesh(modelo);
     }
     else if (tipo == 4){
         trigger = new Trigger_Municion();
         //region
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
-        modelo = new AnimatedMesh("resources/Modelos/Municion.obj", {0,0,0,140}, centro, r);
-        trigger->setMesh(modelo);
+        //modelo = new AnimatedMesh("resources/Modelos/Municion.obj", {0,0,0,140}, centro, r);
+        //trigger->setMesh(modelo);
     }
     if (tipo == 5){
         trigger = new Trigger_Puerta(x,z,r);
         //Region
         trigger->AddCircularRegion(centro,3.5);
         //modelo
-        modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
-        trigger->setMesh(modelo);
+        //modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
+        //trigger->setMesh(modelo);
 
     }
     else if (tipo == 6){
@@ -62,8 +62,8 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //Region
         trigger->AddCircularRegion(centro,3.5);
         //modelo
-        modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
-        trigger->setMesh(modelo);
+        //modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
+        //trigger->setMesh(modelo);
 
     }
     else if (tipo == 7){
@@ -71,16 +71,16 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //region
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
-        modelo = new AnimatedMesh("resources/Modelos/lubricante.obj", {0,0,0,0}, centro, r);
-        trigger->setMesh(modelo);
+        //modelo = new AnimatedMesh("resources/Modelos/lubricante.obj", {0,0,0,0}, centro, r);
+        //trigger->setMesh(modelo);
     }
     else if (tipo == 8){
         trigger = new Trigger_Torreta(x,z,r);
         //Region
         trigger->AddCircularRegion(centro,7);
         //modelo
-        modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, 270);
-        trigger->setMesh(modelo);
+        //modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, 270);
+        //trigger->setMesh(modelo);
     }
     /*else if (tipo == 7){
         trigger = new Trigger_Torreta();

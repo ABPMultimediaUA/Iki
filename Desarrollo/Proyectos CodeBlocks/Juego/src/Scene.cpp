@@ -104,6 +104,8 @@ void Scene::inicializar_escena(){
     SoundMgr->playMusica("Musica/musica_general");
 
     GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
+    GraphicsFacade::getInstance().drawGUI(1);
+    GraphicsFacade::getInstance().doDisplay();
     bucle_juego();
 }
 
@@ -125,6 +127,6 @@ void Scene::bucle_juego(){
         //GraphicsFacade::getInstance().draw(0);
     }
 
-    GraphicsFacade::getInstance().drop();
+    GraphicsFacade::getInstance().close();
 
 }

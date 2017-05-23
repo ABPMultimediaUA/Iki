@@ -2,10 +2,11 @@
 #include "TShader.h"
 #include "MyEventReceiver.h"
 
-TMotorTAG::TMotorTAG() : window(1360, 768, "IKIGAI"), shader(cargarShader("resources/res/basicShader")), ray(0,0,0,0,0,0)
+TMotorTAG::TMotorTAG() : window(1360, 768, "IKIGAI"), ray(0,0,0,0,0,0)
 {
     //ctor
     escena = new TNodo();
+    shader = cargarShader("resources/res/basicShader");
 
 }
 
@@ -43,9 +44,11 @@ TNodo *TMotorTAG::crearCamara(const vec3& pos, float grad, int anch,int alt, flo
     TTransform *tTraslacion = new TTransform();
     TTransform *tRotacion = new TTransform();
 
-    tTraslacion->trasladar (0.f, 0.f, 40.f);
-    tRotacion->rotar(-18.5f, 1.0f, 0.0f, 0.0f);
-    //tRotacion->rotar(270.0f, 0.0f, 1.0f, 0.0f);
+    tTraslacion->trasladar(0.f, 0.f, 90.f);
+    //tTraslacion->trasladar (-170.f, 0.f, 90.f);
+    //tRotacion->rotar(90.0f, 0.0f, 1.0f, 0.0f);
+    tRotacion->rotar(-26.56f, 1.0f, 0.0f, 0.0f);
+
 
     TNodo *nTraslacion = new TNodo();
     TNodo *nRotacion = new TNodo();
@@ -93,34 +96,36 @@ TNodo *TMotorTAG::crearMalla(const std::string& filename)
 
 TNodo* TMotorTAG::cargarAnimacion(const std::string& filename, const unsigned int& longitud)
 {
-        TNodo* nEscalado = new TNodo();
-        TNodo* nRotacion = new TNodo();
-        TNodo* nTraslacion = new TNodo();
-        TNodo* nAnimacion = new TNodo();
+    TNodo* nEscalado = new TNodo();
+    TNodo* nRotacion = new TNodo();
+    TNodo* nTraslacion = new TNodo();
+    TNodo* nAnimacion = new TNodo();
 
-        TTransform* tEscalado = new TTransform();
-        TTransform* tRotacion = new TTransform();
-        TTransform* tTraslacion = new TTransform();
-        TAnimacion* aAnimacion = new TAnimacion(longitud);
+    TTransform* tEscalado = new TTransform();
+    TTransform* tRotacion = new TTransform();
+    TTransform* tTraslacion = new TTransform();
+    TAnimacion* aAnimacion = new TAnimacion(longitud);
 
-        escena->addHijo(nEscalado);
-        nEscalado->addHijo(nTraslacion);
-        nTraslacion->addHijo(nRotacion);
-        nRotacion->addHijo(nAnimacion);
+    tTraslacion->trasladar(-170.f, 0.f, 0.f);
 
-        nEscalado->setEntidad(tEscalado);
-        nRotacion->setEntidad(tRotacion);
-        nTraslacion->setEntidad(tTraslacion);
-        nAnimacion->setEntidad(aAnimacion);
+    escena->addHijo(nEscalado);
+    nEscalado->addHijo(nTraslacion);
+    nTraslacion->addHijo(nRotacion);
+    nRotacion->addHijo(nAnimacion);
 
-        aAnimacion->cargarAnimacion(filename);
+    nEscalado->setEntidad(tEscalado);
+    nRotacion->setEntidad(tRotacion);
+    nTraslacion->setEntidad(tTraslacion);
+    nAnimacion->setEntidad(aAnimacion);
 
-        return nAnimacion;
+    aAnimacion->cargarAnimacion(filename);
+
+    return nAnimacion;
 }
 
-TShader TMotorTAG::cargarShader(const std::string& filename)
+TShader* TMotorTAG::cargarShader(const std::string& filename)
 {
-    TShader shader(filename);
+    TShader* shader = new TShader(filename);
     return shader;
 }
 TNodo *TMotorTAG::getCamaraActiva()
@@ -275,7 +280,7 @@ void TMotorTAG::drawCamaras()
 
 void TMotorTAG::draw()
 {
-
+    shader->Bind();
     //std::cout << "Iniciando dibujado de la escena" << std::endl;
     //std::cout << std::endl;
     drawLuces();
@@ -287,34 +292,23 @@ void TMotorTAG::draw()
     escena->draw();
 }
 
-bool TMotorTAG::run(TNodo* cCamara){
+void TMotorTAG::updateOpenGL(TNodo* cCamara){
+    if(cCamara != nullptr)
+            shader->Update(dynamic_cast<TCamara*>(cCamara->getEntidad()));
+}
 
-   if( window.isOpen()){
-        window.Draw3(); ///m_window.popGLStates();
-
-        window.Clear(0.0f, 0.15f, 0.3f, 1.0f);
-        window.Update();
-
-        shader.Bind();
-
-        draw();
-        if(cCamara != nullptr)
-            shader.Update(static_cast<TCamara*>(cCamara->getEntidad()));
-
-        window.Draw2(); ///m_window.pushGLStates();
-
-        //window.Draw(hud.getSprite());
-
-        //window.Draw3(); //m_window.popGLStates();
-
-        //window.Display();
-        return true;
-   }else
-        return false;
+void TMotorTAG::updateDisplay(){
+    window.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+    window.Update();
 }
 
 void TMotorTAG::doDisplay(){
+
     window.Display();
+}
+
+void TMotorTAG::closeDevice(){
+    window.close();
 }
 
 void TMotorTAG::cambiarRay(TNodo* camara){
@@ -350,3 +344,11 @@ int TMotorTAG::getTime(){
     return window.Evented();
 }
 */
+
+void TMotorTAG::pushStates(){
+    window.Draw2();
+}
+
+void TMotorTAG::popStates(){
+    window.Draw3();
+}

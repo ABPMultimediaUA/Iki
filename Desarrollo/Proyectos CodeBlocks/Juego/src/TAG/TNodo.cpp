@@ -92,22 +92,22 @@ void TNodo::Trasladar(TVector vec)
 
 void TNodo::Rotar(float ang, TVector vec)
 {
-    static_cast<TTransform*>(padre->getPadre()->getEntidad())->rotar(ang, vec.X, vec.Y, vec.Z);
+    static_cast<TTransform*>(padre->getEntidad())->rotar(ang, vec.X, vec.Y, vec.Z);
 }
 
 void TNodo::Rotar(float ang)
 {
-    static_cast<TTransform*>(padre->getPadre()->getEntidad())->rotar(ang);
+    static_cast<TTransform*>(padre->getEntidad())->rotar(ang);
 }
 
 void TNodo::EscalarAbs(float num)
 {
-    static_cast<TTransform*>(padre->getPadre()->getEntidad())->escalarAbs(num);
+    static_cast<TTransform*>(padre->getPadre()->getPadre()->getEntidad())->escalarAbs(num);
 }
 
 void TNodo::EscalarRel(TVector vec)
 {
-    static_cast<TTransform*>(padre->getPadre()->getEntidad())->escalarRel(vec.X, vec.Y, vec.Z);
+    static_cast<TTransform*>(padre->getPadre()->getPadre()->getEntidad())->escalarRel(vec.X, vec.Y, vec.Z);
 }
 
 

@@ -45,7 +45,6 @@ void TTransform::trasladar(float x, float y, float z)
                // cout<<matriz[i][j]<<endl;
         }
     }
-    cout<<endl;
 }
 
 void TTransform::rotar(float angulo, float x, float y, float z)

@@ -96,19 +96,28 @@ void GraphicsFacade::endScene(){
 
 bool GraphicsFacade::run(int draw_type, TNodo* camara){
 
-//    if(motor->Evented()){
-        bool holi = motor->run(camara);
-        gui->draw(draw_type);
+    if(motor->isOpen()){
+        motor->updateDisplay();
+        motor->draw();
+        motor->updateOpenGL(camara);
         updateTiempo();
+        drawGUI(draw_type);
         motor->doDisplay();
-        return holi;
-   /* }
+
+        return true;
+    }
     else
-        return false;*/
+        return false;
+}
+
+void GraphicsFacade::drawGUI(int draw_type){
+    motor->pushStates();
+    gui->draw(draw_type);
+    motor->popStates();
 }
 
 void GraphicsFacade::close(){
-    //motor->closeDevice();
+    motor->closeDevice();
 }
 
 void GraphicsFacade::drop(){
@@ -153,7 +162,7 @@ Camera* GraphicsFacade::createCamera(Structs::TPosicion position){
 	return new Camera(position);
 }
 
-MeshSceneNode* GraphicsFacade::createMalla(const char* cadena){
+MeshSceneNode* GraphicsFacade::createMalla(const std::string &cadena){
 
 	return new MeshSceneNode(cadena);
 }
@@ -223,4 +232,8 @@ void GraphicsFacade::reanudarTiempo(int time){
     else
         timer_menu->start();
 }*/
+
+void GraphicsFacade::pushStates(){
+    motor->pushStates();
+}
 

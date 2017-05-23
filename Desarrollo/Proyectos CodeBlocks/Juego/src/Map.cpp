@@ -45,9 +45,10 @@ void Map::inicializar_mapa(){
     int cont = 0;
 
     //suelo = new MeshSceneNode();
-    primera_sala = new MeshSceneNode("resources/res/animacion/mini_knight_fem_000000.obj");
-    //segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
-    //tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");
+    //primera_sala = new MeshSceneNode("./resources/res/cube2.obj");
+    /*primera_sala = new MeshSceneNode("resources/Modelos/salita1.obj");
+    segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
+    tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");*/
 
     docFile = new XMLDocument; //Se crea el objeto del documento
 

@@ -68,5 +68,6 @@ void TTextura::Bind(unsigned int unit)
 {
 	glActiveTexture(GL_TEXTURE0 + unit);
 	glBindTexture(GL_TEXTURE_2D, m_texture);
+	//glBindTexture(GL_TEXTURE_2D, 0);
 }
 

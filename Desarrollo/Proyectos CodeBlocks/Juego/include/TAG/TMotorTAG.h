@@ -27,13 +27,16 @@ class TMotorTAG
         TLuz *crearLuz();
         TNodo *crearCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej);
         TNodo *crearMalla(const std::string& filename);
-        TShader cargarShader(const std::string& filename);
+        TShader *cargarShader(const std::string& filename);
         TNodo *cargarAnimacion(const std::string& filename, const unsigned int& longitud);
 
         TNodo *getEscena(){return escena;}
         TNodo *getCamaraActiva();
 
-        bool run(TNodo*);
+        void updateOpenGL(TNodo*);
+        void updateDisplay();
+
+        bool isOpen(){ return window.isOpen(); }
 
         int registrarLuz(TNodo* nod);
         int registrarCamara(TNodo* nod);
@@ -56,6 +59,9 @@ class TMotorTAG
 
         void doDisplay();
         int getTime();
+        void pushStates();
+        void popStates();
+        void closeDevice();
         //bool Evented();
 
     protected:
@@ -64,13 +70,15 @@ class TMotorTAG
         TNodo* escena;
         TGestorRecursos* gestorRecursos;
         TDisplay window;
-        TShader shader;
+        TShader* shader;
         TLinea ray;
         TPlano plane;
 
         vector<bool> l_activa, c_activa;
         vector<TNodo*> luces;
         vector<TNodo*> camaras;
+
+        int flag = 0;
 
         //Atributos para mantenimiento de las camaras, luces y viewports.
 };

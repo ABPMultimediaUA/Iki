@@ -29,7 +29,7 @@ class TCamara : public TEntidad
         bool esPerspectiva;
         float superior, inferior, izquierda, derecha, cercano, lejano, ancho, alto, viewpoint;
         mat4 m_perspectiva, m_paralela;
-        vec3 v_posicion;
+        //vec3 v_posicion;
 };
 
 #endif // TCAMARA_H

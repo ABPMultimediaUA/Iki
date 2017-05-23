@@ -29,7 +29,7 @@ void TRecursoMalla::MeshEntry::Init(const std::vector<Vertex>& Vertices,const st
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * NumIndices, &Indices[0], GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 TRecursoMalla::TRecursoMalla()

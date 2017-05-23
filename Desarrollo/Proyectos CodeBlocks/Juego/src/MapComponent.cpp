@@ -23,7 +23,7 @@ MapComponent::MapComponent(float a, Structs::TPosicion b, int i)
 
     body->SetTransform(b2Vec2(b.X, b.Z), 180 / 3.14159265358979323846 * a);
 
-    modelo = new AnimatedMesh("resources/Modelos/cubito.obj", color, b, a);
+//    modelo = new AnimatedMesh("resources/Modelos/cubito.obj", color, b, a);
     modelo->setTexture("resources/Texturas/textura_pared.jpg");
 
 }

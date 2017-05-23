@@ -3,7 +3,7 @@
 
 TCamara::TCamara(const vec3& pos, float grad, int anch, int alt, float cer, float lej)
 {
-    v_posicion = pos;
+    //v_posicion = pos;
 
     setPerspectiva(grad, anch, alt, cer, lej);
 

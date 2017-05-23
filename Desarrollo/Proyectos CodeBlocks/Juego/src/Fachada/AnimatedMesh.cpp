@@ -11,6 +11,8 @@ AnimatedMesh::AnimatedMesh(const char* file, Structs::TColor color, Structs::TPo
     modelo->setPosition(vector3df(posicion.X, posicion.Y, posicion.Z));
     modelo->setRotation(vector3df(0, rotacion, 0));
     modelo->setMaterialFlag(video::EMF_LIGHTING, false);*/
+    node = GraphicsFacade::getInstance().motor->cargarAnimacion(file,1);
+    setPosition(p);
 }
 
 AnimatedMesh::~AnimatedMesh()
@@ -22,7 +24,7 @@ void AnimatedMesh::setVisible(bool visible){
     //modelo->setVisible(visible);
 }
 void AnimatedMesh::setPosition(Structs::TPosicion pos){
-    //modelo->setPosition(vector3df(pos.X, pos.Y, pos.Z));
+    node->Trasladar(TVector(pos.X,pos.Y,pos.Z));
 }
 
 void AnimatedMesh::setRotation(float rot){

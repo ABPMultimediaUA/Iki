@@ -152,7 +152,7 @@ void Enemy::crearPath(Structs::TPosicion destino){
 void Enemy::setPosition(){
     body->SetTransform(b2Vec2(posicion.X, posicion.Z), angulo);
     aniMesh->setRotation(body->GetAngle());
-    aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
+    //aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
 }
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
    //mover medico con la lista de edges creada

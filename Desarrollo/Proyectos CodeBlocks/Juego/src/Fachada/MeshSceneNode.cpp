@@ -11,7 +11,7 @@ MeshSceneNode::MeshSceneNode(Structs::TMedida medida, Structs::TPosicion posicio
     node->setMaterialFlag(video::EMF_LIGHTING, false);*/
 }
 
-MeshSceneNode::MeshSceneNode(const char* file){
+MeshSceneNode::MeshSceneNode(const std::string &file){
     node = GraphicsFacade::getInstance().motor->crearMalla(file);
 
     /*GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(node->getMesh(),irr::video::SColor(color.opacity, color.r, color.g, color.b));
