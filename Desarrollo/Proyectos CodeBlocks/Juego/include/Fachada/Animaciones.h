@@ -6,7 +6,7 @@
 class Animaciones
 {
     public:
-        Animaciones(std::string f, Structs::TColor color, Structs::TPosicion, float r,float frames,float inicio const char* t, float scale );
+        Animaciones(std::string f, Structs::TColor color, Structs::TPosicion, float r,float frames,float inicio,const char* t, float scale );
         virtual ~Animaciones();
 
         void setScale(Structs::TMedida);
@@ -24,6 +24,7 @@ class Animaciones
                                                 actual->setVisible(false);
                                                 actual=m;
                                                 actual->setVisible(true);}
+        void Clear();
 
     protected:
 

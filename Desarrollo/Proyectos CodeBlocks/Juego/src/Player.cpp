@@ -40,10 +40,10 @@ void Player::inicializar_player(Map* m, int nivel){
     if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
-     animacion = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48,"resources/Texturas/Protatextura.png",1.5f);
-     modelos = animacion->getModelosAnimacion();
-    //animacion->setTexture("resources/Texturas/Protatextura.png");
-    //animacion->setScale(2.3);
+     animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f);
+     modelos = animacionAndar->getModelosAnimacion();
+    //animacionAndar->setTexture("resources/Texturas/Protatextura.png");
+    //animacionAndar->setScale(2.3);
 
     /*aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS", color, posicionInicial, 0);
     aniMesh->setTexture("resources/Texturas/Protatextura.png");
@@ -54,8 +54,8 @@ void Player::inicializar_player(Map* m, int nivel){
 
     //posicion = aniMesh->getPosition();
     posicion = posicionInicial;
-    //animacion->setPosition(posicion);
-    //animacion->setRotation(90);
+    //animacionAndar->setPosition(posicion);
+    //animacionAndar->setRotation(90);
 
     radio = 1.0;
 
@@ -96,9 +96,9 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     //aniMesh2->setPosition(posicion);
     //aniMesh2->setRotation(body->GetAngle());
 
-    animacion->setActual(modelos[j]);
-    animacion->setPosition(posicion);
-    animacion->setRotation(body->GetAngle());
+    animacionAndar->setActual(modelos[j]);
+    animacionAndar->setPosition(posicion);
+    animacionAndar->setRotation(body->GetAngle());
 
     j++;
     if(j>=modelos.size())

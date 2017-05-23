@@ -41,7 +41,7 @@ Animaciones::Animaciones(std::string file, Structs::TColor color, Structs::TPosi
 
 Animaciones::~Animaciones()
 {
-    //dtor
+    Clear();
 }
 
 void Animaciones::setVisible(bool visible){
@@ -74,3 +74,16 @@ void Animaciones::setTexture(const char* file){
     modelo->setMaterialTexture( 0, GraphicsFacade::getInstance().getDriver()->getTexture(file) );
     modelo->setMaterialType( video::EMT_SOLID );
 }
+void Animaciones::Clear(){
+    std::vector<IAnimatedMeshSceneNode*>::iterator curTrg;
+    for (curTrg = modelos.begin(); curTrg != modelos.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
+
+    modelos.clear();
+    delete mesh;
+    delete modelo;
+    delete actual;
+}
+

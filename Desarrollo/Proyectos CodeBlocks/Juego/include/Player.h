@@ -66,7 +66,8 @@ class Player : public GameEntity{
         Structs::TPosicion quietoParado = {0,0,0};
         Structs::TPosicion mirarHacia = {0,0,0};
 
-        Animaciones *animacion;
+        Animaciones *animacionAndar;
+        Animaciones *animacionRayo;
         std::vector <IAnimatedMeshSceneNode*> modelos;
 
         Trigger_Ruido* ruido;
