@@ -10,6 +10,10 @@
 #include "SoundManager.h"
 #include "TriggerSystem.h"
 #include "Percibir.h"
+#include <iostream>
+using namespace std;
+//#include "BarraCarga.h"
+
 
 Scene::Scene()
 {
@@ -80,6 +84,15 @@ void Scene::cargarSonidos()
 
 void Scene::inicializar_escena(int nivel){
 
+   /* int segundos=5;
+    for(int i=0; i<=21; i++)
+        cout << "\n";
+    cout << "\t\t\t\t   CARGANDO...\n";
+    for(int i=0; i<=79; i++)
+        cout << "_";
+*/
+
+
     isGameActive = true;
     reintentar = true;
     Structs::TPosicion posicionCamara;
@@ -105,7 +118,9 @@ void Scene::inicializar_escena(int nivel){
     world->inicializar_mundo(nivel);
 
     Mapa = world->getMapa();
+
     player->inicializar_player(Mapa, nivel);
+
     menu_ingame->inicializar_menu(1);
     //GraphicsFacade::getInstance().inicializar_gui(1);
 
@@ -118,8 +133,17 @@ void Scene::inicializar_escena(int nivel){
     SoundMgr->playMusica("Musica/musica_general");
 
     GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
-    bucle_juego(nivel);
     PhisicsWorld::getInstance()->setTimeStamp();
+    /*   for(int i=0; i<=79; i++)
+    {
+        cout<<char(219);//lo que rellena la barra
+        Sleep(segundos*1000/80);
+    }
+    cout<<"\nCompletado!\n";
+    */
+    bucle_juego(nivel);
+
+
 }
 
 void Scene::bucle_juego(int nivel){

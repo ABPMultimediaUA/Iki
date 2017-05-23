@@ -24,7 +24,6 @@ void Menu::cargarSonidos()
     SoundMgr->cargarSonido("Menu/menu_alante");
     SoundMgr->cargarSonido("Menu/menu_alante2");
     SoundMgr->cargarSonido("Menu/menu_atras");
-
     SoundMgr->cargarMusica("Musica/menu_musica");
 }
 
@@ -34,7 +33,6 @@ void Menu::inicializar_menu(int menu){
     GUI* gui = GraphicsFacade::getInstance().getGUI();
 
     cargarSonidos();
-
     SoundMgr->playMusica("Musica/menu_musica");
 
     ///MENU

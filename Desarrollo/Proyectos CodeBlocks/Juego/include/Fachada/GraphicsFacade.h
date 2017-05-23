@@ -14,6 +14,7 @@ class GraphicsFacade
     friend class MeshSceneNode;
     friend class AnimatedMesh;
     friend class Camera;
+    friend class Animaciones;
 
     public:
 
