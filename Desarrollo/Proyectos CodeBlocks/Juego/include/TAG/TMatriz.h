@@ -10,14 +10,14 @@ using namespace std;
 class TMatriz
 {
     public:
-        TMatriz(mat4 m);
+        TMatriz(glm::mat4 m);
         virtual ~TMatriz();
         //static mat4 G_matriz;
 
     protected:
 
     private:
-        mat4 G_matriz;
+        glm::mat4 G_matriz;
 };
 
 #endif // TMATRIZ_H

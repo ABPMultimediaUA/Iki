@@ -16,13 +16,13 @@ class TTransform : public TEntidad
         virtual ~TTransform();
 
         void identidad();
-        void cargar(mat4 mat);
+        void cargar(glm::mat4 mat);
         void trasponer();
         void trasladar(float x, float y, float z);
         void rotar(float angulo, float x, float y, float z);
         void escalarRel(float x, float y, float z);
         void escalarAbs(float eje);
-        mat4 getMatriz(){return matriz;};
+        glm::mat4 getMatriz(){return matriz;};
 
         void beginDraw();
         void endDraw();
@@ -30,7 +30,7 @@ class TTransform : public TEntidad
     protected:
 
     private:
-        mat4 matriz;
+        glm::mat4 matriz;
 
 
 };

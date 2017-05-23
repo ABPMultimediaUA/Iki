@@ -2,7 +2,7 @@
 
 TTransform::TTransform()
 {
-    matriz = mat4(1.f);
+    matriz = glm::mat4(1.f);
 /*
     TransformedVector = TranslationMatrix * RotationMatrix * ScaleMatrix * OriginalVector;
     !!! BEWARE !!! This lines actually performs the scaling FIRST, and THEN the rotation,
@@ -17,10 +17,10 @@ TTransform::~TTransform()
 
 void TTransform::identidad()
 {
-     matriz = mat4(1.f);
+     matriz = glm::mat4(1.f);
 }
 
-void TTransform::cargar(mat4 mat)
+void TTransform::cargar(glm::mat4 mat)
 {
     matriz = mat;
 
@@ -106,6 +106,8 @@ void TTransform::beginDraw()
     //std::cout<<"apilando matriz"<<std::endl;
 
     ms_gmatriz= ms_gmatriz * matriz;
+
+
    // std::cout<<"multiplicando la transformacion a la actual"<<std::endl;
 }
 

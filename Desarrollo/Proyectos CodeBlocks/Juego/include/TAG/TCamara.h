@@ -17,7 +17,7 @@ class TCamara : public TEntidad
         void calculateOthers();
         void setPerspectiva(float grad, int anch, int alt, float cer, float lej);
         void setParalela(float izq, float dch, float inf, float sup, float cer, float lej);
-        mat4 getMatrizProyeccion() const;
+        glm::mat4 getMatrizProyeccion() const;
         void beginDraw();
         void endDraw();
 
@@ -28,7 +28,7 @@ class TCamara : public TEntidad
     private:
         bool esPerspectiva;
         float superior, inferior, izquierda, derecha, cercano, lejano, ancho, alto, viewpoint;
-        mat4 m_perspectiva, m_paralela;
+        glm::mat4 m_perspectiva, m_paralela;
         vec3 v_posicion;
 };
 

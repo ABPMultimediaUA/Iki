@@ -1,6 +1,6 @@
 #include "TMatriz.h"
 
-TMatriz::TMatriz(mat4 m)
+TMatriz::TMatriz(glm::mat4 m)
 {
     G_matriz = m;
 }

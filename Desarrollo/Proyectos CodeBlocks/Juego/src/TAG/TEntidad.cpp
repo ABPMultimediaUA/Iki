@@ -1,7 +1,7 @@
 #include "TEntidad.h"
 
-mat4 TEntidad::ms_gmatriz= mat4(1.f);
-stack<mat4> TEntidad::pila;
+glm::mat4 TEntidad::ms_gmatriz= glm::mat4(1.f);
+stack<glm::mat4> TEntidad::pila;
 
 
 TEntidad::TEntidad()

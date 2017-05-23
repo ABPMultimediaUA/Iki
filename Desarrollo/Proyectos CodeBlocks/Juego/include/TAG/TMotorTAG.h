@@ -1,16 +1,16 @@
 #ifndef TMOTORTAG_H
 #define TMOTORTAG_H
 
-#include "TShader.h"
-#include "TNodo.h"
-#include "TTransform.h"
-#include "TLuz.h"
-#include "TCamara.h"
-#include "TMalla.h"
-#include "TGestorRecursos.h"
-#include "TAnimacion.h"
-#include <SFML/Graphics.hpp>
 
+#include "TNodo.h"
+
+#include "TGestorRecursos.h"
+#include "TShader.h"
+
+
+
+class TTransform;
+class TLuz;
 
 class TMotorTAG
 {
@@ -30,7 +30,7 @@ class TMotorTAG
         TNodo *getCamaraActiva();
 
 
-
+        TShader *getShader() {return shader;}
         int registrarLuz(TNodo* nod);
         int registrarCamara(TNodo* nod);
 
@@ -43,10 +43,13 @@ class TMotorTAG
         void drawCamaras();
         void draw();
 
+
+
     protected:
 
     private:
         TNodo* escena;
+        TShader* shader;
         TGestorRecursos *gestorRecursos;
 
         vector<bool> l_activa, c_activa;

@@ -211,6 +211,8 @@ bool TRecursoMalla::InitMaterials(const aiScene* pScene, const std::string& File
 void TRecursoMalla::beginDraw()
 {
     Render();
+    //Pasamos la matriz model
+   shai->getShader()->setUniform(TShader::Uniforms::MODEL_VIEW_MTX, ms_gmatriz);
 }
 
 void TRecursoMalla::endDraw()

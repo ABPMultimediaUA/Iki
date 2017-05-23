@@ -3,7 +3,7 @@
 
 
 #include "TGestorRecursos.h"
-#include "TMotorTAG.h"
+//#include "TMotorTAG.h"
 
 #include <glm/gtx/string_cast.hpp>
 #include <iostream>
@@ -17,18 +17,7 @@ TMalla::~TMalla()
 
 void TMalla::beginDraw()
 {
-
-		/*	m_MV = TCamara::viewMatrix * TTransform::pila.top();
-			m_MVP = TCamara::viewProjectionMatrix * TTransform::pila.top();
-			m_NormalMatrix = glm::transpose(glm::inverse(m_MV));
-
-            printMatrices();
-
-			TMotorTAG::TAGShader.setUniform(TShader::Uniforms::MV_U, m_MV);
-			TMotorTAG::TAGShader.setUniform(TShader::Uniforms::MVP_U, m_MVP);
-			TMotorTAG::TAGShader.setUniform(TShader::Uniforms::NORMAL_U, m_NormalMatrix);*/
-
-			m_RecursoMalla->beginDraw();
+    m_RecursoMalla->beginDraw();
 }
 
 void TMalla::endDraw()

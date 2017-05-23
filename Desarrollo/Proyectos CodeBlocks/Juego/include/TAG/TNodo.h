@@ -2,13 +2,14 @@
 #define TNODO_H
 
 #include <iostream>
-#include "TEntidad.h"
+
 #include "TVector.h"
 #include "TTransform.h"
 #include <vector>
 
 using namespace std;
 
+class TEntidad;
 class TNodo
 {
     public:

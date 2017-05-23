@@ -6745,13 +6745,13 @@
 1491853244 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_torreta.h
 	<Trigger.h>
 
-1494695832 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1495512279 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"Game.h"
 	<iostream>
 	"TDisplay.h"
 	"TDraw2D.h"
 	"TMotorTAG.h"
-	"TShader.h"
+	"TCamara.h"
 
 1491148234 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\game.h
 
@@ -10362,31 +10362,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1494638614 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
-	"TShader.h"
+1495506632 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmotortag.h
 	"TNodo.h"
-	"TTransform.h"
-	"TLuz.h"
-	"TCamara.h"
-	"TMalla.h"
 	"TGestorRecursos.h"
-	"TAnimacion.h"
-	<SFML/Graphics.hpp>
+	"TShader.h"
 
-1495119979 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
+1495508036 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tshader.h
 	<glew.h>
 	"TTransform.h"
 	"TCamara.h"
 	<iostream>
 	<fstream>
 	<string>
+	<glm/gtc/type_ptr.hpp>
 
-1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\ttransform.h
+1495503453 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\ttransform.h
 	<iostream>
 	<TEntidad.h>
 	<GL/gl.h>
 
-1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tentidad.h
+1495503528 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tentidad.h
+	<glew.h>
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<stack>
@@ -10854,14 +10850,13 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1494513077 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tcamara.h
+1495503453 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tcamara.h
 	<iostream>
 	<vector>
 	<TEntidad.h>
 
-1495122635 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
+1495503177 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
 	<iostream>
-	"TEntidad.h"
 	"TVector.h"
 	"TTransform.h"
 	<vector>
@@ -10878,7 +10873,7 @@
 	"TShader.h"
 	<string>
 
-1494327961 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecursomalla.h
+1495507373 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecursomalla.h
 	<glew.h>
 	<glm\glm.hpp>
 	<TEntidad.h>
@@ -11146,14 +11141,14 @@
 	"TAnimacion.h"
 	<sstream>
 
-1494512286 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
+1495503453 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
 	"TCamara.h"
 	"TLinea.h"
 
 1494691971 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
 	"TDisplay.h"
 
-1489662322 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
+1495505371 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
 	"TEntidad.h"
 
 1494357985 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tgestorrecursos.cpp
@@ -11162,37 +11157,42 @@
 1495122602 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tluz.cpp
 	"TLuz.h"
 
-1491324987 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
+1495502447 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
 	"TMalla.h"
 	"TTransform.h"
 	"TGestorRecursos.h"
-	"TMotorTAG.h"
 	<glm/gtx/string_cast.hpp>
 	<iostream>
 
 1491326834 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmallacache.cpp
 	"TMallaCache.h"
 
-1489662322 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmatriz.cpp
+1495503453 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmatriz.cpp
 	"TMatriz.h"
 
-1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmatriz.h
+1495503453 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tmatriz.h
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1494512266 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
+1495512287 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
 	"TMotorTAG.h"
-	"TShader.h"
+	"TTransform.h"
+	"TMalla.h"
+	"TLuz.h"
+	"TCamara.h"
+	"TAnimacion.h"
+	<SFML/Graphics.hpp>
 
-1491326291 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tnodo.cpp
+1495503176 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tnodo.cpp
 	"TNodo.h"
+	"TEntidad.h"
 
 1489662322 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecurso.cpp
 	"TRecurso.h"
 
 1489662322 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecurso.h
 
-1494694943 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
+1495507075 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
 	"TRecursoMalla.h"
 	"TGestorRecursos.h"
 	"TMalla.h"
@@ -11202,7 +11202,7 @@
 	"TRecursoMaterial.h"
 	"TMotorTAG.h"
 
-1494694416 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
+1495510200 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tshader.cpp
 	"TShader.h"
 
 1494693880 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttextura.cpp
@@ -11211,7 +11211,7 @@
 1491325127 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttexturacache.cpp
 	"TTexturaCache.h"
 
-1491326359 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
+1495504847 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
 	"TTransform.h"
 
 1494696361 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\teventreceiver.cpp
@@ -11661,4 +11661,24 @@
 
 1494695086 source:c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdraw2d.cpp
 	"TDraw2D.h"
+
+1492687283 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1492687283 c:\users\adri\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\glm\gtc\type_ptr.inl
+	<cstring>
 

@@ -1,6 +1,7 @@
 #ifndef TENTIDAD_H
 #define TENTIDAD_H
 
+#include <glew.h>
 #include <glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <stack>
@@ -21,8 +22,8 @@ class TEntidad
 
 
     protected:
-        static mat4 ms_gmatriz;
-        static stack<mat4> pila;
+        static glm::mat4 ms_gmatriz;
+        static stack<glm::mat4> pila;
 
     private:
 

@@ -1,6 +1,6 @@
 #include "TShader.h"
 
-mat4 TShader::viewMatrix;
+glm::mat4 TShader::viewMatrix;
 
 TShader::TShader(const string& FileName)
 {
@@ -17,13 +17,37 @@ TShader::TShader(const string& FileName)
 	glBindAttribLocation(m_programa, 1, "texCoord");
 	glBindAttribLocation(m_programa, 2, "normal");
 
+
+    std::cout<<glGetError()<<std::endl;
 	glLinkProgram(m_programa);
 	CheckShaderError(m_programa, GL_LINK_STATUS,true,"Error: Program linking failed");
 
 	glValidateProgram(m_programa);
 	CheckShaderError(m_programa, GL_VALIDATE_STATUS, true, "Error: Program is invalid");
+/*
+    //Pasamos la matriz de proyeccion
+    m_uniforms[PROJECTION_MTX] = glGetUniformLocation(m_programa,  "projection");
+    glUniformMatrix4fv(m_uniforms[PROJECTION_MTX], 1, GL_FALSE, camera->getMatrizProyeccion());
+*/
+	//Pasamos la matriz view
+	m_uniforms[VIEW_MTX] = glGetUniformLocation(m_programa, "view");
+	glUniformMatrix4fv(m_uniforms[VIEW_MTX], 1, GL_FALSE, glm::value_ptr(TShader::viewMatrix));
+/*
+	//Pasamos la matriz model
+    m_uniforms[MODEL_VIEW_MTX] = glGetUniformLocation(m_programa, "model");
+    glUniformMatrix4fv(m_uniforms[MODEL_VIEW_MTX], 1, GL_FALSE, ms_gmatriz);
 
-	m_uniforms[TRANSFORM_U] = glGetUniformLocation(m_programa, "transform");
+*/
+    //Pasamos el vector posicion de la luz
+    m_uniforms[LIGHT_POSITION] = glGetUniformLocation(m_programa, "lightPos");
+    glUniform3f(m_uniforms[LIGHT_POSITION], 0, 0, 0);
+
+    //Pasamos el color de la luz
+    m_uniforms[LIGHT_COLOR] = glGetUniformLocation(m_programa, "lightColor");
+    glUniform3f(m_uniforms[LIGHT_COLOR], 1.f, 1.f, 1.f);
+
+
+	//m_uniforms[TRANSFORM_U] = glGetUniformLocation(m_programa, "transform");
 	std::cout<<"Shader cargado"<<std::endl;
 }
 
@@ -46,10 +70,11 @@ void TShader::Bind()
 
 void TShader::Update(TCamara* camera)
 {
-    glm::mat4 model = camera->getMatrizProyeccion() * TShader::viewMatrix ;
-	glUniformMatrix4fv(m_uniforms[TRANSFORM_U], 1, GL_FALSE, &model[0][0]);
+    glUniformMatrix4fv(m_uniforms[VIEW_MTX], 1, GL_FALSE, glm::value_ptr(TShader::viewMatrix));
+    glUniformMatrix4fv(m_uniforms[PROJECTION_MTX], 1, GL_FALSE, glm::value_ptr(camera->getMatrizProyeccion()));
+    //glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(ms_gmatriz));
 
-	glUseProgram(0);
+ 	glUseProgram(0);
 }
 
 void TShader::CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const string& errorMessage)
@@ -127,4 +152,39 @@ GLuint TShader::CreateShader(const std::string& text, GLenum shaderType)
 
 
 	return shader;
+}
+
+void TShader::setUniform(const GLuint& id, float x, float y, float z)
+{
+	glUniform3f(m_uniforms[id], x, y, z);
+}
+
+void TShader::setUniform(const GLuint& id, const glm::vec3& v)
+{
+	glUniform3fv(m_uniforms[id], 1, &v[0]);
+}
+
+void TShader::setUniform(const GLuint& id, const glm::vec4& v)
+{
+	glUniform4fv(m_uniforms[id], 1, &v[0]);
+}
+
+void TShader::setUniform(const GLuint& id, const glm::mat4& m)
+{
+	glUniformMatrix4fv(m_uniforms[id], 1, GL_FALSE, glm::value_ptr(m));
+}
+
+void TShader::setUniform(const GLuint& id, const glm::mat3& m)
+{
+	glUniformMatrix3fv(m_uniforms[id], 1, GL_FALSE, glm::value_ptr(m));
+
+}
+void TShader::setUniform(const GLuint& id, float val)
+{
+	glUniform1f(m_uniforms[id], val);
+}
+
+void TShader::setUniform(const GLuint& id, int val)
+{
+	glUniform1i(m_uniforms[id], val);
 }

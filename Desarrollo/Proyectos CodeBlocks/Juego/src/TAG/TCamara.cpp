@@ -49,7 +49,7 @@ void TCamara::calculateOthers(){
     }
 }
 
-mat4 TCamara::getMatrizProyeccion() const
+glm::mat4 TCamara::getMatrizProyeccion() const
 {
     if(esPerspectiva)
         //return m_perspectiva;

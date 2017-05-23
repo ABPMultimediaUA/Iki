@@ -4,7 +4,7 @@
 #include "TDisplay.h"
 #include "TDraw2D.h"
 #include "TMotorTAG.h"
-#include "TShader.h"
+#include "TCamara.h"
 
 
 
@@ -30,7 +30,7 @@ int main()
     TDraw2D hud("./resources/res/tuerca.png", tam);
 
     TNodo *nodoMalla = motor->crearMalla("./resources/res/cube2.obj");
-    TShader shader = motor->cargarShader("./resources/res/basicShader");
+    //motor->cargarShader("./resources/res/basicShader");
     TNodo *nodoAnimacion = motor->cargarAnimacion("./resources/res/animacion/mini_knight_fem_",20);
 
     hud.setPosition(20, 20);
@@ -45,10 +45,10 @@ int main()
         window.Clear(0.0f, 0.15f, 0.3f, 1.0f);
         window.Update();
 
-        shader.Bind();
+        motor->getShader()->Bind();
 
         motor->draw();
-        shader.Update(cCamara);
+        motor->getShader()->Update(cCamara);
 
         window.Draw2(); //m_window.pushGLStates();
 

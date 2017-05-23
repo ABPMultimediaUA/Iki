@@ -1,4 +1,4 @@
-#version 400
+#version 330 core
 
 attribute vec3 position;
 attribute vec2 texCoord;
@@ -7,11 +7,13 @@ attribute vec3 normal;
 varying vec2 texCoord0;
 varying vec3 normal0;
 
-uniform mat4 transform;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
 
 void main()
 {
-	gl_Position = transform * vec4(position, 1.0);
+	gl_Position = projection * view *  model * vec4(position, 1.0);
 	texCoord0 = texCoord;
-	normal0 = (transform * vec4(normal, 0.0)).xyz;
+	normal0 = (model * vec4(normal, 0.0)).xyz;
 }

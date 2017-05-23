@@ -1,4 +1,5 @@
 #include "TNodo.h"
+#include "TEntidad.h"
 
 TNodo::TNodo()
 {
