@@ -12,7 +12,6 @@
 Player::Player()
 {
     rayo = new Player_Ray();
-    vida = 5;
 }
 
 Player::~Player()
@@ -26,7 +25,7 @@ void Player::inicializar_player(Map* m, int nivel){
 
     velocidad = 0.5;
     id = 0;
-    vida = 5;
+    vida = 100;
     EntityMgr->registrarEntity(this);
 
     Mapa = m;
@@ -40,8 +39,10 @@ void Player::inicializar_player(Map* m, int nivel){
     if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
-     animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f);
-     modelos = animacionAndar->getModelosAnimacion();
+    //aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
+
+    animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f);
+    modelos = animacionAndar->getModelosAnimacion();
     //animacionAndar->setTexture("resources/Texturas/Protatextura.png");
     //animacionAndar->setScale(2.3);
 
@@ -85,6 +86,8 @@ void Player::inicializar_player(Map* m, int nivel){
     isMoving = false;
     nivel_acabado = false;
     reintentar = false;
+
+    HUD::getInstance()->inicializar_HUD();
 }
 void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     angulo = atan2f((p1.Z-posicion.Z) ,
@@ -243,6 +246,11 @@ void Player::calcularMirarHacia(Structs::TPosicion mousePos){
     mirarHacia = mousePos - getPosition();
 }
 
+void Player::CogerVida(){
+    vida+=20;
+    if (vida > 100) vida = 100;
+}
+
 void Player::CogerLlave(){
     llaves++;
     HUD::getInstance()->activateTarjeta();
@@ -275,8 +283,105 @@ void Player::desmostrarMensajePalanca(){
     HUD::getInstance()->desactivatePalanca();
 }
 
-void Player::update(Camera* camara){
+void Player::calcularAngulo(Structs::TPosicion p1){
+    angulo = atan2f((p1.Z-posicion.Z) ,
+                -(p1.X-posicion.X)) * 180.f / irr::core::PI;
+}
 
+void Player::UpdateRayo(Camera* camara){
+    rayo->borrar_rayo();
+
+    if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
+        HUD::getInstance()->rayoNotUsed();
+    }
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
+        if(rayo->getBalas() > 0){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
+
+                HUD::getInstance()->rayoUsed();
+                GraphicsFacade::getInstance().cambiarRay(camara);
+                GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
+                angulo = atan2f((mousePosition.Z-posicion.Z) , -(mousePosition.X-posicion.X)) * 180.f / irr::core::PI;
+                body->SetTransform(body->GetPosition(), angulo);
+
+                posicion = {body->GetPosition().x, 0, body->GetPosition().y};
+                //aniMesh->setPosition(posicion);
+                //aniMesh->setRotation(body->GetAngle());
+                //std::cout << angulo << std::endl;
+                animacionAndar->setRotation(angulo);
+                moverBody(quietoParado);
+                listaEjes.clear();
+
+
+                rayo->lanzar_rayo(posicion);
+                SoundMgr->playSonido("Player/disparoprota");
+            }
+        }
+        else{
+            if (!SoundMgr->isPlaying("Player/error"))
+                SoundMgr->playSonido("Player/error");
+            HUD::getInstance()->activateNotMunicion();
+        }
+    }
+}
+
+void Player::UpdateAtaque(){
+    if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
+
+        moverBody(quietoParado);
+        listaEjes.clear();
+
+        std::vector<Enemy*> enemies = EntityManager::Instance()->getEnemigos();
+        for(size_t i = 0; i < enemies.size(); i++){
+            if(enemies[i]->getPosition().Distance(this->getPosition()) < 8.f){
+                if(imSeeingThisEnemy(enemies[i])){
+                    if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30){
+                        SoundMgr->playSonido("Player/metal1");
+                        enemies[i]->setVida(0);
+                        enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
+                    }
+                    else{
+                        enemies[i]->quitarVida();
+                    }
+                }
+               }
+        }
+    }
+}
+
+void Player::UpdateMov(Camera* camara){
+    if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
+
+        GraphicsFacade::getInstance().cambiarRay(camara);
+        //listaNodos.clear();
+        listaEjes.clear();
+        GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
+        calcularMirarHacia(mousePosition);
+        //path->crearPath(posicion,mousePosition,listaNodos);
+        path2->crearPath(mousePosition,listaEjes);
+        //path2->SmoothPathEdgesQuick(listaEjes);
+        //it=listaNodos.begin();
+        it2=listaEjes.begin();
+    }
+
+    if(!listaEjes.empty() && it2 != listaEjes.end())
+        toNextNodo = (*it2).getDestination() - posicion;
+    else
+        toNextNodo=quietoParado;
+
+    if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
+    {
+        moverBody(quietoParado);
+        if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
+            it2++;
+    }
+    else
+    { //CUANDO AUN NO HA LLEGADO A UN NODO
+        MoverPlayer((*it2).getDestination(),toNextNodo);
+    }
+}
+
+void Player::update(Camera* camara){
     if(vida == 0){
         SoundMgr->stopAll();
         HUD::getInstance()->GameOver();
@@ -288,79 +393,10 @@ void Player::update(Camera* camara){
         avMovement = deltaTime * 600;
 
         TriggerRuido();
-
-        rayo->borrar_rayo();
-
-        if(rayo->getBalas() > 0 && GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
-            HUD::getInstance()->rayoNotUsed();
-        }
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_W)){
-            if(rayo->getBalas() > 0){
-                if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - rayo->getVidaRayo() > 1.5){
-                    HUD::getInstance()->rayoUsed();
-                    GraphicsFacade::getInstance().cambiarRay(camara);
-                    rayo->lanzar_rayo(posicion);
-                    SoundMgr->playSonido("Player/disparoprota");
-                }
-            }
-            else{
-                if (!SoundMgr->isPlaying("Player/error"))
-                    SoundMgr->playSonido("Player/error");
-                HUD::getInstance()->activateNotMunicion();
-            }
-        }
-
-        if(MyEventReceiver::getInstance().GetMouseState().RightButtonDown){
-
-            GraphicsFacade::getInstance().cambiarRay(camara);
-            //listaNodos.clear();
-            listaEjes.clear();
-            GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
-            calcularMirarHacia(mousePosition);
-            //path->crearPath(posicion,mousePosition,listaNodos);
-            path2->crearPath(mousePosition,listaEjes);
-            //path2->SmoothPathEdgesQuick(listaEjes);
-            //it=listaNodos.begin();
-            it2=listaEjes.begin();
-
-        }
-
-        if(MyEventReceiver::getInstance().isKeyDown(KEY_KEY_Q)){
-            std::vector<Enemy*> enemies = EntityManager::Instance()->getEnemigos();
-            for(size_t i = 0; i < enemies.size(); i++){
-                if(enemies[i]->getPosition().Distance(this->getPosition()) < 8.f){
-                    if(imSeeingThisEnemy(enemies[i])){
-                        if(enemies[i]->getAngulo() - 30 < angulo + 30 && enemies[i]->getAngulo() + 30 > angulo - 30){
-                            SoundMgr->playSonido("Player/metal1");
-                            enemies[i]->setVida(0);
-                            enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
-                        }
-                        else{
-                            enemies[i]->quitarVida();
-                            if(enemies[i]->getVida() == 0)
-                                enemies[i]->GetFSM()->ChangeState(Muerto::Instance());
-                        }
-                    }
-                }
-            }
-        }
-        if(!listaEjes.empty() && it2 != listaEjes.end())
-            toNextNodo = (*it2).getDestination() - posicion;
-        else
-            toNextNodo=quietoParado;
-
-        if(toNextNodo.Length() <= 1) //CUANDO LLEGA AL NODO
-        {
-            moverBody(quietoParado);
-            if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
-                it2++;
-        }
-        else
-        { //CUANDO AUN NO HA LLEGADO A UN NODO
-            MoverPlayer((*it2).getDestination(),toNextNodo);
-        }
         sonidosMovimiento();
+
+        UpdateAtaque();
+        UpdateRayo(camara);
+        UpdateMov(camara);
     }
-
-
 }

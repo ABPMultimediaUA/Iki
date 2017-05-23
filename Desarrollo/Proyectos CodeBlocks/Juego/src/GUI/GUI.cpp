@@ -66,8 +66,9 @@ void GUI::draw(int draw_type){
 
 void GUI::clean(){
     componentes.clear();
+    HUD::getInstance()->clean();
 }
 
-void GUI::inicializar_hd(){
+/*void GUI::inicializar_hd(){
     HUD::getInstance()->inicializar_HUD();
-}
+}*/

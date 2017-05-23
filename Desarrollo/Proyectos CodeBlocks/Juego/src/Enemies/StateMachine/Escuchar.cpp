@@ -24,10 +24,9 @@ void Escuchar::Execute(Enemy* enemigo)
 
     if(enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         enemigo->GetFSM()->ChangeState(Escanear::Instance());
-        std::cout << "te he visto tete" << std::endl;
     }
 
-    else if (enemigo->getSospecha() > 90){
+    else if (enemigo->getSospecha() > 75){
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
         enemigo->GetFSM()->ChangeState(Investigar::Instance());
     }
@@ -48,7 +47,7 @@ bool Escuchar::OnMessage(Enemy* enemigo, const Mensaje& msg)
     {
         case Msg_NeedHelp:
         {
-            std::cout<<"recibo el mensajeee"<<std::endl;
+            //std::cout<<"recibo el mensajeee"<<std::endl;
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
         }
     }*/

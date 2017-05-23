@@ -63,7 +63,7 @@ class Enemy : public GameEntity
         void actualizarMemoriaOido(GameEntity*);
         void init(Map* m);
         void resetTime() { tiempoEnEstado = 0;}
-        void restarSospecha(float s){sospecha=sospecha-s;}
+        void restarSospecha(float s){sospecha-=s;}
         void resetSospecha() {sospecha=0; questionMark->setVisible(false);}
         void crearBody();
         void crearPath(Structs::TPosicion destino);
@@ -84,21 +84,22 @@ class Enemy : public GameEntity
         void activeAtaque(bool b){modeloAtaque->setVisible(b);}
         void scanTimerToZero(){scanAngle=0;scanT=0;}
         void matar();
-        void subirSospecha();
+        void subirSospecha(float);
+        void showExcMark(bool);
 
     protected:
 
         MeshSceneNode* holoScan;
+        MeshSceneNode* excMark;
         MeshSceneNode* questionMark;
         MeshSceneNode* modeloAtaque;
-        int tipo,direccion,posVigilando;
-        float bateria;
+        int tipo,direccion,posVigilando, bateria;
         PatrolRoute* ruta;
         PatrolPoint* pRuta;
         float sospecha,angulo,avMovement,deltaTime,distanciaPlayer;
         Structs::TPosicion posinit,posaux;
         Map* Mapa;
-        f32 tiempoEnEstado, time_since_hitted, scanT;
+        f32 tiempoEnEstado, time_since_hitted, scanT, sTime, bateriaT;
         StateMachine<Enemy>* G_stateMachine;
         Structs::TPosicion mirandoHacia;
         Structs::TPosicion vectorProta;

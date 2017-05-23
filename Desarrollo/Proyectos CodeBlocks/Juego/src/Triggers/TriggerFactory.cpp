@@ -6,6 +6,7 @@
 #include "Trigger_Puerta.h"
 #include "Trigger_PuertaLlave.h"
 #include "Trigger_Llave.h"
+#include "Trigger_Engranaje.h"
 #include "Trigger_Municion.h"
 #include "Trigger_Aceite.h"
 #include "Trigger_Torreta.h"
@@ -40,18 +41,33 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //Region
         trigger->AddCircularRegion(centro,5.f);
         //modelo
-        modelo = new AnimatedMesh("resources/Modelos/apisonadora-soporte.obj", {0,0,128,128}, centro, r);
+        modelo = new AnimatedMesh("resources/Modelos/soporte.obj", {0,0,128,128}, centro, r);
+        modelo->setTexture("resources/Texturas/soporte.png");
         trigger->setMesh(modelo);
         static_cast<Trigger_Apisonadora*>(trigger)->setPosicionPlancha();
+    }
+    else if (tipo == 2){
+        trigger = new Trigger_Engranaje();
+        //region
+        trigger->AddCircularRegion(centro,1.f);
+        //modelo;
+        modelo = new AnimatedMesh("resources/Modelos/engranaje2.obj", {0,0,0,140}, centro, r);
+        modelo->setTexture("resources/Texturas/engranaje2.png");
+        modelo->setScale({2,2,2});
+        modelo->setPosition({x, 0.5, z});
+        //modelo->setRotationXYZ(90,90,1);
+        trigger->setMesh(modelo);
     }
     else if (tipo == 3){
         trigger = new Trigger_Llave();
         //region
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
-        modelo = new AnimatedMesh("resources/Modelos/Tarjeta.obj", {0,100,149,237}, centro, r);
-        modelo->setTexture("resources/Texturas/tarjetaTex.png");
+        modelo = new AnimatedMesh("resources/Modelos/Tarjeta2.obj", {0,100,149,237}, centro, r);
+        modelo->setTexture("resources/Texturas/Tarjeta2.png");
+        modelo->setScale({2,2,2});
         modelo->setPosition({x, 0.5, z});
+        //modelo->setRotationXYZ(180,180,180);
         trigger->setMesh(modelo);
     }
     else if (tipo == 4){
@@ -104,7 +120,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     else if (tipo == 9){
         trigger = new Trigger_Torreta(x,z,r);
         //Region
-        trigger->AddCircularRegion(centro,20);
+        trigger->AddCircularRegion(centro,15);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, r);
         trigger->setMesh(modelo);

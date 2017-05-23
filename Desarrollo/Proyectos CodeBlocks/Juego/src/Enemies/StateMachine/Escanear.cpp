@@ -41,8 +41,8 @@ void Escanear::Execute(Enemy* enemigo){
     enemigo->escanear();
 
     if(enemigo->getTiempo()>2){
-        std::cout<<"ID: "<< enemigo->ID()<<"sospecha: "<<enemigo->getSospecha()<<std::endl;
-        if(enemigo->getSospecha()>=99){
+        //std::cout<<"ID: "<< enemigo->ID()<<"Sospecha: "<<enemigo->getSospecha()<<std::endl;
+        if(enemigo->getSospecha()>=95){
             ///COMBATEEE
             switch(enemigo->getTipo()){
             case 1:
@@ -58,14 +58,14 @@ void Escanear::Execute(Enemy* enemigo){
                 break;
             }
         }
-        else if( enemigo->getSospecha() < 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        else if( enemigo->getSospecha() < 55 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
             enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
             if(enemigo->GetFSM()->wasInState(*Investigar::Instance()))
                 enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
             else
                 enemigo->GetFSM()->ChangeState(Patrullar::Instance());
         }
-        else if(enemigo->getSospecha() >= 50 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        else if(enemigo->getSospecha() >= 55 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
             enemigo->setPosicionInteres(enemigo->getPosicionProta());
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
         }

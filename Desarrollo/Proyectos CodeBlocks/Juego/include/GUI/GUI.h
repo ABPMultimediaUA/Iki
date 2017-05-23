@@ -22,7 +22,7 @@ class GUI
 
         void draw(int);
         void clean();
-        void inicializar_hd();
+        //void inicializar_hd();
 
     protected:
 

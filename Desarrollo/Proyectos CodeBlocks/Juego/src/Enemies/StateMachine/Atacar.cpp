@@ -31,6 +31,7 @@ void Atacar::Enter(Enemy* enemigo){
 
 void Atacar::Execute(Enemy* enemigo){
 
+    enemigo->showExcMark(true);
     /*if(!enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         enemigo->setPosicionInteres(enemigo->getPosicionProta());
     }*/
@@ -45,6 +46,7 @@ void Atacar::Execute(Enemy* enemigo){
 
 void Atacar::Exit(Enemy* enemigo){
 
+    enemigo->showExcMark(false);
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->soundStop("VocesRobots/Guardia/protocolo_combate");

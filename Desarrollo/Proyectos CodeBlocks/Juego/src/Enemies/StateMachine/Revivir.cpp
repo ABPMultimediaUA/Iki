@@ -16,7 +16,7 @@ void Revivir::Enter(Enemy* enemigo){
 }
 
 void Revivir::Execute(Enemy* enemigo){
-    std::cout<<"Le revivo"<<std::endl;
+    //std::cout<<"Le revivo"<<std::endl;
     if(enemigo->getTiempo()>3){
         static_cast<Medico*>(enemigo)->revivir();
         enemigo->GetFSM()->RevertToPreviousState();

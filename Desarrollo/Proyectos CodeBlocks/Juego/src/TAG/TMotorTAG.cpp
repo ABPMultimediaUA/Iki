@@ -43,8 +43,8 @@ TNodo *TMotorTAG::crearCamara(const vec3& pos, float grad, int anch,int alt, flo
     TTransform *tTraslacion = new TTransform();
     TTransform *tRotacion = new TTransform();
 
-    tTraslacion->trasladar (0.0f, 0.0f, 10.0f);
-    tRotacion->rotar(45.0f, 0.0f, 30.0f, 0.0f);
+    tTraslacion->trasladar (-170.0f, 0.0f, 95.0f);
+    tRotacion->rotar(-26.56f, 1.0f, 0.0f, 0.0f);
 
     TNodo *nTraslacion = new TNodo();
     TNodo *nRotacion = new TNodo();

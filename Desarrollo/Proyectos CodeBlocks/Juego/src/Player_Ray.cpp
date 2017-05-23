@@ -14,7 +14,7 @@ Player_Ray::Player_Ray()
     modelo = new MeshSceneNode("resources/Modelos/disptorre.obj");
     modelo->setTexture("resources/Texturas/rayo_azul.png");
     modelo->setVisible(false);
-    balas = 4;
+    balas = 1000;
     vida = 0;
     input.maxFraction	=	1.0f;
 }

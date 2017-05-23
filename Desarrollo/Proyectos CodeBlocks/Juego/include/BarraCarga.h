@@ -2,7 +2,7 @@
 #define BARRACARGA_H
 
 //#include "winalleg.h"
-#include <allegro.h>
+//#include <allegro.h>
 
 class BarraCarga
 {

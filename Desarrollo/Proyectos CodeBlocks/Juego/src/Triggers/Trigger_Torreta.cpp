@@ -77,7 +77,7 @@ void Trigger_Torreta::Disparar()
         if(anguloProta < 0)
             anguloProta+360;
         if(abs(anguloAtaque - anguloProta) < 15){
-            EntityMgr->getEntityByID(0)->quitarVida();;
+            EntityMgr->getEntityByID(0)->quitarVida(20);;
             solounaveh = true;
         }
     }
@@ -106,11 +106,11 @@ void Trigger_Torreta::Update()
     if (fired){
         calcularAngulo(pProta);
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-        if (tiempo - timer > 2){
+        if (tiempo - timer > 1){
             if (!disparado)
                 Disparar();
             disparado = true;
-            if (tiempo - timer > 2.25){
+            if (tiempo - timer > 1.25){
                 timer = tiempo;
                 disparado = false;
                 solounaveh = false;

@@ -1,623 +1,1175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2620">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2795">
  <properties>
-  <property name="Fin" type="int" value="0"/>
+  <property name="Fin" value="0"/>
  </properties>
- <objectgroup color="#000000" name="Pared">
+ <objectgroup color="#000000" name="Capa de Objetos 5">
+  <object id="2619" x="45.4545" y="199.273">
+   <polyline points="0,0 -8.36364,0.727273 -36.7273,-20.1818"/>
+  </object>
+  <object id="2621" x="56.5455" y="157.273">
+   <polyline points="0,0 -0.909091,-33.0909 -12.1818,-45.0909 -11.8182,-53.6364 -1.81818,-66.5455"/>
+  </object>
+  <object id="2622" x="54.9091" y="90.3636">
+   <polyline points="0,0 -1.45455,-44.1818 3.09091,-49.0909 2.36364,-55.0909 15.6364,-72.3636 40.1818,-75.2727 55.6364,-64 52.9091,-57.8182 63.8182,-51.4545 64,-57.2727"/>
+  </object>
+  <object id="2623" x="119.091" y="33.0909">
+   <polyline points="0,0 65.8182,48.9091"/>
+  </object>
+  <object id="2624" x="185.091" y="82.1818">
+   <polyline points="0,0 -58.5455,51.6364 -66.5455,52.9091 -67.0909,59.0909 -76.7273,63.4545 -76.9091,66 -82.1818,81.6364 -92.5455,82.5455 -93.4545,56.3636 -84.9091,55.4545 -84.5455,50.3636 -80.1818,49.6364 -79.8182,41.4545 -113.455,41.4545 -113.636,49.6364"/>
+  </object>
+  <object id="2626" x="71.4545" y="132.182">
+   <polyline points="0,0 0.909091,21.4545 -5.63636,30.3636 -2.72727,32.9091"/>
+  </object>
+  <object id="2627" x="68.7273" y="165.455">
+   <polyline points="0,0 -5.45455,7.63636 5.27273,16.5455 0,23.4545 -2.54545,26.1818 -5.45455,28 -9.63636,30.5455"/>
+  </object>
+  <object id="2630" x="38.9091" y="182.364">
+   <polyline points="0,0 2.72727,5.81818 5.81818,3.63636 1.81818,-1.63636 -5.09091,-7.09091 -15.4545,7.45455 -19.4545,4.90909 -13.4545,-2.90909 -22.7273,-10.3636"/>
+  </object>
+  <object id="2631" x="22.3636" y="160">
+   <polyline points="0,0 9.27273,7.45455 14.9091,4.36364 29.2727,10 35.6364,-1.09091 34.1818,-2.54545"/>
+  </object>
+  <object id="2633" x="30.1818" y="194.727">
+   <polyline points="0,0 8.72727,-11.8182"/>
+  </object>
+  <object id="2634" x="62.1818" y="114.909">
+   <polyline points="0,0 -7.27273,0.181818 -7.27273,-15.6364 -0.545455,-15.6364 -0.181818,-0.727273"/>
+  </object>
+  <object id="2636" x="72.1818" y="113.273">
+   <polyline points="0,0 24.5455,-0.181818 23.8182,-23.0909 -0.545455,-22.7273 0.181818,-0.181818"/>
+  </object>
+  <object id="2637" x="74" y="81.6364">
+   <polyline points="0,0 20,-0.363636 19.8182,-21.2727 -0.545455,-20.7273 -0.363636,-0.363636"/>
+  </object>
+  <object id="2638" x="79.8182" y="52.1818">
+   <polyline points="0,0 -8,-6 4.36364,-22.3636 20.3636,-9.45455 14.5455,-2 6.54545,-7.63636 0,0"/>
+  </object>
+  <object id="2639" x="106.909" y="51.0909">
+   <polyline points="0,0 10.5455,0 10.7273,20.9091 0.909091,21.0909 0.181818,0.363636"/>
+  </object>
+  <object id="2640" x="111.455" y="79.4545">
+   <polyline points="0,0 -7.81818,1.09091 -9.81818,6.54545 -7.45455,15.6364 -1.09091,14.5455 1.27273,5.81818 -0.181818,-0.181818"/>
+  </object>
+  <object id="2645" x="124.727" y="71.6364">
+   <polyline points="0,0 -0.363636,-16.9091 7.81818,-16.7273 8,-2.18182 24.7273,-2 24.7273,6.72727 8.36364,6.54545 8.18182,0.181818 0,0"/>
+  </object>
+  <object id="2646" x="159.818" y="76.7273">
+   <polyline points="0,0 -9.09091,9.27273 -0.363636,18.3636 8.72727,9.09091 0.545455,-0.181818"/>
+  </object>
+  <object id="2647" x="124.045" y="82.8409">
+   <polyline points="0,0 25.2727,15.2727 16.7273,29.2727 11.6364,33.8182 6.72727,34 10,26 2.90909,21.8182 -7.45455,39.8182 -19.6364,32.7273 -0.181818,0.181818"/>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ffffff" name="Pared" visible="0">
   <properties>
-   <property name="Fin" type="int" value="0"/>
+   <property name="Fin" value="0"/>
   </properties>
   <object id="2494" name="1" x="44.35" y="198.39" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2496" name="2" x="36.02" y="199.1" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2498" name="3" x="7.63" y="177.98" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2499" name="4" x="55.63" y="156.54" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2500" name="5" x="54.78" y="123.07" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2501" name="6" x="43.09" y="111.18" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2502" name="7" x="43.78" y="102.82" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2503" name="8" x="53.89" y="89.54" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2504" name="9" x="52.74" y="45.32" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2505" name="10" x="57.21" y="40.31" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2506" name="11" x="56.23" y="34.5" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2507" name="12" x="69.72" y="17.25" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2508" name="13" x="94.26" y="14.12" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2509" name="14" x="109.46" y="25.54" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2510" name="15" x="106.71" y="31.98" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2511" name="16" x="118.18" y="38.28" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2512" name="17" x="118.18" y="31.98" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2513" name="18" x="183.8" y="81.24" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2514" name="19" x="125.36" y="133.14" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2515" name="20" x="117.51" y="134.13" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2516" name="21" x="116.5" y="140.97" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2517" name="22" x="107.15" y="144.79" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2518" name="23" x="107.08" y="147.31" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2519" name="24" x="101.81" y="163.13" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2520" name="25" x="91.52" y="163.85" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2521" name="26" x="90.62" y="137.45" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2522" name="27" x="99.24" y="136.71" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2523" name="28" x="99.55" y="131.07" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2524" name="29" x="104.13" y="130.96" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2525" name="30" x="104.13" y="122.51" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2526" name="31" x="70.6" y="122.51" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2527" name="32" x="70.6" y="130.64" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2528" name="33" x="71.66" y="152.68" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2529" name="34" x="64.93" y="161.8" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2530" name="35" x="67.88" y="164.37" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2531" name="36" x="62.13" y="172.7" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2532" name="37" x="73.08" y="180.85" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2533" name="38" x="67.39" y="188.27" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2534" name="39" x="64.92" y="190.86" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2535" name="40" x="62.15" y="192.75" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2536" name="41" x="58" y="195.48" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2537" name="42" x="38.29" y="181.71" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2538" name="43" x="40.93" y="187.22" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2539" name="44" x="43.62" y="185.46" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2540" name="45" x="39.65" y="180.01" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2541" name="46" x="33.11" y="175.01" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2542" name="47" x="22.46" y="188.96" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2543" name="48" x="18.75" y="186.21" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2544" name="49" x="24.4" y="178.46" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2545" name="50" x="15.13" y="171.19" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2546" name="51" x="21.42" y="159.38" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2547" name="52" x="30.88" y="166.36" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2548" name="53" x="36.69" y="163.36" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2549" name="54" x="50.98" y="169.26" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2550" name="55" x="56.66" y="157.48" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2551" name="56" x="55.63" y="156.54" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2552" name="57" x="61" y="114.19" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2553" name="58" x="53.88" y="114.19" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2554" name="59" x="53.93" y="98.63" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2555" name="60" x="61" y="98.63" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2556" name="61" x="61" y="114.19" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2557" name="62" x="71.32" y="112.68" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2558" name="63" x="95.66" y="112.21" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2559" name="64" x="95.28" y="89.43" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2560" name="65" x="70.89" y="89.84" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2561" name="66" x="71.32" y="112.68" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2562" name="67" x="72.84" y="80.86" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2563" name="68" x="93.23" y="80.45" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2564" name="69" x="93.04" y="59.98" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2565" name="70" x="72.5" y="60.16" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2566" name="71" x="72.84" y="80.86" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2567" name="72" x="78.78" y="51.53" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2568" name="73" x="70.94" y="45.3" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2569" name="74" x="83.33" y="29.05" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2570" name="75" x="99.65" y="41.86" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2571" name="76" x="93.38" y="49.78" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2572" name="77" x="85.2" y="43.62" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2573" name="78" x="78.78" y="51.53" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2574" name="79" x="106.26" y="50.7" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2575" name="80" x="116.3" y="50.48" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2576" name="81" x="116.53" y="71.06" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2577" name="82" x="106.56" y="71.32" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2578" name="83" x="106.26" y="50.7" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2579" name="84" x="110.2" y="78.5" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2580" name="85" x="102.66" y="79.77" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2581" name="86" x="100.91" y="85.78" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2582" name="87" x="103.17" y="94.22" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2583" name="88" x="109.42" y="92.91" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2584" name="89" x="112" y="84.28" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2585" name="90" x="110.2" y="78.5" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2586" name="91" x="123.7" y="70.74" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2587" name="92" x="123.65" y="53.89" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2588" name="93" x="131.85" y="53.89" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2589" name="94" x="131.85" y="68.86" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2590" name="95" x="148.62" y="68.86" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2591" name="96" x="148.62" y="77.23" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2592" name="97" x="131.85" y="77.24" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2593" name="98" x="131.85" y="70.74" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2594" name="99" x="123.7" y="70.74" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="2595" name="100" x="158.62" y="75.96" width="2" height="2">
-   <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2596" name="101" x="149.62" y="84.85" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2597" name="102" x="158.58" y="94.15" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2598" name="103" x="167.58" y="84.74" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2599" name="104" x="158.62" y="75.96" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2600" name="105" x="123.74" y="80.41" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2601" name="106" x="148.76" y="94.8182" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2602" name="107" x="140.43" y="109.18" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2603" name="108" x="135.13" y="114.2" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2605" name="109" x="130.02" y="114.2" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2606" name="110" x="133.62" y="105.77" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2607" name="111" x="126.44" y="101.69" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2608" name="112" x="116.09" y="119.77" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2609" name="113" x="104.77" y="113.08" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
   <object id="2610" name="114" x="123.74" y="80.41" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
   <object id="2611" name="114" x="29.23" y="194.01" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="0"/>
+    <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2612" name="115" x="38.29" y="181.71" width="2" height="2">
+  <object id="2612" name="115" x="38.29" y="182.074" width="2" height="2">
    <properties>
-    <property name="Fin" type="int" value="1"/>
+    <property name="Fin" value="1"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup color="#ff0000" name="Triggers">
-  <object id="2617" type="1" x="63.2" y="76" width="2" height="2" rotation="90"/>
-  <object id="2618" type="10" x="71" y="81" width="2" height="2" rotation="90"/>
-  <object id="2619" type="10" x="56" y="68" width="2" height="2" rotation="90"/>
  </objectgroup>
  <objectgroup color="#0000ff" name="WayPoints">
-  <object id="2615" name="0" x="51.9091" y="183.727" width="2" height="2">
+  <object id="2615" name="0" x="49" y="190.636" width="2" height="2">
    <properties>
-    <property name="Conecta" value="1"/>
+    <property name="Conecta" value="1,0"/>
    </properties>
   </object>
-  <object id="2616" name="1" x="56.8182" y="170.455" width="2" height="2">
+  <object id="2616" name="1" x="37.5455" y="189.728" width="2" height="2">
    <properties>
     <property name="Conecta" value="0"/>
    </properties>
   </object>
+  <object id="2648" name="2" x="52.7955" y="177.011" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="0,3,6"/>
+   </properties>
+  </object>
+  <object id="2649" name="3" x="35.375" y="168.875" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,4,5"/>
+   </properties>
+  </object>
+  <object id="2651" name="4" x="28.75" y="174.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="3,5"/>
+   </properties>
+  </object>
+  <object id="2754" name="5" x="18" y="163.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="3,4"/>
+   </properties>
+  </object>
+  <object id="2755" name="6" x="62.5" y="157" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,7"/>
+   </properties>
+  </object>
+  <object id="2756" name="7" x="63.75" y="120" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="2,6,8,11,35"/>
+   </properties>
+  </object>
+  <object id="2757" name="8" x="52" y="116" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="7,9"/>
+   </properties>
+  </object>
+  <object id="2758" name="9" x="48.25" y="106" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="8,10"/>
+   </properties>
+  </object>
+  <object id="2759" name="10" x="53.5" y="95.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="9,11,12"/>
+   </properties>
+  </object>
+  <object id="2760" name="11" x="64.75" y="95.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="7,10,12"/>
+   </properties>
+  </object>
+  <object id="2761" name="12" x="67.5" y="85.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="10,11,13,14"/>
+   </properties>
+  </object>
+  <object id="2762" name="13" x="70.5" y="54.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="12,15,16"/>
+   </properties>
+  </object>
+  <object id="2763" name="14" x="96.5" y="84.75" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="12,22"/>
+   </properties>
+  </object>
+  <object id="2764" name="15" x="66.25" y="39.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="13,18"/>
+   </properties>
+  </object>
+  <object id="2765" name="16" x="85" y="54" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="13,17"/>
+   </properties>
+  </object>
+  <object id="2766" name="17" x="99.5" y="54.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="16,20,22"/>
+   </properties>
+  </object>
+  <object id="2767" name="18" x="82" y="25.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="15,19"/>
+   </properties>
+  </object>
+  <object id="2768" name="19" x="96.75" y="30" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="18,20"/>
+   </properties>
+  </object>
+  <object id="2769" name="20" x="106.75" y="41.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="19,17,21"/>
+   </properties>
+  </object>
+  <object id="2770" name="21" x="120" y="44" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="20,24,26"/>
+   </properties>
+  </object>
+  <object id="2771" name="22" x="100.75" y="72.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="14,17,23"/>
+   </properties>
+  </object>
+  <object id="2772" name="23" x="116.5" y="76" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="22,24,25"/>
+   </properties>
+  </object>
+  <object id="2773" name="24" x="120.5" y="68.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="21,23,25"/>
+   </properties>
+  </object>
+  <object id="2774" name="25" x="125.75" y="75.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="23,24,30"/>
+   </properties>
+  </object>
+  <object id="2775" name="26" x="136.25" y="51.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="21,27"/>
+   </properties>
+  </object>
+  <object id="2776" name="27" x="148.25" y="63.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="26,28"/>
+   </properties>
+  </object>
+  <object id="2777" name="28" x="157" y="70.75" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="27,29,30"/>
+   </properties>
+  </object>
+  <object id="2778" name="29" x="172.75" y="84.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="28,31"/>
+   </properties>
+  </object>
+  <object id="2779" name="30" x="143.25" y="86.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="25,28,31"/>
+   </properties>
+  </object>
+  <object id="2780" name="31" x="156" y="100.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="29,30,32"/>
+   </properties>
+  </object>
+  <object id="2781" name="32" x="131.5" y="120.75" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="31,37,38"/>
+   </properties>
+  </object>
+  <object id="2782" name="33" x="100.25" y="97.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="14,34,35"/>
+   </properties>
+  </object>
+  <object id="2783" name="34" x="111.25" y="96.25" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="23,33,35"/>
+   </properties>
+  </object>
+  <object id="2784" name="35" x="99" y="116" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="7,33,34,36"/>
+   </properties>
+  </object>
+  <object id="2785" name="36" x="109" y="123.75" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="35,39,37"/>
+   </properties>
+  </object>
+  <object id="2786" name="37" x="122" y="125" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="32,36,39,38"/>
+   </properties>
+  </object>
+  <object id="2787" name="38" x="125" y="113.75" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="37,32"/>
+   </properties>
+  </object>
+  <object id="2788" name="39" x="108.5" y="136.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="36,40"/>
+   </properties>
+  </object>
+  <object id="2789" name="40" x="99.25" y="145.5" width="2" height="2">
+   <properties>
+    <property name="Conecta" value="39"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#ffff00" name="Patrol">
-  <object id="2613" x="64.4545" y="138.455" width="2" height="2">
+  <object id="2613" x="62.9545" y="134.705" width="2" height="2">
    <properties>
     <property name="Enemigo" value="1"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="1"/>
    </properties>
   </object>
-  <object id="2614" x="58.4545" y="163.909" width="2" height="2">
+  <object id="2614" x="62.9545" y="153.659" width="2" height="2">
    <properties>
     <property name="Enemigo" value="1"/>
     <property name="Next" value="0"/>
    </properties>
   </object>
+  <object id="2687" x="57.375" y="168.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="1"/>
+    <property name="Next" value="1"/>
+   </properties>
+  </object>
+  <object id="2689" x="54.875" y="94.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="1"/>
+   </properties>
+  </object>
+  <object id="2690" x="65.5" y="96.125" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2691" x="66.5" y="117.125" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2692" x="54.125" y="118.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2693" x="48.5" y="103.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="2"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2694" x="99.625" y="75.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="3"/>
+   </properties>
+  </object>
+  <object id="2695" x="119" y="75.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2696" x="136.25" y="81.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2697" x="151.875" y="79.5" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2698" x="151.75" y="63.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2699" x="127.875" y="49.5" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2700" x="120.25" y="52.5" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2701" x="119.5" y="74.125" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2702" x="112.375" y="94.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2703" x="103" y="98.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2704" x="97.75" y="89.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="3"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2705" x="130.375" y="106.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="4"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="1"/>
+   </properties>
+  </object>
+  <object id="2706" x="128.375" y="111.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="4"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2707" x="124.125" y="110.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="4"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2708" x="126.625" y="105.625" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="4"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2709" x="176.25" y="82.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="5"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="1"/>
+   </properties>
+  </object>
+  <object id="2710" x="158.625" y="97.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="5"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2711" x="134.375" y="118.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="5"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2712" x="112.375" y="124.625" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="5"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2713" x="97.375" y="154.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="5"/>
+    <property name="Next" value="1"/>
+   </properties>
+  </object>
+  <object id="2714" x="84.5" y="21" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="6"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="2"/>
+   </properties>
+  </object>
+  <object id="2715" x="102.375" y="37.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="6"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2717" x="97.875" y="151.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+    <property name="Tipo" value="3"/>
+   </properties>
+  </object>
+  <object id="2718" x="110.625" y="130.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2719" x="146" y="110" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2720" x="153.875" y="92.75" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2721" x="142.125" y="84.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2722" x="157.25" y="71.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2723" x="144.5" y="64.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2724" x="131.25" y="46" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2725" x="107.625" y="42.375" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2726" x="96.125" y="27" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2727" x="82.25" y="20.5" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2728" x="67.5" y="33.125" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2729" x="60.875" y="49" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2730" x="79.125" y="55.875" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2731" x="96.875" y="55" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2732" x="99.25" y="77.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2733" x="98.25" y="91" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2734" x="100.375" y="108" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2735" x="104" y="118.25" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="7"/>
+    <property name="Next" value="0"/>
+   </properties>
+  </object>
+  <object id="2738" x="120.75" y="46" width="2" height="2">
+   <properties>
+    <property name="Enemigo" value="6"/>
+    <property name="Next" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff0000" name="Triggers">
+  <object id="2741" type="4" x="58.625" y="50.875" width="2" height="2"/>
+  <object id="2742" type="4" x="57.25" y="47.75" width="2" height="2"/>
+  <object id="2743" type="2" x="60.375" y="46.625" width="2" height="2"/>
+  <object id="2744" type="2" x="127.5" y="108.625" width="2" height="2"/>
+  <object id="2745" type="4" x="96.125" y="158.375" width="2" height="2"/>
+  <object id="2746" type="7" x="99.25" y="68.25" width="2" height="2"/>
+  <object id="2747" type="7" x="177.25" y="80" width="2" height="2"/>
+  <object id="2749" type="4" x="19.478" y="164.633" width="2" height="2" rotation="-236.241"/>
+  <object id="2750" type="9" x="44.8405" y="107.949" width="2" height="2" rotation="-45"/>
+  <object id="2792" type="1" x="63.2" y="76" width="2" height="2" rotation="90"/>
+  <object id="2793" type="10" x="56" y="68" width="2" height="2" rotation="90"/>
+  <object id="2794" type="10" x="71" y="81" width="2" height="2" rotation="90"/>
  </objectgroup>
 </map>

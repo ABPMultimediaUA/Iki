@@ -50,7 +50,7 @@ void Guardia::perseguir(){
         float disancia = posicion.Distance(posicionProta);
         float vel = query.Query(disancia, bateria, 1);
         //if (bateria >= 0) bateria-=vel/250;
-        //std::cout << bateria << "%   " << vel/25 << std::endl;
+        //std::cout << bateria << "%   " << vel << std::endl;
 
         posicion = posicion + toProtaPosition*(avMovement*vel/25);
 
@@ -65,12 +65,9 @@ void Guardia::perseguir(){
 void Guardia::ataque(){
     moverBody(quietoParado);
     if(!ataquePreparado)
-    {
-        cargarAtaque();
-    }
-    else{
-        ejecutarAtaque();
-    }
+        { cargarAtaque(); }
+    else
+        { ejecutarAtaque(); }
 }
 void Guardia::cargarAtaque(){
         atacando = true;
@@ -81,35 +78,51 @@ void Guardia::cargarAtaque(){
         float vidaj = EntityMgr->getEntityByID(0)->getVida();
         float pot = query.Query(vidaj, bateria, 2);
 
+        if (!cargarBateria){
+            if (bateria - pot*2 >= 0){
+                bateria -= pot*2;
+                //std::cout << bateria << "%   " << vidaj << "   " << pot << "/10" << std::endl;
 
-        if (bateria - pot < 5){
+            }else{
+                cargarBateria=true;
+                atacando = false;
+                ataquePreparado = false;
+            }
+        }else{
             atacando = false;
             ataquePreparado = false;
-            bateria += 5;
-            //std::cout << bateria << std::endl;
-        }else{
-            //std::cout << bateria << "%   " << vidaj << "   " << pot << "/10" << std::endl;
-            bateria -= pot/2;
+            f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+            if (tiempo - bateriaT > 0.05){
+                //std::cout << bateria << std::endl;
+                bateriaT = tiempo;
+                if (bateria < 100) bateria += 1;
+                if (bateria == 100) cargarBateria=false;
+            }
         }
 
-        modeloAtaque->setScale({1,1,1});
+        tiempoCarga = pot / 10.0;
+        danyo = pot*2;
+
+        float s = pot/10.0 * 2;
+        modeloAtaque->setScale({s+0.25,1,1});
 
         vectorAtaque = posicionProta - posicion;
         anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
 
         input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
-        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
+        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())* (7.5 + pot)), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())* 5));
 
         distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
-        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
+        posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 1 , (input2.p2.y + input2.p1.y)/2};
 
-        modeloAtaque->setPosition(posicionAtaque);
-        modeloAtaque->setRotation(anguloAtaque);
+        //bnmodeloAtaque->setRotation(0);
+        modeloAtaque->setPosition(posicion);
+        modeloAtaque->setRotationXYZ(0,anguloAtaque,0);
         resetTime();
 }
 void Guardia::ejecutarAtaque(){
 
-        if(tiempoEnEstado > 0.6 && EntityMgr->getEntityByID(0)->getVida() > 0)
+        if(tiempoEnEstado > tiempoCarga && EntityMgr->getEntityByID(0)->getVida() > 0)
         {
             if (sonidoataque) { sonidoataque=false; SoundMgr->playSonido("AccionesRobots/conoelectrico");}
 
@@ -125,7 +138,8 @@ void Guardia::ejecutarAtaque(){
                 if(anguloProta < 0)
                     anguloProta+360;
                 if(abs(anguloAtaque - anguloProta) < 45){
-                    EntityMgr->getEntityByID(0)->quitarVida();;
+                    std::cout << "me da  " << danyo << std::endl;
+                    EntityMgr->getEntityByID(0)->quitarVida(danyo);
                     solounaveh = true;
                 }else{
 

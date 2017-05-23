@@ -34,6 +34,8 @@ void Investigar::Enter(Enemy* enemigo){
 }
 
 void Investigar::Execute(Enemy* enemigo){
+
+    enemigo->showExcMark(true);
     if(enemigo->getDistanciaPlayer()<15 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         if(enemigo->isGuardia() && enemigo->GetFSM()->PreviousState() == Atacar::Instance()){
             enemigo->GetFSM()->ChangeState(Atacar::Instance());
@@ -51,6 +53,7 @@ void Investigar::Execute(Enemy* enemigo){
 
 void Investigar::Exit(Enemy* enemigo){
 
+    enemigo->showExcMark(false);
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->soundStop("VocesRobots/Guardia/investigando");

@@ -4,7 +4,8 @@
 
 Trigger_Apisonadora::Trigger_Apisonadora(float x, float z, float r)
 {
-    plancha = new MeshSceneNode("resources/Modelos/apisonadora-plancha.obj");
+    plancha = new MeshSceneNode("resources/Modelos/plancha.obj");
+    plancha->setTexture("resources/Texturas/plancha.png");
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;

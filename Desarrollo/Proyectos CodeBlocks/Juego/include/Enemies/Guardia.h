@@ -13,13 +13,15 @@ class MeshSceneNode;
 class Guardia : public Enemy
 {
     private:
-        bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque;
+        bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque, cargarBateria;
+        int danyo;
         float anguloAtaque, distanciaAtaque;
+        f32 tiempoCarga, bateriaT;
         b2Body *bodyAtaque;
         Structs::TPosicion vectorAtaque;
         Structs::TMedida medidaAtaque     = {10,0.5,0.5};
         Structs::TPosicion posicionAtaque = {0,0,0};
-        Structs::TColor colorAtaque       = {0,255,140,0};
+        //Structs::TColor colorAtaque       = {0,255,140,0};
         b2RayCastInput input2;
         b2RayCastOutput	output2;
 
