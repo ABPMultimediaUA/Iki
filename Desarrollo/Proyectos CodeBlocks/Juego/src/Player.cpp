@@ -303,7 +303,7 @@ void Player::UpdateRayo(Camera* camara){
                 //aniMesh->setPosition(posicion);
                 //aniMesh->setRotation(body->GetAngle());
                 //std::cout << angulo << std::endl;
-                aniMesh->setRotation(angulo);
+                animacionAndar->setRotation(angulo);
                 moverBody(quietoParado);
                 listaEjes.clear();
 
