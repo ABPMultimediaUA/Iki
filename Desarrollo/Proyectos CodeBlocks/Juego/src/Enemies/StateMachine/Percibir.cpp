@@ -18,7 +18,7 @@ Percibir* Percibir::Instance()
 }
 
 void Percibir::Enter(Enemy* enemigo){
-    std::cout<<"ID entity 0 al entrar en percibir: "<<EntityMgr->getEntities()[0]->ID()<<std::endl;
+    //std::cout<<"ID entity 0 al entrar en percibir: "<<EntityMgr->getEntities()[0]->ID()<<std::endl;
     entities = EntityMgr->getEntities();
     std::vector<Trigger*> triggers = TriggerSystem::getInstance()->GetTriggers();
     for(int i=0;i < triggers.size();i++){
@@ -58,7 +58,7 @@ void Percibir::Execute(Enemy* enemigo){
         else if(entities[i]->isTrigger() && enemigo->getPosition().Distance(entities[i]->getPosition())<10){
                 enemigo->actualizarMemoriaVision(entities[i]);
                if(enemigo->getEstadoEntity(entities[i]) == 3){
-                    std::cout<<"veo una puerta abierta locoooo"<<std::endl;//si la puerta esta abierta
+                    //std::cout<<"veo una puerta abierta locoooo"<<std::endl;//si la puerta esta abierta
                     //enemigo->GetFSM()->ChangeState(Investigar::Instance());
                }
                // std::cout<<"esto es un puto trigger"<<entities[i]->getPosition().X<<std::endl;

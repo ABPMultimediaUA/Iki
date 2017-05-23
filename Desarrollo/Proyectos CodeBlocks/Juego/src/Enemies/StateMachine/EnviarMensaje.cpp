@@ -16,7 +16,7 @@ EnviarMensaje* EnviarMensaje::Instance()
 void EnviarMensaje::Descargar(GameEntity* receptor, const Mensaje& mensaje)
 {
     if(!receptor->HandleMessage(mensaje)){
-        std::cout<<"No se ha podido enviar el mensaje"<<std::endl;
+        //std::cout<<"No se ha podido enviar el mensaje"<<std::endl;
     }
 }
 

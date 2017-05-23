@@ -71,8 +71,8 @@ void Map::inicializar_mapa(int tipo){
         primera_sala->setTexture("resources/Texturas/sala1.png");
         segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
         segunda_sala->setTexture("resources/Texturas/sala2.png");
-        tercera_sala = new MeshSceneNode("resources/Modelos/mapabueno.obj");
-        tercera_sala->setTexture("resources/Texturas/mapa.png");
+        tercera_sala = new MeshSceneNode("resources/Modelos/nivel1.obj");
+        tercera_sala->setTexture("resources/Texturas/nivel1again.png");
     }
     else{
         docFile->LoadFile("resources/Mapas/Mapita.tmx");
@@ -180,7 +180,7 @@ void Map::inicializar_mapa(int tipo){
                     conectaCon.push_back(fila);
                     object = object->NextSiblingElement("object");
                 }
-                 cout<<"Numero de Nodos Totales "<<Grafo->numNodes()<<endl;
+                 //cout<<"Numero de Nodos Totales "<<Grafo->numNodes()<<endl;
 
                 for (int i=0; i < conectaCon.size();i++){
                     for(int j=0; j < conectaCon[i].size();j++){

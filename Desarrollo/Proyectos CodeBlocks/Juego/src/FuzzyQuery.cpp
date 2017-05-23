@@ -39,9 +39,9 @@ float FuzzyQuery::Query(float x, float y, int type)
     FzSet Bateria_Med  = Bateria.AddTriangularSet("Bateria_Med",25,50,75);
     FzSet Bateria_High = Bateria.AddRightShoulderSet("Bateria_High",50,75,100);
 
-    FzSet VidaJ_Low  = VidaJ.AddLeftShoulderSet("VidaJ_Low",0,1,2);
-    FzSet VidaJ_Med  = VidaJ.AddTriangularSet("VidaJ_Med",2,3,4);
-    FzSet VidaJ_High = VidaJ.AddRightShoulderSet("VidaJ_High",3,4,5);
+    FzSet VidaJ_Low  = VidaJ.AddLeftShoulderSet("VidaJ_Low",0,20,35);
+    FzSet VidaJ_Med  = VidaJ.AddTriangularSet("VidaJ_Med",20,35,70);
+    FzSet VidaJ_High = VidaJ.AddRightShoulderSet("VidaJ_High",35,70,100);
 
     FzSet NivelInvs_Low  = NivelInvs.AddLeftShoulderSet("Invs_Low",0,0,1);
     FzSet NivelInvs_Med  = NivelInvs.AddTriangularSet("Invs_Med",0,1,2);

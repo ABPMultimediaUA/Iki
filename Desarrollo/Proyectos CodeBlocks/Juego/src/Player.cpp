@@ -12,7 +12,6 @@
 Player::Player()
 {
     rayo = new Player_Ray();
-    vida = 5;
 }
 
 Player::~Player()
@@ -26,7 +25,7 @@ void Player::inicializar_player(Map* m, int nivel){
 
     velocidad = 0.5;
     id = 0;
-    vida = 5;
+    vida = 100;
     EntityMgr->registrarEntity(this);
 
     Mapa = m;
@@ -222,8 +221,8 @@ void Player::calcularMirarHacia(Structs::TPosicion mousePos){
 }
 
 void Player::CogerVida(){
-    vida++;
-    //HUD::getInstance()->activateTarjeta();
+    vida+=20;
+    if (vida > 100) vida = 100;
 }
 
 void Player::CogerLlave(){
@@ -282,7 +281,7 @@ void Player::UpdateRayo(Camera* camara){
                 posicion = {body->GetPosition().x, 0, body->GetPosition().y};
                 //aniMesh->setPosition(posicion);
                 //aniMesh->setRotation(body->GetAngle());
-                std::cout << angulo << std::endl;
+                //std::cout << angulo << std::endl;
                 aniMesh->setRotation(angulo);
                 moverBody(quietoParado);
                 listaEjes.clear();

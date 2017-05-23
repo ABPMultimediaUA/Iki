@@ -188,7 +188,10 @@ void HUD::comprobarAvisos(){
 }
 
 void HUD::actualizarVidas(){
-    Structs::TRectangulo rec = {10 + (110 * player->getVida()), 0, 115 + (110 * player->getVida()), 230};
+    int v;
+    int vidas = player->getVida();
+    if (vidas<=100) v = 5;if (vidas<81) v = 4;if (vidas<61) v = 3;if (vidas<41) v = 2;if (vidas<21) v = 1;
+    Structs::TRectangulo rec = {10 + (110 * v), 0, 115 + (110 * v), 230};
     Vida->cambiarRect(rec);
 }
 
@@ -262,7 +265,7 @@ bool HUD::comprobarReintentar(){
 }
 
 void HUD::clean(){
-        Vida             = nullptr;
+    Vida             = nullptr;
     Balas            = nullptr;
     Leyenda          = nullptr;
     LeyendaQ         = nullptr;

@@ -22,8 +22,8 @@ void Enemy::update(){
     if (   G_stateMachine->CurrentState() != Atacar::Instance()
         && G_stateMachine->CurrentState() != Investigar::Instance() ){
 
-        if (bateria < 100.0){
-            bateria += 0.2;
+        if (bateria < 100){
+            bateria += 1;
         }
     }
     if (guessing){
@@ -63,12 +63,16 @@ void Enemy::init(Map* m){
     input.maxFraction	=	1.0f;
 
     time_since_hitted = 0;
+    sTime = 0;
 
     EntityMgr->registrarEntity(this);
     EntityMgr->registrarEnemigo(this);
     questionMark = new MeshSceneNode("resources/Modelos/Interrogacion.obj");
     questionMark->setPosition({posicion.X,6,posicion.Z});
     questionMark->setVisible(false);
+    excMark = new MeshSceneNode("resources/Modelos/exclamation.obj");
+    excMark->setPosition({posicion.X,6,posicion.Z});
+    excMark->setVisible(false);
 
     modeloAtaque = new MeshSceneNode("resources/Modelos/conoray2.obj");
     modeloAtaque->setTexture("resources/Texturas/rojo.png");
@@ -135,7 +139,7 @@ bool Enemy::colisionPuertas(Structs::TPosicion destino){
         if (triggers.at(i)->isPuerta()){
                 //std::cout<<i<<std::endl;
             if (triggers.at(i)->getBody()->GetFixtureList()->RayCast(&output2,input,0)){
-                std::cout<<"entraaaa"<<std::endl;
+                //std::cout<<"entraaaa"<<std::endl;
                 return true;
             }
         }
@@ -169,6 +173,8 @@ void Enemy::setPosition(){
     aniMesh->setPosition(Structs::TPosicion{body->GetPosition().x, 0, body->GetPosition().y});
     questionMark->setPosition({posicion.X,6,posicion.Z});
     questionMark->setRotation(90);
+    excMark->setPosition({posicion.X,6,posicion.Z});
+    excMark->setRotation(90);
 }
 void Enemy::andarPath(float velocidad, Structs::TPosicion posFinal){
 
@@ -317,27 +323,43 @@ void Enemy::actualizarMemoriaVision(GameEntity* entity){
 void Enemy::actualizarMemoriaOido(GameEntity* entity){
     memory->updateSoundSource(entity);
 }
-void Enemy::subirSospecha(){
-    if(sospecha < 100 )
-        sospecha++;;
+void Enemy::showExcMark(bool b){
+    excMark->setVisible(b);
+    questionMark->setVisible(false);
+}
+
+void Enemy::subirSospecha(float tipo){
+    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+    if (tiempo - sTime > tipo){
+        //std::cout << sospecha << std::endl;
+        sTime = tiempo;
+        if (sospecha < 100) sospecha++;
+    }
+
     if(sospecha > 0){
-        questionMark->setVisible(true);
-        if(sospecha>0 && sospecha<25){
-            questionMark->setScale({1,1,1});
-            questionMark->cambiarColor({0,128,255,0});
+        float sos = 1 + sospecha/50;
+        questionMark->setScale({sos,sos,sos});
+        if (   G_stateMachine->CurrentState()!=Atacar::Instance()
+            || G_stateMachine->CurrentState()!=Investigar::Instance() )
+            questionMark->setVisible(true);
+        else
+            questionMark->setVisible(false);
+        /*if(sospecha>0 && sospecha<25){
+            //questionMark->setScale({1,1,1});
+            //questionMark->cambiarColor({0,128,255,0});
         }
         else if(sospecha>=25 && sospecha<=50){
-            questionMark->setScale({1.5,1.5,1.5});
-            questionMark->cambiarColor({0,255,255,0});
+            //questionMark->setScale({1.5,1.5,1.5});
+            //questionMark->cambiarColor({0,255,255,0});
         }
         else if(sospecha>50 && sospecha<75){
-            questionMark->setScale({2,2,2});
-            questionMark->cambiarColor({0,255,153,51});
+            //questionMark->setScale({2,2,2});
+            //questionMark->cambiarColor({0,255,153,51});
         }
         else if(sospecha>=75){
-            questionMark->setScale({2.5,2.5,2.5});
-            questionMark->cambiarColor({0,255,0,0});
-        }
+            //questionMark->setScale({2.5,2.5,2.5});
+            //questionMark->cambiarColor({0,255,0,0});
+        }*/
 
     }
 }
@@ -353,29 +375,27 @@ void Enemy::escanear(){
     }
     holoScan->setRotationXYZ(0,angulo,0);
     holoScan->setPosition(posicion);
-
     activeHoloScan(true);
 
-    if(distanciaPlayer<30 && isEnemySeeing(posicionProta))
+    if(distanciaPlayer<36 && isEnemySeeing(posicionProta))
     {
-        memory->updateVision(EntityMgr->getEntityByID(0));
         calcularAngulo(posicionProta);
         toProtaPosition = posicionProta - posicion;
         mirandoHacia = toProtaPosition;
-        subirSospecha();
+        subirSospecha(distanciaPlayer/1000);
+        memory->updateVision(EntityMgr->getEntityByID(0));
     }
     setPosition();
 }
 void Enemy::escuchar(){
     if(static_cast<Player*>(EntityMgr->getEntityByID(0))->getSpeed() == 2){
-        subirSospecha();
+        calcularAngulo(posicionProta);
+        toProtaPosition = posicionProta - posicion;
+        mirandoHacia= toProtaPosition;
+        subirSospecha(0.02);
         memory->updateSoundSource(EntityMgr->getEntityByID(0));
     }
-    calcularAngulo(posicionProta);
-    toProtaPosition = posicionProta - posicion;
-    mirandoHacia= toProtaPosition;
     setPosition();
-
 }
 void Enemy::investigar(){
     andarPath(2,posicionInteres);

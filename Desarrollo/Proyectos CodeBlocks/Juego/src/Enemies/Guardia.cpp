@@ -65,12 +65,9 @@ void Guardia::perseguir(){
 void Guardia::ataque(){
     moverBody(quietoParado);
     if(!ataquePreparado)
-    {
-        cargarAtaque();
-    }
-    else{
-        ejecutarAtaque();
-    }
+        { cargarAtaque(); }
+    else
+        { ejecutarAtaque(); }
 }
 void Guardia::cargarAtaque(){
         atacando = true;
@@ -92,13 +89,13 @@ void Guardia::cargarAtaque(){
             bateria -= pot/2;
         }
 
-        modeloAtaque->setScale({2,1,1});
+        modeloAtaque->setScale({1,1,1});
 
         vectorAtaque = posicionProta - posicion;
         anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
 
         input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
-        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())* 15), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())* 5));
+        input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())* 7.5), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())* 5));
 
         distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
         posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 1 , (input2.p2.y + input2.p1.y)/2};
@@ -126,7 +123,8 @@ void Guardia::ejecutarAtaque(){
                 if(anguloProta < 0)
                     anguloProta+360;
                 if(abs(anguloAtaque - anguloProta) < 45){
-                    EntityMgr->getEntityByID(0)->quitarVida();;
+                    //EntityMgr->getEntityByID(0)->quitarVida();
+                    EntityMgr->getEntityByID(0)->setVida(EntityMgr->getEntityByID(0)->getVida()-20);
                     solounaveh = true;
                 }else{
 

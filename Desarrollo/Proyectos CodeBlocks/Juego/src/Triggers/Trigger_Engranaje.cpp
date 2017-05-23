@@ -14,7 +14,7 @@ Trigger_Engranaje::~Trigger_Engranaje()
 void Trigger_Engranaje::Try(GameEntity* ent)
 {
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio()))
-        if (ent->getVida() < 5){
+        if (ent->getVida() < 100){
             static_cast<Player*>(ent)->CogerVida();
             Deactivate();
             aniMesh->setVisible(false);
