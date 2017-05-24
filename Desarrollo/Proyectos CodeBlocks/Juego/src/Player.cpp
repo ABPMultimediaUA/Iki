@@ -23,7 +23,7 @@ Player::~Player()
 
 void Player::inicializar_player(Map* m, int nivel){
 
-    velocidad = 0.5;
+    velocidad = 2;
     id = 0;
     vida = 100;
     EntityMgr->registrarEntity(this);
@@ -41,22 +41,21 @@ void Player::inicializar_player(Map* m, int nivel){
 
     //aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
 
-    animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f);
-    modelos = animacionAndar->getModelosAnimacion();
-    //animacionAndar->setTexture("resources/Texturas/Protatextura.png");
-    //animacionAndar->setScale(2.3);
+    animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f,1);
+    modelos = animacionAndar->getModelosAnimacion(1);
 
-    /*aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS", color, posicionInicial, 0);
+    animacionSigilo = new Animaciones("resources/Animaciones/sigilo_OBJ_Seq/sigilo.00",color,posicionInicial,90,57,34, "resources/Texturas/Protatextura.png",1.5f,2);
+    modelosSigilo = animacionSigilo->getModelosAnimacion(2);
+
+    aniMesh = new AnimatedMesh("resources/Animaciones/andar_OBJ_Seq/andar0000.obj", color, posicionInicial, 0);
     aniMesh->setTexture("resources/Texturas/Protatextura.png");
-    aniMesh->setScale(2.3);*/
+    aniMesh->setScale(1.9);
+    aniMesh->setPosition({posicionInicial.X,4,posicionInicial.Z});
+    //aniMesh->setVisible(true);
 
-    /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
-    modelo->cambiarColor(color);*/
 
-    //posicion = aniMesh->getPosition();
     posicion = posicionInicial;
-    //animacionAndar->setPosition(posicion);
-    //animacionAndar->setRotation(90);
+
 
     radio = 1.0;
 
@@ -64,7 +63,7 @@ void Player::inicializar_player(Map* m, int nivel){
     bodyDef.type = b2_dynamicBody;
     if(nivel == 1) bodyDef.position.Set(170, 50);
     if(nivel == 2) bodyDef.position.Set(190, 50);
-    //bodyDef.position.Set(posicion.X,posicion.Z);
+
     body = PhisicsWorld::getInstance()->getWorld()->CreateBody(&bodyDef);
 
     b2PolygonShape bodyShape;
@@ -98,12 +97,13 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 
     //aniMesh2->setPosition(posicion);
     //aniMesh2->setRotation(body->GetAngle());
-    runAnimacion(1);
 }
 void Player::runAnimacion(int numeroAnimacion){
     tiempoJuego = PhisicsWorld::getInstance()->getTimeStamp()/1000.f;
     tiempoAnimacion = tiempoJuego - tiempoAnimacion;
+    aniMesh->setVisible(false);
     if(numeroAnimacion == 1){//Andar
+        animacionSigilo->getActual()->setVisible(false);
         animacionAndar->setActual(modelos[j]);
         animacionAndar->setPosition(posicion);
         animacionAndar->setRotation(body->GetAngle());
@@ -112,38 +112,62 @@ void Player::runAnimacion(int numeroAnimacion){
     if(j>=modelos.size())
         j=0;
     }
+    if(numeroAnimacion == 2){//Sigilo
+        animacionAndar->getActual()->setVisible(false);
+        animacionSigilo->setActual(modelosSigilo[h]);
+        animacionSigilo->setPosition(posicion);
+        animacionSigilo->setRotation(body->GetAngle());
+    if( tiempoAnimacion > 0.02f)
+        h++;
+    if(h>=modelosSigilo.size())
+        h=0;
+    }
+}
+void Player::meshQuietoParado(){
+    animacionAndar->getActual()->setVisible(false);
+    animacionSigilo->getActual()->setVisible(false);
+    aniMesh->setVisible(true);
+    aniMesh->setPosition({posicion.X+2,4,posicion.Z});
+    aniMesh->setRotation(angulo+90);
 }
 void Player::moverBody(Structs::TPosicion vec){
     vec.Normalize();
-    float movx = vec.X * velocidad *4 ;
-    float movy = vec.Z * velocidad *4;
+    float movx = vec.X * velocidad;
+    float movy = vec.Z * velocidad;
 
     if (vec == quietoParado){
         isMoving = false;
-        speed = 0;
-    }else{
+        speed = 0; //El speed es para los sonidos
+        meshQuietoParado();
+    }
+    else{
         isMoving = true;
-        speed = 2;
-    }
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
-        speed = 1;
-        velocidad = 0.25;
-        HUD::getInstance()->sigiloUsed();
-    }
-    else if(velocidad == 0.25f){
-        velocidad = 0.4;
-        HUD::getInstance()->sigiloNotUsed();
-    }
-    if(velocidad > 0.5){
-        comprobarVelocidad();
-        speed = 3;
+         ///COMPRUEBO SI TENGO SHIFT OPRIMIDO
+        if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
+            std::cout<<"shift oprimidooo"<<std::endl;
+            speed = 1;
+            velocidad = 1;
+            HUD::getInstance()->sigiloUsed();
+            runAnimacion(2);
+        }
+        else {
+            speed = 2;
+            velocidad = 2;
+            HUD::getInstance()->sigiloNotUsed();
+            runAnimacion(1);
+        }
+
+         if(velocidad > 2.f){
+            comprobarVelocidad();
+            speed = 3;
+        }
     }
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 
 void Player::comprobarVelocidad(){
-    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2){
-        velocidad = 0.5;
+    if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2.f){
+        velocidad = 2;
         tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     }
 }

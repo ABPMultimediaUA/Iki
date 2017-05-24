@@ -4,7 +4,7 @@
 #include <sstream>
 
 
-Animaciones::Animaciones(std::string file, Structs::TColor color, Structs::TPosicion p, float r,float frames,float inicio,const char* t, float scale)
+Animaciones::Animaciones(std::string file, Structs::TColor color, Structs::TPosicion p, float r,float frames,float inicio,const char* t, float scale ,int tipo)
 {
     for(int i =inicio; i< inicio+frames; i++){
 
@@ -15,7 +15,7 @@ Animaciones::Animaciones(std::string file, Structs::TColor color, Structs::TPosi
         s = convert.str();
 
         std::string str = file + s + ".obj";
-        std::cout << str <<std::endl;
+        //std::cout << str <<std::endl;
         mesh = GraphicsFacade::getInstance().smgr->getMesh(str.c_str());
         modelo = GraphicsFacade::getInstance().smgr->addAnimatedMeshSceneNode(mesh);
         //GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(color.opacity, color.r, color.g, color.b));
@@ -33,9 +33,15 @@ Animaciones::Animaciones(std::string file, Structs::TColor color, Structs::TPosi
         modelo->setScale(vector3df(scale, scale, scale));
         modelo->setVisible(false);
 
-        modelos.push_back(modelo);
+        if(tipo == 1)
+            modelos.push_back(modelo);
+        else if(tipo == 2)
+            modelosSigilo.push_back(modelo);
     }
-    actual=modelos[0];
+    if(tipo == 1)
+        actual = modelos[0];
+    else if(tipo == 2)
+        actual = modelosSigilo[0];
     actual->setVisible(true);
 }
 
@@ -80,10 +86,20 @@ void Animaciones::Clear(){
     {
         delete *curTrg;
     }
+    for (curTrg = modelosSigilo.begin(); curTrg != modelosSigilo.end(); ++curTrg)
+    {
+        delete *curTrg;
+    }
 
     modelos.clear();
+    modelosSigilo.clear();
     delete mesh;
     delete modelo;
     delete actual;
 }
-
+std::vector<IAnimatedMeshSceneNode*> Animaciones::getModelosAnimacion(int i){
+    if(i==1)
+        return modelos;
+    else if(i==2)
+        return modelosSigilo;
+    }
