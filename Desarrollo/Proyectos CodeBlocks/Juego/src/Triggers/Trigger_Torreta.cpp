@@ -31,6 +31,7 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
 Trigger_Torreta::~Trigger_Torreta()
 {
     //dtor
+    body->GetWorld()->DestroyBody(body);
 }
 
 void Trigger_Torreta::calcularAngulo(Structs::TPosicion p1){

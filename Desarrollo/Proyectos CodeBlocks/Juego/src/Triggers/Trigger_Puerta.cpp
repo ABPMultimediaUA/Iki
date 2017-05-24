@@ -27,6 +27,7 @@ Trigger_Puerta::Trigger_Puerta(float x, float z, float r)
 Trigger_Puerta::~Trigger_Puerta()
 {
     //dtor
+    body->GetWorld()->DestroyBody(body);
 }
 
 void Trigger_Puerta::triggerDisparado()

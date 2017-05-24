@@ -28,6 +28,7 @@ Trigger_Apisonadora::Trigger_Apisonadora(float x, float z, float r)
 Trigger_Apisonadora::~Trigger_Apisonadora()
 {
     delete plancha;
+    body->GetWorld()->DestroyBody(body);
 }
 
 void Trigger_Apisonadora::Try(GameEntity* ent)

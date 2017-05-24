@@ -25,6 +25,7 @@ Trigger_PuertaLlave::Trigger_PuertaLlave(float x, float z, float r)
 Trigger_PuertaLlave::~Trigger_PuertaLlave()
 {
     //dtor
+    body->GetWorld()->DestroyBody(body);
 }
 
 void Trigger_PuertaLlave::Try(GameEntity* ent)
