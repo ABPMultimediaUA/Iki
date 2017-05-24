@@ -21,7 +21,7 @@ class TEntidad
 
 
     protected:
-        static mat4 ms_gmatriz;
+        static mat4 ms_gmatriz= mat4(1.f);
         static stack<mat4> pila;
 
     private:
