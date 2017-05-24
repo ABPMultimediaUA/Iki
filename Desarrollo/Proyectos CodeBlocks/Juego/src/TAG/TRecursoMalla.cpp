@@ -31,6 +31,7 @@ void TRecursoMalla::MeshEntry::Init(const std::vector<Vertex>& Vertices,const st
 
 TRecursoMalla::TRecursoMalla()
 {
+
 }
 
 
@@ -193,8 +194,6 @@ bool TRecursoMalla::InitMaterials(const aiScene* pScene, const std::string& File
 
     return Ret;
 }
-
-
 
 void TRecursoMalla::beginDraw()
 {

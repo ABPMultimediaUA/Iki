@@ -17,7 +17,6 @@ TMalla::~TMalla()
 
 void TMalla::beginDraw()
 {
-
 		/*	m_MV = TCamara::viewMatrix * TTransform::pila.top();
 			m_MVP = TCamara::viewProjectionMatrix * TTransform::pila.top();
 			m_NormalMatrix = glm::transpose(glm::inverse(m_MV));

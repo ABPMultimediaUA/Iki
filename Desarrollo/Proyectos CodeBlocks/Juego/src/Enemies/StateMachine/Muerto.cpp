@@ -12,7 +12,7 @@ Muerto* Muerto::Instance()
 
 void Muerto::Enter(Enemy* enemigo){
     ///MATAR ENEMIGO
-
+    enemigo->getBody()->SetActive(false);
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->playSonido("AccionesRobots/muertedron");
@@ -34,7 +34,7 @@ void Muerto::Execute(Enemy* enemigo){
 }
 
 void Muerto::Exit(Enemy* enemigo){
-
+    enemigo->getBody()->SetActive(true);
 }
 bool Muerto::OnMessage(Enemy* enemigo, const Mensaje& msg){
 

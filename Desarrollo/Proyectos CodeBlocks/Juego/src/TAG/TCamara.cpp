@@ -36,8 +36,6 @@ void TCamara::setPerspectiva(float grad, int anch, int alt, float cer, float lej
 }
 void TCamara::setParalela(float izq, float dch, float inf, float sup, float cer, float lej)
 {
-
-
     m_paralela= ortho(izq, dch, inf, sup, cer, lej);
 
     esPerspectiva = false;

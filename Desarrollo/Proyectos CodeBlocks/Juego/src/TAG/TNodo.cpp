@@ -1,4 +1,5 @@
 #include "TNodo.h"
+#include "TTransform.h"
 
 TNodo::TNodo()
 {
@@ -68,6 +69,11 @@ void TNodo::setPadre(TNodo* padre)
 TNodo *TNodo::getPadre()
 {
     return padre;
+}
+
+void TNodo::Trasladar(glm::vec3 vec)
+{
+    dynamic_cast<TTransform*>(padre->getEntidad())->trasladar(vec.x,vec.y,vec.z);
 }
 
 void TNodo::draw()

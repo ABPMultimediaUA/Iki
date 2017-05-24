@@ -34,18 +34,13 @@ void TTransform::trasponer()
 void TTransform::trasladar(float x, float y, float z)
 {
     matriz = translate(matriz, vec3(x, y, z));
-
-//comprobamos que realiza bien la translacion
-   // cout<<"Trasladamos: "<<endl;
-    for(int i =0; i<4; i++){
-        for(int j =0; j<4; j++){
-            if(j != 3){}
-             //   cout<<matriz[i][j]<<" ";
-            else{}
-               // cout<<matriz[i][j]<<endl;
+    /*for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            cout<<matriz[i][j]<<" ";
         }
+        cout<<endl;
     }
-    cout<<endl;
+    cout<<endl;*/
 }
 
 void TTransform::rotar(float angulo, float x, float y, float z)
@@ -104,14 +99,20 @@ void TTransform::beginDraw()
 {
     pila.push(ms_gmatriz);
     //std::cout<<"apilando matriz"<<std::endl;
-
+    for(int i =0; i<4; i++){
+        for(int j =0; j<4; j++){
+            cout<<ms_gmatriz[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
     ms_gmatriz= ms_gmatriz * matriz;
    // std::cout<<"multiplicando la transformacion a la actual"<<std::endl;
 }
 
 void TTransform::endDraw()
 {
-    ms_gmatriz= pila.top();
     pila.pop();
-  //  std::cout<<"desapilando matriz"<<std::endl;
+    ms_gmatriz= pila.top();
+    //std::cout<<"desapilando matriz"<<std::endl;
 }

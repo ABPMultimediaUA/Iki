@@ -1599,7 +1599,7 @@
 	<cstddef>
 	<cstdarg>
 
-1495525543 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
+1495646332 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\main.cpp
 	"lib/irrKlang/conio.h"
 	"Game.h"
 	<iostream>
@@ -2983,7 +2983,7 @@
 	"Enemies/Path/PathEdge.h"
 	"SensorMemory.h"
 
-1495525544 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1495648603 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -3010,7 +3010,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1495552192 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1495649783 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -6549,7 +6549,7 @@
 1491423742 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\mensaje.cpp
 	"Enemies/StateMachine/Mensaje.h"
 
-1495076638 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\muerto.cpp
+1495649066 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\muerto.cpp
 	"Enemy.h"
 	"EntityManager.h"
 	"Enemies/StateMachine/Muerto.h"
@@ -6631,7 +6631,7 @@
 1494326634 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
 	"Structs.h"
 
-1495289866 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
+1495646610 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
 	"Game.h"
 	"Scene.h"
 	"Menu.h"
@@ -12288,7 +12288,7 @@
 	<vector>
 	<TEntidad.h>
 
-1494326634 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
+1495645151 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
 	<iostream>
 	"TEntidad.h"
 	<vector>
@@ -12664,7 +12664,7 @@
 	"TAnimacion.h"
 	<sstream>
 
-1495480619 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
+1495646243 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
 	"TCamara.h"
 
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
@@ -12679,7 +12679,7 @@
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tluz.cpp
 	"TLuz.h"
 
-1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
+1495646243 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
 	"TMalla.h"
 	"TTransform.h"
 	"TGestorRecursos.h"
@@ -12697,19 +12697,20 @@
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1495525545 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
+1495646243 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
 	"TMotorTAG.h"
 	"TShader.h"
 
-1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tnodo.cpp
+1495645319 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tnodo.cpp
 	"TNodo.h"
+	"TTransform.h"
 
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecurso.cpp
 	"TRecurso.h"
 
 1494326634 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecurso.h
 
-1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
+1495646309 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
 	"TRecursoMalla.h"
 	"TGestorRecursos.h"
 	"TMalla.h"
@@ -12728,7 +12729,7 @@
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttexturacache.cpp
 	"TTexturaCache.h"
 
-1495480617 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
+1495646243 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
 	"TTransform.h"
 
 1495036971 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertanivel.h

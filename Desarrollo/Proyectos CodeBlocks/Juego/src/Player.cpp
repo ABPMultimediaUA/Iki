@@ -120,20 +120,23 @@ void Player::moverBody(Structs::TPosicion vec){
     }else{
         isMoving = true;
         speed = 2;
+
+        if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
+            speed = 1;
+            velocidad = 0.25;
+            HUD::getInstance()->sigiloUsed();
+        }else if(velocidad == 0.25f){
+            velocidad = 0.4;
+            HUD::getInstance()->sigiloNotUsed();
+        }
+
+        if(velocidad > 0.5){
+            comprobarVelocidad();
+            speed = 3;
+        }
     }
-    if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
-        speed = 1;
-        velocidad = 0.25;
-        HUD::getInstance()->sigiloUsed();
-    }
-    else if(velocidad == 0.25f){
-        velocidad = 0.4;
-        HUD::getInstance()->sigiloNotUsed();
-    }
-    if(velocidad > 0.5){
-        comprobarVelocidad();
-        speed = 3;
-    }
+
+
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
 

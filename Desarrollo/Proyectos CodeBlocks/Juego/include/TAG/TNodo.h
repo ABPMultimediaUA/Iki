@@ -19,6 +19,7 @@ class TNodo
         TEntidad *getEntidad();
         void setPadre(TNodo* padre);
         TNodo *getPadre();
+        void Trasladar(glm::vec3);
 
         void draw();
 
