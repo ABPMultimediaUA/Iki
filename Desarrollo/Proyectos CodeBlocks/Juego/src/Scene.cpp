@@ -154,7 +154,7 @@ void Scene::bucle_juego(int nivel){
 
         if(MyEventReceiver::getInstance().isKeyDown(KEY_ESCAPE)){
             f32 tiempo_anterior = GraphicsFacade::getInstance().getTimer()->getTime();
-            menu_ingame->run();
+            menu_ingame->run(1);
             GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
         }
         world->update_mundo();
@@ -195,5 +195,5 @@ void Scene::cleanScene(){
     delete camara;
     Percibir::Instance()->Salgo();
     GraphicsFacade::getInstance().clearEscena();
-    GraphicsFacade::getInstance().vaciar_gui();
+    GraphicsFacade::getInstance().vaciar_gui(0);
 }

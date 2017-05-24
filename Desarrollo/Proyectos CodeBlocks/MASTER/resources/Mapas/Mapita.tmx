@@ -3,7 +3,7 @@
  <properties>
   <property name="Fin" value="0"/>
  </properties>
- <objectgroup color="#000000" name="Capa de Objetos 5" visible="0">
+ <objectgroup color="#000000" name="Capa de Objetos 5">
   <object id="2619" x="45.4545" y="199.273">
    <polyline points="0,0 -8.36364,0.727273 -36.7273,-20.1818"/>
   </object>
@@ -501,7 +501,7 @@
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2583" name="88" x="109.42" y="92.91" width="2" height="2">
+  <object id="2583" name="88" x="108.545" y="92.16" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
@@ -616,12 +616,12 @@
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2608" name="112" x="116.09" y="119.77" width="2" height="2">
+  <object id="2608" name="112" x="116.09" y="120.52" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2609" name="113" x="104.861" y="115.08" width="2" height="2">
+  <object id="2609" name="113" x="105.111" y="112.955" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
@@ -652,7 +652,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#0000ff" name="WayPoints" visible="0">
+ <objectgroup color="#0000ff" name="WayPoints">
   <object id="2615" name="0" x="49" y="190.636" width="2" height="2">
    <properties>
     <property name="Conecta" value="1,0"/>
@@ -768,17 +768,17 @@
     <property name="Conecta" value="14,17,23"/>
    </properties>
   </object>
-  <object id="2772" name="23" x="116.5" y="76" width="2" height="2">
+  <object id="2772" name="23" x="116.875" y="77.875" width="2" height="2">
    <properties>
     <property name="Conecta" value="22,24,25"/>
    </properties>
   </object>
-  <object id="2773" name="24" x="120.5" y="68.5" width="2" height="2">
+  <object id="2773" name="24" x="120.375" y="69.25" width="2" height="2">
    <properties>
     <property name="Conecta" value="21,23,25"/>
    </properties>
   </object>
-  <object id="2774" name="25" x="125.75" y="75.25" width="2" height="2">
+  <object id="2774" name="25" x="127.875" y="80.5" width="2" height="2">
    <properties>
     <property name="Conecta" value="23,24,30"/>
    </properties>
@@ -818,12 +818,12 @@
     <property name="Conecta" value="31,37,38"/>
    </properties>
   </object>
-  <object id="2782" name="33" x="100.25" y="97.5" width="2" height="2">
+  <object id="2782" name="33" x="101.875" y="100.75" width="2" height="2">
    <properties>
     <property name="Conecta" value="14,34,35"/>
    </properties>
   </object>
-  <object id="2783" name="34" x="111.25" y="96.25" width="2" height="2">
+  <object id="2783" name="34" x="113.625" y="91.875" width="2" height="2">
    <properties>
     <property name="Conecta" value="23,33,35"/>
    </properties>

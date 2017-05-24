@@ -58,14 +58,14 @@ void Escanear::Execute(Enemy* enemigo){
                 break;
             }
         }
-        else if( enemigo->getSospecha() < 55 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        else if( enemigo->getSospecha() < 55 ){
             enemigo->calcularAngulo(enemigo->getPPatrulla()->getPunto());
             if(enemigo->GetFSM()->wasInState(*Investigar::Instance()))
                 enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
             else
                 enemigo->GetFSM()->ChangeState(Patrullar::Instance());
         }
-        else if(enemigo->getSospecha() >= 55 && !enemigo->isEnemySeeing(enemigo->getPosicionProta())){
+        else if(enemigo->getSospecha() >= 55 ){
             enemigo->setPosicionInteres(enemigo->getPosicionProta());
             enemigo->GetFSM()->ChangeState(Investigar::Instance());
         }

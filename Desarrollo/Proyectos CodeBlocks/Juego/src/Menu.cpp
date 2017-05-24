@@ -91,7 +91,7 @@ void Menu::comprobarBotones(int draw_type){
     }
 }
 
-bool Menu::run(){
+bool Menu::run(int ingame){
 
     draw_type = 1;
 
@@ -106,7 +106,7 @@ bool Menu::run(){
                 if(draw_type == 1){
                     if(NuevaPartida->getActivo()){
                         NuevaPartida->reproducir_click(0);
-                        GraphicsFacade::getInstance().vaciar_gui();
+                        GraphicsFacade::getInstance().vaciar_gui(ingame);
                         SoundMgr->soundStop("Musica/menu_musica");
                         return true;
                     }

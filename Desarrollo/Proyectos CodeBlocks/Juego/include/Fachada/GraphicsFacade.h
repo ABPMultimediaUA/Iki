@@ -25,7 +25,7 @@ class GraphicsFacade
         ~GraphicsFacade();
 
         void inicializar_gui(int);
-        void vaciar_gui();
+        void vaciar_gui(int);
 
         void beginScene();
         void endScene();

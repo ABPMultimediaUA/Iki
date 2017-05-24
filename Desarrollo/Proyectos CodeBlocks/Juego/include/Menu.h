@@ -19,7 +19,7 @@ class Menu
         void inicializar_menu(int);
         void draw();
         void comprobarBotones(int);
-        bool run();
+        bool run(int);
 
     protected:
 

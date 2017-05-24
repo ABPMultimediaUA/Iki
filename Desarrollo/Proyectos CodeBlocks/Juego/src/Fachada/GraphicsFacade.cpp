@@ -65,8 +65,8 @@ void GraphicsFacade::inicializar_gui(int menu){
 
 }
 
-void GraphicsFacade::vaciar_gui(){
-    gui->clean();
+void GraphicsFacade::vaciar_gui(int ingame){
+    gui->clean(ingame);
 }
 
 void GraphicsFacade::beginScene(){

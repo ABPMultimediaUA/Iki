@@ -21,7 +21,7 @@ class GUI
         void anyadirvolumen(int, int);
 
         void draw(int);
-        void clean();
+        void clean(int);
         //void inicializar_hd();
 
     protected:

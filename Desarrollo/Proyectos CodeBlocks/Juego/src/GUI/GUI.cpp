@@ -64,9 +64,10 @@ void GUI::draw(int draw_type){
     }
 }
 
-void GUI::clean(){
+void GUI::clean(int ingame){
     componentes.clear();
-    HUD::getInstance()->clean();
+    if(ingame == 0)
+        HUD::getInstance()->clean();
 }
 
 /*void GUI::inicializar_hd(){
