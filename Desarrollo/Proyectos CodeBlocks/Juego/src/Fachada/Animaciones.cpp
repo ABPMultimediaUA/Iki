@@ -78,12 +78,12 @@ void Animaciones::Clear(){
     std::vector<IAnimatedMeshSceneNode*>::iterator curTrg;
     for (curTrg = modelos.begin(); curTrg != modelos.end(); ++curTrg)
     {
-        delete *curTrg;
+        *curTrg = nullptr;;
     }
 
     modelos.clear();
-    delete mesh;
-    delete modelo;
-    delete actual;
+    mesh = nullptr;
+    modelo = nullptr;
+    actual = nullptr;
 }
 

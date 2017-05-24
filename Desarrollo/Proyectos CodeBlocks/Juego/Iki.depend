@@ -3010,7 +3010,7 @@
 	"Map.h"
 	"MapComponent.h"
 
-1495525669 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1495552192 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3027,7 +3027,7 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1495525549 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1495540753 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -12796,7 +12796,7 @@
 1495525548 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animaciones.h
 	"Structs.h"
 
-1495525549 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animaciones.cpp
+1495540897 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animaciones.cpp
 	"Fachada/Animaciones.h"
 	"Fachada/GraphicsFacade.h"
 	<string>

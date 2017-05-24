@@ -19,6 +19,7 @@ Player::~Player()
     delete rayo;
     delete aniMesh;
     body->GetWorld()->DestroyBody(body);
+    //animacionAndar->Clear();
 }
 
 void Player::inicializar_player(Map* m, int nivel){
@@ -39,16 +40,16 @@ void Player::inicializar_player(Map* m, int nivel){
     if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
-    //aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
+    aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
 
-    animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f);
-    modelos = animacionAndar->getModelosAnimacion();
+    //animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f);
+    //modelos = animacionAndar->getModelosAnimacion();
     //animacionAndar->setTexture("resources/Texturas/Protatextura.png");
     //animacionAndar->setScale(2.3);
 
-    /*aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS", color, posicionInicial, 0);
+    //aniMesh = new AnimatedMesh("resources/Modelos/ProtaUVS", color, posicionInicial, 0);
     aniMesh->setTexture("resources/Texturas/Protatextura.png");
-    aniMesh->setScale(2.3);*/
+    aniMesh->setScale(2.3);
 
     /*modelo = GraphicsFacade::getInstance().createCubeSceneNode(2, posicionInicial);
     modelo->cambiarColor(color);*/
@@ -96,12 +97,12 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     moverBody(p2);
     posicion = {body->GetPosition().x, 0, body->GetPosition().y};
 
-    //aniMesh2->setPosition(posicion);
-    //aniMesh2->setRotation(body->GetAngle());
+    aniMesh->setPosition(posicion);
+    aniMesh->setRotation(body->GetAngle());
 
-    animacionAndar->setActual(modelos[j]);
-    animacionAndar->setPosition(posicion);
-    animacionAndar->setRotation(body->GetAngle());
+    //animacionAndar->setActual(modelos[j]);
+    //animacionAndar->setPosition(posicion);
+    //animacionAndar->setRotation(body->GetAngle());
 
     j++;
     if(j>=modelos.size())
@@ -300,10 +301,10 @@ void Player::UpdateRayo(Camera* camara){
                 body->SetTransform(body->GetPosition(), angulo);
 
                 posicion = {body->GetPosition().x, 0, body->GetPosition().y};
-                //aniMesh->setPosition(posicion);
-                //aniMesh->setRotation(body->GetAngle());
+                aniMesh->setPosition(posicion);
+                aniMesh->setRotation(body->GetAngle());
                 //std::cout << angulo << std::endl;
-                animacionAndar->setRotation(angulo);
+                //animacionAndar->setRotation(angulo);
                 moverBody(quietoParado);
                 listaEjes.clear();
 
@@ -377,7 +378,7 @@ void Player::UpdateMov(Camera* camara){
 }
 
 void Player::update(Camera* camara){
-    if(vida == 0){
+    if(vida <= 0){
         SoundMgr->stopAll();
         HUD::getInstance()->GameOver();
         if(MyEventReceiver::getInstance().GetMouseState().LeftButtonDown){
