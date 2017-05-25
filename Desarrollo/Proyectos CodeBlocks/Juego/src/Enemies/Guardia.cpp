@@ -30,7 +30,7 @@ void Guardia::inicializar_enemigo(Map* m)
     Structs::TColor color = {255,255,255,0};
     aniMesh = new AnimatedMesh("resources/Modelos/guardiahumilde.obj", color,posicion, 90);
     aniMesh->setTexture("resources/Texturas/palguardia.png");
-    aniMesh->setScale(3);
+    aniMesh->setScale(3.5);
     aniMesh->setRotation(90);
     ataquePreparado = false;
     solounaveh = false;

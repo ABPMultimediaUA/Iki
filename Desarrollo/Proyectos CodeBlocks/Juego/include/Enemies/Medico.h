@@ -37,6 +37,7 @@ class Medico : public Enemy
         void inicializar_enemigo(Map* m);
         bool HandleMessage(const Mensaje& msg){return G_stateMachine->HandleMessage(msg);}
         void setProtegido(Enemy* e){protegido=e;}
+        Enemy* getProtegido(){return protegido;}
         void setPosHuida(Structs::TPosicion p){posHuida=p;}
         Structs::TPosicion getPosHuida(){return posHuida;}
         bool isMedico(){return true;}

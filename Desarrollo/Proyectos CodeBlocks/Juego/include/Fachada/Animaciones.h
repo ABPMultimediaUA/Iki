@@ -6,7 +6,7 @@
 class Animaciones
 {
     public:
-        Animaciones(std::string f, Structs::TColor color, Structs::TPosicion, float r,float frames,float inicio,const char* t, float scale );
+        Animaciones(std::string f, Structs::TColor color, Structs::TPosicion, float r,float frames,float inicio,const char* t, float scale, int tipo );
         virtual ~Animaciones();
 
         void setScale(Structs::TMedida);
@@ -18,7 +18,7 @@ class Animaciones
         Structs::TPosicion getPosition(){return {actual->getPosition().X,actual->getPosition().Y,actual->getPosition().Z};}
         void cambiarColor(Structs::TColor color);
         void setTexture(const char* f);
-        std::vector <IAnimatedMeshSceneNode*> getModelosAnimacion(){return modelos;}
+        std::vector <IAnimatedMeshSceneNode*> getModelosAnimacion(int i);
         IAnimatedMeshSceneNode* getActual(){return actual;}
         void setActual(IAnimatedMeshSceneNode *m){
                                                 actual->setVisible(false);
@@ -31,6 +31,7 @@ class Animaciones
     private:
         IAnimatedMesh *mesh;
         std::vector <IAnimatedMeshSceneNode*> modelos;
+        std::vector <IAnimatedMeshSceneNode*> modelosSigilo;
         IAnimatedMeshSceneNode *modelo;
         IAnimatedMeshSceneNode *actual;
 

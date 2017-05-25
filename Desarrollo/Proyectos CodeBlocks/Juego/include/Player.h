@@ -62,6 +62,9 @@ class Player : public GameEntity{
         bool mostrarMensajePalanca();
         void desmostrarMensajePalanca();
 
+        void runAnimacion(int);
+        void meshQuietoParado();
+
     protected:
 
     private:
@@ -73,15 +76,18 @@ class Player : public GameEntity{
         Structs::TPosicion quietoParado = {0,0,0};
         Structs::TPosicion mirarHacia = {0,0,0};
 
+        MeshSceneNode* puntero;
+
         Animaciones *animacionAndar;
-        Animaciones *animacionRayo;
+        Animaciones *animacionSigilo;
         std::vector <IAnimatedMeshSceneNode*> modelos;
+        std::vector <IAnimatedMeshSceneNode*> modelosSigilo;
 
         Trigger_Ruido* ruido;
         bool isMoving, moverse, nivel_acabado, reintentar;
         int speed;
         float velocidad;
-        int llaves = 0, j=0;
+        int llaves = 0, j=0,h=0;
 
         Player_Ray* rayo;
         b2RayCastInput input;
@@ -92,7 +98,7 @@ class Player : public GameEntity{
 
         f32 tiempo_con_mas_speed;
 
-        float distancia,angulo,avMovement,deltaTime;
+        float distancia,angulo,avMovement,deltaTime,tiempoAnimacion,tiempoJuego;
         ///PATHFINDING
         Map* Mapa;
         SparseGraph* grafo;

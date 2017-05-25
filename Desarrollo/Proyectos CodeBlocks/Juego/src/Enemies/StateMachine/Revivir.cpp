@@ -1,7 +1,7 @@
 #include "Enemy.h"
 #include "EntityManager.h"
 #include "Enemies/StateMachine/Revivir.h"
-#include "Enemies/StateMachine/Vigilar.h"
+#include "Enemies/StateMachine/Proteger.h"
 #include "Enemies/Medico.h"
 
 Revivir* Revivir::Instance()
@@ -20,7 +20,7 @@ void Revivir::Execute(Enemy* enemigo){
     //std::cout<<"Le revivo"<<std::endl;
     if(enemigo->getTiempo()>3){
         static_cast<Medico*>(enemigo)->revivir();
-        enemigo->GetFSM()->RevertToPreviousState();
+        enemigo->GetFSM()->ChangeState(Proteger::Instance());
     }
 }
 
