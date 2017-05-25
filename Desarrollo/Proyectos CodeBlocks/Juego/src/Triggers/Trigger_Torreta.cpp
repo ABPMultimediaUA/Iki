@@ -26,6 +26,7 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
     modeloDisparo->setVisible(false);
 
     a = 1; b = 1; c = 1;
+    fired = false;
 }
 
 Trigger_Torreta::~Trigger_Torreta()

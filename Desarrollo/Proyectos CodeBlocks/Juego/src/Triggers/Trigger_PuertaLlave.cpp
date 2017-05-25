@@ -8,7 +8,7 @@ Trigger_PuertaLlave::Trigger_PuertaLlave(float x, float z, float r)
     mx=x;mz=z;ma=r;
 
     puerta = new MeshSceneNode("resources/Modelos/puerta_puerta.obj");
-    //puerta->setTexture("resources/Texturas/plancha.png");
+    puerta->setTexture("resources/Texturas/puerta_puerta.png");
 
     //b2body
         b2BodyDef bodyDef;

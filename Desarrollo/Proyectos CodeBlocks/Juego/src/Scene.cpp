@@ -151,8 +151,8 @@ void Scene::bucle_juego(int nivel){
                 GraphicsFacade::getInstance().setTiempo(tiempo_anterior);
             }
             world->update_mundo();
-            player->update(camara);
             TriggerSystem::getInstance()->Update();
+            player->update(camara);
             camara->render(player->getPosition());
             PhisicsWorld::getInstance()->Step();
 
