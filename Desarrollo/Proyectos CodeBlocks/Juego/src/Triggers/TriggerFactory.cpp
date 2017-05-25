@@ -125,6 +125,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         trigger->AddCircularRegion(centro,15);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/torreta.obj", {0,0,128,128}, centro, r);
+        modelo->setTexture("resources/Texturas/turret.png");
         trigger->setMesh(modelo);
     }
     else if (tipo == 10){

@@ -6,16 +6,13 @@
 #include "Structs.h"
 
 
-
 class GameEntity;
 class Enemy;
 class World;
 class PatrolRoute;
 
-
 //provide easy access
 #define EntityMgr EntityManager::Instance()
-
 
 
 class EntityManager
@@ -52,6 +49,7 @@ public:
 
     void Clear();
     bool hayEnemyAtacando();
+    bool hayEnemyEscaneandoOAtacando();
 };
 
 

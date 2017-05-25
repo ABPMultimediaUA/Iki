@@ -1006,6 +1006,7 @@
   <object id="2709" name="5" x="176.25" y="82.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="5"/>
+    <property name="Llave" value="0"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="1"/>
    </properties>
@@ -1050,6 +1051,7 @@
   <object id="2717" name="7" x="97.875" y="151.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="7"/>
+    <property name="Llave" value="0"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="3"/>
    </properties>
