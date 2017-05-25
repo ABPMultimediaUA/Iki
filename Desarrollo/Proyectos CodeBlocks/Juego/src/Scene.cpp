@@ -91,8 +91,7 @@ void Scene::inicializar_escena(int nivel){
     for(int i=0; i<=79; i++)
         cout << "_";
 */
-
-
+    GraphicsFacade::getInstance().drawCarga(0);
     isGameActive = true;
     reintentar = true;
     Structs::TPosicion posicionCamara;
@@ -115,19 +114,23 @@ void Scene::inicializar_escena(int nivel){
     camara = GraphicsFacade::getInstance().createCamera(posicionCamara, targetCamara);
     GraphicsFacade::getInstance().iniciarRay(rayPos);
 
+    GraphicsFacade::getInstance().drawCarga(1);
     world->inicializar_mundo(nivel);
-
     Mapa = world->getMapa();
 
+    GraphicsFacade::getInstance().drawCarga(2);
     player->inicializar_player(Mapa, nivel);
 
+    GraphicsFacade::getInstance().drawCarga(3);
     menu_ingame->inicializar_menu(1);
+
     //GraphicsFacade::getInstance().inicializar_gui(1);
 
     Trigger* ruido = player->getRuido();
     TriggerSystem::getInstance()->Register(ruido);
     TriggerSystem::getInstance()->LeerMapa(nivel);
 
+    GraphicsFacade::getInstance().drawCarga(4);
     cargarSonidos();
     SoundMgr->playMusica("Ambientes/ambiente_desierto");
     SoundMgr->playMusica("Musica/musica_general");

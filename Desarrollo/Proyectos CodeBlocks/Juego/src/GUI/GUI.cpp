@@ -6,6 +6,7 @@
 #include "GUI/GUI_VolumeControl.h"
 #include "Fachada/GraphicsFacade.h"
 #include "GUI/HUD.h"
+#include "GUI_Wallpaper.h"
 
 GUI::GUI()
 {
@@ -35,6 +36,10 @@ void GUI::anyadirvolumen(int x, int y){
     componentes.push_back(new GUI_VolumeControl(x, y));
 }
 
+void GUI::anyadirwallpaper(std::string nombre){
+    carga.push_back(new GUI_Wallpaper(nombre));
+}
+
 void GUI::draw(int draw_type){
 
     if(draw_type == 0)
@@ -62,6 +67,10 @@ void GUI::draw(int draw_type){
             componentes[8]->draw();
         }
     }
+}
+
+void GUI::drawCarga(int cont){
+    carga[cont]->draw();
 }
 
 void GUI::clean(){

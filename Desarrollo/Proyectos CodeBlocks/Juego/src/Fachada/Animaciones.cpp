@@ -15,7 +15,7 @@ Animaciones::Animaciones(std::string file, Structs::TColor color, Structs::TPosi
         s = convert.str();
 
         std::string str = file + s + ".obj";
-        //std::cout << str <<std::endl;
+        std::cout << str <<std::endl;
         mesh = GraphicsFacade::getInstance().smgr->getMesh(str.c_str());
         modelo = GraphicsFacade::getInstance().smgr->addAnimatedMeshSceneNode(mesh);
         //GraphicsFacade::getInstance().smgr->getMeshManipulator()->setVertexColors(modelo->getMesh(),video::SColor(color.opacity, color.r, color.g, color.b));
