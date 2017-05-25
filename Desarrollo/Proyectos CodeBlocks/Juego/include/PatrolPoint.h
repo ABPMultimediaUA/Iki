@@ -6,13 +6,14 @@
 class PatrolPoint
 {
     public:
-        PatrolPoint(int enem, int cont, int n, Structs::TPosicion v);
+        PatrolPoint(int enem, int cont, int n, Structs::TPosicion v, int ll);
         ~PatrolPoint();
 
         Structs::TPosicion getPunto()   { return punto;   }
         int                getEnemigo() { return enemigo; }
         int                getID()      { return id;      }
         int                getNext0()   { return next0;   }
+        int                getLlave()   { return llave;   }
 
         void setNext(PatrolPoint* point);
         void setPrev(PatrolPoint* point);
@@ -25,7 +26,7 @@ class PatrolPoint
         // enemigo es el enemigo al que se le asocia el PatrolPoint
         // id es la id dentro de la ruta de patrulla, cada ruta de patrulla empezara por un PatrolPoint con id 1
         // next0 indica la direccion hacia la que va el PatrolPoint, si es 0 va hacia el next, si es 1 va hacia el prev
-        int enemigo, id, next0;
+        int enemigo, id, next0, llave;
 
         Structs::TPosicion punto;
         PatrolPoint* next;

@@ -95,7 +95,7 @@ void Map::inicializar_mapa(int tipo){
     while (objectGroup){
 
         float x, z;
-        int c = 0, c2 = 0, n = 0;
+        int c = 0, c2 = 0, n = 0, ll = 0;
         const char * value;
         int name;
 
@@ -120,6 +120,8 @@ void Map::inicializar_mapa(int tipo){
                     while (property){
                         if(property->Attribute("name", "Enemigo"))
                             c = atoi(property->Attribute("value"));
+                        if(property->Attribute("name", "Llave"))
+                            ll = atoi(property->Attribute("value"));
                         if(property->Attribute("name", "Next"))
                             n = atoi(property->Attribute("value"));
                         if(property->Attribute("name", "Tipo"))
@@ -133,7 +135,7 @@ void Map::inicializar_mapa(int tipo){
                         c2 = c;
                     }
 
-                    patrullas.push_back(new PatrolPoint(c,cont,n,pos));
+                    patrullas.push_back(new PatrolPoint(c,cont,n,pos,ll));
 
                     object = object->NextSiblingElement("object");
                 }

@@ -3,7 +3,7 @@
  <properties>
   <property name="Fin" value="0"/>
  </properties>
- <objectgroup color="#000000" name="Capa de Objetos 5" visible="0">
+ <objectgroup color="#000000" name="Capa de Objetos 5">
   <object id="2619" x="45.4545" y="199.273">
    <polyline points="0,0 -8.36364,0.727273 -36.7273,-20.1818"/>
   </object>
@@ -62,7 +62,7 @@
    <polyline points="0,0 25.2727,15.2727 16.7273,29.2727 11.6364,33.8182 6.72727,34 10,26 2.90909,21.8182 -7.45455,39.8182 -19.6364,32.7273 -0.181818,0.181818"/>
   </object>
  </objectgroup>
- <objectgroup color="#ffffff" name="Pared" offsetx="0.0869565" offsety="-0.347826">
+ <objectgroup color="#ffffff" name="Pared" visible="0" offsetx="0.0869565" offsety="-0.347826">
   <properties>
    <property name="Fin" value="0"/>
   </properties>
@@ -859,8 +859,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ffff00" name="Patrol" visible="0">
-  <object id="2613" x="62.9545" y="134.705" width="2" height="2">
+ <objectgroup color="#ffff00" name="Patrol">
+  <object id="2613" name="1" x="62.9545" y="134.705" width="2" height="2">
    <properties>
     <property name="Enemigo" value="1"/>
     <property name="Next" value="0"/>
@@ -879,7 +879,7 @@
     <property name="Next" value="1"/>
    </properties>
   </object>
-  <object id="2689" x="54.875" y="94.75" width="2" height="2">
+  <object id="2689" name="2" x="54.875" y="94.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="2"/>
     <property name="Next" value="0"/>
@@ -910,7 +910,7 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2694" x="99.625" y="75.875" width="2" height="2">
+  <object id="2694" name="3" x="99.625" y="75.875" width="2" height="2">
    <properties>
     <property name="Enemigo" value="3"/>
     <property name="Next" value="0"/>
@@ -977,9 +977,10 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2705" x="130.375" y="106.75" width="2" height="2">
+  <object id="2705" name="4" x="130.375" y="106.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="4"/>
+    <property name="Llave" value="1"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="1"/>
    </properties>
@@ -1002,7 +1003,7 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2709" x="176.25" y="82.75" width="2" height="2">
+  <object id="2709" name="5" x="176.25" y="82.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="5"/>
     <property name="Next" value="0"/>
@@ -1033,7 +1034,7 @@
     <property name="Next" value="1"/>
    </properties>
   </object>
-  <object id="2714" x="84.5" y="21" width="2" height="2">
+  <object id="2714" name="6" x="84.5" y="21" width="2" height="2">
    <properties>
     <property name="Enemigo" value="6"/>
     <property name="Next" value="0"/>
@@ -1046,7 +1047,7 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2717" x="97.875" y="151.75" width="2" height="2">
+  <object id="2717" name="7" x="97.875" y="151.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="7"/>
     <property name="Next" value="0"/>

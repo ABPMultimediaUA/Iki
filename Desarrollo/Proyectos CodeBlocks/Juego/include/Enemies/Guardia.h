@@ -14,7 +14,7 @@ class Guardia : public Enemy
 {
     private:
         bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque, cargarBateria;
-        int danyo;
+        int danyo, llave;
         float anguloAtaque, distanciaAtaque;
         f32 tiempoCarga, bateriaT;
         b2Body *bodyAtaque;
@@ -37,6 +37,7 @@ class Guardia : public Enemy
             posicion = rutita->getInicial()->getPunto();
             sospecha = 0.0;
             tiempoEnEstado = 0;
+            llave = rutita->getInicial()->getLlave();
         }
         ~Guardia();
         StateMachine<Enemy>* GetFSM()const{return G_stateMachine;}
@@ -50,6 +51,7 @@ class Guardia : public Enemy
         bool getAtacando(){return atacando;}
         bool isGuardia(){return true;}
         void setModeloVisible(bool b){modeloAtaque->setVisible(b);}
+        int  getLlave(){return llave;}
 
 
 };

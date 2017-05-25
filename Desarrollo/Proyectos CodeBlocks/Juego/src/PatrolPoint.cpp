@@ -1,6 +1,6 @@
 #include "PatrolPoint.h"
 
-PatrolPoint::PatrolPoint(int enem, int cont, int n, Structs::TPosicion v)
+PatrolPoint::PatrolPoint(int enem, int cont, int n, Structs::TPosicion v, int ll)
 {
     //ctor
     enemigo = enem;
@@ -9,6 +9,7 @@ PatrolPoint::PatrolPoint(int enem, int cont, int n, Structs::TPosicion v)
     punto = v;
     next = 0;
     prev = 0;
+    llave = ll;
 }
 
 PatrolPoint::~PatrolPoint()

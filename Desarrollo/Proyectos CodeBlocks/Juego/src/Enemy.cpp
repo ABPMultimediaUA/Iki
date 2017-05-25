@@ -13,6 +13,7 @@
 
 #include "Trigger.h"
 #include "TriggerSystem.h"
+#include "TriggerFactory.h"
 
 void Enemy::update(){
     posicionProta = EntityMgr->getEntityByID(0)->getPosition();
@@ -420,6 +421,14 @@ void Enemy::muerto(){
     EntityMgr->borrarEnemigo(this);
     modeloAtaque->setVisible(false);
     questionMark->setVisible(false);
+
+    if (tipo == 1){
+        if (static_cast<Guardia*>(this)->getLlave() == 1){
+            TriggerFactory factory;
+            Trigger* llave = factory.crearTrigger(3,posicion.Z,posicion.X,0);
+            TriggerSystem::getInstance()->Register(llave);
+        }
+    }
 }
 
 void Enemy::matar(){
