@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2757">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="100" height="100" tilewidth="2" tileheight="2" nextobjectid="2758">
  <objectgroup color="#000000" name="Capa de Objetos 5">
   <object id="2676" x="27.8182" y="128.909">
    <polyline points="0,0 -10.3636,-10.7273 -11.8182,-18.5455 -11.4545,-32.5455 8.54545,-46.7273 58,-56.7273 73.2727,-49.8182 94.5455,-47.6364 97.6364,-38.5455 97.8182,-21.8182 85.6364,0 73.4545,0 44.7273,-17.6364 39.6364,-10.5455 36.1818,-2.36364 29.8182,0.181818 10.7273,0.181818"/>
@@ -19,6 +19,7 @@
   <object id="2726" x="27.8182" y="129.091">
    <polyline points="0,0 0,59.0909 12.1818,59.6364 11.6364,52.7273 11.4545,43.2727 12.5455,52.9091 42.9091,53.2727 43.4545,28 12.3636,28.5455 12.1818,33.4545 10.5455,-1.45455"/>
   </object>
+  <object id="2757" type="2" x="63.125" y="176.062" width="2" height="2"/>
  </objectgroup>
  <objectgroup name="Pared">
   <object id="2607" name="1" x="39" y="157" width="2" height="2">
@@ -554,12 +555,10 @@
    <property name="PuertaLlave" value="6"/>
    <property name="Torreta" value="9"/>
   </properties>
-  <object id="2595" type="5" x="40" y="166.636" width="2" height="2" rotation="90"/>
-  <object id="2597" type="6" x="32.1705" y="128" width="2" height="2" rotation="360"/>
   <object id="2598" type="3" x="30.3636" y="184.909" width="2" height="2"/>
   <object id="2599" type="4" x="63.6364" y="159.273" width="2" height="2"/>
   <object id="2602" type="7" x="38.5682" y="90.8636" width="2" height="2" rotation="360"/>
   <object id="2747" type="8" x="110.07" y="78.73" width="2" height="2" rotation="2.98"/>
-  <object id="2756" type="2" x="63.1136" y="176.023" width="2" height="2"/>
+  <object id="2756" type="5" x="38.2386" y="166.71" width="2" height="2"/>
  </objectgroup>
 </map>

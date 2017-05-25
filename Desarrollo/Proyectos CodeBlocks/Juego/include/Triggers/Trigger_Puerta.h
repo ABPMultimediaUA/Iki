@@ -20,7 +20,8 @@ class Trigger_Puerta : public Trigger
     protected:
 
     private:
-
+        f32 aniTime, time2;
+        MeshSceneNode* puerta;
         bool fired = false;
         bool abierta = false;
         float mx,mz,ma;

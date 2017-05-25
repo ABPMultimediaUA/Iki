@@ -85,7 +85,8 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //Region
         trigger->AddCircularRegion(centro,3.5);
         //modelo
-        modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
+        modelo = new AnimatedMesh("resources/Modelos/puerta_marco.obj", {0,0,0,0}, centro, r);
+        modelo->setVisible(false);
         trigger->setMesh(modelo);
 
     }
@@ -94,7 +95,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         //Region
         trigger->AddCircularRegion(centro,3.5);
         //modelo
-        modelo = new AnimatedMesh("resources/Modelos/puertita.obj", {0,0,0,0}, centro, r);
+        modelo = new AnimatedMesh("resources/Modelos/puerta_marco.obj", {0,0,0,0}, centro, r);
         trigger->setMesh(modelo);
 
     }

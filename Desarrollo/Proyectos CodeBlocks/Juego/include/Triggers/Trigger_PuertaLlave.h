@@ -12,14 +12,18 @@ class Trigger_PuertaLlave : public Trigger
 
         void Try(GameEntity*);
         void Update();
+
+        void triggerDisparado();
         bool isPuerta(){return true;}
-        bool isPuertaAbierta();
+        bool isPuertaAbierta() {return abierta;}
 
     protected:
 
     private:
+        f32 aniTime, time2;
+        MeshSceneNode* puerta;
         bool fired = false;
-        bool abierta= false;
+        bool abierta = false;
         float mx,mz,ma;
 };
 

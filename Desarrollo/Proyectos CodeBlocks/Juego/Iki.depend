@@ -3027,7 +3027,7 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1495660092 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -3273,13 +3273,14 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1495679576 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
 	"PhisicsWorld.h"
+	"Fachada/GraphicsFacade.h"
 
-1495076638 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1495677176 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1491423748 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
@@ -3338,7 +3339,7 @@
 1488473141 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
 
-1495525545 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1495678968 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -6741,12 +6742,13 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
 	<Trigger_Respawning.h>
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
+1495679401 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
 	"Trigger_PuertaLlave.h"
 	"Player.h"
 	"PhisicsWorld.h"
+	"Fachada/GraphicsFacade.h"
 
-1495076638 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
+1495677749 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
 	<Trigger.h>
 
 1495525544 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escuchar.cpp
