@@ -164,8 +164,8 @@ void Scene::bucle_juego(int nivel){
                 reintentar = true;
             }*/
             if(player != nullptr){
-                if(MyEventReceiver::getInstance().isKeyDown(KEY_SPACE)){
-                //if(player->isNivelFinished()){
+                //if(MyEventReceiver::getInstance().isKeyDown(KEY_SPACE)){
+                if(player->isNivelFinished()){
                     cleanScene(1);
                     isGameActive = false;
                     nextLevel = true;

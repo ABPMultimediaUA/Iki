@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "World.h"
 #include "Atacar.h"
+#include "Escanear.h"
 
 EntityManager* EntityManager::Instance()
 {
@@ -95,6 +96,15 @@ void EntityManager::Clear(){
 bool EntityManager::hayEnemyAtacando(){
     for(size_t i = 0;i < enemigos.size();i++){
         if(enemigos[i]->GetFSM()->CurrentState() == Atacar::Instance())
+            return true;
+    }
+    return false;
+}
+
+bool EntityManager::hayEnemyEscaneandoOAtacando(){
+    for(size_t i = 0;i < enemigos.size();i++){
+        if(   enemigos[i]->GetFSM()->CurrentState() == Atacar::Instance()
+           || enemigos[i]->GetFSM()->CurrentState() == Escanear::Instance())
             return true;
     }
     return false;
