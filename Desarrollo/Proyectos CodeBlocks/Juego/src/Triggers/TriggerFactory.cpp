@@ -83,7 +83,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     if (tipo == 5){
         trigger = new Trigger_Puerta(x,z,r);
         //Region
-        trigger->AddCircularRegion(centro,3.5);
+        trigger->AddCircularRegion(centro,4.5);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/puerta_marco.obj", {0,0,0,0}, centro, r);
         modelo->setTexture("resources/Texturas/marco_puerta.png");
@@ -93,7 +93,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     else if (tipo == 6){
         trigger = new Trigger_PuertaLlave(x,z,r);
         //Region
-        trigger->AddCircularRegion(centro,3.5);
+        trigger->AddCircularRegion(centro,4.5);
         //modelo
         modelo = new AnimatedMesh("resources/Modelos/puerta_marco.obj", {0,0,0,0}, centro, r);
         modelo->setTexture("resources/Texturas/marco_puerta.png");
@@ -112,7 +112,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
     }
 
     else if (tipo == 8){
-        trigger = new Trigger_PuertaNivel();
+        trigger = new Trigger_PuertaNivel(x,z,r);
         //Region
         trigger->AddCircularRegion(centro,3.5);
         //modelo

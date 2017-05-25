@@ -3,7 +3,7 @@
 #include "PhisicsWorld.h"
 #include "EntityManager.h"
 
-Trigger_PuertaNivel::Trigger_PuertaNivel()
+Trigger_PuertaNivel::Trigger_PuertaNivel(float x, float z, float r)
 {
 
 }

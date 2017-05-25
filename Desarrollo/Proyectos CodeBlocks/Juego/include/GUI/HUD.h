@@ -69,6 +69,7 @@ class HUD
         HUD_Element* BotonReintentar;
         HUD_Element* BotonFinJuego;
         HUD_Element* Palanca;
+        HUD_Element* Barra_Vida;
 
         Player* player;
 

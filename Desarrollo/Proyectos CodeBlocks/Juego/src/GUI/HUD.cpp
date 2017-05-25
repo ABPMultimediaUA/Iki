@@ -25,6 +25,7 @@ HUD::HUD()
     GOver            = nullptr;
     BotonReintentar  = nullptr;
     BotonFinJuego    = nullptr;
+    Barra_Vida       = nullptr;
 
     player  = nullptr;
     //player  = static_cast<Player*>(EntityManager::Instance()->getEntities()[0]);
@@ -49,6 +50,7 @@ HUD::~HUD()
     GOver            = nullptr;
     BotonReintentar  = nullptr;
     BotonFinJuego    = nullptr;
+    Barra_Vida       = nullptr;
 
     player  = nullptr;
 }
@@ -62,7 +64,7 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(0, -8, rec, "Overlay", true));
 
     ///Vida del prota
-    rec = {560, 0, 675, 230};
+    rec = {0, 0, 115, 230};
     elementos.push_back(new HUD_Element(10, 2, rec, "vidaprota", true));
     Vida = elementos[1];
 
@@ -143,6 +145,10 @@ void HUD::inicializar_HUD(){
     elementos.push_back(new HUD_Element(665, 295, rec, "E", false));
     Palanca = elementos[18];
 
+    rec = {0, 0, 92, 178};
+    elementos.push_back(new HUD_Element(27, 33, rec, "barravida", true));
+    Barra_Vida = elementos[19];
+
 }
 
 void HUD::draw(){
@@ -188,11 +194,16 @@ void HUD::comprobarAvisos(){
 }
 
 void HUD::actualizarVidas(){
-    int v;
-    int vidas = player->getVida();
+
+    int vidas = (player->getVida() / 100) * 178;
+    Structs::TRectangulo rec = {0,/*178 - ((vidas/100) * 178)*/0,92,vidas};
+    Barra_Vida->cambiarRect(rec);
+    Barra_Vida->setPosition(27, 33 + (178 - vidas));
+    /*int v;
+
     if (vidas<=100) v = 5;if (vidas<81) v = 4;if (vidas<61) v = 3;if (vidas<41) v = 2;if (vidas<21) v = 1;
     Structs::TRectangulo rec = {10 + (110 * v), 0, 115 + (110 * v), 230};
-    Vida->cambiarRect(rec);
+    Vida->cambiarRect(rec);*/
 }
 
 void HUD::actualizarBalas(){

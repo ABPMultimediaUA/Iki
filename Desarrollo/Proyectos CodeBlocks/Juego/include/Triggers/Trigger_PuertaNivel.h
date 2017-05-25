@@ -7,7 +7,7 @@
 class Trigger_PuertaNivel : public Trigger
 {
     public:
-        Trigger_PuertaNivel();
+        Trigger_PuertaNivel(float x, float z, float r);
         virtual ~Trigger_PuertaNivel();
 
         void Try(GameEntity*);
