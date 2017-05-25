@@ -138,7 +138,7 @@ void Guardia::ejecutarAtaque(){
                 if(anguloProta < 0)
                     anguloProta+360;
                 if(abs(anguloAtaque - anguloProta) < 45){
-                    std::cout << "me da  " << danyo << std::endl;
+                    //std::cout << "me da  " << danyo << std::endl;
                     EntityMgr->getEntityByID(0)->quitarVida(danyo);
                     solounaveh = true;
                 }else{

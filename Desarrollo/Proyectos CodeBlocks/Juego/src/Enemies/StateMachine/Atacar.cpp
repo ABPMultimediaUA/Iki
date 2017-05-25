@@ -50,7 +50,7 @@ void Atacar::Execute(Enemy* enemigo){
 
 void Atacar::Exit(Enemy* enemigo){
 
-    std::cout<<"holi"<<std::endl;
+    //std::cout<<"holi"<<std::endl;
     enemigo->showExcMark(false);
     //SoundMgr->playMusica("Musica/musica_general");
     //SoundMgr->transicionMusicas(3);

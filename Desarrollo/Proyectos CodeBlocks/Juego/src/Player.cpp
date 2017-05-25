@@ -47,6 +47,8 @@ void Player::inicializar_player(Map* m, int nivel){
 
     //aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
 
+    posicionInicial.Y = -4;
+
     animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",2.f,1);
     modelos = animacionAndar->getModelosAnimacion(1);
 
@@ -56,7 +58,7 @@ void Player::inicializar_player(Map* m, int nivel){
     aniMesh = new AnimatedMesh("resources/Animaciones/andar_OBJ_Seq/andar0000.obj", color, posicionInicial, 0);
     aniMesh->setTexture("resources/Texturas/Protatextura.png");
     aniMesh->setScale(2.4);
-    aniMesh->setPosition({posicionInicial.X,4,posicionInicial.Z});
+    aniMesh->setPosition({posicionInicial.X,0,posicionInicial.Z});
     //aniMesh->setVisible(true);
 
 
@@ -113,7 +115,7 @@ void Player::runAnimacion(int numeroAnimacion){
         animacionAndar->setActual(modelos[j]);
         animacionAndar->setPosition(posicion);
         animacionAndar->setRotation(body->GetAngle());
-    if( tiempoAnimacion > 0.025f)
+    if( tiempoAnimacion > 0.15f)
         j++;
     if(j>=modelos.size())
         j=0;
@@ -123,7 +125,7 @@ void Player::runAnimacion(int numeroAnimacion){
         animacionSigilo->setActual(modelosSigilo[h]);
         animacionSigilo->setPosition(posicion);
         animacionSigilo->setRotation(body->GetAngle());
-    if( tiempoAnimacion > 0.02f)
+    if( tiempoAnimacion > 0.15f)
         h++;
     if(h>=modelosSigilo.size())
         h=0;
@@ -148,6 +150,12 @@ void Player::moverBody(Structs::TPosicion vec){
     }
     else{
         isMoving = true;
+        if(velocidad > 2){
+            comprobarVelocidad();
+            speed = 3;
+            runAnimacion(1);
+        }
+
          ///COMPRUEBO SI TENGO SHIFT OPRIMIDO
         if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
             //std::cout<<"shift oprimidooo"<<std::endl;
@@ -156,17 +164,13 @@ void Player::moverBody(Structs::TPosicion vec){
             HUD::getInstance()->sigiloUsed();
             runAnimacion(2);
         }
-        else {
+        else if(speed != 3){
+            runAnimacion(1);
             speed = 2;
             velocidad = 2;
             HUD::getInstance()->sigiloNotUsed();
-            runAnimacion(1);
         }
 
-         if(velocidad > 2.f){
-            comprobarVelocidad();
-            speed = 3;
-        }
     }
     body->SetLinearVelocity(b2Vec2(movx, movy));
 }
@@ -174,7 +178,8 @@ void Player::moverBody(Structs::TPosicion vec){
 void Player::comprobarVelocidad(){
     if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_con_mas_speed > 2.f){
         velocidad = 2;
-        tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        speed = 2;
+        //tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     }
 }
 
@@ -296,7 +301,7 @@ void Player::NecesitoLlave(){
 }
 
 void Player::subirVelocidad(){
-    velocidad *= 2;
+    velocidad = 4;
     tiempo_con_mas_speed = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     HUD::getInstance()->activateAceite();
 }

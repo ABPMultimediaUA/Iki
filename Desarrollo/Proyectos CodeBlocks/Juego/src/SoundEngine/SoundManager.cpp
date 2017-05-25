@@ -123,7 +123,7 @@ void SoundManager::transicionMusicas(int num){
     case 2: ///Transicion de pillado a combate
         soundStop("Musica/musica_general");
         if(engine->isCurrentlyPlaying(musica["Musica/musica_pillado"])){
-            std::cout<<GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion<<std::endl;
+            //std::cout<<GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion<<std::endl;
             if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion > 20.f){
                 playMusica("Musica/musica_combate");
                 soundStop("Musica/musica_pillado");

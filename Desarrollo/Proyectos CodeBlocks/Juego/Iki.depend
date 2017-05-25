@@ -1939,7 +1939,7 @@
 	<stdlib.h>
 	<sys/ioctl.h>
 
-1495709479 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\scene.h
 	"Structs.h"
 
 1492513072 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\structs.h
@@ -2731,7 +2731,7 @@
 1486495416 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\camera.h
 	"Structs.h"
 
-1495655565 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
+1495732253 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\player.h
 	"GameEntity.h"
 	"Trigger_Ruido.h"
 	"Fachada/Camera.h"
@@ -2924,7 +2924,7 @@
 1491423064 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\box2d\box2d\dynamics\joints\b2wheeljoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1495709479 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\world.h
 	"Map.h"
 
 1491423727 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\leveldata.h
@@ -2932,7 +2932,7 @@
 	<irrlicht.h>
 	<Box2D/Box2D.h>
 
-1495709479 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
+1495732257 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\map.h
 	<vector>
 	"tinyxml2.h"
 	"Structs.h"
@@ -2983,7 +2983,7 @@
 	"Enemies/Path/PathEdge.h"
 	"SensorMemory.h"
 
-1495686832 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemy.cpp
 	"Enemy.h"
 	"Fachada/GraphicsFacade.h"
 	"PatrolPoint.h"
@@ -3007,11 +3007,11 @@
 1491423745 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\leveldata.cpp
 	"LevelData.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
+1495732257 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\map.cpp
 	"Map.h"
 	"MapComponent.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
+1495737261 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player.cpp
 	"Player.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -3028,7 +3028,7 @@
 	"SceneNode.h"
 	"Structs.h"
 
-1495727677 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
+1495732239 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\scene.cpp
 	"Scene.h"
 	"Fachada/GraphicsFacade.h"
 	"Fachada/Camera.h"
@@ -3043,7 +3043,7 @@
 	"Percibir.h"
 	<iostream>
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\world.cpp
 	"World.h"
 	"Enemy.h"
 	"Enemies/Guardia.h"
@@ -3211,7 +3211,7 @@
 	"Structs.h"
 	<iostream>
 
-1495659988 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\graphicsfacade.h
 	"MyEventReceiver.h"
 	"Camera.h"
 	"Structs.h"
@@ -3230,7 +3230,7 @@
 	"Fachada/Camera.h"
 	"Fachada/GraphicsFacade.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\graphicsfacade.cpp
 	"Fachada/GraphicsFacade.h"
 	"GUI/GUI.h"
 
@@ -3274,14 +3274,14 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1495730224 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1495732436 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1495729676 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1491423748 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
@@ -3295,7 +3295,7 @@
 	"TriggerFactory.h"
 	"EntityManager.h"
 
-1495685835 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolpoint.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolpoint.h
 	"Structs.h"
 
 1488977050 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\guardia.cpp
@@ -3323,7 +3323,7 @@
 
 1491423728 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\patrolroute.h
 
-1495685490 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\patrolpoint.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\patrolpoint.cpp
 	"PatrolPoint.h"
 
 1495077970 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\patrolroute.cpp
@@ -3340,7 +3340,7 @@
 1488473141 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\statemachine\statemachine.cpp
 	"StateMachine/StateMachine.h"
 
-1495730127 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
+1495732239 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\triggerfactory.cpp
 	"TriggerFactory.h"
 	"TriggerRegion_Circle.h"
 	"TriggerRegion_Rectangle.h"
@@ -3394,7 +3394,7 @@
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1495659277 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\player_ray.cpp
 	"Player_Ray.h"
 	"Fachada/MeshSceneNode.h"
 	"Fachada/GraphicsFacade.h"
@@ -6405,13 +6405,13 @@
 	<iostream>
 	<math.h>
 
-1495726989 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\entitymanager.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\entitymanager.h
 	<map>
 	<cassert>
 	<string>
 	"Structs.h"
 
-1495709479 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\soundengine\soundmanager.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\soundengine\soundmanager.h
 	<map>
 	<vector>
 	<string>
@@ -6443,7 +6443,7 @@
 1491423724 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\patrullar.h
 	"Enemies/StateMachine/State.h"
 
-1495525544 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
+1495735954 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\guardia.cpp
 	"FuzzyQuery.h"
 	"Investigar.h"
 	"Enemies/Guardia.h"
@@ -6452,7 +6452,7 @@
 	"Fachada/MeshSceneNode.h"
 	"SoundManager.h"
 
-1495686160 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\guardia.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Vigilar.h"
@@ -6463,12 +6463,12 @@
 1491423725 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\vigilar.h
 	"Enemies/StateMachine/State.h"
 
-1495525544 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
+1495732254 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\medico.cpp
 	"Enemies/Medico.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
 
-1495077970 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\medico.h
+1495732253 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\medico.h
 	"Enemy.h"
 	"StateMachine/Patrullar.h"
 	"StateMachine/Percibir.h"
@@ -6557,7 +6557,7 @@
 1491423724 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\muerto.h
 	"Enemies/StateMachine/State.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\atacar.cpp
+1495735956 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\atacar.cpp
 	"Enemies/StateMachine/Atacar.h"
 	"Enemies/StateMachine/Investigar.h"
 	"Enemy.h"
@@ -6584,7 +6584,7 @@
 	<string>
 	"Mensaje.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escanear.cpp
+1495732305 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escanear.cpp
 	"Enemies/StateMachine/Escanear.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -6597,7 +6597,7 @@
 1491423724 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\pedirayuda.h
 	"Enemies/StateMachine/State.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\investigar.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\investigar.cpp
 	"Enemies/StateMachine/Investigar.h"
 	"Enemies/StateMachine/Vigilar.h"
 	"Enemy.h"
@@ -6616,7 +6616,7 @@
 1491423742 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\mensaje.cpp
 	"Enemies/StateMachine/Mensaje.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\muerto.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\muerto.cpp
 	"Enemy.h"
 	"EntityManager.h"
 	"Enemies/StateMachine/Muerto.h"
@@ -6644,7 +6644,7 @@
 1491423724 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\proteger.h
 	"Enemies/StateMachine/State.h"
 
-1495076638 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\proteger.cpp
+1495732254 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\proteger.cpp
 	"Enemies/StateMachine/Proteger.h"
 	"Enemies/StateMachine/PedirAyuda.h"
 	"Enemy.h"
@@ -6671,7 +6671,7 @@
 	"Enemies/StateMachine/VolverALaPatrulla.h"
 	"Enemies/StateMachine/Muerto.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\volveralapatrulla.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\volveralapatrulla.cpp
 	"Enemies/StateMachine/VolverALaPatrulla.h"
 	"Enemy.h"
 	"Enemies/StateMachine/Patrullar.h"
@@ -6681,7 +6681,7 @@
 1491423729 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\muerto.h
 	"Enemies/StateMachine/State.h"
 
-1495727066 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\entitymanager.cpp
 	"EntityManager.h"
 	"GameEntity.h"
 	"Enemy.h"
@@ -6689,7 +6689,7 @@
 	"Atacar.h"
 	"Escanear.h"
 
-1495659893 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\gui\gui.h
 	<vector>
 	<string>
 
@@ -6700,16 +6700,16 @@
 1494326634 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\image.h
 	"Structs.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\game.cpp
 	"Game.h"
 	"Scene.h"
 	"Menu.h"
 	"../lib/irrKlang/conio.h"
 
-1495659848 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\menu.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\menu.h
 	"Structs.h"
 
-1495659865 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\gui\gui.cpp
 	"GUI/GUI.h"
 	"GUI/GUI_Button.h"
 	"GUI/GUI_Menu.h"
@@ -6782,7 +6782,7 @@
 	"Fachada/Image.h"
 	"MyEventReceiver.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\menu.cpp
 	"Menu.h"
 	"GUI/GUI.h"
 	"GUI/GUI_Button.h"
@@ -6792,7 +6792,7 @@
 	"Fachada/GraphicsFacade.h"
 	"SoundManager.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\soundengine\soundmanager.cpp
+1495736202 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\soundengine\soundmanager.cpp
 	"SoundManager.h"
 	"Fachada/GraphicsFacade.h"
 	<iostream>
@@ -6811,13 +6811,13 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
 	<Trigger_Respawning.h>
 
-1495730224 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
+1495732239 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
 	"Trigger_PuertaLlave.h"
 	"Player.h"
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1495729676 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertallave.h
 	<Trigger.h>
 
 1495525544 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\escuchar.cpp
@@ -6860,7 +6860,7 @@
 1491423729 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\escanear.h
 	"Enemies/StateMachine/State.h"
 
-1495682403 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_torreta.cpp
+1495732239 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_torreta.cpp
 	"Trigger_Torreta.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
@@ -12359,7 +12359,7 @@
 	<vector>
 	<TEntidad.h>
 
-1495655565 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
+1495732212 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\tnodo.h
 	<iostream>
 	"TEntidad.h"
 	<vector>
@@ -12646,11 +12646,11 @@
 1495077970 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\percibir.h
 	"Enemies/StateMachine/State.h"
 
-1495709480 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\revivir.cpp
+1495732257 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\enemies\statemachine\revivir.cpp
 	"Enemy.h"
 	"EntityManager.h"
 	"Enemies/StateMachine/Revivir.h"
-	"Enemies/StateMachine/Vigilar.h"
+	"Enemies/StateMachine/Proteger.h"
 	"Enemies/Medico.h"
 
 1495076638 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\enemies\statemachine\revivir.h
@@ -12735,13 +12735,13 @@
 	"TAnimacion.h"
 	<sstream>
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tcamara.cpp
 	"TCamara.h"
 
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tdisplay.cpp
 	"TDisplay.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tentidad.cpp
 	"TEntidad.h"
 
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tgestorrecursos.cpp
@@ -12750,7 +12750,7 @@
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tluz.cpp
 	"TLuz.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmalla.cpp
 	"TMalla.h"
 	"TTransform.h"
 	"TGestorRecursos.h"
@@ -12768,11 +12768,11 @@
 	<glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tmotortag.cpp
 	"TMotorTAG.h"
 	"TShader.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tnodo.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\tnodo.cpp
 	"TNodo.h"
 	"TTransform.h"
 
@@ -12781,7 +12781,7 @@
 
 1494326634 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\tag\trecurso.h
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\trecursomalla.cpp
 	"TRecursoMalla.h"
 	"TGestorRecursos.h"
 	"TMalla.h"
@@ -12800,7 +12800,7 @@
 1494326635 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttexturacache.cpp
 	"TTexturaCache.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\tag\ttransform.cpp
 	"TTransform.h"
 
 1495036971 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puertanivel.h
@@ -12827,13 +12827,13 @@
 	"PhisicsWorld.h"
 	"Fachada/MeshSceneNode.h"
 
-1495727106 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertanivel.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertanivel.cpp
 	"Trigger_PuertaNivel.h"
 	"Player.h"
 	"PhisicsWorld.h"
 	"EntityManager.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_apisonadora.cpp
+1495732212 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_apisonadora.cpp
 	"Trigger_Apisonadora.h"
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
@@ -12866,10 +12866,10 @@
 	"Trigger_Engranaje.h"
 	"Player.h"
 
-1495655565 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animaciones.h
+1495732253 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\fachada\animaciones.h
 	"Structs.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animaciones.cpp
+1495732331 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\fachada\animaciones.cpp
 	"Fachada/Animaciones.h"
 	"Fachada/GraphicsFacade.h"
 	<string>
