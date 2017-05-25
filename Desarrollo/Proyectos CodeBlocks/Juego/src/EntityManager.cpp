@@ -2,8 +2,7 @@
 #include "GameEntity.h"
 #include "Enemy.h"
 #include "World.h"
-
-
+#include "Atacar.h"
 
 EntityManager* EntityManager::Instance()
 {
@@ -91,4 +90,12 @@ void EntityManager::Clear(){
     enemigos.clear();
     entityMap.clear();
     nextID = 1;
+}
+
+bool EntityManager::hayEnemyAtacando(){
+    for(size_t i = 0;i < enemigos.size();i++){
+        if(enemigos[i]->GetFSM()->CurrentState() == Atacar::Instance())
+            return true;
+    }
+    return false;
 }

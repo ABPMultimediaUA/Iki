@@ -17,10 +17,12 @@ Investigar* Investigar::Instance()
 void Investigar::Enter(Enemy* enemigo){
     //std::cout<<"a investigar se ha dicho"<<std::endl;
     enemigo->crearPath(enemigo->getPosicionInteres());
-    if(enemigo->GetFSM()->wasInState(*Atacar::Instance())){
+    if(enemigo->GetFSM()->PreviousState() != Atacar::Instance()){
+        //SoundMgr->playMusica("Musica/musica_pillado");
+
         switch (enemigo->getTipo()){
             case 1:
-                SoundMgr->playSonido("VocesRobots/Guardia/investigando");
+                SoundMgr->playSonido("VocesRobots/Guardia/investigando_guardia");
             break;
             case 2:
                 SoundMgr->playSonido("VocesRobots/Medico/investigando_medico");
@@ -35,6 +37,8 @@ void Investigar::Enter(Enemy* enemigo){
 
 void Investigar::Execute(Enemy* enemigo){
 
+    if(enemigo->GetFSM()->PreviousState() != Atacar::Instance())
+        SoundMgr->transicionMusicas(1);
     enemigo->showExcMark(true);
     if(enemigo->getDistanciaPlayer()<15 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
         if(enemigo->isGuardia() && enemigo->GetFSM()->PreviousState() == Atacar::Instance()){
@@ -56,7 +60,7 @@ void Investigar::Exit(Enemy* enemigo){
     enemigo->showExcMark(false);
     switch (enemigo->getTipo()){
         case 1:
-            SoundMgr->soundStop("VocesRobots/Guardia/investigando");
+            SoundMgr->soundStop("VocesRobots/Guardia/investigando_guardias");
         break;
         case 2:
             SoundMgr->soundStop("VocesRobots/Medico/investigando_medico");

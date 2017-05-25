@@ -26,7 +26,7 @@ void Escanear::Enter(Enemy* enemigo){
 
     switch (enemigo->getTipo()){
         case 1:
-            SoundMgr->playSonido("VocesRobots/Guardia/escaneando");
+            SoundMgr->playSonido("VocesRobots/Guardia/escaneando_guardia");
         break;
         case 2:
             SoundMgr->playSonido("VocesRobots/Medico/escaneando_medico");
@@ -38,6 +38,7 @@ void Escanear::Enter(Enemy* enemigo){
 }
 
 void Escanear::Execute(Enemy* enemigo){
+    SoundMgr->transicionMusicas(1);
     enemigo->escanear();
 
     if(enemigo->getTiempo()>2){

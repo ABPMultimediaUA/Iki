@@ -19,7 +19,9 @@ void Game::start_game(){
     menu->inicializar_menu(0);
     if(menu->run(0)){
         escena->inicializar_escena(1);
-        escena = new Scene();
-        escena->inicializar_escena(2);
+        if(escena->wantsNextLevel()){
+            escena = new Scene();
+            escena->inicializar_escena(2);
+        }
     }
 }

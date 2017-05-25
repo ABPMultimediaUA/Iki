@@ -28,7 +28,7 @@ class Map
         void crearComponente();
         void inicializar_mapa(int);
         void inicializar_muros();
-        void cleanMap();
+        void cleanMap(int);
 
         vector<Muros*>       getMuros()        { return muros; }
         vector<PatrolPoint*> getPatrullas()    { return patrullas; }

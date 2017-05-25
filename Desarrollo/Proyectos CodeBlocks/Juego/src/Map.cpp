@@ -205,12 +205,14 @@ void Map::inicializar_mapa(int tipo){
 
 }
 
-void Map::cleanMap(){
+void Map::cleanMap(int nivel){
 
     ///eliminar modelos
     delete primera_sala;
-    delete segunda_sala;
-    delete tercera_sala;
+    if(nivel == 1){
+        delete segunda_sala;
+        delete tercera_sala;
+    }
 
     ///eliminar nodos
     std::vector<MapComponent*>::iterator curTrg;

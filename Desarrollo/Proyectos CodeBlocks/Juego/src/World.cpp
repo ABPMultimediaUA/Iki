@@ -111,7 +111,7 @@ void World::update_mundo(){
     }
 }
 
-void World::cleanWorld(){
+void World::cleanWorld(int nivel){
     enemigos.clear();
 
     std::vector<PatrolRoute*>::iterator curTrg;
@@ -122,5 +122,5 @@ void World::cleanWorld(){
 
     rutas.clear();
 
-    mapa->cleanMap();
+    mapa->cleanMap(nivel);
 }

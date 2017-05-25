@@ -51,6 +51,7 @@ public:
     void borrarEnemigo(Enemy* enemigo);
 
     void Clear();
+    bool hayEnemyAtacando();
 };
 
 

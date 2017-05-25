@@ -13,6 +13,7 @@ Revivir* Revivir::Instance()
 
 void Revivir::Enter(Enemy* enemigo){
     enemigo->resetTime();
+    SoundMgr->playSonido("VocesRobots/Medico/reparando_medico");
 }
 
 void Revivir::Execute(Enemy* enemigo){

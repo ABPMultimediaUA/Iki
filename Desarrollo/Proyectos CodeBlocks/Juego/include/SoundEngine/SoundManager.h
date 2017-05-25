@@ -21,7 +21,6 @@ class SoundManager
         virtual ~SoundManager();
 
         typedef std::map<std::string, irrklang::ISoundSource*> SoundMap;
-        typedef std::map<std::string, irrklang::ISoundSource*> MusicMap;
         typedef std::map<std::string, irrklang::ISound*> SoundChannels;
 
         bool isCargado(std::string s);
@@ -40,8 +39,12 @@ class SoundManager
         bool soundIsFinished(std::string s);
         void soundStop(std::string s);
         void stopAll(){ engine->stopAllSounds(); }
+        void Clear();
 
         float getVolumen(){return engine->getSoundVolume();}
+
+        void transicionMusicas(int);
+        void resetTiempo();
 
         void Update();
 
@@ -52,8 +55,10 @@ class SoundManager
         irrklang::ISoundEngine* engine;
 
         SoundMap sonidos;
-        MusicMap musica;
+        SoundMap musica;
         SoundChannels canales;
+
+        f32 tiempo_en_transicion;
 
 };
 

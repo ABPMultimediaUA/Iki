@@ -101,9 +101,7 @@ void GraphicsFacade::close(){
 }
 
 void GraphicsFacade::drop(){
-
 	device->drop();
-
 }
 
 /*void GraphicsEngine::setWindowCaption(){

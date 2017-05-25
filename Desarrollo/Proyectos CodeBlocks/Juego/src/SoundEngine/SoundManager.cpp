@@ -1,4 +1,5 @@
 #include "SoundManager.h"
+#include "Fachada/GraphicsFacade.h"
 #include <iostream>
 
 SoundManager::SoundManager()
@@ -85,14 +86,14 @@ void SoundManager::volumenGeneral(float f)
 
 void SoundManager::volumenSonido(float f, std::string s)
 {
-    if (sonidos[s])
-        sonidos[s]->setDefaultVolume(f);
+    if (canales[s])
+        canales[s]->setVolume(f);
 }
 
 void SoundManager::volumenMusica(float f, std::string s)
 {
-    if (musica[s])
-        musica[s]->setDefaultVolume(f);
+    if (canales[s])
+        canales[s]->setVolume(f);
 }
 
 bool SoundManager::soundIsFinished(std::string s)
@@ -106,6 +107,51 @@ void SoundManager::soundStop(std::string s)
 {
     if (canales[s])
         canales[s]->stop();
+}
+
+void SoundManager::transicionMusicas(int num){
+
+    switch(num){
+    case 1: ///Transicion de bucle general a pillado
+        if(engine->isCurrentlyPlaying(musica["Musica/musica_general"])
+        && !engine->isCurrentlyPlaying(musica["Musica/musica_pillado"])){
+            playMusica("Musica/musica_pillado");
+            soundStop("Musica/musica_general");
+            resetTiempo();
+        }
+        break;
+    case 2: ///Transicion de pillado a combate
+        soundStop("Musica/musica_general");
+        if(engine->isCurrentlyPlaying(musica["Musica/musica_pillado"])){
+            std::cout<<GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion<<std::endl;
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion > 20.f){
+                playMusica("Musica/musica_combate");
+                soundStop("Musica/musica_pillado");
+                resetTiempo();
+            }
+        }
+        break;
+    case 3: ///Transicion de combate a general
+        if(engine->isCurrentlyPlaying(musica["Musica/musica_combate"])){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion > 1.f){
+                soundStop("Musica/musica_combate");
+                resetTiempo();
+            }
+        }
+        if(engine->isCurrentlyPlaying(musica["Musica/musica_pillado"])){
+            if(GraphicsFacade::getInstance().getTimer()->getTime()/1000.f - tiempo_en_transicion > 1.f){
+                soundStop("Musica/musica_pillado");
+                resetTiempo();
+            }
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+void SoundManager::resetTiempo(){
+    tiempo_en_transicion = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
 }
 
 void SoundManager::Update()

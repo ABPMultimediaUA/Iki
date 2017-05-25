@@ -13,6 +13,10 @@ Muerto* Muerto::Instance()
 void Muerto::Enter(Enemy* enemigo){
     ///MATAR ENEMIGO
     enemigo->getBody()->SetActive(false);
+    if(!EntityMgr->hayEnemyAtacando()){
+        SoundMgr->playMusica("Musica/musica_general");
+        SoundMgr->transicionMusicas(3);
+    }
     switch (enemigo->getTipo()){
         case 1:
             SoundMgr->playSonido("AccionesRobots/muertedron");

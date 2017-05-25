@@ -17,7 +17,8 @@ class Scene
         void cargarSonidos();
         void inicializar_escena(int);
         void bucle_juego(int);
-        void cleanScene();
+        void cleanScene(int);
+        bool wantsNextLevel(){ return nextLevel; }
 
     protected:
 
@@ -27,7 +28,7 @@ class Scene
         Player *player;
         Menu* menu_ingame;
         Map* Mapa;
-        bool isGameActive, reintentar;
+        bool isGameActive, reintentar, nextLevel;
 
 };
 

@@ -15,10 +15,11 @@ VolverALaPatrulla* VolverALaPatrulla::Instance()
 void VolverALaPatrulla::Enter(Enemy* enemigo){
     //std::cout<<"voviendo a la patrulla"<<std::endl;
     enemigo->crearPath(enemigo->getPPatrulla()->getPunto());
+    SoundMgr->playMusica("Musica/musica_general");
 
     switch (enemigo->getTipo()){
         case 1:
-            SoundMgr->playSonido("VocesRobots/Guardia/area_despejada_fin");
+            SoundMgr->playSonido("VocesRobots/Guardia/area_despejada_guardia");
         break;
         case 2:
             SoundMgr->playSonido("VocesRobots/Medico/area_despejada_medico");
@@ -31,6 +32,7 @@ void VolverALaPatrulla::Enter(Enemy* enemigo){
 
 void VolverALaPatrulla::Execute(Enemy* enemigo){
     enemigo->volverALaPatrulla();
+    SoundMgr->transicionMusicas(3);
     if(enemigo->getDistanciaPlayer() < 25 && enemigo->isEnemySeeing(enemigo->getPosicionProta())){
             enemigo->GetFSM()->ChangeState(Escanear::Instance());
     }

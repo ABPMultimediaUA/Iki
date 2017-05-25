@@ -20,7 +20,7 @@ class World
         Map* getMapa(){return mapa;};
         std::vector<Enemy*> getEnemies(){return enemigos;}
 
-        void cleanWorld();
+        void cleanWorld(int);
 
     protected:
 

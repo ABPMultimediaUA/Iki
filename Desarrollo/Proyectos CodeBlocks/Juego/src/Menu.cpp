@@ -33,7 +33,6 @@ void Menu::inicializar_menu(int menu){
     GUI* gui = GraphicsFacade::getInstance().getGUI();
 
     cargarSonidos();
-    SoundMgr->playMusica("Musica/menu_musica");
 
     ///MENU
     //gui->anyadirmenu (400, 60);
@@ -94,6 +93,7 @@ void Menu::comprobarBotones(int draw_type){
 bool Menu::run(int ingame){
 
     draw_type = 1;
+    SoundMgr->playMusica("Musica/menu_musica");
 
     while(GraphicsFacade::getInstance().run()){
 
