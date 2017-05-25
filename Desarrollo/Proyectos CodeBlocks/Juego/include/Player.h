@@ -76,6 +76,8 @@ class Player : public GameEntity{
         Structs::TPosicion quietoParado = {0,0,0};
         Structs::TPosicion mirarHacia = {0,0,0};
 
+        MeshSceneNode* puntero;
+
         Animaciones *animacionAndar;
         Animaciones *animacionSigilo;
         std::vector <IAnimatedMeshSceneNode*> modelos;

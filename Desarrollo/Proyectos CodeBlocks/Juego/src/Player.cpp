@@ -39,17 +39,22 @@ void Player::inicializar_player(Map* m, int nivel){
     if(nivel == 2) {posicionInicial = {190,0,50}; mousePosition = {190,0,50};}
     Structs::TColor color = {121,85,61,0};
 
+    puntero = new MeshSceneNode("resources/Modelos/puntero.obj");
+    puntero->setTexture("resources/Texturas/tarjetaTex.png");
+    puntero->setVisible(false);
+    puntero->setScale({5,5,5});
+
     //aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
 
-    animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",1.5f,1);
+    animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",2.f,1);
     modelos = animacionAndar->getModelosAnimacion(1);
 
-    animacionSigilo = new Animaciones("resources/Animaciones/sigilo_OBJ_Seq/sigilo.00",color,posicionInicial,90,57,34, "resources/Texturas/Protatextura.png",1.5f,2);
+    animacionSigilo = new Animaciones("resources/Animaciones/sigilo_OBJ_Seq/sigilo.00",color,posicionInicial,90,57,34, "resources/Texturas/Protatextura.png",2.f,2);
     modelosSigilo = animacionSigilo->getModelosAnimacion(2);
 
     aniMesh = new AnimatedMesh("resources/Animaciones/andar_OBJ_Seq/andar0000.obj", color, posicionInicial, 0);
     aniMesh->setTexture("resources/Texturas/Protatextura.png");
-    aniMesh->setScale(1.9);
+    aniMesh->setScale(2.4);
     aniMesh->setPosition({posicionInicial.X,4,posicionInicial.Z});
     //aniMesh->setVisible(true);
 
@@ -144,7 +149,7 @@ void Player::moverBody(Structs::TPosicion vec){
         isMoving = true;
          ///COMPRUEBO SI TENGO SHIFT OPRIMIDO
         if(MyEventReceiver::getInstance().isKeyDown(KEY_LSHIFT)){
-            std::cout<<"shift oprimidooo"<<std::endl;
+            //std::cout<<"shift oprimidooo"<<std::endl;
             speed = 1;
             velocidad = 1;
             HUD::getInstance()->sigiloUsed();
@@ -381,6 +386,8 @@ void Player::UpdateMov(Camera* camara){
         listaEjes.clear();
         GraphicsFacade::getInstance().interseccionRayPlano(mousePosition);
         calcularMirarHacia(mousePosition);
+        puntero->setPosition(mousePosition);
+        puntero->setVisible(true);
         //path->crearPath(posicion,mousePosition,listaNodos);
         path2->crearPath(mousePosition,listaEjes);
         //path2->SmoothPathEdgesQuick(listaEjes);
@@ -398,6 +405,9 @@ void Player::UpdateMov(Camera* camara){
         moverBody(quietoParado);
         if(!listaEjes.empty() && it2 != listaEjes.end()) //SI AUN NO ES EL ULTIMO NODO
             it2++;
+        else{
+            puntero->setVisible(false);
+        }
     }
     else
     { //CUANDO AUN NO HA LLEGADO A UN NODO

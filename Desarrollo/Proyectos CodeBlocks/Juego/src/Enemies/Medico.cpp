@@ -27,9 +27,8 @@ void Medico::inicializar_enemigo(Map* m)
     vida = 2;
     Structs::TColor color = {255,160,160,160};
     aniMesh = new AnimatedMesh("resources/Modelos/medica2.obj", color, posicion, 0);
-    aniMesh->setTexture("resources/Texturas/medica2.png");
-    aniMesh->setScale(3);
-
+    aniMesh->setTexture("resources/Texturas/medico.png");
+    aniMesh->setScale(2.5);
 }
 void Medico::pedirAyuda(){
     //mover medico con la lista de edges creada
@@ -65,7 +64,7 @@ void Medico::proteger(){
         posicion=posicion+toProtegido*(avMovement*2.5);
         calcularAngulo(protegido->getPosition());
     }
-    else if(tiempoEnEstado>2){
+    else if(tiempoEnEstado>2 && protegido->getVida()<4){
         curar();
         resetTime();
     }
@@ -85,6 +84,5 @@ void Medico::revivir(){
     }
 }
 void Medico::curar(){
-    if(protegido->getVida()>4)
         protegido->sumarVida();
 }

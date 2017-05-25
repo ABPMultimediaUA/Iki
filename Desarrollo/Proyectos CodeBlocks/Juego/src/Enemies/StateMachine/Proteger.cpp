@@ -21,14 +21,14 @@ void Proteger::Enter(Enemy* enemigo){
 
 void Proteger::Execute(Enemy* enemigo){
     if(enemigo->hayGuardias()){
-        if(enemigo->getGuardiaMasCercano()->GetFSM()->isInState(*VolverALaPatrulla::Instance()))
+        if(static_cast<Medico*>(enemigo)->getProtegido()->getVida() == 0){//Si su protegido esta muerto
+            enemigo->GetFSM()->ChangeState(PedirAyuda::Instance());//Pide ayuda a otro
+        }
+
+        if(static_cast<Medico*>(enemigo)->getProtegido()->GetFSM()->isInState(*VolverALaPatrulla::Instance()))
             enemigo->GetFSM()->ChangeState(VolverALaPatrulla::Instance());
 
         static_cast<Medico*>(enemigo)->proteger();
-       /* if (enemigo->getProtegido()->getVida()<4 && enemigo->getTiempo()>2){
-            enemigo->resetTime();
-            enemigo->GetFSM()->ChangeState(Curar::Instance);
-        }*/
     }
     else{
         enemigo->GetFSM()->ChangeState(Huir::Instance());

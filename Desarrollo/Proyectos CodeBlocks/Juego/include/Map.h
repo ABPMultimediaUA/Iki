@@ -43,6 +43,7 @@ class Map
         MeshSceneNode* primera_sala;
         MeshSceneNode* segunda_sala;
         MeshSceneNode* tercera_sala;
+        MeshSceneNode* suelo;
 
         vector<MapComponent*> nodo_muro;
         vector<Muros*> muros;
