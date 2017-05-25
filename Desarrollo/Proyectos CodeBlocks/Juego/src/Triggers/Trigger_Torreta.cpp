@@ -21,7 +21,7 @@ Trigger_Torreta::Trigger_Torreta(float x, float z, float r)
 
     posicion = {x,0,z};
 
-    modeloDisparo = new MeshSceneNode("resources/Modelos/disptorre.obj");
+    modeloDisparo = new MeshSceneNode("resources/Modelos/dipstorre2.obj");
     modeloDisparo->setTexture("resources/Texturas/rayo_rojo.png");
     modeloDisparo->setVisible(false);
 
@@ -54,16 +54,15 @@ void Trigger_Torreta::Disparar()
     float anguloAtaque = atan2f((vectorAtaque.Z) , -(vectorAtaque.X)) * 180.f / PI;
 
     b2RayCastInput input2;
-    input2.p1.Set(posicion.X + 2, posicion.Z + 2);  //  Punto   inicial del rayo
+    input2.p1.Set(posicion.X, posicion.Z);  //  Punto   inicial del rayo
     input2.p2.Set(posicion.X+((vectorAtaque.X/vectorAtaque.Length())*10), posicion.Z+((vectorAtaque.Z/vectorAtaque.Length())*10));
 
     Structs::TPosicion posicionAtaque = {(input2.p2.x + input2.p1.x)/2, 2.5 , (input2.p2.y + input2.p1.y)/2};
     float distanciaAtaque = sqrt(pow(input2.p2.x - input2.p1.x, 2) + pow(input2.p2.y - input2.p1.y, 2));
 
-    modeloDisparo->setPosition(posicion);
-    modeloDisparo->setRotation(anguloAtaque);
+    modeloDisparo->setPosition(posicionAtaque);
+    modeloDisparo->setRotation(anguloAtaque+180);
     modeloDisparo->setScale({2,1,1});
-    //modeloDisparo->setRotation(anguloAtaque + 180);
 
     modeloDisparo->setVisible(true);
     SoundMgr->playSonido("AccionesRobots/conoelectrico");

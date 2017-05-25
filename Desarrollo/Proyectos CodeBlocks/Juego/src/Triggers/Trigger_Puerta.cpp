@@ -39,49 +39,51 @@ Trigger_Puerta::~Trigger_Puerta()
 
 void Trigger_Puerta::triggerDisparado()
 {
-    if (!fired){
-        SoundMgr->soundStop("Triggers/puerta_cerrar");
-        SoundMgr->playSonido("Triggers/puerta_abrir");
-        fired = true;
-    }
+        if (!fired){
+            SoundMgr->soundStop("Triggers/puerta_cerrar");
+            SoundMgr->playSonido("Triggers/puerta_abrir");
+            fired = true;
+        }
 
-    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-    if (tiempo - timer > 0.01){
-        timer = tiempo;
-        if (posicion.Y > -8){
-            posicion.Y -= 0.5f;
-            puerta->setPosition(posicion);
+        f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        if (tiempo - timer > 0.025){
+            timer = tiempo;
+            if (posicion.Y > -8){
+                posicion.Y -= 0.5f;
+                puerta->setPosition(posicion);
+            }
+            if (tiempo - time2 > 5){
+                time2 = tiempo;
+                abierta = true;
+                body->SetTransform(b2Vec2(mx,mz+10),0);
+                body->SetActive(false);
+            }
         }
-        if (tiempo - time2 > 3){
-            time2 = tiempo;
-            abierta = true;
-            body->SetTransform(b2Vec2(mx,mz+10),0);
-            body->SetActive(false);
-        }
-    }
 }
 
 void Trigger_Puerta::triggerFuera()
 {
-    if (fired){
-        SoundMgr->soundStop("Triggers/puerta_abrir");
-        SoundMgr->playSonido("Triggers/puerta_cerrar");
-        fired = false;
-    }
-
-    f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-    if (tiempo - timer > 0.01){
-        timer = tiempo;
-        if (posicion.Y < 0){
-            posicion.Y += 0.5f;
-            puerta->setPosition(posicion);
+    if (abierta){
+        if (fired){
+            SoundMgr->soundStop("Triggers/puerta_abrir");
+            SoundMgr->playSonido("Triggers/puerta_cerrar");
+            fired = false;
         }
 
-        if (tiempo - time2 > 3){
-            time2 = tiempo;
-            abierta = false;
-            body->SetTransform(b2Vec2(mx,mz),0);
-            body->SetActive(true);
+        f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
+        if (tiempo - timer > 0.025){
+            timer = tiempo;
+            if (posicion.Y < 0){
+                posicion.Y += 0.5f;
+                puerta->setPosition(posicion);
+            }
+
+            if (tiempo - time2 > 3){
+                time2 = tiempo;
+                abierta = false;
+                body->SetTransform(b2Vec2(mx,mz),0);
+                body->SetActive(true);
+            }
         }
     }
 }
@@ -96,7 +98,6 @@ void Trigger_Puerta::Try(GameEntity* ent)
 
 void Trigger_Puerta::Update()
 {
-    if(abierta)
-        if(noHayNingunaEntidad())
-            triggerFuera();
+    if(noHayNingunaEntidad())
+        triggerFuera();
 }

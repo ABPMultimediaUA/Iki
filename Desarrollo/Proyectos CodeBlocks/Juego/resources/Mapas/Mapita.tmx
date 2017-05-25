@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2797">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2798">
  <properties>
   <property name="Fin" value="0"/>
  </properties>
@@ -1177,9 +1177,9 @@
   <object id="2746" type="7" x="99.25" y="68.25" width="2" height="2"/>
   <object id="2747" type="7" x="177.25" y="80" width="2" height="2"/>
   <object id="2749" type="6" x="17.0953" y="165.617" width="2" height="2" rotation="-57.1206"/>
-  <object id="2750" type="9" x="44.8405" y="107.949" width="2" height="2" rotation="-45"/>
   <object id="2792" type="1" x="63.2" y="76" width="2" height="2" rotation="90"/>
   <object id="2793" type="10" x="56" y="68" width="2" height="2" rotation="90"/>
   <object id="2794" type="10" x="71" y="81" width="2" height="2" rotation="90"/>
+  <object id="2797" type="9" x="46.2727" y="105.909" width="2" height="2"/>
  </objectgroup>
 </map>

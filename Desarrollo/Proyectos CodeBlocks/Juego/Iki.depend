@@ -3273,14 +3273,14 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_respawning.h
 	<Trigger.h>
 
-1495679576 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
+1495683069 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puerta.cpp
 	"Trigger_Puerta.h"
 	"GameEntity.h"
 	"SoundManager.h"
 	"PhisicsWorld.h"
 	"Fachada/GraphicsFacade.h"
 
-1495677176 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
+1495683116 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_puerta.h
 	<Trigger.h>
 
 1491423748 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_respawning.cpp
@@ -6742,7 +6742,7 @@
 1491423731 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\triggers\trigger_llave.h
 	<Trigger_Respawning.h>
 
-1495679401 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
+1495679676 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_puertallave.cpp
 	"Trigger_PuertaLlave.h"
 	"Player.h"
 	"PhisicsWorld.h"
@@ -6791,7 +6791,7 @@
 1491423729 c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\include\statemachine\escanear.h
 	"Enemies/StateMachine/State.h"
 
-1495655565 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_torreta.cpp
+1495682403 source:c:\users\juan\documents\github\iki\desarrollo\proyectos codeblocks\juego\src\triggers\trigger_torreta.cpp
 	"Trigger_Torreta.h"
 	"Fachada/GraphicsFacade.h"
 	"PhisicsWorld.h"
