@@ -112,21 +112,27 @@ void Player::runAnimacion(int numeroAnimacion){
         animacionAndar->setActual(modelos[j]);
         animacionAndar->setPosition(posicion);
         animacionAndar->setRotation(body->GetAngle());
-    if( tiempoAnimacion > 0.025f)
+    if( tiempoAnimacion > 0.025f){
         j++;
+        tiempoAnimacion = tiempoJuego;
+    }
     if(j>=modelos.size())
         j=0;
+
     }
     if(numeroAnimacion == 2){//Sigilo
         animacionAndar->getActual()->setVisible(false);
         animacionSigilo->setActual(modelosSigilo[h]);
         animacionSigilo->setPosition(posicion);
         animacionSigilo->setRotation(body->GetAngle());
-    if( tiempoAnimacion > 0.02f)
+    if( tiempoAnimacion > 0.02f){
         h++;
+        tiempoAnimacion = tiempoJuego;
+    }
     if(h>=modelosSigilo.size())
         h=0;
     }
+
 }
 void Player::meshQuietoParado(){
     animacionAndar->getActual()->setVisible(false);
