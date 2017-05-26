@@ -68,11 +68,11 @@ void Map::inicializar_mapa(int tipo){
     if(tipo == 1){
         docFile->LoadFile("resources/Mapas/Mapa3.tmx"); //Se carga el archivo xml
         primera_sala = new MeshSceneNode("resources/Modelos/salita1.obj");
-        primera_sala->setTexture("resources/Texturas/sala1-2.png");
+        primera_sala->setTexture("resources/Texturas/sala1.png");
         segunda_sala = new MeshSceneNode("resources/Modelos/salita2.obj");
-        segunda_sala->setTexture("resources/Texturas/sala2-1.png");
+        segunda_sala->setTexture("resources/Texturas/sala2.png");
         tercera_sala = new MeshSceneNode("resources/Modelos/nivel1.obj");
-        tercera_sala->setTexture("resources/Texturas/nivel1again.png");
+        tercera_sala->setTexture("resources/Texturas/nivel1.png");
         tercera_sala->setPosition({tercera_sala->getPosition().X,-1,tercera_sala->getPosition().Z});
         suelo = new MeshSceneNode("resources/Modelos/suelochapuza.obj");
         suelo->setTexture("resources/Texturas/suelo_fake.png");

@@ -6,7 +6,7 @@
 #include "GUI/GUI_VolumeControl.h"
 #include "Fachada/GraphicsFacade.h"
 #include "GUI/HUD.h"
-#include "GUI_Wallpaper.h"
+#include "GUI/GUI_Wallpaper.h"
 
 GUI::GUI()
 {

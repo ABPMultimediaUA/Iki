@@ -78,11 +78,11 @@ void Enemy::init(Map* m){
     excMark->setPosition({posicion.X,6,posicion.Z});
     excMark->setVisible(false);
 
-    modeloAtaque = new MeshSceneNode("resources/Modelos/conoray2.obj");
+    modeloAtaque = new MeshSceneNode("resources/Modelos/conoray.obj");
     modeloAtaque->setTexture("resources/Texturas/rojo.png");
     modeloAtaque->setVisible(false);
 
-    holoScan = new MeshSceneNode("resources/Modelos/holoscan2.obj");
+    holoScan = new MeshSceneNode("resources/Modelos/holoscan.obj");
     holoScan->setTexture("resources/Texturas/textura_verde.png");
     holoScan->setVisible(false);
     holoScan->setScale({2,2,2});

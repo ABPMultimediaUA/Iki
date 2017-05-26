@@ -76,7 +76,7 @@ Trigger *TriggerFactory::crearTrigger(int tipo, float z, float x, float r)
         trigger->AddCircularRegion(centro,1.f);
         //modelo;
         modelo = new AnimatedMesh("resources/Modelos/Municion.obj", {0,0,0,140}, centro, r);
-        modelo->setTexture("resources/Texturas/muni.png");
+        modelo->setTexture("resources/Texturas/municion2.png");
         modelo->setPosition({x, 0.5, z});
         trigger->setMesh(modelo);
     }

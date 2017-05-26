@@ -1,4 +1,4 @@
-#include "GUI_Wallpaper.h"
+#include "GUI/GUI_Wallpaper.h"
 #include "Fachada/Image.h"
 
 GUI_Wallpaper::GUI_Wallpaper(std::string cadena)
