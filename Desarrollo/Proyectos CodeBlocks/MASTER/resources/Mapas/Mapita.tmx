@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2797">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="2" tileheight="2" nextobjectid="2798">
  <properties>
   <property name="Fin" value="0"/>
  </properties>
@@ -62,7 +62,7 @@
    <polyline points="0,0 25.2727,15.2727 16.7273,29.2727 11.6364,33.8182 6.72727,34 10,26 2.90909,21.8182 -7.45455,39.8182 -19.6364,32.7273 -0.181818,0.181818"/>
   </object>
  </objectgroup>
- <objectgroup color="#ffffff" name="Pared" offsetx="0.0869565" offsety="-0.347826">
+ <objectgroup color="#ffffff" name="Pared" visible="0" offsetx="0.0869565" offsety="-0.347826">
   <properties>
    <property name="Fin" value="0"/>
   </properties>
@@ -501,7 +501,7 @@
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2583" name="88" x="108.545" y="92.16" width="2" height="2">
+  <object id="2583" name="88" x="109.42" y="92.91" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
@@ -616,12 +616,12 @@
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2608" name="112" x="116.09" y="120.52" width="2" height="2">
+  <object id="2608" name="112" x="116.09" y="119.77" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
   </object>
-  <object id="2609" name="113" x="105.111" y="112.955" width="2" height="2">
+  <object id="2609" name="113" x="104.861" y="115.08" width="2" height="2">
    <properties>
     <property name="Fin" value="0"/>
    </properties>
@@ -652,7 +652,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#0000ff" name="WayPoints">
+ <objectgroup color="#0000ff" name="WayPoints" visible="0">
   <object id="2615" name="0" x="49" y="190.636" width="2" height="2">
    <properties>
     <property name="Conecta" value="1,0"/>
@@ -768,17 +768,17 @@
     <property name="Conecta" value="14,17,23"/>
    </properties>
   </object>
-  <object id="2772" name="23" x="116.875" y="77.875" width="2" height="2">
+  <object id="2772" name="23" x="116.5" y="76" width="2" height="2">
    <properties>
     <property name="Conecta" value="22,24,25"/>
    </properties>
   </object>
-  <object id="2773" name="24" x="120.375" y="69.25" width="2" height="2">
+  <object id="2773" name="24" x="120.5" y="68.5" width="2" height="2">
    <properties>
     <property name="Conecta" value="21,23,25"/>
    </properties>
   </object>
-  <object id="2774" name="25" x="127.875" y="80.5" width="2" height="2">
+  <object id="2774" name="25" x="125.75" y="75.25" width="2" height="2">
    <properties>
     <property name="Conecta" value="23,24,30"/>
    </properties>
@@ -818,12 +818,12 @@
     <property name="Conecta" value="31,37,38"/>
    </properties>
   </object>
-  <object id="2782" name="33" x="101.875" y="100.75" width="2" height="2">
+  <object id="2782" name="33" x="100.25" y="97.5" width="2" height="2">
    <properties>
     <property name="Conecta" value="14,34,35"/>
    </properties>
   </object>
-  <object id="2783" name="34" x="113.625" y="91.875" width="2" height="2">
+  <object id="2783" name="34" x="111.25" y="96.25" width="2" height="2">
    <properties>
     <property name="Conecta" value="23,33,35"/>
    </properties>
@@ -859,8 +859,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ffff00" name="Patrol" visible="0">
-  <object id="2613" x="62.9545" y="134.705" width="2" height="2">
+ <objectgroup color="#ffff00" name="Patrol">
+  <object id="2613" name="1" x="62.9545" y="134.705" width="2" height="2">
    <properties>
     <property name="Enemigo" value="1"/>
     <property name="Next" value="0"/>
@@ -879,7 +879,7 @@
     <property name="Next" value="1"/>
    </properties>
   </object>
-  <object id="2689" x="54.875" y="94.75" width="2" height="2">
+  <object id="2689" name="2" x="54.875" y="94.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="2"/>
     <property name="Next" value="0"/>
@@ -910,7 +910,7 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2694" x="99.625" y="75.875" width="2" height="2">
+  <object id="2694" name="3" x="99.625" y="75.875" width="2" height="2">
    <properties>
     <property name="Enemigo" value="3"/>
     <property name="Next" value="0"/>
@@ -977,9 +977,10 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2705" x="130.375" y="106.75" width="2" height="2">
+  <object id="2705" name="4" x="130.375" y="106.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="4"/>
+    <property name="Llave" value="1"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="1"/>
    </properties>
@@ -1002,9 +1003,10 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2709" x="176.25" y="82.75" width="2" height="2">
+  <object id="2709" name="5" x="176.25" y="82.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="5"/>
+    <property name="Llave" value="0"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="1"/>
    </properties>
@@ -1033,7 +1035,7 @@
     <property name="Next" value="1"/>
    </properties>
   </object>
-  <object id="2714" x="84.5" y="21" width="2" height="2">
+  <object id="2714" name="6" x="84.5" y="21" width="2" height="2">
    <properties>
     <property name="Enemigo" value="6"/>
     <property name="Next" value="0"/>
@@ -1046,9 +1048,10 @@
     <property name="Next" value="0"/>
    </properties>
   </object>
-  <object id="2717" x="97.875" y="151.75" width="2" height="2">
+  <object id="2717" name="7" x="97.875" y="151.75" width="2" height="2">
    <properties>
     <property name="Enemigo" value="7"/>
+    <property name="Llave" value="0"/>
     <property name="Next" value="0"/>
     <property name="Tipo" value="3"/>
    </properties>
@@ -1168,7 +1171,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ff0000" name="Triggers" visible="0">
+ <objectgroup color="#ff0000" name="Triggers">
   <object id="2741" type="4" x="58.625" y="50.875" width="2" height="2"/>
   <object id="2742" type="4" x="57.25" y="47.75" width="2" height="2"/>
   <object id="2743" type="2" x="60.375" y="46.625" width="2" height="2"/>
@@ -1176,10 +1179,10 @@
   <object id="2745" type="4" x="96.125" y="158.375" width="2" height="2"/>
   <object id="2746" type="7" x="99.25" y="68.25" width="2" height="2"/>
   <object id="2747" type="7" x="177.25" y="80" width="2" height="2"/>
-  <object id="2749" type="4" x="19.478" y="164.633" width="2" height="2" rotation="-236.241"/>
-  <object id="2750" type="9" x="44.8405" y="107.949" width="2" height="2" rotation="-45"/>
+  <object id="2749" type="6" x="17.0953" y="165.617" width="2" height="2" rotation="-57.1206"/>
   <object id="2792" type="1" x="63.2" y="76" width="2" height="2" rotation="90"/>
   <object id="2793" type="10" x="56" y="68" width="2" height="2" rotation="90"/>
   <object id="2794" type="10" x="71" y="81" width="2" height="2" rotation="90"/>
+  <object id="2797" type="9" x="46.2727" y="105.909" width="2" height="2"/>
  </objectgroup>
 </map>

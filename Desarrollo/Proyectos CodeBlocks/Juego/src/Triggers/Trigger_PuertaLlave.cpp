@@ -99,7 +99,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
                 SoundMgr->playSonido("Triggers/acceso_denegado");
             }
         }
-    //}
+    }
    /*else
         ImIn = false;*/
 }

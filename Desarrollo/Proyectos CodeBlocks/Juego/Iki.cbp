@@ -155,6 +155,7 @@
 		<Unit filename="include/GUI/GUI_Menu.h" />
 		<Unit filename="include/GUI/GUI_Title.h" />
 		<Unit filename="include/GUI/GUI_VolumeControl.h" />
+		<Unit filename="include/GUI/GUI_Wallpaper.h" />
 		<Unit filename="include/GUI/HUD.h" />
 		<Unit filename="include/GUI/HUD_Element.h" />
 		<Unit filename="include/Game.h" />
@@ -331,6 +332,7 @@
 		<Unit filename="src/GUI/GUI_Menu.cpp" />
 		<Unit filename="src/GUI/GUI_Title.cpp" />
 		<Unit filename="src/GUI/GUI_VolumeControl.cpp" />
+		<Unit filename="src/GUI/GUI_Wallpaper.cpp" />
 		<Unit filename="src/GUI/HUD.cpp" />
 		<Unit filename="src/GUI/HUD_Element.cpp" />
 		<Unit filename="src/Game.cpp" />
