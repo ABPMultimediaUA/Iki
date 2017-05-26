@@ -47,18 +47,26 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
 
         if (static_cast<Player*>(ent)->GetLlaves() > 0){
+/*<<<<<<< HEAD
+=======
+            static_cast<Player*>(ent)->UsarLlave();
+            aniMesh->setVisible(false);
+            body->SetActive(false);
+            body->SetTransform(b2Vec2(mx+5,mz),0);
+            SoundMgr->playSonido("Triggers/puerta_abrir");
+            SoundMgr->playSonido("Triggers/acceso_confirmado");
+            this->SetInactive();
+            std::cout<<"abro la puerta"<<std::endl;
+            abierta=true;
+        }else{
+>>>>>>> refs/remotes/origin/master
+*/
             if (!fired){
                 triggerDisparado();
                  static_cast<Player*>(ent)->UsarLlave();
                  SoundMgr->playSonido("Triggers/acceso_confirmado");
             }
         }
-        /*else{
-            if(imIn){
-                SoundMgr->playSonido("Triggers/acceso_denegado");
-                static_cast<Player*>(ent)->NecesitoLlave();
-            }
-        }*/
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
         if(fired){
             if (tiempo - aniTime > 0.025){
@@ -74,6 +82,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
                 if (time2 > 1.25){
                     time2 = 0;
                     abierta = true;
+                    this->SetInactive();
                     body->SetTransform(b2Vec2(mx,mz+10),ma);
                     body->SetActive(false);
                 }else{
@@ -90,7 +99,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
                 SoundMgr->playSonido("Triggers/acceso_denegado");
             }
         }
-    }
+    //}
    /*else
         ImIn = false;*/
 }

@@ -332,10 +332,12 @@ void Enemy::showExcMark(bool b){
     excMark->setVisible(b);
     questionMark->setVisible(false);
 }
-
-void Enemy::subirSospecha(float tipo){
+void Enemy::subirSospechaValorConcreto(float valor){
+    sospecha+=valor;
+}
+void Enemy::subirSospecha(float velocidad){
     f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-    if (tiempo - sTime > tipo){
+    if (tiempo - sTime > velocidad){
         //std::cout << sospecha << std::endl;
         sTime = tiempo;
         if (sospecha < 100) sospecha++;
