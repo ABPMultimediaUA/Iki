@@ -86,7 +86,7 @@ class Player : public GameEntity{
         Trigger_Ruido* ruido;
         bool isMoving, moverse, nivel_acabado, reintentar;
         int speed;
-        float velocidad;
+        float velocidad, vAnim;
         int llaves = 0, j=0,h=0;
 
         Player_Ray* rayo;

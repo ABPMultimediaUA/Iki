@@ -76,6 +76,7 @@ void Map::inicializar_mapa(int tipo){
         tercera_sala->setPosition({tercera_sala->getPosition().X,-1,tercera_sala->getPosition().Z});
         suelo = new MeshSceneNode("resources/Modelos/suelochapuza.obj");
         suelo->setTexture("resources/Texturas/suelo_fake.png");
+        suelo->setPosition({suelo->getPosition().X,0.1,suelo->getPosition().Z});
     }
     else{
         docFile->LoadFile("resources/Mapas/Mapita.tmx");

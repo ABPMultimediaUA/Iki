@@ -25,6 +25,7 @@ Player::~Player()
 void Player::inicializar_player(Map* m, int nivel){
 
     velocidad = 2;
+    vAnim = 0.05f;
     id = 0;
     vida = 100;
     EntityMgr->registrarEntity(this);
@@ -47,7 +48,7 @@ void Player::inicializar_player(Map* m, int nivel){
 
     //aniMesh = new AnimatedMesh("resources/Modelos/Prota2.obj", color, posicionInicial, 0);
 
-    posicionInicial.Y = -4;
+    //posicionInicial.Y = -4;
 
     animacionAndar = new Animaciones("resources/Animaciones/andar_OBJ_Seq/andar.00",color,posicionInicial,90,31,48, "resources/Texturas/Protatextura.png",2.f,1);
     modelos = animacionAndar->getModelosAnimacion(1);
@@ -108,27 +109,35 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
 }
 void Player::runAnimacion(int numeroAnimacion){
     tiempoJuego = PhisicsWorld::getInstance()->getTimeStamp()/1000.f;
-    tiempoAnimacion = tiempoJuego - tiempoAnimacion;
+    //tiempoAnimacion = tiempoJuego - tiempoAnimacion;
     aniMesh->setVisible(false);
+
     if(numeroAnimacion == 1){//Andar
         animacionSigilo->getActual()->setVisible(false);
         animacionAndar->setActual(modelos[j]);
         animacionAndar->setPosition(posicion);
         animacionAndar->setRotation(body->GetAngle());
-    if( tiempoAnimacion > 0.15f)
-        j++;
-    if(j>=modelos.size())
-        j=0;
+
+        if( tiempoJuego - tiempoAnimacion > vAnim){
+            tiempoAnimacion = tiempoJuego;
+            j++;
+            if(j>=modelos.size())
+                j=0;
+        }
     }
+
     if(numeroAnimacion == 2){//Sigilo
         animacionAndar->getActual()->setVisible(false);
         animacionSigilo->setActual(modelosSigilo[h]);
         animacionSigilo->setPosition(posicion);
         animacionSigilo->setRotation(body->GetAngle());
-    if( tiempoAnimacion > 0.15f)
-        h++;
-    if(h>=modelosSigilo.size())
-        h=0;
+
+        if( tiempoJuego - tiempoAnimacion > 0.02f){
+            tiempoAnimacion = tiempoJuego;
+            h++;
+            if(h>=modelosSigilo.size())
+                h=0;
+        }
     }
 }
 void Player::meshQuietoParado(){
@@ -153,6 +162,7 @@ void Player::moverBody(Structs::TPosicion vec){
         if(velocidad > 2){
             comprobarVelocidad();
             speed = 3;
+            vAnim = 0.025f;
             runAnimacion(1);
         }
 
@@ -164,9 +174,10 @@ void Player::moverBody(Structs::TPosicion vec){
             HUD::getInstance()->sigiloUsed();
             runAnimacion(2);
         }
-        else if(speed != 3){
+        else if(velocidad <= 2){
             runAnimacion(1);
             speed = 2;
+            vAnim = 0.05f;
             velocidad = 2;
             HUD::getInstance()->sigiloNotUsed();
         }
