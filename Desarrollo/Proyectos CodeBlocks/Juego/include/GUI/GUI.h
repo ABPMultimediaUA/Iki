@@ -5,6 +5,7 @@
 #include <string>
 
 class GUI_Component;
+class GUI_Wallpaper;
 
 class GUI
 {
@@ -19,8 +20,10 @@ class GUI
         void anyadirtitulo (int, int, std::string);
         void anyadircontrol(int, int, std::string, std::string);
         void anyadirvolumen(int, int);
+        void anyadirwallpaper(std::string);
 
         void draw(int);
+        void drawCarga(int);
         void clean(int);
         //void inicializar_hd();
 
@@ -29,6 +32,7 @@ class GUI
     private:
 
         std::vector<GUI_Component*> componentes;
+        std::vector<GUI_Wallpaper*> carga;
 
 };
 

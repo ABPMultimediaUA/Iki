@@ -139,6 +139,7 @@ void Player::runAnimacion(int numeroAnimacion){
                 h=0;
         }
     }
+
 }
 void Player::meshQuietoParado(){
     animacionAndar->getActual()->setVisible(false);

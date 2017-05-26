@@ -63,6 +63,12 @@ void GraphicsFacade::inicializar_gui(int menu){
     if(menu == 0)
         gui->anyadirmenu (0, 0, 1);
 
+    gui->anyadirwallpaper("carga1");
+    gui->anyadirwallpaper("carga2");
+    gui->anyadirwallpaper("carga3");
+    gui->anyadirwallpaper("carga4");
+    gui->anyadirwallpaper("carga5");
+
 }
 
 void GraphicsFacade::vaciar_gui(int ingame){
@@ -87,6 +93,13 @@ void GraphicsFacade::draw(int draw_type){
 	beginScene();
 	smgr->drawAll();
     gui->draw(draw_type);
+	endScene();
+
+}
+void GraphicsFacade::drawCarga(int cont){
+	//Dibujamos los nodos y los cuadros de texto del entorno
+	beginScene();
+    gui->drawCarga(cont);
 	endScene();
 
 }

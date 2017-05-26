@@ -98,7 +98,7 @@ class Player : public GameEntity{
 
         f32 tiempo_con_mas_speed;
 
-        float distancia,angulo,avMovement,deltaTime,tiempoAnimacion,tiempoJuego;
+        float distancia,angulo,avMovement,deltaTime,tiempoAnimacion,tiempoJuego,intervalo;
         ///PATHFINDING
         Map* Mapa;
         SparseGraph* grafo;

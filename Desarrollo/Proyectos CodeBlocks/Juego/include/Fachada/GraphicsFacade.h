@@ -31,6 +31,7 @@ class GraphicsFacade
         void endScene();
 
         void draw(int);
+        void drawCarga(int);
         bool run();
         void close();
         void drop();
