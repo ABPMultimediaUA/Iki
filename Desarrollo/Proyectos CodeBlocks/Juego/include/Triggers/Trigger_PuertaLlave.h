@@ -23,6 +23,7 @@ class Trigger_PuertaLlave : public Trigger
         f32 aniTime, time2=0;
         MeshSceneNode* puerta;
         bool fired = false;
+        bool fired2 = false;
         bool abierta = false;
         float mx,mz,ma;
 };

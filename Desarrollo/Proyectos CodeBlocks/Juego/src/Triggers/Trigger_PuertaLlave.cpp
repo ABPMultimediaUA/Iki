@@ -46,38 +46,57 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
 {
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
 
-        if (!fired){
-            triggerDisparado();
-             static_cast<Player*>(ent)->UsarLlave();
+        if (static_cast<Player*>(ent)->GetLlaves() > 0){
+            if (!fired){
+                triggerDisparado();
+                 static_cast<Player*>(ent)->UsarLlave();
+                 SoundMgr->playSonido("Triggers/acceso_confirmado");
+            }
         }
-
+        /*else{
+            if(imIn){
+                SoundMgr->playSonido("Triggers/acceso_denegado");
+                static_cast<Player*>(ent)->NecesitoLlave();
+            }
+        }*/
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
-        if (tiempo - aniTime > 0.025){
-            aniTime = tiempo;
-            time2+=0.025;
-            if (posicion.Y > -8){
-                posicion.Y -= 0.25f;
-                puerta->setPosition(posicion);
+        if(fired){
+            if (tiempo - aniTime > 0.025){
+                aniTime = tiempo;
+                time2+=0.025;
+                if (posicion.Y > -8){
+                    posicion.Y -= 0.25f;
+                    puerta->setPosition(posicion);
+                }
+            }
+
+            if (!abierta){
+                if (time2 > 1.25){
+                    time2 = 0;
+                    abierta = true;
+                    body->SetTransform(b2Vec2(mx,mz+10),ma);
+                    body->SetActive(false);
+                }else{
+                    abierta = false;
+                    body->SetTransform(b2Vec2(mx,mz),ma);
+                    body->SetActive(true);
+                }
             }
         }
-
-        if (!abierta){
-            if (time2 > 1.25){
-                time2 = 0;
-                abierta = true;
-                body->SetTransform(b2Vec2(mx,mz+10),ma);
-                body->SetActive(false);
-            }else{
-                abierta = false;
-                body->SetTransform(b2Vec2(mx,mz),ma);
-                body->SetActive(true);
+        else{
+            if (!fired2){
+                fired2 = true;
+                static_cast<Player*>(ent)->NecesitoLlave();
+                SoundMgr->playSonido("Triggers/acceso_denegado");
             }
         }
-
     }
+   /*else
+        ImIn = false;*/
 }
 
 void Trigger_PuertaLlave::Update()
 {
-
+    if(noHayNingunaEntidad())
+        fired2 = false;
 }
