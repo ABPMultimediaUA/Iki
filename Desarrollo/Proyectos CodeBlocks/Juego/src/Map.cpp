@@ -83,7 +83,7 @@ void Map::inicializar_mapa(int tipo){
         primera_sala->setTexture("resources/Texturas/mapa2.png");
         suelo = new MeshSceneNode("resources/Modelos/suelochapuza.obj");
         suelo->setTexture("resources/Texturas/suelo_fake.png");
-        suelo->setPosition({suelo->getPosition().X,0.01,suelo->getPosition().Z});
+        suelo->setPosition({suelo->getPosition().X,0.1,suelo->getPosition().Z});
 }
 
     mapElement = docFile->FirstChildElement("map"); //Se enlaza el elemento mapa
