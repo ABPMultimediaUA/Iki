@@ -46,8 +46,10 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
 {
     if (isActive() && ent->isPlayer() && isTouchingTrigger(ent->getPosition(), ent->getRadio())){
 
-        if (!fired)
+        if (!fired){
             triggerDisparado();
+             static_cast<Player*>(ent)->UsarLlave();
+        }
 
         f32 tiempo = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
         if (tiempo - aniTime > 0.025){

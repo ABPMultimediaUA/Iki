@@ -108,7 +108,7 @@ void Player::MoverPlayer(Structs::TPosicion p1,Structs::TPosicion p2){
     //aniMesh2->setRotation(body->GetAngle());
 }
 void Player::runAnimacion(int numeroAnimacion){
-    tiempoJuego = PhisicsWorld::getInstance()->getTimeStamp()/1000.f;
+    tiempoJuego = GraphicsFacade::getInstance().getTimer()->getTime()/1000.f;
     //tiempoAnimacion = tiempoJuego - tiempoAnimacion;
     aniMesh->setVisible(false);
 
