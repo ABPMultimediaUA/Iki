@@ -68,6 +68,7 @@ void SensorMemory::updateVision(GameEntity* cantoso){
     //get a reference to this bot's data
     MemoryRecord& info = memoryMap[cantoso];
 
+
     if(cantoso->isPlayer()){
         info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
         info.ultimaPosicion = cantoso->getPosition();
@@ -81,10 +82,14 @@ void SensorMemory::updateVision(GameEntity* cantoso){
         }
     }
     if(info.estado == todoCorrecto){
-        if(cantoso->isEnemy() && cantoso->getVida() == 0)
+        if(cantoso->isEnemy() && cantoso->getVida() == 0){
             info.estado = muerto;
-        else if(cantoso->isTrigger() && cantoso->isPuertaAbierta() )
-                info.estado = abierta;
+            info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+        }
+        else if(cantoso->isTrigger() && cantoso->isPuertaAbierta() ){
+            info.estado = abierta;
+            info.ultimaPercepcion = PhisicsWorld::getInstance()->getTimeStamp()/1000;
+        }
 
     }
     else{

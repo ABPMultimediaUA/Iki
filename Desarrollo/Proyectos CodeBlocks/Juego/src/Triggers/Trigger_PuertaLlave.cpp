@@ -39,6 +39,7 @@ void Trigger_PuertaLlave::Try(GameEntity* ent)
             SoundMgr->playSonido("Triggers/puerta_abrir");
             SoundMgr->playSonido("Triggers/acceso_confirmado");
             this->SetInactive();
+            std::cout<<"abro la puerta"<<std::endl;
             abierta=true;
         }else{
             if (!fired){

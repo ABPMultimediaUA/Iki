@@ -86,6 +86,7 @@ class Enemy : public GameEntity
         void matar();
         void subirSospecha(float);
         void showExcMark(bool);
+        void subirSospechaValorConcreto(float);
 
     protected:
 
