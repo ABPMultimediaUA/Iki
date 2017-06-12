@@ -7,6 +7,7 @@
 #include "StateMachine/Percibir.h"
 #include "PatrolRoute.h"
 #include "PatrolPoint.h"
+#include "Fachada/Animaciones.h"
 
 class MeshSceneNode;
 
@@ -15,7 +16,7 @@ class Guardia : public Enemy
     private:
         bool ataquePreparado,solounaveh,atacando,solounpath,sonidoataque, cargarBateria;
         int danyo;
-        float anguloAtaque, distanciaAtaque;
+        float anguloAtaque, distanciaAtaque,tiempoAnimacion,tiempoJuego,intervalo;
         f32 tiempoCarga, bateriaT;
         b2Body *bodyAtaque;
         Structs::TPosicion vectorAtaque;
@@ -24,6 +25,9 @@ class Guardia : public Enemy
         //Structs::TColor colorAtaque       = {0,255,140,0};
         b2RayCastInput input2;
         b2RayCastOutput	output2;
+        Animaciones *animacionAtaque;
+        std::vector <IAnimatedMeshSceneNode*> modelos;
+        int j;
 
     public:
         Guardia(int ID,PatrolRoute* rutita)
@@ -50,6 +54,7 @@ class Guardia : public Enemy
         bool getAtacando(){return atacando;}
         bool isGuardia(){return true;}
         void setModeloVisible(bool b){modeloAtaque->setVisible(b);}
+        void runAnimacion(int numeroAnimacion);
 
 
 };

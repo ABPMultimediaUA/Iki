@@ -30,12 +30,33 @@ void Guardia::inicializar_enemigo(Map* m)
     Structs::TColor color = {255,255,255,0};
     aniMesh = new AnimatedMesh("resources/Modelos/guardia.obj", color,posicion, 90);
     aniMesh->setTexture("resources/Texturas/palguardia.png");
+
+    animacionAtaque = new Animaciones("resources/Animaciones/ataqueGuardia_OBJ_Seq/ataqueGuardia.00",color,posicion,90,31,1, "resources/Texturas/palguardia.png",2.f,1);
+    modelos = animacionAtaque->getModelosAnimacion(1);
+
     aniMesh->setScale(3.5);
     aniMesh->setRotation(90);
     ataquePreparado = false;
     solounaveh = false;
     atacando = false;
     input2.maxFraction  =   1.0f;
+}
+void Guardia::runAnimacion(int numeroAnimacion){
+    tiempoJuego = PhisicsWorld::getInstance()->getTimeStamp()/1000.f;
+    tiempoAnimacion = tiempoJuego - tiempoAnimacion;
+    aniMesh->setVisible(false);
+    if(numeroAnimacion == 1){//Atacar
+        animacionAtaque->setActual(modelos[j]);
+        animacionAtaque->setPosition(posicion);
+        animacionAtaque->setRotation(body->GetAngle());
+    if( tiempoAnimacion > 0.025f){
+        j++;
+        tiempoAnimacion = tiempoJuego;
+    }
+    if(j>=modelos.size())
+        j=0;
+
+    }
 }
 void Guardia::perseguir(){
 
@@ -121,6 +142,7 @@ void Guardia::cargarAtaque(){
         resetTime();
 }
 void Guardia::ejecutarAtaque(){
+    runAnimacion(1);
 
         if(tiempoEnEstado > tiempoCarga && EntityMgr->getEntityByID(0)->getVida() > 0)
         {
