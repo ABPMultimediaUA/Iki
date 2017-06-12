@@ -31,8 +31,8 @@ void Guardia::inicializar_enemigo(Map* m)
     aniMesh = new AnimatedMesh("resources/Modelos/guardia.obj", color,posicion, 90);
     aniMesh->setTexture("resources/Texturas/palguardia.png");
 
-    animacionAtaque = new Animaciones("resources/Animaciones/ataqueGuardia_OBJ_Seq/ataqueGuardia.00",color,posicion,90,31,1, "resources/Texturas/palguardia.png",2.f,1);
-    modelos = animacionAtaque->getModelosAnimacion(1);
+    //animacionAtaque = new Animaciones("resources/Animaciones/ataqueGuardia_OBJ_Seq/ataqueGuardia.00",color,posicion,90,31,1, "resources/Texturas/palguardia.png",2.f,1);
+    //modelos = animacionAtaque->getModelosAnimacion(1);
 
     aniMesh->setScale(3.5);
     aniMesh->setRotation(90);
@@ -142,7 +142,7 @@ void Guardia::cargarAtaque(){
         resetTime();
 }
 void Guardia::ejecutarAtaque(){
-    runAnimacion(1);
+    //runAnimacion(1);
 
         if(tiempoEnEstado > tiempoCarga && EntityMgr->getEntityByID(0)->getVida() > 0)
         {
